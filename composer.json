@@ -1,0 +1,17 @@
+{
+    "name": "radiustheme/gutenberg-users",
+    "autoload": {
+        "psr-4": {
+            "GT\\GtUsers\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "RadiusTheme",
+            "email": "admin@radiustheme.com"
+        }
+    ],
+    "require": {
+        "ext-json": "*"
+    }
+}

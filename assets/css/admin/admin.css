@@ -1,0 +1,10 @@
+/* tab css */
+:root {
+    /*--rttpg-primary-color: #5d3dfd;*/
+    --rttpg-primary-color: #4C6FFF;
+    --rttpg-primary-rgb: 76, 111, 255;
+    --rttpg-primary-dark: #3d5cd7;
+    --rttpg-primary-light: #6885fd;
+    --rttpg-secondary-color: #0654c4;
+    --rttpg-bg-light: #F7FAFC;
+}
