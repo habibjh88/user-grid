@@ -436,7 +436,24 @@ export const PRINT_TAXONOMY = (taxonomy) => {
     }
     return allTax;
 }
+//
+// export const PRINT_USERS = (users) => {
+//     let allTax = [];
+//
+//     users.forEach(function(user) {
+//         allTax.push({value: user.id, label: __(user.name, 'the-post-grid')})
+//     });
+//
+//     return allTax;
+// }
 
+
+export const PRINT_USERS = users => {
+    return users.map((user) => ({
+        value: user.id,
+        label: __(user.name, 'the-post-grid')
+    }));
+}
 const hover_overlay_type = [
     {value: 'always', label: __('Show Always', 'the-post-grid')},
     {value: 'fadein-on-hover', label: __('FadeIn on hover', 'the-post-grid')},

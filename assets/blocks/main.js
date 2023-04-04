@@ -742,7 +742,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
 /* harmony import */ var _emotion_weak_memoize__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @emotion/weak-memoize */ "./node_modules/@emotion/weak-memoize/dist/emotion-weak-memoize.esm.js");
 /* harmony import */ var _isolated_hnrs_dist_emotion_react_isolated_hnrs_browser_esm_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../_isolated-hnrs/dist/emotion-react-_isolated-hnrs.browser.esm.js */ "./node_modules/@emotion/react/_isolated-hnrs/dist/emotion-react-_isolated-hnrs.browser.esm.js");
-/* harmony import */ var _emotion_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @emotion/utils */ "./node_modules/@emotion/react/node_modules/@emotion/utils/dist/emotion-utils.browser.esm.js");
+/* harmony import */ var _emotion_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @emotion/utils */ "./node_modules/@emotion/utils/dist/emotion-utils.browser.esm.js");
 /* harmony import */ var _emotion_serialize__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @emotion/serialize */ "./node_modules/@emotion/serialize/dist/emotion-serialize.browser.esm.js");
 /* harmony import */ var _emotion_use_insertion_effect_with_fallbacks__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @emotion/use-insertion-effect-with-fallbacks */ "./node_modules/@emotion/use-insertion-effect-with-fallbacks/dist/emotion-use-insertion-effect-with-fallbacks.browser.esm.js");
 
@@ -1014,7 +1014,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _emotion_weak_memoize__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @emotion/weak-memoize */ "./node_modules/@emotion/weak-memoize/dist/emotion-weak-memoize.esm.js");
 /* harmony import */ var hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! hoist-non-react-statics */ "./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js");
 /* harmony import */ var hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _emotion_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @emotion/utils */ "./node_modules/@emotion/react/node_modules/@emotion/utils/dist/emotion-utils.browser.esm.js");
+/* harmony import */ var _emotion_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @emotion/utils */ "./node_modules/@emotion/utils/dist/emotion-utils.browser.esm.js");
 /* harmony import */ var _emotion_serialize__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @emotion/serialize */ "./node_modules/@emotion/serialize/dist/emotion-serialize.browser.esm.js");
 /* harmony import */ var _emotion_use_insertion_effect_with_fallbacks__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @emotion/use-insertion-effect-with-fallbacks */ "./node_modules/@emotion/use-insertion-effect-with-fallbacks/dist/emotion-use-insertion-effect-with-fallbacks.browser.esm.js");
 
@@ -1415,67 +1415,6 @@ if (true) {
     globalContext[globalKey] = true;
   }
 }
-
-
-
-
-/***/ }),
-
-/***/ "./node_modules/@emotion/react/node_modules/@emotion/utils/dist/emotion-utils.browser.esm.js":
-/*!***************************************************************************************************!*\
-  !*** ./node_modules/@emotion/react/node_modules/@emotion/utils/dist/emotion-utils.browser.esm.js ***!
-  \***************************************************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getRegisteredStyles": function() { return /* binding */ getRegisteredStyles; },
-/* harmony export */   "insertStyles": function() { return /* binding */ insertStyles; },
-/* harmony export */   "registerStyles": function() { return /* binding */ registerStyles; }
-/* harmony export */ });
-var isBrowser = "object" !== 'undefined';
-function getRegisteredStyles(registered, registeredStyles, classNames) {
-  var rawClassName = '';
-  classNames.split(' ').forEach(function (className) {
-    if (registered[className] !== undefined) {
-      registeredStyles.push(registered[className] + ";");
-    } else {
-      rawClassName += className + " ";
-    }
-  });
-  return rawClassName;
-}
-var registerStyles = function registerStyles(cache, serialized, isStringTag) {
-  var className = cache.key + "-" + serialized.name;
-
-  if ( // we only need to add the styles to the registered cache if the
-  // class name could be used further down
-  // the tree but if it's a string tag, we know it won't
-  // so we don't have to add it to registered cache.
-  // this improves memory usage since we can avoid storing the whole style string
-  (isStringTag === false || // we need to always store it if we're in compat mode and
-  // in node since emotion-server relies on whether a style is in
-  // the registered cache to know whether a style is global or not
-  // also, note that this check will be dead code eliminated in the browser
-  isBrowser === false ) && cache.registered[className] === undefined) {
-    cache.registered[className] = serialized.styles;
-  }
-};
-var insertStyles = function insertStyles(cache, serialized, isStringTag) {
-  registerStyles(cache, serialized, isStringTag);
-  var className = cache.key + "-" + serialized.name;
-
-  if (cache.inserted[serialized.name] === undefined) {
-    var current = serialized;
-
-    do {
-      var maybeStyles = cache.insert(serialized === current ? "." + className : '', current, cache.sheet, true);
-
-      current = current.next;
-    } while (current !== undefined);
-  }
-};
 
 
 
@@ -2077,6 +2016,67 @@ var useInsertionEffectWithLayoutFallback = useInsertionEffect || react__WEBPACK_
 
 /***/ }),
 
+/***/ "./node_modules/@emotion/utils/dist/emotion-utils.browser.esm.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@emotion/utils/dist/emotion-utils.browser.esm.js ***!
+  \***********************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getRegisteredStyles": function() { return /* binding */ getRegisteredStyles; },
+/* harmony export */   "insertStyles": function() { return /* binding */ insertStyles; },
+/* harmony export */   "registerStyles": function() { return /* binding */ registerStyles; }
+/* harmony export */ });
+var isBrowser = "object" !== 'undefined';
+function getRegisteredStyles(registered, registeredStyles, classNames) {
+  var rawClassName = '';
+  classNames.split(' ').forEach(function (className) {
+    if (registered[className] !== undefined) {
+      registeredStyles.push(registered[className] + ";");
+    } else {
+      rawClassName += className + " ";
+    }
+  });
+  return rawClassName;
+}
+var registerStyles = function registerStyles(cache, serialized, isStringTag) {
+  var className = cache.key + "-" + serialized.name;
+
+  if ( // we only need to add the styles to the registered cache if the
+  // class name could be used further down
+  // the tree but if it's a string tag, we know it won't
+  // so we don't have to add it to registered cache.
+  // this improves memory usage since we can avoid storing the whole style string
+  (isStringTag === false || // we need to always store it if we're in compat mode and
+  // in node since emotion-server relies on whether a style is in
+  // the registered cache to know whether a style is global or not
+  // also, note that this check will be dead code eliminated in the browser
+  isBrowser === false ) && cache.registered[className] === undefined) {
+    cache.registered[className] = serialized.styles;
+  }
+};
+var insertStyles = function insertStyles(cache, serialized, isStringTag) {
+  registerStyles(cache, serialized, isStringTag);
+  var className = cache.key + "-" + serialized.name;
+
+  if (cache.inserted[serialized.name] === undefined) {
+    var current = serialized;
+
+    do {
+      var maybeStyles = cache.insert(serialized === current ? "." + className : '', current, cache.sheet, true);
+
+      current = current.next;
+    } while (current !== undefined);
+  }
+};
+
+
+
+
+/***/ }),
+
 /***/ "./node_modules/@emotion/weak-memoize/dist/emotion-weak-memoize.esm.js":
 /*!*****************************************************************************!*\
   !*** ./node_modules/@emotion/weak-memoize/dist/emotion-weak-memoize.esm.js ***!
@@ -2102,6 +2102,905 @@ var weakMemoize = function weakMemoize(func) {
 
 /* harmony default export */ __webpack_exports__["default"] = (weakMemoize);
 
+
+/***/ }),
+
+/***/ "./src/blocks/category-block/controller/CardStyle.js":
+/*!***********************************************************!*\
+  !*** ./src/blocks/category-block/controller/CardStyle.js ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_Color__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/Color */ "./src/components/Color.js");
+/* harmony import */ var _components_Typography__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/Typography */ "./src/components/Typography.js");
+/* harmony import */ var _components_Dimension__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/Dimension */ "./src/components/Dimension.js");
+/* harmony import */ var _components_Constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../components/Constants */ "./src/components/Constants.js");
+
+
+
+
+
+const {
+  __
+} = wp.i18n;
+
+function CardStyle(props) {
+  const {
+    attributes,
+    setAttributes,
+    changeQuery
+  } = props.data;
+  //All attribute
+  const {
+    cat_color,
+    cat_tag,
+    category_typography,
+    cat_spacing,
+    category_color_hover
+  } = attributes;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+    title: __('Card Style', 'the-post-grid'),
+    initialOpen: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Dimension__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    label: __("Category Spacing", "the-post-grid"),
+    type: "margin",
+    responsive: true,
+    value: cat_spacing,
+    onChange: value => {
+      setAttributes({
+        cat_spacing: value
+      });
+    }
+  }));
+}
+/* harmony default export */ __webpack_exports__["default"] = (CardStyle);
+
+/***/ }),
+
+/***/ "./src/blocks/category-block/controller/CategoryStyle.js":
+/*!***************************************************************!*\
+  !*** ./src/blocks/category-block/controller/CategoryStyle.js ***!
+  \***************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_Color__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/Color */ "./src/components/Color.js");
+/* harmony import */ var _components_Typography__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/Typography */ "./src/components/Typography.js");
+/* harmony import */ var _components_Dimension__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/Dimension */ "./src/components/Dimension.js");
+/* harmony import */ var _components_Constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../components/Constants */ "./src/components/Constants.js");
+
+
+
+
+
+const {
+  __
+} = wp.i18n;
+
+function CategoryStyle(props) {
+  const {
+    attributes,
+    setAttributes
+  } = props.data;
+  //All attribute
+  const {
+    cat_color,
+    cat_tag,
+    category_typography,
+    cat_spacing,
+    category_color_hover
+  } = attributes;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+    title: __('Category Style', 'the-post-grid'),
+    initialOpen: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
+    label: __('Title Tags', 'the-post-grid'),
+    className: "rttpg-control-field label-inline",
+    options: _components_Constants__WEBPACK_IMPORTED_MODULE_5__.HEADING,
+    value: cat_tag,
+    onChange: cat_tag => setAttributes({
+      cat_tag
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Typography__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    label: __('Typography'),
+    value: category_typography,
+    onChange: val => setAttributes({
+      category_typography: val
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Dimension__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    label: __("Category Spacing", "the-post-grid"),
+    type: "margin",
+    responsive: true,
+    value: cat_spacing,
+    onChange: value => {
+      setAttributes({
+        cat_spacing: value
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Color__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    label: __('Category Color', 'the-post-grid'),
+    color: cat_color,
+    onChange: cat_color => setAttributes({
+      cat_color
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Color__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    label: __('Category Color - Hover', 'the-post-grid'),
+    color: category_color_hover,
+    onChange: category_color_hover => setAttributes({
+      category_color_hover
+    })
+  }));
+}
+/* harmony default export */ __webpack_exports__["default"] = (CategoryStyle);
+
+/***/ }),
+
+/***/ "./src/blocks/category-block/controller/ContentControl.js":
+/*!****************************************************************!*\
+  !*** ./src/blocks/category-block/controller/ContentControl.js ***!
+  \****************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_TPGColumn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/TPGColumn */ "./src/components/TPGColumn.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
+/* harmony import */ var _components_Dimension__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/Dimension */ "./src/components/Dimension.js");
+/* harmony import */ var _components_RangeDevice__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/RangeDevice */ "./src/components/RangeDevice.js");
+/* harmony import */ var _components_Alignment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../components/Alignment */ "./src/components/Alignment.js");
+/* harmony import */ var _components_Constants__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../components/Constants */ "./src/components/Constants.js");
+
+
+
+
+
+
+
+
+const {
+  __
+} = wp.i18n;
+
+
+function ContentControl(props) {
+  const {
+    attributes,
+    setAttributes,
+    changeQuery,
+    userData
+  } = props.data;
+
+  //All attribute
+  const {
+    grid_column,
+    users_lists,
+    grid_gap,
+    image_size,
+    grid_alignment
+  } = attributes;
+  const imageSizes = [...props.imageSizes];
+  const allTermList = rttpgParams.all_term_list;
+  console.log((0,_components_Constants__WEBPACK_IMPORTED_MODULE_6__.PRINT_USERS)(userData));
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: __('Category Block', 'the-post-grid'),
+    initialOpen: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_TPGColumn__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    label: __("Grid Column", "the-post-grid"),
+    className: "rttpg-control-field",
+    value: grid_column,
+    onChange: grid_column => {
+      setAttributes({
+        grid_column
+      });
+    },
+    colStyle: "grid",
+    changeQuery: changeQuery
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "components-base-control rttpg-repeater"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+    className: "components-base-control__label components-input-control__label",
+    htmlFor: "react-select-2-input"
+  }, __('Choose Category', 'the-post-grid')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_select__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    options: (0,_components_Constants__WEBPACK_IMPORTED_MODULE_6__.PRINT_USERS)(userData),
+    value: users_lists,
+    onChange: value => {
+      setAttributes({
+        users_lists: value
+      });
+      changeQuery();
+    },
+    isMulti: true,
+    closeMenuOnSelect: true,
+    isClearable: false
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_RangeDevice__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    label: __('Grid Gap'),
+    responsive: true,
+    value: grid_gap,
+    min: 0,
+    max: 100,
+    step: 1,
+    onChange: val => setAttributes({
+      grid_gap: val
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+    label: __("Image Size", "the-post-grid"),
+    className: "rttpg-control-field",
+    options: imageSizes,
+    value: image_size,
+    onChange: image_size => {
+      setAttributes({
+        image_size
+      });
+      changeQuery();
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Alignment__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    label: __("Alignment", "the-post-grid"),
+    options: ['left', 'center', 'right'],
+    value: grid_alignment
+    // responsive={ true }
+    ,
+    onChange: grid_alignment => setAttributes({
+      grid_alignment
+    })
+  }));
+}
+/* harmony default export */ __webpack_exports__["default"] = (ContentControl);
+
+/***/ }),
+
+/***/ "./src/blocks/category-block/controller/CountStyle.js":
+/*!************************************************************!*\
+  !*** ./src/blocks/category-block/controller/CountStyle.js ***!
+  \************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_Color__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/Color */ "./src/components/Color.js");
+/* harmony import */ var _components_Typography__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/Typography */ "./src/components/Typography.js");
+/* harmony import */ var _components_Dimension__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/Dimension */ "./src/components/Dimension.js");
+/* harmony import */ var _components_RangeDevice__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../components/RangeDevice */ "./src/components/RangeDevice.js");
+/* harmony import */ var _components_Constants__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../components/Constants */ "./src/components/Constants.js");
+
+
+
+
+
+
+const {
+  __
+} = wp.i18n;
+
+function CountStyle(props) {
+  const {
+    attributes,
+    setAttributes
+  } = props.data;
+  //All attribute
+  const {
+    count_typography,
+    count_visibility,
+    show_bracket,
+    count_position,
+    count_padding,
+    count_color,
+    count_bg,
+    count_border,
+    count_left_pos,
+    count_top_pos,
+    count_right_pos,
+    count_bottom_pos
+  } = attributes;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+    title: __('Count Style', 'the-post-grid'),
+    initialOpen: false
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+    label: __("Visibility", "the-post-grid"),
+    className: "rttpg-toggle-control-field",
+    checked: count_visibility,
+    onChange: count_visibility => setAttributes({
+      count_visibility: count_visibility ? 'show' : ''
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+    label: __("Show Bracket", "the-post-grid"),
+    className: "rttpg-toggle-control-field",
+    checked: show_bracket,
+    onChange: show_bracket => setAttributes({
+      show_bracket: show_bracket ? 'show' : ''
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Typography__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    label: __('Typography'),
+    value: count_typography,
+    onChange: val => setAttributes({
+      count_typography: val
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
+    label: __("Count Positioin", "the-post-grid"),
+    className: "rttpg-control-field label-inline rttpg-expand",
+    options: [{
+      value: 'thumb',
+      label: __('With Image', 'the-post-grid')
+    }, {
+      value: 'title',
+      label: __('With Title', 'the-post-grid')
+    }],
+    value: count_position,
+    onChange: count_position => setAttributes({
+      count_position
+    })
+  }), count_position === 'thumb' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "rttpg-control-field rttpg-cf-typography-wrap"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "rttpg-label"
+  }, __('Change Count Position')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "rttpg-typography"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Dropdown, {
+    className: "rttpg-typography-dropdown-icon",
+    contentClassName: "rttpg-components-popover rttpg-cp-typography-content",
+    position: "bottom right",
+    renderToggle: _ref => {
+      let {
+        isOpen,
+        onToggle
+      } = _ref;
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+        isSmall: true,
+        onClick: onToggle,
+        "aria-expanded": isOpen,
+        icon: "edit-page"
+      });
+    },
+    renderContent: () => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "rttpg-typography-content"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_RangeDevice__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      label: __('Left Position'),
+      responsive: true,
+      value: count_left_pos,
+      min: -300,
+      max: 300,
+      step: 1,
+      onChange: val => setAttributes({
+        count_left_pos: val
+      })
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_RangeDevice__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      label: __('Top Position'),
+      responsive: true,
+      value: count_top_pos,
+      min: -300,
+      max: 300,
+      step: 1,
+      onChange: val => setAttributes({
+        count_top_pos: val
+      })
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_RangeDevice__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      label: __('Right Position'),
+      responsive: true,
+      value: count_right_pos,
+      min: -300,
+      max: 300,
+      step: 1,
+      onChange: val => setAttributes({
+        count_right_pos: val
+      })
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_RangeDevice__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      label: __('Bottom Position'),
+      responsive: true,
+      value: count_bottom_pos,
+      min: -300,
+      max: 300,
+      step: 1,
+      onChange: val => setAttributes({
+        count_bottom_pos: val
+      })
+    }))
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Dimension__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    label: __("Count Padding", "the-post-grid"),
+    type: "margin",
+    responsive: true,
+    value: count_padding,
+    onChange: value => {
+      setAttributes({
+        count_padding: value
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Color__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    label: __('Category Color', 'the-post-grid'),
+    color: count_color,
+    onChange: count_color => setAttributes({
+      count_color
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Color__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    label: __('Category Color', 'the-post-grid'),
+    color: count_bg,
+    onChange: count_bg => setAttributes({
+      count_bg
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.__experimentalBorderControl, {
+    colors: _components_Constants__WEBPACK_IMPORTED_MODULE_6__.TPG_COLOR_PALATE,
+    value: count_border,
+    label: __("Count Border", "the-post-grid"),
+    onChange: val => {
+      const newVal = {
+        openTpgBorder: 1,
+        ...val
+      };
+      setAttributes({
+        count_border: newVal
+      });
+    },
+    withSlider: true
+  }));
+}
+/* harmony default export */ __webpack_exports__["default"] = (CountStyle);
+
+/***/ }),
+
+/***/ "./src/blocks/category-block/controller/ImageStyle.js":
+/*!************************************************************!*\
+  !*** ./src/blocks/category-block/controller/ImageStyle.js ***!
+  \************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_Dimension__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/Dimension */ "./src/components/Dimension.js");
+/* harmony import */ var _components_RangeDevice__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/RangeDevice */ "./src/components/RangeDevice.js");
+/* harmony import */ var _components_Constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/Constants */ "./src/components/Constants.js");
+
+
+
+
+const {
+  __
+} = wp.i18n;
+
+function ImageStyle(props) {
+  const {
+    attributes,
+    setAttributes
+  } = props.data;
+  //All attribute
+  const {
+    image_width,
+    image_height,
+    image_border_radius,
+    image_border
+  } = attributes;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+    title: __('Image Style', 'the-post-grid'),
+    initialOpen: false
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_RangeDevice__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    label: __('Image Width'),
+    responsive: true,
+    value: image_width,
+    min: 0,
+    max: 500,
+    step: 1,
+    onChange: val => setAttributes({
+      image_width: val
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_RangeDevice__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    label: __('Image Height'),
+    responsive: true,
+    value: image_height,
+    min: 0,
+    max: 500,
+    step: 1,
+    onChange: val => setAttributes({
+      image_height: val
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Dimension__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    label: __("Image Border Radius", "the-post-grid"),
+    className: `rttpg-dimension-wrap`,
+    type: "borderRadius",
+    responsive: true,
+    value: image_border_radius,
+    onChange: value => {
+      setAttributes({
+        image_border_radius: value
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.__experimentalBorderControl, {
+    colors: _components_Constants__WEBPACK_IMPORTED_MODULE_4__.TPG_COLOR_PALATE,
+    value: image_border,
+    label: __("Image Border", "the-post-grid"),
+    onChange: val => {
+      const newVal = {
+        openTpgBorder: 1,
+        ...val
+      };
+      setAttributes({
+        image_border: newVal
+      });
+    },
+    withSlider: true
+  }));
+}
+/* harmony default export */ __webpack_exports__["default"] = (ImageStyle);
+
+/***/ }),
+
+/***/ "./src/blocks/category-block/edit.js":
+/*!*******************************************!*\
+  !*** ./src/blocks/category-block/edit.js ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _inspector__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./inspector */ "./src/blocks/category-block/inspector.js");
+/* harmony import */ var _layouts_CustomUsersBlock__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./layouts/CustomUsersBlock */ "./src/blocks/category-block/layouts/CustomUsersBlock.js");
+/* harmony import */ var _utils_css_CssGenerator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/css/CssGenerator */ "./src/utils/css/CssGenerator.js");
+/* harmony import */ var _components_icon_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/icon/icons */ "./src/components/icon/icons.js");
+
+const {
+  useEffect,
+  useState
+} = wp.element;
+
+
+
+
+
+const Edit = props => {
+  const {
+    isSelected,
+    attributes,
+    setAttributes
+  } = props;
+
+  //all attribute
+  const {
+    preview,
+    uniqueId,
+    users_lists,
+    image_size
+  } = attributes;
+
+  //set block preview
+  if (preview) {
+    return _components_icon_icons__WEBPACK_IMPORTED_MODULE_5__["default"].slider_preview;
+  }
+  const [userData, setUserData] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [signalController, setSignalController] = useState();
+  const [queryEffect, setQueryEffect] = useState(false);
+  const [imageSizes, setImageSizes] = useState([]);
+  const controller = typeof AbortController === 'undefined' ? undefined : new AbortController();
+  const handleQueryChange = () => {
+    setQueryEffect(!queryEffect);
+  };
+  const fetch_all_image_size = () => {
+    signalController?.abort();
+    setSignalController(controller);
+    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default()({
+      path: "/rttpg/v1/image-size",
+      signal: controller?.signal
+    }).then(imageSizes => {
+      let newImageSize = imageSizes.filter(item => {
+        return item.value !== 'custom';
+      });
+      setImageSizes(newImageSize);
+    });
+  };
+  const fetch_all_users = () => {
+    signalController?.abort();
+    setSignalController(controller);
+    setUsers({});
+    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default()({
+      path: '/rgbcode/v1/users',
+      signal: controller?.signal,
+      method: 'POST',
+      data: {
+        users: 'all',
+        users_lists,
+        image_size
+      }
+    }).then(data => {
+      setAttributes({
+        query_change: false
+      });
+      setUsers(data);
+    });
+  };
+  const fetch_users_data = () => {
+    signalController?.abort();
+    setSignalController(controller);
+    setUsers({});
+    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default()({
+      path: '/rgbcode/v1/users',
+      signal: controller?.signal,
+      method: 'POST',
+      data: {
+        users: 'ids'
+      }
+    }).then(data => {
+      setAttributes({
+        query_change: false
+      });
+      setUserData(data);
+    });
+  };
+
+  // Fetch All Posts
+  //== == == == == == == ==
+  useEffect(() => {
+    fetch_all_users();
+    fetch_users_data();
+  }, [queryEffect]);
+  useEffect(() => {
+    fetch_all_image_size();
+  }, []);
+  useEffect(() => {
+    const sidebarEl = document.querySelector('.interface-interface-skeleton__sidebar');
+    sidebarEl.classList.add('tpg-sidebar');
+    sidebarEl.classList.remove('tpg-settings-enable');
+    sidebarEl.addEventListener('click', function (event) {
+      const hasClass = event.target.classList.contains('rttpg-tab-btn');
+      if (hasClass) {
+        const selectText = event.target.textContent;
+        if (selectText !== 'Content') {
+          this.classList.add('tpg-settings-enable');
+        } else {
+          this.classList.remove('tpg-settings-enable');
+        }
+      }
+    });
+    sidebarEl.addEventListener('scroll', function (e) {
+      if (e.target.scrollTop > 86) {
+        this.classList.add('tpg-should-collapse');
+      } else {
+        this.classList.remove('tpg-should-collapse');
+      }
+    });
+  }, [isSelected]);
+  if (uniqueId) {
+    (0,_utils_css_CssGenerator__WEBPACK_IMPORTED_MODULE_4__.CssGenerator)(attributes, 'tpg-category-block', uniqueId);
+  }
+  console.log(userData);
+
+  //render
+  return [isSelected && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_inspector__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    attributes: attributes,
+    setAttributes: setAttributes,
+    changeQuery: handleQueryChange,
+    imageSizes: imageSizes,
+    userData: userData
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_layouts_CustomUsersBlock__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    props: props,
+    catData: users,
+    changeQuery: handleQueryChange
+  })];
+};
+/* harmony default export */ __webpack_exports__["default"] = (Edit);
+
+/***/ }),
+
+/***/ "./src/blocks/category-block/index.js":
+/*!********************************************!*\
+  !*** ./src/blocks/category-block/index.js ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./edit */ "./src/blocks/category-block/edit.js");
+
+
+
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)("rgbcode/custom-users-block", {
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Custom Users Block", "the-post-grid"),
+  category: "rgbcode",
+  description: "Custom Users Block",
+  icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: rttpgParams.plugin_url + "/assets/images/gutenberg/category-block.svg",
+    alt: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Custom Users Block")
+  }),
+  example: {
+    attributes: {
+      preview: true
+    }
+  },
+  supports: {
+    align: ['center', 'wide', 'full']
+  },
+  keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Custom Users Block"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("custom-users-block"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("users")],
+  save: () => null,
+  edit: _edit__WEBPACK_IMPORTED_MODULE_3__["default"]
+});
+
+/***/ }),
+
+/***/ "./src/blocks/category-block/inspector.js":
+/*!************************************************!*\
+  !*** ./src/blocks/category-block/inspector.js ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _controller_ContentControl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./controller/ContentControl */ "./src/blocks/category-block/controller/ContentControl.js");
+/* harmony import */ var _controller_CategoryStyle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./controller/CategoryStyle */ "./src/blocks/category-block/controller/CategoryStyle.js");
+/* harmony import */ var _controller_ImageStyle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./controller/ImageStyle */ "./src/blocks/category-block/controller/ImageStyle.js");
+/* harmony import */ var _controller_CountStyle__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./controller/CountStyle */ "./src/blocks/category-block/controller/CountStyle.js");
+/* harmony import */ var _controller_CardStyle__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./controller/CardStyle */ "./src/blocks/category-block/controller/CardStyle.js");
+
+const {
+  InspectorControls
+} = wp.blockEditor;
+
+
+
+
+
+
+function Inspector(props) {
+  const {
+    attributes,
+    changeQuery,
+    imageSizes,
+    userData
+  } = props;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InspectorControls, {
+    key: "controls"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "rttpg-panel-control-wrapper"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TabPanel, {
+    className: "rttpg-tab-panel",
+    activeClass: "active-tab",
+    tabs: [{
+      name: "content",
+      title: "Content",
+      className: "rttpg-tab-btn content"
+    }, {
+      name: "styles",
+      title: "Styles",
+      className: "rttpg-tab-btn styles"
+    }]
+  }, tab => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "rttpg-tab-content"
+  }, tab.name === "content" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_ContentControl__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    data: props,
+    changeQuery: changeQuery,
+    imageSizes: imageSizes,
+    userData: userData
+  })), tab.name === "styles" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null)))));
+}
+/* harmony default export */ __webpack_exports__["default"] = (Inspector);
+
+/***/ }),
+
+/***/ "./src/blocks/category-block/layouts/CustomUsersBlock.js":
+/*!***************************************************************!*\
+  !*** ./src/blocks/category-block/layouts/CustomUsersBlock.js ***!
+  \***************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+
+const {
+  Spinner
+} = wp.components;
+const {
+  useEffect
+} = wp.element;
+function CustomUsersBlock(_ref) {
+  let {
+    props,
+    catData,
+    changeQuery
+  } = _ref;
+  const {
+    attributes,
+    setAttributes,
+    clientId
+  } = props;
+  const {
+    uniqueId,
+    grid_column,
+    cat_tag,
+    count_position,
+    count_visibility,
+    show_bracket
+  } = attributes;
+  const categories = catData.categories;
+  const newClintID = clientId.substr(0, 6);
+  useEffect(() => {
+    if (!uniqueId) {
+      setAttributes({
+        uniqueId: newClintID
+      });
+    } else if (uniqueId && uniqueId !== newClintID) {
+      setAttributes({
+        uniqueId: newClintID
+      });
+    }
+  }, []);
+
+  //Slider Column settings
+  let default_grid_column_desktop = '24';
+  let default_grid_column_tab = '4';
+  let default_grid_column_mobile = '6';
+  let grid_column_desktop = grid_column?.lg ? grid_column.lg : default_grid_column_desktop;
+  let grid_column_tab = grid_column?.md ? grid_column.md : default_grid_column_tab;
+  let grid_column_mobile = grid_column?.sm ? grid_column.sm : default_grid_column_mobile;
+  const cat_column = `rt-col-md-${grid_column_desktop} rt-col-sm-${grid_column_tab} rt-col-xs-${grid_column_mobile}`;
+
+  // const CategoryTag = `${cat_tag}`;
+  const HeadingTag = `${cat_tag}`;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: `rttpg-block-postgrid rttpg-block-wrapper rttpg-block-${uniqueId}`
+  }, categories && categories.length ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "tpg-category-block-wrapper clearfix"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "rt-row"
+  }, categories.map(category => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      key: category.cat_id,
+      className: `cat-item-col ${cat_column}`
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "cat-thumb"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      className: "cat-link"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: category.image,
+      className: "category-image",
+      alt: "",
+      decoding: "async",
+      loading: "lazy"
+    })), count_visibility && count_position === 'thumb' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "count count-thumb"
+    }, show_bracket ? "(" : "", category.count, show_bracket ? ")" : "")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(HeadingTag, {
+      className: "category-name"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", null, category.name, " ", ` `), count_visibility && count_position === 'title' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "count count-title"
+    }, show_bracket ? "(" : "", category.count, show_bracket ? ")" : "")));
+  }))) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "rttpg-postgrid-is-loading"
+  }, categories?.message && categories.message ? categories.message : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Spinner, null)));
+}
+/* harmony default export */ __webpack_exports__["default"] = (CustomUsersBlock);
 
 /***/ }),
 
@@ -7916,9 +8815,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)("rttpg/tpg-grid-layout", {
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)("rgbcode/tpg-grid-layout", {
   title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Grid Layout", "the-post-grid"),
-  category: "rttpg",
+  category: "rgbcode",
   description: "The post grid block, Grid layout",
   icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: rttpgParams.plugin_url + "/assets/images/gutenberg/grid-layout.svg",
@@ -9814,6 +10713,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "POST_ORDER_BY": function() { return /* binding */ POST_ORDER_BY; },
 /* harmony export */   "POST_SORT_ORDER": function() { return /* binding */ POST_SORT_ORDER; },
 /* harmony export */   "PRINT_TAXONOMY": function() { return /* binding */ PRINT_TAXONOMY; },
+/* harmony export */   "PRINT_USERS": function() { return /* binding */ PRINT_USERS; },
 /* harmony export */   "RTTPG_IS_PRO": function() { return /* binding */ RTTPG_IS_PRO; },
 /* harmony export */   "RTTPG_LOGO": function() { return /* binding */ RTTPG_LOGO; },
 /* harmony export */   "SECTION_TITLE_SOURCE": function() { return /* binding */ SECTION_TITLE_SOURCE; },
@@ -10757,6 +11657,23 @@ const PRINT_TAXONOMY = taxonomy => {
     });
   }
   return allTax;
+};
+//
+// export const PRINT_USERS = (users) => {
+//     let allTax = [];
+//
+//     users.forEach(function(user) {
+//         allTax.push({value: user.id, label: __(user.name, 'the-post-grid')})
+//     });
+//
+//     return allTax;
+// }
+
+const PRINT_USERS = users => {
+  return users.map(user => ({
+    value: user.id,
+    label: __(user.name, 'the-post-grid')
+  }));
 };
 const hover_overlay_type = [{
   value: 'always',
@@ -16852,7 +17769,7 @@ if (typeof Object.assign !== "function") {
 "use strict";
 
 
-var reactIs = __webpack_require__(/*! react-is */ "./node_modules/hoist-non-react-statics/node_modules/react-is/index.js");
+var reactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
 
 /**
  * Copyright 2015, Yahoo! Inc.
@@ -16953,214 +17870,6 @@ function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
 }
 
 module.exports = hoistNonReactStatics;
-
-
-/***/ }),
-
-/***/ "./node_modules/hoist-non-react-statics/node_modules/react-is/cjs/react-is.development.js":
-/*!************************************************************************************************!*\
-  !*** ./node_modules/hoist-non-react-statics/node_modules/react-is/cjs/react-is.development.js ***!
-  \************************************************************************************************/
-/***/ (function(__unused_webpack_module, exports) {
-
-"use strict";
-/** @license React v16.13.1
- * react-is.development.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-
-
-if (true) {
-  (function() {
-'use strict';
-
-// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
-// nor polyfill, then a plain number is used for performance.
-var hasSymbol = typeof Symbol === 'function' && Symbol.for;
-var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
-var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
-var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
-var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
-var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
-var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
-var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
-// (unstable) APIs that have been removed. Can we remove the symbols?
-
-var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
-var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
-var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
-var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
-var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;
-var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
-var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
-var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for('react.block') : 0xead9;
-var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for('react.fundamental') : 0xead5;
-var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for('react.responder') : 0xead6;
-var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for('react.scope') : 0xead7;
-
-function isValidElementType(type) {
-  return typeof type === 'string' || typeof type === 'function' || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
-  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
-}
-
-function typeOf(object) {
-  if (typeof object === 'object' && object !== null) {
-    var $$typeof = object.$$typeof;
-
-    switch ($$typeof) {
-      case REACT_ELEMENT_TYPE:
-        var type = object.type;
-
-        switch (type) {
-          case REACT_ASYNC_MODE_TYPE:
-          case REACT_CONCURRENT_MODE_TYPE:
-          case REACT_FRAGMENT_TYPE:
-          case REACT_PROFILER_TYPE:
-          case REACT_STRICT_MODE_TYPE:
-          case REACT_SUSPENSE_TYPE:
-            return type;
-
-          default:
-            var $$typeofType = type && type.$$typeof;
-
-            switch ($$typeofType) {
-              case REACT_CONTEXT_TYPE:
-              case REACT_FORWARD_REF_TYPE:
-              case REACT_LAZY_TYPE:
-              case REACT_MEMO_TYPE:
-              case REACT_PROVIDER_TYPE:
-                return $$typeofType;
-
-              default:
-                return $$typeof;
-            }
-
-        }
-
-      case REACT_PORTAL_TYPE:
-        return $$typeof;
-    }
-  }
-
-  return undefined;
-} // AsyncMode is deprecated along with isAsyncMode
-
-var AsyncMode = REACT_ASYNC_MODE_TYPE;
-var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
-var ContextConsumer = REACT_CONTEXT_TYPE;
-var ContextProvider = REACT_PROVIDER_TYPE;
-var Element = REACT_ELEMENT_TYPE;
-var ForwardRef = REACT_FORWARD_REF_TYPE;
-var Fragment = REACT_FRAGMENT_TYPE;
-var Lazy = REACT_LAZY_TYPE;
-var Memo = REACT_MEMO_TYPE;
-var Portal = REACT_PORTAL_TYPE;
-var Profiler = REACT_PROFILER_TYPE;
-var StrictMode = REACT_STRICT_MODE_TYPE;
-var Suspense = REACT_SUSPENSE_TYPE;
-var hasWarnedAboutDeprecatedIsAsyncMode = false; // AsyncMode should be deprecated
-
-function isAsyncMode(object) {
-  {
-    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
-      hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
-
-      console['warn']('The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
-    }
-  }
-
-  return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
-}
-function isConcurrentMode(object) {
-  return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
-}
-function isContextConsumer(object) {
-  return typeOf(object) === REACT_CONTEXT_TYPE;
-}
-function isContextProvider(object) {
-  return typeOf(object) === REACT_PROVIDER_TYPE;
-}
-function isElement(object) {
-  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-}
-function isForwardRef(object) {
-  return typeOf(object) === REACT_FORWARD_REF_TYPE;
-}
-function isFragment(object) {
-  return typeOf(object) === REACT_FRAGMENT_TYPE;
-}
-function isLazy(object) {
-  return typeOf(object) === REACT_LAZY_TYPE;
-}
-function isMemo(object) {
-  return typeOf(object) === REACT_MEMO_TYPE;
-}
-function isPortal(object) {
-  return typeOf(object) === REACT_PORTAL_TYPE;
-}
-function isProfiler(object) {
-  return typeOf(object) === REACT_PROFILER_TYPE;
-}
-function isStrictMode(object) {
-  return typeOf(object) === REACT_STRICT_MODE_TYPE;
-}
-function isSuspense(object) {
-  return typeOf(object) === REACT_SUSPENSE_TYPE;
-}
-
-exports.AsyncMode = AsyncMode;
-exports.ConcurrentMode = ConcurrentMode;
-exports.ContextConsumer = ContextConsumer;
-exports.ContextProvider = ContextProvider;
-exports.Element = Element;
-exports.ForwardRef = ForwardRef;
-exports.Fragment = Fragment;
-exports.Lazy = Lazy;
-exports.Memo = Memo;
-exports.Portal = Portal;
-exports.Profiler = Profiler;
-exports.StrictMode = StrictMode;
-exports.Suspense = Suspense;
-exports.isAsyncMode = isAsyncMode;
-exports.isConcurrentMode = isConcurrentMode;
-exports.isContextConsumer = isContextConsumer;
-exports.isContextProvider = isContextProvider;
-exports.isElement = isElement;
-exports.isForwardRef = isForwardRef;
-exports.isFragment = isFragment;
-exports.isLazy = isLazy;
-exports.isMemo = isMemo;
-exports.isPortal = isPortal;
-exports.isProfiler = isProfiler;
-exports.isStrictMode = isStrictMode;
-exports.isSuspense = isSuspense;
-exports.isValidElementType = isValidElementType;
-exports.typeOf = typeOf;
-  })();
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/hoist-non-react-statics/node_modules/react-is/index.js":
-/*!*****************************************************************************!*\
-  !*** ./node_modules/hoist-non-react-statics/node_modules/react-is/index.js ***!
-  \*****************************************************************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-"use strict";
-
-
-if (false) {} else {
-  module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ "./node_modules/hoist-non-react-statics/node_modules/react-is/cjs/react-is.development.js");
-}
 
 
 /***/ }),
@@ -17657,7 +18366,7 @@ module.exports = checkPropTypes;
 
 
 
-var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/prop-types/node_modules/react-is/index.js");
+var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
 var assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.js");
 
 var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "./node_modules/prop-types/lib/ReactPropTypesSecret.js");
@@ -18276,7 +18985,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
  */
 
 if (true) {
-  var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/prop-types/node_modules/react-is/index.js");
+  var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
 
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
@@ -18317,214 +19026,6 @@ module.exports = ReactPropTypesSecret;
 /***/ (function(module) {
 
 module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
-
-
-/***/ }),
-
-/***/ "./node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js":
-/*!***********************************************************************************!*\
-  !*** ./node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js ***!
-  \***********************************************************************************/
-/***/ (function(__unused_webpack_module, exports) {
-
-"use strict";
-/** @license React v16.13.1
- * react-is.development.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-
-
-if (true) {
-  (function() {
-'use strict';
-
-// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
-// nor polyfill, then a plain number is used for performance.
-var hasSymbol = typeof Symbol === 'function' && Symbol.for;
-var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
-var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
-var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
-var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
-var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
-var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
-var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
-// (unstable) APIs that have been removed. Can we remove the symbols?
-
-var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
-var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
-var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
-var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
-var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;
-var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
-var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
-var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for('react.block') : 0xead9;
-var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for('react.fundamental') : 0xead5;
-var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for('react.responder') : 0xead6;
-var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for('react.scope') : 0xead7;
-
-function isValidElementType(type) {
-  return typeof type === 'string' || typeof type === 'function' || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
-  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
-}
-
-function typeOf(object) {
-  if (typeof object === 'object' && object !== null) {
-    var $$typeof = object.$$typeof;
-
-    switch ($$typeof) {
-      case REACT_ELEMENT_TYPE:
-        var type = object.type;
-
-        switch (type) {
-          case REACT_ASYNC_MODE_TYPE:
-          case REACT_CONCURRENT_MODE_TYPE:
-          case REACT_FRAGMENT_TYPE:
-          case REACT_PROFILER_TYPE:
-          case REACT_STRICT_MODE_TYPE:
-          case REACT_SUSPENSE_TYPE:
-            return type;
-
-          default:
-            var $$typeofType = type && type.$$typeof;
-
-            switch ($$typeofType) {
-              case REACT_CONTEXT_TYPE:
-              case REACT_FORWARD_REF_TYPE:
-              case REACT_LAZY_TYPE:
-              case REACT_MEMO_TYPE:
-              case REACT_PROVIDER_TYPE:
-                return $$typeofType;
-
-              default:
-                return $$typeof;
-            }
-
-        }
-
-      case REACT_PORTAL_TYPE:
-        return $$typeof;
-    }
-  }
-
-  return undefined;
-} // AsyncMode is deprecated along with isAsyncMode
-
-var AsyncMode = REACT_ASYNC_MODE_TYPE;
-var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
-var ContextConsumer = REACT_CONTEXT_TYPE;
-var ContextProvider = REACT_PROVIDER_TYPE;
-var Element = REACT_ELEMENT_TYPE;
-var ForwardRef = REACT_FORWARD_REF_TYPE;
-var Fragment = REACT_FRAGMENT_TYPE;
-var Lazy = REACT_LAZY_TYPE;
-var Memo = REACT_MEMO_TYPE;
-var Portal = REACT_PORTAL_TYPE;
-var Profiler = REACT_PROFILER_TYPE;
-var StrictMode = REACT_STRICT_MODE_TYPE;
-var Suspense = REACT_SUSPENSE_TYPE;
-var hasWarnedAboutDeprecatedIsAsyncMode = false; // AsyncMode should be deprecated
-
-function isAsyncMode(object) {
-  {
-    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
-      hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
-
-      console['warn']('The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
-    }
-  }
-
-  return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
-}
-function isConcurrentMode(object) {
-  return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
-}
-function isContextConsumer(object) {
-  return typeOf(object) === REACT_CONTEXT_TYPE;
-}
-function isContextProvider(object) {
-  return typeOf(object) === REACT_PROVIDER_TYPE;
-}
-function isElement(object) {
-  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-}
-function isForwardRef(object) {
-  return typeOf(object) === REACT_FORWARD_REF_TYPE;
-}
-function isFragment(object) {
-  return typeOf(object) === REACT_FRAGMENT_TYPE;
-}
-function isLazy(object) {
-  return typeOf(object) === REACT_LAZY_TYPE;
-}
-function isMemo(object) {
-  return typeOf(object) === REACT_MEMO_TYPE;
-}
-function isPortal(object) {
-  return typeOf(object) === REACT_PORTAL_TYPE;
-}
-function isProfiler(object) {
-  return typeOf(object) === REACT_PROFILER_TYPE;
-}
-function isStrictMode(object) {
-  return typeOf(object) === REACT_STRICT_MODE_TYPE;
-}
-function isSuspense(object) {
-  return typeOf(object) === REACT_SUSPENSE_TYPE;
-}
-
-exports.AsyncMode = AsyncMode;
-exports.ConcurrentMode = ConcurrentMode;
-exports.ContextConsumer = ContextConsumer;
-exports.ContextProvider = ContextProvider;
-exports.Element = Element;
-exports.ForwardRef = ForwardRef;
-exports.Fragment = Fragment;
-exports.Lazy = Lazy;
-exports.Memo = Memo;
-exports.Portal = Portal;
-exports.Profiler = Profiler;
-exports.StrictMode = StrictMode;
-exports.Suspense = Suspense;
-exports.isAsyncMode = isAsyncMode;
-exports.isConcurrentMode = isConcurrentMode;
-exports.isContextConsumer = isContextConsumer;
-exports.isContextProvider = isContextProvider;
-exports.isElement = isElement;
-exports.isForwardRef = isForwardRef;
-exports.isFragment = isFragment;
-exports.isLazy = isLazy;
-exports.isMemo = isMemo;
-exports.isPortal = isPortal;
-exports.isProfiler = isProfiler;
-exports.isStrictMode = isStrictMode;
-exports.isSuspense = isSuspense;
-exports.isValidElementType = isValidElementType;
-exports.typeOf = typeOf;
-  })();
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/prop-types/node_modules/react-is/index.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/prop-types/node_modules/react-is/index.js ***!
-  \****************************************************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-"use strict";
-
-
-if (false) {} else {
-  module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ "./node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js");
-}
 
 
 /***/ }),
@@ -18786,6 +19287,214 @@ function mergeHooks(inputOptions, props) {
 
 var _default = DateTimePicker;
 exports["default"] = _default;
+
+/***/ }),
+
+/***/ "./node_modules/react-is/cjs/react-is.development.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/react-is/cjs/react-is.development.js ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, exports) {
+
+"use strict";
+/** @license React v16.13.1
+ * react-is.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+
+
+if (true) {
+  (function() {
+'use strict';
+
+// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+// nor polyfill, then a plain number is used for performance.
+var hasSymbol = typeof Symbol === 'function' && Symbol.for;
+var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
+var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
+var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
+var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
+var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
+var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
+var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
+// (unstable) APIs that have been removed. Can we remove the symbols?
+
+var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
+var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
+var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
+var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
+var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;
+var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
+var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
+var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for('react.block') : 0xead9;
+var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for('react.fundamental') : 0xead5;
+var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for('react.responder') : 0xead6;
+var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for('react.scope') : 0xead7;
+
+function isValidElementType(type) {
+  return typeof type === 'string' || typeof type === 'function' || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
+  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
+}
+
+function typeOf(object) {
+  if (typeof object === 'object' && object !== null) {
+    var $$typeof = object.$$typeof;
+
+    switch ($$typeof) {
+      case REACT_ELEMENT_TYPE:
+        var type = object.type;
+
+        switch (type) {
+          case REACT_ASYNC_MODE_TYPE:
+          case REACT_CONCURRENT_MODE_TYPE:
+          case REACT_FRAGMENT_TYPE:
+          case REACT_PROFILER_TYPE:
+          case REACT_STRICT_MODE_TYPE:
+          case REACT_SUSPENSE_TYPE:
+            return type;
+
+          default:
+            var $$typeofType = type && type.$$typeof;
+
+            switch ($$typeofType) {
+              case REACT_CONTEXT_TYPE:
+              case REACT_FORWARD_REF_TYPE:
+              case REACT_LAZY_TYPE:
+              case REACT_MEMO_TYPE:
+              case REACT_PROVIDER_TYPE:
+                return $$typeofType;
+
+              default:
+                return $$typeof;
+            }
+
+        }
+
+      case REACT_PORTAL_TYPE:
+        return $$typeof;
+    }
+  }
+
+  return undefined;
+} // AsyncMode is deprecated along with isAsyncMode
+
+var AsyncMode = REACT_ASYNC_MODE_TYPE;
+var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
+var ContextConsumer = REACT_CONTEXT_TYPE;
+var ContextProvider = REACT_PROVIDER_TYPE;
+var Element = REACT_ELEMENT_TYPE;
+var ForwardRef = REACT_FORWARD_REF_TYPE;
+var Fragment = REACT_FRAGMENT_TYPE;
+var Lazy = REACT_LAZY_TYPE;
+var Memo = REACT_MEMO_TYPE;
+var Portal = REACT_PORTAL_TYPE;
+var Profiler = REACT_PROFILER_TYPE;
+var StrictMode = REACT_STRICT_MODE_TYPE;
+var Suspense = REACT_SUSPENSE_TYPE;
+var hasWarnedAboutDeprecatedIsAsyncMode = false; // AsyncMode should be deprecated
+
+function isAsyncMode(object) {
+  {
+    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+      hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
+
+      console['warn']('The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
+    }
+  }
+
+  return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
+}
+function isConcurrentMode(object) {
+  return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
+}
+function isContextConsumer(object) {
+  return typeOf(object) === REACT_CONTEXT_TYPE;
+}
+function isContextProvider(object) {
+  return typeOf(object) === REACT_PROVIDER_TYPE;
+}
+function isElement(object) {
+  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+}
+function isForwardRef(object) {
+  return typeOf(object) === REACT_FORWARD_REF_TYPE;
+}
+function isFragment(object) {
+  return typeOf(object) === REACT_FRAGMENT_TYPE;
+}
+function isLazy(object) {
+  return typeOf(object) === REACT_LAZY_TYPE;
+}
+function isMemo(object) {
+  return typeOf(object) === REACT_MEMO_TYPE;
+}
+function isPortal(object) {
+  return typeOf(object) === REACT_PORTAL_TYPE;
+}
+function isProfiler(object) {
+  return typeOf(object) === REACT_PROFILER_TYPE;
+}
+function isStrictMode(object) {
+  return typeOf(object) === REACT_STRICT_MODE_TYPE;
+}
+function isSuspense(object) {
+  return typeOf(object) === REACT_SUSPENSE_TYPE;
+}
+
+exports.AsyncMode = AsyncMode;
+exports.ConcurrentMode = ConcurrentMode;
+exports.ContextConsumer = ContextConsumer;
+exports.ContextProvider = ContextProvider;
+exports.Element = Element;
+exports.ForwardRef = ForwardRef;
+exports.Fragment = Fragment;
+exports.Lazy = Lazy;
+exports.Memo = Memo;
+exports.Portal = Portal;
+exports.Profiler = Profiler;
+exports.StrictMode = StrictMode;
+exports.Suspense = Suspense;
+exports.isAsyncMode = isAsyncMode;
+exports.isConcurrentMode = isConcurrentMode;
+exports.isContextConsumer = isContextConsumer;
+exports.isContextProvider = isContextProvider;
+exports.isElement = isElement;
+exports.isForwardRef = isForwardRef;
+exports.isFragment = isFragment;
+exports.isLazy = isLazy;
+exports.isMemo = isMemo;
+exports.isPortal = isPortal;
+exports.isProfiler = isProfiler;
+exports.isStrictMode = isStrictMode;
+exports.isSuspense = isSuspense;
+exports.isValidElementType = isValidElementType;
+exports.typeOf = typeOf;
+  })();
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/react-is/index.js":
+/*!****************************************!*\
+  !*** ./node_modules/react-is/index.js ***!
+  \****************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+
+
+if (false) {} else {
+  module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ "./node_modules/react-is/cjs/react-is.development.js");
+}
+
 
 /***/ }),
 
@@ -21447,7 +22156,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-dom */ "react-dom");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _floating_ui_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @floating-ui/dom */ "./node_modules/react-select/node_modules/@floating-ui/dom/dist/floating-ui.dom.browser.mjs");
+/* harmony import */ var _floating_ui_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @floating-ui/dom */ "./node_modules/@floating-ui/dom/dist/floating-ui.dom.browser.mjs");
 /* harmony import */ var use_isomorphic_layout_effect__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! use-isomorphic-layout-effect */ "./node_modules/use-isomorphic-layout-effect/dist/use-isomorphic-layout-effect.browser.esm.js");
 
 
@@ -23814,10 +24523,10 @@ function _unsupportedIterableToArray(o, minLen) {
 
 /***/ }),
 
-/***/ "./node_modules/react-select/node_modules/@floating-ui/core/dist/floating-ui.core.browser.mjs":
-/*!****************************************************************************************************!*\
-  !*** ./node_modules/react-select/node_modules/@floating-ui/core/dist/floating-ui.core.browser.mjs ***!
-  \****************************************************************************************************/
+/***/ "./node_modules/@floating-ui/core/dist/floating-ui.core.browser.mjs":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@floating-ui/core/dist/floating-ui.core.browser.mjs ***!
+  \**************************************************************************/
 /***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -24962,10 +25671,10 @@ const size = function (options) {
 
 /***/ }),
 
-/***/ "./node_modules/react-select/node_modules/@floating-ui/dom/dist/floating-ui.dom.browser.mjs":
-/*!**************************************************************************************************!*\
-  !*** ./node_modules/react-select/node_modules/@floating-ui/dom/dist/floating-ui.dom.browser.mjs ***!
-  \**************************************************************************************************/
+/***/ "./node_modules/@floating-ui/dom/dist/floating-ui.dom.browser.mjs":
+/*!************************************************************************!*\
+  !*** ./node_modules/@floating-ui/dom/dist/floating-ui.dom.browser.mjs ***!
+  \************************************************************************/
 /***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -24986,7 +25695,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "shift": function() { return /* reexport safe */ _floating_ui_core__WEBPACK_IMPORTED_MODULE_0__.shift; },
 /* harmony export */   "size": function() { return /* reexport safe */ _floating_ui_core__WEBPACK_IMPORTED_MODULE_0__.size; }
 /* harmony export */ });
-/* harmony import */ var _floating_ui_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @floating-ui/core */ "./node_modules/react-select/node_modules/@floating-ui/core/dist/floating-ui.core.browser.mjs");
+/* harmony import */ var _floating_ui_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @floating-ui/core */ "./node_modules/@floating-ui/core/dist/floating-ui.core.browser.mjs");
 
 
 
@@ -26785,6 +27494,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _grid_layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./grid-layout */ "./src/blocks/grid-layout/index.js");
+/* harmony import */ var _category_block__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./category-block */ "./src/blocks/category-block/index.js");
 
 /* global wp */
 const {
@@ -26798,6 +27508,7 @@ const {
 window.rttpgDevice = 'lg';
 
 //Impost post grid block
+
 
 const allCustomBlocks = ['rttpg/tpg-grid-layout'];
 // Save Style CSS within Database/File

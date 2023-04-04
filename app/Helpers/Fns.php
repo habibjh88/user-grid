@@ -228,25 +228,16 @@ class Fns {
 	 *
 	 * @return void
 	 */
-	public static function tpg_template( $data, $temp_path = 'elementor' ) {
-		$layout = str_replace( '-2', '', $data['layout'] );
+	public static function tpg_template( $data ) {
+		$layout = $data['layout'];
 
-		$template_name = '/the-post-grid/' . $temp_path . '/' . $layout . '.php';
+		$template_name = '/the-post-grid/' . $layout . '.php';
 		if ( file_exists( STYLESHEETPATH . $template_name ) ) {
 			$file = STYLESHEETPATH . $template_name;
 		} else if ( file_exists( TEMPLATEPATH . $template_name ) ) {
 			$file = TEMPLATEPATH . $template_name;
 		} else {
-			$file = GT_USERS_PLUGIN_PATH . '/templates/' . $temp_path . '/' . $layout . '.php';
-			if ( ! file_exists( $file ) ) {
-				if ( rtTPG()->hasPro() ) {
-					$file = GT_USERS_PRO_PLUGIN_PATH . '/templates/' . $temp_path . '/' . $layout . '.php';
-				} else {
-					$layout = substr( $layout, 0, - 1 );
-					$layout = strpos( $layout, '1' ) ? str_replace( '1', '', $layout ) : $layout;
-					$file   = GT_USERS_PLUGIN_PATH . '/templates/' . $temp_path . '/' . $layout . '1.php';
-				}
-			}
+			$file = GT_USERS_PLUGIN_PATH . '/templates/' . $layout . '.php';
 		}
 
 		ob_start();
@@ -261,18 +252,12 @@ class Fns {
 	 */
 	public static function tpg_template_path( $data, $temp_path = 'elementor' ) {
 		$layout        = str_replace( '-2', '', $data['layout'] );
-		$template_name = '/the-post-grid/' . $temp_path . '/' . $layout . '.php';
-		$path          = GT_USERS_PLUGIN_PATH . '/templates/' . $temp_path . '/';
+		$template_name = '/the-post-grid/' . $layout . '.php';
+		$path          = GT_USERS_PLUGIN_PATH . '/templates/';
 		if ( file_exists( STYLESHEETPATH . $template_name ) ) {
-			$path = STYLESHEETPATH . '/the-post-grid/' . $temp_path . '/';
+			$path = STYLESHEETPATH . '/the-post-grid/';
 		} else if ( file_exists( TEMPLATEPATH . $template_name ) ) {
-			$path = TEMPLATEPATH . '/the-post-grid/' . $temp_path . '/';
-		} else {
-			$template_path = GT_USERS_PLUGIN_PATH . '/templates/' . $temp_path . '/' . $layout . '.php';
-
-			if ( ! file_exists( $template_path ) && rtTPG()->hasPro() ) {
-				$path = GT_USERS_PRO_PLUGIN_PATH . '/templates/' . $temp_path . '/';
-			}
+			$path = TEMPLATEPATH . '/the-post-grid/';
 		}
 
 		return $path;

@@ -16,7 +16,7 @@ class RestApi {
 		new FrontEndFilterV1();
 		new ElImport();
 		new CountLayoutInstall();
-		new GetCategories();
+		new GetUsersV1();
 	}
 
 	/**

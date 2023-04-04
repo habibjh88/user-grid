@@ -2,11 +2,11 @@ import {registerBlockType} from "@wordpress/blocks";
 import {__} from "@wordpress/i18n";
 import Edit from "./edit";
 
-registerBlockType("rgbcode/tpg-grid-layout", {
-    title: __("Grid Layout", "the-post-grid"),
-    category: "rgbcode",
+registerBlockType("rttpg/tpg-category-block", {
+    title: __("Category Block", "the-post-grid"),
+    category: "rttpg",
     description: "The post grid block, Grid layout",
-    icon: <img src={rttpgParams.plugin_url + "/assets/images/gutenberg/grid-layout.svg"} alt={__("Grid Layout")}/>,
+    icon: <img src={rttpgParams.plugin_url + "/assets/images/gutenberg/category-block.svg"} alt={__("Grid Layout")} />,
     example: {
         attributes: {
             preview: true
@@ -18,7 +18,8 @@ registerBlockType("rgbcode/tpg-grid-layout", {
     keywords: [
         __("post grid"),
         __("the post grid"),
-        __("grid layout"),
+        __("category block"),
+        __("category"),
         __("the post"),
         __("the"),
         __("grid"),

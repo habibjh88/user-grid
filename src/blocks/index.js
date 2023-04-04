@@ -8,6 +8,8 @@ window.rttpgDevice = 'lg';
 
 //Impost post grid block
 import "./grid-layout";
+import "./category-block";
+
 const allCustomBlocks = ['rttpg/tpg-grid-layout'];
 // Save Style CSS within Database/File
 window.bindCss = false;

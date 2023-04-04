@@ -1,13 +1,13 @@
 <?php
 /**
  * Plugin Name: Gutenberg Users
- * Plugin URI: https://www.radiustheme.com/downloads/the-post-grid-pro-for-wordpress/
- * Description: Fast & Easy way to display WordPress post in Grid, List & Isotope view ( filter by category, tag, author..)  without a single line of coding.
- * Author: RadiusTheme
- * Version: 7.0.2
+ * Plugin URI: https://rgbcode.com/
+ * Description: Fast & Easy way to display WordPress users in Grid and List view
+ * Author: rgbcode
+ * Version: 1.0.0
  * Text Domain: gutenberg-users
  * Domain Path: /languages
- * Author URI: https://radiustheme.com/
+ * Author URI: https://rgbcode.com/
  *
  * @package GT_USERS
  */
@@ -17,9 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'This script cannot be accessed directly.' );
 }
 
-define( 'GT_USERS_VERSION', '7.0.2' );
-define( 'GT_USERS_AUTHOR', 'RadiusTheme' );
-define( 'GT_USERS_NAME', 'The Post Grid' );
+define( 'GT_USERS_VERSION', '1.0.0' );
 define( 'GT_USERS_PLUGIN_FILE', __FILE__ );
 define( 'GT_USERS_PLUGIN_PATH', dirname( __FILE__ ) );
 define( 'GT_USERS_PLUGIN_ACTIVE_FILE_NAME', plugin_basename( __FILE__ ) );

@@ -16,7 +16,7 @@ class GridLayout extends BlockBase {
 	public function __construct() {
 		add_action( 'init', [ $this, 'register_blocks' ] );
 		$this->prefix         = 'grid';
-		$this->block_type     = 'rttpg/tpg-' . $this->prefix . '-layout';
+		$this->block_type     = 'rgbcode/tpg-' . $this->prefix . '-layout';
 		$this->attribute_args = [
 			'prefix'         => $this->prefix,
 			'default_layout' => 'grid-layout1'
@@ -102,7 +102,7 @@ class GridLayout extends BlockBase {
 			$post_data[ $data['post_type'] . '_tags' ] = $data['tag_source'];
 		}
 
-		$template_path = Fns::tpg_template_path( $post_data, 'gutenberg' );
+		$template_path = Fns::tpg_template_path( $post_data );
 		$_layout       = $data[ $_prefix . '_layout' ];
 		$_layout_style = $data['grid_layout_style'];
 		$dynamicClass  = Fns::get_dynamic_class_gutenberg( $data );
@@ -167,7 +167,7 @@ class GridLayout extends BlockBase {
 							$query->the_post();
 							set_query_var( 'tpg_post_count', $pCount );
 							set_query_var( 'tpg_total_posts', $query->post_count );
-							Fns::tpg_template( $post_data, 'gutenberg' );
+							Fns::tpg_template( $post_data );
 							$pCount ++;
 						}
 					} else {
