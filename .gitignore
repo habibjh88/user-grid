@@ -7,6 +7,7 @@ node_modules/
 # Packages #
 ############
 *.7z
+*.zip
 *.dmg
 *.gz
 *.bz2
