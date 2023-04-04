@@ -47,14 +47,6 @@ class ScriptController {
 	 * @return void
 	 */
 	public function init() {
-
-		$current_page = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
-
-		if ( 'rttpg_settings' === $current_page ) {
-			wp_enqueue_style( 'wp-color-picker' );
-			wp_enqueue_script( 'wp-color-picker' );
-		}
-
 		// register scripts.
 		$scripts = [];
 		$styles  = [];
@@ -92,36 +84,10 @@ class ScriptController {
 	 * @return void
 	 */
 	public function enqueue() {
-		$block_type = isset( $this->settings['tpg_block_type'] ) ? $this->settings['tpg_block_type'] : 'default';
 		wp_enqueue_script( 'jquery' );
-
-		if ( ! isset( $this->settings['tpg_load_script'] ) ) {
-			wp_enqueue_style( 'rt-fontawsome' );
-			wp_enqueue_style( 'rt-flaticon' );
-
-			if ( 'default' === $block_type ) {
-				wp_enqueue_style( 'rt-tpg' );
-			}
-
-			if ( 'elementor' === $block_type ) {
-				wp_enqueue_style( 'rt-tpg-block' );
-			}
-
-			if ( 'shortcode' === $block_type ) {
-				wp_enqueue_style( 'rt-tpg-shortcode' );
-			}
-		}
-
-		$scriptBefore = isset( $this->settings['script_before_item_load'] ) ? stripslashes( $this->settings['script_before_item_load'] ) : null;
-		$scriptAfter  = isset( $this->settings['script_after_item_load'] ) ? stripslashes( $this->settings['script_after_item_load'] ) : null;
-		$scriptLoaded = isset( $this->settings['script_loaded'] ) ? stripslashes( $this->settings['script_loaded'] ) : null;
-
-		$script = "(function($){
-						$('.rt-tpg-container').on('tpg_item_before_load', function(){{$scriptBefore}});
-						$('.rt-tpg-container').on('tpg_item_after_load', function(){{$scriptAfter}});
-						$('.rt-tpg-container').on('tpg_loaded', function(){{$scriptLoaded}});
-					})(jQuery);";
-		wp_add_inline_script( 'rt-tpg', $script );
+		wp_enqueue_style( 'rt-tpg-block' );
+		wp_enqueue_style( 'rt-fontawsome' );
+		wp_enqueue_style( 'rt-flaticon' );
 	}
 
 
