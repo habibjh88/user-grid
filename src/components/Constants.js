@@ -436,19 +436,12 @@ export const PRINT_TAXONOMY = (taxonomy) => {
     }
     return allTax;
 }
-//
-// export const PRINT_USERS = (users) => {
-//     let allTax = [];
-//
-//     users.forEach(function(user) {
-//         allTax.push({value: user.id, label: __(user.name, 'the-post-grid')})
-//     });
-//
-//     return allTax;
-// }
 
 
-export const PRINT_USERS = users => {
+export const FORMATE_USERS = users => {
+    if (! users) {
+        return;
+    }
     return users.map((user) => ({
         value: user.id,
         label: __(user.name, 'the-post-grid')

@@ -1,9 +1,9 @@
 const {InspectorControls} = wp.blockEditor;
 import {TabPanel} from "@wordpress/components";
 import ContentControl from "./controller/ContentControl";
-import CategoryStyle from "./controller/CategoryStyle";
+import AvatarSettings from "./controller/AvatarSettings";
 import ImageStyle from "./controller/ImageStyle";
-import CountStyle from "./controller/CountStyle";
+import UserName from "./controller/UserName";
 import CardStyle from "./controller/CardStyle";
 
 function Inspector(props) {
@@ -19,8 +19,8 @@ function Inspector(props) {
                 },
                 {
                     name: "styles",
-                    title: "Styles",
-                    className: "rttpg-tab-btn styles"
+                    title: "Settings / Styles",
+                    className: "rttpg-tab-btn settings"
                 }
             ]}
             >
@@ -37,7 +37,7 @@ function Inspector(props) {
                         {/* Style Tab*/}
                         {tab.name === "styles" && (
                             <>
-                                {/*<CategoryStyle data={props} changeQuery={changeQuery}/>*/}
+                                <AvatarSettings data={props} changeQuery={changeQuery}/>
                                 {/*<ImageStyle data={props} changeQuery={changeQuery}/>*/}
                                 {/*<CountStyle data={props} changeQuery={changeQuery}/>*/}
                                 {/*<CardStyle data={props} changeQuery={changeQuery}/>*/}

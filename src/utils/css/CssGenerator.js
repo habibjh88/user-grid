@@ -174,7 +174,7 @@ export const CssGenerator = (settings, blockName, blockID, isInline) => {
         notResponsiveCss = [];
 
     Object.keys(settings).forEach(function (key) {
-        const attributes = typeof blockName === 'string' ? wp.blocks.getBlockType('rttpg/' + blockName)?.attributes : blockName;
+        const attributes = typeof blockName === 'string' ? wp.blocks.getBlockType('rgbcode/' + blockName)?.attributes : blockName;
         if (attributes && attributes[key] && attributes[key].hasOwnProperty('style')) {
 
             attributes[key].style.forEach((selectData, indexStyle) => {

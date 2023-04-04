@@ -95,10 +95,83 @@ class UsersBlock extends BlockBase {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-category-block-wrapper {text-align: {{category_alignment}}; }'
+						'selector' => '{{RTTPG}} .csb-users-block-wrapper {text-align: {{grid_alignment}}; }'
 					]
 				]
 			],
+
+			//User Avatar Settings
+
+
+			'count_visibility' => [
+				'type'    => 'string',
+				'default' => 'yes',
+			],
+
+			'avatar_dimension' => [
+				'type'    => 'number',
+				'default' => '300',
+			],
+
+			'avatar_width'  => [
+				'type'    => 'object',
+				"default" => (object) [
+					'lg' => '',
+					'md' => '',
+					'sm' => '',
+				],
+				'style'   => [
+					(object) [
+						'selector' => '{{RTTPG}} .csb-users-block-wrapper .user-avatar {width: {{avatar_width}}; }'
+					]
+				]
+			],
+			'avatar_height' => [
+				'type'    => 'object',
+				"default" => (object) [
+					'lg' => '',
+					'md' => '',
+					'sm' => '',
+				],
+				'style'   => [
+					(object) [
+						'selector' => '{{RTTPG}} .csb-users-block-wrapper .user-avatar {height: {{avatar_height}}; }'
+					]
+				]
+			],
+
+
+			"avatar_border_radius" => [
+				"type"    => "object",
+				"default" => [
+					'lg' => [
+						"isLinked" => true,
+						"unit"     => "px",
+						"value"    => ''
+					]
+				],
+				'style'   => [
+					(object) [
+						'selector' => '{{RTTPG}} .csb-users-block-wrapper .user-avatar{{avatar_border_radius}}'
+					]
+				]
+			],
+
+			'avatar_border' => [
+				'type'    => 'object',
+				'default' => (object) [
+					'openTpgBorder' => 1,
+					'color'         => '',
+					'style'         => '',
+					'width'         => '',
+				],
+				'style'   => [
+					(object) [
+						'selector' => '{{RTTPG}} .csb-users-block-wrapper .user-avatar'
+					]
+				]
+			],
+
 
 			'user_tag' => [
 				'type'    => 'string',

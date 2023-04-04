@@ -12,12 +12,13 @@ import Dimension from "../../../components/Dimension";
 import RangeDevice from "../../../components/RangeDevice";
 
 const {__} = wp.i18n;
-import {TPG_COLOR_PALATE} from "../../../components/Constants";
+import {HEADING, TPG_COLOR_PALATE} from "../../../components/Constants";
 
-function CountStyle(props) {
+function UserName(props) {
     const {attributes, setAttributes} = props.data;
     //All attribute
     const {
+        avatar_tag,
         count_typography,
         count_visibility,
         show_bracket,
@@ -34,12 +35,49 @@ function CountStyle(props) {
 
     return (
         <PanelBody title={__('Count Style', 'the-post-grid')} initialOpen={false}>
+
             <ToggleControl
                 label={__("Visibility", "the-post-grid")}
                 className="rttpg-toggle-control-field"
                 checked={count_visibility}
                 onChange={(count_visibility) => setAttributes({count_visibility: count_visibility ? 'show' : ''})}
             />
+            <SelectControl
+                label={__('Title Tags', 'the-post-grid')}
+                className="rttpg-control-field label-inline"
+                options={HEADING}
+                value={avatar_tag}
+                onChange={(avatar_tag) => setAttributes({avatar_tag})}
+            />
+
+            <Typography
+                label={__('Typography')}
+                value={avatar_typography}
+                onChange={(val) => setAttributes({avatar_typography: val})}
+            />
+
+            <Dimension
+                label={__("Category Spacing", "the-post-grid")}
+                type="margin" responsive
+                value={avatar_spacing}
+                onChange={(value) => {
+                    setAttributes({avatar_spacing: value})
+                }}
+            />
+
+            <Color
+                label={__('Category Color', 'the-post-grid')}
+                color={avatar_color}
+                onChange={(avatar_color) => setAttributes({avatar_color})}
+            />
+
+            <Color
+                label={__('Category Color - Hover', 'the-post-grid')}
+                color={avatar_color_hover}
+                onChange={(avatar_color_hover) => setAttributes({avatar_color_hover})}
+            />
+
+
             <ToggleControl
                 label={__("Show Bracket", "the-post-grid")}
                 className="rttpg-toggle-control-field"
@@ -174,4 +212,4 @@ function CountStyle(props) {
     );
 }
 
-export default CountStyle;
+export default UserName;

@@ -37,6 +37,10 @@ class GetUsersV1 {
 		$count_users = count( $user_lists );
 
 
+//		image_width
+//image_height
+
+		$avatar_size = [ 'size' => $data['avatar_dimension'] ?? '300' ];
 
 		if ( is_array( $user_lists ) && $count_users > 0 ) {
 
@@ -44,9 +48,9 @@ class GetUsersV1 {
 				$user_info = get_user_by( 'id', $user );
 
 				$send_data['users'][] = [
-					'id'    => esc_html( $user_info->ID ),
-					'name'  => esc_html( $user_info->display_name ),
-					'image' => 'image',
+					'id'        => esc_html( $user_info->ID ),
+					'name'      => esc_html( $user_info->display_name ),
+					'avatar'    => esc_url( get_avatar_url( $user_info->ID, $avatar_size ) ),
 					'biography' => get_user_meta( $user_info->ID, 'description', true ),
 				];
 

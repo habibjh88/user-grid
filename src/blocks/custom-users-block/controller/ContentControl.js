@@ -1,6 +1,8 @@
+import Range from "../../../components/Range";
 
+const {Spinner} = wp.components;
 import TPGColumn from "../../../components/TPGColumn";
-import {__experimentalHeading as Heading} from '@wordpress/components';
+import {__experimentalHeading as Heading, __experimentalNumberControl as NumberControl} from '@wordpress/components';
 import {SelectControl, PanelBody} from "@wordpress/components";
 import Select from 'react-select';
 import Dimension from "../../../components/Dimension";
@@ -12,7 +14,7 @@ import {
     GRID_LAYOUT_OPT,
     LIST_LAYOUT_OPT,
     GRID_HOVER_LAYOUT_OPT,
-    SLIDER_LAYOUT_OPT, PRINT_USERS
+    SLIDER_LAYOUT_OPT, FORMATE_USERS
 } from "../../../components/Constants";
 import * as PropTypes from "prop-types";
 
@@ -30,10 +32,6 @@ function ContentControl(props) {
     } = attributes;
 
     const imageSizes = [...props.imageSizes];
-
-    const allTermList = rttpgParams.all_term_list;
-
-    console.log(PRINT_USERS(userData))
 
     return (
         <PanelBody title={__('Category Block', 'the-post-grid')} initialOpen={true}>
@@ -54,10 +52,11 @@ function ContentControl(props) {
                     className="components-base-control__label components-input-control__label"
                     htmlFor="react-select-2-input">
                     {__('Choose Category', 'the-post-grid')}
+                    {!userData.users && <Spinner/>}
                 </label>
 
                 <Select
-                    options={PRINT_USERS(userData)}
+                    options={FORMATE_USERS(userData.users)}
                     value={users_lists}
                     onChange={(value) => {
                         setAttributes({users_lists: value})
@@ -70,17 +69,6 @@ function ContentControl(props) {
 
             </div>
 
-           {/*
-           <Dimension
-                label={__("Grid Gap", "the-post-grid")}
-                type="padding"
-                responsive
-                value={grid_gap}
-                onChange={(value) => {
-                    setAttributes({grid_gap: value})
-                }}
-            />
-            */}
 
             <RangeDevice
                 label={__('Grid Gap')}
@@ -89,8 +77,13 @@ function ContentControl(props) {
                 min={0}
                 max={100}
                 step={1}
-                onChange={(val) => setAttributes({grid_gap: val})}
+                onChange={(val) => {
+                    setAttributes({grid_gap: val})
+                }}
             />
+
+
+
 
             <SelectControl
                 label={__("Image Size", "the-post-grid")}
@@ -102,6 +95,9 @@ function ContentControl(props) {
                     changeQuery()
                 }}
             />
+
+
+
 
             <Alignment
                 label={__("Alignment", "the-post-grid")}

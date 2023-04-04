@@ -15,6 +15,7 @@ const Edit = (props) => {
         uniqueId,
         users_lists,
         image_size,
+        avatar_dimension,
     } = attributes;
 
     //set block preview
@@ -29,6 +30,7 @@ const Edit = (props) => {
     const [imageSizes, setImageSizes] = useState([]);
     const controller = typeof AbortController === 'undefined' ? undefined : new AbortController();
 
+    console.log(imageSizes)
     const handleQueryChange = () => {
         setQueryEffect(!queryEffect);
     }
@@ -54,9 +56,10 @@ const Edit = (props) => {
             signal: controller?.signal,
             method: 'POST',
             data: {
-                users:'all',
+                users: 'all',
                 users_lists,
                 image_size,
+                avatar_dimension,
             }
         }).then((data) => {
             setAttributes({query_change: false})
@@ -73,7 +76,7 @@ const Edit = (props) => {
             signal: controller?.signal,
             method: 'POST',
             data: {
-                users:'ids',
+                users: 'ids',
             }
         }).then((data) => {
             setAttributes({query_change: false})
@@ -85,8 +88,11 @@ const Edit = (props) => {
     //== == == == == == == ==
     useEffect(() => {
         fetch_all_users();
-        fetch_users_data();
     }, [queryEffect]);
+
+    useEffect(() => {
+        fetch_users_data();
+    }, []);
 
 
     useEffect(() => {
@@ -119,10 +125,8 @@ const Edit = (props) => {
     }, [isSelected]);
 
     if (uniqueId) {
-        CssGenerator(attributes, 'tpg-category-block', uniqueId);
+        CssGenerator(attributes, 'custom-users-block', uniqueId);
     }
-
-    console.log(userData)
 
     //render
     return [
@@ -136,7 +140,7 @@ const Edit = (props) => {
             />
         ),
 
-        <CustomUsersBlock props={props} catData={users} changeQuery={handleQueryChange}/>
+        <CustomUsersBlock props={props} userData={users} changeQuery={handleQueryChange}/>
 
     ]
 }
