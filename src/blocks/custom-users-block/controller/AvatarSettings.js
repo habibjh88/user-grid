@@ -40,7 +40,7 @@ function AvatarSettings(props) {
             <Heading className="rttpg-control-heading">{__("Style:", "the-post-grid")}</Heading>
 
             <Range
-                label={__("Avatar Dimension")}
+                label={__("Image Dimension")}
                 value={avatar_dimension}
                 onChange={(val) => {
                     setAttributes({avatar_dimension: val})
@@ -52,7 +52,7 @@ function AvatarSettings(props) {
             />
 
             <RangeDevice
-                label={__('Avatar Width')}
+                label={__('Img Wrap Width')}
                 responsive={true}
                 value={avatar_width}
                 min={0}
@@ -62,7 +62,7 @@ function AvatarSettings(props) {
             />
 
             <RangeDevice
-                label={__('Avatar Height')}
+                label={__('Img Wrap Height')}
                 responsive={true}
                 value={avatar_height}
                 min={0}

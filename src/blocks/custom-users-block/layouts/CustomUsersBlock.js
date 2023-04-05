@@ -7,6 +7,7 @@ function CustomUsersBlock({props, userData, changeQuery}) {
         uniqueId,
         grid_column,
         user_tag,
+        avatar_visibility,
     } = attributes;
 
     const newClintID = clientId.substr(0, 6);
@@ -22,7 +23,7 @@ function CustomUsersBlock({props, userData, changeQuery}) {
 
 
     //Slider Column settings
-    let default_grid_column_desktop = '24';
+    let default_grid_column_desktop = '3';
     let default_grid_column_tab = '4';
     let default_grid_column_mobile = '6';
 
@@ -30,26 +31,25 @@ function CustomUsersBlock({props, userData, changeQuery}) {
     let grid_column_tab = grid_column?.md ? grid_column.md : default_grid_column_tab;
     let grid_column_mobile = grid_column?.sm ? grid_column.sm : default_grid_column_mobile;
 
-    const cat_column = `rt-col-md-${grid_column_desktop} rt-col-sm-${grid_column_tab} rt-col-xs-${grid_column_mobile}`;
+    const cat_column = `cub-col-md-${grid_column_desktop} cub-col-sm-${grid_column_tab} cub-col-xs-${grid_column_mobile}`;
 
     // const CategoryTag = `${cat_tag}`;
     const HeadingTag = `${user_tag}`;
 
-    console.log(users)
     return (
 
 
         <div className={`rttpg-block-postgrid rttpg-block-wrapper rttpg-block-${uniqueId}`}>
 
             {users && users.length ?
-                <div className="csb-users-block-wrapper clearfix">
-                    <div className="rt-row">
+                <div className="cub-users-block-wrapper clearfix">
+                    <div className="cub-row">
 
                         {
                             users.map(user => {
                                 return (
-                                    <div key={user.id} className={`cat-item-col ${cat_column}`}>
-                                        {user.avatar &&
+                                    <div key={user.id} className={`user-item-col ${cat_column}`}>
+                                        {user.avatar && avatar_visibility &&
                                             <div className="user-avatar">
                                                 <a className="user-link">
                                                     <img src={user.avatar}

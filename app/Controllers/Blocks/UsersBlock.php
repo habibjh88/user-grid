@@ -95,7 +95,7 @@ class UsersBlock extends BlockBase {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .csb-users-block-wrapper {text-align: {{grid_alignment}}; }'
+						'selector' => '{{RTTPG}} .cub-users-block-wrapper {text-align: {{grid_alignment}}; }'
 					]
 				]
 			],
@@ -103,7 +103,7 @@ class UsersBlock extends BlockBase {
 			//User Avatar Settings
 
 
-			'count_visibility' => [
+			'avatar_visibility' => [
 				'type'    => 'string',
 				'default' => 'yes',
 			],
@@ -122,7 +122,7 @@ class UsersBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .csb-users-block-wrapper .user-avatar {width: {{avatar_width}}; }'
+						'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-avatar {width: {{avatar_width}}; }'
 					]
 				]
 			],
@@ -135,7 +135,7 @@ class UsersBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .csb-users-block-wrapper .user-avatar {height: {{avatar_height}}; }'
+						'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-avatar {height: {{avatar_height}}; }'
 					]
 				]
 			],
@@ -152,7 +152,7 @@ class UsersBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .csb-users-block-wrapper .user-avatar{{avatar_border_radius}}'
+						'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-avatar{{avatar_border_radius}}'
 					]
 				]
 			],
@@ -167,7 +167,7 @@ class UsersBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .csb-users-block-wrapper .user-avatar'
+						'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-avatar'
 					]
 				]
 			],
