@@ -17,10 +17,15 @@
     }
 
     .user-name {
+        margin-top: 15px;
         margin-bottom: 15px;
+        font-size: 24px;
     }
-    .user-name a{
+    .user-name a {
+        transition: 0.4s;
         color: #212121;
-
+        &:hover {
+            color: #000000;
+        }
     }
 }

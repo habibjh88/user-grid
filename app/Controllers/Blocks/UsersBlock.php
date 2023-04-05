@@ -100,14 +100,22 @@ class UsersBlock extends BlockBase {
 				]
 			],
 
-			//User Avatar Settings
-
-
 			'avatar_visibility' => [
 				'type'    => 'string',
 				'default' => 'yes',
 			],
 
+			'name_visibility' => [
+				'type'    => 'string',
+				'default' => 'show',
+			],
+
+			'bio_visibility'   => [
+				'type'    => 'string',
+				'default' => 'show',
+			],
+
+			//User Avatar Settings
 			'avatar_dimension' => [
 				'type'    => 'number',
 				'default' => '300',
@@ -172,11 +180,110 @@ class UsersBlock extends BlockBase {
 				]
 			],
 
-
-			'user_tag' => [
+			//User Name Settings
+			'name_tag'      => [
 				'type'    => 'string',
 				'default' => 'h3',
 			],
+
+			'name_typography' => [
+				'type'    => 'object',
+				'default' => (object) [
+					'openTypography' => 1,
+					'size'           => (object) [ 'lg' => '', 'unit' => 'px' ],
+					'spacing'        => (object) [ 'lg' => '', 'unit' => 'px' ],
+					'height'         => (object) [ 'lg' => '', 'unit' => 'px' ],
+					'transform'      => '',
+					'weight'         => ''
+				],
+				'style'   => [
+					(object) [ 'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-name' ]
+				],
+			],
+
+			"name_spacing" => [
+				"type"    => "object",
+				"default" => [
+					'lg' => [
+						"isLinked" => false,
+						"unit"     => "px",
+						"value"    => ''
+					]
+				],
+				'style'   => [
+					(object) [
+						'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-name {{name_spacing}}'
+					]
+				]
+			],
+
+			'name_color' => [
+				'type'    => 'string',
+				'default' => '',
+				'style'   => [
+					(object) [
+						'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-name a {color: {{name_color}}; }'
+					]
+				]
+			],
+
+			'name_color_hover' => [
+				'type'    => 'string',
+				'default' => '',
+				'style'   => [
+					(object) [
+						'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-name a:hover {color: {{name_color_hover}}; }'
+					]
+				]
+			],
+
+			//Bio Settings
+			'bio_visible_for'  => [
+				'type'    => 'string',
+				'default' => 'loggedin',
+			],
+
+			'bio_typography' => [
+				'type'    => 'object',
+				'default' => (object) [
+					'openTypography' => 1,
+					'size'           => (object) [ 'lg' => '', 'unit' => 'px' ],
+					'spacing'        => (object) [ 'lg' => '', 'unit' => 'px' ],
+					'height'         => (object) [ 'lg' => '', 'unit' => 'px' ],
+					'transform'      => '',
+					'weight'         => ''
+				],
+				'style'   => [
+					(object) [ 'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-biography' ]
+				],
+			],
+
+			"bio_spacing" => [
+				"type"    => "object",
+				"default" => [
+					'lg' => [
+						"isLinked" => false,
+						"unit"     => "px",
+						"value"    => ''
+					]
+				],
+				'style'   => [
+					(object) [
+						'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-biography {{bio_spacing}}'
+					]
+				]
+			],
+
+			'bio_color' => [
+				'type'    => 'string',
+				'default' => '',
+				'style'   => [
+					(object) [
+						'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-biography {color: {{bio_color}}; }'
+					]
+				]
+			],
+
 
 		];
 
@@ -197,9 +304,11 @@ class UsersBlock extends BlockBase {
 	public function render_block( $data ) {
 		$this->get_script_depends( $data );
 //		$data       = $this->get_settings();
-		$image_size = ! empty( $data['image_size'] ) ? $data['image_size'] : 'thumbnail';
-		$users      = wp_list_pluck( $data['users_lists'], 'value' );
+		//$image_size = ! empty( $data['image_size'] ) ? $data['image_size'] : 'thumbnail';
 
+        var_dump($data['name_color']);
+
+		$users = wp_list_pluck( $data['users_lists'], 'value' );
 
 		$default_grid_column_desktop = '24';
 		$default_grid_column_tab     = '4';
@@ -209,40 +318,43 @@ class UsersBlock extends BlockBase {
 		$grid_column_tab     = ( isset( $data['grid_column']['md'] ) && 0 != $data['grid_column']['md'] ) ? $data['grid_column']['md'] : $default_grid_column_tab;
 		$grid_column_mobile  = ( isset( $data['grid_column']['sm'] ) && 0 != $data['grid_column']['sm'] ) ? $data['grid_column']['sm'] : $default_grid_column_mobile;
 
-		$col_class   = "rt-col-md-{$grid_column_desktop} rt-col-sm-{$grid_column_tab} rt-col-xs-{$grid_column_mobile}";
+		$col_class   = "cub-col-md-{$grid_column_desktop} cub-col-sm-{$grid_column_tab} cub-col-xs-{$grid_column_mobile}";
 		$uniqueId    = isset( $data['uniqueId'] ) ? $data['uniqueId'] : null;
 		$uniqueClass = 'rttpg-block-postgrid rttpg-block-wrapper rttpg-block-' . $uniqueId;
 		ob_start();
 		?>
         <div class="<?php echo esc_attr( $uniqueClass ) ?>">
-            <div class="tpg-user-block-wrapper clearfix">
-				<?php if ( is_array( $users ) ) { ?>
-                <div class="rt-row">
+            <div class="cub-users-block-wrapper clearfix">
+				<?php if ( is_array( $users ) && ! empty( $users ) ) { ?>
+                <div class="cub-row">
 					<?php
 					foreach ( $users
 
 					as $user ) :
-					$user_info = get_term( $user );
+					$user_info = get_user_by( 'id', $user );
+					$avatar_size = [ 'size' => $data['avatar_dimension'] ?? '300' ];
+					$avater_image_url = get_avatar_url( $user_info->ID, $avatar_size );
+                    $user_bio = get_user_meta( $user_info->ID, 'description', true );
 
 					?>
-                    <div class="cat-item-col <?php echo esc_attr( $col_class ) ?>">
+                    <div class="user-item-col <?php echo esc_attr( $col_class ) ?>">
 
-                        <div class="cat-thumb">
-                            <a class="cat-link"
-                               href="<?php echo esc_url( get_term_link( $user_info ) ) ?>">
-								<?php //echo wp_get_attachment_image( $user_thumb, $image_size, null, [ 'class' => 'user-image' ] )
-								?>
+                        <div class="user-thumb">
+                            <a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_info->ID ) ) ?>">
+                                <img width="<?php echo esc_attr($avatar_size['size'])?>px" height="<?php echo esc_attr($avatar_size['size'])?>px" src="<?php echo esc_url($avater_image_url) ?>" alt="<?php echo esc_html( $user_info->display_name ) ?>">
                             </a>
                         </div>
-                        <<?php echo esc_attr( $data['user_tag'] ) ?> class="user-name">
-                        <a href="<?php echo esc_url( get_term_link( $user_info ) ) ?>"><?php echo esc_html( $user_info->name ) ?></a>
-                    </<?php echo esc_attr( $data['user_tag'] ) ?>>
+                        <<?php echo esc_attr( $data['name_tag'] ) ?> class="user-name">
+                        <a href="<?php echo esc_url( get_author_posts_url( $user_info->ID ) ) ?>"><?php echo esc_html( $user_info->display_name ) ?></a>
+                    </<?php echo esc_attr( $data['name_tag'] ) ?>>
+
+                    <p class="user-biography"><?php echo esc_html( $user_bio ) ?></p>
                 </div>
 			<?php endforeach; ?>
             </div>
 			<?php } else {
 				?>
-                <p style="padding: 30px;background: #d1ecf1;"><?php echo esc_html__( "Please choose few users from the Users lists.", 'the-post-grid-pro' ); ?></p>
+                <p style="padding: 30px;background: #d1ecf1;"><?php echo esc_html__( "Please choose few users from the Users lists.", 'the-post-grid' ); ?></p>
 				<?php
 			} ?>
         </div>

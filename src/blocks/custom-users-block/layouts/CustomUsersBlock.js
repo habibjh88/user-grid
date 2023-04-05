@@ -1,13 +1,15 @@
 const {Spinner} = wp.components;
 const {useEffect} = wp.element;
 
-function CustomUsersBlock({props, userData, changeQuery}) {
+function CustomUsersBlock({props, userData}) {
     const {attributes, setAttributes, clientId} = props;
     const {
         uniqueId,
         grid_column,
-        user_tag,
+        name_tag,
         avatar_visibility,
+        name_visibility,
+        bio_visibility
     } = attributes;
 
     const newClintID = clientId.substr(0, 6);
@@ -34,7 +36,7 @@ function CustomUsersBlock({props, userData, changeQuery}) {
     const cat_column = `cub-col-md-${grid_column_desktop} cub-col-sm-${grid_column_tab} cub-col-xs-${grid_column_mobile}`;
 
     // const CategoryTag = `${cat_tag}`;
-    const HeadingTag = `${user_tag}`;
+    const HeadingTag = `${name_tag}`;
 
     return (
 
@@ -60,10 +62,12 @@ function CustomUsersBlock({props, userData, changeQuery}) {
                                                 </a>
                                             </div>
                                         }
-                                        <HeadingTag className="user-name">
-                                            <a>{user.name}</a>
-                                        </HeadingTag>
-                                        <p className={`user-biography`}>{user.biography}</p>
+                                        {name_visibility &&
+                                            <HeadingTag className="user-name">
+                                                <a>{user.name}</a>
+                                            </HeadingTag>
+                                        }
+                                        {bio_visibility && <p className="user-biography">{user.biography}</p>}
                                     </div>
                                 )
                             })

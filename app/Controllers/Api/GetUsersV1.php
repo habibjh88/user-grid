@@ -28,17 +28,11 @@ class GetUsersV1 {
 		];
 		$user_lists = wp_list_pluck( get_users( $args ), 'ID' );;
 
-
 		if ( $data['users'] === 'all' && ! empty( $data['users_lists'] ) ) {
 			$user_lists = wp_list_pluck( $data['users_lists'], 'value' );
 		}
 
-
 		$count_users = count( $user_lists );
-
-
-//		image_width
-//image_height
 
 		$avatar_size = [ 'size' => $data['avatar_dimension'] ?? '300' ];
 

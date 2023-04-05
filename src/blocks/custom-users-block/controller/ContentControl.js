@@ -2,7 +2,11 @@ import Range from "../../../components/Range";
 
 const {Spinner} = wp.components;
 import TPGColumn from "../../../components/TPGColumn";
-import {__experimentalHeading as Heading, __experimentalNumberControl as NumberControl} from '@wordpress/components';
+import {
+    __experimentalHeading as Heading,
+    __experimentalNumberControl as NumberControl,
+    ToggleControl
+} from '@wordpress/components';
 import {SelectControl, PanelBody} from "@wordpress/components";
 import Select from 'react-select';
 import Dimension from "../../../components/Dimension";
@@ -14,7 +18,7 @@ import {
     GRID_LAYOUT_OPT,
     LIST_LAYOUT_OPT,
     GRID_HOVER_LAYOUT_OPT,
-    SLIDER_LAYOUT_OPT, FORMATE_USERS
+    SLIDER_LAYOUT_OPT, FORMATE_USERS, HEADING
 } from "../../../components/Constants";
 import * as PropTypes from "prop-types";
 
@@ -27,14 +31,16 @@ function ContentControl(props) {
         grid_column,
         users_lists,
         grid_gap,
-        image_size,
-        grid_alignment
+        grid_alignment,
+        avatar_visibility,
+        name_visibility,
+        bio_visibility
     } = attributes;
 
     const imageSizes = [...props.imageSizes];
 
     return (
-        <PanelBody title={__('Category Block', 'the-post-grid')} initialOpen={true}>
+        <PanelBody title={__('Custom Users Block', 'the-post-grid')} initialOpen={true}>
 
             <TPGColumn
                 label={__("Grid Column", "the-post-grid")}
@@ -82,29 +88,36 @@ function ContentControl(props) {
                 }}
             />
 
-
-
-
-            <SelectControl
-                label={__("Image Size", "the-post-grid")}
-                className="rttpg-control-field"
-                options={imageSizes}
-                value={image_size}
-                onChange={(image_size) => {
-                    setAttributes({image_size})
-                    changeQuery()
-                }}
-            />
-
-
-
-
             <Alignment
                 label={__("Alignment", "the-post-grid")}
                 options={['left', 'center', 'right']}
                 value={grid_alignment}
                 // responsive={ true }
                 onChange={grid_alignment => setAttributes({grid_alignment})}
+            />
+
+
+            <Heading className="rttpg-control-heading">{__("Field Visibility", "the-post-grid")}</Heading>
+
+            <ToggleControl
+                label={__("Show Avatar", "the-post-grid")}
+                className="rttpg-toggle-control-field"
+                checked={avatar_visibility}
+                onChange={(avatar_visibility) => setAttributes({avatar_visibility: avatar_visibility ? 'show' : ''})}
+            />
+
+            <ToggleControl
+                label={__("Show Name", "the-post-grid")}
+                className="rttpg-toggle-control-field"
+                checked={name_visibility}
+                onChange={(name_visibility) => setAttributes({name_visibility: name_visibility ? 'show' : ''})}
+            />
+
+            <ToggleControl
+                label={__("Show Biography", "the-post-grid")}
+                className="rttpg-toggle-control-field"
+                checked={bio_visibility}
+                onChange={(bio_visibility) => setAttributes({bio_visibility: bio_visibility ? 'show' : ''})}
             />
 
 

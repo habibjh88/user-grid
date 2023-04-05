@@ -18,7 +18,6 @@ function AvatarSettings(props) {
     const {attributes, setAttributes, changeQuery} = props.data;
     //All attribute
     const {
-        avatar_visibility,
         avatar_dimension,
         avatar_width,
         avatar_height,
@@ -27,18 +26,7 @@ function AvatarSettings(props) {
     } = attributes;
 
     return (
-        <PanelBody title={__('Category Style', 'the-post-grid')} initialOpen={true}>
-            {/*<Heading className="rttpg-control-heading">{__("Settings:", "the-post-grid")}</Heading>*/}
-
-            <ToggleControl
-                label={__("Visibility", "the-post-grid")}
-                className="rttpg-toggle-control-field"
-                checked={avatar_visibility}
-                onChange={(avatar_visibility) => setAttributes({avatar_visibility: avatar_visibility ? 'show' : ''})}
-            />
-
-            <Heading className="rttpg-control-heading">{__("Style:", "the-post-grid")}</Heading>
-
+        <PanelBody title={__('Avatar', 'the-post-grid')} initialOpen={true}>
             <Range
                 label={__("Image Dimension")}
                 value={avatar_dimension}
@@ -91,8 +79,6 @@ function AvatarSettings(props) {
                 }}
                 withSlider
             />
-
-
 
         </PanelBody>
     );
