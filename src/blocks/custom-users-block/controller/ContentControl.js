@@ -1,5 +1,3 @@
-import Range from "../../../components/Range";
-
 const {Spinner} = wp.components;
 import TPGColumn from "../../../components/TPGColumn";
 import {
@@ -36,8 +34,6 @@ function ContentControl(props) {
         name_visibility,
         bio_visibility
     } = attributes;
-
-    const imageSizes = [...props.imageSizes];
 
     return (
         <PanelBody title={__('Custom Users Block', 'the-post-grid')} initialOpen={true}>

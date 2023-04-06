@@ -6,7 +6,7 @@ import UserName from "./controller/UserName";
 import UserBio from "./controller/UserBio";
 
 function Inspector(props) {
-    const {attributes, changeQuery, imageSizes, userData} = props;
+    const {attributes, changeQuery, userData} = props;
 
     //All attribute
     const {
@@ -36,7 +36,7 @@ function Inspector(props) {
                         {/* Content Tab*/}
                         {tab.name === "content" && (
                             <>
-                                <ContentControl data={props} changeQuery={changeQuery} imageSizes={imageSizes} userData={userData}/>
+                                <ContentControl data={props} changeQuery={changeQuery} userData={userData}/>
                             </>
                         )}
 

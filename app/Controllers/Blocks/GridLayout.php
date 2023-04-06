@@ -16,7 +16,7 @@ class GridLayout extends BlockBase {
 	public function __construct() {
 		add_action( 'init', [ $this, 'register_blocks' ] );
 		$this->prefix         = 'grid';
-		$this->block_type     = 'rgbcode/tpg-' . $this->prefix . '-layout';
+		$this->block_type     = 'rttpg/tpg-' . $this->prefix . '-layout';
 		$this->attribute_args = [
 			'prefix'         => $this->prefix,
 			'default_layout' => 'grid-layout1'

@@ -59,7 +59,7 @@ class BlocksController {
 		return array_merge(
 			[
 				[
-					'slug'  => 'rgbcode',
+					'slug'  => 'rttpg',
 					'title' => __( 'RGB Code', 'the-post-grid' ),
 				],
 			],
@@ -293,7 +293,6 @@ class BlocksController {
 				wp_send_json_success( [ 'message' => __( 'Widget CSS Saved', 'the-post-grid' ) ] );
 			}
 
-			$post_id        = absint( $post_id );
 			$filename       = "rttpg-block-css-{$post_id}.css";
 			$upload_dir_url = wp_upload_dir();
 			$dir            = trailingslashit( $upload_dir_url['basedir'] ) . 'rttpg/';

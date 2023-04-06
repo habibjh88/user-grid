@@ -27,25 +27,12 @@ const Edit = (props) => {
     const [users, setUsers] = useState([]);
     const [signalController, setSignalController] = useState();
     const [queryEffect, setQueryEffect] = useState(false);
-    const [imageSizes, setImageSizes] = useState([]);
     const controller = typeof AbortController === 'undefined' ? undefined : new AbortController();
 
-    console.log(imageSizes)
     const handleQueryChange = () => {
         setQueryEffect(!queryEffect);
     }
 
-    const fetch_all_image_size = () => {
-        signalController?.abort();
-        setSignalController(controller);
-        apiFetch({path: "/rttpg/v1/image-size", signal: controller?.signal})
-            .then((imageSizes) => {
-                let newImageSize = imageSizes.filter(item => {
-                    return item.value !== 'custom';
-                })
-                setImageSizes(newImageSize)
-            })
-    }
 
     const fetch_all_users = () => {
         signalController?.abort();
@@ -96,10 +83,6 @@ const Edit = (props) => {
 
 
     useEffect(() => {
-        fetch_all_image_size();
-    }, []);
-
-    useEffect(() => {
         const sidebarEl = document.querySelector('.interface-interface-skeleton__sidebar');
         sidebarEl.classList.add('tpg-sidebar')
         sidebarEl.classList.remove('tpg-settings-enable')
@@ -135,7 +118,6 @@ const Edit = (props) => {
                 attributes={attributes}
                 setAttributes={setAttributes}
                 changeQuery={handleQueryChange}
-                imageSizes={imageSizes}
                 userData={userData}
             />
         ),

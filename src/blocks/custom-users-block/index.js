@@ -2,9 +2,9 @@ import {registerBlockType} from "@wordpress/blocks";
 import {__} from "@wordpress/i18n";
 import Edit from "./edit";
 
-registerBlockType("rgbcode/custom-users-block", {
+registerBlockType("rttpg/custom-users-block", {
     title: __("Custom Users Block", "the-post-grid"),
-    category: "rgbcode",
+    category: "rttpg",
     description: "Custom Users Block",
     icon: <img src={rttpgParams.plugin_url + "/assets/images/gutenberg/category-block.svg"} alt={__("Custom Users Block")} />,
     example: {

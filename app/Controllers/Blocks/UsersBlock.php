@@ -7,17 +7,12 @@ use GT\GtUsers\Helpers\Fns;
 class UsersBlock extends BlockBase {
 
 	private $prefix;
-	private $attribute_args;
 	private $block_type;
 
 	public function __construct() {
 		add_action( 'init', [ $this, 'register_blocks' ] );
 		$this->prefix         = 'category';
-		$this->block_type     = 'rgbcode/custom-users-block';
-		$this->attribute_args = [
-			'prefix'         => $this->prefix,
-			'default_layout' => 'slider-layout1'
-		];
+		$this->block_type     = 'rttpg/custom-users-block';
 	}
 
 
@@ -160,7 +155,7 @@ class UsersBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-avatar{{avatar_border_radius}}'
+						'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-avatar a{{avatar_border_radius}}'
 					]
 				]
 			],
@@ -306,7 +301,6 @@ class UsersBlock extends BlockBase {
 //		$data       = $this->get_settings();
 		//$image_size = ! empty( $data['image_size'] ) ? $data['image_size'] : 'thumbnail';
 
-        var_dump($data['name_color']);
 
 		$users = wp_list_pluck( $data['users_lists'], 'value' );
 
@@ -339,7 +333,7 @@ class UsersBlock extends BlockBase {
 					?>
                     <div class="user-item-col <?php echo esc_attr( $col_class ) ?>">
 
-                        <div class="user-thumb">
+                        <div class="user-avatar">
                             <a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_info->ID ) ) ?>">
                                 <img width="<?php echo esc_attr($avatar_size['size'])?>px" height="<?php echo esc_attr($avatar_size['size'])?>px" src="<?php echo esc_url($avater_image_url) ?>" alt="<?php echo esc_html( $user_info->display_name ) ?>">
                             </a>
