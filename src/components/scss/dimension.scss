@@ -3,7 +3,6 @@
 	.rttpg-control-dimensions {
 		overflow: hidden;
 		display: flex;
-
 		.rttpg-control-dimension {
 			&:first-child input {
 				border-left: 1px solid var(--rttpg-admin-color-border);

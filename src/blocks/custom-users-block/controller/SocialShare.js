@@ -11,60 +11,54 @@ import Typography from "../../../components/Typography";
 import Dimension from "../../../components/Dimension";
 import RangeDevice from "../../../components/RangeDevice";
 
-const {__} = wp.i18n;
-import {HEADING} from "../../../components/Constants";
+const {__} = wp.i18n
 
-function UserName(props) {
+function SocialShare(props) {
     const {attributes, setAttributes} = props.data;
     //All attribute
     const {
-        name_tag,
-        name_typography,
-        name_spacing,
-        name_color,
-        name_color_hover
+        icon_font_size,
+        social_spacing,
+        social_color,
+        social_color_hover,
     } = attributes;
 
     return (
         <PanelBody title={__('User Name', 'the-post-grid')} initialOpen={false}>
 
-            <SelectControl
-                label={__('Name Tags', 'the-post-grid')}
-                className="rttpg-control-field label-inline"
-                options={HEADING}
-                value={name_tag}
-                onChange={(name_tag) => setAttributes({name_tag})}
-            />
-
-            <Typography
-                label={__('Typography')}
-                value={name_typography}
-                onChange={(val) => setAttributes({name_typography: val})}
+            <RangeDevice
+                label={__('Icon Size')}
+                responsive={true}
+                value={icon_font_size}
+                min={0}
+                max={100}
+                step={1}
+                onChange={(val) => setAttributes({icon_font_size: val})}
             />
 
             <Dimension
                 label={__("Spacing", "the-post-grid")}
                 type="margin" responsive
-                value={name_spacing}
+                value={social_spacing}
                 onChange={(value) => {
-                    setAttributes({name_spacing: value})
+                    setAttributes({social_spacing: value})
                 }}
             />
 
             <Color
                 label={__('Color', 'the-post-grid')}
-                color={name_color}
-                onChange={(name_color) => setAttributes({name_color})}
+                color={social_color}
+                onChange={(social_color) => setAttributes({social_color})}
             />
 
             <Color
                 label={__('Color - Hover', 'the-post-grid')}
-                color={name_color_hover}
-                onChange={(name_color_hover) => setAttributes({name_color_hover})}
+                color={social_color_hover}
+                onChange={(social_color_hover) => setAttributes({social_color_hover})}
             />
 
         </PanelBody>
     );
 }
 
-export default UserName;
+export default SocialShare;

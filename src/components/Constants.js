@@ -318,6 +318,17 @@ export const TITLE_VISIBILITY_STYLE = [
     {value: 'custom', label: __('Custom', 'the-post-grid')}
 ];
 
+export const USER_ORDER_BY = [
+    {value: '', label: __('-Select-', 'the-post-grid')},
+    {value: 'ID', label: __('ID', 'the-post-grid')},
+    {value: 'display_name', label: __('display_name', 'the-post-grid')},
+    {value: 'include', label: __('include', 'the-post-grid')},
+    {value: 'user_login', label: __('user_login', 'the-post-grid')},
+    {value: 'user_nicename', label: __('user_nicename', 'the-post-grid')},
+    {value: 'user_email', label: __('user_email', 'the-post-grid')},
+    {value: 'post_count', label: __('post_count', 'the-post-grid')},
+];
+
 const titlePosition = [
     {value: 'default', label: __('Default', 'the-post-grid')}
 ];

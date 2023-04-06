@@ -1,4 +1,8 @@
 .cub-users-block-wrapper {
+    .user-item-col a {
+        text-decoration: none;
+    }
+
     .user-avatar {
         max-width: 100%;
     }
@@ -27,7 +31,26 @@
             color: #000000;
         }
     }
+
+    .social-icons {
+        a {
+            color: inherit !important;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        a i {
+            width: inherit !important;
+            height: inherit !important;
+            color: #555;
+            font-size: 16px;
+            display: block;
+        }
+        a:hover i {
+            color: #000;
+        }
+    }
 }
+
 .no-image-link .user-avatar a {
     pointer-events: none;
 }

@@ -1,3 +1,5 @@
+import SocialShare from "./controller/SocialShare";
+
 const {InspectorControls} = wp.blockEditor;
 import {TabPanel} from "@wordpress/components";
 import ContentControl from "./controller/ContentControl";
@@ -44,9 +46,9 @@ function Inspector(props) {
                         {tab.name === "styles" && (
                             <>
                                 {avatar_visibility && <AvatarSettings data={props} changeQuery={changeQuery}/>}
-                                {name_visibility && <UserName data={props} changeQuery={changeQuery}/>}
-                                <UserBio data={props} changeQuery={changeQuery}/>
-                                {/*<CardStyle data={props} changeQuery={changeQuery}/>*/}
+                                {name_visibility && <UserName data={props}/>}
+                                <UserBio data={props}/>
+                                <SocialShare data={props}/>
                             </>
                         )}
                     </div>

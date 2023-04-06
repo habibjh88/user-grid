@@ -16,6 +16,10 @@ const Edit = (props) => {
         users_lists,
         image_size,
         avatar_dimension,
+        user_limit,
+        user_filter_by_domain,
+        orderby,
+        order
     } = attributes;
 
     //set block preview
@@ -23,8 +27,8 @@ const Edit = (props) => {
         return icons.slider_preview;
     }
 
-    const [userData, setUserData] = useState([]);
     const [users, setUsers] = useState([]);
+    const [userData, setUserData] = useState([]);
     const [signalController, setSignalController] = useState();
     const [queryEffect, setQueryEffect] = useState(false);
     const controller = typeof AbortController === 'undefined' ? undefined : new AbortController();
@@ -33,8 +37,7 @@ const Edit = (props) => {
         setQueryEffect(!queryEffect);
     }
 
-
-    const fetch_all_users = () => {
+    const fetch_all_users_frontend = () => {
         signalController?.abort();
         setSignalController(controller);
         setUsers({})
@@ -43,10 +46,13 @@ const Edit = (props) => {
             signal: controller?.signal,
             method: 'POST',
             data: {
-                users: 'all',
                 users_lists,
+                user_limit,
                 image_size,
                 avatar_dimension,
+                user_filter_by_domain,
+                orderby,
+                order
             }
         }).then((data) => {
             setAttributes({query_change: false})
@@ -54,17 +60,14 @@ const Edit = (props) => {
         });
     }
 
-    const fetch_users_data = () => {
+    const fetch_users_data_inspector = () => {
         signalController?.abort();
         setSignalController(controller);
         setUsers({})
         apiFetch({
-            path: '/rgbcode/v1/users',
+            path: '/rgbcode/v1/users-select',
             signal: controller?.signal,
             method: 'POST',
-            data: {
-                users: 'ids',
-            }
         }).then((data) => {
             setAttributes({query_change: false})
             setUserData(data)
@@ -74,11 +77,11 @@ const Edit = (props) => {
     // Fetch All Posts
     //== == == == == == == ==
     useEffect(() => {
-        fetch_all_users();
+        fetch_all_users_frontend();
     }, [queryEffect]);
 
     useEffect(() => {
-        fetch_users_data();
+        fetch_users_data_inspector();
     }, []);
 
 

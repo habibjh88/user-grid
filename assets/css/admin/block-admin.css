@@ -56,6 +56,12 @@ input.disabled, input:disabled, textarea.disabled, textarea:disabled {
     margin-bottom: 0;
 }
 
+.rttpg-panel-control-wrapper .components-base-control__field > div {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .rttpg-components-popover .components-base-control,
 .rttpg-components-popover .rttpg-control-field,
 .rttpg-panel-control-wrapper .components-base-control,
@@ -882,8 +888,8 @@ input.disabled, input:disabled, textarea.disabled, textarea:disabled {
     content: "— ";
 }
 
-.rttpg-panel-control-wrapper .rttpg-control-field.label-inline .components-base-control__field,
-.rttpg-panel-control-wrapper .rttpg-control-field.label-inline {
+.rttpg-panel-control-wrapper .rttpg-control-field.label-inline .components-base-control__field > .div,
+.rttpg-panel-control-wrapper .rttpg-control-field.label-inline > .div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;

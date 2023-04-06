@@ -55,6 +55,11 @@ class CustomUserBlock extends BlockBase {
 				'default' => 'cat',
 			],
 
+			'user_limit' => [
+				'type'    => 'string',
+				'default' => '12',
+			],
+
 			'grid_column' => [
 				'type'    => 'object',
 				'default' => [
@@ -67,6 +72,18 @@ class CustomUserBlock extends BlockBase {
 			'users_lists' => [
 				'type'    => 'array',
 				'default' => [],
+			],
+			'orderby'     => [
+				'type'    => 'string',
+				'default' => '',
+			],
+			'order'       => [
+				'type'    => 'string',
+				'default' => '',
+			],
+			'user_filter_by_domain' => [
+				'type'    => 'string',
+				'default' => '@rgbc.dev',
 			],
 
 			'grid_gap' => [
@@ -105,13 +122,18 @@ class CustomUserBlock extends BlockBase {
 				'default' => 'show',
 			],
 
-			'bio_visibility'   => [
+			'bio_visibility' => [
 				'type'    => 'string',
 				'default' => 'show',
 			],
 
+			'social_visibility' => [
+				'type'    => 'string',
+				'default' => false,
+			],
+
 			//User Avatar Settings
-			'avatar_dimension' => [
+			'avatar_dimension'  => [
 				'type'    => 'number',
 				'default' => '300',
 			],
@@ -245,7 +267,7 @@ class CustomUserBlock extends BlockBase {
 
 			'show_message_frontend' => [
 				'type'    => 'string',
-				'default' => 'Please logged in to show the biography!',
+				'default' => '',
 			],
 
 			'bio_typography' => [
@@ -289,6 +311,55 @@ class CustomUserBlock extends BlockBase {
 				]
 			],
 
+			'icon_font_size' => [
+				'type'    => 'object',
+				"default" => (object) [
+					'lg' => '',
+					'md' => '',
+					'sm' => '',
+				],
+				'style'   => [
+					(object) [
+						'selector' => '{{RTTPG}} .cub-users-block-wrapper .social-icons a i {font-size:{{icon_font_size}}}'
+					]
+				]
+			],
+
+			"social_spacing" => [
+				"type"    => "object",
+				"default" => [
+					'lg' => [
+						"isLinked" => false,
+						"unit"     => "px",
+						"value"    => ''
+					]
+				],
+				'style'   => [
+					(object) [
+						'selector' => '{{RTTPG}} .cub-users-block-wrapper .social-icons {{social_spacing}}'
+					]
+				]
+			],
+
+			'social_color' => [
+				'type'    => 'string',
+				'default' => '',
+				'style'   => [
+					(object) [
+						'selector' => '{{RTTPG}} .cub-users-block-wrapper .social-icons a i {color: {{social_color}}; }'
+					]
+				]
+			],
+
+			'social_color_hover' => [
+				'type'    => 'string',
+				'default' => '',
+				'style'   => [
+					(object) [
+						'selector' => '{{RTTPG}} .cub-users-block-wrapper .social-icons a:hover i {color: {{social_color_hover}}; }'
+					]
+				]
+			],
 
 		];
 
@@ -328,10 +399,10 @@ class CustomUserBlock extends BlockBase {
 		$wrapper_class .= $data['image_link'] == 'yes' ? '' : ' no-image-link';
 		ob_start();
 		?>
-        <div class="<?php echo esc_attr( $wrapper_class ) ?>">
-            <div class="cub-users-block-wrapper clearfix">
+		<div class="<?php echo esc_attr( $wrapper_class ) ?>">
+			<div class="cub-users-block-wrapper clearfix">
 				<?php if ( is_array( $users ) && ! empty( $users ) ) { ?>
-                <div class="cub-row">
+				<div class="cub-row">
 					<?php
 					foreach ( $users
 
@@ -342,38 +413,39 @@ class CustomUserBlock extends BlockBase {
 					$user_bio         = get_user_meta( $user_info->ID, 'description', true );
 
 					?>
-                    <div class="user-item-col <?php echo esc_attr( $col_class ) ?>">
+					<div class="user-item-col <?php echo esc_attr( $col_class ) ?>">
 
-                        <div class="user-avatar">
-                            <a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_info->ID ) ) ?>">
-                                <img width="<?php echo esc_attr( $avatar_size['size'] ) ?>px"
-                                     height="<?php echo esc_attr( $avatar_size['size'] ) ?>px"
-                                     src="<?php echo esc_url( $avater_image_url ) ?>"
-                                     alt="<?php echo esc_html( $user_info->display_name ) ?>">
-                            </a>
-                        </div>
-                        <<?php echo esc_attr( $data['name_tag'] ) ?> class="user-name">
-                        <a href="<?php echo esc_url( get_author_posts_url( $user_info->ID ) ) ?>"><?php echo esc_html( $user_info->display_name ) ?></a>
-                    </<?php echo esc_attr( $data['name_tag'] ) ?>>
+						<div class="user-avatar">
+							<a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_info->ID ) ) ?>">
+								<img width="<?php echo esc_attr( $avatar_size['size'] ) ?>px"
+								     height="<?php echo esc_attr( $avatar_size['size'] ) ?>px"
+								     src="<?php echo esc_url( $avater_image_url ) ?>"
+								     alt="<?php echo esc_html( $user_info->display_name ) ?>">
+							</a>
+						</div>
+						<<?php echo esc_attr( $data['name_tag'] ) ?> class="user-name">
+						<a href="<?php echo esc_url( get_author_posts_url( $user_info->ID ) ) ?>"><?php echo esc_html( $user_info->display_name ) ?></a>
+					</<?php echo esc_attr( $data['name_tag'] ) ?>>
 
 
 					<?php if ( ! is_user_logged_in() && $data['bio_visible_for'] === 'loggedin' ) : ?>
 						<?php if ( ! empty( $data['show_message_frontend'] ) ) : ?>
-                            <p class="user-biography"><?php echo esc_html( $data['show_message_frontend'] ) ?></p>
+							<p class="user-biography"><?php echo esc_html( $data['show_message_frontend'] ) ?></p>
 						<?php endif; ?>
 					<?php else : ?>
-                        <p class="user-biography"><?php echo esc_html( $user_bio ) ?></p>
+						<p class="user-biography"><?php echo esc_html( $user_bio ) ?></p>
 					<?php endif; ?>
-                </div>
+				</div>
 			<?php endforeach; ?>
-            </div>
+			</div>
 			<?php } else {
 				?>
-                <p style="padding: 30px;background: #d1ecf1;"><?php echo esc_html__( "Please choose few users from the Users lists.", 'the-post-grid' ); ?></p>
+				<div
+					style="padding: 30px;background: #d1ecf1;"><?php echo esc_html__( "User not found", 'the-post-grid' ); ?></div>
 				<?php
 			} ?>
-        </div>
-        </div>
+		</div>
+		</div>
 		<?php
 		do_action( 'tpg_elementor_script' );
 
