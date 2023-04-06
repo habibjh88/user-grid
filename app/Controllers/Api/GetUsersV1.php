@@ -46,6 +46,14 @@ class GetUsersV1 {
 					'name'      => esc_html( $user_info->display_name ),
 					'avatar'    => esc_url( get_avatar_url( $user_info->ID, $avatar_size ) ),
 					'biography' => get_user_meta( $user_info->ID, 'description', true ),
+					'social' => [
+						'facebook' => get_user_meta($user_info->ID, 'cub_facebook', true),
+						'twitter' => get_user_meta($user_info->ID, 'cub_twitter', true),
+						'linkedin' => get_user_meta($user_info->ID, 'cub_linkedin', true),
+						'gplus' => get_user_meta($user_info->ID, 'cub_gplus', true),
+						'pinterest' => get_user_meta($user_info->ID, 'cub_pinterest', true),
+						'author_designation' => get_user_meta($user_info->ID, 'cub_author_designation', true),
+					],
 				];
 
 			}

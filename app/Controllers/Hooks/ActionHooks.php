@@ -25,62 +25,80 @@ class ActionHooks {
 	 */
 
 	public static function init() {
-		add_action( 'pre_get_posts', [ __CLASS__, 'category_query' ], 10 );
-		add_filter( 'post_row_actions', [ __CLASS__, 'filter_post_row_actions' ], 11, 2 );
-		add_filter( 'page_row_actions', [ __CLASS__, 'filter_post_row_actions' ], 11, 2 );
-		add_action( 'rttpg_daily_scheduled_events', [ __CLASS__, 'rttpg_daily_scheduled_events' ] );
+		add_action( 'show_user_profile', [ __CLASS__, 'add_user_social_profile' ], 10 );
+		add_action( 'edit_user_profile', [ __CLASS__, 'add_user_social_profile' ], 10 );
+		add_action( 'personal_options_update', [ __CLASS__, 'update_profile_fields' ], 10 );
+		add_action( 'edit_user_profile_update', [ __CLASS__, 'update_profile_fields' ], 10 );
+	}
+
+	public static function add_user_social_profile( $user ) {
+
+		?>
+
+        <h3><?php esc_html_e( 'Social profile information', 'the-post-grid' ); ?></h3>
+
+        <table class="form-table">
+            <tr>
+                <th><label for="facebook"><?php esc_html_e( 'Facebook', 'the-post-grid' ); ?></label></th>
+                <td><input type="text" name="cub_facebook" id="facebook"
+                           value="<?php echo esc_attr( get_the_author_meta( 'cub_facebook', $user->ID ) ); ?>"
+                           class="regular-text"/><br/><span
+                            class="description"><?php esc_html_e( 'Please enter your facebook URL.', 'the-post-grid' ); ?></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="twitter"><?php esc_html_e( 'Twitter', 'the-post-grid' ); ?></label></th>
+                <td><input type="text" name="cub_twitter" id="twitter"
+                           value="<?php echo esc_attr( get_the_author_meta( 'cub_twitter', $user->ID ) ); ?>"
+                           class="regular-text"/><br/><span
+                            class="description"><?php esc_html_e( 'Please enter your Twitter username.', 'the-post-grid' ); ?></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="linkedin"><?php esc_html_e( 'LinkedIn', 'the-post-grid' ); ?></label></th>
+                <td><input type="text" name="cub_linkedin" id="linkedin"
+                           value="<?php echo esc_attr( get_the_author_meta( 'cub_linkedin', $user->ID ) ); ?>"
+                           class="regular-text"/><br/><span
+                            class="description"><?php esc_html_e( 'Please enter your LinkedIn Profile', 'the-post-grid' ); ?></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="gplus"><?php esc_html_e( 'Google+', 'the-post-grid' ); ?></label></th>
+                <td><input type="text" name="cub_gplus" id="gplus"
+                           value="<?php echo esc_attr( get_the_author_meta( 'cub_gplus', $user->ID ) ); ?>"
+                           class="regular-text"/><br/><span
+                            class="description"><?php esc_html_e( 'Please enter your google+ Profile', 'the-post-grid' ); ?></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="pinterest"><?php esc_html_e( 'Pinterest', 'the-post-grid' ); ?></label></th>
+                <td><input type="text" name="cub_pinterest" id="pinterest"
+                           value="<?php echo esc_attr( get_the_author_meta( 'cub_pinterest', $user->ID ) ); ?>"
+                           class="regular-text"/><br/><span
+                            class="description"><?php esc_html_e( 'Please enter your Pinterest Profile', 'the-post-grid' ); ?></span>
+                </td>
+            </tr>
+        </table>
+		<?php
 	}
 
 	/**
-	 * Category query
+	 * @param $user_id
 	 *
-	 * @param object $query Query.
-	 *
-	 * @return void
+	 * @return false|void
 	 */
-	public static function category_query( $query ) {
-		if ( ! is_admin() && $query->is_main_query() && is_category() ) {
-			$settings = get_option( rtTPG()->options['settings'] );
-			$sc_id    = isset( $settings['template_category'] ) ? absint( $settings['template_category'] ) : 0;
+	public static function update_profile_fields( $user_id ) {
 
-			if ( $sc_id ) {
-				$posts_per_page     = $sc_id ? absint( get_post_meta( $sc_id, 'posts_per_page', true ) ) : 0;
-				$pagination         = $sc_id ? get_post_meta( $sc_id, 'pagination', true ) : false;
-				$posts_loading_type = $sc_id ? get_post_meta( $sc_id, 'posts_loading_type', true ) : '';
-
-				if ( $pagination && 'pagination' === $posts_loading_type && $posts_per_page ) {
-					$query->set( 'posts_per_page', $posts_per_page );
-				}
-			}
-		}
-	}
-
-	public static function filter_post_row_actions( $actions, $post ) {
-		global $pagenow;
-		if ( 'edit.php' === $pagenow ) {
-			global $post;
-			$new_items['edit_with_elementor'] = sprintf(
-				'<span style="color:#135e96">ID: %s</span>',
-				$post->ID
-			);
-			$actions                          = array_merge( $actions, $new_items );
+		if ( ! current_user_can( 'edit_user', $user_id ) ) {
+			return false;
 		}
 
-		return $actions;
+		update_user_meta( $user_id, 'cub_facebook', $_POST['cub_facebook'] );
+		update_user_meta( $user_id, 'cub_twitter', $_POST['cub_twitter'] );
+		update_user_meta( $user_id, 'cub_linkedin', $_POST['cub_linkedin'] );
+		update_user_meta( $user_id, 'cub_gplus', $_POST['cub_gplus'] );
+		update_user_meta( $user_id, 'cub_pinterest', $_POST['cub_pinterest'] );
+		update_user_meta( $user_id, 'cub_author_designation', $_POST['cub_author_designation'] );
 	}
 
-	public static function rttpg_daily_scheduled_events() {
-		try {
-			global $wpdb;
-			$expired = $wpdb->get_col( "SELECT option_name FROM {$wpdb->options} WHERE option_name LIKE '_transient_timeout%' AND option_value < UNIX_TIMESTAMP()" );
-
-			foreach ( $expired as $transient ) {
-				$key = str_replace('_transient_timeout_tpg_cache_', 'tpg_cache_', $transient);
-				delete_transient( $key );
-			}
-
-		} catch ( \Exception $e ) {
-
-		}
-	}
 }

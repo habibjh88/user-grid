@@ -3,7 +3,7 @@
 namespace GT\GtUsers\Controllers;
 
 use GT\GtUsers\Controllers\Blocks\GridLayout;
-use GT\GtUsers\Controllers\Blocks\UsersBlock;
+use GT\GtUsers\Controllers\Blocks\CustomUserBlock;
 use GT\GtUsers\Helpers\Fns;
 
 class BlocksController {
@@ -17,7 +17,7 @@ class BlocksController {
 
 		//Layout initialize
 		new GridLayout();
-		new UsersBlock();
+		new CustomUserBlock();
 
 		$this->version = defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : GT_USERS_VERSION;
 		add_action( 'enqueue_block_editor_assets', [ $this, 'editor_assets' ] );

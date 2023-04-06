@@ -22,11 +22,20 @@ function AvatarSettings(props) {
         avatar_width,
         avatar_height,
         avatar_border_radius,
-        avatar_border
+        avatar_border,
+        image_link
     } = attributes;
 
     return (
         <PanelBody title={__('Avatar', 'the-post-grid')} initialOpen={true}>
+
+            <ToggleControl
+                label={__("Enable Image Link", "the-post-grid")}
+                className="rttpg-toggle-control-field"
+                checked={image_link}
+                onChange={(image_link) => setAttributes({image_link: image_link ? 'yes' : ''})}
+            />
+
             <Range
                 label={__("Image Dimension")}
                 value={avatar_dimension}

@@ -9,7 +9,8 @@ function CustomUsersBlock({props, userData}) {
         name_tag,
         avatar_visibility,
         name_visibility,
-        bio_visibility
+        bio_visibility,
+        image_link
     } = attributes;
 
     const newClintID = clientId.substr(0, 6);
@@ -22,7 +23,6 @@ function CustomUsersBlock({props, userData}) {
             setAttributes({uniqueId: newClintID});
         }
     }, []);
-
 
     //Slider Column settings
     let default_grid_column_desktop = '3';
@@ -37,11 +37,12 @@ function CustomUsersBlock({props, userData}) {
 
     // const CategoryTag = `${cat_tag}`;
     const HeadingTag = `${name_tag}`;
+    const wrapper_classes = image_link ? '' : ' no-image-link'
 
     return (
 
 
-        <div className={`rttpg-block-postgrid rttpg-block-wrapper rttpg-block-${uniqueId}`}>
+        <div className={`rttpg-block-postgrid rttpg-block-wrapper rttpg-block-${uniqueId} ${wrapper_classes}`}>
 
             {users && users.length ?
                 <div className="cub-users-block-wrapper clearfix">
@@ -68,6 +69,10 @@ function CustomUsersBlock({props, userData}) {
                                             </HeadingTag>
                                         }
                                         {bio_visibility && <p className="user-biography">{user.biography}</p>}
+
+                                        <div className="social-icons">
+
+                                        </div>
                                     </div>
                                 )
                             })

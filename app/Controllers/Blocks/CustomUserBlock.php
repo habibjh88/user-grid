@@ -4,15 +4,15 @@ namespace GT\GtUsers\Controllers\Blocks;
 
 use GT\GtUsers\Helpers\Fns;
 
-class UsersBlock extends BlockBase {
+class CustomUserBlock extends BlockBase {
 
 	private $prefix;
 	private $block_type;
 
 	public function __construct() {
 		add_action( 'init', [ $this, 'register_blocks' ] );
-		$this->prefix         = 'category';
-		$this->block_type     = 'rttpg/custom-users-block';
+		$this->prefix     = 'category';
+		$this->block_type = 'rttpg/custom-users-block';
 	}
 
 
@@ -114,6 +114,11 @@ class UsersBlock extends BlockBase {
 			'avatar_dimension' => [
 				'type'    => 'number',
 				'default' => '300',
+			],
+
+			'image_link' => [
+				'type'    => 'string',
+				'default' => 'yes',
 			],
 
 			'avatar_width'  => [
@@ -238,6 +243,11 @@ class UsersBlock extends BlockBase {
 				'default' => 'loggedin',
 			],
 
+			'show_message_frontend' => [
+				'type'    => 'string',
+				'default' => 'Please logged in to show the biography!',
+			],
+
 			'bio_typography' => [
 				'type'    => 'object',
 				'default' => (object) [
@@ -312,12 +322,13 @@ class UsersBlock extends BlockBase {
 		$grid_column_tab     = ( isset( $data['grid_column']['md'] ) && 0 != $data['grid_column']['md'] ) ? $data['grid_column']['md'] : $default_grid_column_tab;
 		$grid_column_mobile  = ( isset( $data['grid_column']['sm'] ) && 0 != $data['grid_column']['sm'] ) ? $data['grid_column']['sm'] : $default_grid_column_mobile;
 
-		$col_class   = "cub-col-md-{$grid_column_desktop} cub-col-sm-{$grid_column_tab} cub-col-xs-{$grid_column_mobile}";
-		$uniqueId    = isset( $data['uniqueId'] ) ? $data['uniqueId'] : null;
-		$uniqueClass = 'rttpg-block-postgrid rttpg-block-wrapper rttpg-block-' . $uniqueId;
+		$col_class     = "cub-col-md-{$grid_column_desktop} cub-col-sm-{$grid_column_tab} cub-col-xs-{$grid_column_mobile}";
+		$uniqueId      = isset( $data['uniqueId'] ) ? $data['uniqueId'] : null;
+		$wrapper_class = 'rttpg-block-postgrid rttpg-block-wrapper rttpg-block-' . $uniqueId;
+		$wrapper_class .= $data['image_link'] == 'yes' ? '' : ' no-image-link';
 		ob_start();
 		?>
-        <div class="<?php echo esc_attr( $uniqueClass ) ?>">
+        <div class="<?php echo esc_attr( $wrapper_class ) ?>">
             <div class="cub-users-block-wrapper clearfix">
 				<?php if ( is_array( $users ) && ! empty( $users ) ) { ?>
                 <div class="cub-row">
@@ -325,24 +336,34 @@ class UsersBlock extends BlockBase {
 					foreach ( $users
 
 					as $user ) :
-					$user_info = get_user_by( 'id', $user );
-					$avatar_size = [ 'size' => $data['avatar_dimension'] ?? '300' ];
+					$user_info        = get_user_by( 'id', $user );
+					$avatar_size      = [ 'size' => $data['avatar_dimension'] ?? '300' ];
 					$avater_image_url = get_avatar_url( $user_info->ID, $avatar_size );
-                    $user_bio = get_user_meta( $user_info->ID, 'description', true );
+					$user_bio         = get_user_meta( $user_info->ID, 'description', true );
 
 					?>
                     <div class="user-item-col <?php echo esc_attr( $col_class ) ?>">
 
                         <div class="user-avatar">
                             <a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_info->ID ) ) ?>">
-                                <img width="<?php echo esc_attr($avatar_size['size'])?>px" height="<?php echo esc_attr($avatar_size['size'])?>px" src="<?php echo esc_url($avater_image_url) ?>" alt="<?php echo esc_html( $user_info->display_name ) ?>">
+                                <img width="<?php echo esc_attr( $avatar_size['size'] ) ?>px"
+                                     height="<?php echo esc_attr( $avatar_size['size'] ) ?>px"
+                                     src="<?php echo esc_url( $avater_image_url ) ?>"
+                                     alt="<?php echo esc_html( $user_info->display_name ) ?>">
                             </a>
                         </div>
                         <<?php echo esc_attr( $data['name_tag'] ) ?> class="user-name">
                         <a href="<?php echo esc_url( get_author_posts_url( $user_info->ID ) ) ?>"><?php echo esc_html( $user_info->display_name ) ?></a>
                     </<?php echo esc_attr( $data['name_tag'] ) ?>>
 
-                    <p class="user-biography"><?php echo esc_html( $user_bio ) ?></p>
+
+					<?php if ( ! is_user_logged_in() && $data['bio_visible_for'] === 'loggedin' ) : ?>
+						<?php if ( ! empty( $data['show_message_frontend'] ) ) : ?>
+                            <p class="user-biography"><?php echo esc_html( $data['show_message_frontend'] ) ?></p>
+						<?php endif; ?>
+					<?php else : ?>
+                        <p class="user-biography"><?php echo esc_html( $user_bio ) ?></p>
+					<?php endif; ?>
                 </div>
 			<?php endforeach; ?>
             </div>

@@ -28,3 +28,6 @@
         }
     }
 }
+.no-image-link .user-avatar a {
+    pointer-events: none;
+}

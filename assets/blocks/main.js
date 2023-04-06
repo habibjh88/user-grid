@@ -7628,12 +7628,20 @@ function AvatarSettings(props) {
     avatar_width,
     avatar_height,
     avatar_border_radius,
-    avatar_border
+    avatar_border,
+    image_link
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
     title: __('Avatar', 'the-post-grid'),
     initialOpen: true
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Range__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+    label: __("Enable Image Link", "the-post-grid"),
+    className: "rttpg-toggle-control-field",
+    checked: image_link,
+    onChange: image_link => setAttributes({
+      image_link: image_link ? 'yes' : ''
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Range__WEBPACK_IMPORTED_MODULE_6__["default"], {
     label: __("Image Dimension"),
     value: avatar_dimension,
     onChange: val => {
@@ -7866,7 +7874,8 @@ function UserBio(props) {
     bio_typography,
     bio_spacing,
     bio_color,
-    bio_visible_for
+    bio_visible_for,
+    show_message_frontend
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
     title: __('User Biography', 'the-post-grid'),
@@ -7888,7 +7897,15 @@ function UserBio(props) {
         bio_visible_for
       });
     }
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Typography__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+    autocomplete: "off",
+    help: "Help text to explain the input.",
+    label: "Enter Title",
+    value: show_message_frontend,
+    onChange: show_message_frontend => setAttributes({
+      show_message_frontend
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Typography__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: __('Typography'),
     value: bio_typography,
     onChange: val => setAttributes({
@@ -8295,7 +8312,8 @@ function CustomUsersBlock(_ref) {
     name_tag,
     avatar_visibility,
     name_visibility,
-    bio_visibility
+    bio_visibility,
+    image_link
   } = attributes;
   const newClintID = clientId.substr(0, 6);
   const users = userData.users;
@@ -8322,8 +8340,9 @@ function CustomUsersBlock(_ref) {
 
   // const CategoryTag = `${cat_tag}`;
   const HeadingTag = `${name_tag}`;
+  const wrapper_classes = image_link ? '' : ' no-image-link';
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: `rttpg-block-postgrid rttpg-block-wrapper rttpg-block-${uniqueId}`
+    className: `rttpg-block-postgrid rttpg-block-wrapper rttpg-block-${uniqueId} ${wrapper_classes}`
   }, users && users.length ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "cub-users-block-wrapper clearfix"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -8346,7 +8365,9 @@ function CustomUsersBlock(_ref) {
       className: "user-name"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", null, user.name)), bio_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
       className: "user-biography"
-    }, user.biography));
+    }, user.biography), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "social-icons"
+    }));
   }))) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "rttpg-postgrid-is-loading"
   }, users?.message && users.message ? users.message : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Spinner, null)));

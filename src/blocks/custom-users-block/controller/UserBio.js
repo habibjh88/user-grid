@@ -4,7 +4,7 @@ import {
     ToggleControl,
     SelectControl,
     PanelBody,
-    Dropdown, __experimentalHeading as Heading
+    Dropdown, __experimentalHeading as Heading, TextControl
 } from '@wordpress/components';
 import Color from "../../../components/Color";
 import Typography from "../../../components/Typography";
@@ -21,7 +21,8 @@ function UserBio(props) {
         bio_typography,
         bio_spacing,
         bio_color,
-        bio_visible_for
+        bio_visible_for,
+        show_message_frontend
     } = attributes;
 
     return (
@@ -40,6 +41,16 @@ function UserBio(props) {
                     setAttributes({bio_visible_for})
                 }}
             />
+
+            <TextControl
+                autocomplete="off"
+                help="Help text to explain the input."
+                label="Enter Title"
+                value={show_message_frontend}
+                onChange={(show_message_frontend) => setAttributes({show_message_frontend})}
+            />
+
+            <hr/>
 
             <Typography
                 label={__('Typography')}

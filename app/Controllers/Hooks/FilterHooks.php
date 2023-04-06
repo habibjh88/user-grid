@@ -173,30 +173,6 @@ class FilterHooks {
 		return (array) $links;
 	}
 
-	/**
-	 * ACF content filter
-	 *
-	 * @param string $content Content.
-	 *
-	 * @return string
-	 */
-	public static function tpg_acf_content_filter( $content ) {
-		// Check if we're inside the main loop in a post or page.
-		if ( is_single() && in_the_loop() && is_main_query() && rtTPG()->hasPro() ) {
-			$settings = get_option( rtTPG()->options['settings'] );
 
-			$data = [
-				'show_acf'            => isset( $settings['show_acf_details'] ) && $settings['show_acf_details'] ? 'show' : false,
-				'cf_group'            => isset( $settings['cf_group_details'] ) ? $settings['cf_group_details'] : [],
-				'cf_hide_empty_value' => isset( $settings['cf_hide_empty_value_details'] ) ? $settings['cf_hide_empty_value_details'] : false,
-				'cf_show_only_value'  => isset( $settings['cf_show_only_value_details'] ) ? $settings['cf_show_only_value_details'] : false,
-				'cf_hide_group_title' => isset( $settings['cf_hide_group_title_details'] ) ? $settings['cf_hide_group_title_details'] : false,
-			];
-
-			return $content . Fns::tpg_get_acf_data_elementor( $data, null, false );
-		}
-
-		return $content;
-	}
 
 }
