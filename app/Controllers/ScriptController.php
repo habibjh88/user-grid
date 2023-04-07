@@ -97,6 +97,12 @@ class ScriptController {
 		wp_enqueue_style( 'rt-tpg-block' );
 		wp_enqueue_style( 'rt-fontawsome' );
 		wp_enqueue_style( 'rt-flaticon' );
+
+		wp_localize_script( 'rt-tpg', 'rttpgParams', [
+				'nonce'           => wp_create_nonce( 'rttpg_nonce' ),
+				'ajaxurl'         => admin_url( 'admin-ajax.php' ),
+			]
+		);
 	}
 
 

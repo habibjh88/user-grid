@@ -29,6 +29,9 @@ class ActionHooks {
 		add_action( 'edit_user_profile', [ __CLASS__, 'add_user_social_profile' ], 10 );
 		add_action( 'personal_options_update', [ __CLASS__, 'update_profile_fields' ], 10 );
 		add_action( 'edit_user_profile_update', [ __CLASS__, 'update_profile_fields' ], 10 );
+
+		add_action( 'wp_ajax_tpg_user_biography', [ __CLASS__, 'tpg_user_biography' ] );
+		add_action( 'wp_ajax_noprev_tpg_user_biography', [ __CLASS__, 'tpg_user_biography' ] );
 	}
 
 	public static function add_user_social_profile( $user ) {
@@ -99,6 +102,29 @@ class ActionHooks {
 		update_user_meta( $user_id, 'cub_gplus', $_POST['cub_gplus'] );
 		update_user_meta( $user_id, 'cub_pinterest', $_POST['cub_pinterest'] );
 		update_user_meta( $user_id, 'cub_author_designation', $_POST['cub_author_designation'] );
+	}
+
+	/**
+     * Get User Biography Ajax Callback
+	 * @return void
+	 */
+	public static function tpg_user_biography() {
+
+		$user_info = get_user_by( 'id', $_REQUEST['user_id'] );
+		$biography = get_user_meta( $user_info->ID, 'description', true );
+
+		if ( ! empty( $biography ) ) {
+			$return = [
+				'success'   => "ok",
+				'biography' => $biography
+			];
+		} else {
+			$return = [
+				'success'   => "error",
+			];
+		}
+		wp_send_json( $return );
+		wp_die();
 	}
 
 }

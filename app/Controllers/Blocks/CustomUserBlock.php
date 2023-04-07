@@ -324,7 +324,7 @@ class CustomUserBlock extends BlockBase {
 
 			'show_message_frontend' => [
 				'type'    => 'string',
-				'default' => '',
+				'default' => 'Please logged in to see the biography...',
 			],
 
 			'bio_typography' => [
@@ -494,24 +494,28 @@ class CustomUserBlock extends BlockBase {
 
 
                     <div class="cub-user-social-icons">
-                        <a class="load-user-button" href="#usermodal">
+                        <button class="load-user-button" data-userid="<?php echo esc_attr($user_info->ID); ?>">
 							<?php echo esc_html( "Load users's biography" ); ?>
-                        </a>
+                        </button>
 
-
-                        <div id="usermodal" class="zoom-anim-dialog mfp-hide">
-                            <h1>Lorem.</h1>
-                            <p>Lorem, ipsum.</p>
+                        <div class="user-modal-content">
+                           <div class="modal-inner">
+                               <div class="modal-header">
+                                   <span>User Biography</span>
+                                   <button class="close-modal-btn dashicons dashicons-no-alt"></button>
+                               </div>
+	                           <?php if ( ! is_user_logged_in() && $data['bio_visible_for'] === 'loggedin' ) : ?>
+		                           <?php if ( ! empty( $data['show_message_frontend'] ) ) : ?>
+                                       <p class="user-biography"><?php echo esc_html( $data['show_message_frontend'] ) ?></p>
+		                           <?php endif; ?>
+	                           <?php else : ?>
+                                   <div class="bio-content"></div>
+	                           <?php endif; ?>
+                           </div>
                         </div>
                     </div>
 
-					<?php if ( ! is_user_logged_in() && $data['bio_visible_for'] === 'loggedin' ) : ?>
-						<?php if ( ! empty( $data['show_message_frontend'] ) ) : ?>
-                            <p class="user-biography"><?php echo esc_html( $data['show_message_frontend'] ) ?></p>
-						<?php endif; ?>
-					<?php else : ?>
-                        <p class="user-biography"><?php echo esc_html( $user_bio ) ?></p>
-					<?php endif; ?>
+
 
 
                 </div>
