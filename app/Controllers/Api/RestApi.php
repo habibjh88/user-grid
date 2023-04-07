@@ -27,10 +27,10 @@ class RestApi {
 	public function init_rest_routes() {
 		$auth = new RttpgV1();
 		$auth->register_routes();
-		$this->rttpg_register_rest_fields();
+		$this->gtusers_register_rest_fields();
 	}
 
-	function rttpg_register_rest_fields() {
+	function gtusers_register_rest_fields() {
 		$post_type = Fns::get_post_types();
 
 		foreach ( $post_type as $key => $value ) {
@@ -38,9 +38,9 @@ class RestApi {
 			// Featured image.
 			register_rest_field(
 				$key,
-				'rttpg_featured_image_url',
+				'gtusers_featured_image_url',
 				[
-					'get_callback'    => [ $this, 'rttpg_get_featured_image_url' ],
+					'get_callback'    => [ $this, 'gtusers_get_featured_image_url' ],
 					'update_callback' => null,
 					'schema'          => [
 						'description' => __( 'Different sized featured images' ),
@@ -52,9 +52,9 @@ class RestApi {
 			// Author info.
 			register_rest_field(
 				$key,
-				'rttpg_author',
+				'gtusers_author',
 				[
-					'get_callback'    => [ $this, 'rttpg_get_author_info' ],
+					'get_callback'    => [ $this, 'gtusers_get_author_info' ],
 					'update_callback' => null,
 					'schema'          => null,
 				]
@@ -63,9 +63,9 @@ class RestApi {
 			// Add comment info.
 			register_rest_field(
 				$key,
-				'rttpg_comment',
+				'gtusers_comment',
 				[
-					'get_callback'    => [ $this, 'rttpg_get_comment_info' ],
+					'get_callback'    => [ $this, 'gtusers_get_comment_info' ],
 					'update_callback' => null,
 					'schema'          => null,
 				]
@@ -74,9 +74,9 @@ class RestApi {
 			// Category links.
 			register_rest_field(
 				$key,
-				'rttpg_category',
+				'gtusers_category',
 				[
-					'get_callback'    => [ $this, 'rttpg_get_category_list' ],
+					'get_callback'    => [ $this, 'gtusers_get_category_list' ],
 					'update_callback' => null,
 					'schema'          => [
 						'description' => __( 'Category list links' ),
@@ -88,9 +88,9 @@ class RestApi {
 			// Excerpt.
 			register_rest_field(
 				$key,
-				'rttpg_excerpt',
+				'gtusers_excerpt',
 				[
-					'get_callback'    => [ $this, 'rttpg_get_excerpt' ],
+					'get_callback'    => [ $this, 'gtusers_get_excerpt' ],
 					'update_callback' => null,
 					'schema'          => null,
 				]
@@ -100,7 +100,7 @@ class RestApi {
 
 
 	// Author.
-	function rttpg_get_author_info( $object ) {
+	function gtusers_get_author_info( $object ) {
 		$author = ( isset( $object['author'] ) ) ? $object['author'] : '';
 
 		$author_data['display_name'] = get_the_author_meta( 'display_name', $author );
@@ -110,7 +110,7 @@ class RestApi {
 	}
 
 // Comment.
-	function rttpg_get_comment_info( $object ) {
+	function gtusers_get_comment_info( $object ) {
 		$comments_count = wp_count_comments( $object['id'] );
 
 		return $comments_count->total_comments;
@@ -118,7 +118,7 @@ class RestApi {
 
 // Category list.
 
-	function rttpg_get_category_list( $object ) {
+	function gtusers_get_category_list( $object ) {
 		$taxonomies = get_post_taxonomies( $object['id'] );
 		if ( 'post' === get_post_type() ) {
 			return get_the_category_list( esc_html__( ' ' ), '', $object['id'] );
@@ -131,7 +131,7 @@ class RestApi {
 
 
 	// Feature image.
-	function rttpg_get_featured_image_url( $object ) {
+	function gtusers_get_featured_image_url( $object ) {
 
 		$featured_images = [];
 		if ( ! isset( $object['featured_media'] ) ) {
@@ -141,9 +141,9 @@ class RestApi {
 		$image = wp_get_attachment_image_src( $object['featured_media'], 'full', false );
 		if ( is_array( $image ) ) {
 			$featured_images['full']      = $image;
-			$featured_images['landscape'] = wp_get_attachment_image_src( $object['featured_media'], 'rttpg_landscape', false );
-			$featured_images['portraits'] = wp_get_attachment_image_src( $object['featured_media'], 'rttpg_portrait', false );
-			$featured_images['thumbnail'] = wp_get_attachment_image_src( $object['featured_media'], 'rttpg_thumbnail', false );
+			$featured_images['landscape'] = wp_get_attachment_image_src( $object['featured_media'], 'gtusers_landscape', false );
+			$featured_images['portraits'] = wp_get_attachment_image_src( $object['featured_media'], 'gtusers_portrait', false );
+			$featured_images['thumbnail'] = wp_get_attachment_image_src( $object['featured_media'], 'gtusers_thumbnail', false );
 
 			$image_sizes = Fns::get_image_sizes();
 			foreach ( $image_sizes as $key => $value ) {
@@ -161,7 +161,7 @@ class RestApi {
 	}
 
 	// Excerpt.
-	function rttpg_get_excerpt( $object ) {
+	function gtusers_get_excerpt( $object ) {
 		$excerpt = wp_trim_words( get_the_excerpt( $object['id'] ) );
 		if ( ! $excerpt ) {
 			$excerpt = null;

@@ -27,18 +27,18 @@ class BlocksController {
 		add_action( 'enqueue_block_editor_assets', [ $this, 'tpg_block_enqueue' ] );
 
 		if ( version_compare( get_bloginfo( 'version' ), '5.8', '>=' ) ) {
-			add_filter( 'block_categories_all', [ $this, 'rttpg_block_categories' ], 1, 2 );
+			add_filter( 'block_categories_all', [ $this, 'gtusers_block_categories' ], 1, 2 );
 		} else {
-			add_filter( 'block_categories', [ $this, 'rttpg_block_categories' ], 1, 2 );
+			add_filter( 'block_categories', [ $this, 'gtusers_block_categories' ], 1, 2 );
 		}
 
-		add_action( 'wp_ajax_rttpg_block_css_save', [ $this, 'save_block_css' ] );
-		add_action( 'wp_ajax_rttpg_block_css_get_posts', [ $this, 'get_posts_call' ] );
-		add_action( 'wp_ajax_rttpg_block_css_appended', [ $this, 'appended' ] );
+		add_action( 'wp_ajax_gtusers_block_css_save', [ $this, 'save_block_css' ] );
+		add_action( 'wp_ajax_gtusers_block_css_get_posts', [ $this, 'get_posts_call' ] );
+		add_action( 'wp_ajax_gtusers_block_css_appended', [ $this, 'appended' ] );
 
 
 		// Decide how css file will be loaded. default filesystem eg: filesystem or at header
-		$option_data = get_option( 'rttpg_options' );
+		$option_data = get_option( 'gtusers_options' );
 		if ( isset( $option_data['css_save_as'] ) && 'filesystem' === $option_data['css_save_as'] ) {
 			add_action( 'wp_enqueue_scripts', [ $this, 'add_block_css_file' ] );
 		} else {
@@ -55,12 +55,12 @@ class BlocksController {
 	 *
 	 * @return array|\string[][]|\void[][]
 	 */
-	public function rttpg_block_categories( $categories, $post ) {
+	public function gtusers_block_categories( $categories, $post ) {
 		return array_merge(
 			[
 				[
-					'slug'  => 'rttpg',
-					'title' => __( 'RGB Code', 'the-post-grid' ),
+					'slug'  => 'gtusers',
+					'title' => __( 'RGB Code', 'gutenberg-users' ),
 				],
 			],
 			$categories
@@ -76,52 +76,45 @@ class BlocksController {
 	public function add_block_css_file() {
 
 		$post_id          = get_the_ID();
-		$rttpg_upload_dir = wp_upload_dir()['basedir'] . '/rttpg/';
-		$rttpg_upload_url = wp_upload_dir()['baseurl'] . '/rttpg/';
+		$gtusers_upload_dir = wp_upload_dir()['basedir'] . '/gtusers/';
+		$gtusers_upload_url = wp_upload_dir()['baseurl'] . '/gtusers/';
 		// phpcs:ignore
 		if ( isset( $_GET['preview'] ) && ! empty( $_GET['preview'] ) ) {
-			$css_path = $rttpg_upload_dir . 'rttpg-block-preview.css';
+			$css_path = $gtusers_upload_dir . 'gtusers-block-preview.css';
 
 			if ( file_exists( $css_path ) ) {
 				if ( ! $this->is_editor_screen() ) {
-					wp_enqueue_style( 'rttpg-block-post-preview', $rttpg_upload_url . 'rttpg-block-preview.css', false, $this->version );
+					wp_enqueue_style( 'gtusers-block-post-preview', $gtusers_upload_url . 'gtusers-block-preview.css', false, $this->version );
 				}
 			}
 		} else if ( $post_id ) {
-			$css_dir_path = $rttpg_upload_dir . "rttpg-block-$post_id.css";
-			$css_dir_url  = $rttpg_upload_dir . "rttpg-block-$post_id.css";
+			$css_dir_path = $gtusers_upload_dir . "gtusers-block-$post_id.css";
+			$css_dir_url  = $gtusers_upload_dir . "gtusers-block-$post_id.css";
 
 			if ( file_exists( $css_dir_path ) ) {
 				if ( ! $this->is_editor_screen() ) {
-					wp_enqueue_style( "rttpg-block-post-{$post_id}", $css_dir_url, false, $this->version );
+					wp_enqueue_style( "gtusers-block-post-{$post_id}", $css_dir_url, false, $this->version );
 				}
 				$this->add_reusable_css();
 			} else {
 				// phpcs: ignore
-				wp_register_style( 'rttpg-post-data', false );
-				wp_enqueue_style( 'rttpg-post-data' );
-				wp_add_inline_style( 'rttpg-post-data', get_post_meta( get_the_ID(), '_rttpg_block_css', true ) );
+				wp_register_style( 'gtusers-post-data', false );
+				wp_enqueue_style( 'gtusers-post-data' );
+				wp_add_inline_style( 'gtusers-post-data', get_post_meta( get_the_ID(), '_gtusers_block_css', true ) );
 			}
 		}
 	}
 
 	/**
-	 * Common css load
+	 * Admin editor css load
 	 * @return void
 	 */
 	public function tpg_block_enqueue() {
-
 		if ( ! is_admin() ) {
 			return;
 		}
 
-		wp_enqueue_style( 'rt-tpg-block' );
-
-		//Custom CSS From Settings
-		$css = isset( $settings['custom_css'] ) ? stripslashes( $settings['custom_css'] ) : null;
-		if ( $css ) {
-			wp_add_inline_style( 'rt-tpg-block', $css );
-		}
+		wp_enqueue_style( 'gtusers-block' );
 	}
 
 
@@ -149,11 +142,11 @@ class BlocksController {
 	public function editor_assets() {
 
 		//Block editor css
-		wp_enqueue_style( 'rttpg-block-admin-css', rtTPG()->get_assets_uri( 'css/admin/block-admin.css' ), '', $this->version );
+		wp_enqueue_style( 'gtusers-block-admin-css', gtUsers()->get_assets_uri( 'css/admin/block-admin.css' ), '', $this->version );
 
 		//Main compile css and js file
-		wp_enqueue_style( 'rttpg-blocks-css', rtTPG()->get_assets_uri( 'blocks/main.css' ), '', $this->version );
-		wp_enqueue_script( 'rttpg-blocks-js', rtTPG()->get_assets_uri( 'blocks/main.js' ), [
+		wp_enqueue_style( 'gtusers-blocks-css', gtUsers()->get_assets_uri( 'blocks/main.css' ), '', $this->version );
+		wp_enqueue_script( 'gtusers-blocks-js', gtUsers()->get_assets_uri( 'blocks/main.js' ), [
 			'wp-block-editor',
 			'wp-blocks',
 			'wp-components',
@@ -190,24 +183,23 @@ class BlocksController {
 			unset( $get_tax_object[ $_tax ] );
 		}
 
-		wp_localize_script( 'rttpg-blocks-js', 'rttpgParams', [
+		wp_localize_script( 'gtusers-blocks-js', 'gtusersParams', [
 				'editor_type'     => $editor_type,
-				'nonce'           => wp_create_nonce( 'rttpg_nonce' ),
+				'nonce'           => wp_create_nonce( 'gtusers_nonce' ),
 				'ajaxurl'         => admin_url( 'admin-ajax.php' ),
 				'site_url'        => site_url(),
 				'admin_url'       => admin_url(),
 				'plugin_url'      => GT_USERS_PLUGIN_URL,
-				'plugin_pro_url'  => rtTPG()->getProPath(),
 				'post_type'       => Fns::get_post_types(),
 				'all_term_list'   => Fns::get_all_taxonomy_guten(),
 				'get_taxonomies'  => $get_tax_object,
 				'get_users'       => Fns::rt_get_users(),
-				'hasPro'          => rtTPG()->hasPro(),
+				'hasPro'          => false,
 				'pageTitle'       => get_the_title(),
 				'hasWoo'          => Fns::is_woocommerce(),
 				'hasAcf'          => Fns::is_acf(),
 				'current_user_id' => get_current_user_id(),
-				'disableImportButton'    => apply_filters('rttpg_disable_gutenberg_import_button', 'no'), //Send 'yes' if you would like to remove the button for gutenberg
+				'disableImportButton'    => apply_filters('gtusers_disable_gutenberg_import_button', 'no'), //Send 'yes' if you would like to remove the button for gutenberg
 				'iconFont' => Fns::tpg_option('tpg_icon_font')
 			]
 		);
@@ -224,12 +216,12 @@ class BlocksController {
 
 		$post_id = get_the_ID();
 		if ( $post_id ) {
-			$rttpg_upload_dir = wp_upload_dir()['basedir'] . '/rttpg/';
-			$css_dir_path     = $rttpg_upload_dir . "rttpg-block-$post_id.css";
+			$gtusers_upload_dir = wp_upload_dir()['basedir'] . '/gtusers/';
+			$css_dir_path     = $gtusers_upload_dir . "gtusers-block-$post_id.css";
 			if ( file_exists( $css_dir_path ) ) {
 				$blockCss = file_get_contents( $css_dir_path );
 				echo '<style>' . sanitize_textarea_field( $blockCss ) . '</style>';
-			} else if ( $metaCss = get_post_meta( $post_id, '_rttpg_block_css', true ) ) {
+			} else if ( $metaCss = get_post_meta( $post_id, '_gtusers_block_css', true ) ) {
 				echo '<style>' . sanitize_textarea_field( $metaCss ) . '</style>';
 			}
 		}
@@ -244,8 +236,8 @@ class BlocksController {
 	 */
 	public function add_reusable_css() {
 		$post_id          = get_the_ID();
-		$rttpg_upload_dir = wp_upload_dir()['basedir'] . '/rttpg/';
-		$rttpg_upload_url = wp_upload_dir()['baseurl'] . '/rttpg/';
+		$gtusers_upload_dir = wp_upload_dir()['basedir'] . '/gtusers/';
+		$gtusers_upload_url = wp_upload_dir()['baseurl'] . '/gtusers/';
 		if ( $post_id ) {
 			$content_post = get_post( $post_id );
 			if ( isset( $content_post->post_content ) ) {
@@ -256,9 +248,9 @@ class BlocksController {
 					if ( ! empty( $css_id ) ) {
 						$css_id = array_unique( $css_id );
 						foreach ( $css_id as $value ) {
-							$css_dir_path = $rttpg_upload_dir . "rttpg-block-$value.css";
+							$css_dir_path = $gtusers_upload_dir . "gtusers-block-$value.css";
 							if ( file_exists( $css_dir_path ) ) {
-								wp_enqueue_style( "rttpg-block-{$value}", $rttpg_upload_url . "rttpg-block-{$value}.css", false, RTTPG_VERSION );
+								wp_enqueue_style( "gtusers-block-{$value}", $gtusers_upload_url . "gtusers-block-{$value}.css", false, GTUSERS_VERSION );
 							}
 						}
 					}
@@ -276,7 +268,7 @@ class BlocksController {
 
 		try {
 			if ( ! current_user_can( 'edit_posts' ) ) {
-				throw new Exception( __( 'User permission error', 'the-post-grid' ) );
+				throw new Exception( __( 'User permission error', 'gutenberg-users' ) );
 			}
 			global $wp_filesystem;
 			if ( ! $wp_filesystem ) {
@@ -286,18 +278,18 @@ class BlocksController {
 			$post_id  = ! empty( $_POST['post_id'] ) ? sanitize_text_field( $_POST['post_id'] ) : '';
 			$blockCss = ! empty( $_POST['block_css'] ) ? sanitize_text_field( $_POST['block_css'] ) : '';
 
-			if ( $post_id == 'rttpg-widget' && isset( $_POST['has_block'] ) ) {
+			if ( $post_id == 'gtusers-widget' && isset( $_POST['has_block'] ) ) {
 				update_option( $post_id, $blockCss );
-				wp_send_json_success( [ 'message' => __( 'Widget CSS Saved', 'the-post-grid' ) ] );
+				wp_send_json_success( [ 'message' => __( 'Widget CSS Saved', 'gutenberg-users' ) ] );
 			}
 
-			$filename       = "rttpg-block-css-{$post_id}.css";
+			$filename       = "gtusers-block-css-{$post_id}.css";
 			$upload_dir_url = wp_upload_dir();
-			$dir            = trailingslashit( $upload_dir_url['basedir'] ) . 'rttpg/';
+			$dir            = trailingslashit( $upload_dir_url['basedir'] ) . 'gtusers/';
 
 			if ( ! empty( $_POST['has_block'] ) ) {
 
-				update_post_meta( $post_id, '_rttpg_block_active', 1 );
+				update_post_meta( $post_id, '_gtusers_block_active', 1 );
 				$block_css = $this->set_top_css( $blockCss );
 
 				WP_Filesystem( false, $upload_dir_url['basedir'], true );
@@ -306,17 +298,17 @@ class BlocksController {
 
 				}
 				if ( ! $wp_filesystem->put_contents( $dir . $filename, $block_css ) ) {
-					wp_send_json_error( [ 'message' => __( 'CSS can not be saved due to permission!!!', 'the-post-grid' ) ] );
+					wp_send_json_error( [ 'message' => __( 'CSS can not be saved due to permission!!!', 'gutenberg-users' ) ] );
 				}
-				update_post_meta( $post_id, '_rttpg_block_css', $block_css );
-				wp_send_json_success( [ 'message' => __( 'Css file has been updated', 'the-post-grid' ) ] );
+				update_post_meta( $post_id, '_gtusers_block_css', $block_css );
+				wp_send_json_success( [ 'message' => __( 'Css file has been updated', 'gutenberg-users' ) ] );
 			} else {
-				delete_post_meta( $post_id, '_rttpg_block_active' );
+				delete_post_meta( $post_id, '_gtusers_block_active' );
 				if ( file_exists( $dir . $filename ) ) {
 					unlink( $dir . $filename );
 				}
-				delete_post_meta( $post_id, '_rttpg_block_css' );
-				wp_send_json_success( [ 'message' => __( 'Data Delete Done', 'the-post-grid' ) ] );
+				delete_post_meta( $post_id, '_gtusers_block_css' );
+				wp_send_json_success( [ 'message' => __( 'Data Delete Done', 'gutenberg-users' ) ] );
 			}
 		} catch ( Exception $e ) {
 			wp_send_json_error( [ 'message' => $e->getMessage() ] );
@@ -368,7 +360,7 @@ class BlocksController {
 		if ( $post_id ) {
 			wp_send_json_success( get_post( $post_id )->post_content );
 		} else {
-			wp_send_json_error( new WP_Error( 'rttpg_block_data_not_found', __( 'Data not found!!', 'the-post-grid' ) ) );
+			wp_send_json_error( new WP_Error( 'gtusers_block_data_not_found', __( 'Data not found!!', 'gutenberg-users' ) ) );
 		}
 	}
 
@@ -382,7 +374,7 @@ class BlocksController {
 	 */
 	public function appended( $server ) {
 		if ( ! current_user_can( 'edit_posts' ) ) {
-			wp_send_json_success( new WP_Error( 'rttpg_block_user_permission', __( 'User permission error', 'the-post-grid' ) ) );
+			wp_send_json_success( new WP_Error( 'gtusers_block_user_permission', __( 'User permission error', 'gutenberg-users' ) ) );
 		}
 		global $wp_filesystem;
 		if ( ! $wp_filesystem ) {
@@ -394,18 +386,18 @@ class BlocksController {
 
 		if ( $post_id ) {
 			$upload_dir_url = wp_upload_dir();
-			$filename       = "rttpg-block-css-$post_id.css";
-			$dir            = trailingslashit( $upload_dir_url['basedir'] ) . 'rttpg/';
+			$filename       = "gtusers-block-css-$post_id.css";
+			$dir            = trailingslashit( $upload_dir_url['basedir'] ) . 'gtusers/';
 			WP_Filesystem( false, $upload_dir_url['basedir'], true );
 			if ( ! $wp_filesystem->is_dir( $dir ) ) {
 				$wp_filesystem->mkdir( $dir );
 			}
 			if ( ! $wp_filesystem->put_contents( $dir . $filename, $css ) ) {
-				wp_send_json_error( [ 'message' => __( 'CSS can not be saved due to permission!!!', 'the-post-grid' ) ] );
+				wp_send_json_error( [ 'message' => __( 'CSS can not be saved due to permission!!!', 'gutenberg-users' ) ] );
 			}
-			wp_send_json_success( [ 'message' => __( 'Data retrieve done', 'the-post-grid' ) ] );
+			wp_send_json_success( [ 'message' => __( 'Data retrieve done', 'gutenberg-users' ) ] );
 		} else {
-			wp_send_json_error( [ 'message' => __( 'Data not found!!', 'the-post-grid' ) ] );
+			wp_send_json_error( [ 'message' => __( 'Data not found!!', 'gutenberg-users' ) ] );
 		}
 	}
 

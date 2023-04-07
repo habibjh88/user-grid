@@ -20,8 +20,8 @@ abstract class BlockBase {
 
 	public function get_script_depends( $data ) {
 
-		wp_enqueue_style( 'rt-tpg-block' );
-		wp_enqueue_script( 'rt-tpg' );
+		wp_enqueue_style( 'gtusers-block' );
+		wp_enqueue_script( 'gtusers-script' );
 	}
 
 	/**
@@ -50,12 +50,12 @@ abstract class BlockBase {
 			$args['paged'] = get_query_var( $_paged ) ? absint( get_query_var( $_paged ) ) : 1;
 		}
 
-		if ( rtTPG()->hasPro() && 'yes' == $data['ignore_sticky_posts'] ) {
+		if ( gtUsers()->hasPro() && 'yes' == $data['ignore_sticky_posts'] ) {
 			$args['ignore_sticky_posts'] = 1;
 		}
 
 		if ( $orderby = $data['orderby'] ) {
-			if ( ! rtTPG()->hasPro() && 'rand' == $orderby ) {
+			if ( ! gtUsers()->hasPro() && 'rand' == $orderby ) {
 				$orderby = 'date';
 			}
 			$args['orderby'] = $orderby;
@@ -69,7 +69,7 @@ abstract class BlockBase {
 			$args['author__in'] = $data['author'];
 		}
 
-		if ( rtTPG()->hasPro() && ( $data['start_date'] || $data['end_date'] ) ) {
+		if ( gtUsers()->hasPro() && ( $data['start_date'] || $data['end_date'] ) ) {
 			$args['date_query'] = [
 				[
 					'after'     => trim( $data['start_date'] ),

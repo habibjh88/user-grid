@@ -40,7 +40,7 @@ function CategoryLayout({props, catData, changeQuery}) {
     return (
 
 
-        <div className={`rttpg-block-postgrid rttpg-block-wrapper rttpg-block-${uniqueId}`}>
+        <div className={`gtusers-block-postgrid gtusers-block-wrapper gtusers-block-${uniqueId}`}>
 
             {categories && categories.length ?
                 <div className="tpg-category-block-wrapper clearfix">
@@ -85,7 +85,7 @@ function CategoryLayout({props, catData, changeQuery}) {
                     </div>
                 </div>
                 :
-                <div className="rttpg-postgrid-is-loading">
+                <div className="gtusers-postgrid-is-loading">
                     {(categories?.message && categories.message) ? categories.message : <Spinner/>}
                 </div>
             }

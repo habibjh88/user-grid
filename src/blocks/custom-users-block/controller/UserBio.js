@@ -26,16 +26,16 @@ function UserBio(props) {
     } = attributes;
 
     return (
-        <PanelBody title={__('User Biography', 'the-post-grid')} initialOpen={false}>
+        <PanelBody title={__('User Biography', 'gutenberg-users')} initialOpen={false}>
 
             <SelectControl
-                label={__("Bio Visible For", "the-post-grid")}
-                className="rttpg-control-field label-inline"
+                label={__("Bio Visible For", "gutenberg-users")}
+                className="gtusers-control-field label-inline"
                 options={[
                     {value: 'all', label: 'All Users'},
                     {value: 'loggedin', label: 'Logged in Users'},
                 ]}
-                help={__("If you don't want to show this for non logged in users then choose 2nd option", "the-post-grid")}
+                help={__("If you don't want to show this for non logged in users then choose 2nd option", "gutenberg-users")}
                 value={bio_visible_for}
                 onChange={(bio_visible_for) => {
                     setAttributes({bio_visible_for})
@@ -59,7 +59,7 @@ function UserBio(props) {
             />
 
             <Dimension
-                label={__("Spacing", "the-post-grid")}
+                label={__("Spacing", "gutenberg-users")}
                 type="margin" responsive
                 value={bio_spacing}
                 onChange={(value) => {
@@ -68,7 +68,7 @@ function UserBio(props) {
             />
 
             <Color
-                label={__('Color', 'the-post-grid')}
+                label={__('Color', 'gutenberg-users')}
                 color={bio_color}
                 onChange={(bio_color) => setAttributes({bio_color})}
             />

@@ -1,24 +1,24 @@
-.rttpg-components-popover,
-.rttpg-panel-control-wrapper {
-	.rttpg-control-field {
-		&.rttpg-cf-color-wrap {
+.gtusers-components-popover,
+.gtusers-panel-control-wrapper {
+	.gtusers-control-field {
+		&.gtusers-cf-color-wrap {
 			display: flex;
 			align-items: center;
 			gap: 15px;
 			justify-content: space-between;
 
-			.rttpg-color {
+			.gtusers-color {
 				display: flex;
 				align-items: center;
 				gap: 6px;
 				flex-direction: row-reverse;
 
-				.rttpg-undo-btn {
+				.gtusers-undo-btn {
 					padding: 0;
 				}
 			}
 
-			.rttpg-color-ball {
+			.gtusers-color-ball {
 				background-image: linear-gradient(
 								45deg,
 								#e9e9e9 25%,

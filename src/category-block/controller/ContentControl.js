@@ -31,16 +31,16 @@ function ContentControl(props) {
 
     const imageSizes = [...props.imageSizes];
 
-    const allTermList = rttpgParams.all_term_list;
+    const allTermList = gtusersParams.all_term_list;
 
     return (
-        <PanelBody title={__('Category Block', 'the-post-grid')} initialOpen={true}>
+        <PanelBody title={__('Category Block', 'gutenberg-users')} initialOpen={true}>
 
-            <Heading className="rttpg-control-heading">{__("Layout Options:", "the-post-grid")}</Heading>
+            <Heading className="gtusers-control-heading">{__("Layout Options:", "gutenberg-users")}</Heading>
 
             <TPGColumn
-                label={__("Grid Column", "the-post-grid")}
-                className="rttpg-control-field"
+                label={__("Grid Column", "gutenberg-users")}
+                className="gtusers-control-field"
                 value={grid_column}
                 onChange={(grid_column) => {
                     setAttributes({grid_column})
@@ -49,11 +49,11 @@ function ContentControl(props) {
                 changeQuery={changeQuery}
             />
 
-            <div className="components-base-control rttpg-repeater">
+            <div className="components-base-control gtusers-repeater">
                 <label
                     className="components-base-control__label components-input-control__label"
                     htmlFor="react-select-2-input">
-                    {__('Choose Category', 'the-post-grid')}
+                    {__('Choose Category', 'gutenberg-users')}
                 </label>
 
                 <Select
@@ -72,7 +72,7 @@ function ContentControl(props) {
 
            {/*
            <Dimension
-                label={__("Grid Gap", "the-post-grid")}
+                label={__("Grid Gap", "gutenberg-users")}
                 type="padding"
                 responsive
                 value={cat_gap}
@@ -93,8 +93,8 @@ function ContentControl(props) {
             />
 
             <SelectControl
-                label={__("Image Size", "the-post-grid")}
-                className="rttpg-control-field"
+                label={__("Image Size", "gutenberg-users")}
+                className="gtusers-control-field"
                 options={imageSizes}
                 value={image_size}
                 onChange={(image_size) => {
@@ -104,7 +104,7 @@ function ContentControl(props) {
             />
 
             <Alignment
-                label={__("Alignment", "the-post-grid")}
+                label={__("Alignment", "gutenberg-users")}
                 options={['left', 'center', 'right']}
                 value={category_alignment}
                 // responsive={ true }

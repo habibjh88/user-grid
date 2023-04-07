@@ -1,26 +1,26 @@
 /*!*******************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/color.scss ***!
   \*******************************************************************************************************************************************************************************************************************************************************/
-.rttpg-components-popover .rttpg-control-field.rttpg-cf-color-wrap,
-.rttpg-panel-control-wrapper .rttpg-control-field.rttpg-cf-color-wrap {
+.gtusers-components-popover .gtusers-control-field.gtusers-cf-color-wrap,
+.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-color-wrap {
   display: flex;
   align-items: center;
   gap: 15px;
   justify-content: space-between;
 }
-.rttpg-components-popover .rttpg-control-field.rttpg-cf-color-wrap .rttpg-color,
-.rttpg-panel-control-wrapper .rttpg-control-field.rttpg-cf-color-wrap .rttpg-color {
+.gtusers-components-popover .gtusers-control-field.gtusers-cf-color-wrap .gtusers-color,
+.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-color-wrap .gtusers-color {
   display: flex;
   align-items: center;
   gap: 6px;
   flex-direction: row-reverse;
 }
-.rttpg-components-popover .rttpg-control-field.rttpg-cf-color-wrap .rttpg-color .rttpg-undo-btn,
-.rttpg-panel-control-wrapper .rttpg-control-field.rttpg-cf-color-wrap .rttpg-color .rttpg-undo-btn {
+.gtusers-components-popover .gtusers-control-field.gtusers-cf-color-wrap .gtusers-color .gtusers-undo-btn,
+.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-color-wrap .gtusers-color .gtusers-undo-btn {
   padding: 0;
 }
-.rttpg-components-popover .rttpg-control-field.rttpg-cf-color-wrap .rttpg-color-ball,
-.rttpg-panel-control-wrapper .rttpg-control-field.rttpg-cf-color-wrap .rttpg-color-ball {
+.gtusers-components-popover .gtusers-control-field.gtusers-cf-color-wrap .gtusers-color-ball,
+.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-color-wrap .gtusers-color-ball {
   background-image: linear-gradient(45deg, #e9e9e9 25%, transparent 0), linear-gradient(-45deg, #e9e9e9 25%, transparent 0), linear-gradient(45deg, transparent 75%, #e9e9e9 0), linear-gradient(-45deg, transparent 75%, #e9e9e9 0);
   background-position: 0 0, 0 5px, 5px -5px, -5px 0;
   background-size: 10px 10px;
@@ -30,8 +30,8 @@
 /*!*********************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/devices.scss ***!
   \*********************************************************************************************************************************************************************************************************************************************************/
-.rttpg-components-popover .rttpg-device-switcher,
-.rttpg-panel-control-wrapper .rttpg-device-switcher {
+.gtusers-components-popover .gtusers-device-switcher,
+.gtusers-panel-control-wrapper .gtusers-device-switcher {
   color: #a4afb7;
   display: flex;
   align-items: center;
@@ -45,133 +45,133 @@
   transition: 0.15s;
   font-size: 11px;
 }
-.rttpg-components-popover .rttpg-device-switcher i,
-.rttpg-panel-control-wrapper .rttpg-device-switcher i {
+.gtusers-components-popover .gtusers-device-switcher i,
+.gtusers-panel-control-wrapper .gtusers-device-switcher i {
   font-size: inherit;
 }
-.rttpg-components-popover .rttpg-device-switcher.active,
-.rttpg-panel-control-wrapper .rttpg-device-switcher.active {
+.gtusers-components-popover .gtusers-device-switcher.active,
+.gtusers-panel-control-wrapper .gtusers-device-switcher.active {
   height: 24px;
   transform: scale(1);
   opacity: 1;
 }
-.rttpg-components-popover .rttpg-device-switchers,
-.rttpg-panel-control-wrapper .rttpg-device-switchers {
+.gtusers-components-popover .gtusers-device-switchers,
+.gtusers-panel-control-wrapper .gtusers-device-switchers {
   position: relative;
   width: 24px;
   height: 24px;
 }
-.rttpg-components-popover .rttpg-device-switchers-wrap,
-.rttpg-panel-control-wrapper .rttpg-device-switchers-wrap {
+.gtusers-components-popover .gtusers-device-switchers-wrap,
+.gtusers-panel-control-wrapper .gtusers-device-switchers-wrap {
   position: absolute;
   width: 100%;
   top: 1px;
   color: #e0e1e3;
   z-index: 44;
 }
-.rttpg-components-popover .rttpg-device-switchers-open .rttpg-device-switchers-wrap,
-.rttpg-panel-control-wrapper .rttpg-device-switchers-open .rttpg-device-switchers-wrap {
+.gtusers-components-popover .gtusers-device-switchers-open .gtusers-device-switchers-wrap,
+.gtusers-panel-control-wrapper .gtusers-device-switchers-open .gtusers-device-switchers-wrap {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
   background: #ffffff;
   border-radius: 2px;
 }
-.rttpg-components-popover .rttpg-device-switchers-open.active-md .rttpg-device-switchers-wrap,
-.rttpg-panel-control-wrapper .rttpg-device-switchers-open.active-md .rttpg-device-switchers-wrap {
+.gtusers-components-popover .gtusers-device-switchers-open.active-md .gtusers-device-switchers-wrap,
+.gtusers-panel-control-wrapper .gtusers-device-switchers-open.active-md .gtusers-device-switchers-wrap {
   top: 0;
 }
-.rttpg-components-popover .rttpg-device-switchers-open.active-sm .rttpg-device-switchers-wrap,
-.rttpg-panel-control-wrapper .rttpg-device-switchers-open.active-sm .rttpg-device-switchers-wrap {
+.gtusers-components-popover .gtusers-device-switchers-open.active-sm .gtusers-device-switchers-wrap,
+.gtusers-panel-control-wrapper .gtusers-device-switchers-open.active-sm .gtusers-device-switchers-wrap {
   top: 0;
 }
-.rttpg-components-popover .rttpg-device-switchers-open.active-xs .rttpg-device-switchers-wrap,
-.rttpg-panel-control-wrapper .rttpg-device-switchers-open.active-xs .rttpg-device-switchers-wrap {
+.gtusers-components-popover .gtusers-device-switchers-open.active-xs .gtusers-device-switchers-wrap,
+.gtusers-panel-control-wrapper .gtusers-device-switchers-open.active-xs .gtusers-device-switchers-wrap {
   top: 0;
 }
-.rttpg-components-popover .rttpg-device-switchers-open .rttpg-device-switcher,
-.rttpg-panel-control-wrapper .rttpg-device-switchers-open .rttpg-device-switcher {
+.gtusers-components-popover .gtusers-device-switchers-open .gtusers-device-switcher,
+.gtusers-panel-control-wrapper .gtusers-device-switchers-open .gtusers-device-switcher {
   height: 24px;
   transform: scale(1);
   opacity: 1;
 }
 
-.rttpg-device-switchers-open .rttpg-device-switcher.active {
-  color: var(--rttpg-admin-color-primary, #0066ff);
+.gtusers-device-switchers-open .gtusers-device-switcher.active {
+  color: var(--gtusers-admin-color-primary, #0066ff);
 }
 /*!*************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/rangeDevice.scss ***!
   \*************************************************************************************************************************************************************************************************************************************************************/
-.rttpg-components-popover .rttpg-control-field .rttpg-cf-head .rt-left-part,
-.rttpg-panel-control-wrapper .rttpg-control-field .rttpg-cf-head .rt-left-part {
+.gtusers-components-popover .gtusers-control-field .gtusers-cf-head .rt-left-part,
+.gtusers-panel-control-wrapper .gtusers-control-field .gtusers-cf-head .rt-left-part {
   display: flex;
   align-items: center;
 }
-.rttpg-components-popover .rttpg-control-field .rttpg-cf-head .rttpg-label,
-.rttpg-panel-control-wrapper .rttpg-control-field .rttpg-cf-head .rttpg-label {
+.gtusers-components-popover .gtusers-control-field .gtusers-cf-head .gtusers-label,
+.gtusers-panel-control-wrapper .gtusers-control-field .gtusers-cf-head .gtusers-label {
   margin-bottom: 2px;
   margin-right: 4px;
 }
-.rttpg-components-popover .rttpg-control-field.rttpg-cf-range-wrap,
-.rttpg-panel-control-wrapper .rttpg-control-field.rttpg-cf-range-wrap {
+.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap,
+.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap {
   --row-gap: 5px;
 }
-.rttpg-components-popover .rttpg-control-field.rttpg-cf-range-wrap .components-input-control__input,
-.rttpg-panel-control-wrapper .rttpg-control-field.rttpg-cf-range-wrap .components-input-control__input {
+.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .components-input-control__input,
+.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .components-input-control__input {
   height: 30px !important;
   min-width: 70px;
 }
-.rttpg-components-popover .rttpg-control-field.rttpg-cf-range-wrap .components-range-control__wrapper,
-.rttpg-panel-control-wrapper .rttpg-control-field.rttpg-cf-range-wrap .components-range-control__wrapper {
-  color: var(--rttpg-admin-color-primary, #0066ff);
+.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .components-range-control__wrapper,
+.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .components-range-control__wrapper {
+  color: var(--gtusers-admin-color-primary, #0066ff);
   min-height: 25px;
   height: 25px;
   flex: 1 1 90% !important;
 }
-.rttpg-components-popover .rttpg-control-field.rttpg-cf-range-wrap .components-range-control__wrapper .acf-bf-cf-b-afb-199wkr,
-.rttpg-panel-control-wrapper .rttpg-control-field.rttpg-cf-range-wrap .components-range-control__wrapper .acf-bf-cf-b-afb-199wkr {
-  background-color: var(--rttpg-admin-color-primary, #0066ff);
+.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .components-range-control__wrapper .acf-bf-cf-b-afb-199wkr,
+.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .components-range-control__wrapper .acf-bf-cf-b-afb-199wkr {
+  background-color: var(--gtusers-admin-color-primary, #0066ff);
 }
-.rttpg-components-popover .rttpg-control-field.rttpg-cf-range-wrap .rttpg-cf-body,
-.rttpg-panel-control-wrapper .rttpg-control-field.rttpg-cf-range-wrap .rttpg-cf-body {
+.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body,
+.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-.rttpg-components-popover .rttpg-control-field.rttpg-cf-range-wrap .rttpg-cf-body .components-base-control,
-.rttpg-components-popover .rttpg-control-field.rttpg-cf-range-wrap .rttpg-cf-body .components-base-control__field,
-.rttpg-components-popover .rttpg-control-field.rttpg-cf-range-wrap .rttpg-cf-body .rttpg-control-field,
-.rttpg-panel-control-wrapper .rttpg-control-field.rttpg-cf-range-wrap .rttpg-cf-body .components-base-control,
-.rttpg-panel-control-wrapper .rttpg-control-field.rttpg-cf-range-wrap .rttpg-cf-body .components-base-control__field,
-.rttpg-panel-control-wrapper .rttpg-control-field.rttpg-cf-range-wrap .rttpg-cf-body .rttpg-control-field {
+.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .components-base-control,
+.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .components-base-control__field,
+.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .gtusers-control-field,
+.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .components-base-control,
+.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .components-base-control__field,
+.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .gtusers-control-field {
   flex-grow: 1;
   margin-bottom: 0;
 }
-.rttpg-components-popover .rttpg-control-field.rttpg-cf-range-wrap .rttpg-cf-body .rttpg-undo-btn,
-.rttpg-panel-control-wrapper .rttpg-control-field.rttpg-cf-range-wrap .rttpg-cf-body .rttpg-undo-btn {
+.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .gtusers-undo-btn,
+.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .gtusers-undo-btn {
   font-size: 16px;
-  color: var(--rttpg-admin-color-secondary, #555);
+  color: var(--gtusers-admin-color-secondary, #555);
   background-color: transparent;
 }
-.rttpg-components-popover .rttpg-control-field.rttpg-cf-range-wrap .rttpg-cf-body .rttpg-undo-btn span,
-.rttpg-panel-control-wrapper .rttpg-control-field.rttpg-cf-range-wrap .rttpg-cf-body .rttpg-undo-btn span {
+.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .gtusers-undo-btn span,
+.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .gtusers-undo-btn span {
   font-size: inherit;
 }
-.rttpg-components-popover .rttpg-control-field.rttpg-cf-range-wrap .rttpg-cf-body .rttpg-undo-btn:focus,
-.rttpg-panel-control-wrapper .rttpg-control-field.rttpg-cf-range-wrap .rttpg-cf-body .rttpg-undo-btn:focus {
+.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .gtusers-undo-btn:focus,
+.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .gtusers-undo-btn:focus {
   outline: 0;
   box-shadow: none;
 }
 /*!************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/typography.scss ***!
   \************************************************************************************************************************************************************************************************************************************************************/
-.rttpg-components-popover .rttpg-control-field.rttpg-cf-typography-wrap,
-.rttpg-panel-control-wrapper .rttpg-control-field.rttpg-cf-typography-wrap {
+.gtusers-components-popover .gtusers-control-field.gtusers-cf-typography-wrap,
+.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-typography-wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.rttpg-components-popover .rttpg-control-field.rttpg-cf-typography-wrap .components-button,
-.rttpg-panel-control-wrapper .rttpg-control-field.rttpg-cf-typography-wrap .components-button {
-  font-size: var(--rttpg-admin-text-base, 14px);
+.gtusers-components-popover .gtusers-control-field.gtusers-cf-typography-wrap .components-button,
+.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-typography-wrap .components-button {
+  font-size: var(--gtusers-admin-text-base, 14px);
   height: 28px !important;
   width: 28px !important;
   padding: 0;
@@ -181,39 +181,39 @@
   border: 1px solid #d5dadf;
   background: transparent;
   border-radius: 3px;
-  color: var(--rttpg-admin-color-primary, #0066ff);
+  color: var(--gtusers-admin-color-primary, #0066ff);
 }
-.rttpg-components-popover .rttpg-control-field.rttpg-cf-typography-wrap .components-button > span,
-.rttpg-panel-control-wrapper .rttpg-control-field.rttpg-cf-typography-wrap .components-button > span {
+.gtusers-components-popover .gtusers-control-field.gtusers-cf-typography-wrap .components-button > span,
+.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-typography-wrap .components-button > span {
   transition: unset;
   line-height: 1;
   height: 22px;
 }
-.rttpg-components-popover .rttpg-control-field.rttpg-cf-typography-wrap .components-button:hover,
-.rttpg-panel-control-wrapper .rttpg-control-field.rttpg-cf-typography-wrap .components-button:hover {
-  color: var(--rttpg-admin-color-white, #fff);
-  background-color: var(--rttpg-admin-color-primary, #0066ff);
+.gtusers-components-popover .gtusers-control-field.gtusers-cf-typography-wrap .components-button:hover,
+.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-typography-wrap .components-button:hover {
+  color: var(--gtusers-admin-color-white, #fff);
+  background-color: var(--gtusers-admin-color-primary, #0066ff);
 }
-.rttpg-components-popover .rttpg-typography-content,
-.rttpg-panel-control-wrapper .rttpg-typography-content {
+.gtusers-components-popover .gtusers-typography-content,
+.gtusers-panel-control-wrapper .gtusers-typography-content {
   min-width: 230px;
   padding: 5px 6px;
 }
 /*!***********************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/dimension.scss ***!
   \***********************************************************************************************************************************************************************************************************************************************************/
-.rttpg-components-popover .rttpg-control-dimensions,
-.rttpg-panel-control-wrapper .rttpg-control-dimensions {
+.gtusers-components-popover .gtusers-control-dimensions,
+.gtusers-panel-control-wrapper .gtusers-control-dimensions {
   overflow: hidden;
   display: flex;
 }
-.rttpg-components-popover .rttpg-control-dimensions .rttpg-control-dimension:first-child input,
-.rttpg-panel-control-wrapper .rttpg-control-dimensions .rttpg-control-dimension:first-child input {
-  border-left: 1px solid var(--rttpg-admin-color-border);
+.gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension:first-child input,
+.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension:first-child input {
+  border-left: 1px solid var(--gtusers-admin-color-border);
   border-radius: 3px 0 0 3px;
 }
-.rttpg-components-popover .rttpg-control-dimensions .rttpg-control-dimension input,
-.rttpg-panel-control-wrapper .rttpg-control-dimensions .rttpg-control-dimension input {
+.gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension input,
+.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension input {
   border-left: none;
   border-radius: 0;
   padding: 4px 0;
@@ -221,35 +221,35 @@
   text-align: center;
   width: 100%;
   height: 27px;
-  border-color: var(--rttpg-admin-color-border);
+  border-color: var(--gtusers-admin-color-border);
 }
-.rttpg-components-popover .rttpg-control-dimensions .rttpg-control-dimension input:active, .rttpg-components-popover .rttpg-control-dimensions .rttpg-control-dimension input:focus, .rttpg-components-popover .rttpg-control-dimensions .rttpg-control-dimension input:hover,
-.rttpg-panel-control-wrapper .rttpg-control-dimensions .rttpg-control-dimension input:active,
-.rttpg-panel-control-wrapper .rttpg-control-dimensions .rttpg-control-dimension input:focus,
-.rttpg-panel-control-wrapper .rttpg-control-dimensions .rttpg-control-dimension input:hover {
+.gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension input:active, .gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension input:focus, .gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension input:hover,
+.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension input:active,
+.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension input:focus,
+.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension input:hover {
   box-shadow: none;
   outline: 0;
 }
-.rttpg-components-popover .rttpg-control-dimensions .rttpg-control-dimension .rttpg-link-dimensions,
-.rttpg-panel-control-wrapper .rttpg-control-dimensions .rttpg-control-dimension .rttpg-link-dimensions {
+.gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension .gtusers-link-dimensions,
+.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension .gtusers-link-dimensions {
   width: 40px;
   height: 30px;
   cursor: pointer;
   font-size: 15px;
   border-radius: 0 3px 3px 0;
-  border: 1px solid var(--rttpg-admin-color-border);
+  border: 1px solid var(--gtusers-admin-color-border);
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
-.rttpg-components-popover .rttpg-control-dimensions .rttpg-control-dimension .rttpg-link-dimensions.linked,
-.rttpg-panel-control-wrapper .rttpg-control-dimensions .rttpg-control-dimension .rttpg-link-dimensions.linked {
-  background-color: var(--rttpg-admin-color-primary);
+.gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension .gtusers-link-dimensions.linked,
+.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension .gtusers-link-dimensions.linked {
+  background-color: var(--gtusers-admin-color-primary);
   color: #ffffff;
-  border-color: var(--rttpg-admin-color-primary);
+  border-color: var(--gtusers-admin-color-primary);
 }
-.rttpg-components-popover .rttpg-control-dimensions .rttpg-control-dimension .rttpg-link-dimensions .rt-dm-link-icon,
-.rttpg-panel-control-wrapper .rttpg-control-dimensions .rttpg-control-dimension .rttpg-link-dimensions .rt-dm-link-icon {
+.gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension .gtusers-link-dimensions .rt-dm-link-icon,
+.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension .gtusers-link-dimensions .rt-dm-link-icon {
   font-size: 15px;
   width: auto;
   height: auto;
@@ -257,14 +257,14 @@
   align-items: center;
   line-height: 1;
 }
-.rttpg-components-popover .rttpg-control-dimensions .rttpg-control-dimension .rttpg-link-dimensions:focus, .rttpg-components-popover .rttpg-control-dimensions .rttpg-control-dimension .rttpg-link-dimensions:focus-visible,
-.rttpg-panel-control-wrapper .rttpg-control-dimensions .rttpg-control-dimension .rttpg-link-dimensions:focus,
-.rttpg-panel-control-wrapper .rttpg-control-dimensions .rttpg-control-dimension .rttpg-link-dimensions:focus-visible {
+.gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension .gtusers-link-dimensions:focus, .gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension .gtusers-link-dimensions:focus-visible,
+.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension .gtusers-link-dimensions:focus,
+.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension .gtusers-link-dimensions:focus-visible {
   outline: 0;
   box-shadow: none;
 }
-.rttpg-components-popover .rttpg-control-dimensions .rttpg-control-dimension-label,
-.rttpg-panel-control-wrapper .rttpg-control-dimensions .rttpg-control-dimension-label {
+.gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension-label,
+.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension-label {
   display: block;
   text-align: center;
   font-size: 9px;
@@ -274,8 +274,8 @@
 /*!***********************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/alignment.scss ***!
   \***********************************************************************************************************************************************************************************************************************************************************/
-.rttpg-components-popover .rttpg-control-field.rttpg-cf-alignment-wrap .rttpg-btn-group .rttpg-button,
-.rttpg-panel-control-wrapper .rttpg-control-field.rttpg-cf-alignment-wrap .rttpg-btn-group .rttpg-button {
+.gtusers-components-popover .gtusers-control-field.gtusers-cf-alignment-wrap .gtusers-btn-group .gtusers-button,
+.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-alignment-wrap .gtusers-btn-group .gtusers-button {
   font-size: 12px;
 }
 

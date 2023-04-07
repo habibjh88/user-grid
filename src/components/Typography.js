@@ -16,16 +16,16 @@ function Typography(props) {
     };
 
     return (
-        <div className="rttpg-control-field rttpg-cf-typography-wrap">
+        <div className="gtusers-control-field gtusers-cf-typography-wrap">
 
             {label && (
-                <span className="rttpg-label">{label}</span>
+                <span className="gtusers-label">{label}</span>
             )}
 
-            <div className="rttpg-typography">
+            <div className="gtusers-typography">
                 <Dropdown
-                    className="rttpg-typography-dropdown-icon"
-                    contentClassName="rttpg-components-popover rttpg-cp-typography-content"
+                    className="gtusers-typography-dropdown-icon"
+                    contentClassName="gtusers-components-popover gtusers-cp-typography-content"
                     position="bottom right"
                     renderToggle={({isOpen, onToggle}) => (
                         <Button
@@ -38,7 +38,7 @@ function Typography(props) {
 
                     renderContent={() => (
 
-                        <div className="rttpg-typography-content">
+                        <div className="gtusers-typography-content">
                             <RangeDevice
                                 label={__('Font Size')}
                                 responsive={true}

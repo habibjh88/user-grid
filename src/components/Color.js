@@ -17,18 +17,18 @@ function Color({label, color, onChange}) {
     };
 
     return (
-        <div className="rttpg-control-field rttpg-cf-color-wrap">
+        <div className="gtusers-control-field gtusers-cf-color-wrap">
 
             {label && (
-                <span className="rttpg-label">{label}</span>
+                <span className="gtusers-label">{label}</span>
             )}
 
-            <div className="rttpg-color">
+            <div className="gtusers-color">
                 <Dropdown
-                    contentClassName="rttpg-components-popover rttpg-cp-color-content"
+                    contentClassName="gtusers-components-popover gtusers-cp-color-content"
                     renderToggle={({isOpen, onToggle}) => (
                         <Tooltip text={color || "default"}>
-                            <div className="rttpg-color-ball">
+                            <div className="gtusers-color-ball">
                                 <div
                                     style={{
                                         height: 25,
@@ -54,7 +54,7 @@ function Color({label, color, onChange}) {
                 {bgColor && (
                     <Button
                         isSmall
-                        className="rttpg-undo-btn"
+                        className="gtusers-undo-btn"
                         icon="image-rotate"
                         onClick={() => onChange(undefined)}
                     ></Button>

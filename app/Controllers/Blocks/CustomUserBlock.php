@@ -14,7 +14,7 @@ class CustomUserBlock extends BlockBase
     {
         add_action('init', [$this, 'register_blocks']);
         $this->prefix = 'category';
-        $this->block_type = 'rttpg/custom-users-block';
+        $this->block_type = 'gtusers/custom-users-block';
     }
 
 
@@ -99,8 +99,8 @@ class CustomUserBlock extends BlockBase
                 ],
                 'style' => [
                     (object)[
-                        'selector' => '{{RTTPG}} .rt-row {margin-left:-{{cat_gap}};margin-right:-{{cat_gap}}}
-						{{RTTPG}} .rt-row > .cat-item-col {padding-left:{{cat_gap}};padding-right:{{cat_gap}};padding-bottom:{{cat_gap}}}
+                        'selector' => '{{GTUSERS}} .rt-row {margin-left:-{{cat_gap}};margin-right:-{{cat_gap}}}
+						{{GTUSERS}} .rt-row > .cat-item-col {padding-left:{{cat_gap}};padding-right:{{cat_gap}};padding-bottom:{{cat_gap}}}
 						'
                     ]
                 ]
@@ -111,7 +111,7 @@ class CustomUserBlock extends BlockBase
                 'default' => '',
                 'style' => [
                     (object)[
-                        'selector' => '{{RTTPG}} .cub-users-block-wrapper {text-align: {{grid_alignment}}; }'
+                        'selector' => '{{GTUSERS}} .cub-users-block-wrapper {text-align: {{grid_alignment}}; }'
                     ]
                 ]
             ],
@@ -161,7 +161,7 @@ class CustomUserBlock extends BlockBase
                 ],
                 'style' => [
                     (object)[
-                        'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-avatar {width: {{avatar_width}}; }'
+                        'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-avatar {width: {{avatar_width}}; }'
                     ]
                 ]
             ],
@@ -174,7 +174,7 @@ class CustomUserBlock extends BlockBase
                 ],
                 'style' => [
                     (object)[
-                        'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-avatar {height: {{avatar_height}}; }'
+                        'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-avatar {height: {{avatar_height}}; }'
                     ]
                 ]
             ],
@@ -191,7 +191,7 @@ class CustomUserBlock extends BlockBase
                 ],
                 'style' => [
                     (object)[
-                        'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-avatar a{{avatar_border_radius}}'
+                        'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-avatar a{{avatar_border_radius}}'
                     ]
                 ]
             ],
@@ -206,7 +206,7 @@ class CustomUserBlock extends BlockBase
                 ],
                 'style' => [
                     (object)[
-                        'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-avatar'
+                        'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-avatar'
                     ]
                 ]
             ],
@@ -228,7 +228,7 @@ class CustomUserBlock extends BlockBase
                     'weight' => ''
                 ],
                 'style' => [
-                    (object)['selector' => '{{RTTPG}} .cub-users-block-wrapper .user-name']
+                    (object)['selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-name']
                 ],
             ],
 
@@ -243,7 +243,7 @@ class CustomUserBlock extends BlockBase
                 ],
                 'style' => [
                     (object)[
-                        'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-name {{name_spacing}}'
+                        'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-name {{name_spacing}}'
                     ]
                 ]
             ],
@@ -253,7 +253,7 @@ class CustomUserBlock extends BlockBase
                 'default' => '',
                 'style' => [
                     (object)[
-                        'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-name a {color: {{name_color}}; }'
+                        'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-name a {color: {{name_color}}; }'
                     ]
                 ]
             ],
@@ -263,7 +263,7 @@ class CustomUserBlock extends BlockBase
                 'default' => '',
                 'style' => [
                     (object)[
-                        'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-name a:hover {color: {{name_color_hover}}; }'
+                        'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-name a:hover {color: {{name_color_hover}}; }'
                     ]
                 ]
             ],
@@ -280,7 +280,7 @@ class CustomUserBlock extends BlockBase
                     'weight' => ''
                 ],
                 'style' => [
-                    (object)['selector' => '{{RTTPG}} .cub-users-block-wrapper .user-email']
+                    (object)['selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-email']
                 ],
             ],
 
@@ -295,7 +295,7 @@ class CustomUserBlock extends BlockBase
                 ],
                 'style' => [
                     (object)[
-                        'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-email {{email_spacing}}'
+                        'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-email {{email_spacing}}'
                     ]
                 ]
             ],
@@ -305,7 +305,7 @@ class CustomUserBlock extends BlockBase
                 'default' => '',
                 'style' => [
                     (object)[
-                        'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-email a {color: {{email_color}}; }'
+                        'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-email a {color: {{email_color}}; }'
                     ]
                 ]
             ],
@@ -315,7 +315,7 @@ class CustomUserBlock extends BlockBase
                 'default' => '',
                 'style' => [
                     (object)[
-                        'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-email a:hover {color: {{email_color_hover}}; }'
+                        'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-email a:hover {color: {{email_color_hover}}; }'
                     ]
                 ]
             ],
@@ -342,7 +342,7 @@ class CustomUserBlock extends BlockBase
                     'weight' => ''
                 ],
                 'style' => [
-                    (object)['selector' => '{{RTTPG}} .cub-users-block-wrapper .user-biography']
+                    (object)['selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-biography']
                 ],
             ],
 
@@ -357,7 +357,7 @@ class CustomUserBlock extends BlockBase
                 ],
                 'style' => [
                     (object)[
-                        'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-biography {{bio_spacing}}'
+                        'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-biography {{bio_spacing}}'
                     ]
                 ]
             ],
@@ -417,7 +417,7 @@ class CustomUserBlock extends BlockBase
                 'default' => '',
                 'style' => [
                     (object)[
-                        'selector' => '{{RTTPG}} .cub-user-social-icons a:hover i {color: {{social_color_hover}}; }'
+                        'selector' => '{{GTUSERS}} .cub-user-social-icons a:hover i {color: {{social_color_hover}}; }'
                     ]
                 ]
             ],
@@ -431,8 +431,8 @@ class CustomUserBlock extends BlockBase
      */
     public function get_script_depends($data)
     {
-        wp_enqueue_style('rt-tpg-block');
-        wp_enqueue_script('rt-tpg');
+        wp_enqueue_style('gtusers-block');
+        wp_enqueue_script('gtusers');
         wp_enqueue_script('rt-magnific-popup');
     }
 
@@ -485,7 +485,7 @@ class CustomUserBlock extends BlockBase
 
             $col_class = "cub-col-md-{$grid_column_desktop} cub-col-sm-{$grid_column_tab} cub-col-xs-{$grid_column_mobile}";
             $uniqueId = isset($data['uniqueId']) ? $data['uniqueId'] : null;
-            $wrapper_class = 'rttpg-block-postgrid rttpg-block-wrapper rttpg-block-' . $uniqueId;
+            $wrapper_class = 'gtusers-block-postgrid gtusers-block-wrapper gtusers-block-' . $uniqueId;
             $wrapper_class .= $data['image_link'] == 'yes' ? '' : ' no-image-link';
 
 
@@ -558,7 +558,7 @@ class CustomUserBlock extends BlockBase
                             <div class="user-modal-content">
                                 <div class="modal-inner">
                                     <div class="modal-header">
-                                        <span><?php echo esc_html__("User Biography", "the-post-grid") ?></span>
+                                        <span><?php echo esc_html__("User Biography", "gutenberg-users") ?></span>
                                         <button class="close-modal-btn"><i class="dashicons dashicons-no-alt"></i></button>
                                     </div>
                                     <?php if (!is_user_logged_in() && $data['bio_visible_for'] === 'loggedin') : ?>
@@ -578,7 +578,7 @@ class CustomUserBlock extends BlockBase
                 </div>
                 <?php } else {
                     ?>
-                    <div style="padding: 30px;background: #d1ecf1;"><?php echo esc_html__("Sorry! The user email domain doesn't match with @rgbc.dev", 'the-post-grid'); ?></div>
+                    <div style="padding: 30px;background: #d1ecf1;"><?php echo esc_html__("Sorry! The user email domain doesn't match with @rgbc.dev", 'gutenberg-users'); ?></div>
                     <?php
                 } ?>
             </div>
@@ -586,7 +586,7 @@ class CustomUserBlock extends BlockBase
             <?php
         } else {
             ?>
-            <div style="padding: 30px;background: #d1ecf1;"><?php echo esc_html__("User not found", 'the-post-grid'); ?></div>
+            <div style="padding: 30px;background: #d1ecf1;"><?php echo esc_html__("User not found", 'gutenberg-users'); ?></div>
             <?php
         }
         do_action('tpg_elementor_script');

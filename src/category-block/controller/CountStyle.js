@@ -33,16 +33,16 @@ function CountStyle(props) {
     } = attributes;
 
     return (
-        <PanelBody title={__('Count Style', 'the-post-grid')} initialOpen={false}>
+        <PanelBody title={__('Count Style', 'gutenberg-users')} initialOpen={false}>
             <ToggleControl
-                label={__("Visibility", "the-post-grid")}
-                className="rttpg-toggle-control-field"
+                label={__("Visibility", "gutenberg-users")}
+                className="gtusers-toggle-control-field"
                 checked={count_visibility}
                 onChange={(count_visibility) => setAttributes({count_visibility: count_visibility ? 'show' : ''})}
             />
             <ToggleControl
-                label={__("Show Bracket", "the-post-grid")}
-                className="rttpg-toggle-control-field"
+                label={__("Show Bracket", "gutenberg-users")}
+                className="gtusers-toggle-control-field"
                 checked={show_bracket}
                 onChange={(show_bracket) => setAttributes({show_bracket: show_bracket ? 'show' : ''})}
             />
@@ -53,11 +53,11 @@ function CountStyle(props) {
             />
 
             <SelectControl
-                label={__("Count Positioin", "the-post-grid")}
-                className="rttpg-control-field label-inline rttpg-expand"
+                label={__("Count Positioin", "gutenberg-users")}
+                className="gtusers-control-field label-inline gtusers-expand"
                 options={[
-                    {value: 'thumb', label: __('With Image', 'the-post-grid')},
-                    {value: 'title', label: __('With Title', 'the-post-grid')}
+                    {value: 'thumb', label: __('With Image', 'gutenberg-users')},
+                    {value: 'title', label: __('With Title', 'gutenberg-users')}
                 ]}
                 value={count_position}
                 onChange={(count_position) => setAttributes({count_position})}
@@ -65,12 +65,12 @@ function CountStyle(props) {
 
 
             {count_position === 'thumb' &&
-                <div className="rttpg-control-field rttpg-cf-typography-wrap">
-                    <span className="rttpg-label">{__('Change Count Position')}</span>
-                    <div className="rttpg-typography">
+                <div className="gtusers-control-field gtusers-cf-typography-wrap">
+                    <span className="gtusers-label">{__('Change Count Position')}</span>
+                    <div className="gtusers-typography">
                         <Dropdown
-                            className="rttpg-typography-dropdown-icon"
-                            contentClassName="rttpg-components-popover rttpg-cp-typography-content"
+                            className="gtusers-typography-dropdown-icon"
+                            contentClassName="gtusers-components-popover gtusers-cp-typography-content"
                             position="bottom right"
                             renderToggle={({isOpen, onToggle}) => (
                                 <Button
@@ -83,7 +83,7 @@ function CountStyle(props) {
 
                             renderContent={() => (
 
-                                <div className="rttpg-typography-content">
+                                <div className="gtusers-typography-content">
 
                                     <RangeDevice
                                         label={__('Left Position')}
@@ -139,7 +139,7 @@ function CountStyle(props) {
             }
 
             <Dimension
-                label={__("Count Padding", "the-post-grid")}
+                label={__("Count Padding", "gutenberg-users")}
                 type="margin" responsive
                 value={count_padding}
                 onChange={(value) => {
@@ -148,13 +148,13 @@ function CountStyle(props) {
             />
 
             <Color
-                label={__('Category Color', 'the-post-grid')}
+                label={__('Category Color', 'gutenberg-users')}
                 color={count_color}
                 onChange={(count_color) => setAttributes({count_color})}
             />
 
             <Color
-                label={__('Category Color', 'the-post-grid')}
+                label={__('Category Color', 'gutenberg-users')}
                 color={count_bg}
                 onChange={(count_bg) => setAttributes({count_bg})}
             />
@@ -162,7 +162,7 @@ function CountStyle(props) {
             <BorderControl
                 colors={TPG_COLOR_PALATE}
                 value={count_border}
-                label={__("Count Border", "the-post-grid")}
+                label={__("Count Border", "gutenberg-users")}
                 onChange={(val) => {
                     const newVal = {openTpgBorder: 1, ...val}
                     setAttributes({count_border: newVal})

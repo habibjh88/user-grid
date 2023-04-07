@@ -15,7 +15,7 @@ function ImageStyle(props) {
     } = attributes;
 
     return (
-        <PanelBody title={__('Image Style', 'the-post-grid')} initialOpen={false}>
+        <PanelBody title={__('Image Style', 'gutenberg-users')} initialOpen={false}>
             <RangeDevice
                 label={__('Image Width')}
                 responsive={true}
@@ -37,8 +37,8 @@ function ImageStyle(props) {
             />
 
             <Dimension
-                label={__("Image Border Radius", "the-post-grid")}
-                className={`rttpg-dimension-wrap`}
+                label={__("Image Border Radius", "gutenberg-users")}
+                className={`gtusers-dimension-wrap`}
                 type="borderRadius" responsive
                 value={image_border_radius}
                 onChange={(value) => {
@@ -49,7 +49,7 @@ function ImageStyle(props) {
             <BorderControl
                 colors={TPG_COLOR_PALATE}
                 value={image_border}
-                label={__("Image Border", "the-post-grid")}
+                label={__("Image Border", "gutenberg-users")}
                 onChange={(val) => {
                     const newVal = {openTpgBorder: 1, ...val}
                     setAttributes({image_border: newVal})

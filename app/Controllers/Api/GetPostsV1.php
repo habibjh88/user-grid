@@ -11,7 +11,7 @@ class GetPostsV1 {
 	}
 
 	public function register_post_route() {
-		register_rest_route( 'rttpg/v1', 'query', [
+		register_rest_route( 'gtusers/v1', 'query', [
 			'methods'             => 'POST',
 			'callback'            => [ $this, 'get_all_posts' ],
 			'permission_callback' => function () {
@@ -48,12 +48,12 @@ class GetPostsV1 {
 			$args['paged'] = get_query_var( $_paged ) ? absint( get_query_var( $_paged ) ) : absint( $data['page'] );
 		}
 
-		if ( rtTPG()->hasPro() && 'yes' == $data['ignore_sticky_posts'] ) {
+		if ( gtUsers()->hasPro() && 'yes' == $data['ignore_sticky_posts'] ) {
 			$args['ignore_sticky_posts'] = 1;
 		}
 
 		if ( $orderby = $data['orderby'] ) {
-			if ( ! rtTPG()->hasPro() && 'rand' == $orderby ) {
+			if ( ! gtUsers()->hasPro() && 'rand' == $orderby ) {
 				$orderby = 'date';
 			}
 			$args['orderby'] = $orderby;
@@ -67,7 +67,7 @@ class GetPostsV1 {
 			$args['author__in'] = $data['author'];
 		}
 
-		if ( rtTPG()->hasPro() && ( $data['start_date'] || $data['end_date'] ) ) {
+		if ( gtUsers()->hasPro() && ( $data['start_date'] || $data['end_date'] ) ) {
 			$args['date_query'] = [
 				[
 					'after'     => trim( $data['start_date'] ),
@@ -285,7 +285,7 @@ class GetPostsV1 {
 				if ( $data["post_type"] == 'post' ) {
 					$_category_list_term = wp_list_pluck( $category_terms_list, 'term_id' );
 					foreach ( $_category_list_term as $item_id ) {
-						$meta_color = get_term_meta( $item_id, 'rttpg_category_color', true );
+						$meta_color = get_term_meta( $item_id, 'gtusers_category_color', true );
 						$_cat_bg_meta[] = $meta_color ? "#{$meta_color}" : '';
 					}
 				}
@@ -352,7 +352,7 @@ class GetPostsV1 {
 				$pCount ++;
 			}
 		} else {
-			$send_data['message'] = $data['no_posts_found_text'] ? $data['no_posts_found_text'] : __( "No posts found", "the-post-grid" );
+			$send_data['message'] = $data['no_posts_found_text'] ? $data['no_posts_found_text'] : __( "No posts found", "gutenberg-users" );
 			$send_data['args']    = $args;
 		}
 

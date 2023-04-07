@@ -24,7 +24,7 @@ function UserEmail(props) {
     } = attributes;
 
     return (
-        <PanelBody title={__('User Email', 'the-post-grid')} initialOpen={false}>
+        <PanelBody title={__('User Email', 'gutenberg-users')} initialOpen={false}>
 
             <Typography
                 label={__('Typography')}
@@ -33,7 +33,7 @@ function UserEmail(props) {
             />
 
             <Dimension
-                label={__("Spacing", "the-post-grid")}
+                label={__("Spacing", "gutenberg-users")}
                 type="margin" responsive
                 value={email_spacing}
                 onChange={(value) => {
@@ -42,13 +42,13 @@ function UserEmail(props) {
             />
 
             <Color
-                label={__('Color', 'the-post-grid')}
+                label={__('Color', 'gutenberg-users')}
                 color={email_color}
                 onChange={(email_color) => setAttributes({email_color})}
             />
 
             <Color
-                label={__('Color - Hover', 'the-post-grid')}
+                label={__('Color - Hover', 'gutenberg-users')}
                 color={email_color_hover}
                 onChange={(email_color_hover) => setAttributes({email_color_hover})}
             />

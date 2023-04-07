@@ -26,11 +26,11 @@ function CardStyle(props) {
     } = attributes;
 
     return (
-        <PanelBody title={__('Card Style', 'the-post-grid')} initialOpen={true}>
+        <PanelBody title={__('Card Style', 'gutenberg-users')} initialOpen={true}>
 
 
             <Dimension
-                label={__("Category Spacing", "the-post-grid")}
+                label={__("Category Spacing", "gutenberg-users")}
                 type="margin" responsive
                 value={cat_spacing}
                 onChange={(value) => {

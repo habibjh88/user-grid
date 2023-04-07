@@ -18,7 +18,7 @@ import {
 
 function BGImage(props) {
 
-    const [device, setDevice] = useState(() => window.rttpgDevice || 'md');
+    const [device, setDevice] = useState(() => window.gtusersDevice || 'md');
     const {label, value, image, onChange} = props;
     const responsive = true;
     const resAttr = ['imgPosition', 'imgAttachment', 'imgRepeat', 'imgSize'];
@@ -78,13 +78,13 @@ function BGImage(props) {
     const imgIDVal = value['img'] !== undefined ? value['img']['imgID'] : '';
 
     return (
-        <div className="rttpg-control-field rttpg-cf-bg-img-wrap">
+        <div className="gtusers-control-field gtusers-cf-bg-img-wrap">
 
             {label && (
-                <span className="rttpg-label">{label}</span>
+                <span className="gtusers-label">{label}</span>
             )}
 
-            <div className="rttpg-bg-img">
+            <div className="gtusers-bg-img">
                 <Color
                     label={__('Color')}
                     color={value['color'] || ''}
@@ -108,7 +108,7 @@ function BGImage(props) {
                                 {
                                     if (!imgURLVal) {
                                         return (
-                                            <div onClick={open} className={"rttpg-placeholder-image"}>
+                                            <div onClick={open} className={"gtusers-placeholder-image"}>
                                                 <div className="dashicon dashicons dashicons-insert"/>
                                                 <div>{__('Insert')}</div>
                                             </div>

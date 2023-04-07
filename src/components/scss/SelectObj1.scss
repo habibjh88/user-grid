@@ -1,7 +1,7 @@
-.rttpg-components-popover,
-.rttpg-panel-control-wrapper {
-	.rttpg-control-field {
-		&.rttpg-cf-bg-property {
+.gtusers-components-popover,
+.gtusers-panel-control-wrapper {
+	.gtusers-control-field {
+		&.gtusers-cf-bg-property {
 			display: flex;
 			justify-content: space-between;
 			margin-bottom: 0 !important;
@@ -14,7 +14,7 @@
 				height: 30px !important;
 			}
 
-			.rttpg-cf-body {
+			.gtusers-cf-body {
 				> * {
 					margin-bottom: 0 !important;
 				}

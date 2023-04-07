@@ -10,7 +10,7 @@ class ImageSizeV1{
 	}
 
 	public function register_image_size_route(){
-		register_rest_route( 'rttpg/v1', 'image-size',array(
+		register_rest_route( 'gtusers/v1', 'image-size',array(
 			'methods'  => 'GET',
 			'callback' => [$this, 'get_image_sizes'],
 			'permission_callback' => function() { return true; }

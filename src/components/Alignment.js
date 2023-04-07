@@ -8,7 +8,7 @@ const Alignment = (props) => {
 
     const {value, responsive, onChange, label, content, options} = props;
 
-    const [device, setDevice] = useState(() => window.rttpgDevice || 'lg');
+    const [device, setDevice] = useState(() => window.gtusersDevice || 'lg');
 
     const _filterValue = () => {
         return value ? (responsive ? (value[device]) : value) : '';
@@ -28,12 +28,12 @@ const Alignment = (props) => {
     const defaultData = options && Array.isArray(options) ? options : ['left', 'center', 'right', 'justify'];
 
     return (
-        <div className="rttpg-control-field rttpg-cf-alignment-wrap">
+        <div className="gtusers-control-field gtusers-cf-alignment-wrap">
 
             {(label || responsive) && (
-                <div className="rttpg-cf-head">
+                <div className="gtusers-cf-head">
                     {label && (
-                        <span className="rttpg-label">{label}</span>
+                        <span className="gtusers-label">{label}</span>
                     )}
                     {responsive &&
                         <Devices
@@ -51,22 +51,22 @@ const Alignment = (props) => {
                 </div>
             )}
 
-            <div className="rttpg-cf-body rttpg-btn-group">
+            <div className="gtusers-cf-body gtusers-btn-group">
 
                 {defaultData.map((data, index) => {
                     if (content) {
                         return (
-                            <button className={(_filterValue() == data.value ? 'active' : '') + ' rttpg-button'}
+                            <button className={(_filterValue() == data.value ? 'active' : '') + ' gtusers-button'}
                                     key={index}
                                     onClick={() => setSettings(_filterValue() == data.value ? '' : data.value)}>
                                 <Tooltip
-                                    text={__(data.label, 'the-post-grid')}><span>{__(data.label, 'the-post-grid')}</span></Tooltip>
+                                    text={__(data.label, 'gutenberg-users')}><span>{__(data.label, 'gutenberg-users')}</span></Tooltip>
                             </button>
                         )
 
                     } else {
                         return (
-                            <button className={(_filterValue() == data ? 'active' : '') + ' rttpg-button'}
+                            <button className={(_filterValue() == data ? 'active' : '') + ' gtusers-button'}
                                     key={index}
                                     onClick={() => setSettings(_filterValue() == data ? '' : data)}>
                                 {(data == 'left' || data === 'flex-start') &&

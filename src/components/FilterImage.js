@@ -30,9 +30,9 @@ function FilterImage(props) {
         <>
 
             {opacity && (
-                <div className="rttpg-opacity-field">
+                <div className="gtusers-opacity-field">
                     <Range
-                        label={__("Opacity", "the-post-grid")}
+                        label={__("Opacity", "gutenberg-users")}
                         reset={true}
                         value={data['opacity']}
                         onChange={(val) => setSettings(val, 'opacity')}
@@ -43,14 +43,14 @@ function FilterImage(props) {
                 </div>
             )}
 
-            <div className="rttpg-control-field rttpg-cf-filter-image-wrap">
+            <div className="gtusers-control-field gtusers-cf-filter-image-wrap">
                 {label && (
-                    <span className="rttpg-label">{label}</span>
+                    <span className="gtusers-label">{label}</span>
                 )}
-                <div className="rttpg-filter-image-wrap">
+                <div className="gtusers-filter-image-wrap">
                     <Dropdown
-                        className="rttpg-filter-image-dropdown-icon"
-                        contentClassName="rttpg-components-popover rttpg-cp-filter-image"
+                        className="gtusers-filter-image-dropdown-icon"
+                        contentClassName="gtusers-components-popover gtusers-cp-filter-image"
                         position="bottom right"
                         renderToggle={({isOpen, onToggle}) => (
                             <Button
@@ -61,7 +61,7 @@ function FilterImage(props) {
                             ></Button>
                         )}
                         renderContent={() => (
-                            <div className="rttpg-filter-image-content">
+                            <div className="gtusers-filter-image-content">
                                 <Range
                                     label={__("Blur")}
                                     reset={true}
@@ -110,7 +110,7 @@ function FilterImage(props) {
             </div>
 
             {transition && (
-                <div className="rttpg-transition-field">
+                <div className="gtusers-transition-field">
                     <Range
                         label={__("Transition Duration")}
                         reset={true}

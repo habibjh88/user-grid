@@ -19,12 +19,12 @@ function CategoryStyle(props) {
     } = attributes;
 
     return (
-        <PanelBody title={__('Category Style', 'the-post-grid')} initialOpen={true}>
+        <PanelBody title={__('Category Style', 'gutenberg-users')} initialOpen={true}>
 
 
             <SelectControl
-                label={__('Title Tags', 'the-post-grid')}
-                className="rttpg-control-field label-inline"
+                label={__('Title Tags', 'gutenberg-users')}
+                className="gtusers-control-field label-inline"
                 options={HEADING}
                 value={cat_tag}
                 onChange={(cat_tag) => setAttributes({cat_tag})}
@@ -37,7 +37,7 @@ function CategoryStyle(props) {
             />
 
             <Dimension
-                label={__("Category Spacing", "the-post-grid")}
+                label={__("Category Spacing", "gutenberg-users")}
                 type="margin" responsive
                 value={cat_spacing}
                 onChange={(value) => {
@@ -46,13 +46,13 @@ function CategoryStyle(props) {
             />
 
             <Color
-                label={__('Category Color', 'the-post-grid')}
+                label={__('Category Color', 'gutenberg-users')}
                 color={cat_color}
                 onChange={(cat_color) => setAttributes({cat_color})}
             />
 
             <Color
-                label={__('Category Color - Hover', 'the-post-grid')}
+                label={__('Category Color - Hover', 'gutenberg-users')}
                 color={category_color_hover}
                 onChange={(category_color_hover) => setAttributes({category_color_hover})}
             />

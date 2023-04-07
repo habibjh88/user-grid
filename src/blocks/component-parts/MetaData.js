@@ -30,7 +30,7 @@ function MetaData({attributes, post}) {
     }
 
     let category_condition = (category && show_category === 'show' && el_ignore_layout(attributes[postLayout], category_position) && ['default', 'with_meta'].includes(category_position));
-    if (!rttpgParams.hasPro) {
+    if (!gtusersParams.hasPro) {
         category_condition = (category && show_category === 'show')
     }
 
@@ -108,7 +108,7 @@ function MetaData({attributes, post}) {
         </>
     );
 
-    meta_data.post_count = (rttpgParams.hasPro && show_post_count === 'show' &&
+    meta_data.post_count = (gtusersParams.hasPro && show_post_count === 'show' &&
         <>
             <span className="post-count">
                 {show_meta_icon === 'yes' && <i className={change_icon("fa fa-eye", "view")}></i>}

@@ -19,7 +19,7 @@ class GutenBergController {
 		add_action('enqueue_block_assets', array($this, 'block_assets'));
 		add_action('enqueue_block_editor_assets', array($this, 'block_editor_assets'));
 		if(function_exists('register_block_type')) {
-			register_block_type('rttpg/post-grid', array(
+			register_block_type('gtusers/post-grid', array(
 				'render_callback' => array($this,'render_shortcode'),
 			));
 		}
@@ -42,15 +42,15 @@ class GutenBergController {
 	function block_editor_assets() {
 		// Scripts.
 		wp_enqueue_script(
-			'rt-tpg-cgb-block-js',
-			rtTPG()->get_assets_uri('js/post-grid-blocks.js'),
+			'gtusers-cgb-block-js',
+			gtUsers()->get_assets_uri('js/post-grid-blocks.js'),
 			array('wp-blocks', 'wp-i18n', 'wp-element'),
 			(defined('WP_DEBUG') && WP_DEBUG) ? time() : GT_USERS_VERSION,
 			true
 		);
-		wp_localize_script('rt-tpg-cgb-block-js', 'rttpgGB', array(
+		wp_localize_script('gtusers-cgb-block-js', 'gtusersGB', array(
 			'short_codes' => Fns::getAllTPGShortCodeList(),
-			'icon' => rtTPG()->get_assets_uri('images/icon-16x16.png'),
+			'icon' => gtUsers()->get_assets_uri('images/icon-16x16.png'),
 		));
 		wp_enqueue_style('wp-edit-blocks');
 	}

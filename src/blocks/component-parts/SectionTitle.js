@@ -17,7 +17,7 @@ const SectionTitle = ({attributes, setAttributes}) => {
             <span className="tpg-widget-heading-line line-left"></span>
             <HeadingTag className="tpg-widget-heading">
                 <span>{
-                    'page_title' === section_title_source ? rttpgParams.pageTitle :
+                    'page_title' === section_title_source ? gtusersParams.pageTitle :
                         <RichText
                             allowedFormats={['core/bold', 'core/italic']}
                             value={section_title_text}

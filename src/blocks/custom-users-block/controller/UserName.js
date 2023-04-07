@@ -26,11 +26,11 @@ function UserName(props) {
     } = attributes;
 
     return (
-        <PanelBody title={__('User Name', 'the-post-grid')} initialOpen={false}>
+        <PanelBody title={__('User Name', 'gutenberg-users')} initialOpen={false}>
 
             <SelectControl
-                label={__('Name Tags', 'the-post-grid')}
-                className="rttpg-control-field label-inline"
+                label={__('Name Tags', 'gutenberg-users')}
+                className="gtusers-control-field label-inline"
                 options={HEADING}
                 value={name_tag}
                 onChange={(name_tag) => setAttributes({name_tag})}
@@ -43,7 +43,7 @@ function UserName(props) {
             />
 
             <Dimension
-                label={__("Spacing", "the-post-grid")}
+                label={__("Spacing", "gutenberg-users")}
                 type="margin" responsive
                 value={name_spacing}
                 onChange={(value) => {
@@ -52,13 +52,13 @@ function UserName(props) {
             />
 
             <Color
-                label={__('Color', 'the-post-grid')}
+                label={__('Color', 'gutenberg-users')}
                 color={name_color}
                 onChange={(name_color) => setAttributes({name_color})}
             />
 
             <Color
-                label={__('Color - Hover', 'the-post-grid')}
+                label={__('Color - Hover', 'gutenberg-users')}
                 color={name_color_hover}
                 onChange={(name_color_hover) => setAttributes({name_color_hover})}
             />

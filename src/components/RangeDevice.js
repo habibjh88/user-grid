@@ -8,7 +8,7 @@ import './scss/rangeDevice.scss'
 function RangeDevice(props) {
 
     const {label, value: data, onChange, responsive, min, max, units, step, defultValue = {}} = props;
-    const [device, setDevice] = useState(() => window.rttpgDevice || 'lg');
+    const [device, setDevice] = useState(() => window.gtusersDevice || 'lg');
     const [unit, setUnit] = useState('px');
     const dataAttributes = {min, max, step};
     const dftData = defultValue;
@@ -32,12 +32,12 @@ function RangeDevice(props) {
     };
 
     return (
-        <div className="rttpg-control-field rttpg-cf-range-wrap">
+        <div className="gtusers-control-field gtusers-cf-range-wrap">
 
-            <div className="rttpg-cf-head">
+            <div className="gtusers-cf-head">
                 <div className="rt-left-part">
                     {label && (
-                        <span className="rttpg-label">{label}</span>
+                        <span className="gtusers-label">{label}</span>
                     )}
                     {responsive && <Devices device={device} onChange={_device => {
                         setDevice(_device);
@@ -55,7 +55,7 @@ function RangeDevice(props) {
 
                 {units && (
                     <div className="rt-right-part">
-                        <div className="rttpg-units-choices">
+                        <div className="gtusers-units-choices">
                             {(units && Array.isArray(units) ? units : ['px', 'em', '%']).map(_unit => (
                                 <label
                                     className={(data?.unit === _unit || (!data?.unit && _unit === unit)) ? 'active' : ''}
@@ -69,9 +69,9 @@ function RangeDevice(props) {
 
             </div>
 
-            <div className="rttpg-cf-body">
+            <div className="gtusers-cf-body">
                 <RangeControl
-                    className="rttpg-control-field"
+                    className="gtusers-control-field"
                     value={data[device]}
                     onChange={(val) => {
                         setSettings(val)
@@ -82,7 +82,7 @@ function RangeDevice(props) {
                 {(data[device] || data[device] !== 0) && (
                     <Button
                         isSmall
-                        className="rttpg-undo-btn"
+                        className="gtusers-undo-btn"
                         icon="image-rotate"
                         onClick={() => onChange(dftData)}
                     ></Button>

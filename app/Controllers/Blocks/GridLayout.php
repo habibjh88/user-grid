@@ -16,7 +16,7 @@ class GridLayout extends BlockBase {
 	public function __construct() {
 		add_action( 'init', [ $this, 'register_blocks' ] );
 		$this->prefix         = 'grid';
-		$this->block_type     = 'rttpg/tpg-' . $this->prefix . '-layout';
+		$this->block_type     = 'gtusers/tpg-' . $this->prefix . '-layout';
 		$this->attribute_args = [
 			'prefix'         => $this->prefix,
 			'default_layout' => 'grid-layout1'
@@ -72,7 +72,7 @@ class GridLayout extends BlockBase {
 
 		$_prefix = $data['prefix'];
 
-		if ( ! rtTPG()->hasPro() && ! in_array( $data[ $_prefix . '_layout' ], [ 'grid-layout1', 'grid-layout4', 'grid-layout3' ] ) ) {
+		if ( ! gtUsers()->hasPro() && ! in_array( $data[ $_prefix . '_layout' ], [ 'grid-layout1', 'grid-layout4', 'grid-layout3' ] ) ) {
 			$data[ $_prefix . '_layout' ] = 'grid-layout1';
 		}
 
@@ -80,7 +80,7 @@ class GridLayout extends BlockBase {
 		$query_args     = $this->post_query_guten( $data, $_prefix );
 		$query          = new \WP_Query( $query_args );
 		$rand           = mt_rand();
-		$layoutID       = "rt-tpg-container-" . $rand;
+		$layoutID       = "gtusers-container-" . $rand;
 		$posts_per_page = $data['display_per_page'] ?? $data['post_limit'];
 
 		/**
@@ -110,7 +110,7 @@ class GridLayout extends BlockBase {
 		ob_start();
 		?>
         <div class="<?php echo esc_attr( $dynamicClass ) ?>">
-            <div class="rt-container-fluid rt-tpg-container tpg-el-main-wrapper clearfix <?php echo esc_attr( $_layout . '-main' ); ?>"
+            <div class="rt-container-fluid gtusers-container tpg-el-main-wrapper clearfix <?php echo esc_attr( $_layout . '-main' ); ?>"
                  id="<?php echo esc_attr( $layoutID ); ?>"
                  data-layout="<?php echo esc_attr( $data[ $_prefix . '_layout' ] ); ?>"
                  data-grid-style="<?php echo esc_attr( $data['grid_layout_style'] ); ?>" data-sc-id="elementor"
@@ -119,7 +119,7 @@ class GridLayout extends BlockBase {
                  data-el-path='<?php echo Fns::is_filter_enable( $data ) ? esc_attr( $template_path ) : ''; ?>'>
 				<?php
 
-				$settings = get_option( rtTPG()->options['settings'] );
+				$settings = get_option( gtUsers()->options['settings'] );
 				if ( isset( $settings['tpg_load_script'] ) && isset( $settings['tpg_enable_preloader'] ) ) {
 					?>
                     <div id="bottom-script-loader" class="bottom-script-loader">
@@ -149,7 +149,7 @@ class GridLayout extends BlockBase {
 
 				//section title settings
 				$is_carousel = '';
-				if ( rtTPG()->hasPro() && 'carousel' == $data['filter_btn_style'] && 'button' == $data['filter_type'] ) {
+				if ( gtUsers()->hasPro() && 'carousel' == $data['filter_btn_style'] && 'button' == $data['filter_type'] ) {
 					$is_carousel = 'carousel';
 				}
 
@@ -174,7 +174,7 @@ class GridLayout extends BlockBase {
 						if ( $data['no_posts_found_text'] ) {
 							printf( "<div class='no_posts_found_text'>%s</div>", esc_html( $data['no_posts_found_text'] ) );
 						} else {
-							printf( "<div class='no_posts_found_text'>%s</div>", esc_html__( 'No post found', 'the-post-grid' ) );
+							printf( "<div class='no_posts_found_text'>%s</div>", esc_html__( 'No post found', 'gutenberg-users' ) );
 						}
 					}
 					wp_reset_postdata();

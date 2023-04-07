@@ -27,11 +27,11 @@ function AvatarSettings(props) {
     } = attributes;
 
     return (
-        <PanelBody title={__('Avatar', 'the-post-grid')} initialOpen={true}>
+        <PanelBody title={__('Avatar', 'gutenberg-users')} initialOpen={true}>
 
             <ToggleControl
-                label={__("Enable Image Link", "the-post-grid")}
-                className="rttpg-toggle-control-field"
+                label={__("Enable Image Link", "gutenberg-users")}
+                className="gtusers-toggle-control-field"
                 checked={image_link}
                 onChange={(image_link) => setAttributes({image_link: image_link ? 'yes' : ''})}
             />
@@ -69,8 +69,8 @@ function AvatarSettings(props) {
             />
 
             <Dimension
-                label={__("Avatar Border Radius", "the-post-grid")}
-                className={`rttpg-dimension-wrap`}
+                label={__("Avatar Border Radius", "gutenberg-users")}
+                className={`gtusers-dimension-wrap`}
                 type="borderRadius" responsive
                 value={avatar_border_radius}
                 onChange={(value) => {
@@ -81,7 +81,7 @@ function AvatarSettings(props) {
             <BorderControl
                 colors={TPG_COLOR_PALATE}
                 value={avatar_border}
-                label={__("Image Border", "the-post-grid")}
+                label={__("Image Border", "gutenberg-users")}
                 onChange={(val) => {
                     const newVal = {openTpgBorder: 1, ...val}
                     setAttributes({avatar_border: newVal})

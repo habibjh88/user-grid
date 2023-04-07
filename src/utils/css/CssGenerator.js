@@ -22,10 +22,10 @@ const replaceData = (selector, key, value) => selector.replace(new RegExp(key, "
 // Object Empty Check
 const isEmpty = obj => (typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) === 'object' && Object.keys(obj).length !== 0;
 
-// {{RTTPG}} Replace
+// {{GTUSERS}} Replace
 const replaceWarp = (selector, ID) => {
-    selector = selector.replace(new RegExp('{{RTTPG}}', "g"), '.rttpg-block-postgrid.rttpg-block-' + ID);
-    selector = selector.replace(new RegExp('{{RTTPG_ID}}', "g"), 'block-' + ID);
+    selector = selector.replace(new RegExp('{{GTUSERS}}', "g"), '.gtusers-block-postgrid.gtusers-block-' + ID);
+    selector = selector.replace(new RegExp('{{GTUSERS_ID}}', "g"), 'block-' + ID);
     return selector;
 }
 
@@ -174,7 +174,7 @@ export const CssGenerator = (settings, blockName, blockID, isInline) => {
         notResponsiveCss = [];
 
     Object.keys(settings).forEach(function (key) {
-        const attributes = typeof blockName === 'string' ? wp.blocks.getBlockType('rttpg/' + blockName)?.attributes : blockName;
+        const attributes = typeof blockName === 'string' ? wp.blocks.getBlockType('gtusers/' + blockName)?.attributes : blockName;
         if (attributes && attributes[key] && attributes[key].hasOwnProperty('style')) {
 
             attributes[key].style.forEach((selectData, indexStyle) => {
@@ -329,7 +329,7 @@ export const CssGenerator = (settings, blockName, blockID, isInline) => {
 // const setStyle = function setStyle(styleCss, blockID) {
 // 	const styleSelector = window.document;
 
-// 	const cssId = 'rttpg-block-css-' + blockID;
+// 	const cssId = 'gtusers-block-css-' + blockID;
 // 	if (styleSelector.getElementById(cssId) === null) {
 // 		const cssInline = document.createElement('style');
 // 		cssInline.id = cssId;
@@ -342,7 +342,7 @@ export const CssGenerator = (settings, blockName, blockID, isInline) => {
 
 const setStyle = function setStyle(styleCss, blockID) {
 
-    const cssId = 'rttpg-block-css-' + blockID;
+    const cssId = 'gtusers-block-css-' + blockID;
     const iFrame = document.querySelector('iframe[name=editor-canvas]');
 
     if (iFrame) {
@@ -360,32 +360,14 @@ const setStyle = function setStyle(styleCss, blockID) {
                         doc.getElementById(cssId).innerHTML = styleCss;
                     }
 
-                    if (doc.getElementById('rttpg-frontend-css') === null) {
+                    if (doc.getElementById('gtusers-frontend-css') === null) {
                         const link = doc.createElement('link');
                         link.rel = 'stylesheet';
                         link.type = 'text/css';
-                        if (rttpgParams.hasPro) {
-                            link.href = rttpgParams.plugin_pro_url + '/assets/css/tpg-block.min.css';
-                        } else {
-                            link.href = rttpgParams.plugin_url + '/assets/css/tpg-block.min.css';
-                        }
-                        link.setAttribute('id', 'rttpg-frontend-css');
+                        link.href = gtusersParams.plugin_url + '/assets/css/tpg-block.min.css';
+                        link.setAttribute('id', 'gtusers-frontend-css');
                         iframeHead.appendChild(link);
                     }
-
-                    // if (doc.getElementById('rttpg-preview-jquery') === null) {
-                    // 	const script = doc.createElement('script');
-                    // 	script.src = rttpgParams.site_url + '/wp-includes/js/jquery/jquery.min.js';
-                    // 	script.setAttribute('id', 'rttpg-preview-jquery');
-                    // 	iframeHead.appendChild(script);
-                    // }
-
-                    // if (doc.getElementById('rttpg-frontend-blocks-js') === null) {
-                    // 	const script = doc.createElement('script');
-                    // 	script.src = rttpgParams.plugin_url + '/assets/js/frontend-blocks.js';
-                    // 	script.setAttribute('id', 'rttpg-frontend-blocks-js');
-                    // 	iframeHead.appendChild(script);
-                    // }
 
                 }
             },

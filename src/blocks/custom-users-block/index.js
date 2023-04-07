@@ -2,11 +2,11 @@ import {registerBlockType} from "@wordpress/blocks";
 import {__} from "@wordpress/i18n";
 import Edit from "./edit";
 
-registerBlockType("rttpg/custom-users-block", {
-    title: __("Custom Users Block", "the-post-grid"),
-    category: "rttpg",
+registerBlockType("gtusers/custom-users-block", {
+    title: __("Custom Users Block", "gutenberg-users"),
+    category: "gtusers",
     description: "Custom Users Block",
-    icon: <img src={rttpgParams.plugin_url + "/assets/images/gutenberg/category-block.svg"} alt={__("Custom Users Block")} />,
+    icon: <img src={gtusersParams.plugin_url + "/assets/images/gutenberg/category-block.svg"} alt={__("Custom Users Block")} />,
     example: {
         attributes: {
             preview: true

@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Install {
 	public static function activate() {
-		update_option( rtTPG()->options['installed_version'], GT_USERS_VERSION );
+		update_option( gtUsers()->options['installed_version'], GT_USERS_VERSION );
 	}
 
 	public static function deactivate() {

@@ -90,7 +90,7 @@ const Edit = (props) => {
         sidebarEl.classList.add('tpg-sidebar')
         sidebarEl.classList.remove('tpg-settings-enable')
         sidebarEl.addEventListener('click', function (event) {
-            const hasClass = event.target.classList.contains('rttpg-tab-btn');
+            const hasClass = event.target.classList.contains('gtusers-tab-btn');
             if (hasClass) {
                 const selectText = event.target.textContent;
                 if (selectText !== 'Content') {

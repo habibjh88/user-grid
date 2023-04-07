@@ -1,11 +1,11 @@
-.rttpg-components-popover,
-.rttpg-panel-control-wrapper {
-	.rttpg-control-field {
-		&.rttpg-cf-gradient-color {
+.gtusers-components-popover,
+.gtusers-panel-control-wrapper {
+	.gtusers-control-field {
+		&.gtusers-cf-gradient-color {
 			row-gap: 0;
 		}
 
-		&.rttpg-cf-gradient-wrap {
+		&.gtusers-cf-gradient-wrap {
 			--row-gap: 12px;
 
 			.components-circular-option-picker {
@@ -62,20 +62,20 @@
 					margin-top: 6px;
 
 					.components-button {
-						font-size: var(--rttpg-admin-text-xs, 12px);
+						font-size: var(--gtusers-admin-text-xs, 12px);
 						padding: 5px 10px;
 						display: inline-flex;
 						align-items: center;
 						justify-content: center;
 						border: none;
 						box-shadow: none;
-						color: var(--rttpg-admin-color-black, #000);
+						color: var(--gtusers-admin-color-black, #000);
 						background-color: #e0e0e0;
 
 						&:hover {
-							color: var(--rttpg-admin-color-white, #fff);
+							color: var(--gtusers-admin-color-white, #fff);
 							background-color: var(
-											--rttpg-admin-color-primary,
+											--gtusers-admin-color-primary,
 											#0066ff
 							);
 						}
@@ -149,13 +149,13 @@
 
 				.components-angle-picker-control {
 					&__angle-circle {
-						border: 1px solid var(--rttpg-admin-color-border);
+						border: 1px solid var(--gtusers-admin-color-border);
 					}
 
 					&__angle-circle-indicator {
-						background: var(--rttpg-admin-color-primary, #0066ff);
+						background: var(--gtusers-admin-color-primary, #0066ff);
 						border-radius: 50%;
-						border-color: var(--rttpg-admin-color-primary, #0066ff);
+						border-color: var(--gtusers-admin-color-primary, #0066ff);
 					}
 				}
 
@@ -174,11 +174,11 @@
 
 							.components-input-control__container {
 								height: 34px !important;
-								border: 1px solid var(--rttpg-admin-color-border);
+								border: 1px solid var(--gtusers-admin-color-border);
 
 								.components-truncate {
 									color: var(
-													--rttpg-admin-color-primary,
+													--gtusers-admin-color-primary,
 													#0066ff
 									) !important;
 								}
@@ -197,7 +197,7 @@
 									outline: 0;
 									box-shadow: none;
 									border-color: var(
-													--rttpg-admin-color-primary, #0066ff
+													--gtusers-admin-color-primary, #0066ff
 									);
 								}
 							}

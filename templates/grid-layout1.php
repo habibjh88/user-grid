@@ -96,7 +96,7 @@ if ( 'masonry' == $data['layout_style'] ) {
                 </div>
 			<?php endif;
 
-			if ( rtTPG()->hasPro() && 'show' === $data['show_social_share'] ) {
+			if ( gtUsers()->hasPro() && 'show' === $data['show_social_share'] ) {
 				echo \RT\ThePostGridPro\Helpers\Functions::rtShare( $pID );
 			}
 

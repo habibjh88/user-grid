@@ -4,12 +4,12 @@ const {render} = wp.element;
 import ParseCss from "../utils/css/ParseCss";
 import {updateCategory} from '@wordpress/blocks';
 
-window.rttpgDevice = 'lg';
+window.gtusersDevice = 'lg';
 
 //Impost post grid block
 import "./custom-users-block";
 
-const allCustomBlocks = ['rttpg/custom-users-block'];
+const allCustomBlocks = ['gtusers/custom-users-block'];
 // Save Style CSS within Database/File
 window.bindCss = false;
 wp.data.subscribe(() => {
@@ -35,10 +35,10 @@ wp.data.subscribe(() => {
 
 
 //UPDATE BLOCK CATEGORY ICON
-updateCategory("rttpg", {
+updateCategory("gtusers", {
     icon: (
         <img
-            src={rttpgParams.plugin_url + "/assets/images/icon-20x20.png"}
+            src={gtusersParams.plugin_url + "/assets/images/icon-20x20.png"}
             alt={__("The Post Grid")}
         />
     ),

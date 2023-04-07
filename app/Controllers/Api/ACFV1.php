@@ -10,7 +10,7 @@ class ACFV1 {
 	}
 
 	public function register_acf_data_route() {
-		register_rest_route( 'rttpg/v1', 'acf', [
+		register_rest_route( 'gtusers/v1', 'acf', [
 			'methods'             => 'GET',
 			'callback'            => [ $this, 'get_acf_data' ],
 			'permission_callback' => function () {

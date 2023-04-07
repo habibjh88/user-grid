@@ -9,7 +9,7 @@ function Heading({attributes, post}) {
     return (
         <div className="entry-title-wrapper">
             {
-                ((rttpgParams.hasPro && category_position === 'above_title' || !el_ignore_layout(attributes[postLayout], category_position)) &&
+                ((gtusersParams.hasPro && category_position === 'above_title' || !el_ignore_layout(attributes[postLayout], category_position)) &&
                     get_el_thumb_cat({attributes, post}, 'cat-above-title')
                 )
             }

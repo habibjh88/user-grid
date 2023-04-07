@@ -22,22 +22,22 @@ function Inspector(props) {
 
 
         return (<InspectorControls key="controls">
-        <div className="rttpg-panel-control-wrapper">
-            <TabPanel className="rttpg-tab-panel" activeClass="active-tab" tabs={[
+        <div className="gtusers-panel-control-wrapper">
+            <TabPanel className="gtusers-tab-panel" activeClass="active-tab" tabs={[
                 {
                     name: "content",
                     title: "Content",
-                    className: "rttpg-tab-btn content"
+                    className: "gtusers-tab-btn content"
                 },
                 {
                     name: "styles",
                     title: "Settings / Styles",
-                    className: "rttpg-tab-btn settings"
+                    className: "gtusers-tab-btn settings"
                 }
             ]}
             >
                 {(tab) => (
-                    <div className="rttpg-tab-content">
+                    <div className="gtusers-tab-content">
 
                         {/* Content Tab*/}
                         {tab.name === "content" && (

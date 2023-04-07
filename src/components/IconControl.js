@@ -7,7 +7,7 @@ import Devices from "./Devices";
 const IconControl = (props) => {
 
 	const { value, responsive, onChange, label, content, options } = props;
-	const [device, setDevice] = useState(() => window.rttpgDevice || 'lg');
+	const [device, setDevice] = useState(() => window.gtusersDevice || 'lg');
 	const _filterValue = () => {
 		return value ? (responsive ? (value[device]) : value) : '';
 	}
@@ -25,12 +25,12 @@ const IconControl = (props) => {
 
 	if (defaultData.length !== 0) {
 		return (
-			<div className="rttpg-control-field rttpg-cf-alignment-wrap">
+			<div className="gtusers-control-field gtusers-cf-alignment-wrap">
 
 				{(label || responsive) && (
-					<div className="rttpg-cf-head">
+					<div className="gtusers-cf-head">
 						{label && (
-							<span className="rttpg-label">{label}</span>
+							<span className="gtusers-label">{label}</span>
 						)}
 						{responsive && <Devices device={device} onChange={_device => {
 							setDevice(_device);
@@ -45,11 +45,11 @@ const IconControl = (props) => {
 					</div>
 				)}
 
-				<div className="rttpg-cf-body rttpg-btn-group">
+				<div className="gtusers-cf-body gtusers-btn-group">
 					{defaultData.map((data, index) => {
 						return (
-							<button className={(_filterValue() == data.value ? 'active' : '') + ' rttpg-button'} key={index} onClick={() => setSettings(_filterValue() == data.value ? '' : data.value)}>
-								<Tooltip text={__(data.label, 'the-post-grid')}><span className="rttpg-align-icons">{__(data.icon, 'the-post-grid')}</span></Tooltip>
+							<button className={(_filterValue() == data.value ? 'active' : '') + ' gtusers-button'} key={index} onClick={() => setSettings(_filterValue() == data.value ? '' : data.value)}>
+								<Tooltip text={__(data.label, 'gutenberg-users')}><span className="gtusers-align-icons">{__(data.icon, 'gutenberg-users')}</span></Tooltip>
 							</button>
 						)
 					})}
@@ -59,7 +59,7 @@ const IconControl = (props) => {
 		)
 	} else {
 		return (
-			<h5>{__('Component props options is mandatory', 'the-post-grid')}</h5>
+			<h5>{__('Component props options is mandatory', 'gutenberg-users')}</h5>
 		)
 	}
 

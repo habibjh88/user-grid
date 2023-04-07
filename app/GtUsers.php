@@ -32,7 +32,7 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 *
 		 * @var string
 		 */
-		public $post_type = 'rttpg';
+		public $post_type = 'gtusers';
 
 		/**
 		 * Options
@@ -134,7 +134,7 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 * @return void
 		 */
 		public function init_hooks() {
-			do_action( 'rttpg_before_init', $this );
+			do_action( 'gtusers_before_init', $this );
 
 			$this->load_language();
 		}
@@ -153,12 +153,12 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 * @return void
 		 */
 		public function load_language() {
-			do_action( 'rttpg_set_local', null );
+			do_action( 'gtusers_set_local', null );
 			$locale = determine_locale();
-			$locale = apply_filters( 'plugin_locale', $locale, 'the-post-grid' );
-			unload_textdomain( 'the-post-grid' );
-			load_textdomain( 'the-post-grid', WP_LANG_DIR . '/the-post-grid/the-post-grid-' . $locale . '.mo' );
-			load_plugin_textdomain( 'the-post-grid', false, plugin_basename( dirname( GT_USERS_PLUGIN_FILE ) ) . '/languages' );
+			$locale = apply_filters( 'plugin_locale', $locale, 'gutenberg-users' );
+			unload_textdomain( 'gutenberg-users' );
+			load_textdomain( 'gutenberg-users', WP_LANG_DIR . '/the-post-grid/the-post-grid-' . $locale . '.mo' );
+			load_plugin_textdomain( 'gutenberg-users', false, plugin_basename( dirname( GT_USERS_PLUGIN_FILE ) ) . '/languages' );
 		}
 
 		/**
@@ -167,7 +167,7 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 * @return void
 		 */
 		public function on_plugins_loaded() {
-			do_action( 'rttpg_loaded', $this );
+			do_action( 'gtusers_loaded', $this );
 		}
 
 		/**
@@ -196,7 +196,7 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 * @return string
 		 */
 		public function default_template_path() {
-			return apply_filters( 'rttpg_default_template_path', untrailingslashit( plugin_dir_path( GT_USERS_PLUGIN_FILE ) ) );
+			return apply_filters( 'gtusers_default_template_path', untrailingslashit( plugin_dir_path( GT_USERS_PLUGIN_FILE ) ) );
 		}
 
 		/**
@@ -205,7 +205,7 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 * @return string
 		 */
 		public static function nonceText() {
-			return 'rttpg_nonce_secret';
+			return 'gtusers_nonce_secret';
 		}
 
 		/**
@@ -214,7 +214,7 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 * @return string
 		 */
 		public static function nonceId() {
-			return 'rttpg_nonce';
+			return 'gtusers_nonce';
 		}
 
 		/**
@@ -253,8 +253,9 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 * @return string
 		 */
 		public function get_template_path() {
-			return apply_filters( 'rttpg_template_path', 'the-post-grid/' );
+			return apply_filters( 'gtusers_template_path', 'the-post-grid/' );
 		}
+
 
 		/**
 		 * Pro check.
@@ -262,28 +263,7 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 * @return boolean
 		 */
 		public function hasPro() {
-			return class_exists( 'RtTpgPro' ) || class_exists( 'rtTPGP' );
-		}
-
-		/**
-		 * Pro check.
-		 *
-		 * @return boolean
-		 */
-		public function getProPath() {
-			if ( ! $this->hasPro() ) {
-				return false;
-			}
-			if ( ! function_exists( 'get_plugin_data' ) ) {
-				require_once ABSPATH . 'wp-admin/includes/plugin.php';
-			}
-
-			$path = WP_PLUGIN_DIR . '/the-post-grid-pro/';
-			if ( file_exists( $path ) ) {
-				return plugins_url() . '/the-post-grid-pro/';
-			}
-
-			return false;
+			return class_exists( 'GtUsersPro' );
 		}
 
 	}
@@ -293,10 +273,10 @@ if ( ! class_exists( GtUsers::class ) ) {
 	 *
 	 * @return GtUsers
 	 */
-	function rtTPG() {
+	function gtUsers() {
 		return GtUsers::getInstance();
 	}
 
 	// Init app.
-	rtTPG();
+	gtUsers();
 }

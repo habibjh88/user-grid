@@ -29,7 +29,7 @@ class IconList extends Component {
         const hasIcon = value ? 'has-icon' : '';
 
         return (
-            <div className={`rttpg-field rttpg-icon-main-wrapper ${className}`}>
+            <div className={`gtusers-field gtusers-icon-main-wrapper ${className}`}>
                 {this.props.label &&
                     <Fragment>
                         <label class="components-input-control__label">{label}</label>
@@ -39,7 +39,7 @@ class IconList extends Component {
                 <div className={`icon-inner-wrapper`}>
                     {/*Remove button */}
                     {value && <span onClick={() => this.props.onChange('')}
-                                    className="rttpg-remove-icon far fa-trash-alt fa-fw"/>}
+                                    className="gtusers-remove-icon far fa-trash-alt fa-fw"/>}
 
 
                     <div className={`choose-icon ${hasIcon}`}
@@ -52,15 +52,15 @@ class IconList extends Component {
                     </div>
 
                     {isOpen &&
-                        <div className="rttpg-icon-wrapper">
+                        <div className="gtusers-icon-wrapper">
                             <span onClick={e => this.setState({isOpen: false})}
-                                  className="rttpg-remove-icon fas fa-times"/>
+                                  className="gtusers-remove-icon fas fa-times"/>
                             <input type="text" value={this.state.filterText} placeholder="Search..."
                                    onChange={e => this.setState({filterText: e.target.value})}
                                    autoComplete="off"/>
-                            <div className="rttpg-icon-list-icons">
+                            <div className="gtusers-icon-list-icons">
                                 {finalData.map(name => {
-                                    return (<span className={value == name ? 'rttpg-active' : ''}
+                                    return (<span className={value == name ? 'gtusers-active' : ''}
                                                   onClick={e => {
                                                       this.props.onChange(name)
                                                       this.setState({isOpen: false})

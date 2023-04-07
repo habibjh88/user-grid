@@ -7,7 +7,7 @@ import './scss/SelectObj1.scss'
 
 function SelectObj1(props) {
     const {label, value, onChange, responsive, name, options} = props;
-    const [device, setDevice] = useState(() => window.rttpgDevice || 'lg');
+    const [device, setDevice] = useState(() => window.gtusersDevice || 'lg');
     const defaultData = {
         [device]: ''
     };
@@ -25,9 +25,9 @@ function SelectObj1(props) {
 
 
     return (
-        <div className="rttpg-control-field rttpg-cf-bg-property">
-            <div className="rttpg-cf-head">
-                <span className="rttpg-label">{label}</span>
+        <div className="gtusers-control-field gtusers-cf-bg-property">
+            <div className="gtusers-cf-head">
+                <span className="gtusers-label">{label}</span>
                 {responsive && <Devices device={device} onChange={_device => {
                     setDevice(_device);
                     const newData = JSON.parse(JSON.stringify(value));
@@ -37,7 +37,7 @@ function SelectObj1(props) {
                     }
                 }}/>}
             </div>
-            <div className="rttpg-cf-body">
+            <div className="gtusers-cf-body">
                 <SelectControl
                     value={responsive ? value[name][device] : value[name]}
                     options={options}

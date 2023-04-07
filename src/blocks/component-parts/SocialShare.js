@@ -1,11 +1,11 @@
-const ssList = rttpgParams.ssList;
+const ssList = gtusersParams.ssList;
 import {change_icon} from "./functions";
 
 
 function SocialShare() {
 
     return (
-        <div className="rt-tpg-social-share">
+        <div className="gtusers-social-share">
             {ssList.includes('facebook') &&
                 <a href="#" className="facebook"><i className={change_icon("fab fa-facebook-f", "facebook")} aria-hidden="true"></i></a>}
             {ssList.includes('twitter') &&

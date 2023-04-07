@@ -12,7 +12,7 @@ class RttpgV1 {
 	public function register_routes() {
 		// For css file save
 		register_rest_route(
-			'rttpg/v1',
+			'gtusers/v1',
 			'/block-save-css/',
 			[
 				[
@@ -27,7 +27,7 @@ class RttpgV1 {
 		);
 		// Get the Content by ID
 		register_rest_route(
-			'rttpg/v1',
+			'gtusers/v1',
 			'/get-post-content/',
 			[
 				[
@@ -42,7 +42,7 @@ class RttpgV1 {
 		);
 		// Append Block CSS
 		register_rest_route(
-			'rttpg/v1',
+			'gtusers/v1',
 			'/block-append-css/',
 			[
 				[
@@ -57,7 +57,7 @@ class RttpgV1 {
 		);
 
 		register_rest_route(
-			'rttpg/v1',
+			'gtusers/v1',
 			'/block-append-reusable-css/',
 			[
 				[
@@ -118,18 +118,18 @@ class RttpgV1 {
 
 			if ( $params['is_remain'] ) {
 				$block_css = $params['block_css'];
-				$filename  = "rttpg-block-{$post_id}.css";
+				$filename  = "gtusers-block-{$post_id}.css";
 
 				$upload_dir = wp_upload_dir();
-				$dir        = trailingslashit( $upload_dir['basedir'] ) . 'rttpg/';
+				$dir        = trailingslashit( $upload_dir['basedir'] ) . 'gtusers/';
 
 				// Add Import in first
 				$import_first = $this->set_import_url_to_top_css( $block_css );
 
 				if ( true === $is_previewing ) {
-					$filename = 'rttpg-block-preview.css';
+					$filename = 'gtusers-block-preview.css';
 				} else {
-					update_post_meta( $post_id, '_rttpg_block_css', $import_first );
+					update_post_meta( $post_id, '_gtusers_block_css', $import_first );
 				}
 
 				WP_Filesystem( false, $upload_dir['basedir'], true );
@@ -139,21 +139,21 @@ class RttpgV1 {
 				}
 				// If fail to save css in directory, then it will show a message to user
 				if ( ! $wp_filesystem->put_contents( $dir . $filename, $import_first ) ) {
-					throw new Exception( __( 'CSS can not be saved due to permission!!!', 'the-post-grid' ) );
+					throw new Exception( __( 'CSS can not be saved due to permission!!!', 'gutenberg-users' ) );
 				}
 			} else {
 				if ( false === $is_previewing ) {
-					delete_post_meta( $post_id, '_rttpg_block_css' );
+					delete_post_meta( $post_id, '_gtusers_block_css' );
 					$this->delete_post_resource( $post_id );
 				}
 			}
 
-			$success_message = __( 'The Post Grid preview css file has been updated.', 'the-post-grid' );
+			$success_message = __( 'The Post Grid preview css file has been updated.', 'gutenberg-users' );
 			// set block meta
 			if ( false === $is_previewing ) {
 				// ignore: phpcs
-				update_post_meta( $post_id, '__rttpg_available_blocks', serialize( $params['available_blocks'] ) );
-				$success_message = __( 'The Post Grid block css file has been updated.', 'the-post-grid' );
+				update_post_meta( $post_id, '__gtusers_available_blocks', serialize( $params['available_blocks'] ) );
+				$success_message = __( 'The Post Grid block css file has been updated.', 'gutenberg-users' );
 			}
 
 			return [
@@ -221,8 +221,8 @@ class RttpgV1 {
 	private function delete_post_resource( $post_id = '' ) {
 		$post_id = $post_id ? $post_id : $this->is_single();
 		if ( $post_id ) {
-			$upload_dir = wp_upload_dir()['basedir'] . '/rttpg/';
-			$css_path   = $upload_dir . 'rttpg-block-' . $post_id . '.css';
+			$upload_dir = wp_upload_dir()['basedir'] . '/gtusers/';
+			$css_path   = $upload_dir . 'gtusers-block-' . $post_id . '.css';
 			if ( file_exists( $css_path ) ) {
 				unlink( $css_path );
 			}
@@ -261,14 +261,14 @@ class RttpgV1 {
 			if ( $post_id ) {
 				$filename   = "block-css-{$post_id}.css";
 				$upload_dir = wp_upload_dir();
-				$dir        = trailingslashit( $upload_dir['basedir'] ) . 'rttpg/';
+				$dir        = trailingslashit( $upload_dir['basedir'] ) . 'gtusers/';
 				if ( file_exists( $dir . $filename ) ) {
 					$file = fopen( $dir . $filename, 'a' );
 					fwrite( $file, $css );
 					fclose( $file );
 				}
-				$get_data = get_post_meta( $post_id, '_rttpg_block_css', true );
-				update_post_meta( $post_id, '_rttpg_block_css', $get_data . $css );
+				$get_data = get_post_meta( $post_id, '_gtusers_block_css', true );
+				update_post_meta( $post_id, '_gtusers_block_css', $get_data . $css );
 
 				wp_send_json_success(
 					[
@@ -304,7 +304,7 @@ class RttpgV1 {
 
 			$filename   = 'blocks-preview.css';
 			$upload_dir = wp_upload_dir();
-			$dir        = trailingslashit( $upload_dir['basedir'] ) . 'rttpg/';
+			$dir        = trailingslashit( $upload_dir['basedir'] ) . 'gtusers/';
 			if ( file_exists( $dir . $filename ) ) {
 				$file = fopen( $dir . $filename, 'a' );
 				fwrite( $file, $css );

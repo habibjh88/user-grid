@@ -25,7 +25,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-widget-heading-wrapper{{section_title_margin}}'
+						'selector' => '{{GTUSERS}} .tpg-widget-heading-wrapper{{section_title_margin}}'
 					]
 				]
 			],
@@ -41,7 +41,7 @@ class StyleTabController {
 					'weight'         => ''
 				],
 				'style'   => [
-					(object) [ 'selector' => '{{RTTPG}} .tpg-widget-heading-wrapper .tpg-widget-heading' ]
+					(object) [ 'selector' => '{{GTUSERS}} .tpg-widget-heading-wrapper .tpg-widget-heading' ]
 				],
 			],
 
@@ -50,7 +50,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-widget-heading-wrapper .tpg-widget-heading {color: {{section_title_color}}; }'
+						'selector' => '{{GTUSERS}} .tpg-widget-heading-wrapper .tpg-widget-heading {color: {{section_title_color}}; }'
 					]
 				]
 			],
@@ -60,8 +60,8 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-widget-heading-wrapper.heading-style2 .tpg-widget-heading, {{RTTPG}} .tpg-widget-heading-wrapper.heading-style3 .tpg-widget-heading {background-color: {{section_title_bg_color}}; }
-						{{RTTPG}} .tpg-widget-heading-wrapper.heading-style2 .tpg-widget-heading::after, {{RTTPG}} .tpg-widget-heading-wrapper.heading-style2 .tpg-widget-heading::before {border-color: {{section_title_bg_color}} transparent; }'
+						'selector' => '{{GTUSERS}} .tpg-widget-heading-wrapper.heading-style2 .tpg-widget-heading, {{GTUSERS}} .tpg-widget-heading-wrapper.heading-style3 .tpg-widget-heading {background-color: {{section_title_bg_color}}; }
+						{{GTUSERS}} .tpg-widget-heading-wrapper.heading-style2 .tpg-widget-heading::after, {{GTUSERS}} .tpg-widget-heading-wrapper.heading-style2 .tpg-widget-heading::before {border-color: {{section_title_bg_color}} transparent; }'
 					]
 				]
 			],
@@ -72,8 +72,8 @@ class StyleTabController {
 				'style'   => [
 					(object) [
 						'selector' => '
-						{{RTTPG}} .tpg-widget-heading-wrapper.heading-style1 .tpg-widget-heading::before {background-color: {{section_title_dot_color}}; 
-						{{RTTPG}} .tpg-widget-heading-wrapper.heading-style4::before {background-color: {{section_title_dot_color}}; 
+						{{GTUSERS}} .tpg-widget-heading-wrapper.heading-style1 .tpg-widget-heading::before {background-color: {{section_title_dot_color}}; 
+						{{GTUSERS}} .tpg-widget-heading-wrapper.heading-style4::before {background-color: {{section_title_dot_color}}; 
 						}'
 					]
 				]
@@ -85,12 +85,12 @@ class StyleTabController {
 				'style'   => [
 					(object) [
 						'selector' => '
-						    {{RTTPG}} .tpg-widget-heading-wrapper.heading-style1 .tpg-widget-heading-line {border-color: {{section_title_line_color}}; }
-						    {{RTTPG}}.section-title-style-style2 .tpg-header-wrapper.carousel .rt-filter-item-wrap.swiper-wrapper .swiper-slide::before, {{RTTPG}}.section-title-style-style3 .tpg-header-wrapper.carousel .rt-filter-item-wrap.swiper-wrapper .swiper-slide::before {border-bottom-color: {{section_title_line_color}}; }
-						    {{RTTPG}}.section-title-style-style2 .tpg-header-wrapper:not(.carousel) .tpg-widget-heading-wrapper,{{RTTPG}}.section-title-style-style3 .tpg-header-wrapper:not(.carousel) .tpg-widget-heading-wrapper,{{RTTPG}}.section-title-style-style2 .tpg-header-wrapper.carousel, {{RTTPG}}.section-title-style-style3 .tpg-header-wrapper.carousel {border-bottom-color: {{section_title_line_color}}; }
-						    {{RTTPG}}.section-title-style-style2 .tpg-header-wrapper.carousel .rt-filter-item-wrap.swiper-wrapper .swiper-slide.selected, {{RTTPG}}.section-title-style-style3 .tpg-header-wrapper.carousel .rt-filter-item-wrap.swiper-wrapper .swiper-slide.selected {color: {{section_title_line_color}}; }
-						    {{RTTPG}}.section-title-style-style2 .tpg-header-wrapper.carousel .rt-filter-item-wrap.swiper-wrapper .swiper-slide:hover, {{RTTPG}}.section-title-style-style2 .tpg-header-wrapper.carousel .rt-filter-item-wrap.swiper-wrapper .swiper-slide:hover {color: {{section_title_line_color}}; }
-						    {{RTTPG}} .tpg-widget-heading-wrapper.heading-style4::after {background-color: {{section_title_line_color}}; }
+						    {{GTUSERS}} .tpg-widget-heading-wrapper.heading-style1 .tpg-widget-heading-line {border-color: {{section_title_line_color}}; }
+						    {{GTUSERS}}.section-title-style-style2 .tpg-header-wrapper.carousel .rt-filter-item-wrap.swiper-wrapper .swiper-slide::before, {{GTUSERS}}.section-title-style-style3 .tpg-header-wrapper.carousel .rt-filter-item-wrap.swiper-wrapper .swiper-slide::before {border-bottom-color: {{section_title_line_color}}; }
+						    {{GTUSERS}}.section-title-style-style2 .tpg-header-wrapper:not(.carousel) .tpg-widget-heading-wrapper,{{GTUSERS}}.section-title-style-style3 .tpg-header-wrapper:not(.carousel) .tpg-widget-heading-wrapper,{{GTUSERS}}.section-title-style-style2 .tpg-header-wrapper.carousel, {{GTUSERS}}.section-title-style-style3 .tpg-header-wrapper.carousel {border-bottom-color: {{section_title_line_color}}; }
+						    {{GTUSERS}}.section-title-style-style2 .tpg-header-wrapper.carousel .rt-filter-item-wrap.swiper-wrapper .swiper-slide.selected, {{GTUSERS}}.section-title-style-style3 .tpg-header-wrapper.carousel .rt-filter-item-wrap.swiper-wrapper .swiper-slide.selected {color: {{section_title_line_color}}; }
+						    {{GTUSERS}}.section-title-style-style2 .tpg-header-wrapper.carousel .rt-filter-item-wrap.swiper-wrapper .swiper-slide:hover, {{GTUSERS}}.section-title-style-style2 .tpg-header-wrapper.carousel .rt-filter-item-wrap.swiper-wrapper .swiper-slide:hover {color: {{section_title_line_color}}; }
+						    {{GTUSERS}} .tpg-widget-heading-wrapper.heading-style4::after {background-color: {{section_title_line_color}}; }
 						'
 					]
 				]
@@ -101,8 +101,8 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-widget-heading-wrapper.heading-style4::before {width: {{section_title_line_width}}px; }
-						{{RTTPG}} .tpg-widget-heading-wrapper.heading-style4::after {width: calc(100% - calc({{section_title_line_width}}px + 10px)) }
+						'selector' => '{{GTUSERS}} .tpg-widget-heading-wrapper.heading-style4::before {width: {{section_title_line_width}}px; }
+						{{GTUSERS}} .tpg-widget-heading-wrapper.heading-style4::after {width: calc(100% - calc({{section_title_line_width}}px + 10px)) }
 						'
 					]
 				]
@@ -113,8 +113,8 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-widget-heading-wrapper.heading-style4::before {bottom: {{section_title_line_spacing}}px; }
-						{{RTTPG}} .tpg-widget-heading-wrapper.heading-style4::after {bottom: calc({{section_title_line_spacing}}px + 2px) }
+						'selector' => '{{GTUSERS}} .tpg-widget-heading-wrapper.heading-style4::before {bottom: {{section_title_line_spacing}}px; }
+						{{GTUSERS}} .tpg-widget-heading-wrapper.heading-style4::after {bottom: calc({{section_title_line_spacing}}px + 2px) }
 						'
 					]
 				]
@@ -125,7 +125,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .selector {color: {{prefix_text_color}}; }'
+						'selector' => '{{GTUSERS}} .selector {color: {{prefix_text_color}}; }'
 					]
 				]
 			],
@@ -135,7 +135,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .selector {color: {{suffix_text_color}}; }'
+						'selector' => '{{GTUSERS}} .selector {color: {{suffix_text_color}}; }'
 					]
 				]
 			],
@@ -156,7 +156,7 @@ class StyleTabController {
 					'weight'         => ''
 				],
 				'style'   => [
-					(object) [ 'selector' => '{{RTTPG}} .tpg-widget-heading-wrapper .tpg-widget-heading' ]
+					(object) [ 'selector' => '{{GTUSERS}} .tpg-widget-heading-wrapper .tpg-widget-heading' ]
 				],
 			],
 
@@ -165,7 +165,7 @@ class StyleTabController {
 				'default' => [],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .selector {text-align: {{taxonomy_des_alignment}}; }'
+						'selector' => '{{GTUSERS}} .selector {text-align: {{taxonomy_des_alignment}}; }'
 					]
 				]
 			],
@@ -175,7 +175,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .selector {color: {{taxonomy_des_color}}; }'
+						'selector' => '{{GTUSERS}} .selector {color: {{taxonomy_des_color}}; }'
 					]
 				]
 			],
@@ -191,7 +191,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .selector{{taxonomy_des_dimension}}'
+						'selector' => '{{GTUSERS}} .selector{{taxonomy_des_dimension}}'
 					]
 				]
 			],
@@ -209,7 +209,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .rt-holder .entry-title-wrapper{{title_spacing}}'
+						'selector' => '{{GTUSERS}} .gtusers-container .rt-holder .entry-title-wrapper{{title_spacing}}'
 					]
 				]
 			],
@@ -225,7 +225,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .rt-holder .entry-title-wrapper .entry-title{{title_padding}}'
+						'selector' => '{{GTUSERS}} .gtusers-container .rt-holder .entry-title-wrapper .entry-title{{title_padding}}'
 					]
 				]
 			],
@@ -241,7 +241,7 @@ class StyleTabController {
 					'weight'         => ''
 				],
 				'style'   => [
-					(object) [ 'selector' => '{{RTTPG}} .tpg-el-main-wrapper .entry-title-wrapper .entry-title' ]
+					(object) [ 'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .entry-title-wrapper .entry-title' ]
 				],
 			],
 
@@ -256,7 +256,7 @@ class StyleTabController {
 					'weight'         => ''
 				],
 				'style'   => [
-					(object) [ 'selector' => '{{RTTPG}} .tpg-el-main-wrapper .offset-left .entry-title-wrapper .entry-title' ]
+					(object) [ 'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .offset-left .entry-title-wrapper .entry-title' ]
 				],
 			],
 
@@ -275,7 +275,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .entry-title {text-align: {{title_alignment}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .entry-title {text-align: {{title_alignment}}; }'
 					]
 				]
 			],
@@ -285,7 +285,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .entry-title {color: {{title_color}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .entry-title {color: {{title_color}}; }'
 					]
 				]
 			],
@@ -295,7 +295,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .entry-title {background-color: {{title_bg_color}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .entry-title {background-color: {{title_bg_color}}; }'
 					]
 				]
 			],
@@ -305,7 +305,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .rt-holder .entry-title-wrapper .entry-title::before {background-color: {{title_border_color}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .rt-holder .entry-title-wrapper .entry-title::before {background-color: {{title_border_color}}; }'
 					]
 				]
 			],
@@ -315,7 +315,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .entry-title {--tpg-primary-color: {{title_hover_border_color}}; }'
+						'selector' => '{{GTUSERS}} .entry-title {--tpg-primary-color: {{title_hover_border_color}}; }'
 					]
 				]
 			],
@@ -325,7 +325,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder .entry-title:hover, {{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder .entry-title a:hover {color: {{title_hover_color}} !important; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder .entry-title:hover, {{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder .entry-title a:hover {color: {{title_hover_color}} !important; }'
 					]
 				]
 			],
@@ -335,7 +335,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .entry-title:hover {background-color: {{title_bg_color_hover}} !important; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .entry-title:hover {background-color: {{title_bg_color_hover}} !important; }'
 					]
 				]
 			],
@@ -345,7 +345,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder:hover .entry-title, {{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder:hover .entry-title a {color: {{title_color_box_hover}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder:hover .entry-title, {{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder:hover .entry-title a {color: {{title_color_box_hover}}; }'
 					]
 				]
 			],
@@ -355,7 +355,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder:hover .entry-title {background-color: {{title_bg_color_box_hover}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder:hover .entry-title {background-color: {{title_bg_color_box_hover}}; }'
 					]
 				]
 			],
@@ -365,7 +365,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .rt-holder:hover .entry-title-wrapper .entry-title::before {background-color: {{title_border_color_hover}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .rt-holder:hover .entry-title-wrapper .entry-title::before {background-color: {{title_border_color_hover}}; }'
 					]
 				]
 			],
@@ -383,10 +383,10 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-el-image-wrap, 
-						{{RTTPG}} .tpg-el-main-wrapper .tpg-el-image-wrap img, 
-						{{RTTPG}} .tpg-el-main-wrapper .rt-grid-hover-item .rt-holder .rt-el-content-wrapper,
-						{{RTTPG}} .rt-grid-hover-item .grid-hover-content{{img_border_radius}}'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-el-image-wrap, 
+						{{GTUSERS}} .tpg-el-main-wrapper .tpg-el-image-wrap img, 
+						{{GTUSERS}} .tpg-el-main-wrapper .rt-grid-hover-item .rt-holder .rt-el-content-wrapper,
+						{{GTUSERS}} .rt-grid-hover-item .grid-hover-content{{img_border_radius}}'
 					]
 				]
 			],
@@ -396,7 +396,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-el-image-wrap img {width:{{image_width}}}'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-el-image-wrap img {width:{{image_width}}}'
 					]
 				]
 			],
@@ -406,7 +406,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .rt-holder .tpg-el-image-wrap img {object-position:{{thumbnail_position}};}'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .rt-holder .tpg-el-image-wrap img {object-position:{{thumbnail_position}};}'
 					]
 				]
 			],
@@ -417,7 +417,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .rt-holder:hover .tpg-el-image-wrap img {object-position:{{thumbnail_position_hover}};}'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .rt-holder:hover .tpg-el-image-wrap img {object-position:{{thumbnail_position_hover}};}'
 					]
 				]
 			],
@@ -427,7 +427,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-el-image-wrap img {transition-duration:{{thumbnail_transition_duration}}s;}'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-el-image-wrap img {transition-duration:{{thumbnail_transition_duration}}s;}'
 					]
 				]
 			],
@@ -437,7 +437,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-el-image-wrap img {opacity:{{thumbnail_opacity}};}'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-el-image-wrap img {opacity:{{thumbnail_opacity}};}'
 					]
 				]
 			],
@@ -447,7 +447,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .rt-holder:hover .tpg-el-image-wrap img {opacity:{{thumbnail_opacity_hover}};}'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .rt-holder:hover .tpg-el-image-wrap img {opacity:{{thumbnail_opacity_hover}};}'
 					]
 				]
 			],
@@ -457,7 +457,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .post-meta-tags span img {width:{{author_image_width}}px;height:{{author_image_width}}px;}'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .post-meta-tags span img {width:{{author_image_width}}px;height:{{author_image_width}}px;}'
 					]
 				]
 			],
@@ -474,7 +474,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-el-image-wrap{{thumbnail_spacing}}'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-el-image-wrap{{thumbnail_spacing}}'
 					]
 				]
 			],
@@ -490,7 +490,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .rt-grid-hover-item .rt-holder .grid-hover-content{{thumbnail_overlay_padding}}'
+						'selector' => '{{GTUSERS}} .gtusers-container .rt-grid-hover-item .rt-holder .grid-hover-content{{thumbnail_overlay_padding}}'
 					]
 				]
 			],
@@ -519,7 +519,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .rt-grid-hover-item .rt-holder .grid-hover-content:before, {{RTTPG}} .tpg-el-main-wrapper .tpg-el-image-wrap .overlay'
+						'selector' => '{{GTUSERS}} .gtusers-container .rt-grid-hover-item .rt-holder .grid-hover-content:before, {{GTUSERS}} .tpg-el-main-wrapper .tpg-el-image-wrap .overlay'
 					]
 				]
 			],
@@ -529,7 +529,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .rt-holder .rt-img-holder .tpg-zoom .fa {background-color: {{thumb_lightbox_bg}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .rt-holder .rt-img-holder .tpg-zoom .fa {background-color: {{thumb_lightbox_bg}}; }'
 					]
 				]
 			],
@@ -538,7 +538,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .rt-holder .rt-img-holder .tpg-zoom .fa {color: {{thumb_lightbox_color}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .rt-holder .rt-img-holder .tpg-zoom .fa {color: {{thumb_lightbox_color}}; }'
 					]
 				]
 			],
@@ -562,7 +562,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .rt-grid-hover-item .rt-holder .grid-hover-content:after, {{RTTPG}} .tpg-el-main-wrapper .rt-holder:hover .tpg-el-image-wrap .overlay'
+						'selector' => '{{GTUSERS}} .gtusers-container .rt-grid-hover-item .rt-holder .grid-hover-content:after, {{GTUSERS}} .tpg-el-main-wrapper .rt-holder:hover .tpg-el-image-wrap .overlay'
 					]
 				]
 			],
@@ -572,7 +572,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .rt-holder .rt-img-holder .tpg-zoom .fa {background-color: {{thumb_lightbox_bg_hover}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .rt-holder .rt-img-holder .tpg-zoom .fa {background-color: {{thumb_lightbox_bg_hover}}; }'
 					]
 				]
 			],
@@ -581,7 +581,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .rt-holder .rt-img-holder .tpg-zoom .fa {color: {{thumb_lightbox_color_hover}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .rt-holder .rt-img-holder .tpg-zoom .fa {color: {{thumb_lightbox_color_hover}}; }'
 					]
 				]
 			],
@@ -616,7 +616,7 @@ class StyleTabController {
 					'weight'         => ''
 				],
 				'style'   => [
-					(object) [ 'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-el-excerpt .tpg-excerpt-inner' ]
+					(object) [ 'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-el-excerpt .tpg-excerpt-inner' ]
 				],
 			],
 
@@ -631,7 +631,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-el-excerpt{{excerpt_spacing}}'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-el-excerpt{{excerpt_spacing}}'
 					]
 				]
 			],
@@ -641,7 +641,7 @@ class StyleTabController {
 				'default' => [],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-el-excerpt .tpg-excerpt-inner, {{RTTPG}} .tpg-el-main-wrapper .tpg-el-excerpt .tpg-excerpt-inner * {text-align: {{content_alignment}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-el-excerpt .tpg-excerpt-inner, {{GTUSERS}} .tpg-el-main-wrapper .tpg-el-excerpt .tpg-excerpt-inner * {text-align: {{content_alignment}}; }'
 					]
 				]
 			],
@@ -651,7 +651,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-el-excerpt .tpg-excerpt-inner {color: {{excerpt_color}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-el-excerpt .tpg-excerpt-inner {color: {{excerpt_color}}; }'
 					]
 				]
 			],
@@ -661,7 +661,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}}.meta_position_default .tpg-el-main-wrapper .grid-layout3 .rt-holder .rt-el-post-meta::before {background: {{excerpt_border}}; }'
+						'selector' => '{{GTUSERS}}.meta_position_default .tpg-el-main-wrapper .grid-layout3 .rt-holder .rt-el-post-meta::before {background: {{excerpt_border}}; }'
 					]
 				]
 			],
@@ -671,7 +671,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder:hover .tpg-el-excerpt .tpg-excerpt-inner {color: {{excerpt_hover_color}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder:hover .tpg-el-excerpt .tpg-excerpt-inner {color: {{excerpt_hover_color}}; }'
 					]
 				]
 			],
@@ -681,7 +681,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}}.meta_position_default .tpg-el-main-wrapper .grid-layout3 .rt-holder:hover .rt-el-post-meta::before {color: {{excerpt_border_hover}}; }'
+						'selector' => '{{GTUSERS}}.meta_position_default .tpg-el-main-wrapper .grid-layout3 .rt-holder:hover .rt-el-post-meta::before {color: {{excerpt_border_hover}}; }'
 					]
 				]
 			],
@@ -700,7 +700,7 @@ class StyleTabController {
 					'weight'         => ''
 				],
 				'style'   => [
-					(object) [ 'selector' => '{{RTTPG}} .rt-tpg-container .tpg-post-holder .rt-el-post-meta, {{RTTPG}} .tpg-post-holder .tpg-separate-category .categories-links a' ]
+					(object) [ 'selector' => '{{GTUSERS}} .gtusers-container .tpg-post-holder .rt-el-post-meta, {{GTUSERS}} .tpg-post-holder .tpg-separate-category .categories-links a' ]
 				],
 			],
 
@@ -709,7 +709,7 @@ class StyleTabController {
 				'default' => [],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .rt-el-post-meta {text-align: {{postmeta_alignment}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .rt-el-post-meta {text-align: {{postmeta_alignment}}; }'
 					]
 				]
 			],
@@ -725,7 +725,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .rt-holder .rt-el-post-meta{{meta_wrap_spacing}}'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .rt-holder .rt-el-post-meta{{meta_wrap_spacing}}'
 					]
 				]
 			],
@@ -741,7 +741,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .post-meta-user span, {{RTTPG}} .post-meta-tags span{{meta_spacing}}'
+						'selector' => '{{GTUSERS}} .post-meta-user span, {{GTUSERS}} .post-meta-tags span{{meta_spacing}}'
 					]
 				]
 			],
@@ -761,7 +761,7 @@ class StyleTabController {
 					'weight'         => ''
 				],
 				'style'   => [
-					(object) [ 'selector' => '{{RTTPG}} .rt-tpg-container .tpg-post-holder .tpg-separate-category .categories-links a' ]
+					(object) [ 'selector' => '{{GTUSERS}} .gtusers-container .tpg-post-holder .tpg-separate-category .categories-links a' ]
 				],
 			],
 
@@ -770,7 +770,7 @@ class StyleTabController {
 				// 'default' => 0.5,
 				'style' => [
 					(object) [
-						'selector' => '{{RTTPG}}  .tpg-el-main-wrapper .tpg-separate-category.above_title { margin-bottom: {{category_margin_bottom}}px !important;}'
+						'selector' => '{{GTUSERS}}  .tpg-el-main-wrapper .tpg-separate-category.above_title { margin-bottom: {{category_margin_bottom}}px !important;}'
 					],
 				]
 			],
@@ -787,8 +787,8 @@ class StyleTabController {
 				'style'   => [
 					(object) [
 						'selector' => '
-						{{RTTPG}} .tpg-el-main-wrapper .post-meta-tags .categories-links a{{category_radius}}
-						{{RTTPG}} .tpg-el-main-wrapper .tpg-separate-category:not(.style3) .categories-links a{{category_radius}}
+						{{GTUSERS}} .tpg-el-main-wrapper .post-meta-tags .categories-links a{{category_radius}}
+						{{GTUSERS}} .tpg-el-main-wrapper .tpg-separate-category:not(.style3) .categories-links a{{category_radius}}
 						'
 					]
 				]
@@ -805,8 +805,8 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .rt-holder .categories-links a{{category_padding}}
-						{{RTTPG}} .tpg-el-main-wrapper .tpg-separate-category .categories-links a{{category_padding}}'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .rt-holder .categories-links a{{category_padding}}
+						{{GTUSERS}} .tpg-el-main-wrapper .tpg-separate-category .categories-links a{{category_padding}}'
 					]
 				]
 			],
@@ -821,7 +821,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .post-meta-tags span {color: {{meta_info_color}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .post-meta-tags span {color: {{meta_info_color}}; }'
 					]
 				]
 			],
@@ -831,7 +831,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .post-meta-tags a {color: {{meta_link_color}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .post-meta-tags a {color: {{meta_link_color}}; }'
 					]
 				]
 			],
@@ -841,7 +841,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .post-meta-tags .separator {color: {{meta_separator_color}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .post-meta-tags .separator {color: {{meta_separator_color}}; }'
 					]
 				]
 			],
@@ -851,7 +851,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .post-meta-tags i {color: {{meta_icon_color}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .post-meta-tags i {color: {{meta_icon_color}}; }'
 					]
 				]
 			],
@@ -891,9 +891,9 @@ class StyleTabController {
 				'style'   => [
 					(object) [
 						'selector' => '
-						{{RTTPG}} .tpg-el-main-wrapper .tpg-separate-category.style1 .categories-links a {color: {{separate_category_color}}; }
-						{{RTTPG}} .tpg-el-main-wrapper .tpg-separate-category .categories-links a {color: {{separate_category_color}}; }
-						{{RTTPG}} .tpg-el-main-wrapper .post-meta-tags .categories-links a {color: {{separate_category_color}}; }
+						{{GTUSERS}} .tpg-el-main-wrapper .tpg-separate-category.style1 .categories-links a {color: {{separate_category_color}}; }
+						{{GTUSERS}} .tpg-el-main-wrapper .tpg-separate-category .categories-links a {color: {{separate_category_color}}; }
+						{{GTUSERS}} .tpg-el-main-wrapper .post-meta-tags .categories-links a {color: {{separate_category_color}}; }
 						'
 					]
 				]
@@ -904,11 +904,11 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-separate-category.style1 .categories-links a {background-color: {{separate_category_bg}}; }
-						{{RTTPG}} .tpg-el-main-wrapper .tpg-separate-category.style1 .categories-links a::after {border-top-color: {{separate_category_bg}}; }
-						{{RTTPG}} .tpg-el-main-wrapper .tpg-separate-category:not(.style1) .categories-links a {background-color: {{separate_category_bg}}; }
-						{{RTTPG}} .tpg-el-main-wrapper .tpg-separate-category:not(.style1) .categories-links a:after {border-top-color: {{separate_category_bg}}; }
-						{{RTTPG}} .tpg-el-main-wrapper .post-meta-tags .categories-links a {background-color: {{separate_category_bg}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-separate-category.style1 .categories-links a {background-color: {{separate_category_bg}}; }
+						{{GTUSERS}} .tpg-el-main-wrapper .tpg-separate-category.style1 .categories-links a::after {border-top-color: {{separate_category_bg}}; }
+						{{GTUSERS}} .tpg-el-main-wrapper .tpg-separate-category:not(.style1) .categories-links a {background-color: {{separate_category_bg}}; }
+						{{GTUSERS}} .tpg-el-main-wrapper .tpg-separate-category:not(.style1) .categories-links a:after {border-top-color: {{separate_category_bg}}; }
+						{{GTUSERS}} .tpg-el-main-wrapper .post-meta-tags .categories-links a {background-color: {{separate_category_bg}}; }'
 					]
 				]
 			],
@@ -918,8 +918,8 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-separate-category .categories-links i {color: {{separate_category_icon_color}}; }
-						{{RTTPG}} .tpg-el-main-wrapper .post-meta-tags .categories-links i {color: {{separate_category_icon_color}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-separate-category .categories-links i {color: {{separate_category_icon_color}}; }
+						{{GTUSERS}} .tpg-el-main-wrapper .post-meta-tags .categories-links i {color: {{separate_category_icon_color}}; }'
 					]
 				]
 			],
@@ -929,7 +929,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .grid-layout3 .rt-holder .rt-el-post-meta::before {background: {{post_footer_border_color}} ; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .grid-layout3 .rt-holder .rt-el-post-meta::before {background: {{post_footer_border_color}} ; }'
 					]
 				]
 			],
@@ -939,7 +939,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder .post-meta-tags a:hover {color: {{meta_link_colo_hover}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder .post-meta-tags a:hover {color: {{meta_link_colo_hover}}; }'
 					]
 				]
 			],
@@ -949,8 +949,8 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-separate-category .categories-links a:hover {color: {{separate_category_color_hover}} !important; }
-						{{RTTPG}} .tpg-el-main-wrapper .post-meta-tags .categories-links a:hover {color: {{separate_category_color_hover}} !important; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-separate-category .categories-links a:hover {color: {{separate_category_color_hover}} !important; }
+						{{GTUSERS}} .tpg-el-main-wrapper .post-meta-tags .categories-links a:hover {color: {{separate_category_color_hover}} !important; }'
 					]
 				]
 			],
@@ -960,10 +960,10 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-separate-category.style1 .categories-links a:hover {background-color: {{separate_category_bg_hover}} !important; }
-						{{RTTPG}} .tpg-el-main-wrapper .tpg-separate-category .categories-links:not(.style1) a:hover {background-color: {{separate_category_bg_hover}} !important; }
-						{{RTTPG}} .tpg-el-main-wrapper .tpg-separate-category .categories-links a:hover::after {border-top-color: {{separate_category_bg_hover}} !important; }
-						{{RTTPG}} .tpg-el-main-wrapper .post-meta-tags .categories-links a:hover {background-color: {{separate_category_bg_hover}} !important; }
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-separate-category.style1 .categories-links a:hover {background-color: {{separate_category_bg_hover}} !important; }
+						{{GTUSERS}} .tpg-el-main-wrapper .tpg-separate-category .categories-links:not(.style1) a:hover {background-color: {{separate_category_bg_hover}} !important; }
+						{{GTUSERS}} .tpg-el-main-wrapper .tpg-separate-category .categories-links a:hover::after {border-top-color: {{separate_category_bg_hover}} !important; }
+						{{GTUSERS}} .tpg-el-main-wrapper .post-meta-tags .categories-links a:hover {background-color: {{separate_category_bg_hover}} !important; }
 						'
 					]
 				]
@@ -974,7 +974,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder:hover .post-meta-tags * {color: {{meta_link_colo_box_hover}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder:hover .post-meta-tags * {color: {{meta_link_colo_box_hover}}; }'
 					]
 				]
 			],
@@ -984,8 +984,8 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder:hover .tpg-separate-category .categories-links a,
-						{{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder:hover .post-meta-tags .categories-links a {color: {{separate_category_color_box_hover}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder:hover .tpg-separate-category .categories-links a,
+						{{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder:hover .post-meta-tags .categories-links a {color: {{separate_category_color_box_hover}}; }'
 					]
 				]
 			],
@@ -995,10 +995,10 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder:hover .tpg-separate-category.style1 .categories-links a {background-color: {{separate_category_bg_box_hover}}; }
-						 {{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder:hover .tpg-separate-category .categories-links a::after {border-top-color: {{separate_category_bg_box_hover}}; }
-						{{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder:hover .tpg-separate-category:not(.style1) .categories-links a,
-						 {{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder:hover .post-meta-tags .categories-links a {background-color: {{separate_category_bg_box_hover}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder:hover .tpg-separate-category.style1 .categories-links a {background-color: {{separate_category_bg_box_hover}}; }
+						 {{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder:hover .tpg-separate-category .categories-links a::after {border-top-color: {{separate_category_bg_box_hover}}; }
+						{{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder:hover .tpg-separate-category:not(.style1) .categories-links a,
+						 {{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder:hover .post-meta-tags .categories-links a {background-color: {{separate_category_bg_box_hover}}; }'
 					]
 				]
 			],
@@ -1008,8 +1008,8 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder:hover .tpg-separate-category .categories-links i,
-						 {{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder:hover .post-meta-tags .categories-links i {color: {{separate_category_icon_color_box_hover}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder:hover .tpg-separate-category .categories-links i,
+						 {{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder:hover .post-meta-tags .categories-links i {color: {{separate_category_icon_color_box_hover}}; }'
 					]
 				]
 			],
@@ -1027,7 +1027,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-social-share a{{social_icon_margin}}'
+						'selector' => '{{GTUSERS}} .gtusers-social-share a{{social_icon_margin}}'
 					]
 				]
 			],
@@ -1043,7 +1043,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-social-share{{social_wrapper_margin}}'
+						'selector' => '{{GTUSERS}} .gtusers-social-share{{social_wrapper_margin}}'
 					]
 				]
 			],
@@ -1059,7 +1059,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-social-share i{{social_icon_radius}}'
+						'selector' => '{{GTUSERS}} .gtusers-social-share i{{social_icon_radius}}'
 					]
 				]
 			],
@@ -1068,7 +1068,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-social-share a i{width:{{social_icon_width}}px;text-align:center;}'
+						'selector' => '{{GTUSERS}} .gtusers-social-share a i{width:{{social_icon_width}}px;text-align:center;}'
 					]
 				]
 			],
@@ -1077,7 +1077,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-social-share a i{height:{{social_icon_height}}px; line-height: {{social_icon_height}}px}'
+						'selector' => '{{GTUSERS}} .gtusers-social-share a i{height:{{social_icon_height}}px; line-height: {{social_icon_height}}px}'
 					]
 				]
 			],
@@ -1091,7 +1091,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-social-share a i{font-size:{{icon_font_size}}}'
+						'selector' => '{{GTUSERS}} .gtusers-social-share a i{font-size:{{icon_font_size}}}'
 					]
 				]
 			],
@@ -1105,7 +1105,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-social-share a i {color: {{social_icon_color}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-social-share a i {color: {{social_icon_color}}; }'
 					]
 				]
 			],
@@ -1115,7 +1115,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-social-share a i {background-color: {{social_icon_bg_color}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-social-share a i {background-color: {{social_icon_bg_color}}; }'
 					]
 				]
 			],
@@ -1130,7 +1130,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-social-share a i'
+						'selector' => '{{GTUSERS}} .gtusers-social-share a i'
 					]
 				]
 			],
@@ -1140,7 +1140,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-social-share a:hover i {color: {{social_icon_color_hover}} !important; }'
+						'selector' => '{{GTUSERS}} .gtusers-social-share a:hover i {color: {{social_icon_color_hover}} !important; }'
 					]
 				]
 			],
@@ -1150,7 +1150,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-social-share a:hover i {background-color: {{social_icon_bg_color_hover}} !important; }'
+						'selector' => '{{GTUSERS}} .gtusers-social-share a:hover i {background-color: {{social_icon_bg_color_hover}} !important; }'
 					]
 				]
 			],
@@ -1160,7 +1160,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .rt-holder:hover .rt-tpg-social-share a i {color: {{social_icon_color_box_hover}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .rt-holder:hover .gtusers-social-share a i {color: {{social_icon_color_box_hover}}; }'
 					]
 				]
 			],
@@ -1170,7 +1170,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .rt-holder:hover .rt-tpg-social-share a i {background-color: {{social_icon_bg_color_box_hover}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .rt-holder:hover .gtusers-social-share a i {background-color: {{social_icon_bg_color_box_hover}}; }'
 					]
 				]
 			],
@@ -1185,7 +1185,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-social-share a:hover i'
+						'selector' => '{{GTUSERS}} .gtusers-social-share a:hover i'
 					]
 				]
 			],
@@ -1203,7 +1203,7 @@ class StyleTabController {
 					'weight'         => ''
 				],
 				'style'   => [
-					(object) [ 'selector' => '{{RTTPG}} .rt-tpg-container .tpg-cf-group-title' ]
+					(object) [ 'selector' => '{{GTUSERS}} .gtusers-container .tpg-cf-group-title' ]
 				],
 			],
 
@@ -1218,7 +1218,7 @@ class StyleTabController {
 					'weight'         => ''
 				],
 				'style'   => [
-					(object) [ 'selector' => '{{RTTPG}} .rt-tpg-container .tpg-cf-fields' ]
+					(object) [ 'selector' => '{{GTUSERS}} .gtusers-container .tpg-cf-fields' ]
 				],
 			],
 
@@ -1236,7 +1236,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tgp-cf-field-label {min-width:{{acf_label_width}}}'
+						'selector' => '{{GTUSERS}} .tgp-cf-field-label {min-width:{{acf_label_width}}}'
 					]
 				]
 			],
@@ -1245,7 +1245,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .selector {text-align: {{acf_alignment}}; }'
+						'selector' => '{{GTUSERS}} .selector {text-align: {{acf_alignment}}; }'
 					]
 				]
 			],
@@ -1259,7 +1259,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .acf-custom-field-wrap .tpg-cf-group-title {color: {{acf_group_title_color}}; }'
+						'selector' => '{{GTUSERS}} .acf-custom-field-wrap .tpg-cf-group-title {color: {{acf_group_title_color}}; }'
 					]
 				]
 			],
@@ -1269,7 +1269,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .acf-custom-field-wrap .tgp-cf-field-label {color: {{acf_label_color}}; }'
+						'selector' => '{{GTUSERS}} .acf-custom-field-wrap .tgp-cf-field-label {color: {{acf_label_color}}; }'
 					]
 				]
 			],
@@ -1279,7 +1279,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .acf-custom-field-wrap .tgp-cf-field-value {color: {{acf_value_color}}; }'
+						'selector' => '{{GTUSERS}} .acf-custom-field-wrap .tgp-cf-field-value {color: {{acf_value_color}}; }'
 					]
 				]
 			],
@@ -1289,7 +1289,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .rt-holder:hover .tpg-cf-group-title {color: {{acf_group_title_color_hover}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .rt-holder:hover .tpg-cf-group-title {color: {{acf_group_title_color_hover}}; }'
 					]
 				]
 			],
@@ -1299,7 +1299,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .rt-holder:hover .tgp-cf-field-label {color: {{acf_label_color_hover}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .rt-holder:hover .tgp-cf-field-label {color: {{acf_label_color_hover}}; }'
 					]
 				]
 			],
@@ -1309,7 +1309,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .rt-holder:hover .tgp-cf-field-value {color: {{acf_value_color_hover}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .rt-holder:hover .tgp-cf-field-value {color: {{acf_value_color_hover}}; }'
 					]
 				]
 			],
@@ -1327,7 +1327,7 @@ class StyleTabController {
 					'weight'         => ''
 				],
 				'style'   => [
-					(object) [ 'selector' => '{{RTTPG}} .rt-tpg-container .tpg-post-holder .rt-detail .read-more a' ]
+					(object) [ 'selector' => '{{GTUSERS}} .gtusers-container .tpg-post-holder .rt-detail .read-more a' ]
 				],
 			],
 
@@ -1342,7 +1342,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .tpg-post-holder .rt-detail .read-more{{readmore_spacing}}'
+						'selector' => '{{GTUSERS}} .gtusers-container .tpg-post-holder .rt-detail .read-more{{readmore_spacing}}'
 					]
 				]
 			],
@@ -1358,7 +1358,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .tpg-post-holder .rt-detail .read-more a{{readmore_padding}}'
+						'selector' => '{{GTUSERS}} .gtusers-container .tpg-post-holder .rt-detail .read-more a{{readmore_padding}}'
 					]
 				]
 			],
@@ -1368,7 +1368,7 @@ class StyleTabController {
 				'default' => [],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .tpg-post-holder .rt-detail .read-more {text-align: {{readmore_btn_alignment}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .tpg-post-holder .rt-detail .read-more {text-align: {{readmore_btn_alignment}}; }'
 					]
 				]
 			],
@@ -1386,7 +1386,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .tpg-post-holder .rt-detail .read-more a i {font-size: {{readmore_icon_size}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .tpg-post-holder .rt-detail .read-more a i {font-size: {{readmore_icon_size}}; }'
 					]
 				]
 			],
@@ -1399,7 +1399,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .tpg-post-holder .rt-detail .read-more a i {transform: translateY({{readmore_icon_y_position}}); }'
+						'selector' => '{{GTUSERS}} .gtusers-container .tpg-post-holder .rt-detail .read-more a i {transform: translateY({{readmore_icon_y_position}}); }'
 					]
 				]
 			],
@@ -1409,7 +1409,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .tpg-post-holder .rt-detail .read-more a {color: {{readmore_text_color}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .tpg-post-holder .rt-detail .read-more a {color: {{readmore_text_color}}; }'
 					]
 				]
 			],
@@ -1419,7 +1419,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .tpg-post-holder .rt-detail .read-more a i {color: {{readmore_icon_color}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .tpg-post-holder .rt-detail .read-more a i {color: {{readmore_icon_color}}; }'
 					]
 				]
 			],
@@ -1429,7 +1429,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .tpg-post-holder .rt-detail .read-more a {background-color: {{readmore_bg}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .tpg-post-holder .rt-detail .read-more a {background-color: {{readmore_bg}}; }'
 					]
 				]
 			],
@@ -1445,7 +1445,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .tpg-post-holder .rt-detail .read-more a i{{readmore_icon_margin}}'
+						'selector' => '{{GTUSERS}} .gtusers-container .tpg-post-holder .rt-detail .read-more a i{{readmore_icon_margin}}'
 					]
 				]
 			],
@@ -1461,7 +1461,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .tpg-post-holder .rt-detail .read-more a{{border_radius}}'
+						'selector' => '{{GTUSERS}} .gtusers-container .tpg-post-holder .rt-detail .read-more a{{border_radius}}'
 					]
 				]
 			],
@@ -1475,7 +1475,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .tpg-post-holder .rt-detail .read-more a'
+						'selector' => '{{GTUSERS}} .gtusers-container .tpg-post-holder .rt-detail .read-more a'
 					]
 				]
 			],
@@ -1484,7 +1484,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => 'body {{RTTPG}} .rt-tpg-container .tpg-post-holder .rt-detail .read-more a:hover {color: {{readmore_text_color_hover}}; }'
+						'selector' => 'body {{GTUSERS}} .gtusers-container .tpg-post-holder .rt-detail .read-more a:hover {color: {{readmore_text_color_hover}}; }'
 					]
 				]
 			],
@@ -1494,7 +1494,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => 'body {{RTTPG}} .rt-tpg-container .tpg-post-holder .rt-detail .read-more a:hover i {color: {{readmore_icon_color_hover}}; }'
+						'selector' => 'body {{GTUSERS}} .gtusers-container .tpg-post-holder .rt-detail .read-more a:hover i {color: {{readmore_icon_color_hover}}; }'
 					]
 				]
 			],
@@ -1504,7 +1504,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => 'body {{RTTPG}} .rt-tpg-container .tpg-post-holder .rt-detail .read-more a:hover {background-color: {{readmore_bg_hover}}; }'
+						'selector' => 'body {{GTUSERS}} .gtusers-container .tpg-post-holder .rt-detail .read-more a:hover {background-color: {{readmore_bg_hover}}; }'
 					]
 				]
 			],
@@ -1520,7 +1520,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => 'body {{RTTPG}} .rt-tpg-container .tpg-post-holder .rt-detail .read-more a:hover i{{readmore_icon_margin_hover}}'
+						'selector' => 'body {{GTUSERS}} .gtusers-container .tpg-post-holder .rt-detail .read-more a:hover i{{readmore_icon_margin_hover}}'
 					]
 				]
 			],
@@ -1536,7 +1536,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => 'body {{RTTPG}} .rt-tpg-container .tpg-post-holder .rt-detail .read-more a:hover{{border_radius_hover}}'
+						'selector' => 'body {{GTUSERS}} .gtusers-container .tpg-post-holder .rt-detail .read-more a:hover{{border_radius_hover}}'
 					]
 				]
 			],
@@ -1552,7 +1552,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => 'body {{RTTPG}} .rt-tpg-container .tpg-post-holder .rt-detail .read-more a:hover'
+						'selector' => 'body {{GTUSERS}} .gtusers-container .tpg-post-holder .rt-detail .read-more a:hover'
 					]
 				]
 			],
@@ -1562,7 +1562,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .tpg-post-holder:hover .rt-detail .read-more a {color: {{readmore_text_color_box_hover}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .tpg-post-holder:hover .rt-detail .read-more a {color: {{readmore_text_color_box_hover}}; }'
 					]
 				]
 			],
@@ -1572,7 +1572,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .tpg-post-holder:hover .rt-detail .read-more a i {color: {{readmore_icon_color_box_hover}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .tpg-post-holder:hover .rt-detail .read-more a i {color: {{readmore_icon_color_box_hover}}; }'
 					]
 				]
 			],
@@ -1582,7 +1582,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .tpg-post-holder:hover .rt-detail .read-more a {background-color: {{readmore_bg_box_hover}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .tpg-post-holder:hover .rt-detail .read-more a {background-color: {{readmore_bg_box_hover}}; }'
 					]
 				]
 			],
@@ -1597,7 +1597,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .tpg-post-holder:hover .rt-detail .read-more a'
+						'selector' => '{{GTUSERS}} .gtusers-container .tpg-post-holder:hover .rt-detail .read-more a'
 					]
 				]
 			],
@@ -1609,7 +1609,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .selector {color: {{popup_head_bg}}; }'
+						'selector' => '{{GTUSERS}} .selector {color: {{popup_head_bg}}; }'
 					]
 				]
 			],
@@ -1619,7 +1619,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .selector {color: {{popup_head_txt_color}}; }'
+						'selector' => '{{GTUSERS}} .selector {color: {{popup_head_txt_color}}; }'
 					]
 				]
 			],
@@ -1629,7 +1629,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .selector {color: {{popup_title_color}}; }'
+						'selector' => '{{GTUSERS}} .selector {color: {{popup_title_color}}; }'
 					]
 				]
 			],
@@ -1639,7 +1639,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .selector {color: {{popup_meta_color}}; }'
+						'selector' => '{{GTUSERS}} .selector {color: {{popup_meta_color}}; }'
 					]
 				]
 			],
@@ -1649,7 +1649,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .selector {color: {{popup_content_color}}; }'
+						'selector' => '{{GTUSERS}} .selector {color: {{popup_content_color}}; }'
 					]
 				]
 			],
@@ -1659,7 +1659,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .selector {color: {{popup_bg}}; }'
+						'selector' => '{{GTUSERS}} .selector {color: {{popup_bg}}; }'
 					]
 				]
 			],
@@ -1683,7 +1683,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-pagination .pagination-list > li > a, {{RTTPG}} .rt-pagination .pagination-list > li > span, {{RTTPG}} .rt-tpg-container .rt-pagination-wrap .rt-loadmore-btn'
+						'selector' => '{{GTUSERS}} .rt-pagination .pagination-list > li > a, {{GTUSERS}} .rt-pagination .pagination-list > li > span, {{GTUSERS}} .gtusers-container .rt-pagination-wrap .rt-loadmore-btn'
 					]
 				],
 			],
@@ -1693,7 +1693,7 @@ class StyleTabController {
 				'default' => [],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-pagination-wrap {justify-content: {{pagination_text_align}}; }'
+						'selector' => '{{GTUSERS}} .rt-pagination-wrap {justify-content: {{pagination_text_align}}; }'
 					]
 				]
 			],
@@ -1709,7 +1709,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-pagination-wrap{{pagination_spacing}}'
+						'selector' => '{{GTUSERS}} .rt-pagination-wrap{{pagination_spacing}}'
 					]
 				]
 			],
@@ -1725,10 +1725,10 @@ class StyleTabController {
 //				],
 //				'style'   => [
 //					(object) [
-//						'selector' => '{{RTTPG}} .rt-pagination .pagination-list > li > a,
-//						{{RTTPG}} .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li > a,
-//						{{RTTPG}} .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li > span,
-//						{{RTTPG}} .rt-pagination .pagination-list > li > span{{pagination_padding}}
+//						'selector' => '{{GTUSERS}} .rt-pagination .pagination-list > li > a,
+//						{{GTUSERS}} .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li > a,
+//						{{GTUSERS}} .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li > span,
+//						{{GTUSERS}} .rt-pagination .pagination-list > li > span{{pagination_padding}}
 //						'
 //					]
 //				]
@@ -1744,9 +1744,9 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-pagination .pagination-list > li > a, 
-						{{RTTPG}} .rt-tpg-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li > a,
-						{{RTTPG}} .rt-pagination .pagination-list > li > span {min-width: {{pagination_btn_width}}; }'
+						'selector' => '{{GTUSERS}} .rt-pagination .pagination-list > li > a, 
+						{{GTUSERS}} .gtusers-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li > a,
+						{{GTUSERS}} .rt-pagination .pagination-list > li > span {min-width: {{pagination_btn_width}}; }'
 					]
 				]
 			],
@@ -1760,9 +1760,9 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-pagination .pagination-list > li > a, 
-						{{RTTPG}} .rt-tpg-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li > a,
-						{{RTTPG}} .rt-pagination .pagination-list > li > span {min-height: {{pagination_btn_height}}; line-height: {{pagination_btn_height}}; }'
+						'selector' => '{{GTUSERS}} .rt-pagination .pagination-list > li > a, 
+						{{GTUSERS}} .gtusers-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li > a,
+						{{GTUSERS}} .rt-pagination .pagination-list > li > span {min-height: {{pagination_btn_height}}; line-height: {{pagination_btn_height}}; }'
 					]
 				]
 			],
@@ -1778,11 +1778,11 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .rt-pagination-wrap .rt-loadmore-btn, 
-						{{RTTPG}} .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li > a,
-						{{RTTPG}} .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li > span,
-						{{RTTPG}} .rt-pagination .pagination-list > li > a, 
-						{{RTTPG}} .rt-pagination .pagination-list > li > span{{pagination_border_radius}}'
+						'selector' => '{{GTUSERS}} .gtusers-container .rt-pagination-wrap .rt-loadmore-btn, 
+						{{GTUSERS}} .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li > a,
+						{{GTUSERS}} .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li > span,
+						{{GTUSERS}} .rt-pagination .pagination-list > li > a, 
+						{{GTUSERS}} .rt-pagination .pagination-list > li > span{{pagination_border_radius}}'
 					]
 				]
 			],
@@ -1792,11 +1792,11 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-pagination .pagination-list > li:not(:hover) > a, 
-						{{RTTPG}} .rt-pagination .pagination-list > li:not(:hover) > span, 
-						{{RTTPG}} .rt-tpg-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li:not(:hover) > a, 
-						{{RTTPG}} .rt-tpg-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li:not(:hover), 
-						{{RTTPG}} .rt-tpg-container .rt-pagination-wrap .rt-loadmore-btn {color: {{pagination_color}}; }'
+						'selector' => '{{GTUSERS}} .rt-pagination .pagination-list > li:not(:hover) > a, 
+						{{GTUSERS}} .rt-pagination .pagination-list > li:not(:hover) > span, 
+						{{GTUSERS}} .gtusers-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li:not(:hover) > a, 
+						{{GTUSERS}} .gtusers-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li:not(:hover), 
+						{{GTUSERS}} .gtusers-container .rt-pagination-wrap .rt-loadmore-btn {color: {{pagination_color}}; }'
 					]
 				]
 			],
@@ -1806,10 +1806,10 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-pagination .pagination-list > li > a:not(:hover), 
-						{{RTTPG}} .rt-pagination .pagination-list > li:not(:hover) > span,
-						{{RTTPG}} .rt-tpg-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li:not(:hover) > a, 
-						{{RTTPG}} .rt-tpg-container .rt-pagination-wrap .rt-loadmore-btn {background-color:{{pagination_bg}}; }'
+						'selector' => '{{GTUSERS}} .rt-pagination .pagination-list > li > a:not(:hover), 
+						{{GTUSERS}} .rt-pagination .pagination-list > li:not(:hover) > span,
+						{{GTUSERS}} .gtusers-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li:not(:hover) > a, 
+						{{GTUSERS}} .gtusers-container .rt-pagination-wrap .rt-loadmore-btn {background-color:{{pagination_bg}}; }'
 					]
 				]
 			],
@@ -1824,10 +1824,10 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-pagination .pagination-list > li > a:not(:hover), 
-						{{RTTPG}} .rt-pagination .pagination-list > li:not(:hover) > span, 
-						{{RTTPG}} .rt-tpg-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li:not(:hover) > a,
-						{{RTTPG}} .rt-tpg-container .rt-pagination-wrap .rt-loadmore-btn'
+						'selector' => '{{GTUSERS}} .rt-pagination .pagination-list > li > a:not(:hover), 
+						{{GTUSERS}} .rt-pagination .pagination-list > li:not(:hover) > span, 
+						{{GTUSERS}} .gtusers-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li:not(:hover) > a,
+						{{GTUSERS}} .gtusers-container .rt-pagination-wrap .rt-loadmore-btn'
 					]
 				]
 			],
@@ -1842,10 +1842,10 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-pagination .pagination-list > li:hover > a, 
-						{{RTTPG}} .rt-pagination .pagination-list > li:hover > span,
-						{{RTTPG}} .rt-tpg-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li:hover > a,
-						{{RTTPG}} .rt-tpg-container .rt-pagination-wrap .rt-loadmore-btn:hover'
+						'selector' => '{{GTUSERS}} .rt-pagination .pagination-list > li:hover > a, 
+						{{GTUSERS}} .rt-pagination .pagination-list > li:hover > span,
+						{{GTUSERS}} .gtusers-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li:hover > a,
+						{{GTUSERS}} .gtusers-container .rt-pagination-wrap .rt-loadmore-btn:hover'
 					]
 				]
 			],
@@ -1860,13 +1860,13 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-pagination .pagination-list > .active > a,
-						{{RTTPG}} .rt-pagination .pagination-list > .active > span,
-						{{RTTPG}} .rt-pagination .pagination-list > .active > a:hover,
-						{{RTTPG}} .rt-pagination .pagination-list > .active > span:hover,
-						{{RTTPG}} .rt-pagination .pagination-list > .active > a:focus,
-						{{RTTPG}} .rt-pagination .pagination-list > .active > span:focus, 
-						{{RTTPG}} .rt-tpg-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li.active > a'
+						'selector' => '{{GTUSERS}} .rt-pagination .pagination-list > .active > a,
+						{{GTUSERS}} .rt-pagination .pagination-list > .active > span,
+						{{GTUSERS}} .rt-pagination .pagination-list > .active > a:hover,
+						{{GTUSERS}} .rt-pagination .pagination-list > .active > span:hover,
+						{{GTUSERS}} .rt-pagination .pagination-list > .active > a:focus,
+						{{GTUSERS}} .rt-pagination .pagination-list > .active > span:focus, 
+						{{GTUSERS}} .gtusers-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li.active > a'
 					]
 				]
 			],
@@ -1876,10 +1876,10 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-pagination .pagination-list > li:hover > a, 
-						{{RTTPG}} .rt-pagination .pagination-list > li:hover > span,
-						{{RTTPG}} .rt-tpg-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li:hover > a,
-						{{RTTPG}} .rt-tpg-container .rt-pagination-wrap .rt-loadmore-btn:hover {color: {{pagination_color_hover}}; }'
+						'selector' => '{{GTUSERS}} .rt-pagination .pagination-list > li:hover > a, 
+						{{GTUSERS}} .rt-pagination .pagination-list > li:hover > span,
+						{{GTUSERS}} .gtusers-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li:hover > a,
+						{{GTUSERS}} .gtusers-container .rt-pagination-wrap .rt-loadmore-btn:hover {color: {{pagination_color_hover}}; }'
 					]
 				]
 			],
@@ -1890,10 +1890,10 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-pagination .pagination-list > li:hover > a, 
-						{{RTTPG}} .rt-pagination .pagination-list > li:hover > span,
-						{{RTTPG}} .rt-tpg-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li:hover > a,
-						{{RTTPG}} .rt-tpg-container .rt-pagination-wrap .rt-loadmore-btn:hover {background-color: {{pagination_bg_hover}}; }'
+						'selector' => '{{GTUSERS}} .rt-pagination .pagination-list > li:hover > a, 
+						{{GTUSERS}} .rt-pagination .pagination-list > li:hover > span,
+						{{GTUSERS}} .gtusers-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li:hover > a,
+						{{GTUSERS}} .gtusers-container .rt-pagination-wrap .rt-loadmore-btn:hover {background-color: {{pagination_bg_hover}}; }'
 					]
 				]
 			],
@@ -1905,13 +1905,13 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-pagination .pagination-list > .active > a, 
-						{{RTTPG}} .rt-pagination .pagination-list > .active > span, 
-						{{RTTPG}} .rt-pagination .pagination-list > .active > a:hover, 
-						{{RTTPG}} .rt-pagination .pagination-list > .active > span:hover, 
-						{{RTTPG}} .rt-pagination .pagination-list > .active > a:focus,
-						{{RTTPG}} .rt-pagination .pagination-list > .active > span:focus, 
-						{{RTTPG}} .rt-tpg-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li.active > a {color: {{pagination_color_active}} !important; }'
+						'selector' => '{{GTUSERS}} .rt-pagination .pagination-list > .active > a, 
+						{{GTUSERS}} .rt-pagination .pagination-list > .active > span, 
+						{{GTUSERS}} .rt-pagination .pagination-list > .active > a:hover, 
+						{{GTUSERS}} .rt-pagination .pagination-list > .active > span:hover, 
+						{{GTUSERS}} .rt-pagination .pagination-list > .active > a:focus,
+						{{GTUSERS}} .rt-pagination .pagination-list > .active > span:focus, 
+						{{GTUSERS}} .gtusers-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li.active > a {color: {{pagination_color_active}} !important; }'
 					]
 				]
 			],
@@ -1922,13 +1922,13 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-pagination .pagination-list > .active > a, 
-						{{RTTPG}} .rt-pagination .pagination-list > .active > span, 
-						{{RTTPG}} .rt-pagination .pagination-list > .active > a:hover, 
-						{{RTTPG}} .rt-pagination .pagination-list > .active > span:hover, 
-						{{RTTPG}} .rt-pagination .pagination-list > .active > a:focus, 
-						{{RTTPG}} .rt-pagination .pagination-list > .active > span:focus, 
-						{{RTTPG}} .rt-tpg-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li.active > a  {background-color: {{pagination_bg_active}} !important; }'
+						'selector' => '{{GTUSERS}} .rt-pagination .pagination-list > .active > a, 
+						{{GTUSERS}} .rt-pagination .pagination-list > .active > span, 
+						{{GTUSERS}} .rt-pagination .pagination-list > .active > a:hover, 
+						{{GTUSERS}} .rt-pagination .pagination-list > .active > span:hover, 
+						{{GTUSERS}} .rt-pagination .pagination-list > .active > a:focus, 
+						{{GTUSERS}} .rt-pagination .pagination-list > .active > span:focus, 
+						{{GTUSERS}} .gtusers-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li.active > a  {background-color: {{pagination_bg_active}} !important; }'
 					]
 				]
 			],
@@ -1948,7 +1948,7 @@ class StyleTabController {
 					'weight'         => ''
 				],
 				'style'   => [
-					(object) [ 'selector' => '{{RTTPG}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap, {{RTTPG}} .tpg-header-wrapper.carousel .rt-filter-item-wrap.swiper-wrapper .swiper-slide' ]
+					(object) [ 'selector' => '{{GTUSERS}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap, {{GTUSERS}} .tpg-header-wrapper.carousel .rt-filter-item-wrap.swiper-wrapper .swiper-slide' ]
 				],
 			],
 
@@ -1957,7 +1957,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .rt-layout-filter-container .rt-filter-wrap {justify-content: {{filter_text_alignment}}; text-align: {{filter_text_alignment}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .rt-layout-filter-container .rt-filter-wrap {justify-content: {{filter_text_alignment}}; text-align: {{filter_text_alignment}}; }'
 					]
 				]
 			],
@@ -1966,7 +1966,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .rt-grid-hover-item .rt-holder .grid-hover-content {justify-content: {{layout_vertical_align}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .rt-grid-hover-item .rt-holder .grid-hover-content {justify-content: {{layout_vertical_align}}; }'
 					]
 				]
 			],
@@ -1983,7 +1983,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-header-wrapper.carousel .rt-layout-filter-container {flex: 0 0 {{filter_button_width}}; max-width: {{filter_button_width}};}'
+						'selector' => '{{GTUSERS}} .tpg-header-wrapper.carousel .rt-layout-filter-container {flex: 0 0 {{filter_button_width}}; max-width: {{filter_button_width}};}'
 					]
 				]
 			],
@@ -2012,9 +2012,9 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item,
-						{{RTTPG}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap,
-						{{RTTPG}} .rt-filter-item-wrap.rt-search-filter-wrap input.rt-search-input{{filter_btn_radius}}'
+						'selector' => '{{GTUSERS}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item,
+						{{GTUSERS}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap,
+						{{GTUSERS}} .rt-filter-item-wrap.rt-search-filter-wrap input.rt-search-input{{filter_btn_radius}}'
 					]
 				]
 			],
@@ -2028,13 +2028,13 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item, 
-						{{RTTPG}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item, 
-						{{RTTPG}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-sort-order-action,
-						{{RTTPG}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap, 
-						{{RTTPG}} .rt-filter-item-wrap.rt-search-filter-wrap input.rt-search-input {color: {{filter_color}}; }
-						{{RTTPG}} .rt-filter-item-wrap.rt-sort-order-action .rt-sort-order-action-arrow > span:before, 
-						{{RTTPG}} .rt-filter-item-wrap.rt-sort-order-action .rt-sort-order-action-arrow > span:after {background-color: {{filter_color}}; }'
+						'selector' => '{{GTUSERS}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item, 
+						{{GTUSERS}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item, 
+						{{GTUSERS}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-sort-order-action,
+						{{GTUSERS}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap, 
+						{{GTUSERS}} .rt-filter-item-wrap.rt-search-filter-wrap input.rt-search-input {color: {{filter_color}}; }
+						{{GTUSERS}} .rt-filter-item-wrap.rt-sort-order-action .rt-sort-order-action-arrow > span:before, 
+						{{GTUSERS}} .rt-filter-item-wrap.rt-sort-order-action .rt-sort-order-action-arrow > span:after {background-color: {{filter_color}}; }'
 					]
 				]
 			],
@@ -2044,9 +2044,9 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item,
-						 {{RTTPG}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap,
-						 {{RTTPG}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-sort-order-action
+						'selector' => '{{GTUSERS}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item,
+						 {{GTUSERS}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap,
+						 {{GTUSERS}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-sort-order-action
 						 {background-color: {{filter_bg_color}}; }'
 					]
 				]
@@ -2057,11 +2057,11 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item,
-						 {{RTTPG}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap,
-						 {{RTTPG}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-sort-order-action,
-						 {{RTTPG}} .rt-filter-item-wrap.rt-search-filter-wrap input.rt-search-input,
-						 {{RTTPG}}.filter-button-border-enable .tpg-header-wrapper.carousel .rt-layout-filter-container
+						'selector' => '{{GTUSERS}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item,
+						 {{GTUSERS}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap,
+						 {{GTUSERS}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-sort-order-action,
+						 {{GTUSERS}} .rt-filter-item-wrap.rt-search-filter-wrap input.rt-search-input,
+						 {{GTUSERS}}.filter-button-border-enable .tpg-header-wrapper.carousel .rt-layout-filter-container
 						 {border-color: {{filter_border_color}}; }'
 					]
 				]
@@ -2072,7 +2072,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-filter-item-wrap.rt-search-filter-wrap input.rt-search-input {background-color: {{filter_search_bg}}; }'
+						'selector' => '{{GTUSERS}} .rt-filter-item-wrap.rt-search-filter-wrap input.rt-search-input {background-color: {{filter_search_bg}}; }'
 					]
 				]
 			],
@@ -2083,7 +2083,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown {background-color: {{sub_menu_bg_color}}; }'
+						'selector' => '{{GTUSERS}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown {background-color: {{sub_menu_bg_color}}; }'
 					]
 				]
 			],
@@ -2093,7 +2093,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown .rt-filter-dropdown-item {color: {{sub_menu_color}}; }'
+						'selector' => '{{GTUSERS}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown .rt-filter-dropdown-item {color: {{sub_menu_color}}; }'
 					]
 				]
 			],
@@ -2103,7 +2103,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown .rt-filter-dropdown-item {border-bottom-color: {{sub_menu_border_bottom}}; }'
+						'selector' => '{{GTUSERS}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown .rt-filter-dropdown-item {border-bottom-color: {{sub_menu_border_bottom}}; }'
 					]
 				]
 			],
@@ -2113,7 +2113,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .swiper-navigation .slider-btn {color: {{filter_nav_color}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .swiper-navigation .slider-btn {color: {{filter_nav_color}}; }'
 					]
 				]
 			],
@@ -2123,7 +2123,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .swiper-navigation .slider-btn {background-color: {{filter_nav_bg}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .swiper-navigation .slider-btn {background-color: {{filter_nav_bg}}; }'
 					]
 				]
 			],
@@ -2133,7 +2133,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .swiper-navigation .slider-btn {border-color: {{filter_nav_border}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .swiper-navigation .slider-btn {border-color: {{filter_nav_border}}; }'
 					]
 				]
 			],
@@ -2143,11 +2143,11 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item.selected, 
-						{{RTTPG}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item:hover,
-						{{RTTPG}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap:hover {color: {{filter_color_hover}}; }
-						{{RTTPG}} .rt-filter-item-wrap.rt-sort-order-action:hover .rt-sort-order-action-arrow > span:before, 
-						{{RTTPG}} .rt-filter-item-wrap.rt-sort-order-action:hover .rt-sort-order-action-arrow > span:after{background-color: {{filter_color_hover}}; }'
+						'selector' => '{{GTUSERS}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item.selected, 
+						{{GTUSERS}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item:hover,
+						{{GTUSERS}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap:hover {color: {{filter_color_hover}}; }
+						{{GTUSERS}} .rt-filter-item-wrap.rt-sort-order-action:hover .rt-sort-order-action-arrow > span:before, 
+						{{GTUSERS}} .rt-filter-item-wrap.rt-sort-order-action:hover .rt-sort-order-action-arrow > span:after{background-color: {{filter_color_hover}}; }'
 					]
 				]
 			],
@@ -2159,10 +2159,10 @@ class StyleTabController {
 				'style'   => [
 					(object) [
 						'selector' => '
-						{{RTTPG}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item.selected, 
-						{{RTTPG}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item:hover, 
-						{{RTTPG}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap:hover, 
-						{{RTTPG}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-sort-order-action:hover {background-color: {{filter_bg_color_hover}}; }'
+						{{GTUSERS}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item.selected, 
+						{{GTUSERS}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item:hover, 
+						{{GTUSERS}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap:hover, 
+						{{GTUSERS}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-sort-order-action:hover {background-color: {{filter_bg_color_hover}}; }'
 					]
 				]
 			],
@@ -2173,12 +2173,12 @@ class StyleTabController {
 				'style'   => [
 					(object) [
 						'selector' => '
-							{{RTTPG}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item.selected, 
-							{{RTTPG}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item:hover,
-							{{RTTPG}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap:hover,
-							{{RTTPG}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-sort-order-action:hover,
-							{{RTTPG}} .rt-filter-item-wrap.rt-search-filter-wrap input.rt-search-input:hover,
-							{{RTTPG}}.filter-button-border-enable .tpg-header-wrapper.carousel .rt-layout-filter-container:hover
+							{{GTUSERS}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item.selected, 
+							{{GTUSERS}} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item:hover,
+							{{GTUSERS}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap:hover,
+							{{GTUSERS}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-sort-order-action:hover,
+							{{GTUSERS}} .rt-filter-item-wrap.rt-search-filter-wrap input.rt-search-input:hover,
+							{{GTUSERS}}.filter-button-border-enable .tpg-header-wrapper.carousel .rt-layout-filter-container:hover
 							{border-color: {{filter_border_color_hover}}; }'
 					]
 				]
@@ -2189,7 +2189,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-filter-item-wrap.rt-search-filter-wrap input.rt-search-input:hover {background-color: {{filter_search_bg_hover}}; }'
+						'selector' => '{{GTUSERS}} .rt-filter-item-wrap.rt-search-filter-wrap input.rt-search-input:hover {background-color: {{filter_search_bg_hover}}; }'
 					]
 				]
 			],
@@ -2199,7 +2199,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown .rt-filter-dropdown-item:hover {background-color: {{sub_menu_bg_color_hover}}; }'
+						'selector' => '{{GTUSERS}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown .rt-filter-dropdown-item:hover {background-color: {{sub_menu_bg_color_hover}}; }'
 					]
 				]
 			],
@@ -2209,7 +2209,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown .rt-filter-dropdown-item:hover {color: {{sub_menu_bg_color_hover}}; }'
+						'selector' => '{{GTUSERS}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown .rt-filter-dropdown-item:hover {color: {{sub_menu_bg_color_hover}}; }'
 					]
 				]
 			],
@@ -2219,7 +2219,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown .rt-filter-dropdown-item:hover {border-bottom-color: {{sub_menu_border_bottom_hover}}; }'
+						'selector' => '{{GTUSERS}} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown .rt-filter-dropdown-item:hover {border-bottom-color: {{sub_menu_border_bottom_hover}}; }'
 					]
 				]
 			],
@@ -2229,7 +2229,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .swiper-navigation .slider-btn:hover {color: {{filter_nav_color_hover}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .swiper-navigation .slider-btn:hover {color: {{filter_nav_color_hover}}; }'
 					]
 				]
 			],
@@ -2239,7 +2239,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .swiper-navigation .slider-btn:hover {background-color: {{filter_nav_bg_hover}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .swiper-navigation .slider-btn:hover {background-color: {{filter_nav_bg_hover}}; }'
 					]
 				]
 			],
@@ -2249,7 +2249,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .swiper-navigation .slider-btn:hover {border-color: {{filter_nav_border_hover}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .swiper-navigation .slider-btn:hover {border-color: {{filter_nav_border_hover}}; }'
 					]
 				]
 			],
@@ -2267,8 +2267,8 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .grid_hover-layout8 .display-grid-wrapper,
-						{{RTTPG}} .tpg-el-main-wrapper .rt-row [class*="rt-col"]
+						'selector' => '{{GTUSERS}} .gtusers-container .grid_hover-layout8 .display-grid-wrapper,
+						{{GTUSERS}} .tpg-el-main-wrapper .rt-row [class*="rt-col"]
 						{{box_margin}}'
 					]
 				]
@@ -2286,8 +2286,8 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => 'body {{RTTPG}} .rt-tpg-container .rt-el-content-wrapper, 
-						body {{RTTPG}} .rt-tpg-container .rt-el-content-wrapper-flex .post-right-content{{content_box_padding}}'
+						'selector' => 'body {{GTUSERS}} .gtusers-container .rt-el-content-wrapper, 
+						body {{GTUSERS}} .gtusers-container .rt-el-content-wrapper-flex .post-right-content{{content_box_padding}}'
 					]
 				]
 			],
@@ -2303,7 +2303,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => 'body {{RTTPG}} .tpg-el-main-wrapper .offset-left .tpg-post-holder .offset-content, {{RTTPG}} .rt-tpg-container .list-layout4 .post-right-content{{content_box_padding_offset}}'
+						'selector' => 'body {{GTUSERS}} .tpg-el-main-wrapper .offset-left .tpg-post-holder .offset-content, {{GTUSERS}} .gtusers-container .list-layout4 .post-right-content{{content_box_padding_offset}}'
 					]
 				]
 			],
@@ -2319,7 +2319,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => 'body {{RTTPG}} .rt-tpg-container .slider-layout13 .rt-holder .post-content{{content_box_padding_2}}'
+						'selector' => 'body {{GTUSERS}} .gtusers-container .slider-layout13 .rt-holder .post-content{{content_box_padding_2}}'
 					]
 				]
 			],
@@ -2335,7 +2335,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => 'body {{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder, body {{RTTPG}} .rt-tpg-container .slider-layout13 .rt-holder .post-content{{box_radius}}'
+						'selector' => 'body {{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder, body {{GTUSERS}} .gtusers-container .slider-layout13 .rt-holder .post-content{{box_radius}}'
 					]
 				]
 			],
@@ -2355,7 +2355,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder {border-bottom-color: {{box_border_bottom_color}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder {border-bottom-color: {{box_border_bottom_color}}; }'
 					]
 				]
 			],
@@ -2369,7 +2369,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder {padding-bottom: {{box_border_spacing}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder {padding-bottom: {{box_border_spacing}}; }'
 					]
 				]
 			],
@@ -2398,7 +2398,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => 'body {{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder'
+						'selector' => 'body {{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder'
 					]
 				]
 			],
@@ -2422,7 +2422,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => 'body {{RTTPG}} .rt-tpg-container .slider-layout13 .rt-holder .post-content'
+						'selector' => 'body {{GTUSERS}} .gtusers-container .slider-layout13 .rt-holder .post-content'
 					]
 				]
 			],
@@ -2432,7 +2432,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder {border: 1px solid {{box_border}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder {border: 1px solid {{box_border}}; }'
 					]
 				]
 			],
@@ -2452,7 +2452,7 @@ class StyleTabController {
 					'transition' => 0.5
 				],
 				'style'   => [
-					(object) [ 'selector' => 'body {{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder' ]
+					(object) [ 'selector' => 'body {{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder' ]
 				],
 			],
 
@@ -2471,7 +2471,7 @@ class StyleTabController {
 					'transition' => 0.5
 				],
 				'style'   => [
-					(object) [ 'selector' => 'body {{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder:hover' ]
+					(object) [ 'selector' => 'body {{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder:hover' ]
 				],
 			],
 
@@ -2490,7 +2490,7 @@ class StyleTabController {
 					'transition' => 0.5
 				],
 				'style'   => [
-					(object) [ 'selector' => 'body {{RTTPG}} .rt-tpg-container .slider-layout13 .rt-holder .post-content' ]
+					(object) [ 'selector' => 'body {{GTUSERS}} .gtusers-container .slider-layout13 .rt-holder .post-content' ]
 				],
 			],
 
@@ -2509,7 +2509,7 @@ class StyleTabController {
 					'transition' => 0.5
 				],
 				'style'   => [
-					(object) [ 'selector' => 'body {{RTTPG}} .rt-tpg-container .slider-layout13 .rt-holder .post-content' ]
+					(object) [ 'selector' => 'body {{GTUSERS}} .gtusers-container .slider-layout13 .rt-holder .post-content' ]
 				],
 			],
 
@@ -2533,7 +2533,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => 'body {{RTTPG}} .tpg-el-main-wrapper .tpg-post-holder:hover'
+						'selector' => 'body {{GTUSERS}} .tpg-el-main-wrapper .tpg-post-holder:hover'
 					]
 				]
 			],
@@ -2557,7 +2557,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => 'body {{RTTPG}} .rt-tpg-container .slider-layout13 .rt-holder .post-content'
+						'selector' => 'body {{GTUSERS}} .gtusers-container .slider-layout13 .rt-holder .post-content'
 					]
 				]
 			],
@@ -2577,7 +2577,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => 'body {{RTTPG}} .rt-tpg-container {{tpg_wrapper_padding}}'
+						'selector' => 'body {{GTUSERS}} .gtusers-container {{tpg_wrapper_padding}}'
 					]
 				]
 			],
@@ -2593,7 +2593,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => 'body {{RTTPG}} {{tpg_wrapper_radius}}'
+						'selector' => 'body {{GTUSERS}} {{tpg_wrapper_radius}}'
 					]
 				]
 			],
@@ -2609,7 +2609,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => 'body {{RTTPG}} .rt-tpg-container {{tpg_wrapper_margin}}'
+						'selector' => 'body {{GTUSERS}} .gtusers-container {{tpg_wrapper_margin}}'
 					]
 				]
 			],
@@ -2623,7 +2623,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => 'body {{RTTPG}} .rt-tpg-container{max-width:{{tpg_wrapper_width}}; width:100%;}'
+						'selector' => 'body {{GTUSERS}} .gtusers-container{max-width:{{tpg_wrapper_width}}; width:100%;}'
 					]
 				]
 			],
@@ -2647,7 +2647,7 @@ class StyleTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => 'body {{RTTPG}}'
+						'selector' => 'body {{GTUSERS}}'
 					]
 				]
 			],
@@ -2658,8 +2658,8 @@ class StyleTabController {
 				'style'   => [
 					(object) [
 						'selector' => '
-						{{RTTPG}} .tpg-el-main-wrapper .swiper-thumb-pagination .swiper-pagination-progressbar-fill {background-color: {{scroll_bar_color}}; }
-						{{RTTPG}} .tpg-el-main-wrapper .slider-layout12 .slider-thumb-main-wrapper .swiper-thumb-wrapper .post-thumbnail-wrap .p-thumbnail::before {background-color: {{scroll_bar_color}}; }
+						{{GTUSERS}} .tpg-el-main-wrapper .swiper-thumb-pagination .swiper-pagination-progressbar-fill {background-color: {{scroll_bar_color}}; }
+						{{GTUSERS}} .tpg-el-main-wrapper .slider-layout12 .slider-thumb-main-wrapper .swiper-thumb-wrapper .post-thumbnail-wrap .p-thumbnail::before {background-color: {{scroll_bar_color}}; }
 						'
 					]
 				]
@@ -2671,8 +2671,8 @@ class StyleTabController {
 				'style'   => [
 					(object) [
 						'selector' => '
-						{{RTTPG}} .tpg-el-main-wrapper .slider-thumb-main-wrapper .swiper-pagination-progressbar {background-color: {{scroll_bar_bg_color}}; }
-						{{RTTPG}} .tpg-el-main-wrapper .slider-layout12 .slider-thumb-main-wrapper .swiper-thumb-wrapper::before {background-color: {{scroll_bar_bg_color}};opacity:1; }
+						{{GTUSERS}} .tpg-el-main-wrapper .slider-thumb-main-wrapper .swiper-pagination-progressbar {background-color: {{scroll_bar_bg_color}}; }
+						{{GTUSERS}} .tpg-el-main-wrapper .slider-layout12 .slider-thumb-main-wrapper .swiper-thumb-wrapper::before {background-color: {{scroll_bar_bg_color}};opacity:1; }
 						'
 					]
 				]
@@ -2683,8 +2683,8 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .slider-layout11 .swiper-thumb-wrapper .swiper-wrapper .p-content *,
-						{{RTTPG}} .tpg-el-main-wrapper .slider-layout12 .swiper-thumb-wrapper .swiper-wrapper .p-content * {color: {{thumb_font_color}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .slider-layout11 .swiper-thumb-wrapper .swiper-wrapper .p-content *,
+						{{GTUSERS}} .tpg-el-main-wrapper .slider-layout12 .swiper-thumb-wrapper .swiper-wrapper .p-content * {color: {{thumb_font_color}}; }'
 					]
 				]
 			],
@@ -2694,7 +2694,7 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .slider-layout11 .swiper-thumb-wrapper .swiper-wrapper .p-thumbnail img {background-color: {{slider_thumb_bg}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .slider-layout11 .swiper-thumb-wrapper .swiper-wrapper .p-thumbnail img {background-color: {{slider_thumb_bg}}; }'
 					]
 				]
 			],
@@ -2704,10 +2704,10 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .slider-layout11 .swiper-thumb-wrapper .swiper-wrapper .swiper-slide:hover .p-thumbnail img,
-						{{RTTPG}} .tpg-el-main-wrapper .slider-layout11 .swiper-thumb-wrapper .swiper-wrapper .swiper-slide-thumb-active .p-thumbnail img,
-						{{RTTPG}} .tpg-el-main-wrapper .slider-layout11 .swiper-thumb-wrapper .swiper-wrapper .post-thumbnail-wrap::before,
-						{{RTTPG}} .tpg-el-main-wrapper .slider-layout12 .slider-thumb-main-wrapper .swiper-thumb-wrapper .post-thumbnail-wrap .p-thumbnail {background-color: {{slider_thumb_bg_active}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .slider-layout11 .swiper-thumb-wrapper .swiper-wrapper .swiper-slide:hover .p-thumbnail img,
+						{{GTUSERS}} .tpg-el-main-wrapper .slider-layout11 .swiper-thumb-wrapper .swiper-wrapper .swiper-slide-thumb-active .p-thumbnail img,
+						{{GTUSERS}} .tpg-el-main-wrapper .slider-layout11 .swiper-thumb-wrapper .swiper-wrapper .post-thumbnail-wrap::before,
+						{{GTUSERS}} .tpg-el-main-wrapper .slider-layout12 .slider-thumb-main-wrapper .swiper-thumb-wrapper .post-thumbnail-wrap .p-thumbnail {background-color: {{slider_thumb_bg_active}}; }'
 					]
 				]
 			],
@@ -2717,8 +2717,8 @@ class StyleTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .slider-thumb-main-wrapper,
-						{{RTTPG}} .tpg-el-main-wrapper .slider-layout12 .slider-thumb-main-wrapper {background-color: {{thumb_wrapper_bg}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .slider-thumb-main-wrapper,
+						{{GTUSERS}} .tpg-el-main-wrapper .slider-layout12 .slider-thumb-main-wrapper {background-color: {{thumb_wrapper_bg}}; }'
 					]
 				]
 			],
@@ -2730,6 +2730,6 @@ class StyleTabController {
 
 		];
 
-		return apply_filters( 'rttpg_guten_style_attribute', $style_attribute );
+		return apply_filters( 'gtusers_guten_style_attribute', $style_attribute );
 	}
 }

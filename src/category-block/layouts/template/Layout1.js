@@ -43,7 +43,7 @@ function Layout1( { attributes, post } ) {
                         <PostExcerpt attributes={ attributes } post={ post }/>
                     }
 
-                    { (rttpgParams.hasPro && show_social_share === 'show') &&
+                    { (gtusersParams.hasPro && show_social_share === 'show') &&
                         <SocialShare/>
                     }
 

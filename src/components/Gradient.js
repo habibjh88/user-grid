@@ -12,15 +12,15 @@ function Gradient(props) {
 
     return (
 
-        <div className="rttpg-control-field rttpg-cf-gradient-wrap">
+        <div className="gtusers-control-field gtusers-cf-gradient-wrap">
 
             {label && (
-                <div className="rttpg-cf-head">
-                    <span className="rttpg-label">{label}</span>
+                <div className="gtusers-cf-head">
+                    <span className="gtusers-label">{label}</span>
                 </div>
             )}
 
-            <div className="rttpg-cf-body">
+            <div className="gtusers-cf-body">
                 <GradientPicker
                     label={'helloooooo'}
                     value={value}

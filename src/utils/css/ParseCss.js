@@ -14,7 +14,7 @@ const innerBlocks = function (blocks) {
     blocks.map((row) => {
         const {attributes, name} = row;
         const [blockType, blockName] = name.split('/');
-        if (blockType === 'rttpg' && attributes.uniqueId) {
+        if (blockType === 'gtusers' && attributes.uniqueId) {
             __CSS += CssGenerator(attributes, blockName, attributes.uniqueId, true);
         }
         if (row.innerBlocks && row.innerBlocks.length > 0) {
@@ -29,7 +29,7 @@ const isRttpgBlock = (blocks) => {
     blocks.forEach(function (block) {
         const {name, innerBlocks = []} = block;
         const [blockType, blockName] = name.split('/');
-        if (blockType === 'rttpg') {
+        if (blockType === 'gtusers') {
             hasBlock = true;
         }
         if (!hasBlock && innerBlocks.length > 0) {
@@ -48,7 +48,7 @@ const getData = pId => {
             type: "POST",
             data: {
                 postId: pId,
-                action: 'rttpg_block_css_get_posts'
+                action: 'gtusers_block_css_get_posts'
             }
         })
         .then(function (response) {
@@ -65,7 +65,7 @@ const getData = pId => {
                             data: {
                                 inner_css: innerBlock.css,
                                 post_id: wp.data.select('core/editor').getCurrentPostId(),
-                                action: 'rttpg_block_css_appended'
+                                action: 'gtusers_block_css_appended'
                             }
                         })
                         .done(function (res) {
@@ -107,7 +107,7 @@ const ParseCss = (setDatabase = true) => {
                     block_css: blockCss,
                     post_id: getCurrentPostId,
                     has_block: hasRttpgBlocks,
-                    action: 'rttpg_block_css_save'
+                    action: 'gtusers_block_css_save'
                 }
             });
     }

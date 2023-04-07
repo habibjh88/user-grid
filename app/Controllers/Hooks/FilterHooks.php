@@ -50,9 +50,9 @@ class FilterHooks {
 	 * @return mixed
 	 */
 	public static function body_classes( $classes ) {
-		$classes[] = 'rttpg';
-		$classes[] = 'rttpg-' . GT_USERS_VERSION;
-		$classes[] = 'radius-frontend rttpg-body-wrap';
+		$classes[] = 'gtusers';
+		$classes[] = 'gtusers-' . GT_USERS_VERSION;
+		$classes[] = 'gtusers-body-wrap';
 
 		return $classes;
 	}
@@ -79,13 +79,11 @@ class FilterHooks {
 		//check if the current page is post.php and if the post parameteris set
 		if ( $pagenow === 'post.php' && isset( $_GET['post'] ) ) {
 
-			if ( rtTPG()->hasPro() ) {
-				$classes .= ' the-post-grid the-post-grid-pro';
-			} else {
-				$classes .= ' the-post-grid';
-			}
 
-			$classes .= ' radius-editor rttpg-body-wrap';
+				$classes .= ' gtusers';
+
+
+			$classes .= ' gtusers-body-wrap';
 		}
 
 		return $classes;
@@ -163,8 +161,8 @@ class FilterHooks {
 			$row_meta['issues'] = sprintf(
 				'%2$s <a target="_blank" href="%1$s">%3$s</a>',
 				esc_url( $report_url ),
-				esc_html__( 'Facing issue?', 'the-post-grid' ),
-				'<span style="color: red">' . esc_html__( 'Please open a support ticket.', 'the-post-grid' ) . '</span>'
+				esc_html__( 'Facing issue?', 'gutenberg-users' ),
+				'<span style="color: red">' . esc_html__( 'Please open a support ticket.', 'gutenberg-users' ) . '</span>'
 			);
 
 			return array_merge( $links, $row_meta );

@@ -7,29 +7,29 @@ function Styles(props) {
     const {label, value, options, columns = 3, onChange} = props
 
     return (
-        <div className="rttpg-control-field rttpg-cf-styles-wrap">
+        <div className="gtusers-control-field gtusers-cf-styles-wrap">
 
             {label && (
-                <div className="rttpg-cf-head">
-                    <span className="rttpg-label">{label}</span>
+                <div className="gtusers-cf-head">
+                    <span className="gtusers-label">{label}</span>
                 </div>
             )}
-            <div className={`rttpg-style-list rttpg-style-columns-${columns}`}>
+            <div className={`gtusers-style-list gtusers-style-columns-${columns}`}>
                 {options.map((data, index) => (
                     <div
                         role="button"
                         tabindex={index} aria-label={data.label ? data.label : ''}
                         onClick={() => {
-                            (! rttpgParams.hasPro && data.isPro) ?
+                            (! gtusersParams.hasPro && data.isPro) ?
                                 cogoToast.warn('Please install "The Post Grid Pro" for this layout!',{ position: 'top-right' })
                                 :
                             onChange(data.value)
                         }}
-                        className={`${value == data.value ? 'rttpg-active' : ''} ${(! rttpgParams.hasPro && data.isPro) ? 'is-pro' : ''}`}
+                        className={`${value == data.value ? 'gtusers-active' : ''} ${(! gtusersParams.hasPro && data.isPro) ? 'is-pro' : ''}`}
                     >
-                        {data.icon && <span className="rttpg-layout rttpg-style-icon">{data.icon}</span>}
-                        {data.label && <span className="rttpg-label">{data.label}</span>}
-                        {(! rttpgParams.hasPro && data.isPro) && <span className={`pro-lable`}>{__('Pro','the-post-grid')}</span>}
+                        {data.icon && <span className="gtusers-layout gtusers-style-icon">{data.icon}</span>}
+                        {data.label && <span className="gtusers-label">{data.label}</span>}
+                        {(! gtusersParams.hasPro && data.isPro) && <span className={`pro-lable`}>{__('Pro','gutenberg-users')}</span>}
                     </div>
                 ))}
 

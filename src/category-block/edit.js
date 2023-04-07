@@ -34,7 +34,7 @@ const Edit = (props) => {
     const fetch_all_image_size = () => {
         signalController?.abort();
         setSignalController(controller);
-        apiFetch({path: "/rttpg/v1/image-size", signal: controller?.signal})
+        apiFetch({path: "/gtusers/v1/image-size", signal: controller?.signal})
             .then((imageSizes) => {
                 let newImageSize = imageSizes.filter(item => {
                     return item.value !== 'custom';
@@ -48,7 +48,7 @@ const Edit = (props) => {
         setSignalController(controller);
         setCategory({})
         apiFetch({
-            path: '/rttpg/v1/categories',
+            path: '/gtusers/v1/categories',
             signal: controller?.signal,
             method: 'POST',
             data: {
@@ -77,7 +77,7 @@ const Edit = (props) => {
         sidebarEl.classList.add('tpg-sidebar')
         sidebarEl.classList.remove('tpg-settings-enable')
         sidebarEl.addEventListener('click', function (event) {
-            const hasClass = event.target.classList.contains('rttpg-tab-btn');
+            const hasClass = event.target.classList.contains('gtusers-tab-btn');
             if (hasClass) {
                 const selectText = event.target.textContent;
                 if (selectText !== 'Content') {

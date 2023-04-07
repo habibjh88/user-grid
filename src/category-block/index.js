@@ -2,11 +2,11 @@ import {registerBlockType} from "@wordpress/blocks";
 import {__} from "@wordpress/i18n";
 import Edit from "./edit";
 
-registerBlockType("rttpg/tpg-category-block", {
-    title: __("Category Block", "the-post-grid"),
-    category: "rttpg",
+registerBlockType("gtusers/tpg-category-block", {
+    title: __("Category Block", "gutenberg-users"),
+    category: "gtusers",
     description: "The post grid block, Grid layout",
-    icon: <img src={rttpgParams.plugin_url + "/assets/images/gutenberg/category-block.svg"} alt={__("Grid Layout")} />,
+    icon: <img src={gtusersParams.plugin_url + "/assets/images/gutenberg/category-block.svg"} alt={__("Grid Layout")} />,
     example: {
         attributes: {
             preview: true

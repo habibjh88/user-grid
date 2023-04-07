@@ -1,10 +1,10 @@
-.rttpg-components-popover,
-.rttpg-panel-control-wrapper {
-	.rttpg-control-field {
-		&.rttpg-cf-styles-wrap {
+.gtusers-components-popover,
+.gtusers-panel-control-wrapper {
+	.gtusers-control-field {
+		&.gtusers-cf-styles-wrap {
 			margin-bottom: 16px !important;
 
-			.rttpg-style-list {
+			.gtusers-style-list {
 				--row-gap: 10px;
 				--column-gap: 6px;
 				display: grid;
@@ -27,7 +27,7 @@
 						text-transform: uppercase;
 						color: #fff;
 					}
-					.rttpg-layout {
+					.gtusers-layout {
 						position: relative;
 						border: none;
 						&:after {
@@ -53,11 +53,11 @@
 					cursor: pointer;
 					overflow: hidden;
 
-					.rttpg-layout {
+					.gtusers-layout {
 						display: block;
-						border: 2px solid var(--rttpg-admin-color-border);
+						border: 2px solid var(--gtusers-admin-color-border);
 						border-radius: 0;
-						transition: var(--rttpg-admin-transition);
+						transition: var(--gtusers-admin-transition);
 						overflow: hidden;
 						height: 51px;
 
@@ -67,38 +67,38 @@
 						}
 					}
 
-					.rttpg-style-icon,
-					.rttpg-style-svg,
-					.rttpg-label {
+					.gtusers-style-icon,
+					.gtusers-style-svg,
+					.gtusers-label {
 						display: block;
 					}
 
-					.rttpg-label {
+					.gtusers-label {
 						font-size: 12px !important;
 						line-height: 1.3;
-						transition: var(--rttpg-admin-transition);
+						transition: var(--gtusers-admin-transition);
 					}
 
-					&.rttpg-active {
-						.rttpg-layout {
-							border-color: var(--rttpg-admin-color-primary, #0066ff);
+					&.gtusers-active {
+						.gtusers-layout {
+							border-color: var(--gtusers-admin-color-primary, #0066ff);
 						}
 
-						.rttpg-label {
-							color: var(--rttpg-admin-color-primary, #0066ff) !important;
+						.gtusers-label {
+							color: var(--gtusers-admin-color-primary, #0066ff) !important;
 						}
 					}
 				}
 
-				&.rttpg-style-columns-2 {
+				&.gtusers-style-columns-2 {
 					grid-template-columns: repeat(2, 1fr);
 				}
 
-				&.rttpg-style-columns-3 {
+				&.gtusers-style-columns-3 {
 					grid-template-columns: repeat(3, 1fr);
 				}
 
-				&.rttpg-style-columns-4 {
+				&.gtusers-style-columns-4 {
 					grid-template-columns: repeat(4, 1fr);
 				}
 			}

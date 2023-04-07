@@ -3,7 +3,7 @@ import {Icon} from '@wordpress/components';
 import renderControlIcons from './icon/renderControlIcons'
 
 const {__} = wp.i18n;
-export const RTTPG_LOGO = icons.postgrid_logo;
+export const GTUSERS_LOGO = icons.postgrid_logo;
 export const DEVICES = {
     Desktop: "md",
     Tablet: "sm",
@@ -278,172 +278,172 @@ export const SLIDER_LAYOUT_OPT = [
 ];
 
 export const COL_OPTIONS = [
-    {value: 0, label: __('Default', 'the-post-grid')},
-    {value: 1, label: __('1 Col', 'the-post-grid')},
-    {value: 2, label: __('2 Col', 'the-post-grid')},
-    {value: 3, label: __('3 Col', 'the-post-grid')},
-    {value: 4, label: __('4 Col', 'the-post-grid')},
-    {value: 5, label: __('5 Col', 'the-post-grid')},
-    {value: 6, label: __('6 Col', 'the-post-grid')}
+    {value: 0, label: __('Default', 'gutenberg-users')},
+    {value: 1, label: __('1 Col', 'gutenberg-users')},
+    {value: 2, label: __('2 Col', 'gutenberg-users')},
+    {value: 3, label: __('3 Col', 'gutenberg-users')},
+    {value: 4, label: __('4 Col', 'gutenberg-users')},
+    {value: 5, label: __('5 Col', 'gutenberg-users')},
+    {value: 6, label: __('6 Col', 'gutenberg-users')}
 ];
 
 export const COL_OPTIONS_GRID = [
-    {value: 0, label: __('Default', 'the-post-grid')},
-    {value: 12, label: __('1 Col', 'the-post-grid')},
-    {value: 6, label: __('2 Col', 'the-post-grid')},
-    {value: 4, label: __('3 Col', 'the-post-grid')},
-    {value: 3, label: __('4 Col', 'the-post-grid')},
-    {value: 24, label: __('5 Col', 'the-post-grid')},
-    {value: 2, label: __('6 Col', 'the-post-grid')}
+    {value: 0, label: __('Default', 'gutenberg-users')},
+    {value: 12, label: __('1 Col', 'gutenberg-users')},
+    {value: 6, label: __('2 Col', 'gutenberg-users')},
+    {value: 4, label: __('3 Col', 'gutenberg-users')},
+    {value: 3, label: __('4 Col', 'gutenberg-users')},
+    {value: 24, label: __('5 Col', 'gutenberg-users')},
+    {value: 2, label: __('6 Col', 'gutenberg-users')}
 ];
 
 export const SECTION_TITLE_STYLE = [
-    {value: 'default', label: __('Default - Text', 'the-post-grid')},
-    {value: 'style1', label: __('Style 1 - Dot & Border', 'the-post-grid')},
-    {value: 'style2', label: __('Style 2 - BG & Border', 'the-post-grid')},
-    {value: 'style3', label: __('Style 3 - BG & Border - 2', 'the-post-grid')},
-    {value: 'style4', label: __('Style 4 - Border Bottom', 'the-post-grid')}
+    {value: 'default', label: __('Default - Text', 'gutenberg-users')},
+    {value: 'style1', label: __('Style 1 - Dot & Border', 'gutenberg-users')},
+    {value: 'style2', label: __('Style 2 - BG & Border', 'gutenberg-users')},
+    {value: 'style3', label: __('Style 3 - BG & Border - 2', 'gutenberg-users')},
+    {value: 'style4', label: __('Style 4 - Border Bottom', 'gutenberg-users')}
 ];
 
 export const SECTION_TITLE_SOURCE = [
-    {value: 'page_title', label: __('Page Title', 'the-post-grid')},
-    {value: 'custom_title', label: __('Custom Title', 'the-post-grid')}
+    {value: 'page_title', label: __('Page Title', 'gutenberg-users')},
+    {value: 'custom_title', label: __('Custom Title', 'gutenberg-users')}
 ];
 
 export const TITLE_VISIBILITY_STYLE = [
-    {value: 'default', label: __('Default', 'the-post-grid')},
-    {value: 'one-line', label: __('Show in 1 line', 'the-post-grid')},
-    {value: 'two-line', label: __('Show in 2 lines', 'the-post-grid')},
-    {value: 'three-line', label: __('Show in 3 lines', 'the-post-grid')},
-    {value: 'custom', label: __('Custom', 'the-post-grid')}
+    {value: 'default', label: __('Default', 'gutenberg-users')},
+    {value: 'one-line', label: __('Show in 1 line', 'gutenberg-users')},
+    {value: 'two-line', label: __('Show in 2 lines', 'gutenberg-users')},
+    {value: 'three-line', label: __('Show in 3 lines', 'gutenberg-users')},
+    {value: 'custom', label: __('Custom', 'gutenberg-users')}
 ];
 
 export const USER_ORDER_BY = [
-    {value: '', label: __('-Select-', 'the-post-grid')},
-    {value: 'ID', label: __('ID', 'the-post-grid')},
-    {value: 'display_name', label: __('Display Name', 'the-post-grid')},
-    {value: 'include', label: __('Include', 'the-post-grid')},
-    {value: 'user_login', label: __('User Login', 'the-post-grid')},
-    {value: 'user_nicename', label: __('User Nicename', 'the-post-grid')},
-    {value: 'user_email', label: __('User Email', 'the-post-grid')},
-    {value: 'post_count', label: __('Post Count', 'the-post-grid')},
+    {value: '', label: __('-Select-', 'gutenberg-users')},
+    {value: 'ID', label: __('ID', 'gutenberg-users')},
+    {value: 'display_name', label: __('Display Name', 'gutenberg-users')},
+    {value: 'include', label: __('Include', 'gutenberg-users')},
+    {value: 'user_login', label: __('User Login', 'gutenberg-users')},
+    {value: 'user_nicename', label: __('User Nicename', 'gutenberg-users')},
+    {value: 'user_email', label: __('User Email', 'gutenberg-users')},
+    {value: 'post_count', label: __('Post Count', 'gutenberg-users')},
 ];
 
 const titlePosition = [
-    {value: 'default', label: __('Default', 'the-post-grid')}
+    {value: 'default', label: __('Default', 'gutenberg-users')}
 ];
-if (rttpgParams.hasPro) {
-    titlePosition.push({value: 'above_image', label: __('Above Image', 'the-post-grid')});
-    titlePosition.push({value: 'below_image', label: __('Below Image', 'the-post-grid')});
+if (gtusersParams.hasPro) {
+    titlePosition.push({value: 'above_image', label: __('Above Image', 'gutenberg-users')});
+    titlePosition.push({value: 'below_image', label: __('Below Image', 'gutenberg-users')});
 }
 export const TITLE_POSITION = titlePosition;
 
 const orderBy = [
-    {value: 'date', label: __('Date', 'the-post-grid')},
-    {value: 'ID', label: __('Order by post ID', 'the-post-grid')},
-    {value: 'author', label: __('Author', 'the-post-grid')},
-    {value: 'title', label: __('Title', 'the-post-grid')},
-    {value: 'modified', label: __('Last modified date', 'the-post-grid')},
-    {value: 'parent', label: __('Post parent ID', 'the-post-grid')},
-    {value: 'comment_count', label: __('Number of comments', 'the-post-grid')},
-    {value: 'menu_order', label: __('Menu order', 'the-post-grid')}
+    {value: 'date', label: __('Date', 'gutenberg-users')},
+    {value: 'ID', label: __('Order by post ID', 'gutenberg-users')},
+    {value: 'author', label: __('Author', 'gutenberg-users')},
+    {value: 'title', label: __('Title', 'gutenberg-users')},
+    {value: 'modified', label: __('Last modified date', 'gutenberg-users')},
+    {value: 'parent', label: __('Post parent ID', 'gutenberg-users')},
+    {value: 'comment_count', label: __('Number of comments', 'gutenberg-users')},
+    {value: 'menu_order', label: __('Menu order', 'gutenberg-users')}
 
 ];
-if (rttpgParams.hasPro) {
-    orderBy.push({value: 'rand', label: __('Random order', 'the-post-grid')});
+if (gtusersParams.hasPro) {
+    orderBy.push({value: 'rand', label: __('Random order', 'gutenberg-users')});
 }
 export const POST_ORDER_BY = orderBy;
 
 const pagination = [
-    {value: 'pagination', label: __('Default Pagination', 'the-post-grid')}
+    {value: 'pagination', label: __('Default Pagination', 'gutenberg-users')}
 ];
-if (rttpgParams.hasPro) {
-    pagination.push({value: 'pagination_ajax', label: __('Ajax Pagination ( Only for Grid )', 'the-post-grid')});
-    pagination.push({value: 'load_more', label: __('Load More - On Click', 'the-post-grid')});
-    pagination.push({value: 'load_on_scroll', label: __('Load On Scroll', 'the-post-grid')});
+if (gtusersParams.hasPro) {
+    pagination.push({value: 'pagination_ajax', label: __('Ajax Pagination ( Only for Grid )', 'gutenberg-users')});
+    pagination.push({value: 'load_more', label: __('Load More - On Click', 'gutenberg-users')});
+    pagination.push({value: 'load_on_scroll', label: __('Load On Scroll', 'gutenberg-users')});
 }
 export const PAGINATION_TYPE = pagination;
 
 
 export const BUTTON_POSITION = [
-    {value: '', label: __('Default', 'the-post-grid')},
-    {value: 'absolute', label: __('Absolute', 'the-post-grid')}
+    {value: '', label: __('Default', 'gutenberg-users')},
+    {value: 'absolute', label: __('Absolute', 'gutenberg-users')}
 ];
 
 export const BUTTON_SPACE_BETWEEN = [
-    {value: '', label: __('Default', 'the-post-grid')},
-    {value: 'space-between', label: __('Space Between', 'the-post-grid')}
+    {value: '', label: __('Default', 'gutenberg-users')},
+    {value: 'space-between', label: __('Space Between', 'gutenberg-users')}
 ];
 
 const post_link_select = [
-    {value: 'default', label: __('Link to details page', 'the-post-grid')}
+    {value: 'default', label: __('Link to details page', 'gutenberg-users')}
 ];
-if (rttpgParams.hasPro) {
-    post_link_select.push({value: 'popup', label: __('Single Popup', 'the-post-grid')});
-    post_link_select.push({value: 'multi_popup', label: __('Multi Popup', 'the-post-grid')});
+if (gtusersParams.hasPro) {
+    post_link_select.push({value: 'popup', label: __('Single Popup', 'gutenberg-users')});
+    post_link_select.push({value: 'multi_popup', label: __('Multi Popup', 'gutenberg-users')});
 }
 export const POST_LINK_TYPE = post_link_select;
 
 const metaPosition = [
-    {value: 'default', label: __('Default', 'the-post-grid')}
+    {value: 'default', label: __('Default', 'gutenberg-users')}
 ];
-if (rttpgParams.hasPro) {
-    metaPosition.push({value: 'above_title', label: __('Above Title', 'the-post-grid')});
-    metaPosition.push({value: 'below_title', label: __('Below Title', 'the-post-grid')});
-    metaPosition.push({value: 'above_excerpt', label: __('Above excerpt', 'the-post-grid')});
-    metaPosition.push({value: 'below_excerpt', label: __('Below excerpt', 'the-post-grid')});
+if (gtusersParams.hasPro) {
+    metaPosition.push({value: 'above_title', label: __('Above Title', 'gutenberg-users')});
+    metaPosition.push({value: 'below_title', label: __('Below Title', 'gutenberg-users')});
+    metaPosition.push({value: 'above_excerpt', label: __('Above excerpt', 'gutenberg-users')});
+    metaPosition.push({value: 'below_excerpt', label: __('Below excerpt', 'gutenberg-users')});
 }
 export const META_POSITION = metaPosition;
 
 // GRID_STYLE Constang
 const tpgGridStyle = [
-    {value: 'tpg-even', label: __('Grid', 'the-post-grid')},
-    {value: 'tpg-full-height', label: __('Grid Equal Height', 'the-post-grid')}
+    {value: 'tpg-even', label: __('Grid', 'gutenberg-users')},
+    {value: 'tpg-full-height', label: __('Grid Equal Height', 'gutenberg-users')}
 ];
-if (rttpgParams.hasPro) {
-    tpgGridStyle.push({value: 'masonry', label: __('Masonry', 'the-post-grid')});
+if (gtusersParams.hasPro) {
+    tpgGridStyle.push({value: 'masonry', label: __('Masonry', 'gutenberg-users')});
 }
 export const GRID_STYLE = tpgGridStyle;
 
 
 export const EXCERPT_TYPE = [
-    {value: 'character', label: __('Character', 'the-post-grid')},
-    {value: 'word', label: __('Word', 'the-post-grid')},
-    {value: 'full', label: __('Full Content', 'the-post-grid')}
+    {value: 'character', label: __('Character', 'gutenberg-users')},
+    {value: 'word', label: __('Word', 'gutenberg-users')},
+    {value: 'full', label: __('Full Content', 'gutenberg-users')}
 ];
 
 export const POST_SORT_ORDER = [
-    {value: 'DESC', label: __('DESC', 'the-post-grid')},
-    {value: 'ASC', label: __('ASC', 'the-post-grid')}
+    {value: 'DESC', label: __('DESC', 'gutenberg-users')},
+    {value: 'ASC', label: __('ASC', 'gutenberg-users')}
 ];
 
 // POSTS_TYPE Constang
 const tpgPostType = [];
-let getPostType = rttpgParams.post_type;
+let getPostType = gtusersParams.post_type;
 for (let p in getPostType) {
-    tpgPostType.push({value: p, label: __(getPostType[p], 'the-post-grid')})
+    tpgPostType.push({value: p, label: __(getPostType[p], 'gutenberg-users')})
 }
 export const POSTS_TYPE = tpgPostType;
 
 const tpgAllUsers = [
-    {value: '', label: __('Choose Author', 'the-post-grid')}
+    {value: '', label: __('Choose Author', 'gutenberg-users')}
 ];
-let getUsers = rttpgParams.get_users;
+let getUsers = gtusersParams.get_users;
 for (let u in getUsers) {
-    tpgAllUsers.push({value: u, label: __(getUsers[u], 'the-post-grid')})
+    tpgAllUsers.push({value: u, label: __(getUsers[u], 'gutenberg-users')})
 }
 export const AUTHOR_LISTS = tpgAllUsers;
 
 export const TAX_RELATION = [
-    {value: 'OR', label: __('OR', 'the-post-grid')},
-    {value: 'AND', label: __('AND', 'the-post-grid')}
+    {value: 'OR', label: __('OR', 'gutenberg-users')},
+    {value: 'AND', label: __('AND', 'gutenberg-users')}
 ]
 
 export const PRINT_TAXONOMY = (taxonomy) => {
     let allTax = [];
 
     for (let tax in taxonomy) {
-        allTax.push({value: tax, label: __(taxonomy[tax], 'the-post-grid')})
+        allTax.push({value: tax, label: __(taxonomy[tax], 'gutenberg-users')})
     }
     return allTax;
 }
@@ -455,34 +455,34 @@ export const FORMATE_USERS = users => {
     }
     return users.map((user) => ({
         value: user.id,
-        label: __(user.name, 'the-post-grid')
+        label: __(user.name, 'gutenberg-users')
     }));
 }
 const hover_overlay_type = [
-    {value: 'always', label: __('Show Always', 'the-post-grid')},
-    {value: 'fadein-on-hover', label: __('FadeIn on hover', 'the-post-grid')},
-    {value: 'fadeout-on-hover', label: __('FadeOut on hover', 'the-post-grid')},
-    {value: 'slidein-on-hover', label: __('SlideIn on hover', 'the-post-grid')},
-    {value: 'slideout-on-hover', label: __('SlideOut on hover', 'the-post-grid')},
-    {value: 'zoomin-on-hover', label: __('ZoomIn on hover', 'the-post-grid')},
-    {value: 'zoomout-on-hover', label: __('ZoomOut on hover', 'the-post-grid')},
-    {value: 'zoominall-on-hover', label: __('ZoomIn Content on hover', 'the-post-grid')},
-    {value: 'zoomoutall-on-hover', label: __('ZoomOut Content on hover', 'the-post-grid')}
+    {value: 'always', label: __('Show Always', 'gutenberg-users')},
+    {value: 'fadein-on-hover', label: __('FadeIn on hover', 'gutenberg-users')},
+    {value: 'fadeout-on-hover', label: __('FadeOut on hover', 'gutenberg-users')},
+    {value: 'slidein-on-hover', label: __('SlideIn on hover', 'gutenberg-users')},
+    {value: 'slideout-on-hover', label: __('SlideOut on hover', 'gutenberg-users')},
+    {value: 'zoomin-on-hover', label: __('ZoomIn on hover', 'gutenberg-users')},
+    {value: 'zoomout-on-hover', label: __('ZoomOut on hover', 'gutenberg-users')},
+    {value: 'zoominall-on-hover', label: __('ZoomIn Content on hover', 'gutenberg-users')},
+    {value: 'zoomoutall-on-hover', label: __('ZoomOut Content on hover', 'gutenberg-users')}
 ];
 export const OVERLAY_TYPE = hover_overlay_type;
 
 const hover_overlay_type_two = [
-    {value: 'always', label: __('Show Always', 'the-post-grid')},
-    {value: 'fadein-on-hover', label: __('FadeIn on hover', 'the-post-grid')},
-    {value: 'fadeout-on-hover', label: __('FadeOut on hover', 'the-post-grid')},
-    {value: 'slidein-on-hover', label: __('SlideIn on hover', 'the-post-grid')},
-    {value: 'slideout-on-hover', label: __('SlideOut on hover', 'the-post-grid')},
-    {value: 'zoomin-on-hover', label: __('ZoomIn on hover', 'the-post-grid')},
-    {value: 'zoomout-on-hover', label: __('ZoomOut on hover', 'the-post-grid')},
-    {value: 'zoominall-on-hover', label: __('ZoomIn Content on hover', 'the-post-grid')},
-    {value: 'zoomoutall-on-hover', label: __('ZoomOut Content on hover', 'the-post-grid')},
-    {value: 'flipin-on-hover', label: __('FlipIn on hover', 'the-post-grid')},
-    {value: 'flipout-on-hover', label: __('FlipOut on hover', 'the-post-grid')}
+    {value: 'always', label: __('Show Always', 'gutenberg-users')},
+    {value: 'fadein-on-hover', label: __('FadeIn on hover', 'gutenberg-users')},
+    {value: 'fadeout-on-hover', label: __('FadeOut on hover', 'gutenberg-users')},
+    {value: 'slidein-on-hover', label: __('SlideIn on hover', 'gutenberg-users')},
+    {value: 'slideout-on-hover', label: __('SlideOut on hover', 'gutenberg-users')},
+    {value: 'zoomin-on-hover', label: __('ZoomIn on hover', 'gutenberg-users')},
+    {value: 'zoomout-on-hover', label: __('ZoomOut on hover', 'gutenberg-users')},
+    {value: 'zoominall-on-hover', label: __('ZoomIn Content on hover', 'gutenberg-users')},
+    {value: 'zoomoutall-on-hover', label: __('ZoomOut Content on hover', 'gutenberg-users')},
+    {value: 'flipin-on-hover', label: __('FlipIn on hover', 'gutenberg-users')},
+    {value: 'flipout-on-hover', label: __('FlipOut on hover', 'gutenberg-users')}
 ];
 export const OVERLAY_TYPE_TWO = hover_overlay_type_two;
 
@@ -495,20 +495,20 @@ export const META_ORDERING_LABEL = [
     {value: 'post_count', label: 'Post View Count'}
 ];
 
-export const RTTPG_IS_PRO = rttpgParams.hasPro ? 'rttpg-has-pro' : 'rttpg-is-pro';
+export const GTUSERS_IS_PRO = gtusersParams.hasPro ? 'gtusers-has-pro' : 'gtusers-is-pro';
 
 // GRID_STYLE Constang
 const tpgHoverAnimation = [
-    {value: 'default', label: __('Default', 'the-post-grid')},
-    {value: 'img_zoom_in', label: __('Zoom In', 'the-post-grid')},
-    {value: 'img_zoom_out', label: __('Zoom Out', 'the-post-grid')},
-    {value: 'img_no_effect', label: __('None', 'the-post-grid')}
+    {value: 'default', label: __('Default', 'gutenberg-users')},
+    {value: 'img_zoom_in', label: __('Zoom In', 'gutenberg-users')},
+    {value: 'img_zoom_out', label: __('Zoom Out', 'gutenberg-users')},
+    {value: 'img_no_effect', label: __('None', 'gutenberg-users')}
 ];
-if (rttpgParams.hasPro) {
+if (gtusersParams.hasPro) {
     tpgHoverAnimation.splice(3);
-    tpgHoverAnimation.push({value: 'slide_to_right', label: __('Slide to Right', 'the-post-grid')});
-    tpgHoverAnimation.push({value: 'slide_to_left', label: __('Slide to Left', 'the-post-grid')});
-    tpgHoverAnimation.push({value: 'img_no_effect', label: __('None', 'the-post-grid')});
+    tpgHoverAnimation.push({value: 'slide_to_right', label: __('Slide to Right', 'gutenberg-users')});
+    tpgHoverAnimation.push({value: 'slide_to_left', label: __('Slide to Left', 'gutenberg-users')});
+    tpgHoverAnimation.push({value: 'img_no_effect', label: __('None', 'gutenberg-users')});
 }
 export const TPG_HOVER_ANIMATION = tpgHoverAnimation;
 
@@ -539,22 +539,22 @@ export const CONTENT_WIDTH = [
 export const DIRECTION_OPTIONS = [
     {
         value: 'row',
-        label: __('Row', 'the-post-grid'),
+        label: __('Row', 'gutenberg-users'),
         icon: (<Icon icon={renderControlIcons('flex-direction-row')}/>),
     },
     {
         value: 'column',
-        label: __('Column', 'the-post-grid'),
+        label: __('Column', 'gutenberg-users'),
         icon: (<Icon icon={renderControlIcons('flex-direction-column')}/>),
     },
     {
         value: 'row-reverse',
-        label: __('Row Reverse', 'the-post-grid'),
+        label: __('Row Reverse', 'gutenberg-users'),
         icon: (<Icon icon={renderControlIcons('flex-direction-row-reverse')}/>),
     },
     {
         value: 'column-reverse',
-        label: __('Column Reverse', 'the-post-grid'),
+        label: __('Column Reverse', 'gutenberg-users'),
         icon: (<Icon icon={renderControlIcons('flex-direction-column-reverse')}/>),
     },
 ];
@@ -562,17 +562,17 @@ export const DIRECTION_OPTIONS = [
 export const WRAP_OPTIONS = [
     {
         value: 'wrap',
-        label: __('Wrap', 'the-post-grid'),
+        label: __('Wrap', 'gutenberg-users'),
         icon: (<Icon icon={renderControlIcons('flex-wrap')}/>),
     },
     {
         value: 'nowrap',
-        label: __('No Wrap', 'the-post-grid'),
+        label: __('No Wrap', 'gutenberg-users'),
         icon: (<Icon icon={renderControlIcons('flex-no-wrap')}/>),
     },
     {
         value: 'wrap-reverse',
-        label: __('Wrap Reverse', 'the-post-grid'),
+        label: __('Wrap Reverse', 'gutenberg-users'),
         icon: (<Icon icon={renderControlIcons('flex-wrap-reverse')}/>),
     },
 ];

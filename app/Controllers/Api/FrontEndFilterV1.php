@@ -10,7 +10,7 @@ class FrontEndFilterV1 {
 	}
 
 	public function register_front_end_filter() {
-		register_rest_route( 'rttpg/v1', 'filter', array(
+		register_rest_route( 'gtusers/v1', 'filter', array(
 			'methods'             => 'POST',
 			'callback'            => [ $this, 'get_frontend_filter' ],
 			'permission_callback' => function () {

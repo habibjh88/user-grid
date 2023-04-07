@@ -12,11 +12,11 @@ const Devices = (props) => {
     const closeDevices = useCallback(() => setSwitcherIsOpen(false), []);
     useEffect(() => {
         if (device) {
-            window.rttpgDevice = device
+            window.gtusersDevice = device
         }
     }, [])
     const onClickHandler = (_device) => {
-        window.rttpgDevice = _device;
+        window.gtusersDevice = _device;
         setDevice(_device);
         props.onChange(_device);
         setSwitcherIsOpen(() => !switcherIsOpen)
@@ -24,22 +24,22 @@ const Devices = (props) => {
     useClickOutside(devicesRef, closeDevices);
 
     return <div ref={devicesRef}
-                className={`rttpg-device-switchers active-${device}${switcherIsOpen ? ' rttpg-device-switchers-open' : ''} `}
+                className={`gtusers-device-switchers active-${device}${switcherIsOpen ? ' gtusers-device-switchers-open' : ''} `}
                 onClick={() => setSwitcherIsOpen(() => !switcherIsOpen)}>
-        <div className="rttpg-device-switchers-wrap">
-            <a className={`rttpg-device-switcher rttpg-device-switcher-desktop${device === 'lg' ? ' active' : ''}`}
+        <div className="gtusers-device-switchers-wrap">
+            <a className={`gtusers-device-switcher gtusers-device-switcher-desktop${device === 'lg' ? ' active' : ''}`}
                onClick={() => onClickHandler('lg')} data-tooltip={__('Desktop')}>
                 <i className="fas fa-desktop"></i>
             </a>
-            <a className={`rttpg-device-switcher rttpg-device-switcher-laptop${device === 'md' ? ' active' : ''}`}
+            <a className={`gtusers-device-switcher gtusers-device-switcher-laptop${device === 'md' ? ' active' : ''}`}
                onClick={() => onClickHandler('md')} data-tooltip={__('Tablet')}>
                 <i className="fas fa-tablet-alt"></i>
             </a>
-            <a className={`rttpg-device-switcher rttpg-device-switcher-tablet${device === 'sm' ? ' active' : ''}`}
+            <a className={`gtusers-device-switcher gtusers-device-switcher-tablet${device === 'sm' ? ' active' : ''}`}
                onClick={() => onClickHandler('sm')} data-tooltip={__('Mobile')}>
                 <i className="fas fa-mobile-alt"></i>
             </a>
-            {/* <a className={`rttpg-device-switcher rttpg-device-switcher-smartphone${device === 'xs' ? ' active' : ''}`}
+            {/* <a className={`gtusers-device-switcher gtusers-device-switcher-smartphone${device === 'xs' ? ' active' : ''}`}
 			 onClick={() => onClickHandler('xs')} data-tooltip={__('Phone')}>
 			 <i className="dashicons dashicons-smartphone" />
 			 </a> */}

@@ -18,17 +18,17 @@ function TPGColumn( props ) {
     const GRID_CLOUMN = colStyle === 'grid' ? COL_OPTIONS_GRID : COL_OPTIONS;
 
     return (
-        <div className={ `rttpg-column-group ${ className }` }>
+        <div className={ `gtusers-column-group ${ className }` }>
             { label && (
-                <div className="rttpg-cf-head">
-                    <span className="rttpg-label">{ label }</span>
+                <div className="gtusers-cf-head">
+                    <span className="gtusers-label">{ label }</span>
                 </div>
             ) }
 
-            <div className="rttpg-column-group-inner">
+            <div className="gtusers-column-group-inner">
                 <SelectControl
-                    label={ __( 'Desktop', 'the-post-grid' ) }
-                    className="rttpg-control-field"
+                    label={ __( 'Desktop', 'gutenberg-users' ) }
+                    className="gtusers-control-field"
                     value={ data.lg || '' }
                     options={ GRID_CLOUMN }
                     onChange={ ( val ) => {
@@ -38,16 +38,16 @@ function TPGColumn( props ) {
                 />
 
                 <SelectControl
-                    label={ __( 'Tablet', 'the-post-grid' ) }
-                    className="rttpg-control-field"
+                    label={ __( 'Tablet', 'gutenberg-users' ) }
+                    className="gtusers-control-field"
                     value={ data.md || '' }
                     options={ GRID_CLOUMN }
                     onChange={ ( val ) => setSettings( "md", val ) }
                 />
 
                 <SelectControl
-                    label={ __( 'Mobile', 'the-post-grid' ) }
-                    className="rttpg-control-field"
+                    label={ __( 'Mobile', 'gutenberg-users' ) }
+                    className="gtusers-control-field"
                     value={ data.sm || '' }
                     options={ GRID_CLOUMN }
                     onChange={ ( val ) => setSettings( "sm", val ) }

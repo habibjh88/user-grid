@@ -10,7 +10,7 @@ class ElImport {
 	}
 
 	public function register_image_size_route() {
-		register_rest_route( 'rttpg/v1', 'elimport', [
+		register_rest_route( 'gtusers/v1', 'elimport', [
 			'methods'             => 'POST',
 			'callback'            => [ $this, 'el_import' ],
 			'permission_callback' => function () {

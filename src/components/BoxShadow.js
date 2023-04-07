@@ -21,17 +21,17 @@ function BoxShadow( props ) {
     };
 
     return (
-        <div className="rttpg-control-field rttpg-cf-typography-wrap">
+        <div className="gtusers-control-field gtusers-cf-typography-wrap">
 
             { label && (
-                <span className="rttpg-label">{ label }</span>
+                <span className="gtusers-label">{ label }</span>
             ) }
 
-            <div className="rttpg-typography">
+            <div className="gtusers-typography">
 
                 <Dropdown
-                    className="rttpg-typography-dropdown-icon"
-                    contentClassName="rttpg-components-popover rttpg-cp-typography-content"
+                    className="gtusers-typography-dropdown-icon"
+                    contentClassName="gtusers-components-popover gtusers-cp-typography-content"
                     position="bottom right"
                     renderToggle={ ( { isOpen, onToggle } ) => (
                         <Button
@@ -43,7 +43,7 @@ function BoxShadow( props ) {
                     ) }
 
                     renderContent={ () => (
-                        <div className="rttpg-typography-content">
+                        <div className="gtusers-typography-content">
                             <Color
                                 label={ __( "Color" ) }
                                 color={ data['color'] }
@@ -82,7 +82,7 @@ function BoxShadow( props ) {
                                 max={ 100 }
                             />
 
-                            <div className="rttpg-toggle-control-field">
+                            <div className="gtusers-toggle-control-field">
                                 <ToggleControl
                                     label="Inset"
                                     checked={ data['inset'] }

@@ -49,7 +49,7 @@ class Fns {
 				'brock',
 				sprintf(
 				/* translators: %s File name */
-					esc_html__( '%s file not found', 'the-post-grid' ),
+					esc_html__( '%s file not found', 'gutenberg-users' ),
 					$viewFile
 				)
 			);
@@ -124,19 +124,19 @@ class Fns {
 
 		if ( ! file_exists( $located ) ) {
 			/* translators: %s template */
-			self::doing_it_wrong( __FUNCTION__, sprintf( esc_html__( '%s does not exist.', 'the-post-grid' ), '<code>' . $located . '</code>' ), '1.0' );
+			self::doing_it_wrong( __FUNCTION__, sprintf( esc_html__( '%s does not exist.', 'gutenberg-users' ), '<code>' . $located . '</code>' ), '1.0' );
 
 			return;
 		}
 
 		// Allow 3rd party plugin filter template file from their plugin.
-		$located = apply_filters( 'rttpg_get_template', $located, $template_name, $args );
+		$located = apply_filters( 'gtusers_get_template', $located, $template_name, $args );
 
-		do_action( 'rttpg_before_template_part', $template_name, $located, $args );
+		do_action( 'gtusers_before_template_part', $template_name, $located, $args );
 
 		include $located;
 
-		do_action( 'rttpg_after_template_part', $template_name, $located, $args );
+		do_action( 'gtusers_after_template_part', $template_name, $located, $args );
 	}
 
 	/**
@@ -169,25 +169,25 @@ class Fns {
 		$template_name = $template_name . '.php';
 
 		if ( ! $template_path ) {
-			$template_path = rtTPG()->get_template_path();
+			$template_path = gtUsers()->get_template_path();
 		}
 
 		if ( ! $default_path ) {
-			$default_path = rtTPG()->default_template_path() . '/templates/';
+			$default_path = gtUsers()->default_template_path() . '/templates/';
 		}
 
 		// Look within passed path within the theme - this is priority.
 		$template_files   = [];
 		$template_files[] = trailingslashit( $template_path ) . $template_name;
 
-		$template = locate_template( apply_filters( 'rttpg_locate_template_files', $template_files, $template_name, $template_path, $default_path ) );
+		$template = locate_template( apply_filters( 'gtusers_locate_template_files', $template_files, $template_name, $template_path, $default_path ) );
 
 		// Get default template/.
 		if ( ! $template ) {
 			$template = trailingslashit( $default_path ) . $template_name;
 		}
 
-		return apply_filters( 'rttpg_locate_template', $template, $template_name );
+		return apply_filters( 'gtusers_locate_template', $template, $template_name );
 	}
 
 	/**
@@ -212,8 +212,8 @@ class Fns {
 	 * @return bool
 	 */
 	public static function verifyNonce() {
-		$nonce     = isset( $_REQUEST[ rtTPG()->nonceId() ] ) ? sanitize_text_field( wp_unslash( $_REQUEST[ rtTPG()->nonceId() ] ) ) : null;
-		$nonceText = rtTPG()->nonceText();
+		$nonce     = isset( $_REQUEST[ gtUsers()->nonceId() ] ) ? sanitize_text_field( wp_unslash( $_REQUEST[ gtUsers()->nonceId() ] ) ) : null;
+		$nonceText = gtUsers()->nonceText();
 
 		if ( ! wp_verify_nonce( $nonce, $nonceText ) ) {
 			return false;
@@ -286,15 +286,15 @@ class Fns {
 
 		if ( $posts_loading_type == "pagination" ) {
 			$htmlUtility .= Fns::rt_pagination( $query, $posts_per_page );
-		} else if ( rtTPG()->hasPro() && $posts_loading_type == "pagination_ajax" ) { //&& ! $isIsotope
+		} else if ( gtUsers()->hasPro() && $posts_loading_type == "pagination_ajax" ) { //&& ! $isIsotope
 			$htmlUtility .= "<div class='rt-page-numbers'></div>";
-		} else if ( rtTPG()->hasPro() && $posts_loading_type == "load_more" ) {
-			$load_more_button_text = $data['load_more_button_text'] ? $data['load_more_button_text'] : __( "Load More", 'the-post-grid' );
+		} else if ( gtUsers()->hasPro() && $posts_loading_type == "load_more" ) {
+			$load_more_button_text = $data['load_more_button_text'] ? $data['load_more_button_text'] : __( "Load More", 'gutenberg-users' );
 			$htmlUtility           .= "<div class='rt-loadmore-btn rt-loadmore-action rt-loadmore-style{$hide}'>
 											<span class='rt-loadmore-text'>" . $load_more_button_text . "</span>
 											<div class='rt-loadmore-loading rt-ball-scale-multiple rt-2x'><div></div><div></div><div></div></div>
 										</div>";
-		} else if ( rtTPG()->hasPro() && $posts_loading_type == "load_on_scroll" ) {
+		} else if ( gtUsers()->hasPro() && $posts_loading_type == "load_on_scroll" ) {
 			$htmlUtility .= "<div class='rt-infinite-action'>	
                                 <div class='rt-infinite-loading la-fire la-2x'>
                                     <div></div><div></div><div></div>
@@ -397,7 +397,7 @@ class Fns {
 		];
 
 		$cf = Fns::is_acf();
-		if ( $cf && rtTPG()->hasPro() ) {
+		if ( $cf && gtUsers()->hasPro() ) {
 			$post_type = $data['post_type'];
 			if ( $is_gutenberg && isset( $data['acf_data_lists'][ $post_type . '_cf_group' ] ) ) {
 				$cf_group             = $data['acf_data_lists'][ $post_type . '_cf_group' ]['options'];
@@ -432,7 +432,7 @@ class Fns {
 	 * @return string
 	 */
 	public static function get_frontend_filter_markup( $data, $is_guten = false ) {
-		if ( ! rtTPG()->hasPro()
+		if ( ! gtUsers()->hasPro()
 		     || ! ( $data['show_taxonomy_filter'] == 'show' || $data['show_author_filter'] == 'show' || $data['show_order_by'] == 'show'
 		            || $data['show_sort_order'] == 'show'
 		            || $data['show_search'] == 'show' )
@@ -489,7 +489,7 @@ class Fns {
 				$default_term     = isset( $data[ $default_term_key ] ) ? $data[ $default_term_key ] : '';
 			}
 
-			$allText = $data['tax_filter_all_text'] ? $data['tax_filter_all_text'] : __( "All ", "the-post-grid" ) . $taxonomy_label;
+			$allText = $data['tax_filter_all_text'] ? $data['tax_filter_all_text'] : __( "All ", "gutenberg-users" ) . $taxonomy_label;
 
 
 			$_taxonomies = get_object_taxonomies( $data['post_type'], 'objects' );
@@ -673,7 +673,7 @@ class Fns {
 			} else {
 				$users = get_users( apply_filters( 'tpg_author_arg', [] ) );
 			}
-			$allText   = $allText = $data['author_filter_all_text'] ? $data['author_filter_all_text'] : __( "All Users", "the-post-grid" );
+			$allText   = $allText = $data['author_filter_all_text'] ? $data['author_filter_all_text'] : __( "All Users", "gutenberg-users" );
 			$allSelect = " selected";
 			//$isTermSelected = false;
 			//				if ( $default_term && $taxFilter ) {
@@ -773,14 +773,14 @@ class Fns {
 			$orders         = Options::rtPostOrderBy( $wooFeature );
 			$action_orderby = ( ! empty( $data['orderby'] ) ? $data['orderby'] : "none" );
 			if ( $action_orderby == 'none' ) {
-				$action_orderby_label = __( "Sort By", "the-post-grid" );
+				$action_orderby_label = __( "Sort By", "gutenberg-users" );
 			} else if ( in_array( $action_orderby, array_keys( Options::rtMetaKeyType() ) ) ) {
-				$action_orderby_label = __( "Meta value", "the-post-grid" );
+				$action_orderby_label = __( "Meta value", "gutenberg-users" );
 			} else {
-				$action_orderby_label = __( "By ", "the-post-grid" ) . $action_orderby;
+				$action_orderby_label = __( "By ", "gutenberg-users" ) . $action_orderby;
 			}
 			if ( $action_orderby !== 'none' ) {
-				$orders['none'] = __( "Sort By", "the-post-grid" );
+				$orders['none'] = __( "Sort By", "gutenberg-users" );
 			}
 			$html .= '<div class="rt-filter-item-wrap rt-order-by-action rt-filter-dropdown-wrap" data-filter="orderby">';
 			$html .= "<span class='order-by-default rt-filter-dropdown-default' data-order-by='{$action_orderby}'>
@@ -799,7 +799,7 @@ class Fns {
 		//TODO: Search Filter
 		if ( 'show' == $data['show_search'] ) {
 			$html .= '<div class="rt-filter-item-wrap rt-search-filter-wrap" data-filter="search">';
-			$html .= sprintf( '<input type="text" class="rt-search-input" placeholder="%s">', esc_html__( "Search...", 'the-post-grid' ) );
+			$html .= sprintf( '<input type="text" class="rt-search-input" placeholder="%s">', esc_html__( "Search...", 'gutenberg-users' ) );
 			$html .= "<span class='rt-action'>&#128269;</span>";
 			$html .= "<span class='rt-loading'></span>";
 			$html .= '</div>';
@@ -896,7 +896,7 @@ class Fns {
 	 */
 	public static function get_dynamic_class_gutenberg( $data ) {
 		$uniqueId     = isset( $data['uniqueId'] ) ? $data['uniqueId'] : null;
-		$uniqueClass  = 'rttpg-block-postgrid rttpg-block-wrapper rttpg-block-' . $uniqueId;
+		$uniqueClass  = 'gtusers-block-postgrid gtusers-block-wrapper gtusers-block-' . $uniqueId;
 		$dynamicClass = $uniqueClass;
 		$dynamicClass .= ! empty( $data['align'] ) ? ' align' . $data['align'] : null;
 		$dynamicClass .= ! empty( $data['className'] ) ? ' ' . $data['className'] : null;
@@ -1024,27 +1024,27 @@ class Fns {
 	 */
 	public static function rtAllOptionFields() {
 		$fields = array_merge(
-			Options::rtTPGCommonFilterFields(),
-			Options::rtTPGLayoutSettingFields(),
+			Options::gtUsersCommonFilterFields(),
+			Options::gtUsersLayoutSettingFields(),
 			Options::responsiveSettingsColumn(),
 			Options::layoutMiscSettings(),
 			Options::stickySettings(),
 			// settings.
-			Options::rtTPGSCHeadingSettings(),
-			Options::rtTPGSCCategorySettings(),
-			Options::rtTPGSCTitleSettings(),
-			Options::rtTPGSCMetaSettings(),
-			Options::rtTPGSCImageSettings(),
-			Options::rtTPGSCExcerptSettings(),
-			Options::rtTPGSCButtonSettings(),
+			Options::gtUsersSCHeadingSettings(),
+			Options::gtUsersSCCategorySettings(),
+			Options::gtUsersSCTitleSettings(),
+			Options::gtUsersSCMetaSettings(),
+			Options::gtUsersSCImageSettings(),
+			Options::gtUsersSCExcerptSettings(),
+			Options::gtUsersSCButtonSettings(),
 			// style.
-			Options::rtTPGStyleFields(),
-			Options::rtTPGStyleHeading(),
-			Options::rtTPGStyleFullArea(),
-			Options::rtTPGStyleContentWrap(),
-			Options::rtTPGStyleCategory(),
-			Options::rtTPGPostType(),
-			Options::rtTPGStyleButtonColorFields(),
+			Options::gtUsersStyleFields(),
+			Options::gtUsersStyleHeading(),
+			Options::gtUsersStyleFullArea(),
+			Options::gtUsersStyleContentWrap(),
+			Options::gtUsersStyleCategory(),
+			Options::gtUsersPostType(),
+			Options::gtUsersStyleButtonColorFields(),
 			Options::rtTPAdvanceFilters(),
 			Options::itemFields()
 		);
@@ -1077,7 +1077,7 @@ class Fns {
 					'taxonomy'   => $taxonomy,
 					'orderby'    => 'meta_value_num',
 					'meta_key'   => '_rt_order',
-					'hide_empty' => apply_filters( 'rttpg_category_hide_empty', false ),
+					'hide_empty' => apply_filters( 'gtusers_category_hide_empty', false ),
 				];
 
 				if ( $parent >= 0 && $parent !== false ) {
@@ -1434,7 +1434,7 @@ class Fns {
 		$scList = null;
 		$scQ    = get_posts(
 			[
-				'post_type'      => rtTPG()->post_type,
+				'post_type'      => gtUsers()->post_type,
 				'order_by'       => 'title',
 				'order'          => 'DESC',
 				'post_status'    => 'publish',
@@ -1462,7 +1462,7 @@ class Fns {
 		$scList = null;
 		$scQ    = get_posts(
 			[
-				'post_type'      => rtTPG()->post_type,
+				'post_type'      => gtUsers()->post_type,
 				'order_by'       => 'title',
 				'order'          => 'ASC',
 				'post_status'    => 'publish',
@@ -1538,7 +1538,7 @@ class Fns {
 		$imgSize = [];
 
 		if ( ! empty( $sizes ) ) {
-			$imgSize['full'] = esc_html__( 'Full Size', 'the-post-grid' );
+			$imgSize['full'] = esc_html__( 'Full Size', 'gutenberg-users' );
 			foreach ( $sizes as $key => $img ) {
 				$imgSize[ $key ] = ucfirst( $key ) . " ({$img['width']}*{$img['height']})";
 			}
@@ -1861,7 +1861,7 @@ class Fns {
 	public static function rt_pagination_ajax( $scID, $range = 4, $pages = '' ) {
 		$html = null;
 
-		$html .= "<div class='rt-tpg-pagination-ajax' data-sc-id='{$scID}' data-paged='1'>";
+		$html .= "<div class='gtusers-pagination-ajax' data-sc-id='{$scID}' data-paged='1'>";
 		$html .= '</div>';
 
 		return $html;
@@ -2117,19 +2117,19 @@ class Fns {
 			$meta_data_alignment = ( ! empty( $scMeta['meta_data_alignment'] ) ? $scMeta['meta_data_alignment'] : null );
 		}
 
-		$id = str_replace( 'rt-tpg-container-', '', $layoutID );
+		$id = str_replace( 'gtusers-container-', '', $layoutID );
 
 		if ( $primaryColor ) {
 			$css .= "#{$layoutID} .rt-holder .rt-woo-info .price{";
 			$css .= 'color:' . $primaryColor . ';';
 			$css .= '}';
-			$css .= "body .rt-tpg-container .rt-tpg-isotope-buttons .selected,
+			$css .= "body .gtusers-container .gtusers-isotope-buttons .selected,
 					#{$layoutID} .layout12 .rt-holder:hover .rt-detail,
 					#{$layoutID} .isotope8 .rt-holder:hover .rt-detail,
 					#{$layoutID} .carousel8 .rt-holder:hover .rt-detail,
 					#{$layoutID} .layout13 .rt-holder .overlay .post-info,
 					#{$layoutID} .isotope9 .rt-holder .overlay .post-info,
-					#{$layoutID}.rt-tpg-container .layout4 .rt-holder .rt-detail,
+					#{$layoutID}.gtusers-container .layout4 .rt-holder .rt-detail,
 					.rt-modal-{$id} .md-content,
 					.rt-modal-{$id} .md-content > .rt-md-content-holder .rt-md-content,
 					.rt-popup-wrap-{$id}.rt-popup-wrap .rt-popup-navigation-wrap,
@@ -2150,7 +2150,7 @@ class Fns {
 		if ( $button_border_color ) {
 			$css .= "#{$layoutID} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item,
 					#{$layoutID} .rt-layout-filter-container .rt-filter-sub-tax.sub-button-group .rt-filter-button-item,
-					#{$layoutID}.rt-tpg-container .swiper-navigation .slider-btn,
+					#{$layoutID}.gtusers-container .swiper-navigation .slider-btn,
 					#{$layoutID} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-sort-order-action,
 					#{$layoutID} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown .rt-filter-dropdown-item,
 					#{$layoutID} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap{";
@@ -2165,10 +2165,10 @@ class Fns {
 			$css .= "#{$layoutID} .pagination-list li a,
 					{$layoutID} .pagination-list li span,
 					{$layoutID} .pagination li a,
-					#{$layoutID} .rt-tpg-isotope-buttons button,
-					#{$layoutID} .rt-tpg-utility .rt-tpg-load-more button,
-					#{$layoutID}.rt-tpg-container .swiper-navigation .slider-btn,
-					#{$layoutID}.rt-tpg-container .swiper-pagination-bullet,
+					#{$layoutID} .gtusers-isotope-buttons button,
+					#{$layoutID} .gtusers-utility .gtusers-load-more button,
+					#{$layoutID}.gtusers-container .swiper-navigation .slider-btn,
+					#{$layoutID}.gtusers-container .swiper-pagination-bullet,
 					#{$layoutID} .wc1 .rt-holder .rt-img-holder .overlay .product-more ul li a,
 					#{$layoutID} .wc2 .rt-detail .rt-wc-add-to-cart,
 					#{$layoutID} .wc3 .rt-detail .rt-wc-add-to-cart,
@@ -2177,10 +2177,10 @@ class Fns {
 					#{$layoutID} .wc-isotope2 .rt-detail .rt-wc-add-to-cart,
 					#{$layoutID} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown,
 					#{$layoutID} .rt-layout-filter-container .rt-filter-sub-tax.sub-button-group .rt-filter-button-item,
-					#{$layoutID}.rt-tpg-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li>a,
+					#{$layoutID}.gtusers-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li>a,
 					#{$layoutID} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item,
-					#{$layoutID}.rt-tpg-container .rt-pagination-wrap  .rt-loadmore-btn,
-					#{$layoutID}.rt-tpg-container .rt-pagination-wrap .rt-cb-page-prev-next > *,
+					#{$layoutID}.gtusers-container .rt-pagination-wrap  .rt-loadmore-btn,
+					#{$layoutID}.gtusers-container .rt-pagination-wrap .rt-cb-page-prev-next > *,
 					#{$layoutID} .rt-read-more,
 					#rt-tooltip-{$id}, #rt-tooltip-{$id} .rt-tooltip-bottom:after{";
 			$css .= 'background-color:' . $button_bg_color . ';';
@@ -2189,7 +2189,7 @@ class Fns {
 					#{$layoutID} .rt-layout-filter-container .rt-filter-sub-tax.sub-button-group .rt-filter-button-item{";
 			$css .= 'border-color:' . $button_bg_color . ';';
 			$css .= '}';
-			$css .= "#{$layoutID}.rt-tpg-container .layout17 .rt-holder .overlay a.tpg-zoom .fa{";
+			$css .= "#{$layoutID}.gtusers-container .layout17 .rt-holder .overlay a.tpg-zoom .fa{";
 			$css .= 'color:' . $button_bg_color . ';';
 			$css .= '}';
 
@@ -2202,17 +2202,17 @@ class Fns {
 		if ( $button_active_bg_color ) {
 			$css .= "#{$layoutID} .pagination li.active span,
 					#{$layoutID} .pagination-list li.active span,
-					#{$layoutID} .rt-tpg-isotope-buttons button.selected,
+					#{$layoutID} .gtusers-isotope-buttons button.selected,
 					#{$layoutID} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item.selected,
 					#{$layoutID} .rt-layout-filter-container .rt-filter-sub-tax.sub-button-group .rt-filter-button-item.selected,
-					#{$layoutID}.rt-tpg-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li.active>a,
-					#{$layoutID}.rt-tpg-container .swiper-pagination-bullet.swiper-pagination-bullet-active-main{";
+					#{$layoutID}.gtusers-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li.active>a,
+					#{$layoutID}.gtusers-container .swiper-pagination-bullet.swiper-pagination-bullet-active-main{";
 			$css .= 'background-color:' . $button_active_bg_color . ';';
 			$css .= '}';
 
 			$css .= "#{$layoutID} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item.selected,
 					#{$layoutID} .rt-layout-filter-container .rt-filter-sub-tax.sub-button-group .rt-filter-button-item.selected,
-					#{$layoutID}.rt-tpg-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li.active>a{";
+					#{$layoutID}.gtusers-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li.active>a{";
 			$css .= 'border-color:' . $button_active_bg_color . ';';
 			$css .= '}';
 		}
@@ -2221,11 +2221,11 @@ class Fns {
 		if ( $button_hover_bg_color ) {
 			$css .= "#{$layoutID} .pagination-list li a:hover,
 					#{$layoutID} .pagination li a:hover,
-					#{$layoutID} .rt-tpg-isotope-buttons button:hover,
+					#{$layoutID} .gtusers-isotope-buttons button:hover,
 					#{$layoutID} .rt-holder .read-more a:hover,
-					#{$layoutID} .rt-tpg-utility .rt-tpg-load-more button:hover,
-					#{$layoutID}.rt-tpg-container .swiper-pagination-bullet:hover,
-					#{$layoutID}.rt-tpg-container .swiper-navigation .slider-btn:hover,
+					#{$layoutID} .gtusers-utility .gtusers-load-more button:hover,
+					#{$layoutID}.gtusers-container .swiper-pagination-bullet:hover,
+					#{$layoutID}.gtusers-container .swiper-navigation .slider-btn:hover,
 					#{$layoutID} .wc1 .rt-holder .rt-img-holder .overlay .product-more ul li a:hover,
 					#{$layoutID} .wc2 .rt-detail .rt-wc-add-to-cart:hover,
 					#{$layoutID} .wc3 .rt-detail .rt-wc-add-to-cart:hover,
@@ -2236,21 +2236,21 @@ class Fns {
 					#{$layoutID} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown .rt-filter-dropdown-item.selected,
 					#{$layoutID} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item:hover,
 					#{$layoutID} .rt-layout-filter-container .rt-filter-sub-tax.sub-button-group .rt-filter-button-item:hover,
-					#{$layoutID}.rt-tpg-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li>a:hover,
-					#{$layoutID}.rt-tpg-container .rt-pagination-wrap .rt-cb-page-prev-next > *:hover,
-					#{$layoutID}.rt-tpg-container .rt-pagination-wrap  .rt-loadmore-btn:hover,
+					#{$layoutID}.gtusers-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li>a:hover,
+					#{$layoutID}.gtusers-container .rt-pagination-wrap .rt-cb-page-prev-next > *:hover,
+					#{$layoutID}.gtusers-container .rt-pagination-wrap  .rt-loadmore-btn:hover,
 					#{$layoutID} .rt-read-more:hover,
-					#{$layoutID} .rt-tpg-utility .rt-tpg-load-more button:hover{";
+					#{$layoutID} .gtusers-utility .gtusers-load-more button:hover{";
 			$css .= 'background-color:' . $button_hover_bg_color . ';';
 			$css .= '}';
 
 			$css .= "#{$layoutID} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item:hover,
 						#{$layoutID} .rt-layout-filter-container .rt-filter-sub-tax.sub-button-group .rt-filter-button-item:hover,
-						#{$layoutID}.rt-tpg-container .swiper-navigation .slider-btn:hover,
-						#{$layoutID}.rt-tpg-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li>a:hover{";
+						#{$layoutID}.gtusers-container .swiper-navigation .slider-btn:hover,
+						#{$layoutID}.gtusers-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li>a:hover{";
 			$css .= 'border-color:' . $button_hover_bg_color . ';';
 			$css .= '}';
-			$css .= "#{$layoutID}.rt-tpg-container .layout17 .rt-holder .overlay a.tpg-zoom:hover .fa{";
+			$css .= "#{$layoutID}.gtusers-container .layout17 .rt-holder .overlay a.tpg-zoom:hover .fa{";
 			$css .= 'color:' . $button_hover_bg_color . ';';
 			$css .= '}';
 		}
@@ -2259,10 +2259,10 @@ class Fns {
 		if ( $button_text_color ) {
 			$css .= "#{$layoutID} .pagination-list li a,
 					#{$layoutID} .pagination li a,
-					#{$layoutID} .rt-tpg-isotope-buttons button,
+					#{$layoutID} .gtusers-isotope-buttons button,
 					#{$layoutID} .rt-holder .read-more a,
-					#{$layoutID} .rt-tpg-utility .rt-tpg-load-more button,
-					#{$layoutID}.rt-tpg-container .swiper-navigation .slider-btn,
+					#{$layoutID} .gtusers-utility .gtusers-load-more button,
+					#{$layoutID}.gtusers-container .swiper-navigation .slider-btn,
 					#{$layoutID} .wc1 .rt-holder .rt-img-holder .overlay .product-more ul li a,
 					#{$layoutID} .edd1 .rt-holder .rt-img-holder .overlay .product-more ul li a,
 					#{$layoutID} .wc2 .rt-detail .rt-wc-add-to-cart,
@@ -2272,15 +2272,15 @@ class Fns {
 					#{$layoutID} .edd3 .rt-detail .rt-wc-add-to-cart,
 					#{$layoutID} .wc-carousel2 .rt-detail .rt-wc-add-to-cart,
 					#{$layoutID} .wc-isotope2 .rt-detail .rt-wc-add-to-cart,
-					#{$layoutID} .rt-tpg-utility .rt-tpg-load-more button,
+					#{$layoutID} .gtusers-utility .gtusers-load-more button,
 					#rt-tooltip-{$id},
 					#{$layoutID} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item,
 					#{$layoutID} .rt-layout-filter-container .rt-filter-sub-tax.sub-button-group .rt-filter-button-item,
 					#{$layoutID} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-sort-order-action,
 					#{$layoutID} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown .rt-filter-dropdown-item,
-					#{$layoutID}.rt-tpg-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li>a,
-					#{$layoutID}.rt-tpg-container .rt-pagination-wrap .rt-cb-page-prev-next > *,
-					#{$layoutID}.rt-tpg-container .rt-pagination-wrap  .rt-loadmore-btn,
+					#{$layoutID}.gtusers-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li>a,
+					#{$layoutID}.gtusers-container .rt-pagination-wrap .rt-cb-page-prev-next > *,
+					#{$layoutID}.gtusers-container .rt-pagination-wrap  .rt-loadmore-btn,
 					#{$layoutID} .rt-read-more,
 					#rt-tooltip-{$id} .rt-tooltip-bottom:after{";
 			$css .= 'color:' . $button_text_color . ';';
@@ -2290,17 +2290,17 @@ class Fns {
 		if ( $button_hover_text_color ) {
 			$css .= "#{$layoutID} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item:hover,
 					#{$layoutID} .rt-holder .read-more a:hover,
-					#{$layoutID}.rt-tpg-container .swiper-navigation .slider-btn:hover,
+					#{$layoutID}.gtusers-container .swiper-navigation .slider-btn:hover,
 					#{$layoutID} .rt-layout-filter-container .rt-filter-sub-tax.sub-button-group .rt-filter-button-item:hover,
 					#{$layoutID} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown .rt-filter-dropdown-item:hover,
 					#{$layoutID} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown .rt-filter-dropdown-item.selected,
 					#{$layoutID} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-sort-order-action:hover,
-					#{$layoutID}.rt-tpg-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li.active>a:hover,
+					#{$layoutID}.gtusers-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li.active>a:hover,
 					#{$layoutID} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item.selected,
 					#{$layoutID} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-sort-order-action,
-					#{$layoutID}.rt-tpg-container .rt-pagination-wrap  .rt-loadmore-btn:hover,
+					#{$layoutID}.gtusers-container .rt-pagination-wrap  .rt-loadmore-btn:hover,
 					#{$layoutID} .rt-read-more:hover,
-					#{$layoutID}.rt-tpg-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li.active>a{";
+					#{$layoutID}.gtusers-container .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages ul li.active>a{";
 			$css .= 'color:' . $button_hover_text_color . ';';
 			$css .= '}';
 		}
@@ -2375,19 +2375,19 @@ class Fns {
 
 		// Section.
 		if ( $sectionBg ) {
-			$css .= "#{$layoutID}.rt-tpg-container {";
+			$css .= "#{$layoutID}.gtusers-container {";
 			$css .= 'background:' . $sectionBg . ';';
 			$css .= '}';
 		}
 
 		if ( $sectionMargin ) {
-			$css .= "#{$layoutID}.rt-tpg-container {";
+			$css .= "#{$layoutID}.gtusers-container {";
 			$css .= 'margin:' . $sectionMargin . 'px;';
 			$css .= '}';
 		}
 
 		if ( $sectionPadding ) {
-			$css .= "#{$layoutID}.rt-tpg-container {";
+			$css .= "#{$layoutID}.gtusers-container {";
 			$css .= 'padding:' . $sectionPadding . 'px;';
 			$css .= '}';
 		}
@@ -2591,7 +2591,7 @@ class Fns {
 					#{$layoutID} .{$layout} .rt-meta a,
 					#{$layoutID} .{$layout} .rt-holder .post-meta-user .meta-data,
 					#{$layoutID} .{$layout} .rt-holder .post-meta-user a,
-					#{$layoutID} .{$layout} .rt-holder .rt-detail .post-meta .rt-tpg-social-share,
+					#{$layoutID} .{$layout} .rt-holder .rt-detail .post-meta .gtusers-social-share,
 					#{$layoutID} .rt-post-overlay .post-meta-user span,
 					#{$layoutID} .rt-post-overlay .post-meta-user,
 					#{$layoutID} .rt-post-overlay .post-meta-user a,
@@ -2629,18 +2629,18 @@ class Fns {
 					#{$layoutID} .cat-over-image.style3 .categories-links a,
 					#{$layoutID} .cat-above-title.style2 .categories-links a,
 					#{$layoutID} .cat-above-title.style3 .categories-links a,
-					#{$layoutID} .rt-tpg-category > a {
+					#{$layoutID} .gtusers-category > a {
 						background-color: {$catBg};
 					}";
 
 			$css .= "#{$layoutID} .cat-above-title.style3 .categories-links a:after,
 					.cat-over-image.style3 .categories-links a:after,
-					#{$layoutID} .rt-tpg-category > a,
-					#{$layoutID} .rt-tpg-category.style3 > a:after {
+					#{$layoutID} .gtusers-category > a,
+					#{$layoutID} .gtusers-category.style3 > a:after {
 						border-top-color: {$catBg} ;
 					}";
 
-			$css .= "#{$layoutID} .rt-tpg-category:not(style1) i {
+			$css .= "#{$layoutID} .gtusers-category:not(style1) i {
 					color: {$catBg};
 				}";
 		}
@@ -2648,32 +2648,32 @@ class Fns {
 		if ( $catTextColor ) {
 			$css .= "#{$layoutID} .cat-over-image .categories-links a,
 				#{$layoutID} .cat-above-title .categories-links a,
-				#{$layoutID} .rt-tpg-category.style1 > i,
-				#{$layoutID} .rt-tpg-category > a {";
+				#{$layoutID} .gtusers-category.style1 > i,
+				#{$layoutID} .gtusers-category > a {";
 			$css .= 'color:' . $catTextColor . ';';
 			$css .= '}';
 		}
 
 		if ( $catBorderRadius ) {
-			$css .= "#{$layoutID} .cat-over-image .categories-links a,#{$layoutID} .cat-above-title .categories-links a,#{$layoutID} .rt-tpg-category > a{";
+			$css .= "#{$layoutID} .cat-over-image .categories-links a,#{$layoutID} .cat-above-title .categories-links a,#{$layoutID} .gtusers-category > a{";
 			$css .= 'border-radius:' . $catBorderRadius . 'px;';
 			$css .= '}';
 		}
 
 		if ( $catPadding ) {
-			$css .= "#{$layoutID} .cat-over-image .categories-links a,#{$layoutID} .cat-above-title .categories-links a,#{$layoutID} .rt-tpg-category > a{";
+			$css .= "#{$layoutID} .cat-over-image .categories-links a,#{$layoutID} .cat-above-title .categories-links a,#{$layoutID} .gtusers-category > a{";
 			$css .= 'padding:' . $catPadding . 'px;';
 			$css .= '}';
 		}
 
 		if ( $catMargin ) {
-			$css .= "#{$layoutID} .categories-links,#{$layoutID} .rt-tpg-category > a{";
+			$css .= "#{$layoutID} .categories-links,#{$layoutID} .gtusers-category > a{";
 			$css .= 'margin:' . $catMargin . 'px;';
 			$css .= '}';
 		}
 
 		if ( $categorySize ) {
-			$css .= "#{$layoutID} .categories-links,#{$layoutID} .rt-tpg-category > a {";
+			$css .= "#{$layoutID} .categories-links,#{$layoutID} .gtusers-category > a {";
 			$css .= 'font-size:' . $categorySize . 'px;';
 			$css .= '}';
 		}
@@ -2953,7 +2953,7 @@ class Fns {
 			unset( $post_types[ $ex ] );
 		}
 
-		if ( ! rtTPG()->hasPro() ) {
+		if ( ! gtUsers()->hasPro() ) {
 			$post_types = [
 				'post' => $post_types['post'],
 				'page' => $post_types['page'],
@@ -2977,14 +2977,14 @@ class Fns {
 		$links = [];
 
 		foreach ( $terms as $term ) {
-			$meta_color      = get_term_meta( $term->term_id, 'rttpg_category_color', true );
+			$meta_color      = get_term_meta( $term->term_id, 'gtusers_category_color', true );
 			$meta_color_code = $meta_color ? "--tpg-primary-color:#" . ltrim( $meta_color, '#' ) : '';
 
 			$link = get_term_link( $term, $taxonomy );
 			if ( is_wp_error( $link ) ) {
 				return $link;
 			}
-			if ( rtTPG()->hasPro() ) {
+			if ( gtUsers()->hasPro() ) {
 				$links[] = '<a class="' . $term->slug . '" style="' . esc_attr( $meta_color_code ) . '" href="' . esc_url( $link ) . '" rel="tag">' . $term->name . '</a>';
 			} else {
 				$links[] = '<a class="' . $term->slug . '" href="' . esc_url( $link ) . '" rel="tag">' . $term->name . '</a>';
@@ -3007,7 +3007,7 @@ class Fns {
 
 		$author_id   = $post->post_author;
 		$author_name = get_the_author_meta( 'display_name', $post->post_author );
-		$author      = apply_filters( 'rttpg_author_link', sprintf( '<a href="%s">%s</a>', get_author_posts_url( $author_id ), $author_name ) );
+		$author      = apply_filters( 'gtusers_author_link', sprintf( '<a href="%s">%s</a>', get_author_posts_url( $author_id ), $author_name ) );
 
 		$comments_number = get_comments_number( $post_id );
 		$comment_label   = '';
@@ -3086,7 +3086,7 @@ class Fns {
 				'with_meta'
 			] ) );
 
-		if ( ! rtTPG()->hasPro() ) {
+		if ( ! gtUsers()->hasPro() ) {
 			$category_condition = ( $categories && 'show' == $data['show_category'] );
 		}
 
@@ -3184,7 +3184,7 @@ class Fns {
 
 		ob_start();
 		// Post Count.
-		if ( rtTPG()->hasPro() && 'show' == $data['show_post_count'] && ! empty( $get_view_count ) ) {
+		if ( gtUsers()->hasPro() && 'show' == $data['show_post_count'] && ! empty( $get_view_count ) ) {
 			?>
             <span class="post-count">
 				<?php
@@ -3279,7 +3279,7 @@ class Fns {
 	public static function get_el_post_title( $title_tag, $title, $link_start, $link_end, $data ) {
 		echo '<div class="entry-title-wrapper">';
 
-		if ( rtTPG()->hasPro() && 'above_title' === $data['category_position'] || ! self::el_ignore_layout( $data ) ) {
+		if ( gtUsers()->hasPro() && 'above_title' === $data['category_position'] || ! self::el_ignore_layout( $data ) ) {
 			self::get_el_thumb_cat( $data, 'cat-above-title' );
 		}
 
@@ -3388,7 +3388,7 @@ class Fns {
 			$thumb_cat_condition = true;
 		}
 
-		if ( rtTPG()->hasPro() && $data['show_category'] == 'show' && $thumb_cat_condition && 'with_meta' !== $data['category_position'] ) {
+		if ( gtUsers()->hasPro() && $data['show_category'] == 'show' && $thumb_cat_condition && 'with_meta' !== $data['category_position'] ) {
 			self::get_el_thumb_cat( $data );
 		}
 
@@ -3526,7 +3526,7 @@ class Fns {
 	 * @return bool
 	 */
 	public static function tpg_get_acf_data_elementor( $data, $pID, $return_type = true ) {
-		if ( ! ( rtTPG()->hasPro() && self::is_acf() ) ) {
+		if ( ! ( gtUsers()->hasPro() && self::is_acf() ) ) {
 			return;
 		}
 
@@ -3613,7 +3613,7 @@ class Fns {
 	 * @return bool
 	 */
 	public static function is_filter_enable( $data ) {
-		if ( rtTPG()->hasPro()
+		if ( gtUsers()->hasPro()
 		     && ( $data['show_taxonomy_filter'] == 'show'
 		          || $data['show_author_filter'] == 'show'
 		          || $data['show_order_by'] == 'show'
@@ -3726,7 +3726,7 @@ class Fns {
 
 		$image_sizes[] = [
 			'value' => 'full',
-			'label' => esc_html__( 'Full', 'the-post-grid' ),
+			'label' => esc_html__( 'Full', 'gutenberg-users' ),
 		];
 
 		foreach ( $sizes as $size ) {
@@ -3748,10 +3748,10 @@ class Fns {
 			}
 		}
 
-		if ( rtTPG()->hasPro() ) {
+		if ( gtUsers()->hasPro() ) {
 			$image_sizes[] = [
 				'value' => 'custom',
-				'label' => esc_html__( 'Custom', 'the-post-grid' ),
+				'label' => esc_html__( 'Custom', 'gutenberg-users' ),
 			];
 		}
 
@@ -3967,7 +3967,7 @@ class Fns {
 	 * @return string
 	 */
 	public static function tpg_option( $option_name, $default_value = '' ) {
-		$settings = get_option( rtTPG()->options['settings'] );
+		$settings = get_option( gtUsers()->options['settings'] );
 		if ( ! empty( $settings[ $option_name ] ) ) {
 			return $settings[ $option_name ];
 		} else if ( $default_value ) {

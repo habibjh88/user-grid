@@ -15,46 +15,46 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 <div class="field-holder">
-	<div class="field-label"><?php esc_html_e( 'ShortCode Heading', 'the-post-grid' ); ?></div>
+	<div class="field-label"><?php esc_html_e( 'ShortCode Heading', 'gutenberg-users' ); ?></div>
 	<div class="field">
-		<?php Fns::print_html( Fns::rtFieldGenerator( Options::rtTPGSCHeadingSettings() ), true ); ?>
+		<?php Fns::print_html( Fns::rtFieldGenerator( Options::gtUsersSCHeadingSettings() ), true ); ?>
 	</div>
 </div>
 <div class="field-holder">
 	<div class="field-label">
-		<label><?php esc_html_e( 'Category', 'the-post-grid' ); ?></label>
+		<label><?php esc_html_e( 'Category', 'gutenberg-users' ); ?></label>
 	</div>
 	<div class="field">
-		<?php Fns::print_html( Fns::rtFieldGenerator( Options::rtTPGSCCategorySettings() ), true ); ?>
-	</div>
-</div>
-<div class="field-holder">
-	<div class="field-label"><?php esc_html_e( 'Title', 'the-post-grid' ); ?></div>
-	<div class="field">
-		<?php Fns::print_html( Fns::rtFieldGenerator( Options::rtTPGSCTitleSettings() ), true ); ?>
+		<?php Fns::print_html( Fns::rtFieldGenerator( Options::gtUsersSCCategorySettings() ), true ); ?>
 	</div>
 </div>
 <div class="field-holder">
-	<div class="field-label"><?php esc_html_e( 'Meta', 'the-post-grid' ); ?></div>
+	<div class="field-label"><?php esc_html_e( 'Title', 'gutenberg-users' ); ?></div>
 	<div class="field">
-		<?php Fns::print_html( Fns::rtFieldGenerator( Options::rtTPGSCMetaSettings() ), true ); ?>
+		<?php Fns::print_html( Fns::rtFieldGenerator( Options::gtUsersSCTitleSettings() ), true ); ?>
 	</div>
 </div>
 <div class="field-holder">
-	<div class="field-label"><?php esc_html_e( 'Image', 'the-post-grid' ); ?></div>
+	<div class="field-label"><?php esc_html_e( 'Meta', 'gutenberg-users' ); ?></div>
 	<div class="field">
-		<?php Fns::print_html( Fns::rtFieldGenerator( Options::rtTPGSCImageSettings() ), true ); ?>
+		<?php Fns::print_html( Fns::rtFieldGenerator( Options::gtUsersSCMetaSettings() ), true ); ?>
 	</div>
 </div>
 <div class="field-holder">
-	<div class="field-label"><?php esc_html_e( 'Excerpt', 'the-post-grid' ); ?></div>
+	<div class="field-label"><?php esc_html_e( 'Image', 'gutenberg-users' ); ?></div>
 	<div class="field">
-		<?php Fns::print_html( Fns::rtFieldGenerator( Options::rtTPGSCExcerptSettings() ), true ); ?>
+		<?php Fns::print_html( Fns::rtFieldGenerator( Options::gtUsersSCImageSettings() ), true ); ?>
 	</div>
 </div>
 <div class="field-holder">
-	<div class="field-label"><?php esc_html_e( 'Read More Button', 'the-post-grid' ); ?></div>
+	<div class="field-label"><?php esc_html_e( 'Excerpt', 'gutenberg-users' ); ?></div>
 	<div class="field">
-		<?php Fns::print_html( Fns::rtFieldGenerator( Options::rtTPGSCButtonSettings() ), true ); ?>
+		<?php Fns::print_html( Fns::rtFieldGenerator( Options::gtUsersSCExcerptSettings() ), true ); ?>
+	</div>
+</div>
+<div class="field-holder">
+	<div class="field-label"><?php esc_html_e( 'Read More Button', 'gutenberg-users' ); ?></div>
+	<div class="field">
+		<?php Fns::print_html( Fns::rtFieldGenerator( Options::gtUsersSCButtonSettings() ), true ); ?>
 	</div>
 </div>

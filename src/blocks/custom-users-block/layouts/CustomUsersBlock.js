@@ -26,7 +26,7 @@ function CustomUsersBlock({props, userData}) {
     return (
 
 
-        <div className={`rttpg-block-postgrid rttpg-block-wrapper rttpg-block-${uniqueId} ${wrapper_classes}`}>
+        <div className={`gtusers-block-postgrid gtusers-block-wrapper gtusers-block-${uniqueId} ${wrapper_classes}`}>
 
             {userData.users && userData.users.length ?
                 <div className="cub-users-block-wrapper clearfix">
@@ -43,7 +43,7 @@ function CustomUsersBlock({props, userData}) {
                     </div>
                 </div>
                 :
-                <div className="rttpg-postgrid-is-loading">
+                <div className="gtusers-postgrid-is-loading">
                     {userData.message  ? <div stye={{padding: '30px', background: '#d1ecf1'}}>{userData.message}</div> : <Spinner/>}
                 </div>
             }

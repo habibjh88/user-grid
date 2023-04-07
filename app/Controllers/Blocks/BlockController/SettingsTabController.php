@@ -186,7 +186,7 @@ class SettingsTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-tpg-container .list-layout-wrapper [class*="rt-col"]:not(.offset-left) .rt-holder .tpg-el-image-wrap {flex: 0 0 {{list_image_side_width}};max-width:{{list_image_side_width}}; }'
+						'selector' => '{{GTUSERS}} .gtusers-container .list-layout-wrapper [class*="rt-col"]:not(.offset-left) .rt-holder .tpg-el-image-wrap {flex: 0 0 {{list_image_side_width}};max-width:{{list_image_side_width}}; }'
 					]
 				]
 			],
@@ -200,10 +200,10 @@ class SettingsTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .rt-content-loader > :not(.offset-right) .tpg-el-image-wrap,
-						 {{RTTPG}} .tpg-el-main-wrapper .rt-content-loader > :not(.offset-right) .tpg-el-image-wrap img,
-						 {{RTTPG}} .tpg-el-main-wrapper.slider-layout11-main .rt-grid-hover-item .rt-holder .rt-el-content-wrapper,
-						 {{RTTPG}} .tpg-el-main-wrapper.slider-layout12-main .rt-grid-hover-item .rt-holder .rt-el-content-wrapper
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .rt-content-loader > :not(.offset-right) .tpg-el-image-wrap,
+						 {{GTUSERS}} .tpg-el-main-wrapper .rt-content-loader > :not(.offset-right) .tpg-el-image-wrap img,
+						 {{GTUSERS}} .tpg-el-main-wrapper.slider-layout11-main .rt-grid-hover-item .rt-holder .rt-el-content-wrapper,
+						 {{GTUSERS}} .tpg-el-main-wrapper.slider-layout12-main .rt-grid-hover-item .rt-holder .rt-el-content-wrapper
 						{height: {{image_height}}; }'
 					]
 				]
@@ -218,8 +218,8 @@ class SettingsTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .rt-content-loader .offset-right .tpg-el-image-wrap,
-						 {{RTTPG}} .tpg-el-main-wrapper .rt-content-loader .offset-right .tpg-el-image-wrap img {height: {{offset_image_height}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .rt-content-loader .offset-right .tpg-el-image-wrap,
+						 {{GTUSERS}} .tpg-el-main-wrapper .rt-content-loader .offset-right .tpg-el-image-wrap img {height: {{offset_image_height}}; }'
 					]
 				]
 			],
@@ -344,6 +344,6 @@ class SettingsTabController {
 			],
 		];
 
-		return apply_filters( 'rttpg_guten_settings_attribute', $settings_attribute );
+		return apply_filters( 'gtusers_guten_settings_attribute', $settings_attribute );
 	}
 }

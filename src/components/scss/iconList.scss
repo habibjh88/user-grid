@@ -1,4 +1,4 @@
-.rttpg-icon-main-wrapper {
+.gtusers-icon-main-wrapper {
 
 	.choose-icon {
 		display: flex;
@@ -51,7 +51,7 @@
 	}
 
 	.components-input-control__label {
-		color: var(--rttpg-admin-color-secondary, #555);
+		color: var(--gtusers-admin-color-secondary, #555);
 		font-weight: 500;
 		margin-bottom: 5px;
 		display: block;
@@ -60,7 +60,7 @@
 	.icon-inner-wrapper {
 		position: relative;
 
-		.rttpg-icon-wrapper {
+		.gtusers-icon-wrapper {
 			background: #fff;
 			display: block;
 			position: absolute;
@@ -70,12 +70,12 @@
 		}
 	}
 
-	.rttpg-icon-list-warp {
+	.gtusers-icon-list-warp {
 		width: 100%;
 		display: block;
 	}
 
-	.rttpg-icon-wrapper {
+	.gtusers-icon-wrapper {
 
 		input {
 			background: #fff;
@@ -95,14 +95,14 @@
 			}
 		}
 
-		.rttpg-remove-icon {
+		.gtusers-remove-icon {
 			top: 7px;
 			box-shadow: none;
 			line-height: 18px;
 			border-collapse: #ddd;
 		}
 
-		.rttpg-font-list {
+		.gtusers-font-list {
 			span {
 				border-bottom: .5px solid #E5E7EA;
 
@@ -114,7 +114,7 @@
 		}
 	}
 
-	&.rttpg-toggle-enabled {
+	&.gtusers-toggle-enabled {
 		label {
 			font-size: 16px;
 			line-height: 1;
@@ -124,7 +124,7 @@
 		}
 	}
 
-	.rttpg-icon-list-icons {
+	.gtusers-icon-list-icons {
 		max-height: 177px;
 		margin: 0;
 		border: 1px solid #E5E7EA;
@@ -163,7 +163,7 @@
 				}
 			}
 
-			&.rttpg-active {
+			&.gtusers-active {
 				span {
 					color: #fff;
 					background: #2184F9;
@@ -174,7 +174,7 @@
 
 	}
 
-	.rttpg-icon-list-inner {
+	.gtusers-icon-list-inner {
 		width: 100%;
 		padding: 4px 9px;
 		display: block;

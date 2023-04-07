@@ -1,6 +1,6 @@
 const {__} = wp.i18n;
 const icons = {};
-const img_path = rttpgParams.plugin_url + '/assets/images';
+const img_path = gtusersParams.plugin_url + '/assets/images';
 
 icons.postgrid_logo = `${img_path}/the-post-grid-logo.svg`;
 

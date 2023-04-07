@@ -10,7 +10,7 @@ class CountLayoutInstall {
 	}
 
 	public function register_count_layout_route() {
-		register_rest_route( 'rttpg/v1', 'countlayout', [
+		register_rest_route( 'gtusers/v1', 'countlayout', [
 			'methods'             => 'POST',
 			'callback'            => [ $this, 'count_layout' ],
 			'permission_callback' => function () {

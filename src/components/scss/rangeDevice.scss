@@ -1,17 +1,17 @@
-.rttpg-components-popover,
-.rttpg-panel-control-wrapper {
-    .rttpg-control-field {
-        .rttpg-cf-head .rt-left-part {
+.gtusers-components-popover,
+.gtusers-panel-control-wrapper {
+    .gtusers-control-field {
+        .gtusers-cf-head .rt-left-part {
             display: flex;
             align-items: center;
         }
 
-        .rttpg-cf-head .rttpg-label {
+        .gtusers-cf-head .gtusers-label {
             margin-bottom: 2px;
             margin-right: 4px;
         }
 
-        &.rttpg-cf-range-wrap {
+        &.gtusers-cf-range-wrap {
             --row-gap: 5px;
 
             .components-input-control__input {
@@ -22,32 +22,32 @@
             // components-range-control
             .components-range-control {
                 &__wrapper {
-                    color: var(--rttpg-admin-color-primary, #0066ff);
+                    color: var(--gtusers-admin-color-primary, #0066ff);
                     min-height: 25px;
                     height: 25px;
                     flex: 1 1 90% !important;
 
                     .acf-bf-cf-b-afb-199wkr {
-                        background-color: var(--rttpg-admin-color-primary, #0066ff);
+                        background-color: var(--gtusers-admin-color-primary, #0066ff);
                     }
                 }
             }
 
-            .rttpg-cf-body {
+            .gtusers-cf-body {
                 display: flex;
                 align-items: center;
                 gap: 8px;
 
                 .components-base-control,
                 .components-base-control__field,
-                .rttpg-control-field {
+                .gtusers-control-field {
                     flex-grow: 1;
                     margin-bottom: 0;
                 }
 
-                .rttpg-undo-btn {
+                .gtusers-undo-btn {
                     font-size: 16px;
-                    color: var(--rttpg-admin-color-secondary, #555);
+                    color: var(--gtusers-admin-color-secondary, #555);
                     background-color: transparent;
 
                     span {

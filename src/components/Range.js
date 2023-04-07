@@ -11,13 +11,13 @@ function Range( props ) {
     };
 
     return (
-        <div className="rttpg-control-field rttpg-cf-range-wrap">
+        <div className="gtusers-control-field gtusers-cf-range-wrap">
             { label && (
-                <div className="rttpg-cf-head">
-                    <span className="rttpg-label">{ label }</span>
+                <div className="gtusers-cf-head">
+                    <span className="gtusers-label">{ label }</span>
                 </div>
             ) }
-            <div className="rttpg-cf-body">
+            <div className="gtusers-cf-body">
                 <RangeControl
                     value={ data }
                     onChange={ ( val ) => {
@@ -28,7 +28,7 @@ function Range( props ) {
 
                 { (reset && data) ? <Button
                     isSmall
-                    className="rttpg-undo-btn"
+                    className="gtusers-undo-btn"
                     icon="image-rotate"
                     onClick={ () => onChange( null ) }
                 ></Button> : ''

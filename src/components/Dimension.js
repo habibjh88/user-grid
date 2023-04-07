@@ -8,7 +8,7 @@ import "./scss/dimension.scss";
 const Dimension = (props) => {
     const {responsive, onChange, className, units, value: data, type} = props;
 
-    const [device, setDevice] = useState(() => window.rttpgDevice || 'lg');
+    const [device, setDevice] = useState(() => window.gtusersDevice || 'lg');
     const defaultData = {isLinked: true, unit: 'px', value: ''};
     const currentData = responsive ? (data[device] ? data[device] : defaultData) : data || defaultData;
 
@@ -88,10 +88,10 @@ const Dimension = (props) => {
     }
 
     return (
-        <div className={`rttpg-control-field rttpg-cf-dimension ${className}`}>
-            <div className={`rttpg-cf-head`}>
+        <div className={`gtusers-control-field gtusers-cf-dimension ${className}`}>
+            <div className={`gtusers-cf-head`}>
                 <div className="rt-left-part">
-                    <div className="rttpg-label">{props.label}</div>
+                    <div className="gtusers-label">{props.label}</div>
                     {responsive && <Devices device={device} onChange={_device => {
                         setDevice(_device);
                         const newData = JSON.parse(JSON.stringify(data));
@@ -102,7 +102,7 @@ const Dimension = (props) => {
                     }}/>}
                 </div>
                 <div className="rt-right-part">
-                    <div className="rttpg-units-choices">
+                    <div className="gtusers-units-choices">
                         {(units && Array.isArray(units) ? units : ['px', 'em', '%']).map(_unit => (
                             <label
                                 className={(currentData?.unit === _unit || (!currentData?.unit && _unit === defaultData.unit)) ? 'active' : ''}
@@ -112,15 +112,15 @@ const Dimension = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="rttpg-cf-body">
-                <div className="rttpg-control-dimensions">
+            <div className="gtusers-cf-body">
+                <div className="gtusers-control-dimensions">
                     {dimensionTypes.map((_item, _i) => {
                         let isDisable = false;
                         if((allowDimension==='vertical' && ['left','right'].includes(_item)) || allowDimension==='horizontal' && ['top','bottom'].includes(_item)){
                             isDisable = true;
                         }
                         return (
-                            <div className="rttpg-control-dimension">
+                            <div className="gtusers-control-dimension">
                                 <input
                                     type="number"
                                     value={dimensionValues[_i]}
@@ -128,14 +128,14 @@ const Dimension = (props) => {
                                     onChange={(e) => onChangeDimension(_item, e.target.value)}
                                     disabled={isDisable}
                                 />
-                                <label className="rttpg-control-dimension-label">{_item}</label>
+                                <label className="gtusers-control-dimension-label">{_item}</label>
                             </div>
                         );
                     })}
 
-                    <div className='rttpg-control-dimension linking'>
+                    <div className='gtusers-control-dimension linking'>
                         <button
-                            className={`rttpg-link-dimensions  ${currentData?.isLinked ? "admin-links linked" : "editor-unlink"}`}
+                            className={`gtusers-link-dimensions  ${currentData?.isLinked ? "admin-links linked" : "editor-unlink"}`}
                             onClick={toggleIsLinked}
                         >
 							<span

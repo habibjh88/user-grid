@@ -24,7 +24,7 @@ function Thumbnail(props) {
     return (
         <div className="rt-img-holder tpg-el-image-wrap">
             {
-                ((rttpgParams.hasPro && show_category === 'show' && thumb_cat_condition && 'with_meta' !== category_position) &&
+                ((gtusersParams.hasPro && show_category === 'show' && thumb_cat_condition && 'with_meta' !== category_position) &&
                     get_el_thumb_cat({attributes, post})
                 )
             }

@@ -71,7 +71,7 @@ class ContentTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-el-main-wrapper .list-behaviour .rt-holder .rt-el-content-wrapper {align-items: {{list_layout_alignment}}; }'
+						'selector' => '{{GTUSERS}} .tpg-el-main-wrapper .list-behaviour .rt-holder .rt-el-content-wrapper {align-items: {{list_layout_alignment}}; }'
 					]
 				]
 			],
@@ -91,7 +91,7 @@ class ContentTabController {
 				'default' => [],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .tpg-post-holder div {text-align: {{full_wrapper_align}}; }'
+						'selector' => '{{GTUSERS}} .tpg-post-holder div {text-align: {{full_wrapper_align}}; }'
 					]
 				]
 			],
@@ -303,7 +303,7 @@ class ContentTabController {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-pagination-wrap {position: {{pagination_btn_position}};margin:0;}'
+						'selector' => '{{GTUSERS}} .rt-pagination-wrap {position: {{pagination_btn_position}};margin:0;}'
 					]
 				]
 			],
@@ -317,7 +317,7 @@ class ContentTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-pagination-wrap{top:{{pagination_pos_val}};}'
+						'selector' => '{{GTUSERS}} .rt-pagination-wrap{top:{{pagination_pos_val}};}'
 					]
 				]
 			],
@@ -331,7 +331,7 @@ class ContentTabController {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .rt-pagination-wrap{left:{{pagination_pos_val_left}};}'
+						'selector' => '{{GTUSERS}} .rt-pagination-wrap{left:{{pagination_pos_val_left}};}'
 					]
 				]
 			],
@@ -347,7 +347,7 @@ class ContentTabController {
 		//Field Selections
 
 		$cf = Fns::is_acf();
-		if ( $cf && rtTPG()->hasPro() ) {
+		if ( $cf && gtUsers()->hasPro() ) {
 			$content_attribute['show_acf'] = [
 				'type'    => 'string',
 				'default' => '',
@@ -381,6 +381,6 @@ class ContentTabController {
 
 		}
 
-		return apply_filters( 'rttpg_guten_content_attribute', $content_attribute );
+		return apply_filters( 'gtusers_guten_content_attribute', $content_attribute );
 	}
 }
