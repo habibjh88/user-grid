@@ -1,4 +1,8 @@
 .cub-users-block-wrapper {
+    font-size: 16px;
+    .user-item-col {
+        padding-bottom: 30px;
+    }
     .user-item-col a {
         text-decoration: none !important;
     }
@@ -23,6 +27,7 @@
         margin-top: 15px;
         margin-bottom: 5px;
         font-size: 24px;
+        font-weight: 500;
     }
 
     .user-name a {
@@ -36,16 +41,23 @@
 
     .load-user-button {
         border-radius: 4px;
-        border: 1px solid #ddd;
-        color: #555;
-        outline: none;
-        box-shadow: none;
+        border: 1px solid rgba(0, 0, 0, 0.2588235294);
+        color: #555 !important;
+        outline: none !important;
+        box-shadow: none !important;
         transition: 0.4s;
+        height: 36px;
+        line-height: 36px;
+        padding: 0 15px;
+        background: rgba(255, 255, 255, 0.4) !important;
+        font-size: 14px;
+        white-space: nowrap;
+        font-weight: 500 !important;
     }
 
     .load-user-button:hover {
-        background: #f1f1f1;
-        outline: none;
+        background: #f1f1f1 !important;
+        outline: none !important;
         box-shadow: none !important;
     }
 
@@ -62,6 +74,7 @@
 }
 
 .cub-user-social-icons {
+    margin-bottom: 15px;
     a {
         color: inherit !important;
         display: inline-block;
@@ -115,6 +128,7 @@
          width: 600px;
          max-width: 95%;
          margin: auto;
+         font-size: 16px;
      }
 
      .modal-inner .modal-header {
@@ -125,17 +139,30 @@
          margin: -31px -31px 20px;
          padding: 10px 30px;
          color: #000;
+         span {
+             font-size: 20px;
+             font-weight: 500;
+             color: #454545;
+             margin-bottom: 2px;
+             display: block;
+         }
      }
      .modal-inner .close-modal-btn {
-         background: transparent;
-         color: #000;
+         background: transparent !important;
+         color: #555555 !important;
          padding: 0;
          font-size: 30px;
          width: 40px;
          height: 35px;
          margin-right: -17px;
+         outline: none;
+         border: none;
+         box-shadow: none;
          &:hover {
-             color: #f00;
+             color: #f00 !important;
+         }
+         i {
+             font-size: inherit;
          }
      }
 
@@ -156,6 +183,14 @@
          color: #bec2c5;
          pointer-events: none;
      }
+}
+
+.components-modal__header {
+    background: #b7c2c9;
+    height: 50px;
+}
+.components-modal__content p {
+    font-size: 16px;
 }
 
  @-webkit-keyframes cubSpin {

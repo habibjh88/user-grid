@@ -67,18 +67,16 @@ function ContentControl(props) {
                 />
             </div>
 
-            {!users_lists.length &&
-                <TextControl
-                    autocomplete="off"
-                    help="This filter won't work if you choose users from (Choose Users)"
-                    label="Filter by email domain"
-                    value={user_filter_by_domain}
-                    onChange={(user_filter_by_domain) => {
-                        setAttributes({user_filter_by_domain})
-                        changeQuery();
-                    }}
-                />
-            }
+            <TextControl
+                autocomplete="off"
+                help="This filter won't work if you choose users from (Choose Users)"
+                label="Filter by email domain"
+                value={user_filter_by_domain}
+                onChange={(user_filter_by_domain) => {
+                    setAttributes({user_filter_by_domain})
+                    changeQuery();
+                }}
+            />
 
             <NumberControl
                 isShiftStepEnabled

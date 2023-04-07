@@ -44,7 +44,7 @@ function CustomUsersBlock({props, userData}) {
                 </div>
                 :
                 <div className="rttpg-postgrid-is-loading">
-                    {userData.message  ? <div stye={{padding: '30px', background: '#d1ecf1'}}>{__("User Not Found")}</div> : <Spinner/>}
+                    {userData.message  ? <div stye={{padding: '30px', background: '#d1ecf1'}}>{userData.message}</div> : <Spinner/>}
                 </div>
             }
 

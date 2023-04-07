@@ -67,13 +67,6 @@ class ScriptController {
 		];
 
 
-		// register acf styles.
-		$styles['rt-fontawsome'] = rtTPG()->get_assets_uri( 'vendor/font-awesome/css/font-awesome.min.css' );
-
-		if ( Fns::tpg_option('tpg_icon_font') === 'flaticon' ) {
-			$styles['rt-flaticon'] = rtTPG()->get_assets_uri( 'vendor/flaticon/flaticon_tpg.css' );
-		}
-
 		// Plugin specific css.
 		$styles['rt-tpg-block']     = rtTPG()->tpg_can_be_rtl( 'css/block' );
 
@@ -95,11 +88,14 @@ class ScriptController {
 	public function enqueue() {
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_style( 'rt-tpg-block' );
-		wp_enqueue_style( 'rt-fontawsome' );
-		wp_enqueue_style( 'rt-flaticon' );
+
+        wp_enqueue_style('dashicons');
+
+        $nonce = wp_create_nonce( rtTPG()->nonceText() );
 
 		wp_localize_script( 'rt-tpg', 'rttpgParams', [
-				'nonce'           => wp_create_nonce( 'rttpg_nonce' ),
+                'nonceID' => esc_attr( rtTPG()->nonceId() ),
+                'nonce'   => esc_attr( $nonce ),
 				'ajaxurl'         => admin_url( 'admin-ajax.php' ),
 			]
 		);

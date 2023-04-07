@@ -321,12 +321,12 @@ export const TITLE_VISIBILITY_STYLE = [
 export const USER_ORDER_BY = [
     {value: '', label: __('-Select-', 'the-post-grid')},
     {value: 'ID', label: __('ID', 'the-post-grid')},
-    {value: 'display_name', label: __('display_name', 'the-post-grid')},
-    {value: 'include', label: __('include', 'the-post-grid')},
-    {value: 'user_login', label: __('user_login', 'the-post-grid')},
-    {value: 'user_nicename', label: __('user_nicename', 'the-post-grid')},
-    {value: 'user_email', label: __('user_email', 'the-post-grid')},
-    {value: 'post_count', label: __('post_count', 'the-post-grid')},
+    {value: 'display_name', label: __('Display Name', 'the-post-grid')},
+    {value: 'include', label: __('Include', 'the-post-grid')},
+    {value: 'user_login', label: __('User Login', 'the-post-grid')},
+    {value: 'user_nicename', label: __('User Nicename', 'the-post-grid')},
+    {value: 'user_email', label: __('User Email', 'the-post-grid')},
+    {value: 'post_count', label: __('Post Count', 'the-post-grid')},
 ];
 
 const titlePosition = [

@@ -115,8 +115,6 @@ class BlocksController {
 			return;
 		}
 
-		wp_enqueue_style( 'rt-fontawsome' );
-		wp_enqueue_style( 'rt-flaticon' );
 		wp_enqueue_style( 'rt-tpg-block' );
 
 		//Custom CSS From Settings

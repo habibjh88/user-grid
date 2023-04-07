@@ -7,10 +7,9 @@ import {updateCategory} from '@wordpress/blocks';
 window.rttpgDevice = 'lg';
 
 //Impost post grid block
-import "./grid-layout";
 import "./custom-users-block";
 
-const allCustomBlocks = ['rttpg/tpg-grid-layout', 'rttpg/custom-users-block'];
+const allCustomBlocks = ['rttpg/custom-users-block'];
 // Save Style CSS within Database/File
 window.bindCss = false;
 wp.data.subscribe(() => {

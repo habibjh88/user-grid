@@ -53,6 +53,34 @@ function Layout1({attributes, user}) {
                     <a href={`mainto:${user.email}`}>{user.email}</a>
                 </div>
             }
+
+            {social_visibility === 'show' &&
+                <div className="cub-user-social-icons">
+                    {user.social.facebook &&
+                        <a href={user.social.facebook}><i
+                            className="dashicons dashicons-facebook-alt"></i></a>
+                    }
+                    {user.social.twitter &&
+                        <a href={user.social.twitter}><i
+                            className="dashicons dashicons-twitter"></i></a>
+                    }
+
+                    {user.social.linkedin &&
+                        <a href={user.social.linkedin}><i
+                            className="dashicons dashicons-linkedin"></i></a>
+                    }
+                    {user.social.gplus &&
+                        <a href={user.social.gplus}><i
+                            className="dashicons dashicons-google"></i></a>
+                    }
+                    {user.social.pinterest &&
+                        <a href={user.social.pinterest}><i
+                            className="dashicons dashicons-pinterest"></i></a>
+                    }
+
+                </div>
+            }
+
             {bio_visibility && <>
 
                 <Button className="load-user-button" variant="secondary" onClick={openModal}>
@@ -62,33 +90,6 @@ function Layout1({attributes, user}) {
                 {isOpen && (
                     <Modal className={`cub-users-block-modal`} title={__("Users Biography")} onRequestClose={closeModal}>
                         <p className="user-biography">{user.biography}</p>
-
-                        {social_visibility === 'show' &&
-                            <div className="cub-user-social-icons">
-                                {user.social.facebook &&
-                                    <a href={user.social.facebook}><i
-                                        className="dashicons dashicons-facebook-alt"></i></a>
-                                }
-                                {user.social.twitter &&
-                                    <a href={user.social.twitter}><i
-                                        className="dashicons dashicons-twitter"></i></a>
-                                }
-
-                                {user.social.linkedin &&
-                                    <a href={user.social.linkedin}><i
-                                        className="dashicons dashicons-linkedin"></i></a>
-                                }
-                                {user.social.gplus &&
-                                    <a href={user.social.gplus}><i
-                                        className="dashicons dashicons-google"></i></a>
-                                }
-                                {user.social.pinterest &&
-                                    <a href={user.social.pinterest}><i
-                                        className="dashicons dashicons-pinterest"></i></a>
-                                }
-
-                            </div>
-                        }
                     </Modal>
                 )}
 

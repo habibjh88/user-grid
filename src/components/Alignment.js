@@ -71,22 +71,22 @@ const Alignment = (props) => {
                                     onClick={() => setSettings(_filterValue() == data ? '' : data)}>
                                 {(data == 'left' || data === 'flex-start') &&
                                     <Tooltip text={__('Left')}>
-                                        <i className="fas fa-align-left"></i>
+                                        <i className="dashicons dashicons-editor-alignleft"></i>
                                     </Tooltip>
                                 }
                                 {data == 'center' &&
                                     <Tooltip text={__('Middle')}>
-                                        <i className="fas fa-align-center"></i>
+                                        <i className="dashicons dashicons-editor-aligncenter"></i>
                                     </Tooltip>
                                 }
                                 {(data == 'right' || data === 'flex-end') &&
                                     <Tooltip text={__('Right')}>
-                                        <i class="fas fa-align-right"></i>
+                                        <i class="dashicons dashicons-editor-alignright"></i>
                                     </Tooltip>
                                 }
                                 {(data == 'justify') &&
                                     <Tooltip text={__('Right')}>
-                                        <i class="fas fa-align-justify"></i>
+                                        <i class="dashicons dashicons-editor-justify"></i>
                                     </Tooltip>
                                 }
                             </button>
