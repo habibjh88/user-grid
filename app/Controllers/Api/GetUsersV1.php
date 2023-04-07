@@ -55,7 +55,6 @@ class GetUsersV1 {
 			$args['include'] = wp_list_pluck( $data['users_lists'], 'value' );
 		}
 
-		error_log( print_r( $args, true ) . "\n\n", 3, __DIR__ . '/log.txt' );
 		$user_lists = wp_list_pluck( get_users( $args ), 'ID' );;
 
 		$count_users = count( $user_lists );
@@ -66,10 +65,10 @@ class GetUsersV1 {
 
 			foreach ( $user_lists as $user ) {
 				$user_info = get_user_by( 'id', $user );
-
 				$send_data['users'][] = [
 					'id'        => esc_html( $user_info->ID ),
 					'name'      => esc_html( $user_info->display_name ),
+					'email'     => esc_html( $user_info->user_email ),
 					'avatar'    => esc_url( get_avatar_url( $user_info->ID, $avatar_size ) ),
 					'biography' => get_user_meta( $user_info->ID, 'description', true ),
 					'social'    => [

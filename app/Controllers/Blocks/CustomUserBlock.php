@@ -69,15 +69,15 @@ class CustomUserBlock extends BlockBase {
 				],
 			],
 
-			'users_lists' => [
+			'users_lists'           => [
 				'type'    => 'array',
 				'default' => [],
 			],
-			'orderby'     => [
+			'orderby'               => [
 				'type'    => 'string',
 				'default' => '',
 			],
-			'order'       => [
+			'order'                 => [
 				'type'    => 'string',
 				'default' => '',
 			],
@@ -118,6 +118,11 @@ class CustomUserBlock extends BlockBase {
 			],
 
 			'name_visibility' => [
+				'type'    => 'string',
+				'default' => 'show',
+			],
+
+			'email_visibility' => [
 				'type'    => 'string',
 				'default' => 'show',
 			],
@@ -259,8 +264,60 @@ class CustomUserBlock extends BlockBase {
 				]
 			],
 
+			//Email Settings
+			'email_typography' => [
+				'type'    => 'object',
+				'default' => (object) [
+					'openTypography' => 1,
+					'size'           => (object) [ 'lg' => '', 'unit' => 'px' ],
+					'spacing'        => (object) [ 'lg' => '', 'unit' => 'px' ],
+					'height'         => (object) [ 'lg' => '', 'unit' => 'px' ],
+					'transform'      => '',
+					'weight'         => ''
+				],
+				'style'   => [
+					(object) [ 'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-email' ]
+				],
+			],
+
+			"email_spacing" => [
+				"type"    => "object",
+				"default" => [
+					'lg' => [
+						"isLinked" => false,
+						"unit"     => "px",
+						"value"    => ''
+					]
+				],
+				'style'   => [
+					(object) [
+						'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-email {{email_spacing}}'
+					]
+				]
+			],
+
+			'email_color' => [
+				'type'    => 'string',
+				'default' => '',
+				'style'   => [
+					(object) [
+						'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-email a {color: {{email_color}}; }'
+					]
+				]
+			],
+
+			'email_color_hover' => [
+				'type'    => 'string',
+				'default' => '',
+				'style'   => [
+					(object) [
+						'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-email a:hover {color: {{email_color_hover}}; }'
+					]
+				]
+			],
+
 			//Bio Settings
-			'bio_visible_for'  => [
+			'bio_visible_for'   => [
 				'type'    => 'string',
 				'default' => 'loggedin',
 			],
@@ -306,7 +363,7 @@ class CustomUserBlock extends BlockBase {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-biography {color: {{bio_color}}; }'
+						'selector' => '.cub-users-block-wrapper .user-biography {color: {{bio_color}}; }'
 					]
 				]
 			],
@@ -320,7 +377,7 @@ class CustomUserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .cub-users-block-wrapper .social-icons a i {font-size:{{icon_font_size}}}'
+						'selector' => '.cub-user-social-icons a i {font-size:{{icon_font_size}}}'
 					]
 				]
 			],
@@ -336,7 +393,7 @@ class CustomUserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .cub-users-block-wrapper .social-icons {{social_spacing}}'
+						'selector' => '.cub-user-social-icons {{social_spacing}}'
 					]
 				]
 			],
@@ -346,7 +403,7 @@ class CustomUserBlock extends BlockBase {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .cub-users-block-wrapper .social-icons a i {color: {{social_color}}; }'
+						'selector' => '.cub-user-social-icons a i {color: {{social_color}}; }'
 					]
 				]
 			],
@@ -356,7 +413,7 @@ class CustomUserBlock extends BlockBase {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{RTTPG}} .cub-users-block-wrapper .social-icons a:hover i {color: {{social_color_hover}}; }'
+						'selector' => '{{RTTPG}} .cub-user-social-icons a:hover i {color: {{social_color_hover}}; }'
 					]
 				]
 			],
@@ -370,6 +427,8 @@ class CustomUserBlock extends BlockBase {
 	 */
 	public function get_script_depends( $data ) {
 		wp_enqueue_style( 'rt-tpg-block' );
+		wp_enqueue_script( 'rt-tpg' );
+		wp_enqueue_script( 'rt-magnific-popup' );
 	}
 
 	/**
@@ -399,10 +458,10 @@ class CustomUserBlock extends BlockBase {
 		$wrapper_class .= $data['image_link'] == 'yes' ? '' : ' no-image-link';
 		ob_start();
 		?>
-		<div class="<?php echo esc_attr( $wrapper_class ) ?>">
-			<div class="cub-users-block-wrapper clearfix">
+        <div class="<?php echo esc_attr( $wrapper_class ) ?>">
+            <div class="cub-users-block-wrapper clearfix">
 				<?php if ( is_array( $users ) && ! empty( $users ) ) { ?>
-				<div class="cub-row">
+                <div class="cub-row">
 					<?php
 					foreach ( $users
 
@@ -413,39 +472,59 @@ class CustomUserBlock extends BlockBase {
 					$user_bio         = get_user_meta( $user_info->ID, 'description', true );
 
 					?>
-					<div class="user-item-col <?php echo esc_attr( $col_class ) ?>">
+                    <div class="user-item-col <?php echo esc_attr( $col_class ) ?>">
 
-						<div class="user-avatar">
-							<a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_info->ID ) ) ?>">
-								<img width="<?php echo esc_attr( $avatar_size['size'] ) ?>px"
-								     height="<?php echo esc_attr( $avatar_size['size'] ) ?>px"
-								     src="<?php echo esc_url( $avater_image_url ) ?>"
-								     alt="<?php echo esc_html( $user_info->display_name ) ?>">
-							</a>
-						</div>
-						<<?php echo esc_attr( $data['name_tag'] ) ?> class="user-name">
-						<a href="<?php echo esc_url( get_author_posts_url( $user_info->ID ) ) ?>"><?php echo esc_html( $user_info->display_name ) ?></a>
-					</<?php echo esc_attr( $data['name_tag'] ) ?>>
+                        <div class="user-avatar">
+                            <a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_info->ID ) ) ?>">
+                                <img width="<?php echo esc_attr( $avatar_size['size'] ) ?>px"
+                                     height="<?php echo esc_attr( $avatar_size['size'] ) ?>px"
+                                     src="<?php echo esc_url( $avater_image_url ) ?>"
+                                     alt="<?php echo esc_html( $user_info->display_name ) ?>">
+                            </a>
+                        </div>
+                        <<?php echo esc_attr( $data['name_tag'] ) ?> class="user-name">
+                        <a href="<?php echo esc_url( get_author_posts_url( $user_info->ID ) ) ?>"><?php echo esc_html( $user_info->display_name ) ?></a>
+                    </<?php echo esc_attr( $data['name_tag'] ) ?>>
 
+					<?php if ( $data['email_visibility'] ) : ?>
+                        <div class="user-email">
+                            <a href="mailto:<?php echo esc_url( $user_info->user_email ) ?>"><?php echo esc_html( $user_info->user_email ) ?></a>
+                        </div>
+					<?php endif; ?>
+
+
+                    <div class="cub-user-social-icons">
+                        <a class="load-user-button" href="#usermodal">
+							<?php echo esc_html( "Load users's biography" ); ?>
+                        </a>
+
+
+                        <div id="usermodal" class="zoom-anim-dialog mfp-hide">
+                            <h1>Lorem.</h1>
+                            <p>Lorem, ipsum.</p>
+                        </div>
+                    </div>
 
 					<?php if ( ! is_user_logged_in() && $data['bio_visible_for'] === 'loggedin' ) : ?>
 						<?php if ( ! empty( $data['show_message_frontend'] ) ) : ?>
-							<p class="user-biography"><?php echo esc_html( $data['show_message_frontend'] ) ?></p>
+                            <p class="user-biography"><?php echo esc_html( $data['show_message_frontend'] ) ?></p>
 						<?php endif; ?>
 					<?php else : ?>
-						<p class="user-biography"><?php echo esc_html( $user_bio ) ?></p>
+                        <p class="user-biography"><?php echo esc_html( $user_bio ) ?></p>
 					<?php endif; ?>
-				</div>
+
+
+                </div>
 			<?php endforeach; ?>
-			</div>
+            </div>
 			<?php } else {
 				?>
-				<div
-					style="padding: 30px;background: #d1ecf1;"><?php echo esc_html__( "User not found", 'the-post-grid' ); ?></div>
+                <div
+                        style="padding: 30px;background: #d1ecf1;"><?php echo esc_html__( "User not found", 'the-post-grid' ); ?></div>
 				<?php
 			} ?>
-		</div>
-		</div>
+        </div>
+        </div>
 		<?php
 		do_action( 'tpg_elementor_script' );
 

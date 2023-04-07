@@ -34,6 +34,7 @@ function ContentControl(props) {
         grid_alignment,
         avatar_visibility,
         name_visibility,
+        email_visibility,
         bio_visibility,
         social_visibility,
         orderby,
@@ -168,6 +169,13 @@ function ContentControl(props) {
                 className="rttpg-toggle-control-field"
                 checked={name_visibility}
                 onChange={(name_visibility) => setAttributes({name_visibility: name_visibility ? 'show' : ''})}
+            />
+
+            <ToggleControl
+                label={__("Show Email", "the-post-grid")}
+                className="rttpg-toggle-control-field"
+                checked={email_visibility}
+                onChange={(email_visibility) => setAttributes({email_visibility: email_visibility ? 'show' : ''})}
             />
 
             <ToggleControl

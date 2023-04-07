@@ -51,12 +51,21 @@ class ScriptController {
 		$scripts = [];
 		$styles  = [];
 
+
 		$scripts[] = [
-			'handle' => 'rt-tpg',
-			'src'    => rtTPG()->get_assets_uri( 'js/rttpg.js' ),
+			'handle' => 'rt-magnific-popup',
+			'src'    => rtTPG()->get_assets_uri( 'vendor/jquery.magnific-popup.min.js' ),
 			'deps'   => [ 'jquery' ],
 			'footer' => true,
 		];
+
+		$scripts[] = [
+			'handle' => 'rt-tpg',
+			'src'    => rtTPG()->get_assets_uri( 'js/rttpg.js' ),
+			'deps'   => [ 'jquery', 'rt-magnific-popup' ],
+			'footer' => true,
+		];
+
 
 		// register acf styles.
 		$styles['rt-fontawsome'] = rtTPG()->get_assets_uri( 'vendor/font-awesome/css/font-awesome.min.css' );

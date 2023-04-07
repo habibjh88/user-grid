@@ -159,7 +159,7 @@ var createUnsafeSelectorsAlarm = function createUnsafeSelectorsAlarm(cache) {
     var unsafePseudoClasses = element.value.match(/(:first|:nth|:nth-last)-child/g);
 
     if (unsafePseudoClasses) {
-      var isNested = !!element.parent; // in nested rules comments become children of the "auto-inserted" rule and that's always the `element.parent`
+      var isNested = element.parent === children[0]; // in nested rules comments become children of the "auto-inserted" rule
       //
       // considering this input:
       // .a {
@@ -175,7 +175,7 @@ var createUnsafeSelectorsAlarm = function createUnsafeSelectorsAlarm(cache) {
       //   .b {}
       // }
 
-      var commentContainer = isNested ? element.parent.children : // global rule at the root level
+      var commentContainer = isNested ? children[0].children : // global rule at the root level
       children;
 
       for (var i = commentContainer.length - 1; i >= 0; i--) {
@@ -7756,6 +7756,7 @@ function ContentControl(props) {
     grid_alignment,
     avatar_visibility,
     name_visibility,
+    email_visibility,
     bio_visibility,
     social_visibility,
     orderby,
@@ -7884,6 +7885,13 @@ function ContentControl(props) {
       name_visibility: name_visibility ? 'show' : ''
     })
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+    label: __("Show Email", "the-post-grid"),
+    className: "rttpg-toggle-control-field",
+    checked: email_visibility,
+    onChange: email_visibility => setAttributes({
+      email_visibility: email_visibility ? 'show' : ''
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
     label: __("Show Biography", "the-post-grid"),
     className: "rttpg-toggle-control-field",
     checked: bio_visibility,
@@ -7941,7 +7949,7 @@ function SocialShare(props) {
     social_color_hover
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-    title: __('User Name', 'the-post-grid'),
+    title: __('Social Share', 'the-post-grid'),
     initialOpen: false
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_RangeDevice__WEBPACK_IMPORTED_MODULE_5__["default"], {
     label: __('Icon Size'),
@@ -8074,6 +8082,80 @@ function UserBio(props) {
   }));
 }
 /* harmony default export */ __webpack_exports__["default"] = (UserBio);
+
+/***/ }),
+
+/***/ "./src/blocks/custom-users-block/controller/UserEmail.js":
+/*!***************************************************************!*\
+  !*** ./src/blocks/custom-users-block/controller/UserEmail.js ***!
+  \***************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_Color__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/Color */ "./src/components/Color.js");
+/* harmony import */ var _components_Typography__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/Typography */ "./src/components/Typography.js");
+/* harmony import */ var _components_Dimension__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/Dimension */ "./src/components/Dimension.js");
+/* harmony import */ var _components_RangeDevice__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../components/RangeDevice */ "./src/components/RangeDevice.js");
+
+
+
+
+
+
+const {
+  __
+} = wp.i18n;
+function UserEmail(props) {
+  const {
+    attributes,
+    setAttributes
+  } = props.data;
+  //All attribute
+  const {
+    email_typography,
+    email_spacing,
+    email_color,
+    email_color_hover
+  } = attributes;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+    title: __('User Email', 'the-post-grid'),
+    initialOpen: false
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Typography__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    label: __('Typography'),
+    value: email_typography,
+    onChange: val => setAttributes({
+      email_typography: val
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Dimension__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    label: __("Spacing", "the-post-grid"),
+    type: "margin",
+    responsive: true,
+    value: email_spacing,
+    onChange: value => {
+      setAttributes({
+        email_spacing: value
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Color__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    label: __('Color', 'the-post-grid'),
+    color: email_color,
+    onChange: email_color => setAttributes({
+      email_color
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Color__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    label: __('Color - Hover', 'the-post-grid'),
+    color: email_color_hover,
+    onChange: email_color_hover => setAttributes({
+      email_color_hover
+    })
+  }));
+}
+/* harmony default export */ __webpack_exports__["default"] = (UserEmail);
 
 /***/ }),
 
@@ -8363,18 +8445,20 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _controller_SocialShare__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./controller/SocialShare */ "./src/blocks/custom-users-block/controller/SocialShare.js");
+/* harmony import */ var _controller_UserEmail__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./controller/UserEmail */ "./src/blocks/custom-users-block/controller/UserEmail.js");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _controller_ContentControl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./controller/ContentControl */ "./src/blocks/custom-users-block/controller/ContentControl.js");
 /* harmony import */ var _controller_AvatarSettings__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./controller/AvatarSettings */ "./src/blocks/custom-users-block/controller/AvatarSettings.js");
 /* harmony import */ var _controller_UserName__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./controller/UserName */ "./src/blocks/custom-users-block/controller/UserName.js");
 /* harmony import */ var _controller_UserBio__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./controller/UserBio */ "./src/blocks/custom-users-block/controller/UserBio.js");
+/* harmony import */ var _controller_SocialShare__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./controller/SocialShare */ "./src/blocks/custom-users-block/controller/SocialShare.js");
 
 
 const {
   InspectorControls
 } = wp.blockEditor;
+
 
 
 
@@ -8390,7 +8474,10 @@ function Inspector(props) {
   //All attribute
   const {
     avatar_visibility,
-    name_visibility
+    name_visibility,
+    email_visibility,
+    bio_visibility,
+    social_visibility
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InspectorControls, {
     key: "controls"
@@ -8419,9 +8506,11 @@ function Inspector(props) {
     changeQuery: changeQuery
   }), name_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_UserName__WEBPACK_IMPORTED_MODULE_5__["default"], {
     data: props
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_UserBio__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }), email_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_UserEmail__WEBPACK_IMPORTED_MODULE_1__["default"], {
     data: props
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_SocialShare__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }), bio_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_UserBio__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    data: props
+  }), social_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_SocialShare__WEBPACK_IMPORTED_MODULE_7__["default"], {
     data: props
   }))))));
 }
@@ -8512,6 +8601,13 @@ function CustomUsersBlock(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+
+const {
+  __
+} = wp.i18n;
+
 
 function Layout1(_ref) {
   let {
@@ -8523,9 +8619,13 @@ function Layout1(_ref) {
     name_tag,
     avatar_visibility,
     name_visibility,
+    email_visibility,
     bio_visibility,
     social_visibility
   } = attributes;
+  const [isOpen, setOpen] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const openModal = () => setOpen(true);
+  const closeModal = () => setOpen(false);
 
   //Grid Column settings
   let default_grid_column_desktop = '3';
@@ -8551,10 +8651,22 @@ function Layout1(_ref) {
     loading: "lazy"
   }))), name_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(HeadingTag, {
     className: "user-name"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", null, user.name)), bio_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", null, user.name)), email_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "user-email"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: `mainto:${user.email}`
+  }, user.email)), bio_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+    className: "load-user-button",
+    variant: "secondary",
+    onClick: openModal
+  }, __("Load users's biography")), isOpen && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Modal, {
+    className: `cub-users-block-modal`,
+    title: __("Users Biography"),
+    onRequestClose: closeModal
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "user-biography"
   }, user.biography), social_visibility === 'show' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "social-icons"
+    className: "cub-user-social-icons"
   }, user.social.facebook && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: user.social.facebook
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
@@ -8575,7 +8687,7 @@ function Layout1(_ref) {
     href: user.social.pinterest
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
     className: "dashicons dashicons-pinterest"
-  }))));
+  }))))));
 }
 /* harmony default export */ __webpack_exports__["default"] = (Layout1);
 

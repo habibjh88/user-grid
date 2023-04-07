@@ -11,54 +11,50 @@ import Typography from "../../../components/Typography";
 import Dimension from "../../../components/Dimension";
 import RangeDevice from "../../../components/RangeDevice";
 
-const {__} = wp.i18n
+const {__} = wp.i18n;
 
-function SocialShare(props) {
+function UserEmail(props) {
     const {attributes, setAttributes} = props.data;
     //All attribute
     const {
-        icon_font_size,
-        social_spacing,
-        social_color,
-        social_color_hover,
+        email_typography,
+        email_spacing,
+        email_color,
+        email_color_hover
     } = attributes;
 
     return (
-        <PanelBody title={__('Social Share', 'the-post-grid')} initialOpen={false}>
+        <PanelBody title={__('User Email', 'the-post-grid')} initialOpen={false}>
 
-            <RangeDevice
-                label={__('Icon Size')}
-                responsive={true}
-                value={icon_font_size}
-                min={0}
-                max={100}
-                step={1}
-                onChange={(val) => setAttributes({icon_font_size: val})}
+            <Typography
+                label={__('Typography')}
+                value={email_typography}
+                onChange={(val) => setAttributes({email_typography: val})}
             />
 
             <Dimension
                 label={__("Spacing", "the-post-grid")}
                 type="margin" responsive
-                value={social_spacing}
+                value={email_spacing}
                 onChange={(value) => {
-                    setAttributes({social_spacing: value})
+                    setAttributes({email_spacing: value})
                 }}
             />
 
             <Color
                 label={__('Color', 'the-post-grid')}
-                color={social_color}
-                onChange={(social_color) => setAttributes({social_color})}
+                color={email_color}
+                onChange={(email_color) => setAttributes({email_color})}
             />
 
             <Color
                 label={__('Color - Hover', 'the-post-grid')}
-                color={social_color_hover}
-                onChange={(social_color_hover) => setAttributes({social_color_hover})}
+                color={email_color_hover}
+                onChange={(email_color_hover) => setAttributes({email_color_hover})}
             />
 
         </PanelBody>
     );
 }
 
-export default SocialShare;
+export default UserEmail;
