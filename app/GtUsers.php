@@ -2,7 +2,7 @@
 /**
  * Main initialization class.
  *
- * @package RT_TPG
+ * @package GT_USERS
  */
 
 // Do not allow directly accessing this file.
@@ -43,30 +43,6 @@ if ( ! class_exists( GtUsers::class ) ) {
 			'version'           => GT_USERS_VERSION,
 			'installed_version' => 'rt_gtusers_current_version',
 			'slug'              => GT_USERS_PLUGIN_SLUG,
-		];
-
-		/**
-		 * Defaut Settings
-		 *
-		 * @var array
-		 */
-		public $defaultSettings = [
-			'tpg_block_type'     => 'default',
-			'popup_fields'       => [
-				'title',
-				'feature_img',
-				'content',
-				'post_date',
-				'author',
-				'categories',
-				'tags',
-				'social_share',
-			],
-			'social_share_items' => [
-				'facebook',
-				'twitter',
-				'linkedin',
-			],
 		];
 
 		/**
@@ -123,7 +99,6 @@ if ( ! class_exists( GtUsers::class ) ) {
 
 			add_action( 'plugins_loaded', [ $this, 'on_plugins_loaded' ], - 1 );
 			add_action( 'init', [ $this, 'init_hooks' ], 0 );
-			add_filter( 'wp_calculate_image_srcset', [ $this, 'calculate_image_srcset' ] );
 		}
 
 		/**
@@ -138,14 +113,6 @@ if ( ! class_exists( GtUsers::class ) ) {
 		}
 
 		/**
-		 * Remove calculate image srcset
-		 * @return array
-		 */
-		public function calculate_image_srcset() {
-			return [];
-		}
-
-		/**
 		 * I18n
 		 *
 		 * @return void
@@ -155,7 +122,7 @@ if ( ! class_exists( GtUsers::class ) ) {
 			$locale = determine_locale();
 			$locale = apply_filters( 'plugin_locale', $locale, 'gutenberg-users' );
 			unload_textdomain( 'gutenberg-users' );
-			load_textdomain( 'gutenberg-users', WP_LANG_DIR . '/the-post-grid/the-post-grid-' . $locale . '.mo' );
+			load_textdomain( 'gutenberg-users', WP_LANG_DIR . '/gutenberg-users/gutenberg-users-' . $locale . '.mo' );
 			load_plugin_textdomain( 'gutenberg-users', false, plugin_basename( dirname( GT_USERS_PLUGIN_FILE ) ) . '/languages' );
 		}
 
@@ -177,25 +144,6 @@ if ( ! class_exists( GtUsers::class ) ) {
 			return untrailingslashit( plugin_dir_path( GT_USERS_PLUGIN_FILE ) );
 		}
 
-		/**
-		 * Plugin template path
-		 *
-		 * @return string
-		 */
-		public function plugin_template_path() {
-			$plugin_template = $this->plugin_path() . '/templates/';
-
-			return apply_filters( 'tlp_tpg_template_path', $plugin_template );
-		}
-
-		/**
-		 * Default template path
-		 *
-		 * @return string
-		 */
-		public function default_template_path() {
-			return apply_filters( 'gtusers_default_template_path', untrailingslashit( plugin_dir_path( GT_USERS_PLUGIN_FILE ) ) );
-		}
 
 		/**
 		 * Nonce text
@@ -235,7 +183,7 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 *
 		 * @return string
 		 */
-		public function tpg_can_be_rtl( $file ) {
+		public function gtusers_can_be_rtl( $file ) {
 			$file = ltrim( str_replace( '.css', '', $file ), '/' );
 
 			if ( is_rtl() ) {
@@ -251,17 +199,7 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 * @return string
 		 */
 		public function get_template_path() {
-			return apply_filters( 'gtusers_template_path', 'the-post-grid/' );
-		}
-
-
-		/**
-		 * Pro check.
-		 *
-		 * @return boolean
-		 */
-		public function hasPro() {
-			return class_exists( 'GtUsersPro' );
+			return apply_filters( 'gtusers_template_path', 'gutenberg-users/' );
 		}
 
 	}
@@ -271,10 +209,12 @@ if ( ! class_exists( GtUsers::class ) ) {
 	 *
 	 * @return GtUsers
 	 */
-	function gtUsers() {
-		return GtUsers::getInstance();
-	}
+	if ( ! function_exists( 'gtUsers' ) ) {
+		function gtUsers() {
+			return GtUsers::getInstance();
+		}
 
-	// Init app.
-	gtUsers();
+		// Init app.
+		gtUsers();
+	}
 }

@@ -2,7 +2,7 @@
 /**
  * Helper class.
  *
- * @package RT_TPG
+ * @package GT_USERS
  */
 
 namespace GT\GtUsers\Helpers;
@@ -34,7 +34,7 @@ class Fns {
 	 */
 	public static function get_template( $data ) {
 		$layout        = $data['layout'];
-		$template_name = '/the-post-grid/' . $layout . '.php';
+		$template_name = '/gutenberg-users/' . $layout . '.php';
 		if ( file_exists( STYLESHEETPATH . $template_name ) ) {
 			$file = STYLESHEETPATH . $template_name;
 		} else if ( file_exists( TEMPLATEPATH . $template_name ) ) {

@@ -81,5 +81,5 @@ composer.lock
 yarn.lock
 _ext_dev
 dist
-the-post-grid
+gutenberg-users
 .idea

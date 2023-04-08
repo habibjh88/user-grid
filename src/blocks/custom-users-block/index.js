@@ -6,7 +6,7 @@ registerBlockType("gtusers/custom-users-block", {
     title: __("Custom Users Block", "gutenberg-users"),
     category: "gtusers",
     description: "Custom Users Block",
-    icon: <img src={gtusersParams.plugin_url + "/assets/images/gutenberg/category-block.svg"} alt={__("Custom Users Block")} />,
+    icon: <img src={gtusersParams.plugin_url + "/assets/images/icon.svg"} alt={__("Custom Users Block")} />,
     example: {
         attributes: {
             preview: true

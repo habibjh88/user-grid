@@ -32,7 +32,7 @@ if ((!process.env.npm_config_block && !process.env.npm_config_package) && (proce
                 bugReport: '',
                 src: '**/*.php',
                 domain: 'gutenberg-users',
-                destFile: `languages/the-post-grid.pot`
+                destFile: `languages/gutenberg-users.pot`
             });
         });
     } else {
@@ -42,6 +42,7 @@ if ((!process.env.npm_config_block && !process.env.npm_config_package) && (proce
     }
 
     mix.sass( 'src/scss/block.scss', 'assets/css/block.min.css' )
+    mix.sass( 'src/scss/block-admin.scss', 'assets/css/block-admin.min.css' )
         .options( {
             terser: {
                 extractComments: false
@@ -67,7 +68,6 @@ if (process.env.npm_config_package) {
             'app',
             'assets',
             'languages',
-            'resources',
             'templates',
             'vendor',
             'index.html',

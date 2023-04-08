@@ -364,7 +364,7 @@ const setStyle = function setStyle(styleCss, blockID) {
                         const link = doc.createElement('link');
                         link.rel = 'stylesheet';
                         link.type = 'text/css';
-                        link.href = gtusersParams.plugin_url + '/assets/css/tpg-block.min.css';
+                        link.href = gtusersParams.plugin_url + '/assets/css/gtusers-block.min.css';
                         link.setAttribute('id', 'gtusers-frontend-css');
                         iframeHead.appendChild(link);
                     }

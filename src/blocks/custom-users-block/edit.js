@@ -4,6 +4,7 @@ import Inspector from "./inspector";
 import CustomUsersBlock from "./layouts/CustomUsersBlock";
 import {CssGenerator} from "../../utils/css/CssGenerator";
 import icons from "../../components/icon/icons";
+import {CATEGORY_PREVIEW} from "../../components/Constants";
 
 
 const Edit = (props) => {
@@ -24,7 +25,7 @@ const Edit = (props) => {
 
     //set block preview
     if (preview) {
-        return icons.slider_preview;
+        return CATEGORY_PREVIEW;
     }
 
     const [users, setUsers] = useState([]);
@@ -42,7 +43,7 @@ const Edit = (props) => {
         setSignalController(controller);
         setUsers({})
         apiFetch({
-            path: '/rgbcode/v1/users',
+            path: '/gtusers/v1/users',
             signal: controller?.signal,
             method: 'POST',
             data: {
@@ -65,7 +66,7 @@ const Edit = (props) => {
         setSignalController(controller);
         setUsers({})
         apiFetch({
-            path: '/rgbcode/v1/users-select',
+            path: '/gtusers/v1/users-select',
             signal: controller?.signal,
             method: 'POST',
         }).then((data) => {
@@ -87,24 +88,24 @@ const Edit = (props) => {
 
     useEffect(() => {
         const sidebarEl = document.querySelector('.interface-interface-skeleton__sidebar');
-        sidebarEl.classList.add('tpg-sidebar')
-        sidebarEl.classList.remove('tpg-settings-enable')
+        sidebarEl.classList.add('gtusers-sidebar')
+        sidebarEl.classList.remove('gtusers-settings-enable')
         sidebarEl.addEventListener('click', function (event) {
             const hasClass = event.target.classList.contains('gtusers-tab-btn');
             if (hasClass) {
                 const selectText = event.target.textContent;
                 if (selectText !== 'Content') {
-                    this.classList.add('tpg-settings-enable')
+                    this.classList.add('gtusers-settings-enable')
                 } else {
-                    this.classList.remove('tpg-settings-enable')
+                    this.classList.remove('gtusers-settings-enable')
                 }
             }
         })
         sidebarEl.addEventListener('scroll', function (e) {
             if (e.target.scrollTop > 86) {
-                this.classList.add('tpg-should-collapse');
+                this.classList.add('gtusers-should-collapse');
             } else {
-                this.classList.remove('tpg-should-collapse');
+                this.classList.remove('gtusers-should-collapse');
             }
         })
 
@@ -126,7 +127,6 @@ const Edit = (props) => {
         ),
 
         <CustomUsersBlock props={props} userData={users} changeQuery={handleQueryChange}/>
-
     ]
 }
 export default Edit;

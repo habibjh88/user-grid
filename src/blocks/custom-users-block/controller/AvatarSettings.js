@@ -1,16 +1,12 @@
 import {
-    SelectControl,
     PanelBody,
-    __experimentalHeading as Heading,
     ToggleControl,
     __experimentalBorderControl as BorderControl
 } from "@wordpress/components";
-import Color from "../../../components/Color";
-import Typography from "../../../components/Typography";
 import Dimension from "../../../components/Dimension";
 
 const {__} = wp.i18n;
-import {HEADING, TPG_COLOR_PALATE} from "../../../components/Constants";
+import {GTUSERS_COLOR_PALATE} from "../../../components/Constants";
 import Range from "../../../components/Range";
 import RangeDevice from "../../../components/RangeDevice";
 
@@ -79,7 +75,7 @@ function AvatarSettings(props) {
             />
 
             <BorderControl
-                colors={TPG_COLOR_PALATE}
+                colors={GTUSERS_COLOR_PALATE}
                 value={avatar_border}
                 label={__("Image Border", "gutenberg-users")}
                 onChange={(val) => {

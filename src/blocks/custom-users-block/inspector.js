@@ -1,11 +1,10 @@
-import UserEmail from "./controller/UserEmail";
-
 const {InspectorControls} = wp.blockEditor;
 import {TabPanel} from "@wordpress/components";
 import ContentControl from "./controller/ContentControl";
 import AvatarSettings from "./controller/AvatarSettings";
 import UserName from "./controller/UserName";
 import UserBio from "./controller/UserBio";
+import UserEmail from "./controller/UserEmail";
 import SocialShare from "./controller/SocialShare";
 
 function Inspector(props) {
@@ -21,7 +20,7 @@ function Inspector(props) {
     } = attributes;
 
 
-        return (<InspectorControls key="controls">
+    return (<InspectorControls key="controls">
         <div className="gtusers-panel-control-wrapper">
             <TabPanel className="gtusers-tab-panel" activeClass="active-tab" tabs={[
                 {

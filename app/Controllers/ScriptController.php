@@ -2,7 +2,7 @@
 /**
  * Script Controller class.
  *
- * @package RT_TPG
+ * @package GT_USERS
  */
 
 namespace GT\GtUsers\Controllers;
@@ -60,7 +60,7 @@ class ScriptController {
 
 
 		// Plugin specific css.
-		$styles['gtusers-block'] = gtUsers()->tpg_can_be_rtl( 'css/block' );
+		$styles['gtusers-block'] = gtUsers()->gtusers_can_be_rtl( 'css/block' );
 
 
 		foreach ( $scripts as $script ) {

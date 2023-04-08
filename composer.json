@@ -1,5 +1,5 @@
 {
-    "name": "rgbcode/gutenberg-users",
+    "name": "gtusers/gutenberg-users",
     "autoload": {
         "psr-4": {
             "GT\\GtUsers\\": "app/"
@@ -7,8 +7,8 @@
     },
     "authors": [
         {
-            "name": "RGBCode",
-            "email": "admin@rgbcode.com"
+            "name": "habib",
+            "email": "habibjh.me@gmail.com"
         }
     ],
     "require": {

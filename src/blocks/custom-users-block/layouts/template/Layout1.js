@@ -82,20 +82,18 @@ function Layout1({attributes, user}) {
             }
 
             {bio_visibility && <>
-
                 <Button className="load-user-button" variant="secondary" onClick={openModal}>
                     {__("Load users's biography")}
                 </Button>
 
                 {isOpen && (
-                    <Modal className={`cub-users-block-modal`} title={__("Users Biography")} onRequestClose={closeModal}>
+                    <Modal className={`cub-users-block-modal`} title={__("Users Biography")}
+                           onRequestClose={closeModal}>
                         <p className="user-biography">{user.biography}</p>
                     </Modal>
                 )}
 
-
             </>}
-
 
         </div>
     );

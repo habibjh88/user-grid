@@ -39,7 +39,7 @@ class Media extends Component {
         if (['wbm', 'jpg', 'jpeg', 'gif', 'png', 'svg'].indexOf(url.split('.').pop().toLowerCase()) != -1) {
             return url;
         } else {
-            return gtusersParams.plugin_url + 'assets/images/tpg-placeholder.jpg';
+            return gtusersParams.plugin_url + 'assets/images/gtusers-placeholder.png';
         }
     }
 

@@ -38,7 +38,7 @@ wp.data.subscribe(() => {
 updateCategory("gtusers", {
     icon: (
         <img
-            src={gtusersParams.plugin_url + "/assets/images/icon-20x20.png"}
+            src={gtusersParams.plugin_url + "/assets/images/block-cat.svg"}
             alt={__("The Post Grid")}
         />
     ),

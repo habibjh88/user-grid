@@ -502,7 +502,7 @@ class CustomUserBlock extends BlockBase {
 			<div class="not-found-wrap"><?php echo esc_html__( "User not found", 'gutenberg-users' ); ?></div>
 			<?php
 		}
-		do_action( 'tpg_elementor_script' );
+		do_action( 'gtusers_elementor_script' );
 
 		return ob_get_clean();
 	}

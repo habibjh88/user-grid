@@ -1,6 +1,6 @@
 <?php return array(
     'root' => array(
-        'name' => 'rgbcode/gutenberg-users',
+        'name' => 'gtusers/gutenberg-users',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
         'reference' => '6824c4146642544d9974937c6cb99fe7eca02a63',
@@ -10,7 +10,7 @@
         'dev' => true,
     ),
     'versions' => array(
-        'rgbcode/gutenberg-users' => array(
+        'gtusers/gutenberg-users' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'reference' => '6824c4146642544d9974937c6cb99fe7eca02a63',

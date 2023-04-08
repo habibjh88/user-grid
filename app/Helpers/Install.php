@@ -2,7 +2,7 @@
 /**
  * Install Helper class.
  *
- * @package RT_TPG
+ * @package GT_USERS
  */
 
 namespace GT\GtUsers\Helpers;
@@ -21,6 +21,6 @@ class Install {
 	}
 
 	public static function deactivate() {
-		update_option( 'tpg_flush_rewrite_rules', 0 );
+		update_option( 'gtusers_flush_rewrite_rules', 0 );
 	}
 }

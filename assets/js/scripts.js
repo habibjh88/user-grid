@@ -14,7 +14,7 @@
             var $bioElem = $this.parent().find('.bio-content');
 
             var data = {
-                action: 'tpg_user_biography',
+                action: 'gtusers_user_biography',
                 user_id: userId,
                 gtusers_nonce: gtusersParams.nonce
             };

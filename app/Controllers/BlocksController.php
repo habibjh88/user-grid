@@ -21,8 +21,8 @@ class BlocksController {
 		add_action( 'enqueue_block_editor_assets', [ $this, 'editor_assets' ] );
 
 		//All css/js file load in back-end and front-end
-		add_action( 'wp_enqueue_scripts', [ $this, 'tpg_block_enqueue' ] );
-		add_action( 'enqueue_block_editor_assets', [ $this, 'tpg_block_enqueue' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'gtusers_block_enqueue' ] );
+		add_action( 'enqueue_block_editor_assets', [ $this, 'gtusers_block_enqueue' ] );
 
 		if ( version_compare( get_bloginfo( 'version' ), '5.8', '>=' ) ) {
 			add_filter( 'block_categories_all', [ $this, 'gtusers_block_categories' ], 1, 2 );
@@ -66,8 +66,7 @@ class BlocksController {
 
 
 	/**
-	 * Add Block files foe css
-	 *
+	 * Add Block File CSS
 	 * @return void
 	 */
 	public function add_block_css_file() {
@@ -106,7 +105,7 @@ class BlocksController {
 	 * Admin editor css load
 	 * @return void
 	 */
-	public function tpg_block_enqueue() {
+	public function gtusers_block_enqueue() {
 		if ( ! is_admin() ) {
 			return;
 		}
@@ -117,11 +116,7 @@ class BlocksController {
 
 	/**
 	 * Determine if wppb editor is open
-	 *
 	 * @return bool
-	 *
-	 * @since V.1.0.0
-	 * @since v.1.0.0
 	 */
 	private function is_editor_screen() {
 		if ( ! empty( $_GET['action'] ) && 'wppb_editor' === $_GET['action'] ) {
@@ -139,7 +134,7 @@ class BlocksController {
 	public function editor_assets() {
 
 		//Block editor css
-		wp_enqueue_style( 'gtusers-block-admin-css', gtUsers()->get_assets_uri( 'css/admin/block-admin.css' ), '', $this->version );
+		wp_enqueue_style( 'gtusers-block-admin-css', gtUsers()->get_assets_uri( 'css/block-admin.min.css' ), '', $this->version );
 
 		//Main compile css and js file
 		wp_enqueue_style( 'gtusers-blocks-css', gtUsers()->get_assets_uri( 'blocks/main.css' ), '', $this->version );
@@ -150,34 +145,22 @@ class BlocksController {
 			'wp-element',
 			'wp-i18n',
 		], $this->version, true );
-		$all_dependencies = [
-			'lodash',
-			'wp-i18n',
-			'wp-element',
-			'wp-hooks',
-			'wp-util',
-			'wp-components',
-			'wp-blocks',
-			'wp-data',
-			'wp-editor',
-			'wp-block-editor',
-		];
+
 		global $pagenow;
 		$editor_type = 'edit-post';
 
 		if ( 'site-editor.php' === $pagenow ) {
-			$editor_type        = 'edit-site';
+			$editor_type = 'edit-site';
 		}
 
-
 		wp_localize_script( 'gtusers-blocks-js', 'gtusersParams', [
-				'editor_type'         => $editor_type,
-				'nonce'               => wp_create_nonce( 'gtusers_nonce' ),
-				'ajaxurl'             => Fns::ajax_url(),
-				'site_url'            => site_url(),
-				'admin_url'           => admin_url(),
-				'plugin_url'          => GT_USERS_PLUGIN_URL,
-				'hasPro'              => false,
+				'editor_type' => $editor_type,
+				'nonce'       => wp_create_nonce( 'gtusers_nonce' ),
+				'ajaxurl'     => Fns::ajax_url(),
+				'site_url'    => site_url(),
+				'admin_url'   => admin_url(),
+				'plugin_url'  => GT_USERS_PLUGIN_URL,
+				'hasPro'      => false,
 			]
 		);
 
@@ -186,7 +169,6 @@ class BlocksController {
 
 	/**
 	 * Add inLine css for page or post
-	 *
 	 * @return void
 	 */
 	public function add_block_inline_css() {
@@ -210,6 +192,7 @@ class BlocksController {
 
 	/**
 	 * Add reusable css
+	 * @return void
 	 */
 	public function add_reusable_css() {
 		$post_id            = get_the_ID();
@@ -238,8 +221,7 @@ class BlocksController {
 
 	/**
 	 * Save Import CSS in the top of the File
-	 *
-	 * @return void Array of the Custom Message
+	 * @return void
 	 */
 	public function save_block_css() {
 
@@ -295,10 +277,9 @@ class BlocksController {
 	/**
 	 * Save Import CSS in the top of the File
 	 *
-	 * @param STRING
+	 * @param $get_css
 	 *
-	 * @return STRING
-	 * @since v.1.0.0
+	 * @return mixed|string
 	 */
 	public function set_top_css( $get_css = '' ) {
 		$css_url     = "@import url('https://fonts.googleapis.com/css?family=";
@@ -329,7 +310,6 @@ class BlocksController {
 
 	/**
 	 * Save Import CSS in the top of the File
-	 *
 	 * @return void
 	 */
 	public function get_posts_call() {
@@ -344,10 +324,9 @@ class BlocksController {
 	/**
 	 * Save Import CSS in the top of the File
 	 *
+	 * @param $server
 	 *
 	 * @return void
-	 * @throws Exception
-	 * @since v.1.0.0
 	 */
 	public function appended( $server ) {
 		if ( ! current_user_can( 'edit_posts' ) ) {
@@ -381,9 +360,9 @@ class BlocksController {
 	/**
 	 * Return reference id
 	 *
-	 * @param array $parse_blocks
+	 * @param $parse_blocks
 	 *
-	 * @return bool
+	 * @return array
 	 */
 	public function reference_id( $parse_blocks ) {
 		$extra_id = [];

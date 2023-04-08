@@ -15,7 +15,7 @@ class GetUsersV1 {
 	 * @return void
 	 */
 	public function register_post_route() {
-		register_rest_route( 'rgbcode/v1', 'users', [
+		register_rest_route( 'gtusers/v1', 'users', [
 			'methods'             => 'POST',
 			'callback'            => [ $this, 'get_all_users' ],
 			'permission_callback' => function () {
@@ -23,7 +23,7 @@ class GetUsersV1 {
 			}
 		] );
 
-		register_rest_route( 'rgbcode/v1', 'users-select', [
+		register_rest_route( 'gtusers/v1', 'users-select', [
 			'methods'             => 'POST',
 			'callback'            => [ $this, 'get_all_users_for_inspector' ],
 			'permission_callback' => function () {

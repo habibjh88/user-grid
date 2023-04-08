@@ -24,7 +24,7 @@ const innerBlocks = function (blocks) {
     return __CSS;
 };
 
-const isRttpgBlock = (blocks) => {
+const isRtgtusersBlock = (blocks) => {
     let hasBlock = false;
     blocks.forEach(function (block) {
         const {name, innerBlocks = []} = block;
@@ -33,7 +33,7 @@ const isRttpgBlock = (blocks) => {
             hasBlock = true;
         }
         if (!hasBlock && innerBlocks.length > 0) {
-            hasBlock = isRttpgBlock(innerBlocks);
+            hasBlock = isRtgtusersBlock(innerBlocks);
         }
     });
     return hasBlock;
@@ -93,7 +93,7 @@ const ParseCss = (setDatabase = true) => {
     window.bindCss = true;
     const all_blocks = select('core/block-editor').getBlocks();
     const {getCurrentPostId} = select('core/editor');
-    const hasRttpgBlocks = isRttpgBlock(all_blocks);
+    const hasRtgtusersBlocks = isRtgtusersBlock(all_blocks);
     const blockCss = innerBlocks(all_blocks, true);
 
     if (setDatabase) {
@@ -106,7 +106,7 @@ const ParseCss = (setDatabase = true) => {
                 data: {
                     block_css: blockCss,
                     post_id: getCurrentPostId,
-                    has_block: hasRttpgBlocks,
+                    has_block: hasRtgtusersBlocks,
                     action: 'gtusers_block_css_save'
                 }
             });

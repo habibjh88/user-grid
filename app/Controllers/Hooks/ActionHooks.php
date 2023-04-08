@@ -2,7 +2,7 @@
 /**
  * Action Hooks class.
  *
- * @package RT_TPG
+ * @package GT_USERS
  */
 
 namespace GT\GtUsers\Controllers\Hooks;

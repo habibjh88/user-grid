@@ -1,13 +1,13 @@
 <?php
 /**
  * Plugin Name: Gutenberg Users
- * Plugin URI: https://rgbcode.com/
- * Description: Fast & Easy way to display WordPress users in Grid and List view
- * Author: rgbcode
+ * Plugin URI: http://habibportfolio.com/
+ * Description: Fast & Easy way to display WordPress users in Gutenberg Editor
+ * Author: gtusers
  * Version: 1.0.0
  * Text Domain: gutenberg-users
  * Domain Path: /languages
- * Author URI: https://rgbcode.com/
+ * Author URI: http://habibportfolio.com/
  *
  * @package GT_USERS
  */

@@ -1,13 +1,7 @@
 import {
-    __experimentalBorderControl as BorderControl,
-    Button,
-    ToggleControl,
-    SelectControl,
     PanelBody,
-    Dropdown, __experimentalHeading as Heading
 } from '@wordpress/components';
 import Color from "../../../components/Color";
-import Typography from "../../../components/Typography";
 import Dimension from "../../../components/Dimension";
 import RangeDevice from "../../../components/RangeDevice";
 

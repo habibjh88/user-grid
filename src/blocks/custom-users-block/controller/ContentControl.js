@@ -1,5 +1,5 @@
 const {Spinner} = wp.components;
-import TPGColumn from "../../../components/TPGColumn";
+import GridColumn from "../../../components/GridColumn";
 import {
     __experimentalHeading as Heading,
     __experimentalNumberControl as NumberControl, TextControl,
@@ -7,18 +7,12 @@ import {
 } from '@wordpress/components';
 import {SelectControl, PanelBody} from "@wordpress/components";
 import Select from 'react-select';
-import Dimension from "../../../components/Dimension";
 import RangeDevice from "../../../components/RangeDevice";
 import Alignment from "../../../components/Alignment";
 
 const {__} = wp.i18n;
-import {
-    GRID_LAYOUT_OPT,
-    LIST_LAYOUT_OPT,
-    GRID_HOVER_LAYOUT_OPT,
-    SLIDER_LAYOUT_OPT, FORMATE_USERS, HEADING, USER_ORDER_BY, POST_SORT_ORDER
+import {FORMATE_USERS, USER_ORDER_BY, POST_SORT_ORDER
 } from "../../../components/Constants";
-import * as PropTypes from "prop-types";
 
 
 function ContentControl(props) {
@@ -118,7 +112,7 @@ function ContentControl(props) {
             />
 
 
-            <TPGColumn
+            <GridColumn
                 label={__("Grid Column", "gutenberg-users")}
                 className="gtusers-control-field"
                 value={grid_column}
@@ -190,7 +184,6 @@ function ContentControl(props) {
                 checked={social_visibility}
                 onChange={(social_visibility) => setAttributes({social_visibility: social_visibility ? 'show' : ''})}
             />
-
 
         </PanelBody>
     );

@@ -2,7 +2,7 @@
 /**
  * Filter Hooks class.
  *
- * @package RT_TPG
+ * @package GT_USERS
  */
 
 namespace GT\GtUsers\Controllers\Hooks;
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Filter Hooks class.
  *
- * @package RT_TPG
+ * @package GT_USERS
  */
 class FilterHooks {
 	/**
@@ -29,7 +29,8 @@ class FilterHooks {
 	public static function init() {
 		add_filter( 'body_class', [ __CLASS__, 'body_classes' ] );
 		add_filter( 'admin_body_class', [ __CLASS__, 'admin_body_class' ] );
-		add_filter( 'wp_kses_allowed_html', [ __CLASS__, 'tpg_custom_wpkses_post_tags' ], 10, 2 );
+		add_filter( 'wp_kses_allowed_html', [ __CLASS__, 'gtusers_custom_wpkses_post_tags' ], 10, 2 );
+		add_filter( 'wp_calculate_image_srcset', [ __CLASS__, 'calculate_image_srcset' ] );
 	}
 
 	/**
@@ -72,7 +73,7 @@ class FilterHooks {
 	 *
 	 * @return mixed
 	 */
-	public static function tpg_custom_wpkses_post_tags( $tags, $context ) {
+	public static function gtusers_custom_wpkses_post_tags( $tags, $context ) {
 
 		if ( 'post' === $context ) {
 			$tags['iframe'] = [
@@ -93,6 +94,14 @@ class FilterHooks {
 		}
 
 		return $tags;
+	}
+
+	/**
+	 * Remove calculate image srcset
+	 * @return array
+	 */
+	public static function calculate_image_srcset() {
+		return [];
 	}
 
 }
