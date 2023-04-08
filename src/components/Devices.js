@@ -29,15 +29,15 @@ const Devices = (props) => {
         <div className="gtusers-device-switchers-wrap">
             <a className={`gtusers-device-switcher gtusers-device-switcher-desktop${device === 'lg' ? ' active' : ''}`}
                onClick={() => onClickHandler('lg')} data-tooltip={__('Desktop')}>
-                <i className="fas fa-desktop"></i>
+                <i className="dashicons dashicons-desktop"></i>
             </a>
             <a className={`gtusers-device-switcher gtusers-device-switcher-laptop${device === 'md' ? ' active' : ''}`}
                onClick={() => onClickHandler('md')} data-tooltip={__('Tablet')}>
-                <i className="fas fa-tablet-alt"></i>
+                <i className="dashicons dashicons-tablet"></i>
             </a>
             <a className={`gtusers-device-switcher gtusers-device-switcher-tablet${device === 'sm' ? ' active' : ''}`}
                onClick={() => onClickHandler('sm')} data-tooltip={__('Mobile')}>
-                <i className="fas fa-mobile-alt"></i>
+                <i className="dashicons dashicons-smartphone"></i>
             </a>
             {/* <a className={`gtusers-device-switcher gtusers-device-switcher-smartphone${device === 'xs' ? ' active' : ''}`}
 			 onClick={() => onClickHandler('xs')} data-tooltip={__('Phone')}>

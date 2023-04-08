@@ -91,6 +91,22 @@
         display: block;
     }
 
+    a.facebook i {
+        color: #1877f2;
+    }
+    a.twitter i {
+        color: #1da1f2;
+    }
+    a.linkedin i {
+        color: #0a66c2;
+    }
+    a.google i {
+        color: #dd4b39;
+    }
+    a.pinterest i {
+        color: #e60023;
+    }
+
     a:hover i {
         color: #000;
     }
@@ -124,12 +140,12 @@
 
      .modal-inner {
          background: #fff;
-         border: 1px solid #ddd;
          padding: 30px;
          width: 600px;
          max-width: 95%;
          margin: auto;
          font-size: 16px;
+         max-height: calc(100% - 100px);
      }
 
      .modal-inner .modal-header {
@@ -140,6 +156,8 @@
          margin: -31px -31px 20px;
          padding: 10px 30px;
          color: #000;
+         position: sticky;
+         top: -30px;
          span {
              font-size: 20px;
              font-weight: 500;
@@ -165,6 +183,11 @@
          i {
              font-size: inherit;
          }
+     }
+
+     .modal-inner {
+         overflow-y: auto;
+         overflow-x: hidden;
      }
 
      .modal-inner .bio-content.loading:before {
@@ -220,5 +243,15 @@
 
 .not-found-wrap {
     padding: 30px;
-    background: #d1ecf1;
+    background: #f1f1f5;
+}
+
+.gtusers .dashicons,
+.gtusers .dashicons-before:before {
+    width: inherit;
+    height: inherit;
+    font-size: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

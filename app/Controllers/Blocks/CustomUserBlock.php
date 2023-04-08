@@ -363,7 +363,7 @@ class CustomUserBlock extends BlockBase {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '.cub-users-block-wrapper .user-biography {color: {{bio_color}}; }'
+						'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-biography {color: {{bio_color}}; }'
 					]
 				]
 			],
@@ -377,7 +377,7 @@ class CustomUserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '.cub-user-social-icons a i {font-size:{{icon_font_size}}}'
+						'selector' => '{{GTUSERS}} .cub-user-social-icons a i {font-size:{{icon_font_size}}}'
 					]
 				]
 			],
@@ -393,7 +393,7 @@ class CustomUserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '.cub-user-social-icons {{social_spacing}}'
+						'selector' => '{{GTUSERS}} .cub-user-social-icons {{social_spacing}}'
 					]
 				]
 			],
@@ -403,7 +403,7 @@ class CustomUserBlock extends BlockBase {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '.cub-user-social-icons a i {color: {{social_color}}; }'
+						'selector' => '{{GTUSERS}} .cub-user-social-icons a i {color: {{social_color}}; }'
 					]
 				]
 			],

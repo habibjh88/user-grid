@@ -9,11 +9,11 @@ function ImageAvater({imageUrl, onDeleteImage, onEditImage = null}) {
 
             <div className={`gtusers-media-actions`}>
                 {/*<button className="button gtusers-btn-edit" onClick={ onEditImage }>*/}
-                {/*    <span aria-label={ __( 'Edit' ) } className="fas fa-pencil-alt fa-fw"/>*/}
+                {/*    <span aria-label={ __( 'Edit' ) } className="dashicons dashicons-edit-large"/>*/}
                 {/*</button>*/}
 
                 <button className="button gtusers-btn-delete" onClick={() => onDeleteImage()}>
-                    <span aria-label={__('Close')} className="far fa-trash-alt fa-fw"/>
+                    <span aria-label={__('Close')} className="dashicons dashicons-trash"/>
                 </button>
             </div>
 

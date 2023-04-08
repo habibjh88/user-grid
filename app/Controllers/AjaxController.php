@@ -35,16 +35,15 @@ class AjaxController {
 			$user_info = get_user_by( 'id', sanitize_text_field( wp_unslash( $_REQUEST['user_id'] ) ) );
 			$biography = get_user_meta( $user_info->ID, 'description', true );
 
-			if ( ! empty( $biography ) ) {
-				$return = [
-					'success'   => "ok",
-					'biography' => $biography
-				];
-			} else {
-				$return = [
-					'success' => "error",
-				];
+			if ( $biography ) {
+				$bio = $biography;
+			}  else {
+				$bio = __("There is no biography for this user.");
 			}
+			$return = [
+				'biography' => $bio,
+				'success' => "ok",
+			];
 		} else {
 			$return = [
 				'success' => esc_html__( 'Server Error !!', 'gutenberg-users' )

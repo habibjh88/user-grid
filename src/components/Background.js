@@ -55,9 +55,9 @@ function Background(props) {
                                     onClick={() => setSettings(item.value, 'type')}
                                 >
                                     {item.value === 'classic' ?
-                                        <i className="classic-btn fas fa-paint-brush"></i>
+                                        <i className="classic-btn dashicons dashicons-color-picker"></i>
                                         :
-                                        <i className="gradient-btn fas fa-barcode"></i>
+                                        <i className="gradient-btn dashicons dashicons-art"></i>
                                     }
 
                                 </Button>

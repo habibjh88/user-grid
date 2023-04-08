@@ -39,7 +39,7 @@ class IconList extends Component {
                 <div className={`icon-inner-wrapper`}>
                     {/*Remove button */}
                     {value && <span onClick={() => this.props.onChange('')}
-                                    className="gtusers-remove-icon far fa-trash-alt fa-fw"/>}
+                                    className="gtusers-remove-icon dashicons dashicons-trash"/>}
 
 
                     <div className={`choose-icon ${hasIcon}`}
@@ -47,14 +47,14 @@ class IconList extends Component {
                     >
                         {/*Add Button*/}
                         {value ? <span className={`default-icon ${value}`}></span> :
-                            <span className="fas fa-plus"/>}
+                            <span className="dashicons dashicons-plus"/>}
 
                     </div>
 
                     {isOpen &&
                         <div className="gtusers-icon-wrapper">
                             <span onClick={e => this.setState({isOpen: false})}
-                                  className="gtusers-remove-icon fas fa-times"/>
+                                  className="gtusers-remove-icon dashicons dashicons-no"/>
                             <input type="text" value={this.state.filterText} placeholder="Search..."
                                    onChange={e => this.setState({filterText: e.target.value})}
                                    autoComplete="off"/>

@@ -89,4 +89,47 @@ class Fns {
 		return wp_kses( $string, $allowed_html );
 	}
 
+	/**
+	 * Get user social icon
+	 *
+	 * @param $user_id
+	 *
+	 * @return false|string
+	 */
+	public static function get_user_social_icon( $user_id ) {
+		$facebook  = get_user_meta( $user_id, 'cub_facebook', true );
+		$twitter   = get_user_meta( $user_id, 'cub_twitter', true );
+		$linkedin  = get_user_meta( $user_id, 'cub_linkedin', true );
+		$gplus     = get_user_meta( $user_id, 'cub_gplus', true );
+		$pinterest = get_user_meta( $user_id, 'cub_pinterest', true );
+
+		ob_start();
+		?>
+		<div class="cub-user-social-icons">
+			<?php
+
+			if ( $facebook ) {
+				echo '<a class="facebook" href="' . esc_url( $facebook ) . '"><i class="dashicons dashicons-facebook-alt"></i></a>';
+			}
+			if ( $twitter ) {
+				echo '<a class="twitter" href="' . esc_url( $twitter ) . '"><i class="dashicons dashicons-twitter"></i></a>';
+			}
+			if ( $linkedin ) {
+				echo '<a class="linkedin" href="' . esc_url( $linkedin ) . '"><i class="dashicons dashicons-linkedin"></i></a>';
+			}
+			if ( $gplus ) {
+				echo '<a class="google" href="' . esc_url( $gplus ) . '"><i class="dashicons dashicons-google"></i></a>';
+			}
+			if ( $pinterest ) {
+				echo '<a class="pinterest" href="' . esc_url( $pinterest ) . '"><i class="dashicons dashicons-pinterest"></i></a>';
+			}
+
+			?>
+		</div>
+		<?php
+
+		return ob_get_clean();
+	}
+
+
 }

@@ -73,7 +73,7 @@ class Media extends Component {
                                                                             aria-label={__('Edit')} onClick={open}
                                                                             role="button">
                                                                         <span aria-label={__('Edit')}
-                                                                              className="fas fa-pencil-alt fa-fw"/>
+                                                                              className="dashicons dashicons-edit-large"/>
                                                                     </button>
                                                                 </Tooltip>
                                                                 <Tooltip text={__('Remove')}>
@@ -82,7 +82,7 @@ class Media extends Component {
                                                                             onClick={() => this.removeImage(index)}
                                                                             role="button">
                                                                         <span aria-label={__('Close')}
-                                                                              className="far fa-trash-alt fa-fw"/>
+                                                                              className="dashicons dashicons-trash"/>
                                                                     </button>
                                                                 </Tooltip>
                                                             </div>
@@ -112,7 +112,7 @@ class Media extends Component {
                                                             <button className="gtusers-button" aria-label={__('Edit')}
                                                                     onClick={open} role="button">
                                                                 <span aria-label={__('Edit')}
-                                                                      className="fas fa-pencil-alt fa-fw"/>
+                                                                      className="dashicons dashicons-edit-large"/>
                                                             </button>
                                                         </Tooltip>
                                                         <Tooltip text={__('Remove')}>
@@ -121,7 +121,7 @@ class Media extends Component {
                                                                     onClick={() => this.removeImage(value.id)}
                                                                     role="button">
                                                                 <span aria-label={__('Close')}
-                                                                      className="far fa-trash-alt fa-fw"/>
+                                                                      className="dashicons dashicons-trash"/>
                                                             </button>
                                                         </Tooltip>
                                                     </div>

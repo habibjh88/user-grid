@@ -25,12 +25,12 @@ class Page extends Component {
                 <a onClick={() => onClick()} href='#'>
                     {
                         pageKey === 'prev' &&
-                        <span className="fa fa-angle-double-left"/>
+                        <span className="dashicons dashicons-arrow-left-alt"/>
                     }
                     {__(children)}
                     {
                         pageKey === 'next' &&
-                        <span className="fa fa-angle-double-right"/>
+                        <span className="dashicons dashicons-arrow-right-alt"/>
                     }
                 </a>
             </li>

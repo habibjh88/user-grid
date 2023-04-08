@@ -17,10 +17,17 @@ A lightweight plugin for display WordPress users in Gutenberg Editor
 This plugins will help to display your users gor gutenberg editor. 
 
 ## Developement Guide ##
-1. npm install -f
-2. composer install
-3. npm start 
-4. npm run watch
+**Install:**
+* npm install -f
+* composer install
+
+**Start and Watch CSS/JS**
+* npm start 
+* npm run watch
+
+**Package Create**
+* npm run package
+* npm run zip
 
 ## Changelog ##
 
