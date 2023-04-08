@@ -28,7 +28,6 @@ class Fns {
 
 
 	/**
-	 * @param $layout
 	 * @param $data
 	 *
 	 * @return void
@@ -47,23 +46,6 @@ class Fns {
 		ob_start();
 		include $file;
 		echo ob_get_clean();
-	}
-
-
-	/**
-	 * Mark something as being incorrectly called.
-	 *
-	 * @param string $function — The function that was called.
-	 * @param string $message — A message explaining what has been done incorrectly.
-	 * @param string $version — The version of WordPress where the message was added.
-	 *
-	 * @return void
-	 */
-	public static function doing_it_wrong( $function, $message, $version ) {
-		// phpcs:disable
-		$message .= ' Backtrace: ' . wp_debug_backtrace_summary();
-		_doing_it_wrong( $function, $message, $version );
-		// phpcs:enable
 	}
 
 	/**

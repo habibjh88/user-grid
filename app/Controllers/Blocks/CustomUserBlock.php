@@ -489,8 +489,9 @@ class CustomUserBlock extends BlockBase {
 						</div>
 					<?php } else {
 						?>
-						<div
-							style="padding: 30px;background: #d1ecf1;"><?php echo esc_html__( "Sorry! The user email domain doesn't match with @rgbc.dev", 'gutenberg-users' ); ?></div>
+						<div class="not-found-wrap">
+							<?php echo esc_html__( "Sorry! The user email domain doesn't match with @rgbc.dev", 'gutenberg-users' ); ?>
+						</div>
 						<?php
 					} ?>
 				</div>
@@ -498,8 +499,7 @@ class CustomUserBlock extends BlockBase {
 			<?php
 		} else {
 			?>
-			<div
-				style="padding: 30px;background: #d1ecf1;"><?php echo esc_html__( "User not found", 'gutenberg-users' ); ?></div>
+			<div class="not-found-wrap"><?php echo esc_html__( "User not found", 'gutenberg-users' ); ?></div>
 			<?php
 		}
 		do_action( 'tpg_elementor_script' );

@@ -20,8 +20,6 @@ abstract class BlockBase {
 
 	public function get_script_depends( $data ) {
 
-		wp_enqueue_style( 'gtusers-block' );
-		wp_enqueue_script( 'gtusers-script' );
 	}
 
 }

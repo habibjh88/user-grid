@@ -69,7 +69,7 @@ function ContentControl(props) {
 
             <TextControl
                 autocomplete="off"
-                help="This filter won't work if you choose users from (Choose Users)"
+                help="If you don't want to filter by email domain just keep blank it."
                 label="Filter by email domain"
                 value={user_filter_by_domain}
                 onChange={(user_filter_by_domain) => {

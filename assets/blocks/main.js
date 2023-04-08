@@ -2304,7 +2304,7 @@ function ContentControl(props) {
     isClearable: false
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
     autocomplete: "off",
-    help: "This filter won't work if you choose users from (Choose Users)",
+    help: "If you don't want to filter by email domain just keep blank it.",
     label: "Filter by email domain",
     value: user_filter_by_domain,
     onChange: user_filter_by_domain => {

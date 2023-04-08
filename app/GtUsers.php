@@ -39,9 +39,9 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 * @var array
 		 */
 		public $options = [
-			'settings'          => 'rt_the_post_grid_settings',
+			'settings'          => 'rt_gtusers_settings',
 			'version'           => GT_USERS_VERSION,
-			'installed_version' => 'rt_the_post_grid_current_version',
+			'installed_version' => 'rt_gtusers_current_version',
 			'slug'              => GT_USERS_PLUGIN_SLUG,
 		];
 
