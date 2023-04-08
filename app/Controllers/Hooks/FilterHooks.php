@@ -27,16 +27,6 @@ class FilterHooks {
 	 * @return void
 	 */
 	public static function init() {
-		add_filter( 'tpg_author_arg', [ __CLASS__, 'filter_author_args' ], 10 );
-		add_filter( 'plugin_row_meta', [ __CLASS__, 'plugin_row_meta' ], 10, 2 );
-
-		$settings = get_option( 'rt_the_post_grid_settings' );
-
-		if ( isset( $settings['show_acf_details'] ) && $settings['show_acf_details'] ) {
-			add_filter( 'the_content', [ __CLASS__, 'tpg_acf_content_filter' ] );
-		}
-
-		add_filter( 'wp_head', [ __CLASS__, 'set_post_view_count' ], 9999 );
 		add_filter( 'body_class', [ __CLASS__, 'body_classes' ] );
 		add_filter( 'admin_body_class', [ __CLASS__, 'admin_body_class' ] );
 		add_filter( 'wp_kses_allowed_html', [ __CLASS__, 'tpg_custom_wpkses_post_tags' ], 10, 2 );
@@ -66,23 +56,10 @@ class FilterHooks {
 	 */
 
 	public static function admin_body_class( $classes ) {
-		$settings = get_option( 'rt_the_post_grid_settings' );
 		global $pagenow;
-
-		if ( isset( $settings['tpg_block_type'] ) && in_array( $settings['tpg_block_type'], [
-				'elementor',
-				'shortcode'
-			] ) ) {
-			$classes .= ' tpg-block-type-elementor-or-shortcode';
-		}
-
 		//check if the current page is post.php and if the post parameteris set
 		if ( $pagenow === 'post.php' && isset( $_GET['post'] ) ) {
-
-
-				$classes .= ' gtusers';
-
-
+			$classes .= ' gtusers';
 			$classes .= ' gtusers-body-wrap';
 		}
 
@@ -117,60 +94,5 @@ class FilterHooks {
 
 		return $tags;
 	}
-
-	/**
-	 * Set view count
-	 *
-	 * @param string $content Content.
-	 *
-	 * @return string
-	 */
-	public static function set_post_view_count( $content ) {
-		if ( is_single() ) {
-			$pId = get_the_ID();
-			Fns::update_post_views_count( $pId );
-		}
-
-		return $content;
-	}
-
-	/**
-	 * Filter author args.
-	 *
-	 * @param array $args Args.
-	 *
-	 * @return array
-	 */
-	public static function filter_author_args( $args ) {
-		$defaults = [ 'role__in' => [ 'administrator', 'editor', 'author' ] ];
-
-		return wp_parse_args( $args, $defaults );
-	}
-
-	/**
-	 * Add plugin row meta
-	 *
-	 * @param array $links Links.
-	 * @param string $file File.
-	 *
-	 * @return array
-	 */
-	public static function plugin_row_meta( $links, $file ) {
-		if ( $file == GT_USERS_PLUGIN_ACTIVE_FILE_NAME ) {
-			$report_url         = 'https://www.radiustheme.com/contact/';
-			$row_meta['issues'] = sprintf(
-				'%2$s <a target="_blank" href="%1$s">%3$s</a>',
-				esc_url( $report_url ),
-				esc_html__( 'Facing issue?', 'gutenberg-users' ),
-				'<span style="color: red">' . esc_html__( 'Please open a support ticket.', 'gutenberg-users' ) . '</span>'
-			);
-
-			return array_merge( $links, $row_meta );
-		}
-
-		return (array) $links;
-	}
-
-
 
 }

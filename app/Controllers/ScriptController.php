@@ -60,7 +60,7 @@ class ScriptController {
 
 
 		// Plugin specific css.
-		$styles['gtusers-block']     = gtUsers()->tpg_can_be_rtl( 'css/block' );
+		$styles['gtusers-block'] = gtUsers()->tpg_can_be_rtl( 'css/block' );
 
 
 		foreach ( $scripts as $script ) {
@@ -80,15 +80,15 @@ class ScriptController {
 	public function enqueue() {
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_style( 'gtusers-block' );
-        wp_enqueue_style('dashicons');
-        wp_enqueue_script('gtusers-script');
+		wp_enqueue_style( 'dashicons' );
+		wp_enqueue_script( 'gtusers-script' );
 
-        $nonce = wp_create_nonce( gtUsers()->nonceText() );
+		$nonce = wp_create_nonce( gtUsers()->nonceText() );
 
 		wp_localize_script( 'gtusers-script', 'gtusersParams', [
-                'nonceID' => esc_attr( gtUsers()->nonceId() ),
-                'nonce'   => esc_attr( $nonce ),
-				'ajaxurl'         => admin_url( 'admin-ajax.php' ),
+				'nonceID' => esc_attr( gtUsers()->nonceId() ),
+				'nonce'   => esc_attr( $nonce ),
+				'ajaxurl' => Fns::ajax_url(),
 			]
 		);
 	}

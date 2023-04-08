@@ -15,7 +15,6 @@ require_once __DIR__ . './../vendor/autoload.php';
 use GT\GtUsers\Controllers\Api\RestApi;
 use GT\GtUsers\Controllers\AjaxController;
 use GT\GtUsers\Controllers\BlocksController;
-use GT\GtUsers\Controllers\GutenBergController;
 use GT\GtUsers\Controllers\ScriptController;
 use GT\GtUsers\Controllers\Hooks\FilterHooks;
 use GT\GtUsers\Controllers\Hooks\ActionHooks;
@@ -104,7 +103,6 @@ if ( ! class_exists( GtUsers::class ) ) {
 			new RestApi();
 			new AjaxController();
 			new ScriptController();
-			new GutenBergController();
 			new BlocksController();
 
 			//Filter hooks init

@@ -162,13 +162,3 @@ export const el_ignore_layout = (layout, category_position) => {
     ];
     return !(category_position === 'default' && allLayout.includes(layout));
 }
-
-export const change_icon = ( fontawesome, flaticon ) => {
-    if ( gtusersParams.iconFont === 'fontawesome' ) {
-        return fontawesome;
-    } else {
-        return 'flaticon-tpg-' + flaticon;
-    }
-
-
-}

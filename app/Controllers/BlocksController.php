@@ -2,7 +2,6 @@
 
 namespace GT\GtUsers\Controllers;
 
-use GT\GtUsers\Controllers\Blocks\GridLayout;
 use GT\GtUsers\Controllers\Blocks\CustomUserBlock;
 use GT\GtUsers\Helpers\Fns;
 
@@ -16,7 +15,6 @@ class BlocksController {
 	public function __construct() {
 
 		//Layout initialize
-		new GridLayout();
 		new CustomUserBlock();
 
 		$this->version = defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : GT_USERS_VERSION;
@@ -35,7 +33,6 @@ class BlocksController {
 		add_action( 'wp_ajax_gtusers_block_css_save', [ $this, 'save_block_css' ] );
 		add_action( 'wp_ajax_gtusers_block_css_get_posts', [ $this, 'get_posts_call' ] );
 		add_action( 'wp_ajax_gtusers_block_css_appended', [ $this, 'appended' ] );
-
 
 		// Decide how css file will be loaded. default filesystem eg: filesystem or at header
 		$option_data = get_option( 'gtusers_options' );
@@ -75,7 +72,7 @@ class BlocksController {
 	 */
 	public function add_block_css_file() {
 
-		$post_id          = get_the_ID();
+		$post_id            = get_the_ID();
 		$gtusers_upload_dir = wp_upload_dir()['basedir'] . '/gtusers/';
 		$gtusers_upload_url = wp_upload_dir()['baseurl'] . '/gtusers/';
 		// phpcs:ignore
@@ -168,39 +165,19 @@ class BlocksController {
 		global $pagenow;
 		$editor_type = 'edit-post';
 
-		if ( 'post-new.php' === $pagenow || 'post.php' === $pagenow ) {
-			$all_dependencies[] = 'wp-edit-post';
-		}
-
 		if ( 'site-editor.php' === $pagenow ) {
-			$all_dependencies[] = 'wp-edit-site';
 			$editor_type        = 'edit-site';
 		}
 
-		$get_tax_object = get_taxonomies( [], 'objects' );
-		$exclude_tax    = Fns::get_excluded_taxonomy();
-		foreach ( $exclude_tax as $_tax ) {
-			unset( $get_tax_object[ $_tax ] );
-		}
 
 		wp_localize_script( 'gtusers-blocks-js', 'gtusersParams', [
-				'editor_type'     => $editor_type,
-				'nonce'           => wp_create_nonce( 'gtusers_nonce' ),
-				'ajaxurl'         => admin_url( 'admin-ajax.php' ),
-				'site_url'        => site_url(),
-				'admin_url'       => admin_url(),
-				'plugin_url'      => GT_USERS_PLUGIN_URL,
-				'post_type'       => Fns::get_post_types(),
-				'all_term_list'   => Fns::get_all_taxonomy_guten(),
-				'get_taxonomies'  => $get_tax_object,
-				'get_users'       => Fns::rt_get_users(),
-				'hasPro'          => false,
-				'pageTitle'       => get_the_title(),
-				'hasWoo'          => Fns::is_woocommerce(),
-				'hasAcf'          => Fns::is_acf(),
-				'current_user_id' => get_current_user_id(),
-				'disableImportButton'    => apply_filters('gtusers_disable_gutenberg_import_button', 'no'), //Send 'yes' if you would like to remove the button for gutenberg
-				'iconFont' => Fns::tpg_option('tpg_icon_font')
+				'editor_type'         => $editor_type,
+				'nonce'               => wp_create_nonce( 'gtusers_nonce' ),
+				'ajaxurl'             => Fns::ajax_url(),
+				'site_url'            => site_url(),
+				'admin_url'           => admin_url(),
+				'plugin_url'          => GT_USERS_PLUGIN_URL,
+				'hasPro'              => false,
 			]
 		);
 
@@ -217,7 +194,7 @@ class BlocksController {
 		$post_id = get_the_ID();
 		if ( $post_id ) {
 			$gtusers_upload_dir = wp_upload_dir()['basedir'] . '/gtusers/';
-			$css_dir_path     = $gtusers_upload_dir . "gtusers-block-$post_id.css";
+			$css_dir_path       = $gtusers_upload_dir . "gtusers-block-$post_id.css";
 			if ( file_exists( $css_dir_path ) ) {
 				$blockCss = file_get_contents( $css_dir_path );
 				echo '<style>' . sanitize_textarea_field( $blockCss ) . '</style>';
@@ -235,7 +212,7 @@ class BlocksController {
 	 * Add reusable css
 	 */
 	public function add_reusable_css() {
-		$post_id          = get_the_ID();
+		$post_id            = get_the_ID();
 		$gtusers_upload_dir = wp_upload_dir()['basedir'] . '/gtusers/';
 		$gtusers_upload_url = wp_upload_dir()['baseurl'] . '/gtusers/';
 		if ( $post_id ) {

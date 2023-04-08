@@ -1,5 +1,5 @@
 {
-    "name": "radiustheme/gutenberg-users",
+    "name": "rgbcode/gutenberg-users",
     "autoload": {
         "psr-4": {
             "GT\\GtUsers\\": "app/"
@@ -7,8 +7,8 @@
     },
     "authors": [
         {
-            "name": "RadiusTheme",
-            "email": "admin@radiustheme.com"
+            "name": "RGBCode",
+            "email": "admin@rgbcode.com"
         }
     ],
     "require": {
