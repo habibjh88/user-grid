@@ -35,10 +35,10 @@ class Fns {
 	public static function get_template( $data ) {
 		$layout        = $data['layout'];
 		$template_name = '/gutenberg-users/' . $layout . '.php';
-		if ( file_exists( STYLESHEETPATH . $template_name ) ) {
-			$file = STYLESHEETPATH . $template_name;
-		} else if ( file_exists( TEMPLATEPATH . $template_name ) ) {
-			$file = TEMPLATEPATH . $template_name;
+		if ( file_exists( get_stylesheet_directory() . $template_name ) ) {
+			$file = get_stylesheet_directory() . $template_name;
+		} else if ( file_exists( get_template_directory() . $template_name ) ) {
+			$file = get_template_directory() . $template_name;
 		} else {
 			$file = GT_USERS_PLUGIN_PATH . '/templates/' . $layout . '.php';
 		}

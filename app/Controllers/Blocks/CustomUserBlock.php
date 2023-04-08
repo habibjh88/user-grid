@@ -50,9 +50,9 @@ class CustomUserBlock extends BlockBase {
 				'default' => false,
 			],
 
-			'prefix' => [
+			'grid_style' => [
 				'type'    => 'string',
-				'default' => 'cat',
+				'default' => 'grid-style',
 			],
 
 			'user_limit' => [
@@ -140,7 +140,7 @@ class CustomUserBlock extends BlockBase {
 			//User Avatar Settings
 			'avatar_dimension'  => [
 				'type'    => 'number',
-				'default' => '300',
+				'default' => '360',
 			],
 
 			'image_link' => [
@@ -368,6 +368,115 @@ class CustomUserBlock extends BlockBase {
 				]
 			],
 
+			'button_style_tab' => [
+				'type'    => 'string',
+				'default' => 'normal',
+			],
+
+			"button_padding" => [
+				"type"    => "object",
+				"default" => [
+					'lg' => [
+						"isLinked" => true,
+						"unit"     => "px",
+						"value"    => ''
+					]
+				],
+				'style'   => [
+					(object) [
+						'selector' => '{{GTUSERS}} .cub-users-block-wrapper .load-user-button {{button_padding}}'
+					]
+				]
+			],
+
+			'button_color' => [
+				'type'    => 'string',
+				'default' => '',
+				'style'   => [
+					(object) [
+						'selector' => '{{GTUSERS}} .cub-users-block-wrapper .load-user-button {color: {{button_color}}; }'
+					]
+				]
+			],
+
+			'button_background' => [
+				'type'    => 'string',
+				'default' => '',
+				'style'   => [
+					(object) [
+						'selector' => '{{GTUSERS}} .cub-users-block-wrapper .load-user-button {background-color: {{button_background}}; }'
+					]
+				]
+			],
+
+			'button_border' => [
+				'type'    => 'object',
+				'default' => (object) [
+					'openTpgBorder' => 1,
+					'color'         => '',
+					'style'         => '',
+					'width'         => '',
+				],
+				'style'   => [
+					(object) [
+						'selector' => '{{GTUSERS}} .cub-users-block-wrapper .load-user-button'
+					]
+				]
+			],
+
+			'button_color_hover' => [
+				'type'    => 'string',
+				'default' => '',
+				'style'   => [
+					(object) [
+						'selector' => '{{GTUSERS}} .cub-users-block-wrapper .load-user-button:hover {color: {{button_color_hover}}; }'
+					]
+				]
+			],
+
+			'button_background_hover' => [
+				'type'    => 'string',
+				'default' => '',
+				'style'   => [
+					(object) [
+						'selector' => '{{GTUSERS}} .cub-users-block-wrapper .load-user-button:hover {background-color: {{button_background_hover}}; }'
+					]
+				]
+			],
+
+			'button_border_hover' => [
+				'type'    => 'object',
+				'default' => (object) [
+					'openTpgBorder' => 1,
+					'color'         => '',
+					'style'         => '',
+					'width'         => '',
+				],
+				'style'   => [
+					(object) [
+						'selector' => '{{GTUSERS}} .cub-users-block-wrapper .load-user-button:hover'
+					]
+				]
+			],
+
+
+			"button_radius"  => [
+				"type"    => "object",
+				"default" => [
+					'lg' => [
+						"isLinked" => true,
+						"unit"     => "px",
+						"value"    => ''
+					]
+				],
+				'style'   => [
+					(object) [
+						'selector' => '{{GTUSERS}} .cub-users-block-wrapper .load-user-button{{button_radius}}'
+					]
+				]
+			],
+
+			//Social Style
 			'icon_font_size' => [
 				'type'    => 'object',
 				"default" => (object) [
@@ -414,6 +523,93 @@ class CustomUserBlock extends BlockBase {
 				'style'   => [
 					(object) [
 						'selector' => '{{GTUSERS}} .cub-user-social-icons a:hover i {color: {{social_color_hover}}; }'
+					]
+				]
+			],
+
+			"card_padding" => [
+				"type"    => "object",
+				"default" => [
+					'lg' => [
+						"isLinked" => true,
+						"unit"     => "px",
+						"value"    => ''
+					]
+				],
+				'style'   => [
+					(object) [
+						'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-inner-wrapper {{card_padding}}'
+					]
+				]
+			],
+
+			"content_padding" => [
+				"type"    => "object",
+				"default" => [
+					'lg' => [
+						"isLinked" => true,
+						"unit"     => "px",
+						"value"    => ''
+					]
+				],
+				'style'   => [
+					(object) [
+						'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-inner-wrapper .user-content-wrap {{content_padding}}'
+					]
+				]
+			],
+
+			'card_border' => [
+				'type'    => 'object',
+				'default' => (object) [
+					'openTpgBorder' => 1,
+					'color'         => '',
+					'style'         => '',
+					'width'         => '',
+				],
+				'style'   => [
+					(object) [
+						'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-inner-wrapper'
+					]
+				]
+			],
+
+			"card_radius" => [
+				"type"    => "object",
+				"default" => [
+					'lg' => [
+						"isLinked" => true,
+						"unit"     => "px",
+						"value"    => ''
+					]
+				],
+				'style'   => [
+					(object) [
+						'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-inner-wrapper{{card_radius}}'
+					]
+				]
+			],
+
+			"card_bg" => [
+				"type"    => "object",
+				"default" => (object) [
+					'openBGColor' => 0,
+					'type'        => 'classic',
+					'classic'     => (object) [
+						'color'       => '',
+						'img'         => (object) [ 'imgURL' => '', 'imgID' => '' ],
+						'imgProperty' => (object) [
+							'imgPosition'   => (object) [ 'lg' => '' ],
+							'imgAttachment' => (object) [ 'lg' => '' ],
+							'imgRepeat'     => (object) [ 'lg' => '' ],
+							'imgSize'       => (object) [ 'lg' => '' ],
+						]
+					],
+					'gradient'    => ''
+				],
+				'style'   => [
+					(object) [
+						'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-inner-wrapper'
 					]
 				]
 			],
@@ -473,6 +669,7 @@ class CustomUserBlock extends BlockBase {
 			$uniqueId       = isset( $data['uniqueId'] ) ? $data['uniqueId'] : null;
 			$wrapper_class  = 'gtusers-block-postgrid gtusers-block-wrapper gtusers-block-' . $uniqueId;
 			$wrapper_class  .= $data['image_link'] == 'yes' ? '' : ' no-image-link';
+			$wrapper_class  .= ' '.$data['grid_style'];
 			$data['layout'] = 'user-layout-1';
 
 			?>

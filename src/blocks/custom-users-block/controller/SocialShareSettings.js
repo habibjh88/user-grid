@@ -7,7 +7,7 @@ import RangeDevice from "../../../components/RangeDevice";
 
 const {__} = wp.i18n
 
-function SocialShare(props) {
+function SocialShareSettings(props) {
     const {attributes, setAttributes} = props.data;
     //All attribute
     const {
@@ -55,4 +55,4 @@ function SocialShare(props) {
     );
 }
 
-export default SocialShare;
+export default SocialShareSettings;

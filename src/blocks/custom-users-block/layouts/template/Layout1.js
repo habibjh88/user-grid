@@ -11,7 +11,7 @@ function Layout1({attributes, user}) {
         name_visibility,
         email_visibility,
         bio_visibility,
-        social_visibility
+        social_visibility,
     } = attributes;
 
     const [isOpen, setOpen] = useState(false);
@@ -19,9 +19,9 @@ function Layout1({attributes, user}) {
     const closeModal = () => setOpen(false);
 
     //Grid Column settings
-    let default_grid_column_desktop = '3';
-    let default_grid_column_tab = '4';
-    let default_grid_column_mobile = '6';
+    let default_grid_column_desktop = '4';
+    let default_grid_column_tab = '6';
+    let default_grid_column_mobile = '12';
 
     let grid_column_desktop = grid_column?.lg ? grid_column.lg : default_grid_column_desktop;
     let grid_column_tab = grid_column?.md ? grid_column.md : default_grid_column_tab;
@@ -32,7 +32,7 @@ function Layout1({attributes, user}) {
 
     return (
         <div key={user.id} className={`user-item-col ${user_column}`}>
-            <div className="user-inner-wraper">
+            <div className="user-inner-wrapper">
                 {user.avatar && avatar_visibility &&
                     <div className="user-avatar">
                         <a className="user-link">
@@ -45,7 +45,7 @@ function Layout1({attributes, user}) {
                     </div>
                 }
 
-                <div className="user-content-wrap">
+                <div className="user-content-wrap clearfix">
                     {name_visibility &&
                         <HeadingTag className="user-name">
                             <a>{user.name}</a>

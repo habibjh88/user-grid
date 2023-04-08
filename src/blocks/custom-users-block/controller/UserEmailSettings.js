@@ -7,7 +7,7 @@ import Dimension from "../../../components/Dimension";
 
 const {__} = wp.i18n;
 
-function UserEmail(props) {
+function UserEmailSettings(props) {
     const {attributes, setAttributes} = props.data;
     //All attribute
     const {
@@ -51,4 +51,4 @@ function UserEmail(props) {
     );
 }
 
-export default UserEmail;
+export default UserEmailSettings;

@@ -32,7 +32,8 @@ function ContentControl(props) {
         bio_visibility,
         social_visibility,
         orderby,
-        order
+        order,
+        grid_style
     } = attributes;
 
     return (
@@ -124,6 +125,19 @@ function ContentControl(props) {
             />
 
             <Heading className="gtusers-control-heading">{__("Layouts", "gutenberg-users")}</Heading>
+
+            <SelectControl
+                label={__("Style", "gutenberg-users")}
+                className="gtusers-control-field label-inline gtusers-expand"
+                value={grid_style}
+                options={ [
+                    {value: 'grid-style', label: __('Grid', 'gutenberg-users')},
+                    {value: 'list-style', label: __('List', 'gutenberg-users')}
+                ]}
+                onChange={(grid_style) => {
+                    setAttributes({grid_style})
+                }}
+            />
 
 
             <RangeDevice

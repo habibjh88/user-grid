@@ -38,7 +38,7 @@ class AjaxController {
 			if ( $biography ) {
 				$bio = $biography;
 			}  else {
-				$bio = __("There is no biography for this user.");
+				$bio = esc_html__("There is no biography for this user.", "gutenberg-users");
 			}
 			$return = [
 				'biography' => $bio,

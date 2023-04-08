@@ -119,6 +119,10 @@ export const FORMATE_USERS = users => {
     }));
 }
 
+export const NORMAL_HOVER = [
+    {label: "Normal", value: "normal"},
+    {label: "Hover", value: "hover"}
+];
 export const GTUSERS_COLOR_PALATE = [
     {name: 'Color 1', color: '#72aee6'},
     {name: 'Color 2', color: '#0074FF'},

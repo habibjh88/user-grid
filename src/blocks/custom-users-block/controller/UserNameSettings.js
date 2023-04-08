@@ -9,7 +9,7 @@ import Dimension from "../../../components/Dimension";
 const {__} = wp.i18n;
 import {HEADING} from "../../../components/Constants";
 
-function UserName(props) {
+function UserNameSettings(props) {
     const {attributes, setAttributes} = props.data;
     //All attribute
     const {
@@ -62,4 +62,4 @@ function UserName(props) {
     );
 }
 
-export default UserName;
+export default UserNameSettings;

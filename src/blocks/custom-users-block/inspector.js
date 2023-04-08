@@ -2,10 +2,11 @@ const {InspectorControls} = wp.blockEditor;
 import {TabPanel} from "@wordpress/components";
 import ContentControl from "./controller/ContentControl";
 import AvatarSettings from "./controller/AvatarSettings";
-import UserName from "./controller/UserName";
-import UserBio from "./controller/UserBio";
-import UserEmail from "./controller/UserEmail";
-import SocialShare from "./controller/SocialShare";
+import UserNameSettings from "./controller/UserNameSettings";
+import UserBioSettings from "./controller/UserBioSettings";
+import UserEmailSettings from "./controller/UserEmailSettings";
+import SocialShareSettings from "./controller/SocialShareSettings";
+import CardSettings from "./controller/CardSettings";
 
 function Inspector(props) {
     const {attributes, changeQuery, userData} = props;
@@ -49,10 +50,11 @@ function Inspector(props) {
                         {tab.name === "styles" && (
                             <>
                                 {avatar_visibility && <AvatarSettings data={props} changeQuery={changeQuery}/>}
-                                {name_visibility && <UserName data={props}/>}
-                                {email_visibility && <UserEmail data={props}/>}
-                                {bio_visibility && <UserBio data={props}/>}
-                                {social_visibility && <SocialShare data={props}/>}
+                                {name_visibility && <UserNameSettings data={props}/>}
+                                {email_visibility && <UserEmailSettings data={props}/>}
+                                {bio_visibility && <UserBioSettings data={props}/>}
+                                {social_visibility && <SocialShareSettings data={props}/>}
+                                {social_visibility && <CardSettings data={props}/>}
                             </>
                         )}
                     </div>

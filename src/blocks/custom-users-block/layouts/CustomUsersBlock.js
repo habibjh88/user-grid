@@ -7,6 +7,7 @@ function CustomUsersBlock({props, userData}) {
     const {
         uniqueId,
         image_link,
+        grid_style
     } = attributes;
 
     const newClintID = clientId.substr(0, 6);
@@ -19,7 +20,8 @@ function CustomUsersBlock({props, userData}) {
         }
     }, []);
 
-    const wrapper_classes = image_link ? '' : ' no-image-link'
+    let wrapper_classes = image_link ? '' : ' no-image-link';
+    wrapper_classes += grid_style;
 
     return (
         <div className={`gtusers-block-postgrid gtusers-block-wrapper gtusers-block-${uniqueId} ${wrapper_classes}`}>
