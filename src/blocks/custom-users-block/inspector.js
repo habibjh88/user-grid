@@ -54,7 +54,7 @@ function Inspector(props) {
                                 {email_visibility && <UserEmailSettings data={props}/>}
                                 {bio_visibility && <UserBioSettings data={props}/>}
                                 {social_visibility && <SocialShareSettings data={props}/>}
-                                {social_visibility && <CardSettings data={props}/>}
+                                <CardSettings data={props}/>
                             </>
                         )}
                     </div>

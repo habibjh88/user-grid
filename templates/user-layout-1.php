@@ -59,10 +59,10 @@ $col_class = "cub-col-md-{$grid_column_desktop} cub-col-sm-{$grid_column_tab} cu
 				?>
 
 				<?php if ( $data['bio_visibility'] ) : ?>
-					<div class="cub-user-social-icons">
-						<button class="load-user-button" data-userid="<?php echo esc_attr( $user_info->ID ); ?>">
+					<div class="cub-bio-wrapper">
+						<a href="#" class="load-user-button" data-userid="<?php echo esc_attr( $user_info->ID ); ?>">
 							<?php echo esc_html( "Load users's biography" ); ?>
-						</button>
+						</a>
 
 						<div class="user-modal-content">
 							<div class="modal-inner">

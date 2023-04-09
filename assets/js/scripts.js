@@ -3,8 +3,6 @@
 
     $('document').ready(function () {
 
-        console.log('sssssssssss')
-
         $('.load-user-button').on('click', function (e) {
             e.preventDefault();
             var $this = $(this);
@@ -41,7 +39,7 @@
 
         $('.close-modal-btn').on('click', function (e) {
             e.preventDefault();
-            $(this).parents('.cub-user-social-icons').removeClass('open-modal')
+            $(this).parents('.cub-bio-wrapper').removeClass('open-modal')
         })
 
 

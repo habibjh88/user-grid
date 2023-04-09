@@ -115,7 +115,7 @@ export const FORMATE_USERS = users => {
     }
     return users.map((user) => ({
         value: user.id,
-        label: __(user.name, 'gutenberg-users')
+        label: __(user.name+ " - " +user.email, 'gutenberg-users')
     }));
 }
 

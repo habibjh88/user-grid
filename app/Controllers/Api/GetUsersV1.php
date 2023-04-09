@@ -130,8 +130,9 @@ class GetUsersV1 {
 			foreach ( $user_lists as $user ) {
 				$user_info            = get_user_by( 'id', $user );
 				$send_data['users'][] = [
-					'id'   => esc_html( $user_info->ID ),
-					'name' => esc_html( $user_info->display_name ),
+					'id'    => esc_html( $user_info->ID ),
+					'name'  => esc_html( $user_info->display_name ),
+					'email' => esc_html( $user_info->user_email ),
 				];
 			}
 		} else {

@@ -5,6 +5,8 @@ import {
 import Dimension from "../../../components/Dimension";
 import Background from "../../../components/Background";
 import {GTUSERS_COLOR_PALATE} from "../../../components/Constants";
+import RangeDevice from "../../../components/RangeDevice";
+import BoxShadow from "../../../components/BoxShadow";
 
 const {__} = wp.i18n;
 
@@ -12,19 +14,33 @@ function CardSettings(props) {
     const {attributes, setAttributes} = props.data;
     //All attribute
     const {
+        card_gap,
         card_padding,
         content_padding,
         card_bg,
         card_border,
-        card_radius
+        card_radius,
+        card_box_shadow
     } = attributes;
 
     return (
         <PanelBody title={__('Card Settings', 'gutenberg-users')} initialOpen={false}>
 
+          <RangeDevice
+                label={__('Card Gap')}
+                responsive={true}
+                value={card_gap}
+                min={0}
+                max={100}
+                step={1}
+                onChange={(val) => {
+                    setAttributes({card_gap: val})
+                }}
+            />
+
             <Dimension
                 label={__("Card Padding", "gutenberg-users")}
-                type="margin" responsive
+                type="padding" responsive
                 value={card_padding}
                 onChange={(value) => {
                     setAttributes({card_padding: value})
@@ -69,6 +85,11 @@ function CardSettings(props) {
                 withSlider
             />
 
+            <BoxShadow
+                label={__('Box Shadow', 'the-post-grid')}
+                value={card_box_shadow}
+                onChange={val => setAttributes({card_box_shadow: val})}
+            />
         </PanelBody>
     );
 }

@@ -24,6 +24,7 @@
 
     .user-avatar img {
         max-width: 100%;
+        height: auto;
         -o-object-fit: cover;
         object-fit: cover;
         display: block;
@@ -59,6 +60,8 @@
         font-size: 14px;
         white-space: nowrap;
         font-weight: 500;
+        display: inline-block;
+        cursor: pointer;
     }
 
     .load-user-button:hover {

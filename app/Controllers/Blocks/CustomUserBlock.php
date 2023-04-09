@@ -527,6 +527,40 @@ class CustomUserBlock extends BlockBase {
 				]
 			],
 
+			'card_gap' => [
+				'type'    => 'object',
+				"default" => (object) [
+					'lg' => '',
+					'md' => '',
+					'sm' => '',
+				],
+				'style'   => [
+					(object) [
+						'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-item-col {padding-left:{{card_gap}};padding-right:{{card_gap}};padding-bottom:calc({{card_gap}} * 2)}
+						{{GTUSERS}} .cub-users-block-wrapper .cub-row {margin-left:-{{card_gap}};margin-right:-{{card_gap}}}'
+					]
+				]
+			],
+
+			'card_box_shadow' => [
+				'type'    => 'object',
+				'default' => (object) [
+					'openShadow' => 1,
+					'width'      => (object) [
+						'top'    => 0,
+						'right'  => 0,
+						'bottom' => 0,
+						'left'   => 0
+					],
+					'color'      => '',
+					'inset'      => false,
+					'transition' => 0.5
+				],
+				'style'   => [
+					(object) [ 'selector' => '{{RTTPG}} .cub-users-block-wrapper .user-item-col .user-inner-wrapper' ]
+				],
+			],
+
 			"card_padding" => [
 				"type"    => "object",
 				"default" => [

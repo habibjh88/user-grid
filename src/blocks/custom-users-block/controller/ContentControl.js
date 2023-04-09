@@ -24,7 +24,6 @@ function ContentControl(props) {
         users_lists,
         user_limit,
         user_filter_by_domain,
-        grid_gap,
         grid_alignment,
         avatar_visibility,
         name_visibility,
@@ -35,6 +34,7 @@ function ContentControl(props) {
         order,
         grid_style
     } = attributes;
+
 
     return (
         <PanelBody title={__('Custom Users Block', 'gutenberg-users')} initialOpen={true}>
@@ -136,19 +136,6 @@ function ContentControl(props) {
                 ]}
                 onChange={(grid_style) => {
                     setAttributes({grid_style})
-                }}
-            />
-
-
-            <RangeDevice
-                label={__('Grid Gap')}
-                responsive={true}
-                value={grid_gap}
-                min={0}
-                max={100}
-                step={1}
-                onChange={(val) => {
-                    setAttributes({grid_gap: val})
                 }}
             />
 
