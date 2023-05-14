@@ -1,0 +1,532 @@
+Array
+(
+    [size] => 50
+    [height] => 50
+    [width] => 50
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2-150x150.png
+)
+
+
+Array
+(
+    [size] => 128
+    [height] => 64
+    [width] => 64
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [alt] => 
+    [class] => 
+    [force_display] => 
+    [loading] => lazy
+    [decoding] => async
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2-150x150.png
+)
+
+
+Array
+(
+    [size] => 64
+    [height] => 64
+    [width] => 64
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [alt] => 
+    [class] => 
+    [force_display] => 
+    [loading] => lazy
+    [decoding] => async
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2-150x150.png
+)
+
+
+Array
+(
+    [size] => 52
+    [height] => 26
+    [width] => 26
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [alt] => 
+    [class] => 
+    [force_display] => 
+    [loading] => lazy
+    [decoding] => async
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2-150x150.png
+)
+
+
+Array
+(
+    [size] => 26
+    [height] => 26
+    [width] => 26
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [alt] => 
+    [class] => 
+    [force_display] => 
+    [loading] => lazy
+    [decoding] => async
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2-150x150.png
+)
+
+
+Array
+(
+    [size] => 50
+    [height] => 50
+    [width] => 50
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2-150x150.png
+)
+
+
+Array
+(
+    [size] => 50
+    [height] => 50
+    [width] => 50
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2-150x150.png
+)
+
+
+Array
+(
+    [size] => 107
+    [height] => 107
+    [width] => 107
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2-150x150.png
+)
+
+
+Array
+(
+    [size] => 158
+    [height] => 158
+    [width] => 158
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 174
+    [height] => 174
+    [width] => 174
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 122
+    [height] => 122
+    [width] => 122
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2-150x150.png
+)
+
+
+Array
+(
+    [size] => 184
+    [height] => 184
+    [width] => 184
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 179
+    [height] => 179
+    [width] => 179
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 236
+    [height] => 236
+    [width] => 236
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 231
+    [height] => 231
+    [width] => 231
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 892
+    [height] => 892
+    [width] => 892
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 396
+    [height] => 396
+    [width] => 396
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 241
+    [height] => 241
+    [width] => 241
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 520
+    [height] => 520
+    [width] => 520
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 458
+    [height] => 458
+    [width] => 458
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 510
+    [height] => 510
+    [width] => 510
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 386
+    [height] => 386
+    [width] => 386
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 329
+    [height] => 329
+    [width] => 329
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 344
+    [height] => 344
+    [width] => 344
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 324
+    [height] => 324
+    [width] => 324
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 329
+    [height] => 329
+    [width] => 329
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 349
+    [height] => 349
+    [width] => 349
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 355
+    [height] => 355
+    [width] => 355
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 411
+    [height] => 411
+    [width] => 411
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 427
+    [height] => 427
+    [width] => 427
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 442
+    [height] => 442
+    [width] => 442
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+
+Array
+(
+    [size] => 437
+    [height] => 437
+    [width] => 437
+    [default] => mm
+    [force_default] => 
+    [rating] => g
+    [scheme] => 
+    [processed_args] => 
+    [extra_attr] => 
+    [found_avatar] => 1
+    [url] => http://gutenberg-users.test/wp-content/uploads/2023/05/Screenshot_2.png
+)
+
+

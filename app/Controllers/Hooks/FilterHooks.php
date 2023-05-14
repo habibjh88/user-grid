@@ -31,7 +31,11 @@ class FilterHooks {
 		add_filter( 'admin_body_class', [ __CLASS__, 'admin_body_class' ] );
 		add_filter( 'wp_kses_allowed_html', [ __CLASS__, 'gtusers_custom_wpkses_post_tags' ], 10, 2 );
 		add_filter( 'wp_calculate_image_srcset', [ __CLASS__, 'calculate_image_srcset' ] );
+		add_filter( 'get_avatar', [ __CLASS__, 'get_avatar_filter' ], 5, 5 );
+		add_filter( 'get_avatar_data', [ __CLASS__, 'get_avater_data_filter' ], 5, 2 );
+
 	}
+
 
 	/**
 	 * Add body classes
@@ -102,6 +106,94 @@ class FilterHooks {
 	 */
 	public static function calculate_image_srcset() {
 		return [];
+	}
+
+	/**
+	 * Override of the original WordPress function get_avatar();
+	 *
+	 * @return string
+	 * @since  1.0
+	 */
+	public static function get_avatar_filter( $avatar, $id_or_email, $size, $default, $alt ) {
+
+		// Get user ID, if is numeric
+		if ( is_numeric( $id_or_email ) ) {
+
+			$user_id = (int) $id_or_email;
+
+			// If is string, maybe the user email
+		} elseif ( is_string( $id_or_email ) ) {
+
+			// Find user by email
+			$user = get_user_by( 'email', $id_or_email );
+
+			// If user doesn't exists or this is not an ID
+			if ( ! isset( $user->ID ) || ! is_numeric( $user->ID ) ) {
+				return $avatar;
+			}
+
+			$user_id = (int) $user->ID;
+
+			// If is an object
+		} elseif ( is_object( $id_or_email ) ) {
+
+			// If is an ID
+			if ( isset( $id_or_email->ID ) && is_numeric( $id_or_email->ID ) ) {
+				$user_id = (int) $id_or_email->ID;
+				// If this is an Comment Object
+			} elseif ( isset( $id_or_email->comment_author_email ) ) {
+				$user = get_user_by( 'email', $id_or_email->comment_author_email );
+
+				// If user doesn't exists or this is not an ID
+				if ( ! isset( $user->ID ) || ! is_numeric( $user->ID ) ) {
+					return $avatar;
+				}
+
+				$user_id = (int) $user->ID;
+			} else {
+				return $avatar;
+			}
+		}
+
+		// Get attachment ID from user meta
+		$attachment_id = get_user_meta( $user_id, GT_USER_META_KEY, true );
+		if ( empty( $attachment_id ) || ! is_numeric( $attachment_id ) ) {
+			return $avatar;
+		}
+
+		// Get attachment image src
+		$attachment_src = wp_get_attachment_image_src( $attachment_id, 'medium' );
+
+		// Override WordPress src
+		if ( $attachment_src !== false ) {
+			$avatar = preg_replace( '/src=("|\').*?("|\')/', "src='{$attachment_src[0]}'", $avatar );
+		}
+
+		// Get attachment image srcset
+		$attachment_srcset = wp_get_attachment_image_srcset( $attachment_id );
+
+		// Override WordPress srcset
+		if ( $attachment_srcset !== false ) {
+			$avatar = preg_replace( '/srcset=("|\').*?("|\')/', "srcset='{$attachment_srcset}'", $avatar );
+		}
+
+		return $avatar;
+
+	}
+
+	public static function get_avater_data_filter($args, $id_or_email) {
+		$attachment_id = get_user_meta( $id_or_email, GT_USER_META_KEY, true );
+		if ( empty( $attachment_id ) || ! is_numeric( $attachment_id ) ) {
+			return $args;
+		}
+
+		$avatarInfo = wp_get_attachment_image_src($attachment_id, array($args['width'],$args['height']));
+
+		$args['url'] = $avatarInfo[0];
+
+		error_log( print_r( $args, true ) . "\n\n", 3, __DIR__ . '/log.txt' );
+
+		return $args;
 	}
 
 }

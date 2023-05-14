@@ -23,6 +23,7 @@ define( 'GT_USERS_PLUGIN_PATH', dirname( __FILE__ ) );
 define( 'GT_USERS_PLUGIN_ACTIVE_FILE_NAME', plugin_basename( __FILE__ ) );
 define( 'GT_USERS_PLUGIN_URL', plugins_url( '', __FILE__ ) );
 define( 'GT_USERS_PLUGIN_SLUG', basename( dirname( __FILE__ ) ) );
+define( 'GT_USER_META_KEY', 'gt_users_attachment_id' );
 define( 'GT_USERS_LANGUAGE_PATH', dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
 if ( ! class_exists( 'GtUsers' ) ) {

@@ -18,6 +18,7 @@ use GT\GtUsers\Helpers\Fns;
  * Action Hooks class.
  */
 class ActionHooks {
+	private static $avatar_size = 96;
 	/**
 	 * Class init.
 	 *
@@ -38,7 +39,9 @@ class ActionHooks {
 	 *
 	 * @return void
 	 */
-	public static function add_user_social_profile( $user ) { ?>
+	public static function add_user_social_profile( $user ) {
+		$attachment_id = get_user_meta( $user->ID, GT_USER_META_KEY, true );
+		?>
 
 		<h3><?php esc_html_e( 'Social profile information', 'gutenberg-users' ); ?></h3>
 
@@ -84,6 +87,28 @@ class ActionHooks {
 				</td>
 			</tr>
 		</table>
+
+		<table class="form-table" role="presentation">
+			<tbody>
+			<tr>
+				<th>
+					<label for="gt-avatar-add"><?php _e('User Avater', 'gutenberg-users'); ?></label>
+				</th>
+				<td>
+					<?php echo get_avatar( $user->ID, self::$avatar_size, '', $user->display_name, [ 'class' => 'gt-users-attachment-avatar' ] ); ?>
+					<p class="description <?php if ( !empty($attachment_id) ) echo 'hidden'; ?>" id="gt-users-attachment-description"><?php _e("You're seeing the default profile picture.", 'gutenberg-users'); ?></p>
+					<p>
+						<button type="button" class="button" id="gt-avatar-add"><?php _e('Choose Avatar', 'gutenberg-users'); ?></button>
+						<button type="button" class="button <?php if ( empty($attachment_id) ) echo 'hidden'; ?>" id="gt-avatar-remove"><?php _e('Remove Avatar', 'gutenberg-users'); ?></button>
+					</p>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<!-- Hidden attachment ID -->
+		<input type="hidden" name="<?php echo GT_USER_META_KEY; ?>" value="<?php echo $attachment_id; ?>" />
+
 		<?php
 	}
 
@@ -105,6 +130,12 @@ class ActionHooks {
 		update_user_meta( $user_id, 'cub_gplus', $_POST['cub_gplus'] );
 		update_user_meta( $user_id, 'cub_pinterest', $_POST['cub_pinterest'] );
 		update_user_meta( $user_id, 'cub_author_designation', $_POST['cub_author_designation'] );
+
+		// Validate POST data and, if is ok, add it
+		if ( isset($_POST[GT_USER_META_KEY]) && is_numeric($_POST[GT_USER_META_KEY]) ) {
+			update_user_meta( $user_id, GT_USER_META_KEY, (int)$_POST[GT_USER_META_KEY] );
+		}
+
 	}
 
 }
