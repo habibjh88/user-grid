@@ -46,62 +46,59 @@ class GetUsersV1 {
 			'message' => ''
 		];
 
+		$args = [
+			'number' => $data['user_limit'] ?? 6,
+		];
+
+		error_log( print_r( wp_list_pluck( $data['users_role'], 'value'), true ) . "\n\n", 3, __DIR__ . '/log.txt' );
+		if ( ! empty( $data['users_role'] ) ) {
+			$args['role__in'] = wp_list_pluck( $data['users_role'], 'value');
+		}
+
+		if ( ! empty( $data['orderby'] ) ) {
+			$args['orderby'] = $data['orderby'];
+		}
+
+		if ( ! empty( $data['order'] ) ) {
+			$args['order'] = $data['order'];
+		}
+
+		if ( ! empty( $data['user_filter_by_domain'] ) ) {
+			$args['search']         = '*' . $data['user_filter_by_domain'];
+			$args['search_columns'] = array( 'user_email' );
+		}
+
 		if ( ! empty( $data['users_lists'] ) ) {
-			$args = [
-				'fields' => [ 'ID' ],
-				'number' => $data['user_limit'],
-			];
-
-			if ( ! empty( $data['orderby'] ) ) {
-				$args['orderby'] = $data['orderby'];
-			}
-
-			if ( ! empty( $data['order'] ) ) {
-				$args['order'] = $data['order'];
-			}
-
-
-			if ( ! empty( $data['user_filter_by_domain'] ) ) {
-				$args['search']         = '*' . $data['user_filter_by_domain'];
-				$args['search_columns'] = array( 'user_email' );
-			}
-
-
 			$args['include'] = wp_list_pluck( $data['users_lists'], 'value' );
+		}
 
+		$user_lists  = get_users( $args );
+		$avatar_size = [ 'size' => $data['avatar_dimension'] ?? '300' ];
 
-			$user_lists = wp_list_pluck( get_users( $args ), 'ID' );;
+		if ( ! empty( $user_lists ) ) {
 
-			$count_users = count( $user_lists );
+			foreach ( $user_lists as $user ) {
 
-			$avatar_size = [ 'size' => $data['avatar_dimension'] ?? '300' ];
+				$send_data['users'][] = [
+					'id'        => esc_html( $user->ID ),
+					'name'      => esc_html( $user->display_name ),
+					'email'     => esc_html( $user->user_email ),
+					'avatar'    => esc_url( get_avatar_url( $user->ID, $avatar_size ) ),
+					'biography' => get_user_meta( $user->ID, 'description', true ),
+					'social'    => [
+						'facebook'  => get_user_meta( $user->ID, 'cub_facebook', true ),
+						'twitter'   => get_user_meta( $user->ID, 'cub_twitter', true ),
+						'linkedin'  => get_user_meta( $user->ID, 'cub_linkedin', true ),
+						'gplus'     => get_user_meta( $user->ID, 'cub_gplus', true ),
+						'pinterest' => get_user_meta( $user->ID, 'cub_pinterest', true ),
+					],
+				];
 
-			if ( is_array( $user_lists ) && $count_users > 0 ) {
-
-				foreach ( $user_lists as $user ) {
-					$user_info            = get_user_by( 'id', $user );
-					$send_data['users'][] = [
-						'id'        => esc_html( $user_info->ID ),
-						'name'      => esc_html( $user_info->display_name ),
-						'email'     => esc_html( $user_info->user_email ),
-						'avatar'    => esc_url( get_avatar_url( $user_info->ID, $avatar_size ) ),
-						'biography' => get_user_meta( $user_info->ID, 'description', true ),
-						'social'    => [
-							'facebook'  => get_user_meta( $user_info->ID, 'cub_facebook', true ),
-							'twitter'   => get_user_meta( $user_info->ID, 'cub_twitter', true ),
-							'linkedin'  => get_user_meta( $user_info->ID, 'cub_linkedin', true ),
-							'gplus'     => get_user_meta( $user_info->ID, 'cub_gplus', true ),
-							'pinterest' => get_user_meta( $user_info->ID, 'cub_pinterest', true ),
-						],
-					];
-
-				}
-			} else {
-				$send_data['message'] = "Sorry! The user email domain doesn't match with @rgbc.dev";
 			}
 		} else {
-			$send_data['message'] = 'Please choose few users from the sidebar';
+			$send_data['message'] = "Sorry! No Users found";
 		}
+
 
 		wp_reset_postdata();
 
@@ -118,25 +115,38 @@ class GetUsersV1 {
 	public function get_all_users_for_inspector( $data ) {
 		$send_data  = [
 			'users'   => [],
+			'roles'   => [],
 			'message' => 'success',
 		];
 		$args       = [
-			'fields' => [ 'ID' ],
-			'number' => $data['user_limit'],
+			'number' => - 1,
 		];
-		$user_lists = wp_list_pluck( get_users( $args ), 'ID' );;
-		$count_users = count( $user_lists );
-		if ( is_array( $user_lists ) && $count_users > 0 ) {
+		$user_lists = get_users( $args );
+
+		if ( ! empty( $user_lists ) ) {
 			foreach ( $user_lists as $user ) {
-				$user_info            = get_user_by( 'id', $user );
 				$send_data['users'][] = [
-					'id'    => esc_html( $user_info->ID ),
-					'name'  => esc_html( $user_info->display_name ),
-					'email' => esc_html( $user_info->user_email ),
+					'id'    => esc_html( $user->ID ),
+					'name'  => esc_html( $user->display_name ),
+					'email' => esc_html( $user->user_email ),
 				];
 			}
 		} else {
 			$send_data['message'] = 'No users found';
+		}
+
+		global $wp_roles;
+
+		$all_roles      = $wp_roles->roles;
+		$editable_roles = apply_filters( 'editable_roles', $all_roles );
+
+		if ( ! empty( $editable_roles ) ) {
+			foreach ( $editable_roles as $role => $user ) {
+				$send_data['roles'][] = [
+					'id'   => $role,
+					'name' => $user['name'],
+				];
+			}
 		}
 		wp_reset_postdata();
 

@@ -20,7 +20,6 @@ function Inspector(props) {
         social_visibility
     } = attributes;
 
-
     return (<InspectorControls key="controls">
         <div className="gtusers-panel-control-wrapper">
             <TabPanel className="gtusers-tab-panel" activeClass="active-tab" tabs={[

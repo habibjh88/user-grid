@@ -191,8 +191,6 @@ class FilterHooks {
 
 		$args['url'] = $avatarInfo[0];
 
-		error_log( print_r( $args, true ) . "\n\n", 3, __DIR__ . '/log.txt' );
-
 		return $args;
 	}
 

@@ -50,6 +50,11 @@ class CustomUserBlock extends BlockBase {
 				'default' => false,
 			],
 
+			'layout' => [
+				'type'    => 'string',
+				'default' => 'layout1',
+			],
+
 			'grid_style' => [
 				'type'    => 'string',
 				'default' => 'grid-style',
@@ -69,10 +74,16 @@ class CustomUserBlock extends BlockBase {
 				],
 			],
 
-			'users_lists'           => [
+			'users_lists' => [
 				'type'    => 'array',
 				'default' => [],
 			],
+
+			'users_role' => [
+				'type'    => 'array',
+				'default' => [],
+			],
+
 			'orderby'               => [
 				'type'    => 'string',
 				'default' => '',
@@ -83,7 +94,7 @@ class CustomUserBlock extends BlockBase {
 			],
 			'user_filter_by_domain' => [
 				'type'    => 'string',
-				'default' => '@rgbc.dev',
+				'default' => '',
 			],
 
 			'grid_gap' => [
@@ -703,7 +714,7 @@ class CustomUserBlock extends BlockBase {
 			$uniqueId       = isset( $data['uniqueId'] ) ? $data['uniqueId'] : null;
 			$wrapper_class  = 'gtusers-block-postgrid gtusers-block-wrapper gtusers-block-' . $uniqueId;
 			$wrapper_class  .= $data['image_link'] == 'yes' ? '' : ' no-image-link';
-			$wrapper_class  .= ' '.$data['grid_style'];
+			$wrapper_class  .= ' ' . $data['grid_style'];
 			$data['layout'] = 'user-layout-1';
 
 			?>

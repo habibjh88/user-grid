@@ -5,6 +5,7 @@ import Layout1 from "./template/Layout1";
 function CustomUsersBlock({props, userData}) {
     const {attributes, setAttributes, clientId} = props;
     const {
+        layout,
         uniqueId,
         image_link,
         grid_style
@@ -21,6 +22,7 @@ function CustomUsersBlock({props, userData}) {
     }, []);
 
     let wrapper_classes = image_link ? '' : ' no-image-link';
+    wrapper_classes += ' gtusers' + layout;
     wrapper_classes += grid_style;
 
     return (
@@ -39,7 +41,7 @@ function CustomUsersBlock({props, userData}) {
                 </div>
                 :
                 <div className="gtusers-postgrid-is-loading">
-                    {userData.message  ? <div className={`not-found-wrap`}>{userData.message}</div> : <Spinner/>}
+                    {userData.message ? <div className={`not-found-wrap`}>{userData.message}</div> : <Spinner/>}
                 </div>
             }
         </div>

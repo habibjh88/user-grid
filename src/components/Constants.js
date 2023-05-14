@@ -12,6 +12,11 @@ export const BACKGROUND_TYPE = [
     {label: __("Gradient", "guten-blocks"), value: "gradient"}
 ];
 
+export const GRID_LAYOUT_OPT = [
+    {value: 'layout1', icon: icons.layout1, label: __('Layout 1')},
+    {value: 'layout3', icon: icons.layout2, label: __('Layout 2')},
+];
+
 export const BACKGROUND_POSITION = [
     {label: __("Default", "guten-blocks"), value: ""},
     {label: __("Left Top", "guten-blocks"), value: "left top"},
@@ -109,13 +114,13 @@ export const POST_SORT_ORDER = [
     {value: 'ASC', label: __('ASC', 'gutenberg-users')}
 ];
 
-export const FORMATE_USERS = users => {
-    if (! users) {
+export const FORMATE_USERS = (data, field) => {
+    if (! data) {
         return;
     }
-    return users.map((user) => ({
+    return data.map((user) => ({
         value: user.id,
-        label: __(user.name+ " - " +user.email, 'gutenberg-users')
+        label: user.name + (field ? " - " +user[field] : ''),
     }));
 }
 

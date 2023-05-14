@@ -15,6 +15,7 @@ const Edit = (props) => {
         preview,
         uniqueId,
         users_lists,
+        users_role,
         image_size,
         avatar_dimension,
         user_limit,
@@ -49,6 +50,7 @@ const Edit = (props) => {
             data: {
                 users_lists,
                 user_limit,
+                users_role,
                 image_size,
                 avatar_dimension,
                 user_filter_by_domain,

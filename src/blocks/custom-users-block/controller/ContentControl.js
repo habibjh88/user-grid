@@ -9,9 +9,11 @@ import {SelectControl, PanelBody} from "@wordpress/components";
 import Select from 'react-select';
 import RangeDevice from "../../../components/RangeDevice";
 import Alignment from "../../../components/Alignment";
+import Layouts from "../../../components/Styles";
 
 const {__} = wp.i18n;
-import {FORMATE_USERS, USER_ORDER_BY, POST_SORT_ORDER
+import {
+    FORMATE_USERS, USER_ORDER_BY, POST_SORT_ORDER, GRID_LAYOUT_OPT
 } from "../../../components/Constants";
 
 
@@ -20,9 +22,11 @@ function ContentControl(props) {
 
     //All attribute
     const {
+        layout,
         grid_column,
         users_lists,
         user_limit,
+        users_role,
         user_filter_by_domain,
         grid_alignment,
         avatar_visibility,
@@ -32,12 +36,22 @@ function ContentControl(props) {
         social_visibility,
         orderby,
         order,
+        role_in,
         grid_style
     } = attributes;
 
+    console.log(users_role)
 
     return (
         <PanelBody title={__('Custom Users Block', 'gutenberg-users')} initialOpen={true}>
+
+            <Heading className="gtusers-control-heading">{__("layout", "gutenberg-users")}</Heading>
+
+            <Layouts
+                value={layout}
+                onChange={val => setAttributes({layout: val})}
+                options={GRID_LAYOUT_OPT}
+            />
 
             <Heading className="gtusers-control-heading">{__("Query", "gutenberg-users")}</Heading>
 
@@ -50,10 +64,31 @@ function ContentControl(props) {
                 </label>
 
                 <Select
-                    options={FORMATE_USERS(userData.users)}
+                    options={FORMATE_USERS(userData.users, 'email')}
                     value={users_lists}
                     onChange={(value) => {
                         setAttributes({users_lists: value})
+                        changeQuery()
+                    }}
+                    isMulti={true}
+                    closeMenuOnSelect={true}
+                    isClearable={false}
+                />
+            </div>
+
+            <div className="components-base-control gtusers-repeater">
+                <label
+                    className="components-base-control__label components-input-control__label"
+                    htmlFor="react-select-2-input">
+                    {__('Users Role', 'gutenberg-users')}
+                    {!userData.roles && <Spinner/>}
+                </label>
+
+                <Select
+                    options={FORMATE_USERS(userData.roles)}
+                    value={users_role}
+                    onChange={(value) => {
+                        setAttributes({users_role: value})
                         changeQuery()
                     }}
                     isMulti={true}
@@ -89,6 +124,8 @@ function ContentControl(props) {
                 step="1"
                 className="gtusers-control-field label-inline"
             />
+
+
 
             <SelectControl
                 label={__("Order By", "gutenberg-users")}
@@ -130,12 +167,25 @@ function ContentControl(props) {
                 label={__("Style", "gutenberg-users")}
                 className="gtusers-control-field label-inline gtusers-expand"
                 value={grid_style}
-                options={ [
+                options={[
                     {value: 'grid-style', label: __('Grid', 'gutenberg-users')},
                     {value: 'list-style', label: __('List', 'gutenberg-users')}
                 ]}
                 onChange={(grid_style) => {
                     setAttributes({grid_style})
+                }}
+            />
+
+            <SelectControl
+                label={__("Role In", "gutenberg-users")}
+                className="gtusers-control-field label-inline gtusers-expand"
+                value={role_in}
+                options={[
+                    {value: 'grid-style', label: __('Grid', 'gutenberg-users')},
+                    {value: 'list-style', label: __('List', 'gutenberg-users')}
+                ]}
+                onChange={(role_in) => {
+                    setAttributes({role_in})
                 }}
             />
 
