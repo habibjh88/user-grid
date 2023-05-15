@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $user_info        = get_user_by( 'id', $data['user'] );
 $avatar_size      = [ 'size' => $data['avatar_dimension'] ?? '300' ];
 $avater_image_url = get_avatar_url( $user_info->ID, $avatar_size );
-
+$designation  = get_user_meta( $user_info->ID, 'gt_users_designation', true );
 //Columns
 $default_grid_column_desktop = '4';
 $default_grid_column_tab     = '6';
@@ -47,14 +47,14 @@ $col_class = "cub-col-md-{$grid_column_desktop} cub-col-sm-{$grid_column_tab} cu
 				</<?php echo esc_attr( $data['name_tag'] ) ?>>
 			<?php endif; ?>
 
-				<?php if ( $data['email_visibility'] ) : ?>
-					<div class="user-email">
-						<a href="mailto:<?php echo esc_url( $user_info->user_email ) ?>"><?php echo esc_html( $user_info->user_email ) ?></a>
+				<?php if ( $designation && $data['designation_visibility'] ) : ?>
+					<div class="user-designation">
+						<?php echo esc_html( $designation ) ?>
 					</div>
 				<?php endif; ?>
 				<?php
 				if ( $data['social_visibility'] ) {
-					echo Fns::get_user_social_icon( $user_info->ID );
+					echo Fns::get_user_social_icon( $user_info->ID, $data);
 				}
 				?>
 

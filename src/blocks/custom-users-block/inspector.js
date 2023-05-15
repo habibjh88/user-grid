@@ -4,7 +4,7 @@ import ContentControl from "./controller/ContentControl";
 import AvatarSettings from "./controller/AvatarSettings";
 import UserNameSettings from "./controller/UserNameSettings";
 import UserBioSettings from "./controller/UserBioSettings";
-import UserEmailSettings from "./controller/UserEmailSettings";
+import UserDesignationSettings from "./controller/UserDesignationSettings";
 import SocialShareSettings from "./controller/SocialShareSettings";
 import CardSettings from "./controller/CardSettings";
 
@@ -50,7 +50,7 @@ function Inspector(props) {
                             <>
                                 {avatar_visibility && <AvatarSettings data={props} changeQuery={changeQuery}/>}
                                 {name_visibility && <UserNameSettings data={props}/>}
-                                {email_visibility && <UserEmailSettings data={props}/>}
+                                {email_visibility && <UserDesignationSettings data={props}/>}
                                 {bio_visibility && <UserBioSettings data={props}/>}
                                 {social_visibility && <SocialShareSettings data={props}/>}
                                 <CardSettings data={props}/>

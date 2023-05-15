@@ -50,9 +50,8 @@ class GetUsersV1 {
 			'number' => $data['user_limit'] ?? 6,
 		];
 
-		error_log( print_r( wp_list_pluck( $data['users_role'], 'value'), true ) . "\n\n", 3, __DIR__ . '/log.txt' );
 		if ( ! empty( $data['users_role'] ) ) {
-			$args['role__in'] = wp_list_pluck( $data['users_role'], 'value');
+			$args['role__in'] = wp_list_pluck( $data['users_role'], 'value' );
 		}
 
 		if ( ! empty( $data['orderby'] ) ) {
@@ -80,17 +79,18 @@ class GetUsersV1 {
 			foreach ( $user_lists as $user ) {
 
 				$send_data['users'][] = [
-					'id'        => esc_html( $user->ID ),
-					'name'      => esc_html( $user->display_name ),
-					'email'     => esc_html( $user->user_email ),
-					'avatar'    => esc_url( get_avatar_url( $user->ID, $avatar_size ) ),
-					'biography' => get_user_meta( $user->ID, 'description', true ),
-					'social'    => [
-						'facebook'  => get_user_meta( $user->ID, 'cub_facebook', true ),
-						'twitter'   => get_user_meta( $user->ID, 'cub_twitter', true ),
-						'linkedin'  => get_user_meta( $user->ID, 'cub_linkedin', true ),
-						'gplus'     => get_user_meta( $user->ID, 'cub_gplus', true ),
-						'pinterest' => get_user_meta( $user->ID, 'cub_pinterest', true ),
+					'id'          => esc_html( $user->ID ),
+					'name'        => esc_html( $user->display_name ),
+					'email'       => esc_html( $user->user_email ),
+					'designation' => get_user_meta( $user->ID, 'gt_users_designation', true ),
+					'avatar'      => esc_url( get_avatar_url( $user->ID, $avatar_size ) ),
+					'biography'   => get_user_meta( $user->ID, 'description', true ),
+					'social'      => [
+						'facebook'  => get_user_meta( $user->ID, 'gt_users_facebook', true ),
+						'twitter'   => get_user_meta( $user->ID, 'gt_users_twitter', true ),
+						'linkedin'  => get_user_meta( $user->ID, 'gt_users_linkedin', true ),
+						'gplus'     => get_user_meta( $user->ID, 'gt_users_gplus', true ),
+						'pinterest' => get_user_meta( $user->ID, 'gt_users_pinterest', true ),
 					],
 				];
 

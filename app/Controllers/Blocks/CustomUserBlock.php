@@ -133,6 +133,11 @@ class CustomUserBlock extends BlockBase {
 				'default' => 'show',
 			],
 
+			'designation_visibility' => [
+				'type'    => 'string',
+				'default' => 'show',
+			],
+
 			'email_visibility' => [
 				'type'    => 'string',
 				'default' => 'show',
@@ -276,7 +281,7 @@ class CustomUserBlock extends BlockBase {
 			],
 
 			//Email Settings
-			'email_typography' => [
+			'designation_typography' => [
 				'type'    => 'object',
 				'default' => (object) [
 					'openTypography' => 1,
@@ -287,11 +292,11 @@ class CustomUserBlock extends BlockBase {
 					'weight'         => ''
 				],
 				'style'   => [
-					(object) [ 'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-email' ]
+					(object) [ 'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-designation' ]
 				],
 			],
 
-			"email_spacing" => [
+			"designation_spacing" => [
 				"type"    => "object",
 				"default" => [
 					'lg' => [
@@ -302,30 +307,21 @@ class CustomUserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-email {{email_spacing}}'
+						'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-designation {{designation_spacing}}'
 					]
 				]
 			],
 
-			'email_color' => [
+			'designation_color' => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-email a {color: {{email_color}}; }'
+						'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-designation {color: {{designation_color}}; }'
 					]
 				]
 			],
 
-			'email_color_hover' => [
-				'type'    => 'string',
-				'default' => '',
-				'style'   => [
-					(object) [
-						'selector' => '{{GTUSERS}} .cub-users-block-wrapper .user-email a:hover {color: {{email_color_hover}}; }'
-					]
-				]
-			],
 
 			//Bio Settings
 			'bio_visible_for'   => [
@@ -497,7 +493,8 @@ class CustomUserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{GTUSERS}} .cub-user-social-icons a i {font-size:{{icon_font_size}}}'
+						'selector' => '{{GTUSERS}} .cub-user-social-icons a i {font-size:{{icon_font_size}}}
+						{{GTUSERS}} .cub-user-social-icons a svg {width:calc({{icon_font_size}} - 2px); height: {{icon_font_size}}}'
 					]
 				]
 			],
@@ -523,7 +520,8 @@ class CustomUserBlock extends BlockBase {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{GTUSERS}} .cub-user-social-icons a i {color: {{social_color}}; }'
+						'selector' => '{{GTUSERS}} .cub-user-social-icons a i {color: {{social_color}}; }
+						{{GTUSERS}} .cub-user-social-icons a svg path {fill: {{social_color}}; }'
 					]
 				]
 			],

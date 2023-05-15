@@ -32,6 +32,7 @@ function ContentControl(props) {
         avatar_visibility,
         name_visibility,
         email_visibility,
+        designation_visibility,
         bio_visibility,
         social_visibility,
         orderby,
@@ -212,6 +213,13 @@ function ContentControl(props) {
                 className="gtusers-toggle-control-field"
                 checked={name_visibility}
                 onChange={(name_visibility) => setAttributes({name_visibility: name_visibility ? 'show' : ''})}
+            />
+
+            <ToggleControl
+                label={__("Show Designation", "gutenberg-users")}
+                className="gtusers-toggle-control-field"
+                checked={designation_visibility}
+                onChange={(designation_visibility) => setAttributes({designation_visibility: designation_visibility ? 'show' : ''})}
             />
 
             <ToggleControl

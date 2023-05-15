@@ -48,62 +48,66 @@ class ActionHooks {
 		<table class="form-table">
 			<tr>
 				<th><label for="facebook"><?php esc_html_e( 'Facebook', 'gutenberg-users' ); ?></label></th>
-				<td><input type="text" name="cub_facebook" id="facebook"
-				           value="<?php echo esc_attr( get_the_author_meta( 'cub_facebook', $user->ID ) ); ?>"
+				<td><input type="text" name="gt_users_facebook" id="facebook"
+				           value="<?php echo esc_attr( get_the_author_meta( 'gt_users_facebook', $user->ID ) ); ?>"
 				           class="regular-text"/><br/><span
 						class="description"><?php esc_html_e( 'Please enter your facebook URL.', 'gutenberg-users' ); ?></span>
 				</td>
 			</tr>
 			<tr>
 				<th><label for="twitter"><?php esc_html_e( 'Twitter', 'gutenberg-users' ); ?></label></th>
-				<td><input type="text" name="cub_twitter" id="twitter"
-				           value="<?php echo esc_attr( get_the_author_meta( 'cub_twitter', $user->ID ) ); ?>"
+				<td><input type="text" name="gt_users_twitter" id="twitter"
+				           value="<?php echo esc_attr( get_the_author_meta( 'gt_users_twitter', $user->ID ) ); ?>"
 				           class="regular-text"/><br/><span
 						class="description"><?php esc_html_e( 'Please enter your Twitter username.', 'gutenberg-users' ); ?></span>
 				</td>
 			</tr>
 			<tr>
 				<th><label for="linkedin"><?php esc_html_e( 'LinkedIn', 'gutenberg-users' ); ?></label></th>
-				<td><input type="text" name="cub_linkedin" id="linkedin"
-				           value="<?php echo esc_attr( get_the_author_meta( 'cub_linkedin', $user->ID ) ); ?>"
+				<td><input type="text" name="gt_users_linkedin" id="linkedin"
+				           value="<?php echo esc_attr( get_the_author_meta( 'gt_users_linkedin', $user->ID ) ); ?>"
 				           class="regular-text"/><br/><span
 						class="description"><?php esc_html_e( 'Please enter your LinkedIn Profile', 'gutenberg-users' ); ?></span>
 				</td>
 			</tr>
 			<tr>
 				<th><label for="gplus"><?php esc_html_e( 'Google+', 'gutenberg-users' ); ?></label></th>
-				<td><input type="text" name="cub_gplus" id="gplus"
-				           value="<?php echo esc_attr( get_the_author_meta( 'cub_gplus', $user->ID ) ); ?>"
+				<td><input type="text" name="gt_users_gplus" id="gplus"
+				           value="<?php echo esc_attr( get_the_author_meta( 'gt_users_gplus', $user->ID ) ); ?>"
 				           class="regular-text"/><br/><span
 						class="description"><?php esc_html_e( 'Please enter your google+ Profile', 'gutenberg-users' ); ?></span>
 				</td>
 			</tr>
 			<tr>
 				<th><label for="pinterest"><?php esc_html_e( 'Pinterest', 'gutenberg-users' ); ?></label></th>
-				<td><input type="text" name="cub_pinterest" id="pinterest"
-				           value="<?php echo esc_attr( get_the_author_meta( 'cub_pinterest', $user->ID ) ); ?>"
+				<td><input type="text" name="gt_users_pinterest" id="pinterest"
+				           value="<?php echo esc_attr( get_the_author_meta( 'gt_users_pinterest', $user->ID ) ); ?>"
 				           class="regular-text"/><br/><span
 						class="description"><?php esc_html_e( 'Please enter your Pinterest Profile', 'gutenberg-users' ); ?></span>
 				</td>
 			</tr>
-		</table>
 
-		<table class="form-table" role="presentation">
-			<tbody>
-			<tr>
-				<th>
-					<label for="gt-avatar-add"><?php _e('User Avater', 'gutenberg-users'); ?></label>
-				</th>
-				<td>
-					<?php echo get_avatar( $user->ID, self::$avatar_size, '', $user->display_name, [ 'class' => 'gt-users-attachment-avatar' ] ); ?>
-					<p class="description <?php if ( !empty($attachment_id) ) echo 'hidden'; ?>" id="gt-users-attachment-description"><?php _e("You're seeing the default profile picture.", 'gutenberg-users'); ?></p>
-					<p>
-						<button type="button" class="button" id="gt-avatar-add"><?php _e('Choose Avatar', 'gutenberg-users'); ?></button>
-						<button type="button" class="button <?php if ( empty($attachment_id) ) echo 'hidden'; ?>" id="gt-avatar-remove"><?php _e('Remove Avatar', 'gutenberg-users'); ?></button>
-					</p>
-				</td>
-			</tr>
-			</tbody>
+            <tr>
+                <th><label for="pinterest"><?php esc_html_e( 'User Avater', 'gutenberg-users' ); ?></label></th>
+                <td>
+		            <?php echo get_avatar( $user->ID, self::$avatar_size, '', $user->display_name, [ 'class' => 'gt-users-attachment-avatar' ] ); ?>
+                    <p class="description <?php if ( !empty($attachment_id) ) echo 'hidden'; ?>" id="gt-users-attachment-description"><?php _e("You're seeing the default profile picture.", 'gutenberg-users'); ?></p>
+                    <p>
+                        <button type="button" class="button" id="gt-avatar-add"><?php _e('Choose Avatar', 'gutenberg-users'); ?></button>
+                        <button type="button" class="button <?php if ( empty($attachment_id) ) echo 'hidden'; ?>" id="gt-avatar-remove"><?php _e('Remove Avatar', 'gutenberg-users'); ?></button>
+                    </p>
+                </td>
+            </tr>
+
+            <tr>
+                <th><label for="designation"><?php esc_html_e( 'Designation', 'gutenberg-users' ); ?></label></th>
+                <td><input type="text" name="gt_users_designation" id="designation"
+                           placeholder="<?php esc_attr_e( 'Eg. Product Manager', 'gutenberg-users' ); ?>"
+                           value="<?php echo esc_attr( get_the_author_meta( 'gt_users_designation', $user->ID ) ); ?>"
+                           class="regular-text"/><br/><span
+                            class="description"><?php esc_html_e( 'Please enter your Designation', 'gutenberg-users' ); ?></span>
+                </td>
+            </tr>
 		</table>
 
 		<!-- Hidden attachment ID -->
@@ -124,12 +128,13 @@ class ActionHooks {
 			return false;
 		}
 
-		update_user_meta( $user_id, 'cub_facebook', $_POST['cub_facebook'] );
-		update_user_meta( $user_id, 'cub_twitter', $_POST['cub_twitter'] );
-		update_user_meta( $user_id, 'cub_linkedin', $_POST['cub_linkedin'] );
-		update_user_meta( $user_id, 'cub_gplus', $_POST['cub_gplus'] );
-		update_user_meta( $user_id, 'cub_pinterest', $_POST['cub_pinterest'] );
-		update_user_meta( $user_id, 'cub_author_designation', $_POST['cub_author_designation'] );
+		update_user_meta( $user_id, 'gt_users_facebook', $_POST['gt_users_facebook'] );
+		update_user_meta( $user_id, 'gt_users_twitter', $_POST['gt_users_twitter'] );
+		update_user_meta( $user_id, 'gt_users_linkedin', $_POST['gt_users_linkedin'] );
+		update_user_meta( $user_id, 'gt_users_gplus', $_POST['gt_users_gplus'] );
+		update_user_meta( $user_id, 'gt_users_pinterest', $_POST['gt_users_pinterest'] );
+		update_user_meta( $user_id, 'gt_users_author_designation', $_POST['gt_users_author_designation'] );
+		update_user_meta( $user_id, 'gt_users_designation', $_POST['gt_users_designation'] );
 
 		// Validate POST data and, if is ok, add it
 		if ( isset($_POST[GT_USER_META_KEY]) && is_numeric($_POST[GT_USER_META_KEY]) ) {
