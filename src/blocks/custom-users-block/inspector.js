@@ -7,6 +7,7 @@ import UserBioSettings from "./controller/UserBioSettings";
 import UserDesignationSettings from "./controller/UserDesignationSettings";
 import SocialShareSettings from "./controller/SocialShareSettings";
 import CardSettings from "./controller/CardSettings";
+import TabTitle from "../../components/TabTitle";
 
 function Inspector(props) {
     const {attributes, changeQuery, userData} = props;
@@ -20,47 +21,52 @@ function Inspector(props) {
         social_visibility
     } = attributes;
 
-    return (<InspectorControls key="controls">
-        <div className="gtusers-panel-control-wrapper">
-            <TabPanel className="gtusers-tab-panel" activeClass="active-tab" tabs={[
-                {
-                    name: "content",
-                    title: "Content",
-                    className: "gtusers-tab-btn content"
-                },
-                {
-                    name: "styles",
-                    title: "Settings / Styles",
-                    className: "gtusers-tab-btn settings"
-                }
-            ]}
-            >
-                {(tab) => (
-                    <div className="gtusers-tab-content">
 
-                        {/* Content Tab*/}
-                        {tab.name === "content" && (
-                            <>
-                                <ContentControl data={props} changeQuery={changeQuery} userData={userData}/>
-                            </>
-                        )}
+    return (
+        <InspectorControls key="controls">
+            <div className="gtusers-panel-control-wrapper">
+                <TabPanel className="gtusers-tab-panel" activeClass="active-tab" tabs={[
+                    {
+                        name: "content",
+                        title: <TabTitle title={`Content`} icon={`dashicons-edit`}/>,
+                        className: "gtusers-tab-btn content",
+                        // icon: "dashicons-admin-post"
+                    },
+                    {
+                        name: "styles",
+                        title: <TabTitle title={`Settings / Styles`} icon={`style`}/>,
+                        className: "gtusers-tab-btn settings",
+                        // icon: "dashicons-admin-post"
+                    }
+                ]}
+                >
+                    {(tab) => (
+                        <div className="gtusers-tab-content">
 
-                        {/* Style Tab*/}
-                        {tab.name === "styles" && (
-                            <>
-                                {avatar_visibility && <AvatarSettings data={props} changeQuery={changeQuery}/>}
-                                {name_visibility && <UserNameSettings data={props}/>}
-                                {email_visibility && <UserDesignationSettings data={props}/>}
-                                {bio_visibility && <UserBioSettings data={props}/>}
-                                {social_visibility && <SocialShareSettings data={props}/>}
-                                <CardSettings data={props}/>
-                            </>
-                        )}
-                    </div>
-                )}
-            </TabPanel>
-        </div>
-    </InspectorControls>)
+                            {/* Content Tab*/}
+                            {tab.name === "content" && (
+                                <>
+                                    <ContentControl data={props} changeQuery={changeQuery} userData={userData}/>
+                                </>
+                            )}
+
+                            {/* Style Tab*/}
+                            {tab.name === "styles" && (
+                                <>
+                                    {avatar_visibility && <AvatarSettings data={props} changeQuery={changeQuery}/>}
+                                    {name_visibility && <UserNameSettings data={props}/>}
+                                    {email_visibility && <UserDesignationSettings data={props}/>}
+                                    {bio_visibility && <UserBioSettings data={props}/>}
+                                    {social_visibility && <SocialShareSettings data={props}/>}
+                                    <CardSettings data={props}/>
+                                </>
+                            )}
+                        </div>
+                    )}
+                </TabPanel>
+            </div>
+        </InspectorControls>
+    )
 }
 
 export default Inspector;

@@ -37,7 +37,7 @@ function Gradient(props) {
                         {
                             name: 'Blue',
                             gradient:
-                                'linear-gradient(45deg, #0066FF 0%, #0A51BB 100%)',
+                                'linear-gradient(45deg, #009FFF 0%, #0A51BB 100%)',
                             slug: 'blue',
                         },
                         {

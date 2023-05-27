@@ -17,7 +17,7 @@
 				border: 1px solid #d5dadf;
 				background: transparent;
 				border-radius: 3px;
-				color: var(--gtusers-admin-color-primary, #0066ff);
+				color: var(--gtusers-admin-color-primary, #009FFF);
 
 				> span {
 					transition: unset;
@@ -28,7 +28,7 @@
 
 				&:hover {
 					color: var(--gtusers-admin-color-white, #fff);
-					background-color: var(--gtusers-admin-color-primary, #0066ff);
+					background-color: var(--gtusers-admin-color-primary, #009FFF);
 				}
 			}
 		}

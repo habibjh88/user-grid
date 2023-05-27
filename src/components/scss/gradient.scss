@@ -76,7 +76,7 @@
 							color: var(--gtusers-admin-color-white, #fff);
 							background-color: var(
 											--gtusers-admin-color-primary,
-											#0066ff
+											#009FFF
 							);
 						}
 
@@ -153,9 +153,9 @@
 					}
 
 					&__angle-circle-indicator {
-						background: var(--gtusers-admin-color-primary, #0066ff);
+						background: var(--gtusers-admin-color-primary, #009FFF);
 						border-radius: 50%;
-						border-color: var(--gtusers-admin-color-primary, #0066ff);
+						border-color: var(--gtusers-admin-color-primary, #009FFF);
 					}
 				}
 
@@ -179,7 +179,7 @@
 								.components-truncate {
 									color: var(
 													--gtusers-admin-color-primary,
-													#0066ff
+													#009FFF
 									) !important;
 								}
 
@@ -197,7 +197,7 @@
 									outline: 0;
 									box-shadow: none;
 									border-color: var(
-													--gtusers-admin-color-primary, #0066ff
+													--gtusers-admin-color-primary, #009FFF
 									);
 								}
 							}

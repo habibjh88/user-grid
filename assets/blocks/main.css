@@ -22,14 +22,14 @@
 }
 .gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .components-range-control__wrapper,
 .gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .components-range-control__wrapper {
-  color: var(--gtusers-admin-color-primary, #0066ff);
+  color: var(--gtusers-admin-color-primary, #009FFF);
   min-height: 25px;
   height: 25px;
   flex: 1 1 90% !important;
 }
 .gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .components-range-control__wrapper .acf-bf-cf-b-afb-199wkr,
 .gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .components-range-control__wrapper .acf-bf-cf-b-afb-199wkr {
-  background-color: var(--gtusers-admin-color-primary, #0066ff);
+  background-color: var(--gtusers-admin-color-primary, #009FFF);
 }
 .gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body,
 .gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body {
@@ -132,7 +132,7 @@
 }
 
 .gtusers-device-switchers-open .gtusers-device-switcher.active {
-  color: var(--gtusers-admin-color-primary, #0066ff);
+  color: var(--gtusers-admin-color-primary, #009FFF);
 }
 /*!***********************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/alignment.scss ***!
@@ -234,11 +234,11 @@
 }
 .gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div.gtusers-active .gtusers-layout,
 .gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div.gtusers-active .gtusers-layout {
-  border-color: var(--gtusers-admin-color-primary, #0066ff);
+  border-color: var(--gtusers-admin-color-primary, #009FFF);
 }
 .gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div.gtusers-active .gtusers-label,
 .gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div.gtusers-active .gtusers-label {
-  color: var(--gtusers-admin-color-primary, #0066ff) !important;
+  color: var(--gtusers-admin-color-primary, #009FFF) !important;
 }
 .gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list.gtusers-style-columns-2,
 .gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list.gtusers-style-columns-2 {
@@ -374,7 +374,7 @@
   border: 1px solid #d5dadf;
   background: transparent;
   border-radius: 3px;
-  color: var(--gtusers-admin-color-primary, #0066ff);
+  color: var(--gtusers-admin-color-primary, #009FFF);
 }
 .gtusers-components-popover .gtusers-control-field.gtusers-cf-typography-wrap .components-button > span,
 .gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-typography-wrap .components-button > span {
@@ -386,7 +386,7 @@
 .gtusers-components-popover .gtusers-control-field.gtusers-cf-typography-wrap .components-button:hover,
 .gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-typography-wrap .components-button:hover {
   color: var(--gtusers-admin-color-white, #fff);
-  background-color: var(--gtusers-admin-color-primary, #0066ff);
+  background-color: var(--gtusers-admin-color-primary, #009FFF);
 }
 .gtusers-components-popover .gtusers-typography-content,
 .gtusers-panel-control-wrapper .gtusers-typography-content {
@@ -470,7 +470,7 @@
 .gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:hover,
 .gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:hover {
   color: var(--gtusers-admin-color-white, #fff);
-  background-color: var(--gtusers-admin-color-primary, #0066ff);
+  background-color: var(--gtusers-admin-color-primary, #009FFF);
 }
 .gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:focus,
 .gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:focus {
@@ -538,9 +538,9 @@
 }
 .gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle-indicator,
 .gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle-indicator {
-  background: var(--gtusers-admin-color-primary, #0066ff);
+  background: var(--gtusers-admin-color-primary, #009FFF);
   border-radius: 50%;
-  border-color: var(--gtusers-admin-color-primary, #0066ff);
+  border-color: var(--gtusers-admin-color-primary, #009FFF);
 }
 .gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__ui-line,
 .gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__ui-line {
@@ -563,7 +563,7 @@
 }
 .gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-truncate,
 .gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-truncate {
-  color: var(--gtusers-admin-color-primary, #0066ff) !important;
+  color: var(--gtusers-admin-color-primary, #009FFF) !important;
 }
 .gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-input-control__input,
 .gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-input-control__input {
@@ -579,7 +579,7 @@
 .gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container:focus {
   outline: 0;
   box-shadow: none;
-  border-color: var(--gtusers-admin-color-primary, #0066ff);
+  border-color: var(--gtusers-admin-color-primary, #009FFF);
 }
 /*!************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/SelectObj1.scss ***!

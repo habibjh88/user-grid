@@ -41,10 +41,8 @@ function ContentControl(props) {
         grid_style
     } = attributes;
 
-    console.log(users_role)
-
     return (
-        <PanelBody title={__('Custom Users Block', 'gutenberg-users')} initialOpen={true}>
+        <div className={`components-panel__body is-opened`}>
 
             <Heading className="gtusers-control-heading">{__("layout", "gutenberg-users")}</Heading>
 
@@ -244,7 +242,7 @@ function ContentControl(props) {
                 onChange={(social_visibility) => setAttributes({social_visibility: social_visibility ? 'show' : ''})}
             />
 
-        </PanelBody>
+        </div>
     );
 }
 
