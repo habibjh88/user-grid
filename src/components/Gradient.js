@@ -12,7 +12,7 @@ function Gradient(props) {
 
     return (
 
-        <div className="gtusers-control-field gtusers-cf-gradient-wrap">
+        <div className="gtusers-control-field components-base-control gtusers-cf-gradient-wrap">
 
             {label && (
                 <div className="gtusers-cf-head">

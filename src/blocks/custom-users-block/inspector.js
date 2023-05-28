@@ -30,13 +30,11 @@ function Inspector(props) {
                         name: "content",
                         title: <TabTitle title={`Content`} icon={`dashicons-edit`}/>,
                         className: "gtusers-tab-btn content",
-                        // icon: "dashicons-admin-post"
                     },
                     {
                         name: "styles",
-                        title: <TabTitle title={`Settings / Styles`} icon={`style`}/>,
+                        title: <TabTitle title={`Settings / Styles`} icon={`dashicons-admin-generic`}/>,
                         className: "gtusers-tab-btn settings",
-                        // icon: "dashicons-admin-post"
                     }
                 ]}
                 >

@@ -11,6 +11,7 @@
 				row-gap: var(--row-gap);
 				column-gap: var(--column-gap);
 
+
 				.is-pro {
 					position: relative;
 					.pro-lable {
@@ -53,17 +54,21 @@
 					cursor: pointer;
 					overflow: hidden;
 
+
 					.gtusers-layout {
 						display: block;
-						border: 2px solid var(--gtusers-admin-color-border);
-						border-radius: 0;
-						transition: var(--gtusers-admin-transition);
+						border: 1px solid var(--gtusers-border);
+						transition: var(--gtusers-transition);
 						overflow: hidden;
-						height: 51px;
+						height: 62px;
+						border-radius: 4px;
+						background-color: #fff;;
 
 						img {
 							display: block;
 							width: 100%;
+							opacity: .75;
+							transition: 0.4s;
 						}
 					}
 
@@ -74,18 +79,22 @@
 					}
 
 					.gtusers-label {
-						font-size: 12px !important;
+						font-size: 11px !important;
 						line-height: 1.3;
-						transition: var(--gtusers-admin-transition);
+						transition: var(--gtusers-transition);
 					}
 
+					&:hover,
 					&.gtusers-active {
 						.gtusers-layout {
-							border-color: var(--gtusers-admin-color-primary, #009FFF);
+							border-color: var(--gtusers-primary, #009FFF);
+							img {
+								opacity: 1;
+							}
 						}
 
 						.gtusers-label {
-							color: var(--gtusers-admin-color-primary, #009FFF) !important;
+							color: var(--gtusers-primary, #009FFF) !important;
 						}
 					}
 				}

@@ -25,7 +25,7 @@ const IconControl = (props) => {
 
 	if (defaultData.length !== 0) {
 		return (
-			<div className="gtusers-control-field gtusers-cf-alignment-wrap">
+			<div className="gtusers-control-field components-base-control gtusers-cf-alignment-wrap">
 
 				{(label || responsive) && (
 					<div className="gtusers-cf-head">

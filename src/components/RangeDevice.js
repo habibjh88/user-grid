@@ -32,7 +32,7 @@ function RangeDevice(props) {
     };
 
     return (
-        <div className="gtusers-control-field gtusers-cf-range-wrap">
+        <div className="gtusers-control-field components-base-control gtusers-cf-range-wrap">
 
             <div className="gtusers-cf-head">
                 <div className="rt-left-part">

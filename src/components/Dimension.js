@@ -88,7 +88,7 @@ const Dimension = (props) => {
     }
 
     return (
-        <div className={`gtusers-control-field gtusers-cf-dimension ${className}`}>
+        <div className={`gtusers-control-field components-base-control gtusers-cf-dimension ${className}`}>
             <div className={`gtusers-cf-head`}>
                 <div className="rt-left-part">
                     <div className="gtusers-label">{props.label}</div>

@@ -11,7 +11,7 @@ function Range( props ) {
     };
 
     return (
-        <div className="gtusers-control-field gtusers-cf-range-wrap">
+        <div className="gtusers-control-field components-base-control gtusers-cf-range-wrap">
             { label && (
                 <div className="gtusers-cf-head">
                     <span className="gtusers-label">{ label }</span>

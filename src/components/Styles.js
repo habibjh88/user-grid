@@ -7,7 +7,7 @@ function Styles(props) {
     const {label, value, options, columns = 3, onChange} = props
 
     return (
-        <div className="gtusers-control-field gtusers-cf-styles-wrap">
+        <div className="gtusers-control-field components-base-control gtusers-cf-styles-wrap">
 
             {label && (
                 <div className="gtusers-cf-head">

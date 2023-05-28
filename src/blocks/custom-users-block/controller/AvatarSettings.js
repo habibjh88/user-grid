@@ -33,7 +33,7 @@ function AvatarSettings(props) {
             />
 
             <Range
-                label={__("Image Dimension")}
+                label={__("Avatar Dimension")}
                 value={avatar_dimension}
                 onChange={(val) => {
                     setAttributes({avatar_dimension: val})
@@ -43,6 +43,9 @@ function AvatarSettings(props) {
                 max={1000}
                 step={1}
             />
+
+            <small className="gtusers-help">{__("Avatar Dimension works only for wp avatar.", "gutenberg-users")}</small>
+
 
             <RangeDevice
                 label={__('Img Wrap Width')}

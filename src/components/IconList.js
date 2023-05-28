@@ -29,7 +29,7 @@ class IconList extends Component {
         const hasIcon = value ? 'has-icon' : '';
 
         return (
-            <div className={`gtusers-field gtusers-icon-main-wrapper ${className}`}>
+            <div className={`gtusers-field components-base-control gtusers-icon-main-wrapper ${className}`}>
                 {this.props.label &&
                     <Fragment>
                         <label class="components-input-control__label">{label}</label>

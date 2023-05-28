@@ -15,8 +15,14 @@ function Typography(props) {
         onChange(newData);
     };
 
+    let iconSVG = <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.714111 0H9.13693V1.43879H9.13709V2.54784H7.45852V1.67857H5.7499L5.7499 10.0714H7.42846V11.75H2.39275V10.0714H4.07133L4.07133 1.67857H2.39275V2.54784H0.714186L0.714186 1.67857H0.714111V0Z" fill="#565D66"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M14.1427 4.19641H7.42847V5.87498H7.42847L7.42847 6.74427H9.10704V5.87498H9.94633L9.94633 10.0714H9.10704V11.75H12.5241V10.0714H11.6249V5.87498H12.4642V6.74427H14.1427V6.74422V5.63517V5.62201H14.1427V4.19641Z" fill="#565D66"/>
+    </svg>
+
+
     return (
-        <div className="gtusers-control-field gtusers-cf-typography-wrap">
+        <div className="gtusers-control-field components-base-control gtusers-cf-typography-wrap">
 
             {label && (
                 <span className="gtusers-label">{label}</span>
@@ -32,7 +38,7 @@ function Typography(props) {
                             isSmall
                             onClick={onToggle}
                             aria-expanded={isOpen}
-                            icon="edit"
+                            icon={iconSVG}
                         ></Button>
                     )}
 

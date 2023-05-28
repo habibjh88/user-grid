@@ -18,7 +18,7 @@ function Select(props) {
 
     return (
 
-        <div className="gtusers-control-field ">
+        <div className="gtusers-control-field components-base-control">
 
             <div className="gtusers-cf-head">
                 <span className="gtusers-label">{label}</span>

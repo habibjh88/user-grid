@@ -1,12 +1,40 @@
 .gtusers-components-popover,
 .gtusers-panel-control-wrapper {
-	.gtusers-control-field {
-		&.gtusers-cf-alignment-wrap {
-			.gtusers-btn-group {
-				.gtusers-button {
-					font-size: 16px;
-				}
-			}
-		}
-	}
+    .gtusers-control-field {
+        &.gtusers-cf-alignment-wrap {
+            .gtusers-btn-group {
+                .gtusers-button {
+                    font-size: 14px;
+                    background: #fff;
+                    border: 1px solid #ced7db;
+                    height: 30px;
+                    line-height: 30px;
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-left: -1px;
+                    cursor: pointer;
+                    transition: var(--gtusers-transition);
+
+                    &:hover,
+                    &.active {
+                        background: var(--gtusers-primary);
+                        color: #ffffff;
+                    }
+
+                    &:first-child {
+                        border-radius: 4px 0 0 4px;
+                    }
+
+                    &:last-child {
+                        border-radius: 0 4px 4px 0;
+                    }
+
+                    i {
+                        transition: none
+                    }
+                }
+            }
+        }
+    }
 }

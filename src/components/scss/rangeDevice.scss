@@ -22,13 +22,13 @@
             // components-range-control
             .components-range-control {
                 &__wrapper {
-                    color: var(--gtusers-admin-color-primary, #009FFF);
+                    color: var(--gtusers-primary, #009FFF);
                     min-height: 25px;
                     height: 25px;
                     flex: 1 1 90% !important;
 
                     .acf-bf-cf-b-afb-199wkr {
-                        background-color: var(--gtusers-admin-color-primary, #009FFF);
+                        background-color: var(--gtusers-primary, #009FFF);
                     }
                 }
             }
@@ -47,11 +47,12 @@
 
                 .gtusers-undo-btn {
                     font-size: 16px;
-                    color: var(--gtusers-admin-color-secondary, #555);
+                    color: var(--gtusers-secondary, #555);
                     background-color: transparent;
 
                     span {
                         font-size: inherit;
+                        line-height: 1.5;
                     }
 
                     &:focus {

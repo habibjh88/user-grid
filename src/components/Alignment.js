@@ -28,7 +28,7 @@ const Alignment = (props) => {
     const defaultData = options && Array.isArray(options) ? options : ['left', 'center', 'right', 'justify'];
 
     return (
-        <div className="gtusers-control-field gtusers-cf-alignment-wrap">
+        <div className="gtusers-control-field components-base-control gtusers-cf-alignment-wrap">
 
             {(label || responsive) && (
                 <div className="gtusers-cf-head">

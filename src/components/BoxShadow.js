@@ -21,7 +21,7 @@ function BoxShadow( props ) {
     };
 
     return (
-        <div className="gtusers-control-field gtusers-cf-typography-wrap">
+        <div className="gtusers-control-field components-base-control gtusers-cf-typography-wrap">
 
             { label && (
                 <span className="gtusers-label">{ label }</span>

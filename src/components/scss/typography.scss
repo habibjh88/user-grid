@@ -7,7 +7,7 @@
 			justify-content: space-between;
 
 			.components-button {
-				font-size: var(--gtusers-admin-text-base, 14px);
+				font-size: 12px;
 				height: 28px !important;
 				width: 28px !important;
 				padding: 0;
@@ -17,7 +17,7 @@
 				border: 1px solid #d5dadf;
 				background: transparent;
 				border-radius: 3px;
-				color: var(--gtusers-admin-color-primary, #009FFF);
+				color: #1e1e1e;
 
 				> span {
 					transition: unset;
@@ -26,9 +26,12 @@
 					font-size: 19px
 				}
 
+				svg {
+					width: 15px;
+				}
+
 				&:hover {
-					color: var(--gtusers-admin-color-white, #fff);
-					background-color: var(--gtusers-admin-color-primary, #009FFF);
+					background-color: #d3e1e9;
 				}
 			}
 		}

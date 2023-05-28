@@ -18,7 +18,7 @@ function GridColumn( props ) {
     const GRID_CLOUMN = colStyle === 'grid' ? COL_OPTIONS_GRID : COL_OPTIONS;
 
     return (
-        <div className={ `gtusers-column-group ${ className }` }>
+        <div className={ `gtusers-column-group components-base-control ${ className }` }>
             { label && (
                 <div className="gtusers-cf-head">
                     <span className="gtusers-label">{ label }</span>

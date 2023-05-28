@@ -78,7 +78,7 @@ function BGImage(props) {
     const imgIDVal = value['img'] !== undefined ? value['img']['imgID'] : '';
 
     return (
-        <div className="gtusers-control-field gtusers-cf-bg-img-wrap">
+        <div className="gtusers-control-field components-base-control gtusers-cf-bg-img-wrap">
 
             {label && (
                 <span className="gtusers-label">{label}</span>

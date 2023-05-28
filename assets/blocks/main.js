@@ -2248,7 +2248,7 @@ function AvatarSettings(props) {
       image_link: image_link ? 'yes' : ''
     })
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Range__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    label: __("Image Dimension"),
+    label: __("Avatar Dimension"),
     value: avatar_dimension,
     onChange: val => {
       setAttributes({
@@ -2259,7 +2259,9 @@ function AvatarSettings(props) {
     min: 50,
     max: 1000,
     step: 1
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_RangeDevice__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("small", {
+    className: "gtusers-help"
+  }, __("Avatar Dimension works only for wp avatar.", "gutenberg-users")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_RangeDevice__WEBPACK_IMPORTED_MODULE_5__["default"], {
     label: __('Img Wrap Width'),
     responsive: true,
     value: avatar_width,
@@ -2558,7 +2560,6 @@ function ContentControl(props) {
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalNumberControl, {
     isShiftStepEnabled: true,
     label: __("User Limit", "gutenberg-users"),
-    help: __("The number of users to show. Enter -1 to show all found posts.", "gutenberg-users"),
     max: 1000,
     min: -1,
     value: user_limit,
@@ -2572,7 +2573,9 @@ function ContentControl(props) {
     shiftStep: 10,
     step: "1",
     className: "gtusers-control-field label-inline"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("small", {
+    className: "gtusers-help"
+  }, __("The number of users to show. Enter -1 to show all found posts.", "gutenberg-users")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
     label: __("Order By", "gutenberg-users"),
     className: "gtusers-control-field label-inline gtusers-expand",
     value: orderby,
@@ -3388,15 +3391,13 @@ function Inspector(props) {
         icon: `dashicons-edit`
       }),
       className: "gtusers-tab-btn content"
-      // icon: "dashicons-admin-post"
     }, {
       name: "styles",
       title: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_TabTitle__WEBPACK_IMPORTED_MODULE_9__["default"], {
         title: `Settings / Styles`,
-        icon: `style`
+        icon: `dashicons-admin-generic`
       }),
       className: "gtusers-tab-btn settings"
-      // icon: "dashicons-admin-post"
     }]
   }, tab => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "gtusers-tab-content"
@@ -3679,7 +3680,7 @@ const Alignment = props => {
   };
   const defaultData = options && Array.isArray(options) ? options : ['left', 'center', 'right', 'justify'];
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "gtusers-control-field gtusers-cf-alignment-wrap"
+    className: "gtusers-control-field components-base-control gtusers-cf-alignment-wrap"
   }, (label || responsive) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "gtusers-cf-head"
   }, label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
@@ -3840,7 +3841,7 @@ function BGImage(props) {
   const imgURLVal = value['img'] !== undefined ? value['img']['imgURL'] : '';
   const imgIDVal = value['img'] !== undefined ? value['img']['imgID'] : '';
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "gtusers-control-field gtusers-cf-bg-img-wrap"
+    className: "gtusers-control-field components-base-control gtusers-cf-bg-img-wrap"
   }, label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "gtusers-label"
   }, label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -4090,7 +4091,7 @@ function BoxShadow(props) {
     onChange(newData);
   };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "gtusers-control-field gtusers-cf-typography-wrap"
+    className: "gtusers-control-field components-base-control gtusers-cf-typography-wrap"
   }, label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "gtusers-label"
   }, label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -4215,7 +4216,7 @@ function Color(_ref) {
     onChange(color);
   };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "gtusers-control-field gtusers-cf-color-wrap"
+    className: "gtusers-control-field components-base-control gtusers-cf-color-wrap"
   }, label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "gtusers-label"
   }, label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -4753,7 +4754,7 @@ const Dimension = props => {
     dimensionValues = currentData?.value ? currentData.value.split(" ") : ['', '', '', ''];
   }
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: `gtusers-control-field gtusers-cf-dimension ${className}`
+    className: `gtusers-control-field components-base-control gtusers-cf-dimension ${className}`
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: `gtusers-cf-head`
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -4852,7 +4853,7 @@ function Gradient(props) {
     onChange(val);
   };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "gtusers-control-field gtusers-cf-gradient-wrap"
+    className: "gtusers-control-field components-base-control gtusers-cf-gradient-wrap"
   }, label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "gtusers-cf-head"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
@@ -4933,7 +4934,7 @@ function GridColumn(props) {
   };
   const GRID_CLOUMN = colStyle === 'grid' ? _Constants__WEBPACK_IMPORTED_MODULE_3__.COL_OPTIONS_GRID : _Constants__WEBPACK_IMPORTED_MODULE_3__.COL_OPTIONS;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: `gtusers-column-group ${className}`
+    className: `gtusers-column-group components-base-control ${className}`
   }, label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "gtusers-cf-head"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
@@ -4994,7 +4995,7 @@ function ImageAvater(_ref) {
     onEditImage = null
   } = _ref;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "gtusers-image-avatar",
+    className: "gtusers-image-avatar components-base-control",
     style: {
       backgroundImage: `url(${imageUrl})`
     }
@@ -5060,7 +5061,7 @@ function Range(props) {
     onChange(val);
   };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-    className: "gtusers-control-field gtusers-cf-range-wrap"
+    className: "gtusers-control-field components-base-control gtusers-cf-range-wrap"
   }, label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     className: "gtusers-cf-head"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("span", {
@@ -5150,7 +5151,7 @@ function RangeDevice(props) {
     onChange(newData);
   };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-    className: "gtusers-control-field gtusers-cf-range-wrap"
+    className: "gtusers-control-field components-base-control gtusers-cf-range-wrap"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     className: "gtusers-cf-head"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
@@ -5305,7 +5306,7 @@ function Styles(props) {
     onChange
   } = props;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "gtusers-control-field gtusers-cf-styles-wrap"
+    className: "gtusers-control-field components-base-control gtusers-cf-styles-wrap"
   }, label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "gtusers-cf-head"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
@@ -5358,15 +5359,26 @@ const TabTitle = _ref => {
   });
   if (icon === 'style') {
     iconEl = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-      xmlns: "http://www.w3.org/2000/svg",
-      width: "18",
-      height: "21"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
-      fill: "#565D66",
-      "fill-rule": "nonzero"
+      width: "21",
+      height: "21",
+      viewBox: "0 0 21 21",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-      d: "M15.12 12.091a.814.814 0 00-.68-.378.814.814 0 00-.68.378c-.531.863-2.252 3.807-2.252 5.09 0 1.598 1.317 2.901 2.932 2.901s2.933-1.303 2.933-2.902c0-1.303-1.722-4.226-2.253-5.089zm-1.041 3.828c-.043.063-.744 1.198-.213 1.976a.52.52 0 01.064.358.409.409 0 01-.191.294.608.608 0 01-.255.084.476.476 0 01-.383-.21c-.871-1.283.149-2.902.192-2.986a.517.517 0 01.297-.21.534.534 0 01.361.063c.192.126.255.42.128.63zM13.314 10.388l1.36-.147c.446-.042.807-.337.935-.736.127-.4.042-.862-.276-1.157L7.258.294c-.255-.252-.68-.252-.957 0a.68.68 0 000 .947l.34.336-5.1 5.047C.82 7.339.5 8.348.67 9.379c.128.652.489 1.24.956 1.703l3.082 3.05c.467.462 1.062.82 1.72.946a3.134 3.134 0 002.785-.863l3.612-3.575a.74.74 0 01.489-.252zM7.576 2.502l5.759 5.7H2.073c.085-.232.212-.463.403-.653l5.1-5.047z"
-    })));
+      "fill-rule": "evenodd",
+      "clip-rule": "evenodd",
+      d: "M8.79626 20.4539C8.88095 20.7757 9.17192 21 9.5047 21H11.4135C11.7464 21 12.0375 20.7755 12.1221 20.4536L12.6374 18.4916L14.53 17.7133L15.8845 18.8709C16.1752 19.1193 16.6081 19.1023 16.8785 18.832L18.8319 16.8785C19.1013 16.6091 19.1193 16.1783 18.8733 15.8875L17.7206 14.5241L18.4815 12.6868L20.448 12.1867C20.7727 12.1041 21 11.8118 21 11.4767L20.9999 9.54549C20.9999 9.21196 20.7746 8.92055 20.4518 8.83657L18.4741 8.32202L17.7122 6.48215L18.8727 5.11325C19.1193 4.82243 19.1015 4.39113 18.8319 4.12154L16.8785 2.16805C16.6033 1.8929 16.161 1.88088 15.8714 2.14069L15.8576 2.15303C15.8484 2.16128 15.8347 2.17348 15.8171 2.18918C15.782 2.22056 15.7311 2.26586 15.6687 2.32123C15.5438 2.43205 15.373 2.58279 15.1892 2.74282C14.9625 2.94013 14.73 3.13921 14.5407 3.29533L12.6871 2.52768L12.1869 0.552702C12.1046 0.227657 11.8121 4.76837e-07 11.4767 4.76837e-07H9.52326C9.18776 4.76837e-07 8.89515 0.227906 8.813 0.553186L8.31436 2.52763L6.51371 3.26839L5.10232 2.11818C4.811 1.88077 4.38727 1.90231 4.12154 2.16805L2.16805 4.12154C1.8935 4.39609 1.88085 4.83717 2.13922 5.127L3.31172 6.44226L2.54119 8.27014L0.539631 8.81656C0.221011 8.90354 0 9.19298 0 9.52326V11.4767C0 11.8172 0.234534 12.1128 0.566066 12.1901L2.51416 12.6448L3.26373 14.4877L2.11749 15.8985C1.88078 16.1899 1.90261 16.613 2.16805 16.8785L4.12154 18.832C4.39587 19.1063 4.8365 19.1192 5.12639 18.8613L6.44574 17.6878L8.27079 18.4572L8.79626 20.4539ZM10.0694 19.5349L9.59593 17.7357C9.53808 17.5159 9.38149 17.3354 9.17204 17.2471L6.58886 16.1582C6.32861 16.0485 6.02848 16.0982 5.81746 16.2859L4.66896 17.3074L3.67121 16.3096L4.67418 15.0751C4.84274 14.8677 4.88491 14.5848 4.78419 14.3372L3.72846 11.7416C3.63887 11.5213 3.44794 11.3582 3.21638 11.3042L1.46512 10.8955V10.0826L3.27076 9.5897C3.48774 9.53046 3.66549 9.37482 3.75286 9.16755L4.84158 6.58485C4.9514 6.32433 4.9015 6.02386 4.71337 5.81282L3.69317 4.66841L4.68966 3.67191L5.92626 4.67967C6.1346 4.84946 6.41919 4.89152 6.66774 4.78927L9.21298 3.7422C9.42761 3.6539 9.58771 3.46912 9.64454 3.2441L10.0938 1.46512H10.9066L11.357 3.24371C11.4138 3.46793 11.5732 3.65217 11.7869 3.74067L14.3759 4.81284C14.6095 4.90958 14.8764 4.87902 15.0821 4.73199C15.3325 4.55301 15.7875 4.16438 16.1511 3.84791C16.2126 3.79437 16.2726 3.7419 16.33 3.69158L17.3189 4.68046L16.3056 5.87571C16.1281 6.08508 16.0825 6.37611 16.1875 6.62971L17.26 9.21945C17.3479 9.43161 17.5301 9.5903 17.7524 9.64812L19.5348 10.1119L19.5349 10.9072L17.7646 11.3573C17.5407 11.4143 17.3567 11.5735 17.2683 11.787L16.1961 14.376C16.0913 14.6292 16.1366 14.9199 16.3136 15.1292L17.3195 16.3189L16.3214 17.317L15.1414 16.3086C14.9325 16.13 14.6411 16.0834 14.3869 16.188L11.7429 17.2753C11.5305 17.3627 11.3714 17.5446 11.3131 17.7667L10.8486 19.5349H10.0694Z",
+      fill: "#565D66"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+      d: "M6.48953 13C6.18807 13 5.9243 12.9445 5.69821 12.8336C5.47656 12.7182 5.30367 12.5539 5.17954 12.3409C5.05985 12.1234 5 11.8704 5 11.5819V9.42477C5 9.13182 5.05985 8.87883 5.17954 8.66578C5.30367 8.45273 5.47656 8.29072 5.69821 8.17976C5.9243 8.06436 6.18807 8.00666 6.48953 8.00666C6.79098 8.00666 7.05253 8.06436 7.27419 8.17976C7.49584 8.29516 7.66652 8.45939 7.78621 8.67244C7.91034 8.88105 7.9724 9.13182 7.9724 9.42477H7.25424C7.25424 9.17177 7.18774 8.9787 7.05475 8.84554C6.92175 8.71238 6.73335 8.64581 6.48953 8.64581C6.2457 8.64581 6.05508 8.71238 5.91765 8.84554C5.78466 8.9787 5.71816 9.16955 5.71816 9.41811V11.5819C5.71816 11.8304 5.78466 12.0235 5.91765 12.1611C6.05508 12.2943 6.2457 12.3609 6.48953 12.3609C6.73335 12.3609 6.92175 12.2943 7.05475 12.1611C7.18774 12.0235 7.25424 11.8304 7.25424 11.5819H7.9724C7.9724 11.8704 7.91034 12.1212 7.78621 12.3342C7.66652 12.5473 7.49584 12.7115 7.27419 12.8269C7.05253 12.9423 6.79098 13 6.48953 13Z",
+      fill: "#565D66"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+      d: "M10.4701 13C10.142 13 9.86052 12.9467 9.62557 12.8402C9.39061 12.7292 9.20886 12.5739 9.0803 12.3742C8.95174 12.17 8.88746 11.9281 8.88746 11.6485H9.59897C9.59897 11.8704 9.67655 12.0457 9.83171 12.1744C9.98687 12.2987 10.2019 12.3609 10.4767 12.3609C10.7338 12.3609 10.9356 12.2987 11.0818 12.1744C11.2281 12.0502 11.3013 11.8793 11.3013 11.6618C11.3013 11.4798 11.2503 11.3222 11.1483 11.1891C11.0508 11.0559 10.909 10.9649 10.7228 10.9161L10.111 10.7364C9.75635 10.6343 9.48149 10.4612 9.28644 10.217C9.09581 9.96849 9.0005 9.67332 9.0005 9.33156C9.0005 9.06525 9.06035 8.83222 9.18004 8.63249C9.29974 8.43276 9.47041 8.27741 9.69207 8.16645C9.91372 8.05548 10.1753 8 10.4767 8C10.92 8 11.2747 8.11984 11.5407 8.35952C11.8111 8.5992 11.9485 8.92099 11.953 9.3249H11.2348C11.2348 9.11185 11.1661 8.94541 11.0286 8.82557C10.8957 8.70129 10.7072 8.63915 10.4634 8.63915C10.2285 8.63915 10.0445 8.69685 9.9115 8.81225C9.77851 8.92321 9.71201 9.08078 9.71201 9.28495C9.71201 9.46693 9.76078 9.6245 9.85831 9.75766C9.96027 9.89081 10.1043 9.98402 10.2905 10.0373L10.909 10.2237C11.2636 10.3213 11.5362 10.4945 11.7269 10.743C11.9175 10.9916 12.0128 11.2889 12.0128 11.6352C12.0128 11.9059 11.9485 12.1456 11.82 12.3542C11.6914 12.5584 11.5119 12.7182 11.2813 12.8336C11.0508 12.9445 10.7804 13 10.4701 13Z",
+      fill: "#565D66"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+      d: "M14.4573 13C14.1292 13 13.8477 12.9467 13.6128 12.8402C13.3778 12.7292 13.1961 12.5739 13.0675 12.3742C12.9389 12.17 12.8747 11.9281 12.8747 11.6485H13.5862C13.5862 11.8704 13.6638 12.0457 13.8189 12.1744C13.9741 12.2987 14.1891 12.3609 14.4639 12.3609C14.721 12.3609 14.9228 12.2987 15.069 12.1744C15.2153 12.0502 15.2885 11.8793 15.2885 11.6618C15.2885 11.4798 15.2375 11.3222 15.1355 11.1891C15.038 11.0559 14.8962 10.9649 14.71 10.9161L14.0982 10.7364C13.7435 10.6343 13.4687 10.4612 13.2736 10.217C13.083 9.96849 12.9877 9.67332 12.9877 9.33156C12.9877 9.06525 13.0475 8.83222 13.1672 8.63249C13.2869 8.43276 13.4576 8.27741 13.6793 8.16645C13.9009 8.05548 14.1625 8 14.4639 8C14.9072 8 15.2619 8.11984 15.5279 8.35952C15.7983 8.5992 15.9357 8.92099 15.9402 9.3249H15.222C15.222 9.11185 15.1533 8.94541 15.0159 8.82557C14.8829 8.70129 14.6944 8.63915 14.4506 8.63915C14.2157 8.63915 14.0317 8.69685 13.8987 8.81225C13.7657 8.92321 13.6992 9.08078 13.6992 9.28495C13.6992 9.46693 13.748 9.6245 13.8455 9.75766C13.9475 9.89081 14.0915 9.98402 14.2777 10.0373L14.8962 10.2237C15.2508 10.3213 15.5234 10.4945 15.7141 10.743C15.9047 10.9916 16 11.2889 16 11.6352C16 11.9059 15.9357 12.1456 15.8072 12.3542C15.6786 12.5584 15.4991 12.7182 15.2685 12.8336C15.038 12.9445 14.7676 13 14.4573 13Z",
+      fill: "#565D66"
+    }));
   }
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: `gtusers-tab-button`
@@ -5419,8 +5431,25 @@ function Typography(props) {
     newData[type] = val;
     onChange(newData);
   };
+  let iconSVG = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    width: "15",
+    height: "12",
+    viewBox: "0 0 15 12",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M0.714111 0H9.13693V1.43879H9.13709V2.54784H7.45852V1.67857H5.7499L5.7499 10.0714H7.42846V11.75H2.39275V10.0714H4.07133L4.07133 1.67857H2.39275V2.54784H0.714186L0.714186 1.67857H0.714111V0Z",
+    fill: "#565D66"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M14.1427 4.19641H7.42847V5.87498H7.42847L7.42847 6.74427H9.10704V5.87498H9.94633L9.94633 10.0714H9.10704V11.75H12.5241V10.0714H11.6249V5.87498H12.4642V6.74427H14.1427V6.74422V5.63517V5.62201H14.1427V4.19641Z",
+    fill: "#565D66"
+  }));
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "gtusers-control-field gtusers-cf-typography-wrap"
+    className: "gtusers-control-field components-base-control gtusers-cf-typography-wrap"
   }, label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "gtusers-label"
   }, label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -5438,7 +5467,7 @@ function Typography(props) {
         isSmall: true,
         onClick: onToggle,
         "aria-expanded": isOpen,
-        icon: "edit"
+        icon: iconSVG
       });
     },
     renderContent: () => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -5509,11 +5538,11 @@ const icons = {};
 const img_path = gtusersParams.plugin_url + '/assets/images';
 icons.postgrid_logo = `${img_path}/gutenberg-users-logo.svg`;
 icons.layout1 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-  src: `${img_path}/layouts/layout1.png`,
+  src: `${img_path}/layouts/grid-1.svg`,
   alt: __('Grid Layout 1')
 });
 icons.layout2 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-  src: `${img_path}/layouts/layout2.png`,
+  src: `${img_path}/layouts/list-1.svg`,
   alt: __('Grid Layout 2')
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (icons);

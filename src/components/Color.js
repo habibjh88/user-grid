@@ -17,7 +17,7 @@ function Color({label, color, onChange}) {
     };
 
     return (
-        <div className="gtusers-control-field gtusers-cf-color-wrap">
+        <div className="gtusers-control-field components-base-control gtusers-cf-color-wrap">
 
             {label && (
                 <span className="gtusers-label">{label}</span>

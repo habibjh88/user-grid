@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 function ImageAvater({imageUrl, onDeleteImage, onEditImage = null}) {
 
     return (
-        <div className="gtusers-image-avatar" style={{backgroundImage: `url(${imageUrl})`}}>
+        <div className="gtusers-image-avatar components-base-control" style={{backgroundImage: `url(${imageUrl})`}}>
             <button className="open-image-button" onClick={onEditImage}></button>
 
             <div className={`gtusers-media-actions`}>

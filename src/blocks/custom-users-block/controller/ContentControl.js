@@ -110,7 +110,6 @@ function ContentControl(props) {
             <NumberControl
                 isShiftStepEnabled
                 label={__("User Limit", "gutenberg-users")}
-                help={__("The number of users to show. Enter -1 to show all found posts.", "gutenberg-users")}
                 max={1000}
                 min={-1}
                 value={user_limit}
@@ -124,7 +123,7 @@ function ContentControl(props) {
                 className="gtusers-control-field label-inline"
             />
 
-
+            <small className="gtusers-help">{__("The number of users to show. Enter -1 to show all found posts.", "gutenberg-users")}</small>
 
             <SelectControl
                 label={__("Order By", "gutenberg-users")}
