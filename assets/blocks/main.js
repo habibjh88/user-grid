@@ -2213,12 +2213,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/Constants */ "./src/components/Constants.js");
 /* harmony import */ var _components_Range__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/Range */ "./src/components/Range.js");
 /* harmony import */ var _components_RangeDevice__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../components/RangeDevice */ "./src/components/RangeDevice.js");
+/* harmony import */ var _components_Media__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../components/Media */ "./src/components/Media.js");
 
 
 
 const {
   __
 } = wp.i18n;
+
 
 
 
@@ -2232,6 +2234,7 @@ function AvatarSettings(props) {
   const {
     avatar_dimension,
     avatar_width,
+    default_image,
     avatar_height,
     avatar_border_radius,
     avatar_border,
@@ -2261,7 +2264,19 @@ function AvatarSettings(props) {
     step: 1
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("small", {
     className: "gtusers-help"
-  }, __("Avatar Dimension works only for wp avatar.", "gutenberg-users")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_RangeDevice__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, __("Avatar Dimension works only for wp avatar.", "gutenberg-users")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Media__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    label: __("Default Image", "gutenberg-users"),
+    multiple: false,
+    type: ['image'],
+    panel: true,
+    value: default_image,
+    onChange: val => {
+      setAttributes({
+        default_image: val
+      });
+      changeQuery();
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_RangeDevice__WEBPACK_IMPORTED_MODULE_5__["default"], {
     label: __('Img Wrap Width'),
     responsive: true,
     value: avatar_width,
@@ -2452,11 +2467,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_GridColumn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/GridColumn */ "./src/components/GridColumn.js");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
-/* harmony import */ var _components_RangeDevice__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/RangeDevice */ "./src/components/RangeDevice.js");
-/* harmony import */ var _components_Alignment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/Alignment */ "./src/components/Alignment.js");
-/* harmony import */ var _components_Styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../components/Styles */ "./src/components/Styles.js");
-/* harmony import */ var _components_Constants__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../components/Constants */ "./src/components/Constants.js");
+/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
+/* harmony import */ var _components_Alignment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/Alignment */ "./src/components/Alignment.js");
+/* harmony import */ var _components_Styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/Styles */ "./src/components/Styles.js");
+/* harmony import */ var _components_Constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../components/Constants */ "./src/components/Constants.js");
 
 const {
   Spinner
@@ -2465,7 +2479,7 @@ const {
 
 
 
-
+// import AsyncSelect from 'react-select/async';
 
 
 const {
@@ -2504,12 +2518,12 @@ function ContentControl(props) {
     className: `components-panel__body is-opened`
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalHeading, {
     className: "gtusers-control-heading"
-  }, __("layout", "gutenberg-users")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Styles__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, __("layout", "gutenberg-users")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Styles__WEBPACK_IMPORTED_MODULE_4__["default"], {
     value: layout,
     onChange: val => setAttributes({
       layout: val
     }),
-    options: _components_Constants__WEBPACK_IMPORTED_MODULE_6__.GRID_LAYOUT_OPT
+    options: _components_Constants__WEBPACK_IMPORTED_MODULE_5__.GRID_LAYOUT_OPT
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalHeading, {
     className: "gtusers-control-heading"
   }, __("Query", "gutenberg-users")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -2517,8 +2531,8 @@ function ContentControl(props) {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
     className: "components-base-control__label components-input-control__label",
     htmlFor: "react-select-2-input"
-  }, __('Choose Users', 'gutenberg-users'), !userData.users && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Spinner, null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_select__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    options: (0,_components_Constants__WEBPACK_IMPORTED_MODULE_6__.FORMATE_USERS)(userData.users, 'email'),
+  }, __('Choose Users', 'gutenberg-users'), !userData.users && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Spinner, null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_select__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    options: (0,_components_Constants__WEBPACK_IMPORTED_MODULE_5__.FORMATE_USERS)(userData.users, 'email'),
     value: users_lists,
     onChange: value => {
       setAttributes({
@@ -2534,8 +2548,8 @@ function ContentControl(props) {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
     className: "components-base-control__label components-input-control__label",
     htmlFor: "react-select-2-input"
-  }, __('Users Role', 'gutenberg-users'), !userData.roles && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Spinner, null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_select__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    options: (0,_components_Constants__WEBPACK_IMPORTED_MODULE_6__.FORMATE_USERS)(userData.roles),
+  }, __('Users Role', 'gutenberg-users'), !userData.roles && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Spinner, null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_select__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    options: (0,_components_Constants__WEBPACK_IMPORTED_MODULE_5__.FORMATE_USERS)(userData.roles),
     value: users_role,
     onChange: value => {
       setAttributes({
@@ -2548,9 +2562,10 @@ function ContentControl(props) {
     isClearable: false
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
     autocomplete: "off",
-    help: "If you don't want to filter by email domain just keep blank it.",
+    help: "Search by E-mail keywords, Eg. your-company.com",
     label: "Filter by email domain",
     value: user_filter_by_domain,
+    placeholder: "Eg. @website.com, @inof.com etc",
     onChange: user_filter_by_domain => {
       setAttributes({
         user_filter_by_domain
@@ -2579,7 +2594,7 @@ function ContentControl(props) {
     label: __("Order By", "gutenberg-users"),
     className: "gtusers-control-field label-inline gtusers-expand",
     value: orderby,
-    options: _components_Constants__WEBPACK_IMPORTED_MODULE_6__.USER_ORDER_BY,
+    options: _components_Constants__WEBPACK_IMPORTED_MODULE_5__.USER_ORDER_BY,
     onChange: orderby => {
       setAttributes({
         orderby
@@ -2590,7 +2605,7 @@ function ContentControl(props) {
     label: __("Sort Order", "gutenberg-users"),
     className: "gtusers-control-field label-inline gtusers-expand",
     value: order,
-    options: _components_Constants__WEBPACK_IMPORTED_MODULE_6__.POST_SORT_ORDER,
+    options: _components_Constants__WEBPACK_IMPORTED_MODULE_5__.POST_SORT_ORDER,
     onChange: order => {
       setAttributes({
         order
@@ -2642,7 +2657,7 @@ function ContentControl(props) {
         role_in
       });
     }
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Alignment__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Alignment__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: __("Alignment", "gutenberg-users"),
     options: ['left', 'center', 'right'],
     value: grid_alignment
@@ -4519,11 +4534,11 @@ const USER_ORDER_BY = [{
   label: __('Post Count', 'gutenberg-users')
 }];
 const POST_SORT_ORDER = [{
-  value: 'DESC',
-  label: __('DESC', 'gutenberg-users')
-}, {
   value: 'ASC',
   label: __('ASC', 'gutenberg-users')
+}, {
+  value: 'DESC',
+  label: __('DESC', 'gutenberg-users')
 }];
 const FORMATE_USERS = (data, field) => {
   if (!data) {
@@ -5017,6 +5032,185 @@ ImageAvater.propTypes = {
   onDeleteImage: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func.isRequired)
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageAvater);
+
+/***/ }),
+
+/***/ "./src/components/Media.js":
+/*!*********************************!*\
+  !*** ./src/components/Media.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Dashicon: () => (/* binding */ Dashicon),
+/* harmony export */   Tooltip: () => (/* binding */ Tooltip),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _scss_media_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scss/media.scss */ "./src/components/scss/media.scss");
+
+const {
+  __
+} = wp.i18n;
+
+const {
+  Component
+} = wp.element;
+const {
+  MediaUpload
+} = wp.blockEditor;
+const {
+  Tooltip,
+  Dashicon
+} = wp.components;
+class Media extends Component {
+  setSettings(media) {
+    const {
+      multiple,
+      onChange,
+      value
+    } = this.props;
+    if (multiple) {
+      let medias = [];
+      media.forEach(single => {
+        if (single && single.url) {
+          medias.push({
+            url: single.url,
+            id: single.id
+          });
+        }
+      });
+      onChange(value ? value.concat(medias) : medias);
+    } else {
+      if (media && media.url) {
+        onChange({
+          url: media.url,
+          id: media.id
+        });
+      }
+    }
+  }
+  removeImage(id) {
+    const {
+      multiple,
+      onChange
+    } = this.props;
+    if (multiple) {
+      let value = this.props.value.slice();
+      value.splice(id, 1);
+      onChange(value);
+    } else {
+      onChange({});
+    }
+  }
+  isUrl(url) {
+    if (['wbm', 'jpg', 'jpeg', 'gif', 'png', 'svg'].indexOf(url.split('.').pop().toLowerCase()) != -1) {
+      return url;
+    } else {
+      return gtusersParams.plugin_url + 'assets/images/gtusers-placeholder.png';
+    }
+  }
+  render() {
+    const {
+      type,
+      multiple,
+      value,
+      panel,
+      video
+    } = this.props;
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "gtusers-media"
+    }, this.props.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, this.props.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
+      onSelect: val => this.setSettings(val),
+      allowedTypes: type.length ? [...type] : ['image'],
+      multiple: multiple || false,
+      value: value,
+      render: _ref => {
+        let {
+          open
+        } = _ref;
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+          className: "gtusers-single-img"
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, multiple ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, value.length > 0 && value.map((v, index) => {
+          return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+            className: "gtusers-media-image-parent"
+          }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+            src: this.isUrl(v.url),
+            alt: __('image')
+          }), panel && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+            className: "gtusers-media-actions gtusers-field-button-list"
+          }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+            text: __('Edit')
+          }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+            className: "gtusers-button",
+            "aria-label": __('Edit'),
+            onClick: open,
+            role: "button"
+          }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+            "aria-label": __('Edit'),
+            className: "dashicons dashicons-edit-large"
+          }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+            text: __('Remove')
+          }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+            className: "gtusers-button",
+            "aria-label": __('Remove'),
+            onClick: () => this.removeImage(index),
+            role: "button"
+          }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+            "aria-label": __('Close'),
+            className: "dashicons dashicons-trash"
+          })))));
+        }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+          onClick: open,
+          className: "gtusers-placeholder-image"
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+          className: "dashicon dashicons dashicons-insert"
+        }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, __('Insert')))) : value && value.url ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+          className: "gtusers-media-image-parent"
+        }, video ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("video", {
+          controls: true,
+          autoPlay: true,
+          loop: true,
+          src: value.url
+        }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+          src: this.isUrl(value.url),
+          alt: __('image')
+        }), panel && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+          className: "gtusers-media-actions gtusers-field-button-list"
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+          text: __('Edit')
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+          className: "gtusers-button",
+          "aria-label": __('Edit'),
+          onClick: open,
+          role: "button"
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+          "aria-label": __('Edit'),
+          className: "dashicons dashicons-edit-large"
+        }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+          text: __('Remove')
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+          className: "gtusers-button",
+          "aria-label": __('Remove'),
+          onClick: () => this.removeImage(value.id),
+          role: "button"
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+          "aria-label": __('Close'),
+          className: "dashicons dashicons-trash"
+        }))))) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+          onClick: open,
+          className: "gtusers-placeholder-image"
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+          className: "dashicon dashicons dashicons-insert"
+        }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, __('Insert')))));
+      }
+    }));
+  }
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Media);
 
 /***/ }),
 
@@ -7568,6 +7762,19 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************!*\
   !*** ./src/components/scss/gradient.scss ***!
   \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/components/scss/media.scss":
+/*!****************************************!*\
+  !*** ./src/components/scss/media.scss ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";

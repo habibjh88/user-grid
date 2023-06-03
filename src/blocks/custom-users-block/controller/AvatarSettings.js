@@ -9,6 +9,7 @@ const {__} = wp.i18n;
 import {GTUSERS_COLOR_PALATE} from "../../../components/Constants";
 import Range from "../../../components/Range";
 import RangeDevice from "../../../components/RangeDevice";
+import Media from "../../../components/Media";
 
 function AvatarSettings(props) {
     const {attributes, setAttributes, changeQuery} = props.data;
@@ -16,6 +17,7 @@ function AvatarSettings(props) {
     const {
         avatar_dimension,
         avatar_width,
+        default_image,
         avatar_height,
         avatar_border_radius,
         avatar_border,
@@ -46,6 +48,19 @@ function AvatarSettings(props) {
 
             <small className="gtusers-help">{__("Avatar Dimension works only for wp avatar.", "gutenberg-users")}</small>
 
+            <Media
+                label={__("Default Image", "gutenberg-users")}
+                multiple={false}
+                type={['image']}
+                panel={true}
+                value={default_image}
+                onChange={val => {
+                    setAttributes({default_image: val})
+                    changeQuery()
+                }}
+            />
+
+            <hr/>
 
             <RangeDevice
                 label={__('Img Wrap Width')}

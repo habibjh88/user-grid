@@ -164,6 +164,11 @@ class CustomUserBlock extends BlockBase {
 				'default' => 'yes',
 			],
 
+			'default_image' => [
+				'type'    => 'object',
+				'default' => [],
+			],
+
 			'avatar_width'  => [
 				'type'    => 'object',
 				"default" => (object) [
@@ -696,13 +701,14 @@ class CustomUserBlock extends BlockBase {
 
 
 			if ( ! empty( $data['user_filter_by_domain'] ) ) {
-				$args['search']         = '*' . $data['user_filter_by_domain'];
+				$args['search']         = '*' . $data['user_filter_by_domain'] . '*';
 				$args['search_columns'] = array( 'user_email' );
 			}
 
 
-			$args['include'] = wp_list_pluck( $data['users_lists'], 'value' );
-
+			if ( ! empty( $data['users_lists'] ) ) {
+				$args['include'] = wp_list_pluck($data['users_lists'], 'value');
+			}
 
 			$user_lists = wp_list_pluck( get_users( $args ), 'ID' );;
 

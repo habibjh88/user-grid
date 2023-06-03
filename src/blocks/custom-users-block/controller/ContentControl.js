@@ -7,7 +7,7 @@ import {
 } from '@wordpress/components';
 import {SelectControl, PanelBody} from "@wordpress/components";
 import Select from 'react-select';
-import RangeDevice from "../../../components/RangeDevice";
+// import AsyncSelect from 'react-select/async';
 import Alignment from "../../../components/Alignment";
 import Layouts from "../../../components/Styles";
 
@@ -73,6 +73,7 @@ function ContentControl(props) {
                     closeMenuOnSelect={true}
                     isClearable={false}
                 />
+
             </div>
 
             <div className="components-base-control gtusers-repeater">
@@ -98,9 +99,10 @@ function ContentControl(props) {
 
             <TextControl
                 autocomplete="off"
-                help="If you don't want to filter by email domain just keep blank it."
+                help="Search by E-mail keywords, Eg. your-company.com"
                 label="Filter by email domain"
                 value={user_filter_by_domain}
+                placeholder="Eg. @website.com, @inof.com etc"
                 onChange={(user_filter_by_domain) => {
                     setAttributes({user_filter_by_domain})
                     changeQuery();
@@ -123,7 +125,8 @@ function ContentControl(props) {
                 className="gtusers-control-field label-inline"
             />
 
-            <small className="gtusers-help">{__("The number of users to show. Enter -1 to show all found posts.", "gutenberg-users")}</small>
+            <small
+                className="gtusers-help">{__("The number of users to show. Enter -1 to show all found posts.", "gutenberg-users")}</small>
 
             <SelectControl
                 label={__("Order By", "gutenberg-users")}

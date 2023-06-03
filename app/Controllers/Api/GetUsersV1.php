@@ -63,7 +63,7 @@ class GetUsersV1 {
 		}
 
 		if ( ! empty( $data['user_filter_by_domain'] ) ) {
-			$args['search']         = '*' . $data['user_filter_by_domain'];
+			$args['search']         = '*' . $data['user_filter_by_domain'].'*';
 			$args['search_columns'] = array( 'user_email' );
 		}
 

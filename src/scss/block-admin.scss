@@ -8,8 +8,16 @@
 }
 
 .gtusers-sidebar {
-    .components-panel .block-editor-block-card {
-        background: #ffffff;
+    .components-panel {
+        .block-editor-block-card {
+            background: #e1e7eb;
+            padding-bottom: 0;
+        }
+
+        .block-editor-block-card__title {
+            margin-top: -5px;
+            font-size: 16px;
+        }
     }
 }
 
@@ -59,6 +67,7 @@
     .gtusers-btn-group {
         display: flex;
         align-items: center;
+
         button {
             flex: 1;
             border: 1px solid #c7c7d3 !important;
@@ -73,6 +82,7 @@
             font-size: 13px;
             color: inherit;
             background-color: #fff;
+
             &.is-primary {
                 color: inherit !important;
                 background-color: #d3e1e9 !important;
@@ -83,8 +93,7 @@
     }
 
     .components-tab-panel__tabs {
-        background: #d3e1e9;
-        border-radius: 10px 10px 0 0;
+        background: #e1e7eb;
         padding: 10px 10px 0;
 
         button {
@@ -341,10 +350,6 @@
         height: 30px;
         margin-left: -8px;
         margin-right: -8px;
-
-        .gtusers-btn-group button {
-            
-        }
     }
 
     .gtusers-cf-body-btn-wrap .gtusers-btn-group {

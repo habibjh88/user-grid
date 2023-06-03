@@ -110,8 +110,8 @@ export const USER_ORDER_BY = [
 ];
 
 export const POST_SORT_ORDER = [
-    {value: 'DESC', label: __('DESC', 'gutenberg-users')},
-    {value: 'ASC', label: __('ASC', 'gutenberg-users')}
+    {value: 'ASC', label: __('ASC', 'gutenberg-users')},
+    {value: 'DESC', label: __('DESC', 'gutenberg-users')}
 ];
 
 export const FORMATE_USERS = (data, field) => {
