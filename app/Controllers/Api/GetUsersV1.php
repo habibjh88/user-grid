@@ -77,13 +77,12 @@ class GetUsersV1 {
 		if ( ! empty( $user_lists ) ) {
 
 			foreach ( $user_lists as $user ) {
-
 				$send_data['users'][] = [
 					'id'          => esc_html( $user->ID ),
 					'name'        => esc_html( $user->display_name ),
 					'email'       => esc_html( $user->user_email ),
 					'designation' => get_user_meta( $user->ID, 'gt_users_designation', true ),
-					'avatar'      => esc_url( get_avatar_url( $user->ID, $avatar_size ) ),
+					'avatar'      =>  get_avatar_url( $user->ID, $avatar_size ),
 					'biography'   => get_user_meta( $user->ID, 'description', true ),
 					'social'      => [
 						'facebook'  => get_user_meta( $user->ID, 'gt_users_facebook', true ),

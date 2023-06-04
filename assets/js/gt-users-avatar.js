@@ -44,7 +44,6 @@
         // Toggle class hidden
         elAttachmentDesc.toggleClass( 'hidden' );
         elButtonRemove.toggleClass( 'hidden' );
-
     }
 
 

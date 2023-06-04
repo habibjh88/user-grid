@@ -19,6 +19,7 @@ use GT\GtUsers\Helpers\Fns;
  */
 class ActionHooks {
 	private static $avatar_size = 96;
+
 	/**
 	 * Class init.
 	 *
@@ -87,37 +88,45 @@ class ActionHooks {
 				</td>
 			</tr>
 
-            <tr>
-                <th><label for="pinterest"><?php esc_html_e( 'User Avater', 'gutenberg-users' ); ?></label></th>
-                <td>
-		            <?php echo get_avatar( $user->ID, self::$avatar_size, '', $user->display_name, [ 'class' => 'gt-users-attachment-avatar' ] ); ?>
-                    <p class="description <?php if ( !empty($attachment_id) ) echo 'hidden'; ?>" id="gt-users-attachment-description"><?php _e("You're seeing the default profile picture.", 'gutenberg-users'); ?></p>
-                    <p>
-                        <button type="button" class="button" id="gt-avatar-add"><?php _e('Choose Avatar', 'gutenberg-users'); ?></button>
-                        <button type="button" class="button <?php if ( empty($attachment_id) ) echo 'hidden'; ?>" id="gt-avatar-remove"><?php _e('Remove Avatar', 'gutenberg-users'); ?></button>
-                    </p>
-                </td>
-            </tr>
+			<tr>
+				<th><label for="pinterest"><?php esc_html_e( 'User Avater', 'gutenberg-users' ); ?></label></th>
+				<td>
+					<?php echo get_avatar( $user->ID, self::$avatar_size, '', $user->display_name, [ 'class' => 'gt-users-attachment-avatar' ] ); ?>
+					<p class="description <?php if ( ! empty( $attachment_id ) ) {
+						echo 'hidden';
+					} ?>"
+					   id="gt-users-attachment-description"><?php _e( "You're seeing the default profile picture.", 'gutenberg-users' ); ?></p>
+					<p>
+						<button type="button" class="button"
+						        id="gt-avatar-add"><?php _e( 'Choose Avatar', 'gutenberg-users' ); ?></button>
+						<button type="button" class="button <?php if ( empty( $attachment_id ) ) {
+							echo 'hidden';
+						} ?>"
+						        id="gt-avatar-remove"><?php _e( 'Remove Avatar', 'gutenberg-users' ); ?></button>
+					</p>
+				</td>
+			</tr>
 
-            <tr>
-                <th><label for="designation"><?php esc_html_e( 'Designation', 'gutenberg-users' ); ?></label></th>
-                <td><input type="text" name="gt_users_designation" id="designation"
-                           placeholder="<?php esc_attr_e( 'Eg. Product Manager', 'gutenberg-users' ); ?>"
-                           value="<?php echo esc_attr( get_the_author_meta( 'gt_users_designation', $user->ID ) ); ?>"
-                           class="regular-text"/><br/><span
-                            class="description"><?php esc_html_e( 'Please enter your Designation', 'gutenberg-users' ); ?></span>
-                </td>
-            </tr>
+			<tr>
+				<th><label for="designation"><?php esc_html_e( 'Designation', 'gutenberg-users' ); ?></label></th>
+				<td><input type="text" name="gt_users_designation" id="designation"
+				           placeholder="<?php esc_attr_e( 'Eg. Product Manager', 'gutenberg-users' ); ?>"
+				           value="<?php echo esc_attr( get_the_author_meta( 'gt_users_designation', $user->ID ) ); ?>"
+				           class="regular-text"/><br/><span
+						class="description"><?php esc_html_e( 'Please enter your Designation', 'gutenberg-users' ); ?></span>
+				</td>
+			</tr>
 		</table>
 
 		<!-- Hidden attachment ID -->
-		<input type="hidden" name="<?php echo GT_USER_META_KEY; ?>" value="<?php echo $attachment_id; ?>" />
+		<input type="hidden" name="<?php echo GT_USER_META_KEY; ?>" value="<?php echo $attachment_id; ?>"/>
 
 		<?php
 	}
 
 	/**
 	 * Update user social
+	 *
 	 * @param $user_id
 	 *
 	 * @return false|void
@@ -137,8 +146,8 @@ class ActionHooks {
 		update_user_meta( $user_id, 'gt_users_designation', $_POST['gt_users_designation'] );
 
 		// Validate POST data and, if is ok, add it
-		if ( isset($_POST[GT_USER_META_KEY]) && is_numeric($_POST[GT_USER_META_KEY]) ) {
-			update_user_meta( $user_id, GT_USER_META_KEY, (int)$_POST[GT_USER_META_KEY] );
+		if ( ! empty( $_POST[ GT_USER_META_KEY ] ) ) {
+			update_user_meta( $user_id, GT_USER_META_KEY, (int) $_POST[ GT_USER_META_KEY ] );
 		}
 
 	}

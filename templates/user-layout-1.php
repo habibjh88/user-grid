@@ -17,6 +17,8 @@ $user_info        = get_user_by( 'id', $data['user'] );
 $avatar_size      = [ 'size' => $data['avatar_dimension'] ?? '300' ];
 $avater_image_url = get_avatar_url( $user_info->ID, $avatar_size );
 $designation  = get_user_meta( $user_info->ID, 'gt_users_designation', true );
+var_dump($avater_image_url);
+
 //Columns
 $default_grid_column_desktop = '4';
 $default_grid_column_tab     = '6';

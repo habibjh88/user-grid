@@ -116,6 +116,8 @@ class FilterHooks {
 	 */
 	public static function get_avatar_filter( $avatar, $id_or_email, $size, $default, $alt ) {
 
+		return apply_filters( 'basic_user_avatar', $avatar, $id_or_email );
+
 		// Get user ID, if is numeric
 		if ( is_numeric( $id_or_email ) ) {
 
@@ -181,17 +183,43 @@ class FilterHooks {
 
 	}
 
-	public static function get_avater_data_filter($args, $id_or_email) {
-		$attachment_id = get_user_meta( $id_or_email, GT_USER_META_KEY, true );
-		if ( empty( $attachment_id ) || ! is_numeric( $attachment_id ) ) {
+	public static function get_avater_data_filter( $args, $id_or_email ) {
+
+		if ( ! empty( $args['force_default'] ) ) {
 			return $args;
 		}
 
-		$avatarInfo = wp_get_attachment_image_src($attachment_id, array($args['width'],$args['height']));
+		$return_args = $args;
 
-		$args['url'] = $avatarInfo[0];
+		// Determine if we received an ID or string. Then, set the $user_id variable.
+		if ( is_numeric( $id_or_email ) && 0 < $id_or_email ) {
+			$user_id = (int) $id_or_email;
+		} elseif ( is_object( $id_or_email ) && isset( $id_or_email->user_id ) && 0 < $id_or_email->user_id ) {
+			$user_id = $id_or_email->user_id;
+		} elseif ( is_object( $id_or_email ) && isset( $id_or_email->ID ) && isset( $id_or_email->user_login ) && 0 < $id_or_email->ID ) {
+			$user_id = $id_or_email->ID;
+		} elseif ( is_string( $id_or_email ) && false !== strpos( $id_or_email, '@' ) ) {
+			$_user = get_user_by( 'email', $id_or_email );
 
-		return $args;
+			if ( ! empty( $_user ) ) {
+				$user_id = $_user->ID;
+			}
+		}
+
+		if ( empty( $user_id ) ) {
+			return $args;
+		}
+
+
+		// Get the user's local avatar from usermeta.
+		$avatar_id_local = get_user_meta( $user_id, GT_USER_META_KEY, true );
+		$_avatars_image  = wp_get_attachment_image_src( $avatar_id_local, 'full' );
+		if ( ! empty( $_avatars_image[0] ) ) {
+			$return_args['url']          = $_avatars_image[0];
+			$return_args['found_avatar'] = true;
+		}
+
+		return apply_filters( 'basic_user_avatar_data', $return_args );
 	}
 
 }
