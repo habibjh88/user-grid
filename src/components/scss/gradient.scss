@@ -1,11 +1,11 @@
-.gtusers-components-popover,
-.gtusers-panel-control-wrapper {
-	.gtusers-control-field {
-		&.gtusers-cf-gradient-color {
+.dowp-components-popover,
+.dowp-panel-control-wrapper {
+	.dowp-control-field {
+		&.dowp-cf-gradient-color {
 			row-gap: 0;
 		}
 
-		&.gtusers-cf-gradient-wrap {
+		&.dowp-cf-gradient-wrap {
 			--row-gap: 12px;
 
 			.components-circular-option-picker {
@@ -62,20 +62,20 @@
 					margin-top: 6px;
 
 					.components-button {
-						font-size: var(--gtusers-admin-text-xs, 12px);
+						font-size: var(--dowp-admin-text-xs, 12px);
 						padding: 5px 10px;
 						display: inline-flex;
 						align-items: center;
 						justify-content: center;
 						border: none;
 						box-shadow: none;
-						color: var(--gtusers-black, #000);
+						color: var(--dowp-black, #000);
 						background-color: #e0e0e0;
 
 						&:hover {
-							color: var(--gtusers-white, #fff);
+							color: var(--dowp-white, #fff);
 							background-color: var(
-											--gtusers-primary,
+											--dowp-primary,
 											#009FFF
 							);
 						}
@@ -149,13 +149,13 @@
 
 				.components-angle-picker-control {
 					&__angle-circle {
-						border: 1px solid var(--gtusers-border);
+						border: 1px solid var(--dowp-border);
 					}
 
 					&__angle-circle-indicator {
-						background: var(--gtusers-primary, #009FFF);
+						background: var(--dowp-primary, #009FFF);
 						border-radius: 50%;
-						border-color: var(--gtusers-primary, #009FFF);
+						border-color: var(--dowp-primary, #009FFF);
 					}
 				}
 
@@ -174,11 +174,11 @@
 
 							.components-input-control__container {
 								height: 34px !important;
-								border: 1px solid var(--gtusers-border);
+								border: 1px solid var(--dowp-border);
 
 								.components-truncate {
 									color: var(
-													--gtusers-primary,
+													--dowp-primary,
 													#009FFF
 									) !important;
 								}
@@ -197,7 +197,7 @@
 									outline: 0;
 									box-shadow: none;
 									border-color: var(
-													--gtusers-primary, #009FFF
+													--dowp-primary, #009FFF
 									);
 								}
 							}

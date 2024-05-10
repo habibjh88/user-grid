@@ -33,18 +33,18 @@ function Background(props) {
     }
 
     return (
-        <div className="gtusers-control-field gtusers-cf-background-wrap">
+        <div className="dowp-control-field dowp-cf-background-wrap">
 
-            <div className='gtusers-cf-body'>
-                <div className="gtusers-cf-body-btn-wrap">
+            <div className='dowp-cf-body'>
+                <div className="dowp-cf-body-btn-wrap">
 
                     {label && (
-                        <div className="gtusers-cf-head">
-                            <span className="gtusers-label">{label}</span>
+                        <div className="dowp-cf-head">
+                            <span className="dowp-label">{label}</span>
                         </div>
                     )}
 
-                    <ButtonGroup className="gtusers-btn-group">
+                    <ButtonGroup className="dowp-btn-group">
                         {BACKGROUND_TYPE.map((item) => (
 
                             <Tooltip text={item.label} position="top" delay={0}>
@@ -68,14 +68,14 @@ function Background(props) {
                     {(Object.keys(value['classic']).length != 0 || value['gradient']) && (
                         <Button
                             isSmall
-                            className="gtusers-undo-btn"
+                            className="dowp-undo-btn"
                             icon="image-rotate"
                             onClick={() => onChange(defaultData)}
                         ></Button>
                     )}
                 </div>
 
-                <div className="gtusers-cf-body-content-wrap">
+                <div className="dowp-cf-body-content-wrap">
                     {value['type'] === "classic" && (
                         <BGImage
                             image={props?.image}

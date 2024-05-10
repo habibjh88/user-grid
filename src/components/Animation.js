@@ -21,10 +21,10 @@ function Animation(props) {
 	return (
 		<>
 
-			<div className="gtusers-control-field components-base-control">
+			<div className="dowp-control-field components-base-control">
 
 				{label && (
-					<span className="gtusers-label">{label}</span>
+					<span className="dowp-label">{label}</span>
 				)}
 
 

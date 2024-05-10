@@ -1,6 +1,6 @@
 <?php
 
-namespace GT\GtUsers\Controllers\Api;
+namespace DOWP\UserGrid\Controllers\Api;
 
 class GetUsersV1 {
 	/**
@@ -15,7 +15,7 @@ class GetUsersV1 {
 	 * @return void
 	 */
 	public function register_post_route() {
-		register_rest_route( 'gtusers/v1', 'users', [
+		register_rest_route( 'dowp/v1', 'users', [
 			'methods'             => 'POST',
 			'callback'            => [ $this, 'get_all_users' ],
 			'permission_callback' => function () {
@@ -23,7 +23,7 @@ class GetUsersV1 {
 			}
 		] );
 
-		register_rest_route( 'gtusers/v1', 'users-select', [
+		register_rest_route( 'dowp/v1', 'users-select', [
 			'methods'             => 'POST',
 			'callback'            => [ $this, 'get_all_users_for_inspector' ],
 			'permission_callback' => function () {
@@ -81,15 +81,15 @@ class GetUsersV1 {
 					'id'          => esc_html( $user->ID ),
 					'name'        => esc_html( $user->display_name ),
 					'email'       => esc_html( $user->user_email ),
-					'designation' => get_user_meta( $user->ID, 'gt_users_designation', true ),
+					'designation' => get_user_meta( $user->ID, 'user_grid_designation', true ),
 					'avatar'      =>  get_avatar_url( $user->ID, $avatar_size ),
 					'biography'   => get_user_meta( $user->ID, 'description', true ),
 					'social'      => [
-						'facebook'  => get_user_meta( $user->ID, 'gt_users_facebook', true ),
-						'twitter'   => get_user_meta( $user->ID, 'gt_users_twitter', true ),
-						'linkedin'  => get_user_meta( $user->ID, 'gt_users_linkedin', true ),
-						'gplus'     => get_user_meta( $user->ID, 'gt_users_gplus', true ),
-						'pinterest' => get_user_meta( $user->ID, 'gt_users_pinterest', true ),
+						'facebook'  => get_user_meta( $user->ID, 'user_grid_facebook', true ),
+						'twitter'   => get_user_meta( $user->ID, 'user_grid_twitter', true ),
+						'linkedin'  => get_user_meta( $user->ID, 'user_grid_linkedin', true ),
+						'gplus'     => get_user_meta( $user->ID, 'user_grid_gplus', true ),
+						'pinterest' => get_user_meta( $user->ID, 'user_grid_pinterest', true ),
 					],
 				];
 

@@ -1,4 +1,4 @@
-# Gutenberg Users
+# User Grid
 
 
 **Contributors:** [habib](https://github.com/habibjh88)  

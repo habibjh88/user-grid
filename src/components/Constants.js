@@ -4,12 +4,12 @@ import renderControlIcons from './icon/renderControlIcons'
 
 const {__} = wp.i18n;
 
-const img_path = gtusersParams.plugin_url + '/assets/images';
+const img_path = dowpParams.plugin_url + '/assets/images';
 export const CATEGORY_PREVIEW = <img src={`${img_path}/preview/user-preview.png`} alt={__('User Preview')}/>;
 
 export const BACKGROUND_TYPE = [
-    {label: __("Classic", "guten-blocks"), value: "classic"},
-    {label: __("Gradient", "guten-blocks"), value: "gradient"}
+    {label: __("Classic", "user-grid"), value: "classic"},
+    {label: __("Gradient", "user-grid"), value: "gradient"}
 ];
 
 export const GRID_LAYOUT_OPT = [
@@ -18,100 +18,100 @@ export const GRID_LAYOUT_OPT = [
 ];
 
 export const BACKGROUND_POSITION = [
-    {label: __("Default", "guten-blocks"), value: ""},
-    {label: __("Left Top", "guten-blocks"), value: "left top"},
-    {label: __("Left Center", "guten-blocks"), value: "left center"},
-    {label: __("Left Bottom", "guten-blocks"), value: "left bottom"},
-    {label: __("Right Top", "guten-blocks"), value: "right top"},
-    {label: __("Right Center", "guten-blocks"), value: "right center"},
-    {label: __("Right Bottom", "guten-blocks"), value: "right bottom"},
-    {label: __("Center Top", "guten-blocks"), value: "center top"},
-    {label: __("Center Center", "guten-blocks"), value: "center center"},
-    {label: __("Center Bottom", "guten-blocks"), value: "center bottom"}
+    {label: __("Default", "user-grid"), value: ""},
+    {label: __("Left Top", "user-grid"), value: "left top"},
+    {label: __("Left Center", "user-grid"), value: "left center"},
+    {label: __("Left Bottom", "user-grid"), value: "left bottom"},
+    {label: __("Right Top", "user-grid"), value: "right top"},
+    {label: __("Right Center", "user-grid"), value: "right center"},
+    {label: __("Right Bottom", "user-grid"), value: "right bottom"},
+    {label: __("Center Top", "user-grid"), value: "center top"},
+    {label: __("Center Center", "user-grid"), value: "center center"},
+    {label: __("Center Bottom", "user-grid"), value: "center bottom"}
 ];
 
 export const BACKGROUND_SIZE = [
-    {label: __("Default", "guten-blocks"), value: ""},
-    {label: __("Auto", "guten-blocks"), value: "auto"},
-    {label: __("Cover", "guten-blocks"), value: "cover"},
-    {label: __("Contain", "guten-blocks"), value: "contain"}
+    {label: __("Default", "user-grid"), value: ""},
+    {label: __("Auto", "user-grid"), value: "auto"},
+    {label: __("Cover", "user-grid"), value: "cover"},
+    {label: __("Contain", "user-grid"), value: "contain"}
 ];
 
 export const BACKGROUND_REPEAT = [
-    {label: __("Default", "guten-blocks"), value: ""},
-    {label: __("No Repeat", "guten-blocks"), value: "no-repeat"},
-    {label: __("Repeat", "guten-blocks"), value: "repeat"},
-    {label: __("Repeat X", "guten-blocks"), value: "repeat-x"},
-    {label: __("Repeat Y", "guten-blocks"), value: "repeat-y"}
+    {label: __("Default", "user-grid"), value: ""},
+    {label: __("No Repeat", "user-grid"), value: "no-repeat"},
+    {label: __("Repeat", "user-grid"), value: "repeat"},
+    {label: __("Repeat X", "user-grid"), value: "repeat-x"},
+    {label: __("Repeat Y", "user-grid"), value: "repeat-y"}
 ];
 
 export const BACKGROUND_ATTACHMENT = [
-    {label: __("Default", "guten-blocks"), value: ""},
-    {label: __("Scroll", "guten-blocks"), value: "scroll"},
-    {label: __("Fixed", "guten-blocks"), value: "fixed"}
+    {label: __("Default", "user-grid"), value: ""},
+    {label: __("Scroll", "user-grid"), value: "scroll"},
+    {label: __("Fixed", "user-grid"), value: "fixed"}
 ];
 
 export const TEXT_TRANSFORM = [
-    {label: __("None", "guten-blocks"), value: "none"},
-    {label: __("Lowercase", "guten-blocks"), value: "lowercase"},
-    {label: __("Capitalize", "guten-blocks"), value: "capitalize"},
-    {label: __("Uppercase", "guten-blocks"), value: "uppercase"}
+    {label: __("None", "user-grid"), value: "none"},
+    {label: __("Lowercase", "user-grid"), value: "lowercase"},
+    {label: __("Capitalize", "user-grid"), value: "capitalize"},
+    {label: __("Uppercase", "user-grid"), value: "uppercase"}
 ];
 
 export const FONT_WEIGHTS = [
-    {label: __("Default", "guten-blocks"), value: "default"},
-    {label: __("Light", "guten-blocks"), value: "300"},
-    {label: __("Normal", "guten-blocks"), value: "400"},
-    {label: __("Medium", "guten-blocks"), value: "500"},
-    {label: __("Semi Bold", "guten-blocks"), value: "600"},
-    {label: __("Bold", "guten-blocks"), value: "700"},
-    {label: __("Extra Bold", "guten-blocks"), value: "800"},
-    {label: __("Heavy Bold", "guten-blocks"), value: "900"}
+    {label: __("Default", "user-grid"), value: "default"},
+    {label: __("Light", "user-grid"), value: "300"},
+    {label: __("Normal", "user-grid"), value: "400"},
+    {label: __("Medium", "user-grid"), value: "500"},
+    {label: __("Semi Bold", "user-grid"), value: "600"},
+    {label: __("Bold", "user-grid"), value: "700"},
+    {label: __("Extra Bold", "user-grid"), value: "800"},
+    {label: __("Heavy Bold", "user-grid"), value: "900"}
 ];
 
 export const HEADING = [
-    {label: __("H1", "guten-blocks"), value: "h1"},
-    {label: __("H2", "guten-blocks"), value: "h2"},
-    {label: __("H3", "guten-blocks"), value: "h3"},
-    {label: __("H4", "guten-blocks"), value: "h4"},
-    {label: __("H5", "guten-blocks"), value: "h5"},
-    {label: __("H6", "guten-blocks"), value: "h6"}
+    {label: __("H1", "user-grid"), value: "h1"},
+    {label: __("H2", "user-grid"), value: "h2"},
+    {label: __("H3", "user-grid"), value: "h3"},
+    {label: __("H4", "user-grid"), value: "h4"},
+    {label: __("H5", "user-grid"), value: "h5"},
+    {label: __("H6", "user-grid"), value: "h6"}
 ];
 
 export const COL_OPTIONS = [
-    {value: 0, label: __('Default', 'gutenberg-users')},
-    {value: 1, label: __('1 Col', 'gutenberg-users')},
-    {value: 2, label: __('2 Col', 'gutenberg-users')},
-    {value: 3, label: __('3 Col', 'gutenberg-users')},
-    {value: 4, label: __('4 Col', 'gutenberg-users')},
-    {value: 5, label: __('5 Col', 'gutenberg-users')},
-    {value: 6, label: __('6 Col', 'gutenberg-users')}
+    {value: 0, label: __('Default', 'user-grid')},
+    {value: 1, label: __('1 Col', 'user-grid')},
+    {value: 2, label: __('2 Col', 'user-grid')},
+    {value: 3, label: __('3 Col', 'user-grid')},
+    {value: 4, label: __('4 Col', 'user-grid')},
+    {value: 5, label: __('5 Col', 'user-grid')},
+    {value: 6, label: __('6 Col', 'user-grid')}
 ];
 
 export const COL_OPTIONS_GRID = [
-    {value: 0, label: __('Default', 'gutenberg-users')},
-    {value: 12, label: __('1 Col', 'gutenberg-users')},
-    {value: 6, label: __('2 Col', 'gutenberg-users')},
-    {value: 4, label: __('3 Col', 'gutenberg-users')},
-    {value: 3, label: __('4 Col', 'gutenberg-users')},
-    {value: 24, label: __('5 Col', 'gutenberg-users')},
-    {value: 2, label: __('6 Col', 'gutenberg-users')}
+    {value: 0, label: __('Default', 'user-grid')},
+    {value: 12, label: __('1 Col', 'user-grid')},
+    {value: 6, label: __('2 Col', 'user-grid')},
+    {value: 4, label: __('3 Col', 'user-grid')},
+    {value: 3, label: __('4 Col', 'user-grid')},
+    {value: 24, label: __('5 Col', 'user-grid')},
+    {value: 2, label: __('6 Col', 'user-grid')}
 ];
 
 export const USER_ORDER_BY = [
-    {value: '', label: __('-Select-', 'gutenberg-users')},
-    {value: 'ID', label: __('ID', 'gutenberg-users')},
-    {value: 'display_name', label: __('Display Name', 'gutenberg-users')},
-    {value: 'include', label: __('Include', 'gutenberg-users')},
-    {value: 'user_login', label: __('User Login', 'gutenberg-users')},
-    {value: 'user_nicename', label: __('User Nicename', 'gutenberg-users')},
-    {value: 'user_email', label: __('User Email', 'gutenberg-users')},
-    {value: 'post_count', label: __('Post Count', 'gutenberg-users')},
+    {value: '', label: __('-Select-', 'user-grid')},
+    {value: 'ID', label: __('ID', 'user-grid')},
+    {value: 'display_name', label: __('Display Name', 'user-grid')},
+    {value: 'include', label: __('Include', 'user-grid')},
+    {value: 'user_login', label: __('User Login', 'user-grid')},
+    {value: 'user_nicename', label: __('User Nicename', 'user-grid')},
+    {value: 'user_email', label: __('User Email', 'user-grid')},
+    {value: 'post_count', label: __('Post Count', 'user-grid')},
 ];
 
 export const POST_SORT_ORDER = [
-    {value: 'ASC', label: __('ASC', 'gutenberg-users')},
-    {value: 'DESC', label: __('DESC', 'gutenberg-users')}
+    {value: 'ASC', label: __('ASC', 'user-grid')},
+    {value: 'DESC', label: __('DESC', 'user-grid')}
 ];
 
 export const FORMATE_USERS = (data, field) => {
@@ -128,7 +128,7 @@ export const NORMAL_HOVER = [
     {label: "Normal", value: "normal"},
     {label: "Hover", value: "hover"}
 ];
-export const GTUSERS_COLOR_PALATE = [
+export const UserGrid_COLOR_PALATE = [
     {name: 'Color 1', color: '#72aee6'},
     {name: 'Color 2', color: '#0074FF'},
     {name: 'Color 3', color: '#15D38E'},

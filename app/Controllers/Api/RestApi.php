@@ -1,6 +1,6 @@
 <?php
 
-namespace GT\GtUsers\Controllers\Api;
+namespace DOWP\UserGrid\Controllers\Api;
 
 class RestApi {
 	/**

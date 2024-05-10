@@ -1,7 +1,7 @@
-.gtusers-components-popover,
-.gtusers-panel-control-wrapper {
-	.gtusers-control-field {
-		&.gtusers-cf-bg-property {
+.dowp-components-popover,
+.dowp-panel-control-wrapper {
+	.dowp-control-field {
+		&.dowp-cf-bg-property {
 			display: flex;
 			justify-content: space-between;
 			margin-bottom: 0 !important;
@@ -14,7 +14,7 @@
 				height: 30px !important;
 			}
 
-			.gtusers-cf-body {
+			.dowp-cf-body {
 				> * {
 					margin-bottom: 0 !important;
 				}

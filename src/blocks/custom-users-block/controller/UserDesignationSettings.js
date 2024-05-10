@@ -17,7 +17,7 @@ function UserDesignationSettings(props) {
     } = attributes;
 
     return (
-        <PanelBody title={__('User Designation', 'gutenberg-users')} initialOpen={false}>
+        <PanelBody title={__('User Designation', 'user-grid')} initialOpen={false}>
 
             <Typography
                 label={__('Typography')}
@@ -26,7 +26,7 @@ function UserDesignationSettings(props) {
             />
 
             <Dimension
-                label={__("Spacing", "gutenberg-users")}
+                label={__("Spacing", "user-grid")}
                 type="margin" responsive
                 value={designation_spacing}
                 onChange={(value) => {
@@ -35,7 +35,7 @@ function UserDesignationSettings(props) {
             />
 
             <Color
-                label={__('Color', 'gutenberg-users')}
+                label={__('Color', 'user-grid')}
                 color={designation_color}
                 onChange={(designation_color) => setAttributes({designation_color})}
             />

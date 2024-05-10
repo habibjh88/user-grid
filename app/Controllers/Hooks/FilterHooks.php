@@ -2,13 +2,13 @@
 /**
  * Filter Hooks class.
  *
- * @package GT_USERS
+ * @package USER_GRID
  */
 
-namespace GT\GtUsers\Controllers\Hooks;
+namespace DOWP\UserGrid\Controllers\Hooks;
 
 use Cassandra\Varint;
-use GT\GtUsers\Helpers\Fns;
+use DOWP\UserGrid\Helpers\Fns;
 
 // Do not allow directly accessing this file.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Filter Hooks class.
  *
- * @package GT_USERS
+ * @package USER_GRID
  */
 class FilterHooks {
 	/**
@@ -29,7 +29,7 @@ class FilterHooks {
 	public static function init() {
 		add_filter( 'body_class', [ __CLASS__, 'body_classes' ] );
 		add_filter( 'admin_body_class', [ __CLASS__, 'admin_body_class' ] );
-		add_filter( 'wp_kses_allowed_html', [ __CLASS__, 'gtusers_custom_wpkses_post_tags' ], 10, 2 );
+		add_filter( 'wp_kses_allowed_html', [ __CLASS__, 'dowp_custom_wpkses_post_tags' ], 10, 2 );
 		add_filter( 'wp_calculate_image_srcset', [ __CLASS__, 'calculate_image_srcset' ] );
 		add_filter( 'get_avatar', [ __CLASS__, 'get_avatar_filter' ], 5, 5 );
 		add_filter( 'get_avatar_data', [ __CLASS__, 'get_avater_data_filter' ], 5, 2 );
@@ -45,9 +45,9 @@ class FilterHooks {
 	 * @return mixed
 	 */
 	public static function body_classes( $classes ) {
-		$classes[] = 'gtusers';
-		$classes[] = 'gtusers-' . GT_USERS_VERSION;
-		$classes[] = 'gtusers-body-wrap';
+		$classes[] = 'dowp';
+		$classes[] = 'dowp-' . USER_GRID_VERSION;
+		$classes[] = 'dowp-body-wrap';
 
 		return $classes;
 	}
@@ -64,8 +64,8 @@ class FilterHooks {
 		global $pagenow;
 		//check if the current page is post.php and if the post parameteris set
 		if ( $pagenow === 'post.php' && isset( $_GET['post'] ) ) {
-			$classes .= ' gtusers';
-			$classes .= ' gtusers-body-wrap';
+			$classes .= ' dowp';
+			$classes .= ' dowp-body-wrap';
 		}
 
 		return $classes;
@@ -77,7 +77,7 @@ class FilterHooks {
 	 *
 	 * @return mixed
 	 */
-	public static function gtusers_custom_wpkses_post_tags( $tags, $context ) {
+	public static function dowp_custom_wpkses_post_tags( $tags, $context ) {
 
 		if ( 'post' === $context ) {
 			$tags['iframe'] = [
@@ -158,7 +158,7 @@ class FilterHooks {
 		}
 
 		// Get attachment ID from user meta
-		$attachment_id = get_user_meta( $user_id, GT_USER_META_KEY, true );
+		$attachment_id = get_user_meta( $user_id, USER_GRID_META_KEY, true );
 		if ( empty( $attachment_id ) || ! is_numeric( $attachment_id ) ) {
 			return $avatar;
 		}
@@ -212,7 +212,7 @@ class FilterHooks {
 
 
 		// Get the user's local avatar from usermeta.
-		$avatar_id_local = get_user_meta( $user_id, GT_USER_META_KEY, true );
+		$avatar_id_local = get_user_meta( $user_id, USER_GRID_META_KEY, true );
 		$_avatars_image  = wp_get_attachment_image_src( $avatar_id_local, 'full' );
 		if ( ! empty( $_avatars_image[0] ) ) {
 			$return_args['url']          = $_avatars_image[0];

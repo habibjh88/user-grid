@@ -22,16 +22,16 @@ function Typography(props) {
 
 
     return (
-        <div className="gtusers-control-field components-base-control gtusers-cf-typography-wrap">
+        <div className="dowp-control-field components-base-control dowp-cf-typography-wrap">
 
             {label && (
-                <span className="gtusers-label">{label}</span>
+                <span className="dowp-label">{label}</span>
             )}
 
-            <div className="gtusers-typography">
+            <div className="dowp-typography">
                 <Dropdown
-                    className="gtusers-typography-dropdown-icon"
-                    contentClassName="gtusers-components-popover gtusers-cp-typography-content"
+                    className="dowp-typography-dropdown-icon"
+                    contentClassName="dowp-components-popover dowp-cp-typography-content"
                     position="bottom right"
                     renderToggle={({isOpen, onToggle}) => (
                         <Button
@@ -44,7 +44,7 @@ function Typography(props) {
 
                     renderContent={() => (
 
-                        <div className="gtusers-typography-content">
+                        <div className="dowp-typography-content">
                             <RangeDevice
                                 label={__('Font Size')}
                                 responsive={true}

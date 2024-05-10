@@ -1,72 +1,72 @@
 /*!*************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/rangeDevice.scss ***!
   \*************************************************************************************************************************************************************************************************************************************************************/
-.gtusers-components-popover .gtusers-control-field .gtusers-cf-head .rt-left-part,
-.gtusers-panel-control-wrapper .gtusers-control-field .gtusers-cf-head .rt-left-part {
+.dowp-components-popover .dowp-control-field .dowp-cf-head .rt-left-part,
+.dowp-panel-control-wrapper .dowp-control-field .dowp-cf-head .rt-left-part {
   display: flex;
   align-items: center;
 }
-.gtusers-components-popover .gtusers-control-field .gtusers-cf-head .gtusers-label,
-.gtusers-panel-control-wrapper .gtusers-control-field .gtusers-cf-head .gtusers-label {
+.dowp-components-popover .dowp-control-field .dowp-cf-head .dowp-label,
+.dowp-panel-control-wrapper .dowp-control-field .dowp-cf-head .dowp-label {
   margin-bottom: 2px;
   margin-right: 4px;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap {
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap {
   --row-gap: 5px;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .components-input-control__input,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .components-input-control__input {
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .components-input-control__input,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .components-input-control__input {
   height: 30px !important;
   min-width: 70px;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .components-range-control__wrapper,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .components-range-control__wrapper {
-  color: var(--gtusers-primary, #009FFF);
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .components-range-control__wrapper,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .components-range-control__wrapper {
+  color: var(--dowp-primary, #009FFF);
   min-height: 25px;
   height: 25px;
   flex: 1 1 90% !important;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .components-range-control__wrapper .acf-bf-cf-b-afb-199wkr,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .components-range-control__wrapper .acf-bf-cf-b-afb-199wkr {
-  background-color: var(--gtusers-primary, #009FFF);
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .components-range-control__wrapper .acf-bf-cf-b-afb-199wkr,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .components-range-control__wrapper .acf-bf-cf-b-afb-199wkr {
+  background-color: var(--dowp-primary, #009FFF);
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body {
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .components-base-control,
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .components-base-control__field,
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .gtusers-control-field,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .components-base-control,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .components-base-control__field,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .gtusers-control-field {
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .components-base-control,
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .components-base-control__field,
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-control-field,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .components-base-control,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .components-base-control__field,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-control-field {
   flex-grow: 1;
   margin-bottom: 0;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .gtusers-undo-btn,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .gtusers-undo-btn {
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-undo-btn,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-undo-btn {
   font-size: 16px;
-  color: var(--gtusers-secondary, #555);
+  color: var(--dowp-secondary, #555);
   background-color: transparent;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .gtusers-undo-btn span,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .gtusers-undo-btn span {
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-undo-btn span,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-undo-btn span {
   font-size: inherit;
   line-height: 1.5;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .gtusers-undo-btn:focus,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-range-wrap .gtusers-cf-body .gtusers-undo-btn:focus {
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-undo-btn:focus,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-undo-btn:focus {
   outline: 0;
   box-shadow: none;
 }
 /*!***********************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/alignment.scss ***!
   \***********************************************************************************************************************************************************************************************************************************************************/
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-alignment-wrap .gtusers-btn-group .gtusers-button,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-alignment-wrap .gtusers-btn-group .gtusers-button {
+.dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button {
   font-size: 14px;
   background: #fff;
   border: 1px solid #ced7db;
@@ -77,31 +77,31 @@
   align-items: center;
   margin-left: -1px;
   cursor: pointer;
-  transition: var(--gtusers-transition);
+  transition: var(--dowp-transition);
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-alignment-wrap .gtusers-btn-group .gtusers-button:hover, .gtusers-components-popover .gtusers-control-field.gtusers-cf-alignment-wrap .gtusers-btn-group .gtusers-button.active,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-alignment-wrap .gtusers-btn-group .gtusers-button:hover,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-alignment-wrap .gtusers-btn-group .gtusers-button.active {
-  background: var(--gtusers-primary);
+.dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button:hover, .dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button.active,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button:hover,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button.active {
+  background: var(--dowp-primary);
   color: #ffffff;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-alignment-wrap .gtusers-btn-group .gtusers-button:first-child,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-alignment-wrap .gtusers-btn-group .gtusers-button:first-child {
+.dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button:first-child,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button:first-child {
   border-radius: 4px 0 0 4px;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-alignment-wrap .gtusers-btn-group .gtusers-button:last-child,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-alignment-wrap .gtusers-btn-group .gtusers-button:last-child {
+.dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button:last-child,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button:last-child {
   border-radius: 0 4px 4px 0;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-alignment-wrap .gtusers-btn-group .gtusers-button i,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-alignment-wrap .gtusers-btn-group .gtusers-button i {
+.dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button i,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button i {
   transition: none;
 }
 /*!*********************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/devices.scss ***!
   \*********************************************************************************************************************************************************************************************************************************************************/
-.gtusers-components-popover .gtusers-device-switcher,
-.gtusers-panel-control-wrapper .gtusers-device-switcher {
+.dowp-components-popover .dowp-device-switcher,
+.dowp-panel-control-wrapper .dowp-device-switcher {
   color: #a4afb7;
   display: flex;
   align-items: center;
@@ -115,70 +115,70 @@
   transition: 0.15s;
   font-size: 11px;
 }
-.gtusers-components-popover .gtusers-device-switcher i,
-.gtusers-panel-control-wrapper .gtusers-device-switcher i {
+.dowp-components-popover .dowp-device-switcher i,
+.dowp-panel-control-wrapper .dowp-device-switcher i {
   font-size: inherit;
 }
-.gtusers-components-popover .gtusers-device-switcher.active,
-.gtusers-panel-control-wrapper .gtusers-device-switcher.active {
+.dowp-components-popover .dowp-device-switcher.active,
+.dowp-panel-control-wrapper .dowp-device-switcher.active {
   height: 24px;
   transform: scale(1);
   opacity: 1;
   font-size: 14px;
   margin-top: -2px;
 }
-.gtusers-components-popover .gtusers-device-switchers,
-.gtusers-panel-control-wrapper .gtusers-device-switchers {
+.dowp-components-popover .dowp-device-switchers,
+.dowp-panel-control-wrapper .dowp-device-switchers {
   position: relative;
   width: 24px;
   height: 24px;
 }
-.gtusers-components-popover .gtusers-device-switchers-wrap,
-.gtusers-panel-control-wrapper .gtusers-device-switchers-wrap {
+.dowp-components-popover .dowp-device-switchers-wrap,
+.dowp-panel-control-wrapper .dowp-device-switchers-wrap {
   position: absolute;
   width: 100%;
   top: 1px;
   color: #e0e1e3;
   z-index: 44;
 }
-.gtusers-components-popover .gtusers-device-switchers-open .gtusers-device-switchers-wrap,
-.gtusers-panel-control-wrapper .gtusers-device-switchers-open .gtusers-device-switchers-wrap {
+.dowp-components-popover .dowp-device-switchers-open .dowp-device-switchers-wrap,
+.dowp-panel-control-wrapper .dowp-device-switchers-open .dowp-device-switchers-wrap {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
   background: #ffffff;
   border-radius: 2px;
 }
-.gtusers-components-popover .gtusers-device-switchers-open.active-md .gtusers-device-switchers-wrap,
-.gtusers-panel-control-wrapper .gtusers-device-switchers-open.active-md .gtusers-device-switchers-wrap {
+.dowp-components-popover .dowp-device-switchers-open.active-md .dowp-device-switchers-wrap,
+.dowp-panel-control-wrapper .dowp-device-switchers-open.active-md .dowp-device-switchers-wrap {
   top: 0;
 }
-.gtusers-components-popover .gtusers-device-switchers-open.active-sm .gtusers-device-switchers-wrap,
-.gtusers-panel-control-wrapper .gtusers-device-switchers-open.active-sm .gtusers-device-switchers-wrap {
+.dowp-components-popover .dowp-device-switchers-open.active-sm .dowp-device-switchers-wrap,
+.dowp-panel-control-wrapper .dowp-device-switchers-open.active-sm .dowp-device-switchers-wrap {
   top: 0;
 }
-.gtusers-components-popover .gtusers-device-switchers-open.active-xs .gtusers-device-switchers-wrap,
-.gtusers-panel-control-wrapper .gtusers-device-switchers-open.active-xs .gtusers-device-switchers-wrap {
+.dowp-components-popover .dowp-device-switchers-open.active-xs .dowp-device-switchers-wrap,
+.dowp-panel-control-wrapper .dowp-device-switchers-open.active-xs .dowp-device-switchers-wrap {
   top: 0;
 }
-.gtusers-components-popover .gtusers-device-switchers-open .gtusers-device-switcher,
-.gtusers-panel-control-wrapper .gtusers-device-switchers-open .gtusers-device-switcher {
+.dowp-components-popover .dowp-device-switchers-open .dowp-device-switcher,
+.dowp-panel-control-wrapper .dowp-device-switchers-open .dowp-device-switcher {
   height: 24px;
   transform: scale(1);
   opacity: 1;
   font-size: 14px;
 }
 
-.gtusers-device-switchers-open .gtusers-device-switcher.active {
-  color: var(--gtusers-primary, #009FFF);
+.dowp-device-switchers-open .dowp-device-switcher.active {
+  color: var(--dowp-primary, #009FFF);
 }
 /*!********************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/styles.scss ***!
   \********************************************************************************************************************************************************************************************************************************************************/
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap {
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap {
   margin-bottom: 16px !important;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list {
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list {
   --row-gap: 10px;
   --column-gap: 6px;
   display: grid;
@@ -186,12 +186,12 @@
   -moz-column-gap: var(--column-gap);
        column-gap: var(--column-gap);
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list .is-pro,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list .is-pro {
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro {
   position: relative;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list .is-pro .pro-lable,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list .is-pro .pro-lable {
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro .pro-lable,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro .pro-lable {
   position: absolute;
   top: 0;
   right: 0;
@@ -205,13 +205,13 @@
   text-transform: uppercase;
   color: #fff;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list .is-pro .gtusers-layout,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list .is-pro .gtusers-layout {
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro .dowp-layout,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro .dowp-layout {
   position: relative;
   border: none;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list .is-pro .gtusers-layout:after,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list .is-pro .gtusers-layout:after {
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro .dowp-layout:after,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro .dowp-layout:after {
   content: "";
   position: absolute;
   top: 0;
@@ -221,8 +221,8 @@
   background: rgba(0, 0, 0, 0.25);
   z-index: 1;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div {
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div {
   --row-gap: 6px;
   --column-gap: 6px;
   display: grid;
@@ -233,79 +233,79 @@
   cursor: pointer;
   overflow: hidden;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div .gtusers-layout,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div .gtusers-layout {
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-layout,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-layout {
   display: block;
-  border: 1px solid var(--gtusers-border);
-  transition: var(--gtusers-transition);
+  border: 1px solid var(--dowp-border);
+  transition: var(--dowp-transition);
   overflow: hidden;
   height: 62px;
   border-radius: 4px;
   background-color: #fff;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div .gtusers-layout img,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div .gtusers-layout img {
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-layout img,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-layout img {
   display: block;
   width: 100%;
   opacity: 0.75;
   transition: 0.4s;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div .gtusers-style-icon,
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div .gtusers-style-svg,
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div .gtusers-label,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div .gtusers-style-icon,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div .gtusers-style-svg,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div .gtusers-label {
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-style-icon,
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-style-svg,
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-label,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-style-icon,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-style-svg,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-label {
   display: block;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div .gtusers-label,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div .gtusers-label {
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-label,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-label {
   font-size: 11px !important;
   line-height: 1.3;
-  transition: var(--gtusers-transition);
+  transition: var(--dowp-transition);
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div:hover .gtusers-layout, .gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div.gtusers-active .gtusers-layout,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div:hover .gtusers-layout,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div.gtusers-active .gtusers-layout {
-  border-color: var(--gtusers-primary, #009FFF);
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div:hover .dowp-layout, .dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div.dowp-active .dowp-layout,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div:hover .dowp-layout,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div.dowp-active .dowp-layout {
+  border-color: var(--dowp-primary, #009FFF);
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div:hover .gtusers-layout img, .gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div.gtusers-active .gtusers-layout img,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div:hover .gtusers-layout img,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div.gtusers-active .gtusers-layout img {
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div:hover .dowp-layout img, .dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div.dowp-active .dowp-layout img,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div:hover .dowp-layout img,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div.dowp-active .dowp-layout img {
   opacity: 1;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div:hover .gtusers-label, .gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div.gtusers-active .gtusers-label,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div:hover .gtusers-label,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list > div.gtusers-active .gtusers-label {
-  color: var(--gtusers-primary, #009FFF) !important;
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div:hover .dowp-label, .dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div.dowp-active .dowp-label,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div:hover .dowp-label,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div.dowp-active .dowp-label {
+  color: var(--dowp-primary, #009FFF) !important;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list.gtusers-style-columns-2,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list.gtusers-style-columns-2 {
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list.dowp-style-columns-2,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list.dowp-style-columns-2 {
   grid-template-columns: repeat(2, 1fr);
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list.gtusers-style-columns-3,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list.gtusers-style-columns-3 {
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list.dowp-style-columns-3,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list.dowp-style-columns-3 {
   grid-template-columns: repeat(3, 1fr);
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list.gtusers-style-columns-4,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-styles-wrap .gtusers-style-list.gtusers-style-columns-4 {
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list.dowp-style-columns-4,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list.dowp-style-columns-4 {
   grid-template-columns: repeat(4, 1fr);
 }
 /*!***********************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/dimension.scss ***!
   \***********************************************************************************************************************************************************************************************************************************************************/
-.gtusers-components-popover .gtusers-control-dimensions,
-.gtusers-panel-control-wrapper .gtusers-control-dimensions {
+.dowp-components-popover .dowp-control-dimensions,
+.dowp-panel-control-wrapper .dowp-control-dimensions {
   overflow: hidden;
   display: flex;
 }
-.gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension:first-child input,
-.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension:first-child input {
-  border-left: 1px solid var(--gtusers-border);
+.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension:first-child input,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension:first-child input {
+  border-left: 1px solid var(--dowp-border);
   border-radius: 3px 0 0 3px;
 }
-.gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension input,
-.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension input {
+.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension input,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension input {
   border-left: none;
   border-radius: 0;
   padding: 4px 0;
@@ -313,34 +313,34 @@
   text-align: center;
   width: 100%;
   height: 27px;
-  border-color: var(--gtusers-border);
+  border-color: var(--dowp-border);
 }
-.gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension input:active, .gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension input:focus, .gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension input:hover,
-.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension input:active,
-.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension input:focus,
-.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension input:hover {
+.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension input:active, .dowp-components-popover .dowp-control-dimensions .dowp-control-dimension input:focus, .dowp-components-popover .dowp-control-dimensions .dowp-control-dimension input:hover,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension input:active,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension input:focus,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension input:hover {
   box-shadow: none;
   outline: 0;
 }
-.gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension .gtusers-link-dimensions,
-.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension .gtusers-link-dimensions {
+.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions {
   width: 40px;
   height: 30px;
   cursor: pointer;
   font-size: 15px;
   border-radius: 0 3px 3px 0;
-  border: 1px solid var(--gtusers-border);
+  border: 1px solid var(--dowp-border);
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
-.gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension .gtusers-link-dimensions.linked,
-.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension .gtusers-link-dimensions.linked {
+.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions.linked,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions.linked {
   background-color: #d3e1e9;
   border-color: #d3e1e9;
 }
-.gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension .gtusers-link-dimensions .rt-dm-link-icon,
-.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension .gtusers-link-dimensions .rt-dm-link-icon {
+.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions .rt-dm-link-icon,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions .rt-dm-link-icon {
   font-size: 15px;
   width: auto;
   height: auto;
@@ -348,14 +348,14 @@
   align-items: center;
   line-height: 1;
 }
-.gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension .gtusers-link-dimensions:focus, .gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension .gtusers-link-dimensions:focus-visible,
-.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension .gtusers-link-dimensions:focus,
-.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension .gtusers-link-dimensions:focus-visible {
+.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions:focus, .dowp-components-popover .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions:focus-visible,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions:focus,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions:focus-visible {
   outline: 0;
   box-shadow: none;
 }
-.gtusers-components-popover .gtusers-control-dimensions .gtusers-control-dimension-label,
-.gtusers-panel-control-wrapper .gtusers-control-dimensions .gtusers-control-dimension-label {
+.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension-label,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension-label {
   display: block;
   text-align: center;
   font-size: 9px;
@@ -365,22 +365,22 @@
 /*!*******************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/media.scss ***!
   \*******************************************************************************************************************************************************************************************************************************************************/
-.gtusers-media {
+.dowp-media {
   margin-bottom: 15px;
 }
-.gtusers-media label {
+.dowp-media label {
   margin-bottom: 10px;
   display: block;
   font-weight: 500;
 }
-.gtusers-media .gtusers-single-img .gtusers-media-image-parent {
+.dowp-media .dowp-single-img .dowp-media-image-parent {
   position: relative;
   display: inline-block;
   height: 120px;
   width: 100%;
   overflow: hidden;
 }
-.gtusers-media .gtusers-single-img .gtusers-media-image-parent img {
+.dowp-media .dowp-single-img .dowp-media-image-parent img {
   margin: 0;
   width: 100%;
   height: 100%;
@@ -389,7 +389,7 @@
   -o-object-position: center;
      object-position: center;
 }
-.gtusers-media .gtusers-placeholder-image {
+.dowp-media .dowp-placeholder-image {
   position: relative;
   border: 1px dashed #a7a7a7;
   padding: 20px 20px 25px;
@@ -403,23 +403,23 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-.gtusers-media .gtusers-placeholder-image:hover {
+.dowp-media .dowp-placeholder-image:hover {
   background-color: #bfc3c7;
   border-color: #838383;
 }
-.gtusers-media .gtusers-placeholder-image .dashicons {
+.dowp-media .dowp-placeholder-image .dashicons {
   height: 20px;
   padding-top: 25px;
   font-size: 20px;
   margin-bottom: 15px;
 }
-.gtusers-media .gtusers-media-image-parent .gtusers-media-actions {
+.dowp-media .dowp-media-image-parent .dowp-media-actions {
   position: absolute;
   top: 10px !important;
   right: 10px !important;
   margin-top: 0 !important;
 }
-.gtusers-media .gtusers-media-image-parent .gtusers-media-actions button {
+.dowp-media .dowp-media-image-parent .dowp-media-actions button {
   position: static;
   text-align: center;
   padding: 0 0 2px 0;
@@ -439,63 +439,63 @@
   z-index: 9;
   transition: 0.4s;
 }
-.gtusers-media .gtusers-media-image-parent .gtusers-media-actions button span {
+.dowp-media .dowp-media-image-parent .dowp-media-actions button span {
   font-size: 13px;
   width: auto;
   height: auto;
 }
-.gtusers-media .gtusers-media-image-parent .gtusers-media-actions button:hover {
+.dowp-media .dowp-media-image-parent .dowp-media-actions button:hover {
   color: #373c41 !important;
   box-shadow: 0 0 5px 0 #000 !important;
 }
 /*!*******************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/color.scss ***!
   \*******************************************************************************************************************************************************************************************************************************************************/
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-color-wrap,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-color-wrap {
+.dowp-components-popover .dowp-control-field.dowp-cf-color-wrap,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-color-wrap {
   display: flex;
   align-items: center;
   gap: 15px;
   justify-content: space-between;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-color-wrap .gtusers-color,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-color-wrap .gtusers-color {
+.dowp-components-popover .dowp-control-field.dowp-cf-color-wrap .dowp-color,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-color-wrap .dowp-color {
   display: flex;
   align-items: center;
   gap: 6px;
   flex-direction: row-reverse;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-color-wrap .gtusers-color .gtusers-undo-btn,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-color-wrap .gtusers-color .gtusers-undo-btn {
+.dowp-components-popover .dowp-control-field.dowp-cf-color-wrap .dowp-color .dowp-undo-btn,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-color-wrap .dowp-color .dowp-undo-btn {
   padding: 0;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-color-wrap .gtusers-color .dashicon,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-color-wrap .gtusers-color .dashicon {
+.dowp-components-popover .dowp-control-field.dowp-cf-color-wrap .dowp-color .dashicon,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-color-wrap .dowp-color .dashicon {
   line-height: 22px;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-color-wrap .gtusers-color-ball,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-color-wrap .gtusers-color-ball {
+.dowp-components-popover .dowp-control-field.dowp-cf-color-wrap .dowp-color-ball,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-color-wrap .dowp-color-ball {
   background-image: linear-gradient(45deg, #e9e9e9 25%, transparent 0), linear-gradient(-45deg, #e9e9e9 25%, transparent 0), linear-gradient(45deg, transparent 75%, #e9e9e9 0), linear-gradient(-45deg, transparent 75%, #e9e9e9 0);
   background-position: 0 0, 0 5px, 5px -5px, -5px 0;
   background-size: 10px 10px;
   border-radius: 0;
   overflow: hidden;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-color-wrap .gtusers-color-ball div,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-color-wrap .gtusers-color-ball div {
+.dowp-components-popover .dowp-control-field.dowp-cf-color-wrap .dowp-color-ball div,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-color-wrap .dowp-color-ball div {
   cursor: pointer;
 }
 /*!************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/typography.scss ***!
   \************************************************************************************************************************************************************************************************************************************************************/
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-typography-wrap,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-typography-wrap {
+.dowp-components-popover .dowp-control-field.dowp-cf-typography-wrap,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-typography-wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-typography-wrap .components-button,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-typography-wrap .components-button {
+.dowp-components-popover .dowp-control-field.dowp-cf-typography-wrap .components-button,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-typography-wrap .components-button {
   font-size: 12px;
   height: 28px !important;
   width: 28px !important;
@@ -508,74 +508,74 @@
   border-radius: 3px;
   color: #1e1e1e;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-typography-wrap .components-button > span,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-typography-wrap .components-button > span {
+.dowp-components-popover .dowp-control-field.dowp-cf-typography-wrap .components-button > span,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-typography-wrap .components-button > span {
   transition: unset;
   line-height: 1;
   height: 22px;
   font-size: 19px;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-typography-wrap .components-button svg,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-typography-wrap .components-button svg {
+.dowp-components-popover .dowp-control-field.dowp-cf-typography-wrap .components-button svg,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-typography-wrap .components-button svg {
   width: 15px;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-typography-wrap .components-button:hover,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-typography-wrap .components-button:hover {
+.dowp-components-popover .dowp-control-field.dowp-cf-typography-wrap .components-button:hover,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-typography-wrap .components-button:hover {
   background-color: #d3e1e9;
 }
-.gtusers-components-popover .gtusers-typography-content,
-.gtusers-panel-control-wrapper .gtusers-typography-content {
+.dowp-components-popover .dowp-typography-content,
+.dowp-panel-control-wrapper .dowp-typography-content {
   min-width: 230px;
   padding: 5px 6px;
 }
 /*!**********************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/gradient.scss ***!
   \**********************************************************************************************************************************************************************************************************************************************************/
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-color,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-color {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-color,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-color {
   row-gap: 0;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap {
   --row-gap: 12px;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__swatches,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__swatches {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__swatches,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__swatches {
   gap: 8px;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__option-wrapper,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__option-wrapper {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper {
   height: 22px;
   width: 22px;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__option-wrapper:hover,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__option-wrapper:hover {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper:hover,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper:hover {
   transform: scale(1);
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__option-wrapper::before,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__option-wrapper::before {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper::before,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper::before {
   display: none;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__option-wrapper > svg,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__option-wrapper > svg {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper > svg,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper > svg {
   display: none;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__option,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__option {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option {
   position: relative;
   padding: 5px;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__option::after,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__option::after {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option::after,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option::after {
   display: none;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__option.is-pressed, .gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__option:hover,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__option.is-pressed,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__option:hover {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option.is-pressed, .dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option:hover,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option.is-pressed,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option:hover {
   box-shadow: none !important;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__option.is-pressed::before,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__option.is-pressed::before {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option.is-pressed::before,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option.is-pressed::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -586,49 +586,49 @@
   background: url("data:image/svg+xml,%0A%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 448 512%27 width=%271em%27 height=%271em%27 fill=%27%23ffffff%27 %3E%3Cpath d=%27M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z%27/%3E%3C/svg%3E") !important;
   pointer-events: none;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper {
   margin-top: 6px;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button {
-  font-size: var(--gtusers-admin-text-xs, 12px);
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button {
+  font-size: var(--dowp-admin-text-xs, 12px);
   padding: 5px 10px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: none;
   box-shadow: none;
-  color: var(--gtusers-black, #000);
+  color: var(--dowp-black, #000);
   background-color: #e0e0e0;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:hover,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:hover {
-  color: var(--gtusers-white, #fff);
-  background-color: var(--gtusers-primary, #009FFF);
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:hover,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:hover {
+  color: var(--dowp-white, #fff);
+  background-color: var(--dowp-primary, #009FFF);
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:focus,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:focus {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:focus,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:focus {
   outline: 0;
   box-shadow: none;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker > div:nth-of-type(2) > div:nth-of-type(2) > div,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker > div:nth-of-type(2) > div:nth-of-type(2) > div {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker > div:nth-of-type(2) > div:nth-of-type(2) > div,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker > div:nth-of-type(2) > div:nth-of-type(2) > div {
   position: relative !important;
   top: 6.5px !important;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__gradient-bar,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__gradient-bar {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__gradient-bar,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__gradient-bar {
   height: 36px;
   border-radius: 4px;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__markers-container,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__markers-container {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__markers-container,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__markers-container {
   height: 100%;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__insert-point, .gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__control-point-button,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__insert-point,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__control-point-button {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point, .dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button {
   color: #fff;
   border-radius: 50%;
   transform: translateY(-50%);
@@ -637,71 +637,71 @@
   border: 2.5px solid #ffffff;
   box-shadow: none;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover, .gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__insert-point:focus, .gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover, .gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:focus,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__insert-point:focus,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:focus {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover, .dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point:focus, .dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover, .dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:focus,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point:focus,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:focus {
   box-shadow: none;
   outline: 0;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover, .gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover, .dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover {
   background: transparent;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__insert-point,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__insert-point {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point {
   top: 11px;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker .components-select-control__input,
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker .components-textarea-control__input,
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__input,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker .components-select-control__input,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker .components-textarea-control__input,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__input {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-select-control__input,
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-textarea-control__input,
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__input,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-select-control__input,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-textarea-control__input,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__input {
   height: 34px !important;
   min-height: 34px !important;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__backdrop,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__backdrop {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__backdrop,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__backdrop {
   display: none !important;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle {
-  border: 1px solid var(--gtusers-border);
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle {
+  border: 1px solid var(--dowp-border);
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle-indicator,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle-indicator {
-  background: var(--gtusers-primary, #009FFF);
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle-indicator,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle-indicator {
+  background: var(--dowp-primary, #009FFF);
   border-radius: 50%;
-  border-color: var(--gtusers-primary, #009FFF);
+  border-color: var(--dowp-primary, #009FFF);
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__ui-line,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__ui-line {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line {
   margin-bottom: 6px;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-input-control__label,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-input-control__label {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-input-control__label,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-input-control__label {
   text-transform: capitalize;
   padding-bottom: 8px !important;
   margin-bottom: 0 !important;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type {
   align-self: baseline;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container {
   height: 34px !important;
-  border: 1px solid var(--gtusers-border);
+  border: 1px solid var(--dowp-border);
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-truncate,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-truncate {
-  color: var(--gtusers-primary, #009FFF) !important;
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-truncate,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-truncate {
+  color: var(--dowp-primary, #009FFF) !important;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-input-control__input,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-input-control__input {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-input-control__input,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-input-control__input {
   border: none !important;
   height: 31.5px !important;
   min-height: 31.5px !important;
@@ -710,51 +710,51 @@
   padding-top: 3px !important;
   padding-bottom: 3px !important;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container:focus,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container:focus {
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container:focus,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container:focus {
   outline: 0;
   box-shadow: none;
-  border-color: var(--gtusers-primary, #009FFF);
+  border-color: var(--dowp-primary, #009FFF);
 }
 /*!************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/SelectObj1.scss ***!
   \************************************************************************************************************************************************************************************************************************************************************/
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-bg-property,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-bg-property {
+.dowp-components-popover .dowp-control-field.dowp-cf-bg-property,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-bg-property {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0 !important;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-bg-property select,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-bg-property select {
+.dowp-components-popover .dowp-control-field.dowp-cf-bg-property select,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-bg-property select {
   width: 130px;
   padding-top: 3px;
   padding-bottom: 3px;
   min-height: 30px !important;
   height: 30px !important;
 }
-.gtusers-components-popover .gtusers-control-field.gtusers-cf-bg-property .gtusers-cf-body > *,
-.gtusers-panel-control-wrapper .gtusers-control-field.gtusers-cf-bg-property .gtusers-cf-body > * {
+.dowp-components-popover .dowp-control-field.dowp-cf-bg-property .dowp-cf-body > *,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-bg-property .dowp-cf-body > * {
   margin-bottom: 0 !important;
 }
 /*!*********************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/bgImage.scss ***!
   \*********************************************************************************************************************************************************************************************************************************************************/
-.gtusers-components-popover .gtusers-bg-img .components-base-control__field,
-.gtusers-panel-control-wrapper .gtusers-bg-img .components-base-control__field {
+.dowp-components-popover .dowp-bg-img .components-base-control__field,
+.dowp-panel-control-wrapper .dowp-bg-img .components-base-control__field {
   display: grid;
   gap: 6px;
 }
-.gtusers-components-popover .gtusers-bg-img .components-base-control .gtusers-img-remove-btn,
-.gtusers-components-popover .gtusers-bg-img .components-base-control .gtusers-image-avatar,
-.gtusers-panel-control-wrapper .gtusers-bg-img .components-base-control .gtusers-img-remove-btn,
-.gtusers-panel-control-wrapper .gtusers-bg-img .components-base-control .gtusers-image-avatar {
+.dowp-components-popover .dowp-bg-img .components-base-control .dowp-img-remove-btn,
+.dowp-components-popover .dowp-bg-img .components-base-control .dowp-image-avatar,
+.dowp-panel-control-wrapper .dowp-bg-img .components-base-control .dowp-img-remove-btn,
+.dowp-panel-control-wrapper .dowp-bg-img .components-base-control .dowp-image-avatar {
   margin-bottom: 0;
 }
-.gtusers-components-popover .gtusers-bg-img .components-base-control .gtusers-img-remove-btn .open-image-button,
-.gtusers-components-popover .gtusers-bg-img .components-base-control .gtusers-image-avatar .open-image-button,
-.gtusers-panel-control-wrapper .gtusers-bg-img .components-base-control .gtusers-img-remove-btn .open-image-button,
-.gtusers-panel-control-wrapper .gtusers-bg-img .components-base-control .gtusers-image-avatar .open-image-button {
+.dowp-components-popover .dowp-bg-img .components-base-control .dowp-img-remove-btn .open-image-button,
+.dowp-components-popover .dowp-bg-img .components-base-control .dowp-image-avatar .open-image-button,
+.dowp-panel-control-wrapper .dowp-bg-img .components-base-control .dowp-img-remove-btn .open-image-button,
+.dowp-panel-control-wrapper .dowp-bg-img .components-base-control .dowp-image-avatar .open-image-button {
   position: absolute;
   top: 0;
   left: 0;
@@ -773,8 +773,8 @@
 /*!***********************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/boxshadow.scss ***!
   \***********************************************************************************************************************************************************************************************************************************************************/
-.gtusers-components-popover .gtusers-boxshadow-content,
-.gtusers-panel-control-wrapper .gtusers-boxshadow-content {
+.dowp-components-popover .dowp-boxshadow-content,
+.dowp-panel-control-wrapper .dowp-boxshadow-content {
   min-width: 220px;
 }
 

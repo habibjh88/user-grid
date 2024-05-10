@@ -30,9 +30,9 @@ function FilterImage(props) {
         <>
 
             {opacity && (
-                <div className="gtusers-opacity-field">
+                <div className="dowp-opacity-field">
                     <Range
-                        label={__("Opacity", "gutenberg-users")}
+                        label={__("Opacity", "user-grid")}
                         reset={true}
                         value={data['opacity']}
                         onChange={(val) => setSettings(val, 'opacity')}
@@ -43,14 +43,14 @@ function FilterImage(props) {
                 </div>
             )}
 
-            <div className="gtusers-control-field gtusers-cf-filter-image-wrap">
+            <div className="dowp-control-field dowp-cf-filter-image-wrap">
                 {label && (
-                    <span className="gtusers-label">{label}</span>
+                    <span className="dowp-label">{label}</span>
                 )}
-                <div className="gtusers-filter-image-wrap">
+                <div className="dowp-filter-image-wrap">
                     <Dropdown
-                        className="gtusers-filter-image-dropdown-icon"
-                        contentClassName="gtusers-components-popover gtusers-cp-filter-image"
+                        className="dowp-filter-image-dropdown-icon"
+                        contentClassName="dowp-components-popover dowp-cp-filter-image"
                         position="bottom right"
                         renderToggle={({isOpen, onToggle}) => (
                             <Button
@@ -61,7 +61,7 @@ function FilterImage(props) {
                             ></Button>
                         )}
                         renderContent={() => (
-                            <div className="gtusers-filter-image-content">
+                            <div className="dowp-filter-image-content">
                                 <Range
                                     label={__("Blur")}
                                     reset={true}
@@ -110,7 +110,7 @@ function FilterImage(props) {
             </div>
 
             {transition && (
-                <div className="gtusers-transition-field">
+                <div className="dowp-transition-field">
                     <Range
                         label={__("Transition Duration")}
                         reset={true}

@@ -5,7 +5,7 @@ const {BaseControl, SelectControl, Button} = wp.components;
 
 function Select(props) {
     const {label, value, onChange, responsive, options = []} = props;
-    const [device, setDevice] = useState(() => window.gtusersDevice || 'lg');
+    const [device, setDevice] = useState(() => window.dowpDevice || 'lg');
 
     const defaultData = '';
 
@@ -18,10 +18,10 @@ function Select(props) {
 
     return (
 
-        <div className="gtusers-control-field components-base-control">
+        <div className="dowp-control-field components-base-control">
 
-            <div className="gtusers-cf-head">
-                <span className="gtusers-label">{label}</span>
+            <div className="dowp-cf-head">
+                <span className="dowp-label">{label}</span>
                 {responsive && <Devices device={device} onChange={_device => {
                     setDevice(_device);
                     const newData = JSON.parse(JSON.stringify(value));
@@ -32,7 +32,7 @@ function Select(props) {
                 }}/>}
             </div>
 
-            <div className="gtusers-cf-body">
+            <div className="dowp-cf-body">
                 <SelectControl
                     value={value[device]}
                     options={options}

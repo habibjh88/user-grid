@@ -7,7 +7,7 @@ import Devices from "./Devices";
 const IconControl = (props) => {
 
 	const { value, responsive, onChange, label, content, options } = props;
-	const [device, setDevice] = useState(() => window.gtusersDevice || 'lg');
+	const [device, setDevice] = useState(() => window.dowpDevice || 'lg');
 	const _filterValue = () => {
 		return value ? (responsive ? (value[device]) : value) : '';
 	}
@@ -25,12 +25,12 @@ const IconControl = (props) => {
 
 	if (defaultData.length !== 0) {
 		return (
-			<div className="gtusers-control-field components-base-control gtusers-cf-alignment-wrap">
+			<div className="dowp-control-field components-base-control dowp-cf-alignment-wrap">
 
 				{(label || responsive) && (
-					<div className="gtusers-cf-head">
+					<div className="dowp-cf-head">
 						{label && (
-							<span className="gtusers-label">{label}</span>
+							<span className="dowp-label">{label}</span>
 						)}
 						{responsive && <Devices device={device} onChange={_device => {
 							setDevice(_device);
@@ -45,11 +45,11 @@ const IconControl = (props) => {
 					</div>
 				)}
 
-				<div className="gtusers-cf-body gtusers-btn-group">
+				<div className="dowp-cf-body dowp-btn-group">
 					{defaultData.map((data, index) => {
 						return (
-							<button className={(_filterValue() == data.value ? 'active' : '') + ' gtusers-button'} key={index} onClick={() => setSettings(_filterValue() == data.value ? '' : data.value)}>
-								<Tooltip text={__(data.label, 'gutenberg-users')}><span className="gtusers-align-icons">{__(data.icon, 'gutenberg-users')}</span></Tooltip>
+							<button className={(_filterValue() == data.value ? 'active' : '') + ' dowp-button'} key={index} onClick={() => setSettings(_filterValue() == data.value ? '' : data.value)}>
+								<Tooltip text={__(data.label, 'user-grid')}><span className="dowp-align-icons">{__(data.icon, 'user-grid')}</span></Tooltip>
 							</button>
 						)
 					})}
@@ -59,7 +59,7 @@ const IconControl = (props) => {
 		)
 	} else {
 		return (
-			<h5>{__('Component props options is mandatory', 'gutenberg-users')}</h5>
+			<h5>{__('Component props options is mandatory', 'user-grid')}</h5>
 		)
 	}
 

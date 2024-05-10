@@ -6,7 +6,7 @@ import {
 import Dimension from "../../../components/Dimension";
 
 const {__} = wp.i18n;
-import {GTUSERS_COLOR_PALATE} from "../../../components/Constants";
+import {UserGrid_COLOR_PALATE} from "../../../components/Constants";
 import Range from "../../../components/Range";
 import RangeDevice from "../../../components/RangeDevice";
 import Media from "../../../components/Media";
@@ -25,11 +25,11 @@ function AvatarSettings(props) {
     } = attributes;
 
     return (
-        <PanelBody title={__('Avatar', 'gutenberg-users')} initialOpen={true}>
+        <PanelBody title={__('Avatar', 'user-grid')} initialOpen={true}>
 
             <ToggleControl
-                label={__("Enable Image Link", "gutenberg-users")}
-                className="gtusers-toggle-control-field"
+                label={__("Enable Image Link", "user-grid")}
+                className="dowp-toggle-control-field"
                 checked={image_link}
                 onChange={(image_link) => setAttributes({image_link: image_link ? 'yes' : ''})}
             />
@@ -46,10 +46,10 @@ function AvatarSettings(props) {
                 step={1}
             />
 
-            <small className="gtusers-help">{__("Avatar Dimension works only for wp avatar.", "gutenberg-users")}</small>
+            <small className="dowp-help">{__("Avatar Dimension works only for wp avatar.", "user-grid")}</small>
 
             <Media
-                label={__("Default Image", "gutenberg-users")}
+                label={__("Default Image", "user-grid")}
                 multiple={false}
                 type={['image']}
                 panel={true}
@@ -83,8 +83,8 @@ function AvatarSettings(props) {
             />
 
             <Dimension
-                label={__("Avatar Border Radius", "gutenberg-users")}
-                className={`gtusers-dimension-wrap`}
+                label={__("Avatar Border Radius", "user-grid")}
+                className={`dowp-dimension-wrap`}
                 type="borderRadius" responsive
                 value={avatar_border_radius}
                 onChange={(value) => {
@@ -93,9 +93,9 @@ function AvatarSettings(props) {
             />
 
             <BorderControl
-                colors={GTUSERS_COLOR_PALATE}
+                colors={UserGrid_COLOR_PALATE}
                 value={avatar_border}
-                label={__("Image Border", "gutenberg-users")}
+                label={__("Image Border", "user-grid")}
                 onChange={(val) => {
                     const newVal = {openTpgBorder: 1, ...val}
                     setAttributes({avatar_border: newVal})

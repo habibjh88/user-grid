@@ -1,5 +1,5 @@
-=== Gutenberg Users – Gutenberg User Blocks ===
-Contributors: habib
+=== User Grid – for Gutenberg editor ===
+Contributors: devofwp
 Donate link:
 Tags: custom user block
 Requires at least: 5.9

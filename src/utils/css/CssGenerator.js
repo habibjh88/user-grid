@@ -22,10 +22,10 @@ const replaceData = (selector, key, value) => selector.replace(new RegExp(key, "
 // Object Empty Check
 const isEmpty = obj => (typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) === 'object' && Object.keys(obj).length !== 0;
 
-// {{GTUSERS}} Replace
+// {{UserGrid}} Replace
 const replaceWarp = (selector, ID) => {
-    selector = selector.replace(new RegExp('{{GTUSERS}}', "g"), '.gtusers-block-postgrid.gtusers-block-' + ID);
-    selector = selector.replace(new RegExp('{{GTUSERS_ID}}', "g"), 'block-' + ID);
+    selector = selector.replace(new RegExp('{{UserGrid}}', "g"), '.dowp-block-postgrid.dowp-block-' + ID);
+    selector = selector.replace(new RegExp('{{UserGrid_ID}}', "g"), 'block-' + ID);
     return selector;
 }
 
@@ -174,7 +174,7 @@ export const CssGenerator = (settings, blockName, blockID, isInline) => {
         notResponsiveCss = [];
 
     Object.keys(settings).forEach(function (key) {
-        const attributes = typeof blockName === 'string' ? wp.blocks.getBlockType('gtusers/' + blockName)?.attributes : blockName;
+        const attributes = typeof blockName === 'string' ? wp.blocks.getBlockType('dowp/' + blockName)?.attributes : blockName;
         if (attributes && attributes[key] && attributes[key].hasOwnProperty('style')) {
 
             attributes[key].style.forEach((selectData, indexStyle) => {
@@ -329,7 +329,7 @@ export const CssGenerator = (settings, blockName, blockID, isInline) => {
 // const setStyle = function setStyle(styleCss, blockID) {
 // 	const styleSelector = window.document;
 
-// 	const cssId = 'gtusers-block-css-' + blockID;
+// 	const cssId = 'dowp-block-css-' + blockID;
 // 	if (styleSelector.getElementById(cssId) === null) {
 // 		const cssInline = document.createElement('style');
 // 		cssInline.id = cssId;
@@ -342,7 +342,7 @@ export const CssGenerator = (settings, blockName, blockID, isInline) => {
 
 const setStyle = function setStyle(styleCss, blockID) {
 
-    const cssId = 'gtusers-block-css-' + blockID;
+    const cssId = 'dowp-block-css-' + blockID;
     const iFrame = document.querySelector('iframe[name=editor-canvas]');
 
     if (iFrame) {
@@ -360,12 +360,12 @@ const setStyle = function setStyle(styleCss, blockID) {
                         doc.getElementById(cssId).innerHTML = styleCss;
                     }
 
-                    if (doc.getElementById('gtusers-frontend-css') === null) {
+                    if (doc.getElementById('dowp-frontend-css') === null) {
                         const link = doc.createElement('link');
                         link.rel = 'stylesheet';
                         link.type = 'text/css';
-                        link.href = gtusersParams.plugin_url + '/assets/css/gtusers-block.min.css';
-                        link.setAttribute('id', 'gtusers-frontend-css');
+                        link.href = dowpParams.plugin_url + '/assets/css/dowp-block.min.css';
+                        link.setAttribute('id', 'dowp-frontend-css');
                         iframeHead.appendChild(link);
                     }
 

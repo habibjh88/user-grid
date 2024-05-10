@@ -2,13 +2,13 @@
 /**
  * Script Controller class.
  *
- * @package GT_USERS
+ * @package USER_GRID
  */
 
-namespace GT\GtUsers\Controllers;
+namespace DOWP\UserGrid\Controllers;
 
 // Do not allow directly accessing this file.
-use GT\GtUsers\Helpers\Fns;
+use DOWP\UserGrid\Helpers\Fns;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'This script cannot be accessed directly.' );
@@ -40,7 +40,7 @@ class ScriptController {
 	 */
 	public function __construct() {
 		global $pagenow;
-		$this->version = defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : GT_USERS_VERSION;
+		$this->version = defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : USER_GRID_VERSION;
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue' ] );
 		if ( in_array( $pagenow, $this->notices_enabled_pages ) ) {
 
@@ -62,15 +62,15 @@ class ScriptController {
 		$styles  = [];
 
 		$scripts[] = [
-			'handle' => 'gtusers-script',
-			'src'    => gtUsers()->get_assets_uri( 'js/scripts.js' ),
+			'handle' => 'dowp-script',
+			'src'    => userGrid()->get_assets_uri( 'js/scripts.js' ),
 			'deps'   => [ 'jquery' ],
 			'footer' => true,
 		];
 
 
 		// Plugin specific css.
-		$styles['gtusers-block'] = gtUsers()->gtusers_can_be_rtl( 'css/block' );
+		$styles['dowp-block'] = userGrid()->dowp_can_be_rtl( 'css/block' );
 
 
 		foreach ( $scripts as $script ) {
@@ -89,14 +89,14 @@ class ScriptController {
 	 */
 	public function enqueue() {
 		wp_enqueue_script( 'jquery' );
-		wp_enqueue_style( 'gtusers-block' );
+		wp_enqueue_style( 'dowp-block' );
 		wp_enqueue_style( 'dashicons' );
-		wp_enqueue_script( 'gtusers-script' );
+		wp_enqueue_script( 'dowp-script' );
 
-		$nonce = wp_create_nonce( gtUsers()->nonceText() );
+		$nonce = wp_create_nonce( userGrid()->nonceText() );
 
-		wp_localize_script( 'gtusers-script', 'gtusersParams', [
-				'nonceID' => esc_attr( gtUsers()->nonceId() ),
+		wp_localize_script( 'dowp-script', 'dowpParams', [
+				'nonceID' => esc_attr( userGrid()->nonceId() ),
 				'nonce'   => esc_attr( $nonce ),
 				'ajaxurl' => Fns::ajax_url(),
 			]
@@ -131,15 +131,15 @@ class ScriptController {
 		wp_enqueue_media();
 
 		// JavaScript for wp-admin
-		wp_enqueue_script( 'gt-users-avatar', gtUsers()->get_assets_uri( 'js/gt-users-avatar.js' ), [ 'jquery' ], GT_USERS_VERSION, true );
+		wp_enqueue_script( 'user-grid-avatar', userGrid()->get_assets_uri( 'js/user-grid-avatar.js' ), [ 'jquery' ], USER_GRID_VERSION, true );
 
 		// Get default avatar URL by user_email
 		$l10n = [
 			'default_avatar_src'    => $this->get_default_avatar_url( $current_user->user_email, $this->avatar_size ),
 			'default_avatar_srcset' => $this->get_default_avatar_url( $current_user->user_email, ( $this->avatar_size * 2 ) ) . ' 2x',
-			'input_name'            => GT_USER_META_KEY
+			'input_name'            => USER_GRID_META_KEY
 		];
-		wp_localize_script( 'gt-users-avatar', 'gtUsers', $l10n );
+		wp_localize_script( 'user-grid-avatar', 'userGrid', $l10n );
 	}
 
 

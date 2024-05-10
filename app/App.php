@@ -2,7 +2,7 @@
 /**
  * Main initialization class.
  *
- * @package GT_USERS
+ * @package USER_GRID
  */
 
 // Do not allow directly accessing this file.
@@ -10,28 +10,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'This script cannot be accessed directly.' );
 }
 
-require_once __DIR__ . './../vendor/autoload.php';
-
-use GT\GtUsers\Controllers\Api\RestApi;
-use GT\GtUsers\Controllers\AjaxController;
-use GT\GtUsers\Controllers\BlocksController;
-use GT\GtUsers\Controllers\ScriptController;
-use GT\GtUsers\Controllers\Hooks\FilterHooks;
-use GT\GtUsers\Controllers\Hooks\ActionHooks;
-use GT\GtUsers\Helpers\Install;
+require_once USER_GRID_PLUGIN_PATH . '/vendor/autoload.php';
 
 
-if ( ! class_exists( GtUsers::class ) ) {
+use DOWP\UserGrid\Controllers\Api\RestApi;
+use DOWP\UserGrid\Controllers\AjaxController;
+use DOWP\UserGrid\Controllers\BlocksController;
+use DOWP\UserGrid\Controllers\ScriptController;
+use DOWP\UserGrid\Controllers\Hooks\FilterHooks;
+use DOWP\UserGrid\Controllers\Hooks\ActionHooks;
+use DOWP\UserGrid\Helpers\Install;
+
+
+if ( ! class_exists( UserGrid::class ) ) {
 	/**
 	 * Main initialization class.
 	 */
-	final class GtUsers {
+	final class UserGrid {
 		/**
 		 * Post Type
 		 *
 		 * @var string
 		 */
-		public $post_type = 'gtusers';
+		public $post_type = 'dowp';
 
 		/**
 		 * Options
@@ -39,10 +40,10 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 * @var array
 		 */
 		public $options = [
-			'settings'          => 'rt_gtusers_settings',
-			'version'           => GT_USERS_VERSION,
-			'installed_version' => 'rt_gtusers_current_version',
-			'slug'              => GT_USERS_PLUGIN_SLUG,
+			'settings'          => 'rt_dowp_settings',
+			'version'           => USER_GRID_VERSION,
+			'installed_version' => 'rt_dowp_current_version',
+			'slug'              => USER_GRID_PLUGIN_SLUG,
 		];
 
 		/**
@@ -94,8 +95,8 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 * @return void
 		 */
 		private function load_hooks() {
-			register_activation_hook( GT_USERS_PLUGIN_FILE, [ Install::class, 'activate' ] );
-			register_deactivation_hook( GT_USERS_PLUGIN_FILE, [ Install::class, 'deactivate' ] );
+			register_activation_hook( USER_GRID_PLUGIN_FILE, [ Install::class, 'activate' ] );
+			register_deactivation_hook( USER_GRID_PLUGIN_FILE, [ Install::class, 'deactivate' ] );
 
 			add_action( 'plugins_loaded', [ $this, 'on_plugins_loaded' ], - 1 );
 			add_action( 'init', [ $this, 'init_hooks' ], 0 );
@@ -107,7 +108,7 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 * @return void
 		 */
 		public function init_hooks() {
-			do_action( 'gtusers_before_init', $this );
+			do_action( 'dowp_before_init', $this );
 
 			$this->load_language();
 		}
@@ -118,12 +119,12 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 * @return void
 		 */
 		public function load_language() {
-			do_action( 'gtusers_set_local', null );
+			do_action( 'dowp_set_local', null );
 			$locale = determine_locale();
-			$locale = apply_filters( 'plugin_locale', $locale, 'gutenberg-users' );
-			unload_textdomain( 'gutenberg-users' );
-			load_textdomain( 'gutenberg-users', WP_LANG_DIR . '/gutenberg-users/gutenberg-users-' . $locale . '.mo' );
-			load_plugin_textdomain( 'gutenberg-users', false, plugin_basename( dirname( GT_USERS_PLUGIN_FILE ) ) . '/languages' );
+			$locale = apply_filters( 'plugin_locale', $locale, 'user-grid' );
+			unload_textdomain( 'user-grid' );
+			load_textdomain( 'user-grid', WP_LANG_DIR . '/user-grid/user-grid-' . $locale . '.mo' );
+			load_plugin_textdomain( 'user-grid', false, plugin_basename( dirname( USER_GRID_PLUGIN_FILE ) ) . '/languages' );
 		}
 
 		/**
@@ -132,7 +133,7 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 * @return void
 		 */
 		public function on_plugins_loaded() {
-			do_action( 'gtusers_loaded', $this );
+			do_action( 'dowp_loaded', $this );
 		}
 
 		/**
@@ -141,7 +142,7 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 * @return string
 		 */
 		public function plugin_path() {
-			return untrailingslashit( plugin_dir_path( GT_USERS_PLUGIN_FILE ) );
+			return untrailingslashit( plugin_dir_path( USER_GRID_PLUGIN_FILE ) );
 		}
 
 
@@ -151,7 +152,7 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 * @return string
 		 */
 		public static function nonceText() {
-			return 'gtusers_nonce_secret';
+			return 'dowp_nonce_secret';
 		}
 
 		/**
@@ -160,7 +161,7 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 * @return string
 		 */
 		public static function nonceId() {
-			return 'gtusers_nonce';
+			return 'dowp_nonce';
 		}
 
 		/**
@@ -173,7 +174,7 @@ if ( ! class_exists( GtUsers::class ) ) {
 		public function get_assets_uri( $file ) {
 			$file = ltrim( $file, '/' );
 
-			return trailingslashit( GT_USERS_PLUGIN_URL . '/assets' ) . $file;
+			return trailingslashit( USER_GRID_PLUGIN_URL . '/assets' ) . $file;
 		}
 
 		/**
@@ -183,14 +184,14 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 *
 		 * @return string
 		 */
-		public function gtusers_can_be_rtl( $file ) {
+		public function dowp_can_be_rtl( $file ) {
 			$file = ltrim( str_replace( '.css', '', $file ), '/' );
 
 			if ( is_rtl() ) {
 				$file .= '.rtl';
 			}
 
-			return trailingslashit( GT_USERS_PLUGIN_URL . '/assets' ) . $file . '.min.css';
+			return trailingslashit( USER_GRID_PLUGIN_URL . '/assets' ) . $file . '.min.css';
 		}
 
 		/**
@@ -199,7 +200,7 @@ if ( ! class_exists( GtUsers::class ) ) {
 		 * @return string
 		 */
 		public function get_template_path() {
-			return apply_filters( 'gtusers_template_path', 'gutenberg-users/' );
+			return apply_filters( 'dowp_template_path', 'user-grid/' );
 		}
 
 	}
@@ -207,14 +208,14 @@ if ( ! class_exists( GtUsers::class ) ) {
 	/**
 	 * Function for external use.
 	 *
-	 * @return GtUsers
+	 * @return UserGrid
 	 */
-	if ( ! function_exists( 'gtUsers' ) ) {
-		function gtUsers() {
-			return GtUsers::getInstance();
+	if ( ! function_exists( 'userGrid' ) ) {
+		function userGrid() {
+			return UserGrid::getInstance();
 		}
 
 		// Init app.
-		gtUsers();
+		userGrid();
 	}
 }

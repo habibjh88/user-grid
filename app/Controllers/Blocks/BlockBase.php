@@ -1,8 +1,8 @@
 <?php
 
-namespace GT\GtUsers\Controllers\Blocks;
+namespace DOWP\UserGrid\Controllers\Blocks;
 
-use GT\GtUsers\Helpers\Fns;
+use DOWP\UserGrid\Helpers\Fns;
 
 abstract class BlockBase {
 

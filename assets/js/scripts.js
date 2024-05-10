@@ -12,13 +12,13 @@
             var $bioElem = $this.parent().find('.bio-content');
 
             var data = {
-                action: 'gtusers_user_biography',
+                action: 'dowp_user_biography',
                 user_id: userId,
-                gtusers_nonce: gtusersParams.nonce
+                dowp_nonce: dowpParams.nonce
             };
 
             $.ajax({
-                url: gtusersParams.ajaxurl,
+                url: dowpParams.ajaxurl,
                 data: data,
                 type: "POST",
                 beforeSend: function () {

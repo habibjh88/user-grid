@@ -39,14 +39,14 @@ class Media extends Component {
         if (['wbm', 'jpg', 'jpeg', 'gif', 'png', 'svg'].indexOf(url.split('.').pop().toLowerCase()) != -1) {
             return url;
         } else {
-            return gtusersParams.plugin_url + 'assets/images/gtusers-placeholder.png';
+            return dowpParams.plugin_url + 'assets/images/dowp-placeholder.png';
         }
     }
 
     render() {
         const {type, multiple, value, panel, video} = this.props;
         return (
-            <div className='gtusers-media'>
+            <div className='dowp-media'>
                 {this.props.label &&
                     <label>{this.props.label}</label>
                 }
@@ -56,20 +56,20 @@ class Media extends Component {
                     multiple={multiple || false}
                     value={value}
                     render={({open}) => (
-                        <div className="gtusers-single-img">
+                        <div className="dowp-single-img">
                             <div>
                                 {multiple ?
                                     <div>
                                         {(value.length > 0) &&
                                             value.map((v, index) => {
                                                 return (
-                                                    <span className="gtusers-media-image-parent">
+                                                    <span className="dowp-media-image-parent">
 														<img src={this.isUrl(v.url)} alt={__('image')}/>
                                                         {panel &&
                                                             <div
-                                                                className="gtusers-media-actions gtusers-field-button-list">
+                                                                className="dowp-media-actions dowp-field-button-list">
                                                                 <Tooltip text={__('Edit')}>
-                                                                    <button className="gtusers-button"
+                                                                    <button className="dowp-button"
                                                                             aria-label={__('Edit')} onClick={open}
                                                                             role="button">
                                                                         <span aria-label={__('Edit')}
@@ -77,7 +77,7 @@ class Media extends Component {
                                                                     </button>
                                                                 </Tooltip>
                                                                 <Tooltip text={__('Remove')}>
-                                                                    <button className="gtusers-button"
+                                                                    <button className="dowp-button"
                                                                             aria-label={__('Remove')}
                                                                             onClick={() => this.removeImage(index)}
                                                                             role="button">
@@ -91,14 +91,14 @@ class Media extends Component {
                                                 )
                                             })
                                         }
-                                        <div onClick={open} className={"gtusers-placeholder-image"}>
+                                        <div onClick={open} className={"dowp-placeholder-image"}>
                                             <div className="dashicon dashicons dashicons-insert"/>
                                             <div>{__('Insert')}</div>
                                         </div>
                                     </div>
                                     :
                                     ((value && value.url) ?
-                                            <span className="gtusers-media-image-parent">
+                                            <span className="dowp-media-image-parent">
 											{
                                                 video ?
                                                     <video controls autoPlay loop src={value.url}/>
@@ -107,16 +107,16 @@ class Media extends Component {
                                             }
 
                                                 {panel &&
-                                                    <div className="gtusers-media-actions gtusers-field-button-list">
+                                                    <div className="dowp-media-actions dowp-field-button-list">
                                                         <Tooltip text={__('Edit')}>
-                                                            <button className="gtusers-button" aria-label={__('Edit')}
+                                                            <button className="dowp-button" aria-label={__('Edit')}
                                                                     onClick={open} role="button">
                                                                 <span aria-label={__('Edit')}
                                                                       className="dashicons dashicons-edit-large"/>
                                                             </button>
                                                         </Tooltip>
                                                         <Tooltip text={__('Remove')}>
-                                                            <button className="gtusers-button"
+                                                            <button className="dowp-button"
                                                                     aria-label={__('Remove')}
                                                                     onClick={() => this.removeImage(value.id)}
                                                                     role="button">
@@ -128,7 +128,7 @@ class Media extends Component {
                                                 }
 										</span>
                                             :
-                                            <div onClick={open} className={"gtusers-placeholder-image"}>
+                                            <div onClick={open} className={"dowp-placeholder-image"}>
                                                 <div className="dashicon dashicons dashicons-insert"/>
                                                 <div>{__('Insert')}</div>
                                             </div>

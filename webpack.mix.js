@@ -31,8 +31,8 @@ if ((!process.env.npm_config_block && !process.env.npm_config_package) && (proce
                 package: 'The Post Grid',
                 bugReport: '',
                 src: '**/*.php',
-                domain: 'gutenberg-users',
-                destFile: `languages/gutenberg-users.pot`
+                domain: 'user-grid',
+                destFile: `languages/user-grid.pot`
             });
         });
     } else {

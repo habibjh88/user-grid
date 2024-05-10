@@ -2,10 +2,10 @@
 /**
  * Install Helper class.
  *
- * @package GT_USERS
+ * @package USER_GRID
  */
 
-namespace GT\GtUsers\Helpers;
+namespace DOWP\UserGrid\Helpers;
 
 // Do not allow directly accessing this file.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,10 +17,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Install {
 	public static function activate() {
-		update_option( gtUsers()->options['installed_version'], GT_USERS_VERSION );
+		update_option( userGrid()->options['installed_version'], USER_GRID_VERSION );
 	}
 
 	public static function deactivate() {
-		update_option( 'gtusers_flush_rewrite_rules', 0 );
+		update_option( 'dowp_flush_rewrite_rules', 0 );
 	}
 }

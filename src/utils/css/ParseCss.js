@@ -14,7 +14,7 @@ const innerBlocks = function (blocks) {
     blocks.map((row) => {
         const {attributes, name} = row;
         const [blockType, blockName] = name.split('/');
-        if (blockType === 'gtusers' && attributes.uniqueId) {
+        if (blockType === 'dowp' && attributes.uniqueId) {
             __CSS += CssGenerator(attributes, blockName, attributes.uniqueId, true);
         }
         if (row.innerBlocks && row.innerBlocks.length > 0) {
@@ -24,16 +24,16 @@ const innerBlocks = function (blocks) {
     return __CSS;
 };
 
-const isRtgtusersBlock = (blocks) => {
+const isRtdowpBlock = (blocks) => {
     let hasBlock = false;
     blocks.forEach(function (block) {
         const {name, innerBlocks = []} = block;
         const [blockType, blockName] = name.split('/');
-        if (blockType === 'gtusers') {
+        if (blockType === 'dowp') {
             hasBlock = true;
         }
         if (!hasBlock && innerBlocks.length > 0) {
-            hasBlock = isRtgtusersBlock(innerBlocks);
+            hasBlock = isRtdowpBlock(innerBlocks);
         }
     });
     return hasBlock;
@@ -48,7 +48,7 @@ const getData = pId => {
             type: "POST",
             data: {
                 postId: pId,
-                action: 'gtusers_block_css_get_posts'
+                action: 'dowp_block_css_get_posts'
             }
         })
         .then(function (response) {
@@ -65,7 +65,7 @@ const getData = pId => {
                             data: {
                                 inner_css: innerBlock.css,
                                 post_id: wp.data.select('core/editor').getCurrentPostId(),
-                                action: 'gtusers_block_css_appended'
+                                action: 'dowp_block_css_appended'
                             }
                         })
                         .done(function (res) {
@@ -93,7 +93,7 @@ const ParseCss = (setDatabase = true) => {
     window.bindCss = true;
     const all_blocks = select('core/block-editor').getBlocks();
     const {getCurrentPostId} = select('core/editor');
-    const hasRtgtusersBlocks = isRtgtusersBlock(all_blocks);
+    const hasRtdowpBlocks = isRtdowpBlock(all_blocks);
     const blockCss = innerBlocks(all_blocks, true);
 
     if (setDatabase) {
@@ -106,8 +106,8 @@ const ParseCss = (setDatabase = true) => {
                 data: {
                     block_css: blockCss,
                     post_id: getCurrentPostId,
-                    has_block: hasRtgtusersBlocks,
-                    action: 'gtusers_block_css_save'
+                    has_block: hasRtdowpBlocks,
+                    action: 'dowp_block_css_save'
                 }
             });
     }

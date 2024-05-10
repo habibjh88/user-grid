@@ -32,7 +32,7 @@
 	<!-- Add a rule to check the text domain -->
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="gutenberg-users" />
+			<property name="text_domain" type="array" value="user-grid" />
 		</properties>
 	</rule>
 

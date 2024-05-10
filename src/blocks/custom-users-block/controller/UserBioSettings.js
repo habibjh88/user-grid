@@ -8,7 +8,7 @@ import {
 import Color from "../../../components/Color";
 import Typography from "../../../components/Typography";
 import Dimension from "../../../components/Dimension";
-import {GTUSERS_COLOR_PALATE, NORMAL_HOVER} from "../../../components/Constants";
+import {UserGrid_COLOR_PALATE, NORMAL_HOVER} from "../../../components/Constants";
 
 const {__} = wp.i18n;
 
@@ -33,16 +33,16 @@ function UserBioSettings(props) {
     } = attributes;
 
     return (
-        <PanelBody title={__('User Biography', 'gutenberg-users')} initialOpen={false}>
+        <PanelBody title={__('User Biography', 'user-grid')} initialOpen={false}>
 
             <SelectControl
-                label={__("Bio Visible For", "gutenberg-users")}
-                className="gtusers-control-field label-inline"
+                label={__("Bio Visible For", "user-grid")}
+                className="dowp-control-field label-inline"
                 options={[
                     {value: 'all', label: 'All Users'},
                     {value: 'loggedin', label: 'Logged in Users'},
                 ]}
-                help={__("If you don't want to show this for non logged in users then choose 2nd option", "gutenberg-users")}
+                help={__("If you don't want to show this for non logged in users then choose 2nd option", "user-grid")}
                 value={bio_visible_for}
                 onChange={(bio_visible_for) => {
                     setAttributes({bio_visible_for})
@@ -66,7 +66,7 @@ function UserBioSettings(props) {
             />
 
             <Dimension
-                label={__("Spacing", "gutenberg-users")}
+                label={__("Spacing", "user-grid")}
                 type="margin" responsive
                 value={bio_spacing}
                 onChange={(value) => {
@@ -75,16 +75,16 @@ function UserBioSettings(props) {
             />
 
             <Color
-                label={__('Color', 'gutenberg-users')}
+                label={__('Color', 'user-grid')}
                 color={bio_color}
                 onChange={(bio_color) => setAttributes({bio_color})}
             />
 
-            <Heading className="gtusers-control-heading">{__("Button Style", "gutenberg-users")}</Heading>
+            <Heading className="dowp-control-heading">{__("Button Style", "user-grid")}</Heading>
 
             <Dimension
-                label={__("Button Border Radius", "gutenberg-users")}
-                className={`gtusers-dimension-wrap`}
+                label={__("Button Border Radius", "user-grid")}
+                className={`dowp-dimension-wrap`}
                 type="borderRadius" responsive
                 value={button_radius}
                 onChange={(value) => {
@@ -93,7 +93,7 @@ function UserBioSettings(props) {
             />
 
             <Dimension
-                label={__("Button Padding", "gutenberg-users")}
+                label={__("Button Padding", "user-grid")}
                 type="padding" responsive
                 value={button_padding}
                 onChange={(value) => {
@@ -102,7 +102,7 @@ function UserBioSettings(props) {
             />
 
 
-            <ButtonGroup className="gtusers-btn-group gtusers-btn-group-state gtusers-bottom-border-radius-none">
+            <ButtonGroup className="dowp-btn-group dowp-btn-group-state dowp-bottom-border-radius-none">
                 {NORMAL_HOVER.map((item, key) => (
                     <Button
                         key={key}
@@ -116,7 +116,7 @@ function UserBioSettings(props) {
             </ButtonGroup>
 
             {button_style_tab === 'normal' ?
-                <div className="gtusers-ground-control">
+                <div className="dowp-ground-control">
                     <Color
                         label={__('Button Color', 'the-post-grid')}
                         color={button_color}
@@ -130,9 +130,9 @@ function UserBioSettings(props) {
                     />
 
                     <BorderControl
-                        colors={GTUSERS_COLOR_PALATE}
+                        colors={UserGrid_COLOR_PALATE}
                         value={button_border}
-                        label={__("Button Border", "gutenberg-users")}
+                        label={__("Button Border", "user-grid")}
                         onChange={(val) => {
                             const newVal = {openTpgBorder: 1, ...val}
                             setAttributes({button_border: newVal})
@@ -141,7 +141,7 @@ function UserBioSettings(props) {
                     />
                 </div>
                 :
-                <div className="gtusers-ground-control">
+                <div className="dowp-ground-control">
                     <Color
                         label={__('Button Color - Hover', 'the-post-grid')}
                         color={button_color_hover}
@@ -155,9 +155,9 @@ function UserBioSettings(props) {
                     />
 
                     <BorderControl
-                        colors={GTUSERS_COLOR_PALATE}
+                        colors={UserGrid_COLOR_PALATE}
                         value={button_border_hover}
-                        label={__("Button Border - Hover", "gutenberg-users")}
+                        label={__("Button Border - Hover", "user-grid")}
                         onChange={(val) => {
                             const newVal = {openTpgBorder: 1, ...val}
                             setAttributes({button_border_hover: newVal})

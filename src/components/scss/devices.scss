@@ -1,6 +1,6 @@
-.gtusers-components-popover,
-.gtusers-panel-control-wrapper {
-	.gtusers-device {
+.dowp-components-popover,
+.dowp-panel-control-wrapper {
+	.dowp-device {
 		&-switcher {
 			color: #a4afb7;
 			display: flex;
@@ -42,31 +42,31 @@
 			}
 
 			&-open {
-				.gtusers-device-switchers-wrap {
+				.dowp-device-switchers-wrap {
 					box-shadow: 0 0 20px 0 rgb(0 0 0 / 25%);
 					background: #ffffff;
 					border-radius: 2px;
 				}
 
 				&.active-md {
-					.gtusers-device-switchers-wrap {
+					.dowp-device-switchers-wrap {
 						top: 0;
 					}
 				}
 
 				&.active-sm {
-					.gtusers-device-switchers-wrap {
+					.dowp-device-switchers-wrap {
 						top: 0;
 					}
 				}
 
 				&.active-xs {
-					.gtusers-device-switchers-wrap {
+					.dowp-device-switchers-wrap {
 						top: 0;
 					}
 				}
 
-				.gtusers-device-switcher {
+				.dowp-device-switcher {
 					height: 24px;
 					transform: scale(1);
 					opacity: 1;
@@ -79,6 +79,6 @@
 	}
 }
 
-.gtusers-device-switchers-open .gtusers-device-switcher.active {
-	color: var(--gtusers-primary, #009FFF)
+.dowp-device-switchers-open .dowp-device-switcher.active {
+	color: var(--dowp-primary, #009FFF)
 }

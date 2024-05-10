@@ -44,7 +44,7 @@ const Edit = (props) => {
         setSignalController(controller);
         setUsers({})
         apiFetch({
-            path: '/gtusers/v1/users',
+            path: '/dowp/v1/users',
             signal: controller?.signal,
             method: 'POST',
             data: {
@@ -68,7 +68,7 @@ const Edit = (props) => {
         setSignalController(controller);
         setUsers({})
         apiFetch({
-            path: '/gtusers/v1/users-select',
+            path: '/dowp/v1/users-select',
             signal: controller?.signal,
             method: 'POST',
         }).then((data) => {
@@ -90,24 +90,24 @@ const Edit = (props) => {
 
     useEffect(() => {
         const sidebarEl = document.querySelector('.interface-interface-skeleton__sidebar');
-        sidebarEl.classList.add('gtusers-sidebar')
-        sidebarEl.classList.remove('gtusers-settings-enable')
+        sidebarEl.classList.add('dowp-sidebar')
+        sidebarEl.classList.remove('dowp-settings-enable')
         sidebarEl.addEventListener('click', function (event) {
-            const hasClass = event.target.classList.contains('gtusers-tab-btn');
+            const hasClass = event.target.classList.contains('dowp-tab-btn');
             if (hasClass) {
                 const selectText = event.target.textContent;
                 if (selectText !== 'Content') {
-                    this.classList.add('gtusers-settings-enable')
+                    this.classList.add('dowp-settings-enable')
                 } else {
-                    this.classList.remove('gtusers-settings-enable')
+                    this.classList.remove('dowp-settings-enable')
                 }
             }
         })
         sidebarEl.addEventListener('scroll', function (e) {
             if (e.target.scrollTop > 86) {
-                this.classList.add('gtusers-should-collapse');
+                this.classList.add('dowp-should-collapse');
             } else {
-                this.classList.remove('gtusers-should-collapse');
+                this.classList.remove('dowp-should-collapse');
             }
         })
 

@@ -22,11 +22,11 @@ function CustomUsersBlock({props, userData}) {
     }, []);
 
     let wrapper_classes = image_link ? '' : ' no-image-link';
-    wrapper_classes += ' gtusers' + layout;
+    wrapper_classes += ' dowp' + layout;
     wrapper_classes += grid_style;
 
     return (
-        <div className={`gtusers-block-postgrid gtusers-block-wrapper gtusers-block-${uniqueId} ${wrapper_classes}`}>
+        <div className={`dowp-block-postgrid dowp-block-wrapper dowp-block-${uniqueId} ${wrapper_classes}`}>
             {userData.users && userData.users.length ?
                 <div className="cub-users-block-wrapper clearfix">
                     <div className="cub-row">
@@ -40,7 +40,7 @@ function CustomUsersBlock({props, userData}) {
                     </div>
                 </div>
                 :
-                <div className="gtusers-postgrid-is-loading">
+                <div className="dowp-postgrid-is-loading">
                     {userData.message ? <div className={`not-found-wrap`}>{userData.message}</div> : <Spinner/>}
                 </div>
             }

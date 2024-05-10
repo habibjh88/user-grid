@@ -11,13 +11,13 @@ function Range( props ) {
     };
 
     return (
-        <div className="gtusers-control-field components-base-control gtusers-cf-range-wrap">
+        <div className="dowp-control-field components-base-control dowp-cf-range-wrap">
             { label && (
-                <div className="gtusers-cf-head">
-                    <span className="gtusers-label">{ label }</span>
+                <div className="dowp-cf-head">
+                    <span className="dowp-label">{ label }</span>
                 </div>
             ) }
-            <div className="gtusers-cf-body">
+            <div className="dowp-cf-body">
                 <RangeControl
                     value={ data }
                     onChange={ ( val ) => {
@@ -28,7 +28,7 @@ function Range( props ) {
 
                 { (reset && data) ? <Button
                     isSmall
-                    className="gtusers-undo-btn"
+                    className="dowp-undo-btn"
                     icon="image-rotate"
                     onClick={ () => onChange( null ) }
                 ></Button> : ''

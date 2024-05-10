@@ -7,7 +7,7 @@
  * @version 1.0
  */
 
-use GT\GtUsers\Helpers\Fns;
+use DOWP\UserGrid\Helpers\Fns;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $user_info        = get_user_by( 'id', $data['user'] );
 $avatar_size      = [ 'size' => $data['avatar_dimension'] ?? '300' ];
 $avater_image_url = get_avatar_url( $user_info->ID, $avatar_size );
-$designation  = get_user_meta( $user_info->ID, 'gt_users_designation', true );
+$designation  = get_user_meta( $user_info->ID, 'user_grid_designation', true );
 var_dump($avater_image_url);
 
 //Columns
@@ -69,7 +69,7 @@ $col_class = "cub-col-md-{$grid_column_desktop} cub-col-sm-{$grid_column_tab} cu
 						<div class="user-modal-content">
 							<div class="modal-inner">
 								<div class="modal-header">
-									<span><?php echo esc_html__( "User Biography", "gutenberg-users" ) ?></span>
+									<span><?php echo esc_html__( "User Biography", "user-grid" ) ?></span>
 									<button class="close-modal-btn"><i class="dashicons dashicons-no-alt"></i></button>
 								</div>
 								<?php if ( ! is_user_logged_in() && $data['bio_visible_for'] === 'loggedin' ) : ?>

@@ -12,15 +12,15 @@ function Gradient(props) {
 
     return (
 
-        <div className="gtusers-control-field components-base-control gtusers-cf-gradient-wrap">
+        <div className="dowp-control-field components-base-control dowp-cf-gradient-wrap">
 
             {label && (
-                <div className="gtusers-cf-head">
-                    <span className="gtusers-label">{label}</span>
+                <div className="dowp-cf-head">
+                    <span className="dowp-label">{label}</span>
                 </div>
             )}
 
-            <div className="gtusers-cf-body">
+            <div className="dowp-cf-body">
                 <GradientPicker
                     label={'helloooooo'}
                     value={value}

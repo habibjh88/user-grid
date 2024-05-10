@@ -4,7 +4,7 @@ import {
 } from '@wordpress/components';
 import Dimension from "../../../components/Dimension";
 import Background from "../../../components/Background";
-import {GTUSERS_COLOR_PALATE} from "../../../components/Constants";
+import {UserGrid_COLOR_PALATE} from "../../../components/Constants";
 import RangeDevice from "../../../components/RangeDevice";
 import BoxShadow from "../../../components/BoxShadow";
 
@@ -24,7 +24,7 @@ function CardSettings(props) {
     } = attributes;
 
     return (
-        <PanelBody title={__('Card Settings', 'gutenberg-users')} initialOpen={false}>
+        <PanelBody title={__('Card Settings', 'user-grid')} initialOpen={false}>
 
           <RangeDevice
                 label={__('Card Gap')}
@@ -39,7 +39,7 @@ function CardSettings(props) {
             />
 
             <Dimension
-                label={__("Card Padding", "gutenberg-users")}
+                label={__("Card Padding", "user-grid")}
                 type="padding" responsive
                 value={card_padding}
                 onChange={(value) => {
@@ -48,7 +48,7 @@ function CardSettings(props) {
             />
 
             <Dimension
-                label={__("Content Padding", "gutenberg-users")}
+                label={__("Content Padding", "user-grid")}
                 type="padding" responsive
                 value={content_padding}
                 onChange={(value) => {
@@ -57,8 +57,8 @@ function CardSettings(props) {
             />
 
             <Dimension
-                label={__("Avatar Border Radius", "gutenberg-users")}
-                className={`gtusers-dimension-wrap`}
+                label={__("Avatar Border Radius", "user-grid")}
+                className={`dowp-dimension-wrap`}
                 type="borderRadius" responsive
                 value={card_radius}
                 onChange={(value) => {
@@ -75,9 +75,9 @@ function CardSettings(props) {
             />
 
             <BorderControl
-                colors={GTUSERS_COLOR_PALATE}
+                colors={UserGrid_COLOR_PALATE}
                 value={card_border}
-                label={__("Card Border", "gutenberg-users")}
+                label={__("Card Border", "user-grid")}
                 onChange={(val) => {
                     const newVal = {openTpgBorder: 1, ...val}
                     setAttributes({card_border: newVal})

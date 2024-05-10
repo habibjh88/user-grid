@@ -18,7 +18,7 @@ function SocialShareSettings(props) {
     } = attributes;
 
     return (
-        <PanelBody title={__('Social Share', 'gutenberg-users')} initialOpen={false}>
+        <PanelBody title={__('Social Share', 'user-grid')} initialOpen={false}>
 
             <RangeDevice
                 label={__('Icon Size')}
@@ -31,7 +31,7 @@ function SocialShareSettings(props) {
             />
 
             <Dimension
-                label={__("Spacing", "gutenberg-users")}
+                label={__("Spacing", "user-grid")}
                 type="margin" responsive
                 value={social_spacing}
                 onChange={(value) => {
@@ -40,13 +40,13 @@ function SocialShareSettings(props) {
             />
 
             <Color
-                label={__('Color', 'gutenberg-users')}
+                label={__('Color', 'user-grid')}
                 color={social_color}
                 onChange={(social_color) => setAttributes({social_color})}
             />
 
             <Color
-                label={__('Color - Hover', 'gutenberg-users')}
+                label={__('Color - Hover', 'user-grid')}
                 color={social_color_hover}
                 onChange={(social_color_hover) => setAttributes({social_color_hover})}
             />

@@ -21,11 +21,11 @@ function UserNameSettings(props) {
     } = attributes;
 
     return (
-        <PanelBody title={__('User Name', 'gutenberg-users')} initialOpen={false}>
+        <PanelBody title={__('User Name', 'user-grid')} initialOpen={false}>
 
             <SelectControl
-                label={__('Name Tags', 'gutenberg-users')}
-                className="gtusers-control-field label-inline"
+                label={__('Name Tags', 'user-grid')}
+                className="dowp-control-field label-inline"
                 options={HEADING}
                 value={name_tag}
                 onChange={(name_tag) => setAttributes({name_tag})}
@@ -38,7 +38,7 @@ function UserNameSettings(props) {
             />
 
             <Dimension
-                label={__("Spacing", "gutenberg-users")}
+                label={__("Spacing", "user-grid")}
                 type="margin" responsive
                 value={name_spacing}
                 onChange={(value) => {
@@ -47,13 +47,13 @@ function UserNameSettings(props) {
             />
 
             <Color
-                label={__('Color', 'gutenberg-users')}
+                label={__('Color', 'user-grid')}
                 color={name_color}
                 onChange={(name_color) => setAttributes({name_color})}
             />
 
             <Color
-                label={__('Color - Hover', 'gutenberg-users')}
+                label={__('Color - Hover', 'user-grid')}
                 color={name_color_hover}
                 onChange={(name_color_hover) => setAttributes({name_color_hover})}
             />

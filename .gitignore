@@ -81,5 +81,5 @@ composer.lock
 yarn.lock
 _ext_dev
 dist
-gutenberg-users
+user-grid
 .idea

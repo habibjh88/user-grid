@@ -3,9 +3,9 @@
     'use strict';
 
     // Tags name
-    var tagAttachmentId     = 'input[name="' + gtUsers.input_name + '"]';
-    var tagAttachmentAvatar = '.gt-users-attachment-avatar';
-    var tagAttachmentDesc   = '#gt-users-attachment-description';
+    var tagAttachmentId     = 'input[name="' + userGrid.input_name + '"]';
+    var tagAttachmentAvatar = '.user-grid-attachment-avatar';
+    var tagAttachmentDesc   = '#user-grid-attachment-description';
     var tagButtonAdd        = '#gt-avatar-add';
     var tagButtonRemove     = '#gt-avatar-remove';
 
@@ -20,8 +20,8 @@
     var WPMediaSizes        = [ 'full', 'large', 'medium', 'thumbnail' ];
 
     // Get default Src and default SrcSet
-    var defaultSrc          = gtUsers.default_avatar_src;
-    var defaultSrcSet       = gtUsers.default_avatar_srcset;
+    var defaultSrc          = userGrid.default_avatar_src;
+    var defaultSrcSet       = userGrid.default_avatar_srcset;
 
 
     /*

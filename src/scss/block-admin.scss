@@ -1,13 +1,13 @@
 :root {
-    --gtusers-primary: #009FFF;
-    --gtusers-primary-dark: #007FCB;
-    --gtusers-border: #b7b7c3;
-    --gtusers-body: #313234;
-    --gtusers-transition: .4s;
-    color: var(--gtusers-body);
+    --dowp-primary: #009FFF;
+    --dowp-primary-dark: #007FCB;
+    --dowp-border: #b7b7c3;
+    --dowp-body: #313234;
+    --dowp-transition: .4s;
+    color: var(--dowp-body);
 }
 
-.gtusers-sidebar {
+.dowp-sidebar {
     .components-panel {
         .block-editor-block-card {
             background: #e1e7eb;
@@ -21,7 +21,7 @@
     }
 }
 
-.gtusers-panel-control-wrapper {
+.dowp-panel-control-wrapper {
 
     background: #fff;
 
@@ -36,19 +36,19 @@
 
     }
 
-    .gtusers-help {
+    .dowp-help {
         display: block;
         margin-top: -10px;
         margin-bottom: 15px;
         color: rgb(117, 117, 117);
     }
 
-    .gtusers-control-heading {
+    .dowp-control-heading {
         font-size: 14px;
         font-weight: 600;
-        color: var(--gtusers-primary-dark);
+        color: var(--dowp-primary-dark);
         margin-bottom: 15px;
-        border-bottom: 1px solid var(--gtusers-primary);
+        border-bottom: 1px solid var(--dowp-primary);
         padding-bottom: 10px;
     }
 
@@ -57,14 +57,14 @@
         font-size: 13px !important;
         font-weight: 400 !important;
         display: inline-block !important;
-        color: var(--gtusers-body) !important;
+        color: var(--dowp-body) !important;
         text-transform: inherit !important;
         line-height: 1.4 !important;
         padding: 0;
         margin-bottom: 7px;
     }
 
-    .gtusers-btn-group {
+    .dowp-btn-group {
         display: flex;
         align-items: center;
 
@@ -109,11 +109,11 @@
             }
 
             &:hover {
-                color: var(--gtusers-primary)
+                color: var(--dowp-primary)
             }
 
             &:hover svg path {
-                fill: var(--gtusers-primary)
+                fill: var(--dowp-primary)
             }
         }
 
@@ -122,8 +122,8 @@
             border-radius: 10px 10px 0 0;
             border: 1px solid #ced7db;
             border-bottom: none;
-            color: var(--gtusers-primary) svg path {
-                fill: var(--gtusers-primary)
+            color: var(--dowp-primary) svg path {
+                fill: var(--dowp-primary)
             }
         }
     }
@@ -133,12 +133,12 @@
     }
 
 
-    .gtusers-column-group .gtusers-cf-head {
+    .dowp-column-group .dowp-cf-head {
         margin-bottom: 5px;
         display: block;
     }
 
-    .gtusers-column-group .gtusers-column-group-inner {
+    .dowp-column-group .dowp-column-group-inner {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 10px;
@@ -146,18 +146,18 @@
         justify-content: center;
     }
 
-    .gtusers-column-group .gtusers-column-group-inner .gtusers-control-field {
+    .dowp-column-group .dowp-column-group-inner .dowp-control-field {
         align-items: center;
         flex-direction: column-reverse;
         margin: 0;
     }
 
-    .gtusers-column-group .gtusers-column-group-inner .gtusers-control-field > div {
+    .dowp-column-group .dowp-column-group-inner .dowp-control-field > div {
         line-height: 1;
         margin-bottom: 5px;
     }
 
-    .gtusers-column-group .gtusers-column-group-inner .gtusers-control-field .components-input-control__label {
+    .dowp-column-group .dowp-column-group-inner .dowp-control-field .components-input-control__label {
         padding-bottom: 0 !important;
         color: #979797;
         font-weight: 600;
@@ -189,7 +189,7 @@
         &:focus {
             box-shadow: none !important;
             outline: none !important;
-            border-color: var(--gtusers-primary) !important;
+            border-color: var(--dowp-primary) !important;
         }
     }
 
@@ -200,7 +200,7 @@
         opacity: 0;
     }
 
-    .gtusers-repeater {
+    .dowp-repeater {
         input,
         input:focus {
             border: none !important;
@@ -208,20 +208,20 @@
     }
 
     /*Alignment Button Style*/
-    .gtusers-control-field.gtusers-cf-alignment-wrap {
+    .dowp-control-field.dowp-cf-alignment-wrap {
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
 
-    .gtusers-control-field.gtusers-cf-alignment-wrap .gtusers-btn-group .gtusers-button {
+    .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button {
         padding: 3px 10px;
     }
 
     //Alignment button end
 
-    .gtusers-control-field.label-inline .components-base-control__field,
-    .gtusers-control-field.label-inline {
+    .dowp-control-field.label-inline .components-base-control__field,
+    .dowp-control-field.label-inline {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -230,28 +230,28 @@
         height: auto;
     }
 
-    .gtusers-control-field.label-inline.has-help {
+    .dowp-control-field.label-inline.has-help {
         display: block;
     }
 
-    .gtusers-control-field.label-inline label {
+    .dowp-control-field.label-inline label {
         padding: 0 !important;
         line-height: 1.4;
     }
 
-    .gtusers-control-field.label-inline .components-text-control__input,
-    .gtusers-control-field.label-inline .components-input-control__container {
+    .dowp-control-field.label-inline .components-text-control__input,
+    .dowp-control-field.label-inline .components-input-control__container {
         max-width: 120px;
         margin-left: 10px;
     }
 
-    .gtusers-control-field.label-inline.gtusers-expand .components-text-control__input,
-    .gtusers-control-field.label-inline.gtusers-expand .components-input-control__container {
+    .dowp-control-field.label-inline.dowp-expand .components-text-control__input,
+    .dowp-control-field.label-inline.dowp-expand .components-input-control__container {
         max-width: 160px;
         margin-left: 10px;
     }
 
-    .gtusers-control-field.label-inline .components-base-control__field > div {
+    .dowp-control-field.label-inline .components-base-control__field > div {
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -259,9 +259,9 @@
         align-items: center;
     }
 
-    /*gtusers-toggle-control-field*/
-    .gtusers-toggle-control-field .components-base-control__field .components-flex,
-    .gtusers-toggle-control-field .components-base-control__field {
+    /*dowp-toggle-control-field*/
+    .dowp-toggle-control-field .components-base-control__field .components-flex,
+    .dowp-toggle-control-field .components-base-control__field {
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
@@ -269,12 +269,12 @@
         align-items: center;
     }
 
-    .gtusers-toggle-control-field.gtusers-padding-left .components-toggle-control__label {
+    .dowp-toggle-control-field.dowp-padding-left .components-toggle-control__label {
         position: relative;
         padding-left: 10px;
     }
 
-    .gtusers-toggle-control-field.gtusers-padding-left .components-toggle-control__label::before {
+    .dowp-toggle-control-field.dowp-padding-left .components-toggle-control__label::before {
         content: "— ";
     }
 
@@ -290,11 +290,11 @@
     }
 
     .components-form-toggle .components-form-toggle__input:focus + .components-form-toggle__track {
-        box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px var(--gtusers-primary)
+        box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px var(--dowp-primary)
     }
 
     .components-form-toggle.is-checked .components-form-toggle__track {
-        background-color: var(--gtusers-primary);
+        background-color: var(--dowp-primary);
         border: 9px solid transparent;
     }
 
@@ -303,16 +303,16 @@
     }
 
 
-    .components-base-control .gtusers-units-choices,
-    .gtusers-control-field .gtusers-units-choices {
+    .components-base-control .dowp-units-choices,
+    .dowp-control-field .dowp-units-choices {
         display: flex;
         gap: 5px;
         justify-content: flex-end;
     }
 
 
-    .components-base-control .gtusers-units-choices label,
-    .gtusers-control-field .gtusers-units-choices label {
+    .components-base-control .dowp-units-choices label,
+    .dowp-control-field .dowp-units-choices label {
         cursor: pointer;
         padding: 0;
         text-transform: uppercase;
@@ -321,25 +321,25 @@
     }
 
 
-    .components-base-control .gtusers-units-choices label:hover,
-    .components-base-control .gtusers-units-choices label.active,
-    .gtusers-control-field .gtusers-units-choices label:hover,
-    .gtusers-control-field .gtusers-units-choices label.active {
-        color: var(--gtusers-admin-color-primary, #0066ff);
+    .components-base-control .dowp-units-choices label:hover,
+    .components-base-control .dowp-units-choices label.active,
+    .dowp-control-field .dowp-units-choices label:hover,
+    .dowp-control-field .dowp-units-choices label.active {
+        color: var(--dowp-admin-color-primary, #0066ff);
     }
 
-    .gtusers-dimension-wrap .gtusers-cf-head {
+    .dowp-dimension-wrap .dowp-cf-head {
         display: flex;
         justify-content: space-between;
     }
 
-    .gtusers-cf-background-wrap {
-        border: 1px solid var(--gtusers-border);
+    .dowp-cf-background-wrap {
+        border: 1px solid var(--dowp-border);
         padding: 0 8px 8px;
     }
 
 
-    .gtusers-cf-body-btn-wrap {
+    .dowp-cf-body-btn-wrap {
         display: flex;
         align-items: center;
         gap: 6px;
@@ -352,56 +352,56 @@
         margin-right: -8px;
     }
 
-    .gtusers-cf-body-btn-wrap .gtusers-btn-group {
+    .dowp-cf-body-btn-wrap .dowp-btn-group {
         flex-grow: 1;
         max-width: 60px;
         margin-left: auto;
     }
 
-    .gtusers-cf-body-btn-wrap .components-button {
+    .dowp-cf-body-btn-wrap .components-button {
         padding: 0;
         height: 27px;
         width: 30px;
-        border: 1px solid var(--gtusers-admin-color-primary, #06f);
+        border: 1px solid var(--dowp-admin-color-primary, #06f);
     }
 
-    .gtusers-cf-body-btn-wrap .components-button .classic-btn {
+    .dowp-cf-body-btn-wrap .components-button .classic-btn {
         font-size: 10px;
     }
 
-    .gtusers-cf-body-btn-wrap .components-button .gradient-btn {
+    .dowp-cf-body-btn-wrap .components-button .gradient-btn {
         font-size: 12px;
     }
 
-    .gtusers-cf-body-btn-wrap .gtusers-undo-btn {
+    .dowp-cf-body-btn-wrap .dowp-undo-btn {
         padding: 0;
         background-color: transparent;
     }
 
-    .gtusers-cf-body-btn-wrap .gtusers-undo-btn:hover {
+    .dowp-cf-body-btn-wrap .dowp-undo-btn:hover {
         background-color: transparent;
     }
 
-    .gtusers-cf-body-btn-wrap .gtusers-undo-btn:focus,
-    .gtusers-cf-body-btn-wrap .gtusers-undo-btn:hover,
-    .gtusers-panel-control-wrapper .gtusers-cf-body-btn-wrap .gtusers-undo-btn:active {
+    .dowp-cf-body-btn-wrap .dowp-undo-btn:focus,
+    .dowp-cf-body-btn-wrap .dowp-undo-btn:hover,
+    .dowp-panel-control-wrapper .dowp-cf-body-btn-wrap .dowp-undo-btn:active {
         outline: 0;
         box-shadow: none;
     }
 }
 
-//End .gtusers-panel-control-wrapper
+//End .dowp-panel-control-wrapper
 
 
-.gtusers-tab-panel {
+.dowp-tab-panel {
 
-    .gtusers-tab-btn {
+    .dowp-tab-btn {
         position: relative;
         z-index: 1;
     }
 
-    .gtusers-tab-btn:before,
-    .gtusers-tab-btn:after {
+    .dowp-tab-btn:before,
+    .dowp-tab-btn:after {
         content: "";
         position: absolute;
         width: 30px;
@@ -417,7 +417,7 @@
     }
 
 
-    .gtusers-tab-btn {
+    .dowp-tab-btn {
         i {
             font-size: 19px;
         }
@@ -438,7 +438,7 @@
             border-width: 0 0 1px 1px;
         }
 
-        .gtusers-tab-button {
+        .dowp-tab-button {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -449,7 +449,7 @@
 }
 
 /*Scroll top*/
-.interface-interface-skeleton__sidebar.gtusers-sidebar {
+.interface-interface-skeleton__sidebar.dowp-sidebar {
     background: #e6e9ec;
 }
 
@@ -457,11 +457,11 @@
     transition: top 0.2s ease-in-out;
 }
 
-.interface-interface-skeleton__sidebar.gtusers-should-collapse .edit-post-sidebar__panel-tabs {
+.interface-interface-skeleton__sidebar.dowp-should-collapse .edit-post-sidebar__panel-tabs {
     top: -50px;
 }
 
-.gtusers-panel-control-wrapper .components-panel__body.is-opened.gtusers-collapse-active {
+.dowp-panel-control-wrapper .components-panel__body.is-opened.dowp-collapse-active {
     height: 42px;
     overflow: hidden;
 }

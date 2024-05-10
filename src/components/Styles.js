@@ -7,29 +7,29 @@ function Styles(props) {
     const {label, value, options, columns = 3, onChange} = props
 
     return (
-        <div className="gtusers-control-field components-base-control gtusers-cf-styles-wrap">
+        <div className="dowp-control-field components-base-control dowp-cf-styles-wrap">
 
             {label && (
-                <div className="gtusers-cf-head">
-                    <span className="gtusers-label">{label}</span>
+                <div className="dowp-cf-head">
+                    <span className="dowp-label">{label}</span>
                 </div>
             )}
-            <div className={`gtusers-style-list gtusers-style-columns-${columns}`}>
+            <div className={`dowp-style-list dowp-style-columns-${columns}`}>
                 {options.map((data, index) => (
                     <div
                         role="button"
                         tabindex={index} aria-label={data.label ? data.label : ''}
                         onClick={() => {
-                            (! gtusersParams.hasPro && data.isPro) ?
+                            (! dowpParams.hasPro && data.isPro) ?
                                 cogoToast.warn('Please install "The Post Grid Pro" for this layout!',{ position: 'top-right' })
                                 :
                             onChange(data.value)
                         }}
-                        className={`${value == data.value ? 'gtusers-active' : ''} ${(! gtusersParams.hasPro && data.isPro) ? 'is-pro' : ''}`}
+                        className={`${value == data.value ? 'dowp-active' : ''} ${(! dowpParams.hasPro && data.isPro) ? 'is-pro' : ''}`}
                     >
-                        {data.icon && <span className="gtusers-layout gtusers-style-icon">{data.icon}</span>}
-                        {data.label && <span className="gtusers-label">{data.label}</span>}
-                        {(! gtusersParams.hasPro && data.isPro) && <span className={`pro-lable`}>{__('Pro','gutenberg-users')}</span>}
+                        {data.icon && <span className="dowp-layout dowp-style-icon">{data.icon}</span>}
+                        {data.label && <span className="dowp-label">{data.label}</span>}
+                        {(! dowpParams.hasPro && data.isPro) && <span className={`pro-lable`}>{__('Pro','user-grid')}</span>}
                     </div>
                 ))}
 

@@ -8,7 +8,7 @@ const Alignment = (props) => {
 
     const {value, responsive, onChange, label, content, options} = props;
 
-    const [device, setDevice] = useState(() => window.gtusersDevice || 'lg');
+    const [device, setDevice] = useState(() => window.dowpDevice || 'lg');
 
     const _filterValue = () => {
         return value ? (responsive ? (value[device]) : value) : '';
@@ -28,12 +28,12 @@ const Alignment = (props) => {
     const defaultData = options && Array.isArray(options) ? options : ['left', 'center', 'right', 'justify'];
 
     return (
-        <div className="gtusers-control-field components-base-control gtusers-cf-alignment-wrap">
+        <div className="dowp-control-field components-base-control dowp-cf-alignment-wrap">
 
             {(label || responsive) && (
-                <div className="gtusers-cf-head">
+                <div className="dowp-cf-head">
                     {label && (
-                        <span className="gtusers-label">{label}</span>
+                        <span className="dowp-label">{label}</span>
                     )}
                     {responsive &&
                         <Devices
@@ -51,22 +51,22 @@ const Alignment = (props) => {
                 </div>
             )}
 
-            <div className="gtusers-cf-body gtusers-btn-group">
+            <div className="dowp-cf-body dowp-btn-group">
 
                 {defaultData.map((data, index) => {
                     if (content) {
                         return (
-                            <button className={(_filterValue() == data.value ? 'active' : '') + ' gtusers-button'}
+                            <button className={(_filterValue() == data.value ? 'active' : '') + ' dowp-button'}
                                     key={index}
                                     onClick={() => setSettings(_filterValue() == data.value ? '' : data.value)}>
                                 <Tooltip
-                                    text={__(data.label, 'gutenberg-users')}><span>{__(data.label, 'gutenberg-users')}</span></Tooltip>
+                                    text={__(data.label, 'user-grid')}><span>{__(data.label, 'user-grid')}</span></Tooltip>
                             </button>
                         )
 
                     } else {
                         return (
-                            <button className={(_filterValue() == data ? 'active' : '') + ' gtusers-button'}
+                            <button className={(_filterValue() == data ? 'active' : '') + ' dowp-button'}
                                     key={index}
                                     onClick={() => setSettings(_filterValue() == data ? '' : data)}>
                                 {(data == 'left' || data === 'flex-start') &&

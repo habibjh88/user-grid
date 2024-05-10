@@ -2,12 +2,12 @@
 /**
  * Ajax Controller class.
  *
- * @package GT_USERS
+ * @package USER_GRID
  */
 
-namespace GT\GtUsers\Controllers;
+namespace DOWP\UserGrid\Controllers;
 
-use GT\GtUsers\Helpers\Fns;
+use DOWP\UserGrid\Helpers\Fns;
 
 // Do not allow directly accessing this file.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -22,15 +22,15 @@ class AjaxController {
 	 * Class constructor
 	 */
 	public function __construct() {
-		add_action( 'wp_ajax_gtusers_user_biography', [ __CLASS__, 'gtusers_user_biography' ] );
-		add_action( 'wp_ajax_noprev_gtusers_user_biography', [ __CLASS__, 'gtusers_user_biography' ] );
+		add_action( 'wp_ajax_dowp_user_biography', [ __CLASS__, 'dowp_user_biography' ] );
+		add_action( 'wp_ajax_noprev_dowp_user_biography', [ __CLASS__, 'dowp_user_biography' ] );
 	}
 
 	/**
 	 * Users biography ajax
 	 * @return void
 	 */
-	public static function gtusers_user_biography() {
+	public static function dowp_user_biography() {
 		if ( Fns::verifyNonce() ) {
 			$user_info = get_user_by( 'id', sanitize_text_field( wp_unslash( $_REQUEST['user_id'] ) ) );
 			$biography = get_user_meta( $user_info->ID, 'description', true );
@@ -38,7 +38,7 @@ class AjaxController {
 			if ( $biography ) {
 				$bio = $biography;
 			}  else {
-				$bio = esc_html__("There is no biography for this user.", "gutenberg-users");
+				$bio = esc_html__("There is no biography for this user.", "user-grid");
 			}
 			$return = [
 				'biography' => $bio,
@@ -46,7 +46,7 @@ class AjaxController {
 			];
 		} else {
 			$return = [
-				'success' => esc_html__( 'Server Error !!', 'gutenberg-users' )
+				'success' => esc_html__( 'Server Error !!', 'user-grid' )
 			];
 		}
 		wp_send_json( $return );

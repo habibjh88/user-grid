@@ -24,22 +24,22 @@ function Inspector(props) {
 
     return (
         <InspectorControls key="controls">
-            <div className="gtusers-panel-control-wrapper">
-                <TabPanel className="gtusers-tab-panel" activeClass="active-tab" tabs={[
+            <div className="dowp-panel-control-wrapper">
+                <TabPanel className="dowp-tab-panel" activeClass="active-tab" tabs={[
                     {
                         name: "content",
                         title: <TabTitle title={`Content`} icon={`dashicons-edit`}/>,
-                        className: "gtusers-tab-btn content",
+                        className: "dowp-tab-btn content",
                     },
                     {
                         name: "styles",
                         title: <TabTitle title={`Settings / Styles`} icon={`dashicons-admin-generic`}/>,
-                        className: "gtusers-tab-btn settings",
+                        className: "dowp-tab-btn settings",
                     }
                 ]}
                 >
                     {(tab) => (
-                        <div className="gtusers-tab-content">
+                        <div className="dowp-tab-content">
 
                             {/* Content Tab*/}
                             {tab.name === "content" && (

@@ -1,8 +1,8 @@
 {
-    "name": "gtusers/gutenberg-users",
+    "name": "devofwp/user-grid",
     "autoload": {
         "psr-4": {
-            "GT\\GtUsers\\": "app/"
+            "DOWP\\UserGrid\\": "app/"
         }
     },
     "authors": [

@@ -18,7 +18,7 @@ import {
 
 function BGImage(props) {
 
-    const [device, setDevice] = useState(() => window.gtusersDevice || 'md');
+    const [device, setDevice] = useState(() => window.dowpDevice || 'md');
     const {label, value, image, onChange} = props;
     const responsive = true;
     const resAttr = ['imgPosition', 'imgAttachment', 'imgRepeat', 'imgSize'];
@@ -78,13 +78,13 @@ function BGImage(props) {
     const imgIDVal = value['img'] !== undefined ? value['img']['imgID'] : '';
 
     return (
-        <div className="gtusers-control-field components-base-control gtusers-cf-bg-img-wrap">
+        <div className="dowp-control-field components-base-control dowp-cf-bg-img-wrap">
 
             {label && (
-                <span className="gtusers-label">{label}</span>
+                <span className="dowp-label">{label}</span>
             )}
 
-            <div className="gtusers-bg-img">
+            <div className="dowp-bg-img">
                 <Color
                     label={__('Color')}
                     color={value['color'] || ''}
@@ -108,7 +108,7 @@ function BGImage(props) {
                                 {
                                     if (!imgURLVal) {
                                         return (
-                                            <div onClick={open} className={"gtusers-placeholder-image"}>
+                                            <div onClick={open} className={"dowp-placeholder-image"}>
                                                 <div className="dashicon dashicons dashicons-insert"/>
                                                 <div>{__('Insert')}</div>
                                             </div>

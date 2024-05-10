@@ -44,7 +44,7 @@ function ContentControl(props) {
     return (
         <div className={`components-panel__body is-opened`}>
 
-            <Heading className="gtusers-control-heading">{__("layout", "gutenberg-users")}</Heading>
+            <Heading className="dowp-control-heading">{__("layout", "user-grid")}</Heading>
 
             <Layouts
                 value={layout}
@@ -52,13 +52,13 @@ function ContentControl(props) {
                 options={GRID_LAYOUT_OPT}
             />
 
-            <Heading className="gtusers-control-heading">{__("Query", "gutenberg-users")}</Heading>
+            <Heading className="dowp-control-heading">{__("Query", "user-grid")}</Heading>
 
-            <div className="components-base-control gtusers-repeater">
+            <div className="components-base-control dowp-repeater">
                 <label
                     className="components-base-control__label components-input-control__label"
                     htmlFor="react-select-2-input">
-                    {__('Choose Users', 'gutenberg-users')}
+                    {__('Choose Users', 'user-grid')}
                     {!userData.users && <Spinner/>}
                 </label>
 
@@ -76,11 +76,11 @@ function ContentControl(props) {
 
             </div>
 
-            <div className="components-base-control gtusers-repeater">
+            <div className="components-base-control dowp-repeater">
                 <label
                     className="components-base-control__label components-input-control__label"
                     htmlFor="react-select-2-input">
-                    {__('Users Role', 'gutenberg-users')}
+                    {__('Users Role', 'user-grid')}
                     {!userData.roles && <Spinner/>}
                 </label>
 
@@ -111,7 +111,7 @@ function ContentControl(props) {
 
             <NumberControl
                 isShiftStepEnabled
-                label={__("User Limit", "gutenberg-users")}
+                label={__("User Limit", "user-grid")}
                 max={1000}
                 min={-1}
                 value={user_limit}
@@ -119,18 +119,18 @@ function ContentControl(props) {
                     setAttributes({user_limit})
                     changeQuery()
                 }}
-                placeholder={__("Eg. 10", "gutenberg-users")}
+                placeholder={__("Eg. 10", "user-grid")}
                 shiftStep={10}
                 step="1"
-                className="gtusers-control-field label-inline"
+                className="dowp-control-field label-inline"
             />
 
             <small
-                className="gtusers-help">{__("The number of users to show. Enter -1 to show all found posts.", "gutenberg-users")}</small>
+                className="dowp-help">{__("The number of users to show. Enter -1 to show all found posts.", "user-grid")}</small>
 
             <SelectControl
-                label={__("Order By", "gutenberg-users")}
-                className="gtusers-control-field label-inline gtusers-expand"
+                label={__("Order By", "user-grid")}
+                className="dowp-control-field label-inline dowp-expand"
                 value={orderby}
                 options={USER_ORDER_BY}
                 onChange={(orderby) => {
@@ -140,8 +140,8 @@ function ContentControl(props) {
             />
 
             <SelectControl
-                label={__("Sort Order", "gutenberg-users")}
-                className="gtusers-control-field label-inline gtusers-expand"
+                label={__("Sort Order", "user-grid")}
+                className="dowp-control-field label-inline dowp-expand"
                 value={order}
                 options={POST_SORT_ORDER}
                 onChange={(order) => {
@@ -152,8 +152,8 @@ function ContentControl(props) {
 
 
             <GridColumn
-                label={__("Grid Column", "gutenberg-users")}
-                className="gtusers-control-field"
+                label={__("Grid Column", "user-grid")}
+                className="dowp-control-field"
                 value={grid_column}
                 onChange={(grid_column) => {
                     setAttributes({grid_column})
@@ -162,15 +162,15 @@ function ContentControl(props) {
                 changeQuery={changeQuery}
             />
 
-            <Heading className="gtusers-control-heading">{__("Layouts", "gutenberg-users")}</Heading>
+            <Heading className="dowp-control-heading">{__("Layouts", "user-grid")}</Heading>
 
             <SelectControl
-                label={__("Style", "gutenberg-users")}
-                className="gtusers-control-field label-inline gtusers-expand"
+                label={__("Style", "user-grid")}
+                className="dowp-control-field label-inline dowp-expand"
                 value={grid_style}
                 options={[
-                    {value: 'grid-style', label: __('Grid', 'gutenberg-users')},
-                    {value: 'list-style', label: __('List', 'gutenberg-users')}
+                    {value: 'grid-style', label: __('Grid', 'user-grid')},
+                    {value: 'list-style', label: __('List', 'user-grid')}
                 ]}
                 onChange={(grid_style) => {
                     setAttributes({grid_style})
@@ -178,12 +178,12 @@ function ContentControl(props) {
             />
 
             <SelectControl
-                label={__("Role In", "gutenberg-users")}
-                className="gtusers-control-field label-inline gtusers-expand"
+                label={__("Role In", "user-grid")}
+                className="dowp-control-field label-inline dowp-expand"
                 value={role_in}
                 options={[
-                    {value: 'grid-style', label: __('Grid', 'gutenberg-users')},
-                    {value: 'list-style', label: __('List', 'gutenberg-users')}
+                    {value: 'grid-style', label: __('Grid', 'user-grid')},
+                    {value: 'list-style', label: __('List', 'user-grid')}
                 ]}
                 onChange={(role_in) => {
                     setAttributes({role_in})
@@ -191,7 +191,7 @@ function ContentControl(props) {
             />
 
             <Alignment
-                label={__("Alignment", "gutenberg-users")}
+                label={__("Alignment", "user-grid")}
                 options={['left', 'center', 'right']}
                 value={grid_alignment}
                 // responsive={ true }
@@ -199,47 +199,47 @@ function ContentControl(props) {
             />
 
 
-            <Heading className="gtusers-control-heading">{__("Field Visibility", "gutenberg-users")}</Heading>
+            <Heading className="dowp-control-heading">{__("Field Visibility", "user-grid")}</Heading>
 
             <ToggleControl
-                label={__("Show Avatar", "gutenberg-users")}
-                className="gtusers-toggle-control-field"
+                label={__("Show Avatar", "user-grid")}
+                className="dowp-toggle-control-field"
                 checked={avatar_visibility}
                 onChange={(avatar_visibility) => setAttributes({avatar_visibility: avatar_visibility ? 'show' : ''})}
             />
 
             <ToggleControl
-                label={__("Show Name", "gutenberg-users")}
-                className="gtusers-toggle-control-field"
+                label={__("Show Name", "user-grid")}
+                className="dowp-toggle-control-field"
                 checked={name_visibility}
                 onChange={(name_visibility) => setAttributes({name_visibility: name_visibility ? 'show' : ''})}
             />
 
             <ToggleControl
-                label={__("Show Designation", "gutenberg-users")}
-                className="gtusers-toggle-control-field"
+                label={__("Show Designation", "user-grid")}
+                className="dowp-toggle-control-field"
                 checked={designation_visibility}
                 onChange={(designation_visibility) => setAttributes({designation_visibility: designation_visibility ? 'show' : ''})}
             />
 
             <ToggleControl
-                label={__("Show Email", "gutenberg-users")}
-                className="gtusers-toggle-control-field"
+                label={__("Show Email", "user-grid")}
+                className="dowp-toggle-control-field"
                 checked={email_visibility}
                 onChange={(email_visibility) => setAttributes({email_visibility: email_visibility ? 'show' : ''})}
             />
 
             <ToggleControl
-                label={__("Show Biography", "gutenberg-users")}
-                className="gtusers-toggle-control-field"
+                label={__("Show Biography", "user-grid")}
+                className="dowp-toggle-control-field"
                 checked={bio_visibility}
                 onChange={(bio_visibility) => setAttributes({bio_visibility: bio_visibility ? 'show' : ''})}
             />
 
 
             <ToggleControl
-                label={__("Show Social Icon", "gutenberg-users")}
-                className="gtusers-toggle-control-field"
+                label={__("Show Social Icon", "user-grid")}
+                className="dowp-toggle-control-field"
                 checked={social_visibility}
                 onChange={(social_visibility) => setAttributes({social_visibility: social_visibility ? 'show' : ''})}
             />

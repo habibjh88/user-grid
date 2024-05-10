@@ -17,18 +17,18 @@ function Color({label, color, onChange}) {
     };
 
     return (
-        <div className="gtusers-control-field components-base-control gtusers-cf-color-wrap">
+        <div className="dowp-control-field components-base-control dowp-cf-color-wrap">
 
             {label && (
-                <span className="gtusers-label">{label}</span>
+                <span className="dowp-label">{label}</span>
             )}
 
-            <div className="gtusers-color">
+            <div className="dowp-color">
                 <Dropdown
-                    contentClassName="gtusers-components-popover gtusers-cp-color-content"
+                    contentClassName="dowp-components-popover dowp-cp-color-content"
                     renderToggle={({isOpen, onToggle}) => (
                         <Tooltip text={color || "default"}>
-                            <div className="gtusers-color-ball">
+                            <div className="dowp-color-ball">
                                 <div
                                     style={{
                                         height: 25,
@@ -54,7 +54,7 @@ function Color({label, color, onChange}) {
                 {bgColor && (
                     <Button
                         isSmall
-                        className="gtusers-undo-btn"
+                        className="dowp-undo-btn"
                         icon="image-rotate"
                         onClick={() => onChange(undefined)}
                     ></Button>

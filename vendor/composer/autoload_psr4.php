@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'GT\\GtUsers\\' => array($baseDir . '/app'),
+    'DOWP\\UserGrid\\' => array($baseDir . '/app'),
 );

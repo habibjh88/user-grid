@@ -29,7 +29,7 @@ class IconList extends Component {
         const hasIcon = value ? 'has-icon' : '';
 
         return (
-            <div className={`gtusers-field components-base-control gtusers-icon-main-wrapper ${className}`}>
+            <div className={`dowp-field components-base-control dowp-icon-main-wrapper ${className}`}>
                 {this.props.label &&
                     <Fragment>
                         <label class="components-input-control__label">{label}</label>
@@ -39,7 +39,7 @@ class IconList extends Component {
                 <div className={`icon-inner-wrapper`}>
                     {/*Remove button */}
                     {value && <span onClick={() => this.props.onChange('')}
-                                    className="gtusers-remove-icon dashicons dashicons-trash"/>}
+                                    className="dowp-remove-icon dashicons dashicons-trash"/>}
 
 
                     <div className={`choose-icon ${hasIcon}`}
@@ -52,15 +52,15 @@ class IconList extends Component {
                     </div>
 
                     {isOpen &&
-                        <div className="gtusers-icon-wrapper">
+                        <div className="dowp-icon-wrapper">
                             <span onClick={e => this.setState({isOpen: false})}
-                                  className="gtusers-remove-icon dashicons dashicons-no"/>
+                                  className="dowp-remove-icon dashicons dashicons-no"/>
                             <input type="text" value={this.state.filterText} placeholder="Search..."
                                    onChange={e => this.setState({filterText: e.target.value})}
                                    autoComplete="off"/>
-                            <div className="gtusers-icon-list-icons">
+                            <div className="dowp-icon-list-icons">
                                 {finalData.map(name => {
-                                    return (<span className={value == name ? 'gtusers-active' : ''}
+                                    return (<span className={value == name ? 'dowp-active' : ''}
                                                   onClick={e => {
                                                       this.props.onChange(name)
                                                       this.setState({isOpen: false})

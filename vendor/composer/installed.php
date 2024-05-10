@@ -1,19 +1,19 @@
 <?php return array(
     'root' => array(
-        'name' => 'gtusers/gutenberg-users',
+        'name' => 'devofwp/user-grid',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '6824c4146642544d9974937c6cb99fe7eca02a63',
+        'reference' => '415b8e5dc7954bbd490c81810eeb63e83405a347',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        'gtusers/gutenberg-users' => array(
+        'devofwp/user-grid' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '6824c4146642544d9974937c6cb99fe7eca02a63',
+            'reference' => '415b8e5dc7954bbd490c81810eeb63e83405a347',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
