@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'This script cannot be accessed directly.' );
 }
 
-require_once USER_GRID_PLUGIN_PATH . '/vendor/autoload.php';
+require_once NSER_GRID_PLUGIN_BASE_DIR . 'vendor/autoload.php';
 
 
 use DOWP\UserGrid\Controllers\Api\RestApi;

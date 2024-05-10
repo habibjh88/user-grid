@@ -19,10 +19,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'USER_GRID_VERSION', '1.0.0' );
 define( 'USER_GRID_PLUGIN_FILE', __FILE__ );
-define( 'USER_GRID_PLUGIN_PATH', dirname( __FILE__ ) );
 define( 'USER_GRID_PLUGIN_ACTIVE_FILE_NAME', plugin_basename( __FILE__ ) );
 define( 'USER_GRID_PLUGIN_URL', plugins_url( '', __FILE__ ) );
 define( 'USER_GRID_PLUGIN_SLUG', basename( dirname( __FILE__ ) ) );
+define( 'NSER_GRID_PLUGIN_BASE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'USER_GRID_META_KEY', 'user_grid_attachment_id' );
 define( 'USER_GRID_LANGUAGE_PATH', dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
