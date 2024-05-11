@@ -26,7 +26,7 @@ class ScriptController {
 	private $version;
 	private $avatar_size = 96;
 
-	private $notices_enabled_pages      = [ 'users.php', 'profile.php', 'user-new.php', 'user-edit.php' ];
+	private $notices_enabled_pages = [ 'users.php', 'profile.php', 'user-new.php', 'user-edit.php' ];
 
 	/**
 	 * Settings
@@ -68,10 +68,8 @@ class ScriptController {
 			'footer' => true,
 		];
 
-
 		// Plugin specific css.
 		$styles['dowp-block'] = userGrid()->dowp_can_be_rtl( 'css/block' );
-
 
 		foreach ( $scripts as $script ) {
 			wp_register_script( $script['handle'], $script['src'], $script['deps'], $script['version'] ?? $this->version, $script['footer'] );
@@ -95,7 +93,10 @@ class ScriptController {
 
 		$nonce = wp_create_nonce( userGrid()->nonceText() );
 
-		wp_localize_script( 'dowp-script', 'dowpParams', [
+		wp_localize_script(
+			'dowp-script',
+			'dowpParams',
+			[
 				'nonceID' => esc_attr( userGrid()->nonceId() ),
 				'nonce'   => esc_attr( $nonce ),
 				'ajaxurl' => Fns::ajax_url(),
@@ -103,10 +104,10 @@ class ScriptController {
 		);
 	}
 
-	private function get_default_avatar_url( $user_email = '', $size = 96 ) {
+	public static function get_default_avatar_url( $user_email = '', $size = 96 ) {
 
 		// Check the email provided
-		if ( empty($user_email) || !filter_var($user_email, FILTER_VALIDATE_EMAIL) ) {
+		if ( empty( $user_email ) || ! filter_var( $user_email, FILTER_VALIDATE_EMAIL ) ) {
 			return null;
 		}
 
@@ -123,24 +124,21 @@ class ScriptController {
 		$url = add_query_arg( 'r', 'g', $url );
 
 		return esc_url( $url );
-
 	}
 
-	public function admin_enqueue_scripts(){
+	public function admin_enqueue_scripts() {
 		global $current_user;
 		wp_enqueue_media();
 
 		// JavaScript for wp-admin
-		wp_enqueue_script( 'user-grid-avatar', userGrid()->get_assets_uri( 'js/user-grid-avatar.js' ), [ 'jquery' ], USER_GRID_VERSION, true );
+		wp_enqueue_script( 'user-grid-avatar', userGrid()->get_assets_uri( 'js/user-avatar.js' ), [ 'jquery' ], USER_GRID_VERSION, true );
 
 		// Get default avatar URL by user_email
 		$l10n = [
-			'default_avatar_src'    => $this->get_default_avatar_url( $current_user->user_email, $this->avatar_size ),
-			'default_avatar_srcset' => $this->get_default_avatar_url( $current_user->user_email, ( $this->avatar_size * 2 ) ) . ' 2x',
-			'input_name'            => USER_GRID_META_KEY
+			'default_avatar_src'    => self::get_default_avatar_url( $current_user->user_email, $this->avatar_size ),
+			'default_avatar_srcset' => self::get_default_avatar_url( $current_user->user_email, ( $this->avatar_size * 2 ) ) . ' 2x',
+			'input_name'            => userGrid()->avatar_meta_key,
 		];
 		wp_localize_script( 'user-grid-avatar', 'userGrid', $l10n );
 	}
-
-
 }

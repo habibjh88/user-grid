@@ -34,6 +34,8 @@ if ( ! class_exists( UserGrid::class ) ) {
 		 */
 		public $post_type = 'dowp';
 
+		public $avatar_meta_key = 'user_grid_attachment_id';
+
 		/**
 		 * Options
 		 *

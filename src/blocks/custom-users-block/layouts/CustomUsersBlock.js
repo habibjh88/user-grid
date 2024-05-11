@@ -1,6 +1,7 @@
 const {Spinner} = wp.components;
 const {useEffect} = wp.element;
-import Layout1 from "./template/Layout1";
+import Grid1 from "./template/Grid1";
+import List1 from "./template/List1";
 
 function CustomUsersBlock({props, userData}) {
     const {attributes, setAttributes, clientId} = props;
@@ -8,7 +9,7 @@ function CustomUsersBlock({props, userData}) {
         layout,
         uniqueId,
         image_link,
-        grid_style
+        grid_style,
     } = attributes;
 
     const newClintID = clientId.substr(0, 6);
@@ -32,9 +33,11 @@ function CustomUsersBlock({props, userData}) {
                     <div className="cub-row">
                         {
                             userData.users.map(user => {
-                                return (
-                                    <Layout1 attributes={attributes} user={user}/>
-                                )
+                                if('grid-1' === layout) {
+                                    return (<Grid1 attributes={attributes} user={user}/>)
+                                } else if('list-1' === layout){
+                                    return (<List1 attributes={attributes} user={user}/>)
+                                }
                             })
                         }
                     </div>

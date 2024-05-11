@@ -21,7 +21,8 @@ function AvatarSettings(props) {
         avatar_height,
         avatar_border_radius,
         avatar_border,
-        image_link
+        image_link,
+        avatar_position
     } = attributes;
 
     return (
@@ -33,20 +34,6 @@ function AvatarSettings(props) {
                 checked={image_link}
                 onChange={(image_link) => setAttributes({image_link: image_link ? 'yes' : ''})}
             />
-
-            <Range
-                label={__("Avatar Dimension")}
-                value={avatar_dimension}
-                onChange={(val) => {
-                    setAttributes({avatar_dimension: val})
-                    changeQuery()
-                }}
-                min={50}
-                max={1000}
-                step={1}
-            />
-
-            <small className="dowp-help">{__("Avatar Dimension works only for wp avatar.", "user-grid")}</small>
 
             <Media
                 label={__("Default Image", "user-grid")}
@@ -60,10 +47,21 @@ function AvatarSettings(props) {
                 }}
             />
 
-            <hr/>
+            <Range
+                label={__("Avatar Size")}
+                value={avatar_dimension}
+                onChange={(val) => {
+                    setAttributes({avatar_dimension: val})
+                    changeQuery()
+                }}
+                min={50}
+                max={1000}
+                step={1}
+            />
+            <small className="dowp-help">{__("Avatar Dimension works only for gravatar", "user-grid")}</small>
 
             <RangeDevice
-                label={__('Img Wrap Width')}
+                label={__('Image Width')}
                 responsive={true}
                 value={avatar_width}
                 min={0}
@@ -73,13 +71,24 @@ function AvatarSettings(props) {
             />
 
             <RangeDevice
-                label={__('Img Wrap Height')}
+                label={__('Image Height')}
                 responsive={true}
                 value={avatar_height}
                 min={0}
                 max={500}
                 step={1}
                 onChange={(val) => setAttributes({avatar_height: val})}
+            />
+
+            <RangeDevice
+                label={__('Image Y Position (Optional)')}
+                responsive={true}
+                unit='%'
+                value={avatar_position}
+                min={-100}
+                max={100}
+                step={1}
+                onChange={(val) => setAttributes({avatar_position: val})}
             />
 
             <Dimension

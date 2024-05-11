@@ -158,7 +158,7 @@ class FilterHooks {
 		}
 
 		// Get attachment ID from user meta
-		$attachment_id = get_user_meta( $user_id, USER_GRID_META_KEY, true );
+		$attachment_id = get_user_meta( $user_id, userGrid()->avatar_meta_key, true );
 		if ( empty( $attachment_id ) || ! is_numeric( $attachment_id ) ) {
 			return $avatar;
 		}
@@ -212,7 +212,7 @@ class FilterHooks {
 
 
 		// Get the user's local avatar from usermeta.
-		$avatar_id_local = get_user_meta( $user_id, USER_GRID_META_KEY, true );
+		$avatar_id_local = get_user_meta( $user_id, userGrid()->avatar_meta_key, true );
 		$_avatars_image  = wp_get_attachment_image_src( $avatar_id_local, 'full' );
 		if ( ! empty( $_avatars_image[0] ) ) {
 			$return_args['url']          = $_avatars_image[0];

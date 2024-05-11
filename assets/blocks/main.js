@@ -2238,7 +2238,8 @@ function AvatarSettings(props) {
     avatar_height,
     avatar_border_radius,
     avatar_border,
-    image_link
+    image_link,
+    avatar_position
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
     title: __('Avatar', 'user-grid'),
@@ -2250,8 +2251,20 @@ function AvatarSettings(props) {
     onChange: image_link => setAttributes({
       image_link: image_link ? 'yes' : ''
     })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Media__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    label: __("Default Image", "user-grid"),
+    multiple: false,
+    type: ['image'],
+    panel: true,
+    value: default_image,
+    onChange: val => {
+      setAttributes({
+        default_image: val
+      });
+      changeQuery();
+    }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Range__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    label: __("Avatar Dimension"),
+    label: __("Avatar Size"),
     value: avatar_dimension,
     onChange: val => {
       setAttributes({
@@ -2264,20 +2277,8 @@ function AvatarSettings(props) {
     step: 1
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("small", {
     className: "dowp-help"
-  }, __("Avatar Dimension works only for wp avatar.", "user-grid")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Media__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    label: __("Default Image", "user-grid"),
-    multiple: false,
-    type: ['image'],
-    panel: true,
-    value: default_image,
-    onChange: val => {
-      setAttributes({
-        default_image: val
-      });
-      changeQuery();
-    }
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_RangeDevice__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    label: __('Img Wrap Width'),
+  }, __("Avatar Dimension works only for gravatar", "user-grid")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_RangeDevice__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    label: __('Image Width'),
     responsive: true,
     value: avatar_width,
     min: 0,
@@ -2287,7 +2288,7 @@ function AvatarSettings(props) {
       avatar_width: val
     })
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_RangeDevice__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    label: __('Img Wrap Height'),
+    label: __('Image Height'),
     responsive: true,
     value: avatar_height,
     min: 0,
@@ -2295,6 +2296,17 @@ function AvatarSettings(props) {
     step: 1,
     onChange: val => setAttributes({
       avatar_height: val
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_RangeDevice__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    label: __('Image Y Position (Optional)'),
+    responsive: true,
+    unit: "%",
+    value: avatar_position,
+    min: -100,
+    max: 100,
+    step: 1,
+    onChange: val => setAttributes({
+      avatar_position: val
     })
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Dimension__WEBPACK_IMPORTED_MODULE_2__["default"], {
     label: __("Avatar Border Radius", "user-grid"),
@@ -2514,6 +2526,7 @@ function ContentControl(props) {
     role_in,
     grid_style
   } = attributes;
+  console.log(layout);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: `components-panel__body is-opened`
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalHeading, {
@@ -3452,7 +3465,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _template_Layout1__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./template/Layout1 */ "./src/blocks/custom-users-block/layouts/template/Layout1.js");
+/* harmony import */ var _template_Grid1__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./template/Grid1 */ "./src/blocks/custom-users-block/layouts/template/Grid1.js");
+/* harmony import */ var _template_List1__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./template/List1 */ "./src/blocks/custom-users-block/layouts/template/List1.js");
 
 const {
   Spinner
@@ -3460,6 +3474,7 @@ const {
 const {
   useEffect
 } = wp.element;
+
 
 function CustomUsersBlock({
   props,
@@ -3498,10 +3513,17 @@ function CustomUsersBlock({
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "cub-row"
   }, userData.users.map(user => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_template_Layout1__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      attributes: attributes,
-      user: user
-    });
+    if ('grid-1' === layout) {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_template_Grid1__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        attributes: attributes,
+        user: user
+      });
+    } else if ('list-1' === layout) {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_template_List1__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        attributes: attributes,
+        user: user
+      });
+    }
   }))) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "dowp-postgrid-is-loading"
   }, userData.message ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -3512,10 +3534,10 @@ function CustomUsersBlock({
 
 /***/ }),
 
-/***/ "./src/blocks/custom-users-block/layouts/template/Layout1.js":
-/*!*******************************************************************!*\
-  !*** ./src/blocks/custom-users-block/layouts/template/Layout1.js ***!
-  \*******************************************************************/
+/***/ "./src/blocks/custom-users-block/layouts/template/Grid1.js":
+/*!*****************************************************************!*\
+  !*** ./src/blocks/custom-users-block/layouts/template/Grid1.js ***!
+  \*****************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3525,15 +3547,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
 
 const {
   __
 } = wp.i18n;
-
-
-function Layout1({
+function Grid1({
   attributes,
   user
 }) {
@@ -3547,9 +3565,6 @@ function Layout1({
     bio_visibility,
     social_visibility
   } = attributes;
-  const [isOpen, setOpen] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
-  const openModal = () => setOpen(true);
-  const closeModal = () => setOpen(false);
 
   //Grid Column settings
   let default_grid_column_desktop = '4';
@@ -3620,19 +3635,120 @@ function Layout1({
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     d: "M59.853 6.3484C59.6037 5.08816 59.0414 3.89707 58.2211 2.8957C58.0545 2.68547 57.8802 2.49844 57.6896 2.30871C56.2302 0.841523 54.2 0 52.1196 0H7.88016C5.77652 0 3.79805 0.820313 2.30918 2.30953C2.12074 2.4975 1.94602 2.68641 1.77305 2.90332C0.95625 3.90047 0.396445 5.08992 0.153047 6.35191C0.0513281 6.8475 0 7.36101 0 7.88051V38.9513C0 40.0322 0.219609 41.0848 0.654961 42.0854C1.03172 42.9741 1.60336 43.8165 2.30871 44.5215C2.48637 44.6984 2.66285 44.8615 2.85129 45.0205C4.26152 46.1884 6.04723 46.8311 7.88016 46.8311H52.1196C53.9644 46.8311 55.7483 46.1859 57.1548 45.0076C57.3428 44.8555 57.517 44.6958 57.6913 44.5215C58.3731 43.8404 58.915 43.0579 59.3045 42.1949L59.3558 42.0718C59.7831 41.0902 60 40.041 60 38.9514V7.88051C60 7.36781 59.9505 6.8509 59.853 6.3484ZM4.08082 5.02922C4.19227 4.86609 4.33453 4.69863 4.51605 4.5157C5.41711 3.61512 6.61207 3.11953 7.88004 3.11953H52.1195C53.3986 3.11953 54.5939 3.61594 55.485 4.51746C55.6389 4.67297 55.7858 4.84559 55.914 5.01809L56.2523 5.47277L32.6391 26.0528C31.9111 26.691 30.9738 27.0422 29.9996 27.0422C29.0351 27.0422 28.0986 26.6918 27.362 26.0536L3.77227 5.47863L4.08082 5.02922ZM3.13535 39.2256C3.12258 39.141 3.11965 39.047 3.11965 38.9513V8.52387L21.4443 24.5095L3.30457 40.3253L3.13535 39.2256ZM54.4804 43.0842C53.7711 43.4934 52.9543 43.7105 52.1196 43.7105H7.88016C7.04496 43.7105 6.22852 43.4934 5.51977 43.0842L4.7782 42.6544L23.5207 26.3209L25.5748 28.1075C26.8069 29.1772 28.3781 29.7669 29.9999 29.7669C31.6276 29.7669 33.2014 29.1772 34.4327 28.1075L36.486 26.3201L55.222 42.6553L54.4804 43.0842ZM56.8795 38.9513C56.8795 39.0454 56.8778 39.1384 56.8659 39.2213L56.7035 40.3313L38.5561 24.5181L56.8795 8.5316V38.9513Z",
     fill: "black"
-  })))), bio_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    className: "load-user-button",
-    variant: "secondary",
-    onClick: openModal
-  }, __("Load users's biography")), isOpen && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Modal, {
-    className: `cub-users-block-modal`,
-    title: __("Users Biography"),
-    onRequestClose: closeModal
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+  })))), bio_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "user-biography"
-  }, user.biography))))));
+  }, user.biography))));
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Layout1);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Grid1);
+
+/***/ }),
+
+/***/ "./src/blocks/custom-users-block/layouts/template/List1.js":
+/*!*****************************************************************!*\
+  !*** ./src/blocks/custom-users-block/layouts/template/List1.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+
+const {
+  __
+} = wp.i18n;
+function List1({
+  attributes,
+  user
+}) {
+  const {
+    grid_column,
+    name_tag,
+    avatar_visibility,
+    designation_visibility,
+    name_visibility,
+    email_visibility,
+    bio_visibility,
+    social_visibility
+  } = attributes;
+
+  //Grid Column settings
+  let default_grid_column_desktop = '6';
+  let default_grid_column_tab = '6';
+  let default_grid_column_mobile = '12';
+  let grid_column_desktop = grid_column?.lg ? grid_column.lg : default_grid_column_desktop;
+  let grid_column_tab = grid_column?.md ? grid_column.md : default_grid_column_tab;
+  let grid_column_mobile = grid_column?.sm ? grid_column.sm : default_grid_column_mobile;
+  const user_column = `cub-col-md-${grid_column_desktop} cub-col-sm-${grid_column_tab} cub-col-xs-${grid_column_mobile}`;
+  const HeadingTag = `${name_tag}`;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    key: user.id,
+    className: `user-item-col ${user_column}`
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "user-inner-wrapper"
+  }, user.avatar && avatar_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "user-avatar"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    className: "user-link"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: user.avatar,
+    className: "user-image",
+    alt: user.name,
+    decoding: "async",
+    loading: "lazy"
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "user-content-wrap clearfix"
+  }, name_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(HeadingTag, {
+    className: "user-name"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", null, user.name)), designation_visibility && user.designation && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "user-designation"
+  }, user.designation), social_visibility === 'show' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "cub-user-social-icons"
+  }, user.social.facebook && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    className: "facebook",
+    href: user.social.facebook
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    className: "dashicons dashicons-facebook-alt"
+  })), user.social.twitter && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    className: "twitter",
+    href: user.social.twitter
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    className: "dashicons dashicons-twitter"
+  })), user.social.linkedin && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    className: "linkedin",
+    href: user.social.linkedin
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    className: "dashicons dashicons-linkedin"
+  })), user.social.gplus && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    className: "google",
+    href: user.social.gplus
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    className: "dashicons dashicons-google"
+  })), user.social.pinterest && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    className: "pinterest",
+    href: user.social.pinterest
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    className: "dashicons dashicons-pinterest"
+  })), user.email && email_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    className: "pinterest",
+    href: `mainto:${user.email}`
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    width: "14",
+    height: "16",
+    viewBox: "0 0 60 47",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M59.853 6.3484C59.6037 5.08816 59.0414 3.89707 58.2211 2.8957C58.0545 2.68547 57.8802 2.49844 57.6896 2.30871C56.2302 0.841523 54.2 0 52.1196 0H7.88016C5.77652 0 3.79805 0.820313 2.30918 2.30953C2.12074 2.4975 1.94602 2.68641 1.77305 2.90332C0.95625 3.90047 0.396445 5.08992 0.153047 6.35191C0.0513281 6.8475 0 7.36101 0 7.88051V38.9513C0 40.0322 0.219609 41.0848 0.654961 42.0854C1.03172 42.9741 1.60336 43.8165 2.30871 44.5215C2.48637 44.6984 2.66285 44.8615 2.85129 45.0205C4.26152 46.1884 6.04723 46.8311 7.88016 46.8311H52.1196C53.9644 46.8311 55.7483 46.1859 57.1548 45.0076C57.3428 44.8555 57.517 44.6958 57.6913 44.5215C58.3731 43.8404 58.915 43.0579 59.3045 42.1949L59.3558 42.0718C59.7831 41.0902 60 40.041 60 38.9514V7.88051C60 7.36781 59.9505 6.8509 59.853 6.3484ZM4.08082 5.02922C4.19227 4.86609 4.33453 4.69863 4.51605 4.5157C5.41711 3.61512 6.61207 3.11953 7.88004 3.11953H52.1195C53.3986 3.11953 54.5939 3.61594 55.485 4.51746C55.6389 4.67297 55.7858 4.84559 55.914 5.01809L56.2523 5.47277L32.6391 26.0528C31.9111 26.691 30.9738 27.0422 29.9996 27.0422C29.0351 27.0422 28.0986 26.6918 27.362 26.0536L3.77227 5.47863L4.08082 5.02922ZM3.13535 39.2256C3.12258 39.141 3.11965 39.047 3.11965 38.9513V8.52387L21.4443 24.5095L3.30457 40.3253L3.13535 39.2256ZM54.4804 43.0842C53.7711 43.4934 52.9543 43.7105 52.1196 43.7105H7.88016C7.04496 43.7105 6.22852 43.4934 5.51977 43.0842L4.7782 42.6544L23.5207 26.3209L25.5748 28.1075C26.8069 29.1772 28.3781 29.7669 29.9999 29.7669C31.6276 29.7669 33.2014 29.1772 34.4327 28.1075L36.486 26.3201L55.222 42.6553L54.4804 43.0842ZM56.8795 38.9513C56.8795 39.0454 56.8778 39.1384 56.8659 39.2213L56.7035 40.3313L38.5561 24.5181L56.8795 8.5316V38.9513Z",
+    fill: "black"
+  })))), bio_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "user-biography"
+  }, user.biography))));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (List1);
 
 /***/ }),
 
@@ -4317,13 +4433,13 @@ const BACKGROUND_TYPE = [{
   value: "gradient"
 }];
 const GRID_LAYOUT_OPT = [{
-  value: 'layout1',
+  value: 'grid-1',
   icon: _icon_icons__WEBPACK_IMPORTED_MODULE_1__["default"].layout1,
-  label: __('Layout 1')
+  label: __('Grid Layout')
 }, {
-  value: 'layout3',
+  value: 'list-1',
   icon: _icon_icons__WEBPACK_IMPORTED_MODULE_1__["default"].layout2,
-  label: __('Layout 2')
+  label: __('List Layout')
 }];
 const BACKGROUND_POSITION = [{
   label: __("Default", "user-grid"),

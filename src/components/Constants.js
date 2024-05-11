@@ -13,8 +13,8 @@ export const BACKGROUND_TYPE = [
 ];
 
 export const GRID_LAYOUT_OPT = [
-    {value: 'layout1', icon: icons.layout1, label: __('Layout 1')},
-    {value: 'layout3', icon: icons.layout2, label: __('Layout 2')},
+    {value: 'grid-1', icon: icons.layout1, label: __('Grid Layout')},
+    {value: 'list-1', icon: icons.layout2, label: __('List Layout')},
 ];
 
 export const BACKGROUND_POSITION = [

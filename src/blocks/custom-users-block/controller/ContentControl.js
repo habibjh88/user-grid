@@ -41,6 +41,8 @@ function ContentControl(props) {
         grid_style
     } = attributes;
 
+    console.log(layout)
+
     return (
         <div className={`components-panel__body is-opened`}>
 
