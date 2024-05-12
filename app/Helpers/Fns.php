@@ -154,7 +154,7 @@ class Fns {
 		$email     = $user_info->user_email;
 		ob_start();
 		?>
-		<div class="cub-user-social-icons">
+		<div class="dwp-user-social-icons">
 			<?php
 			if ( $facebook ) {
 				echo '<a class="facebook" href="' . esc_url( $facebook ) . '"><i class="dashicons dashicons-facebook-alt"></i></a>';
@@ -193,6 +193,29 @@ class Fns {
 			'googleplus' => esc_html__( 'Google+', 'user-grid' ),
 			'pinterest'  => esc_html__( 'Pinterest', 'user-grid' ),
 		] );
+	}
+
+	/**
+	 * Get Dynamic columns for each block
+	 *
+	 * @param $grid_column
+	 * @param $default_grid_columns
+	 *
+	 * @return string
+	 */
+	public static function get_dynamic_cols( $grid_column, $default_grid_columns = [] ) {
+		if ( ! $default_grid_columns ) {
+			$default_grid_columns = [
+				'lg' => '4',
+				'md' => '6',
+				'sm' => '12',
+			];
+		}
+		$grid_column_desktop = ( isset( $grid_column['lg'] ) && 0 != $grid_column['lg'] ) ? $grid_column['lg'] : $default_grid_columns['lg'];
+		$grid_column_tab     = ( isset( $grid_column['md'] ) && 0 != $grid_column['md'] ) ? $grid_column['md'] : $default_grid_columns['md'];
+		$grid_column_mobile  = ( isset( $grid_column['sm'] ) && 0 != $grid_column['sm'] ) ? $grid_column['sm'] : $default_grid_columns['sm'];
+
+		return "dwp-col-md-{$grid_column_desktop} dwp-col-sm-{$grid_column_tab} dwp-col-xs-{$grid_column_mobile}";
 	}
 
 

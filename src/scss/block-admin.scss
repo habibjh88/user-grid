@@ -1,12 +1,5 @@
-:root {
-    --dowp-primary: #009FFF;
-    --dowp-primary-dark: #007FCB;
-    --dowp-border: #b7b7c3;
-    --dowp-body: #313234;
-    --dowp-transition: .4s;
-    color: var(--dowp-body);
-}
-
+@import "variables";
+@import "dragable";
 .dowp-sidebar {
     .components-panel {
         .block-editor-block-card {
@@ -61,7 +54,7 @@
         text-transform: inherit !important;
         line-height: 1.4 !important;
         padding: 0;
-        margin-bottom: 7px;
+        margin-bottom: 7px !important;
     }
 
     .dowp-btn-group {
@@ -93,8 +86,6 @@
     }
 
     .components-tab-panel__tabs {
-        background: #e1e7eb;
-        padding: 10px 10px 0;
 
         button {
             display: inline-flex;
@@ -122,14 +113,15 @@
             border-radius: 10px 10px 0 0;
             border: 1px solid #ced7db;
             border-bottom: none;
-            color: var(--dowp-primary) svg path {
+            color: var(--dowp-primary);
+            svg path {
                 fill: var(--dowp-primary)
             }
         }
     }
 
     .components-panel__body {
-        border-top: 1px solid #ced7db;
+        border-bottom: 1px solid #ced7db;
     }
 
 
@@ -448,24 +440,33 @@
     }
 }
 
-/*Scroll top*/
-.interface-interface-skeleton__sidebar.dowp-sidebar {
-    background: #e6e9ec;
+.dowp-tab-panel .components-panel__body-toggle.components-button {
+    font-size: 13px;
+    font-weight: 500;
+    padding: 13px 48px 14px 16px;
 }
 
-.interface-interface-skeleton__sidebar .edit-post-sidebar__panel-tabs {
-    transition: top 0.2s ease-in-out;
+.dowp-tab-panel .is-opended .components-panel__body-toggle.components-button,
+.dowp-tab-panel .components-panel__body-toggle.components-button:hover {
+    color: #000;
 }
 
-.interface-interface-skeleton__sidebar.dowp-should-collapse .edit-post-sidebar__panel-tabs {
-    top: -50px;
+.dowp-tab-panel .components-panel__body.is-opened {
+    border-bottom: 10px solid #e1e7eb;
 }
 
-.dowp-panel-control-wrapper .components-panel__body.is-opened.dowp-collapse-active {
-    height: 42px;
-    overflow: hidden;
+.dowp-tab-panel .is-opened .components-panel__body-toggle.components-button {
+    border-bottom: 1px solid #ddd;
 }
 
-/*Scroll top end*/
+.dowp-tab-panel .components-panel__body > .components-panel__body-title:hover {
+    background: #FFFFFF;
+}
 
+.dowp-tab-panel .components-panel__body.is-opened>.components-panel__body-title {
+    margin: -16px -16px 15px;
+}
 
+.dowp-tab-panel .components-panel__body-toggle.components-button:focus {
+    box-shadow: none;
+}

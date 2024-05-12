@@ -84,7 +84,7 @@ if ( ! class_exists( UserGrid::class ) ) {
 			new ScriptController();
 			new BlocksController();
 
-			//Filter hooks init
+			//Filter hooks init.
 			FilterHooks::init();
 			ActionHooks::init();
 

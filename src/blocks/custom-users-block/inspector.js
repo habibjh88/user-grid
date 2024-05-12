@@ -1,6 +1,7 @@
 const {InspectorControls} = wp.blockEditor;
 import {TabPanel} from "@wordpress/components";
 import ContentControl from "./controller/ContentControl";
+import FieldVisibility from "./controller/FieldVisibility";
 import AvatarSettings from "./controller/AvatarSettings";
 import UserNameSettings from "./controller/UserNameSettings";
 import UserBioSettings from "./controller/UserBioSettings";
@@ -51,6 +52,7 @@ function Inspector(props) {
                             {/* Style Tab*/}
                             {tab.name === "styles" && (
                                 <>
+                                    <FieldVisibility data={props} changeQuery={changeQuery}/>
                                     {avatar_visibility && <AvatarSettings data={props} changeQuery={changeQuery}/>}
                                     {name_visibility && <UserNameSettings data={props}/>}
                                     {email_visibility && <UserDesignationSettings data={props}/>}

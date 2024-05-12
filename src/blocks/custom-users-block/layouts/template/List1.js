@@ -22,7 +22,7 @@ function List1({attributes, user}) {
     let grid_column_tab = grid_column?.md ? grid_column.md : default_grid_column_tab;
     let grid_column_mobile = grid_column?.sm ? grid_column.sm : default_grid_column_mobile;
 
-    const user_column = `cub-col-md-${grid_column_desktop} cub-col-sm-${grid_column_tab} cub-col-xs-${grid_column_mobile}`;
+    const user_column = `dwp-col-md-${grid_column_desktop} dwp-col-sm-${grid_column_tab} dwp-col-xs-${grid_column_mobile}`;
     const HeadingTag = `${name_tag}`;
 
     return (
@@ -51,7 +51,7 @@ function List1({attributes, user}) {
                     }
 
                     {social_visibility === 'show' &&
-                        <div className="cub-user-social-icons">
+                        <div className="dwp-user-social-icons">
                             {user.social.facebook &&
                                 <a className="facebook" href={user.social.facebook}><i
                                     className="dashicons dashicons-facebook-alt"></i></a>

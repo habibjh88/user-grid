@@ -29,8 +29,8 @@ function CustomUsersBlock({props, userData}) {
     return (
         <div className={`dowp-block-postgrid dowp-block-wrapper dowp-block-${uniqueId} ${wrapper_classes}`}>
             {userData.users && userData.users.length ?
-                <div className="cub-users-block-wrapper clearfix">
-                    <div className="cub-row">
+                <div className="dwp-users-block-wrapper clearfix">
+                    <div className="dwp-row">
                         {
                             userData.users.map(user => {
                                 if('grid-1' === layout) {

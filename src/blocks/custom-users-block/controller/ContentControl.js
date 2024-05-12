@@ -10,6 +10,7 @@ import Select from 'react-select';
 // import AsyncSelect from 'react-select/async';
 import Alignment from "../../../components/Alignment";
 import Layouts from "../../../components/Styles";
+import Sortable from "../../../components/Sortable";
 
 const {__} = wp.i18n;
 import {
@@ -29,16 +30,11 @@ function ContentControl(props) {
         users_role,
         user_filter_by_domain,
         grid_alignment,
-        avatar_visibility,
-        name_visibility,
-        email_visibility,
-        designation_visibility,
-        bio_visibility,
-        social_visibility,
         orderby,
         order,
         role_in,
-        grid_style
+        grid_style,
+        content_order
     } = attributes;
 
     console.log(layout)
@@ -52,6 +48,12 @@ function ContentControl(props) {
                 value={layout}
                 onChange={val => setAttributes({layout: val})}
                 options={GRID_LAYOUT_OPT}
+            />
+
+            <Sortable
+                value={content_order}
+                onChange={val => setAttributes({content_order: val})}
+                label={"Sort Content"}
             />
 
             <Heading className="dowp-control-heading">{__("Query", "user-grid")}</Heading>
@@ -196,54 +198,7 @@ function ContentControl(props) {
                 label={__("Alignment", "user-grid")}
                 options={['left', 'center', 'right']}
                 value={grid_alignment}
-                // responsive={ true }
                 onChange={grid_alignment => setAttributes({grid_alignment})}
-            />
-
-
-            <Heading className="dowp-control-heading">{__("Field Visibility", "user-grid")}</Heading>
-
-            <ToggleControl
-                label={__("Show Avatar", "user-grid")}
-                className="dowp-toggle-control-field"
-                checked={avatar_visibility}
-                onChange={(avatar_visibility) => setAttributes({avatar_visibility: avatar_visibility ? 'show' : ''})}
-            />
-
-            <ToggleControl
-                label={__("Show Name", "user-grid")}
-                className="dowp-toggle-control-field"
-                checked={name_visibility}
-                onChange={(name_visibility) => setAttributes({name_visibility: name_visibility ? 'show' : ''})}
-            />
-
-            <ToggleControl
-                label={__("Show Designation", "user-grid")}
-                className="dowp-toggle-control-field"
-                checked={designation_visibility}
-                onChange={(designation_visibility) => setAttributes({designation_visibility: designation_visibility ? 'show' : ''})}
-            />
-
-            <ToggleControl
-                label={__("Show Email", "user-grid")}
-                className="dowp-toggle-control-field"
-                checked={email_visibility}
-                onChange={(email_visibility) => setAttributes({email_visibility: email_visibility ? 'show' : ''})}
-            />
-
-            <ToggleControl
-                label={__("Show Biography", "user-grid")}
-                className="dowp-toggle-control-field"
-                checked={bio_visibility}
-                onChange={(bio_visibility) => setAttributes({bio_visibility: bio_visibility ? 'show' : ''})}
-            />
-
-
-            <ToggleControl
-                label={__("Show Social Icon", "user-grid")}
-                className="dowp-toggle-control-field"
-                checked={social_visibility}
-                onChange={(social_visibility) => setAttributes({social_visibility: social_visibility ? 'show' : ''})}
             />
 
         </div>

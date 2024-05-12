@@ -10,6 +10,7 @@ function Grid1({attributes, user}) {
         email_visibility,
         bio_visibility,
         social_visibility,
+        short_desc_visibility
     } = attributes;
 
     //Grid Column settings
@@ -21,7 +22,7 @@ function Grid1({attributes, user}) {
     let grid_column_tab = grid_column?.md ? grid_column.md : default_grid_column_tab;
     let grid_column_mobile = grid_column?.sm ? grid_column.sm : default_grid_column_mobile;
 
-    const user_column = `cub-col-md-${grid_column_desktop} cub-col-sm-${grid_column_tab} cub-col-xs-${grid_column_mobile}`;
+    const user_column = `dwp-col-md-${grid_column_desktop} dwp-col-sm-${grid_column_tab} dwp-col-xs-${grid_column_mobile}`;
     const HeadingTag = `${name_tag}`;
 
     return (
@@ -49,8 +50,12 @@ function Grid1({attributes, user}) {
                         <div className="user-designation">{user.designation}</div>
                     }
 
+                    {short_desc_visibility && <div className="user-short-desc">{user.short_desc}</div>}
+
+                    {bio_visibility && <div className="user-biography">{user.desc}</div>}
+
                     {social_visibility === 'show' &&
-                        <div className="cub-user-social-icons">
+                        <div className="dwp-user-social-icons">
                             {user.social.facebook &&
                                 <a className="facebook" href={user.social.facebook}><i
                                     className="dashicons dashicons-facebook-alt"></i></a>
@@ -82,8 +87,6 @@ function Grid1({attributes, user}) {
 
                         </div>
                     }
-
-                    {bio_visibility && <div className="user-biography">{user.biography}</div>}
                 </div>
             </div>
 

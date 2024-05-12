@@ -26,7 +26,7 @@ function AvatarSettings(props) {
     } = attributes;
 
     return (
-        <PanelBody title={__('Avatar', 'user-grid')} initialOpen={true}>
+        <PanelBody title={__('Avatar', 'user-grid')} initialOpen={false}>
 
             <ToggleControl
                 label={__("Enable Image Link", "user-grid")}

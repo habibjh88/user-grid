@@ -27,7 +27,7 @@ $grid_column_desktop = ( isset( $grid_column['lg'] ) && 0 != $grid_column['lg'] 
 $grid_column_tab     = ( isset( $grid_column['md'] ) && 0 != $grid_column['md'] ) ? $grid_column['md'] : $default_grid_column_tab;
 $grid_column_mobile  = ( isset( $grid_column['sm'] ) && 0 != $grid_column['sm'] ) ? $grid_column['sm'] : $default_grid_column_mobile;
 
-$col_class = "cub-col-md-{$grid_column_desktop} cub-col-sm-{$grid_column_tab} cub-col-xs-{$grid_column_mobile}";
+$col_class = "dwp-col-md-{$grid_column_desktop} dwp-col-sm-{$grid_column_tab} dwp-col-xs-{$grid_column_mobile}";
 ?>
 <div class="user-item-col <?php echo esc_attr( $col_class ) ?>">
 	<div class="user-inner-wrapper">
@@ -60,7 +60,7 @@ $col_class = "cub-col-md-{$grid_column_desktop} cub-col-sm-{$grid_column_tab} cu
 				?>
 
 				<?php if ( $bio_visibility ) : ?>
-					<div class="cub-bio-wrapper">
+					<div class="user-biography">
 						<a href="#" class="load-user-button" data-userid="<?php echo esc_attr( $user_info->ID ); ?>">
 							<?php echo esc_html( "Load users's biography" ); ?>
 						</a>

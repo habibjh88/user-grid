@@ -7,29 +7,38 @@ class GetUsersV1 {
 	 * Class constructor
 	 */
 	public function __construct() {
-		add_action( "rest_api_init", [ $this, 'register_post_route' ] );
+		add_action( 'rest_api_init', [ $this, 'register_post_route' ] );
 	}
 
 	/**
 	 * Register API Route
+	 *
 	 * @return void
 	 */
 	public function register_post_route() {
-		register_rest_route( 'dowp/v1', 'users', [
-			'methods'             => 'POST',
-			'callback'            => [ $this, 'get_all_users' ],
-			'permission_callback' => function () {
-				return true;
-			}
-		] );
+		register_rest_route(
+			'dowp/v1',
+			'users',
+			[
+				'methods'             => 'POST',
+				'callback'            => [ $this, 'get_all_users' ],
+				'permission_callback' => function () {
+					return true;
+				},
+			]
+		);
 
-		register_rest_route( 'dowp/v1', 'users-select', [
-			'methods'             => 'POST',
-			'callback'            => [ $this, 'get_all_users_for_inspector' ],
-			'permission_callback' => function () {
-				return true;
-			}
-		] );
+		register_rest_route(
+			'dowp/v1',
+			'users-select',
+			[
+				'methods'             => 'POST',
+				'callback'            => [ $this, 'get_all_users_for_inspector' ],
+				'permission_callback' => function () {
+					return true;
+				},
+			]
+		);
 	}
 
 
@@ -43,7 +52,7 @@ class GetUsersV1 {
 	public function get_all_users( $data ) {
 		$send_data = [
 			'users'   => [],
-			'message' => ''
+			'message' => '',
 		];
 
 		$args = [
@@ -63,7 +72,7 @@ class GetUsersV1 {
 		}
 
 		if ( ! empty( $data['user_filter_by_domain'] ) ) {
-			$args['search']         = '*' . $data['user_filter_by_domain'].'*';
+			$args['search']         = '*' . $data['user_filter_by_domain'] . '*';
 			$args['search_columns'] = array( 'user_email' );
 		}
 
@@ -82,8 +91,9 @@ class GetUsersV1 {
 					'name'        => esc_html( $user->display_name ),
 					'email'       => esc_html( $user->user_email ),
 					'designation' => get_user_meta( $user->ID, 'user_grid_designation', true ),
-					'avatar'      =>  get_avatar_url( $user->ID, $avatar_size ),
-					'biography'   => get_user_meta( $user->ID, 'description', true ),
+					'avatar'      => get_avatar_url( $user->ID, $avatar_size ),
+					'desc'        => get_user_meta( $user->ID, 'description', true ),
+					'short_desc'  => get_user_meta( $user->ID, 'user_grid_short_desc', true ),
 					'social'      => [
 						'facebook'  => get_user_meta( $user->ID, 'user_grid_facebook', true ),
 						'twitter'   => get_user_meta( $user->ID, 'user_grid_twitter', true ),
@@ -95,9 +105,8 @@ class GetUsersV1 {
 
 			}
 		} else {
-			$send_data['message'] = "Sorry! No Users found";
+			$send_data['message'] = 'Sorry! No Users found';
 		}
-
 
 		wp_reset_postdata();
 

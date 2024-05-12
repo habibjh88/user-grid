@@ -15,6 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 use DOWP\UserGrid\Controllers\ScriptController;
 use DOWP\UserGrid\Helpers\Fns;
 
+//phpcs:disable WordPress.Security.NonceVerification.Missing
+
 /**
  * Action Hooks class.
  */
@@ -60,10 +62,10 @@ class ActionHooks {
 				<tr>
 					<th><label for="<?php echo esc_attr( $input_id ); ?>"><?php echo esc_html( $s_title ); ?></label></th>
 					<td><input type="text"
-					           name="<?php echo esc_attr( $input_id ); ?>"
-					           id="<?php echo esc_attr( $input_id ); ?>"
-					           value="<?php echo esc_attr( $input_val ); ?>"
-					           class="regular-text"/><br/>
+							   name="<?php echo esc_attr( $input_id ); ?>"
+							   id="<?php echo esc_attr( $input_id ); ?>"
+							   value="<?php echo esc_attr( $input_val ); ?>"
+							   class="regular-text"/><br/>
 						<span class="description">
 							<?php
 							// translators: %s is the Social title.
@@ -112,14 +114,25 @@ class ActionHooks {
 			<tr>
 				<th><label for="designation"><?php esc_html_e( 'Designation', 'user-grid' ); ?></label></th>
 				<td><input type="text" name="user_grid_designation" id="designation"
-				           placeholder="<?php esc_attr_e( 'Eg. Product Manager', 'user-grid' ); ?>"
-				           value="<?php echo esc_attr( get_the_author_meta( 'user_grid_designation', $user->ID ) ); ?>"
-				           class="regular-text"/><br/><span
+						   placeholder="<?php esc_attr_e( 'Founder & CEO', 'user-grid' ); ?>"
+						   value="<?php echo esc_attr( get_the_author_meta( 'user_grid_designation', $user->ID ) ); ?>"
+						   class="regular-text"/><br/><span
 						class="description"><?php esc_html_e( 'Please enter your Designation', 'user-grid' ); ?></span>
 				</td>
 			</tr>
-		</table>
 
+			<tr>
+				<th><label for="designation"><?php esc_html_e( 'Short Description', 'user-grid' ); ?></label></th>
+				<td><input type="text" name="user_grid_short_desc" id="designation"
+						   placeholder="<?php esc_attr_e( 'Lead engineering teams at DevOfWP, Pitch, and Protocol Labs.', 'user-grid' ); ?>"
+						   value="<?php echo esc_attr( get_the_author_meta( 'user_grid_short_desc', $user->ID ) ); ?>"
+						   style="width: 500px;max-width: 100%"
+						   class="regular-text"/><br/><span
+						class="description"><?php esc_html_e( 'Please enter your Short Description', 'user-grid' ); ?></span>
+				</td>
+			</tr>
+		</table>
+		<?php wp_nonce_field( userGrid()->nonceText(), userGrid()->nonceId() ); ?>
 		<?php
 	}
 
@@ -136,15 +149,36 @@ class ActionHooks {
 			return false;
 		}
 
-		update_user_meta( $user_id, 'user_grid_facebook', $_POST['user_grid_facebook'] );
-		update_user_meta( $user_id, 'user_grid_twitter', $_POST['user_grid_twitter'] );
-		update_user_meta( $user_id, 'user_grid_linkedin', $_POST['user_grid_linkedin'] );
-		update_user_meta( $user_id, 'user_grid_gplus', $_POST['user_grid_gplus'] );
-		update_user_meta( $user_id, 'user_grid_pinterest', $_POST['user_grid_pinterest'] );
-		update_user_meta( $user_id, 'user_grid_author_designation', $_POST['user_grid_author_designation'] );
-		update_user_meta( $user_id, 'user_grid_designation', $_POST['user_grid_designation'] );
+		if ( ! Fns::verifyNonce() ) {
+			return;
+		}
 
-		// Validate POST data and, if is ok, add it
+		if ( isset( $_POST['user_grid_facebook'] ) ) {
+			update_user_meta( $user_id, 'user_grid_facebook', sanitize_text_field( wp_unslash( $_POST['user_grid_facebook'] ) ) );
+		}
+		if ( isset( $_POST['user_grid_twitter'] ) ) {
+			update_user_meta( $user_id, 'user_grid_twitter', sanitize_text_field( wp_unslash( $_POST['user_grid_twitter'] ) ) );
+		}
+		if ( isset( $_POST['user_grid_linkedin'] ) ) {
+			update_user_meta( $user_id, 'user_grid_linkedin', sanitize_text_field( wp_unslash( $_POST['user_grid_linkedin'] ) ) );
+		}
+		if ( isset( $_POST['user_grid_gplus'] ) ) {
+			update_user_meta( $user_id, 'user_grid_gplus', sanitize_text_field( wp_unslash( $_POST['user_grid_gplus'] ) ) );
+		}
+		if ( isset( $_POST['user_grid_pinterest'] ) ) {
+			update_user_meta( $user_id, 'user_grid_pinterest', sanitize_text_field( wp_unslash( $_POST['user_grid_pinterest'] ) ) );
+		}
+		if ( isset( $_POST['user_grid_author_designation'] ) ) {
+			update_user_meta( $user_id, 'user_grid_author_designation', sanitize_text_field( wp_unslash( $_POST['user_grid_author_designation'] ) ) );
+		}
+		if ( isset( $_POST['user_grid_designation'] ) ) {
+			update_user_meta( $user_id, 'user_grid_designation', sanitize_text_field( wp_unslash( $_POST['user_grid_designation'] ) ) );
+		}
+		if ( isset( $_POST['user_grid_short_desc'] ) ) {
+			update_user_meta( $user_id, 'user_grid_short_desc', sanitize_text_field( wp_unslash( $_POST['user_grid_short_desc'] ) ) );
+		}
+
+		// Validate POST data and, if is ok, add it.
 		if ( ! empty( $_POST[ userGrid()->avatar_meta_key ] ) ) {
 			update_user_meta( $user_id, userGrid()->avatar_meta_key, (int) $_POST[ userGrid()->avatar_meta_key ] );
 		}

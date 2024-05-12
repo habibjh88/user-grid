@@ -3,10 +3,7 @@ import apiFetch from "@wordpress/api-fetch";
 import Inspector from "./inspector";
 import CustomUsersBlock from "./layouts/CustomUsersBlock";
 import {CssGenerator} from "../../utils/css/CssGenerator";
-import icons from "../../components/icon/icons";
 import {CATEGORY_PREVIEW} from "../../components/Constants";
-
-
 const Edit = (props) => {
     const {isSelected, attributes, setAttributes} = props;
 
@@ -87,32 +84,6 @@ const Edit = (props) => {
         fetch_users_data_inspector();
     }, []);
 
-
-    useEffect(() => {
-        const sidebarEl = document.querySelector('.interface-interface-skeleton__sidebar');
-        sidebarEl.classList.add('dowp-sidebar')
-        sidebarEl.classList.remove('dowp-settings-enable')
-        sidebarEl.addEventListener('click', function (event) {
-            const hasClass = event.target.classList.contains('dowp-tab-btn');
-            if (hasClass) {
-                const selectText = event.target.textContent;
-                if (selectText !== 'Content') {
-                    this.classList.add('dowp-settings-enable')
-                } else {
-                    this.classList.remove('dowp-settings-enable')
-                }
-            }
-        })
-        sidebarEl.addEventListener('scroll', function (e) {
-            if (e.target.scrollTop > 86) {
-                this.classList.add('dowp-should-collapse');
-            } else {
-                this.classList.remove('dowp-should-collapse');
-            }
-        })
-
-    }, [isSelected]);
-
     if (uniqueId) {
         CssGenerator(attributes, 'custom-users-block', uniqueId);
     }
@@ -127,8 +98,9 @@ const Edit = (props) => {
                 userData={userData}
             />
         ),
-
+        
         <CustomUsersBlock props={props} userData={users} changeQuery={handleQueryChange}/>
+    
     ]
 }
 export default Edit;
