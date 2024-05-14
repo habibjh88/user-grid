@@ -3,9 +3,10 @@ import {TabPanel} from "@wordpress/components";
 import ContentControl from "./controller/ContentControl";
 import FieldVisibility from "./controller/FieldVisibility";
 import AvatarSettings from "./controller/AvatarSettings";
-import UserNameSettings from "./controller/UserNameSettings";
-import UserBioSettings from "./controller/UserBioSettings";
-import UserDesignationSettings from "./controller/UserDesignationSettings";
+import NameSettings from "./controller/NameSettings";
+import ShortDesc from "./controller/ShortDesc";
+import BioSettings from "./controller/BioSettings";
+import DesignationSettings from "./controller/DesignationSettings";
 import SocialShareSettings from "./controller/SocialShareSettings";
 import CardSettings from "./controller/CardSettings";
 import TabTitle from "../../components/TabTitle";
@@ -19,7 +20,8 @@ function Inspector(props) {
         name_visibility,
         email_visibility,
         bio_visibility,
-        social_visibility
+        social_visibility,
+        short_desc_visibility
     } = attributes;
 
 
@@ -54,9 +56,10 @@ function Inspector(props) {
                                 <>
                                     <FieldVisibility data={props} changeQuery={changeQuery}/>
                                     {avatar_visibility && <AvatarSettings data={props} changeQuery={changeQuery}/>}
-                                    {name_visibility && <UserNameSettings data={props}/>}
-                                    {email_visibility && <UserDesignationSettings data={props}/>}
-                                    {bio_visibility && <UserBioSettings data={props}/>}
+                                    {name_visibility && <NameSettings data={props}/>}
+                                    {short_desc_visibility && <ShortDesc data={props}/>}
+                                    {email_visibility && <DesignationSettings data={props}/>}
+                                    {bio_visibility && <BioSettings data={props}/>}
                                     {social_visibility && <SocialShareSettings data={props}/>}
                                     <CardSettings data={props}/>
                                 </>

@@ -1,9 +1,12 @@
+import {func} from "prop-types";
+
 const {__} = wp.i18n;
 function Grid1({attributes, user}) {
 
     const {
         grid_column,
         name_tag,
+        content_order,
         avatar_visibility,
         designation_visibility,
         name_visibility,
@@ -12,6 +15,7 @@ function Grid1({attributes, user}) {
         social_visibility,
         short_desc_visibility
     } = attributes;
+
 
     //Grid Column settings
     let default_grid_column_desktop = '4';
@@ -24,6 +28,11 @@ function Grid1({attributes, user}) {
 
     const user_column = `dwp-col-md-${grid_column_desktop} dwp-col-sm-${grid_column_tab} dwp-col-xs-${grid_column_mobile}`;
     const HeadingTag = `${name_tag}`;
+
+    function order_class(item){
+        const index = content_order.indexOf(item)
+        return `order-${index}`
+    }
 
     return (
         <div key={user.id} className={`user-item-col ${user_column}`}>
@@ -42,20 +51,20 @@ function Grid1({attributes, user}) {
 
                 <div className="user-content-wrap clearfix">
                     {name_visibility &&
-                        <HeadingTag className="user-name">
+                        <HeadingTag className={`user-name ${order_class('title')}`}>
                             <a>{user.name}</a>
                         </HeadingTag>
                     }
                     {designation_visibility && user.designation &&
-                        <div className="user-designation">{user.designation}</div>
+                        <div className={`user-designation ${order_class('designation')}`}>{user.designation}</div>
                     }
 
-                    {short_desc_visibility && <div className="user-short-desc">{user.short_desc}</div>}
+                    {short_desc_visibility && <div className={`user-short-desc ${order_class('short_description')}`}>{user.short_desc}</div>}
 
-                    {bio_visibility && <div className="user-biography">{user.desc}</div>}
+                    {bio_visibility && <div className={`user-biography ${order_class('biography')}`}>{user.desc}</div>}
 
                     {social_visibility === 'show' &&
-                        <div className="dwp-user-social-icons">
+                        <div className={`dwp-user-social-icons ${order_class('social')}`}>
                             {user.social.facebook &&
                                 <a className="facebook" href={user.social.facebook}><i
                                     className="dashicons dashicons-facebook-alt"></i></a>

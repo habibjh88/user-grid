@@ -13,8 +13,6 @@ function Sortable(props) {
         const newData = sortedList.map(item => {
             return item.name;
         })
-        console.log(label)
-
         onChange(newData);
     }
     return (

@@ -37,7 +37,6 @@ function ContentControl(props) {
         content_order
     } = attributes;
 
-    console.log(layout)
 
     return (
         <div className={`components-panel__body is-opened`}>
@@ -48,12 +47,6 @@ function ContentControl(props) {
                 value={layout}
                 onChange={val => setAttributes({layout: val})}
                 options={GRID_LAYOUT_OPT}
-            />
-
-            <Sortable
-                value={content_order}
-                onChange={val => setAttributes({content_order: val})}
-                label={"Sort Content"}
             />
 
             <Heading className="dowp-control-heading">{__("Query", "user-grid")}</Heading>
@@ -199,6 +192,14 @@ function ContentControl(props) {
                 options={['left', 'center', 'right']}
                 value={grid_alignment}
                 onChange={grid_alignment => setAttributes({grid_alignment})}
+            />
+
+            <hr/>
+
+            <Sortable
+                value={content_order}
+                onChange={val => setAttributes({content_order: val})}
+                label={"Sort Content"}
             />
 
         </div>

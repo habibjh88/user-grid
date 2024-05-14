@@ -4,44 +4,43 @@ import {
 import Color from "../../../components/Color";
 import Typography from "../../../components/Typography";
 import Dimension from "../../../components/Dimension";
+
 const {__} = wp.i18n;
 
-function UserShortDesc(props) {
+function DesignationSettings(props) {
     const {attributes, setAttributes} = props.data;
     //All attribute
     const {
-        short_desc_typography,
-        short_desc_spacing,
-        short_desc_color,
+        designation_typography,
+        designation_spacing,
+        designation_color,
     } = attributes;
 
     return (
-        <PanelBody title={__('User Biography', 'user-grid')} initialOpen={false}>
-
+        <PanelBody title={__('User Designation', 'user-grid')} initialOpen={false}>
 
             <Typography
                 label={__('Typography')}
-                value={short_desc_typography}
-                onChange={(val) => setAttributes({short_desc_typography: val})}
+                value={designation_typography}
+                onChange={(val) => setAttributes({designation_typography: val})}
             />
 
             <Dimension
                 label={__("Spacing", "user-grid")}
                 type="margin" responsive
-                value={short_desc_spacing}
+                value={designation_spacing}
                 onChange={(value) => {
-                    setAttributes({short_desc_spacing: value})
+                    setAttributes({designation_spacing: value})
                 }}
             />
 
             <Color
                 label={__('Color', 'user-grid')}
-                color={short_desc_color}
-                onChange={(short_desc_color) => setAttributes({short_desc_color})}
+                color={designation_color}
+                onChange={(designation_color) => setAttributes({designation_color})}
             />
-
         </PanelBody>
     );
 }
 
-export default UserShortDesc;
+export default DesignationSettings;

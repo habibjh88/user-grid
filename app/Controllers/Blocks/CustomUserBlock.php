@@ -445,7 +445,7 @@ class CustomUserBlock extends BlockBase {
 					'weight'         => '',
 				],
 				'style'   => [
-					(object) [ 'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-biography' ],
+					(object) [ 'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-short-desc' ],
 				],
 			],
 
@@ -460,7 +460,7 @@ class CustomUserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-biography {{short_desc_spacing}}',
+						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-short-desc {{short_desc_spacing}}',
 					],
 				],
 			],
@@ -470,7 +470,7 @@ class CustomUserBlock extends BlockBase {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-biography {color: {{short_desc_color}}; }',
+						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-short-desc {color: {{short_desc_color}}; }',
 					],
 				],
 			],

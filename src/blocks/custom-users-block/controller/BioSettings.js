@@ -12,7 +12,7 @@ import {UserGrid_COLOR_PALATE, NORMAL_HOVER} from "../../../components/Constants
 
 const {__} = wp.i18n;
 
-function UserBioSettings(props) {
+function BioSettings(props) {
     const {attributes, setAttributes} = props.data;
     //All attribute
     const {
@@ -49,4 +49,4 @@ function UserBioSettings(props) {
     );
 }
 
-export default UserBioSettings;
+export default BioSettings;
