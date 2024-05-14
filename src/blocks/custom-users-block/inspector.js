@@ -24,7 +24,6 @@ function Inspector(props) {
         short_desc_visibility
     } = attributes;
 
-
     return (
         <InspectorControls key="controls">
             <div className="dowp-panel-control-wrapper">

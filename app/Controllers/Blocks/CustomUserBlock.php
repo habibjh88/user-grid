@@ -56,11 +56,6 @@ class CustomUserBlock extends BlockBase {
 				'default' => 'grid-1',
 			],
 
-			'grid_style'             => [
-				'type'    => 'string',
-				'default' => 'grid-style',
-			],
-
 			'user_limit'             => [
 				'type'    => 'string',
 				'default' => '12',
@@ -696,7 +691,6 @@ class CustomUserBlock extends BlockBase {
 		$uniqueId       = $data['uniqueId'] ?? null;
 		$wrapper_class  = 'dowp-block-postgrid dowp-block-wrapper dowp-block-' . $uniqueId;
 		$wrapper_class .= 'yes' == $data['image_link'] ? '' : ' no-image-link';
-		$wrapper_class .= ' ' . $data['grid_style'];
 		?>
 
 		<div class="<?php echo esc_attr( $wrapper_class ); ?>">

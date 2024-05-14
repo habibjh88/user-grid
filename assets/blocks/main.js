@@ -2590,7 +2590,6 @@ function ContentControl(props) {
     orderby,
     order,
     role_in,
-    grid_style,
     content_order
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -2705,32 +2704,10 @@ function ContentControl(props) {
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalHeading, {
     className: "dowp-control-heading"
   }, __("Layouts", "user-grid")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
-    label: __("Style", "user-grid"),
-    className: "dowp-control-field label-inline dowp-expand",
-    value: grid_style,
-    options: [{
-      value: 'grid-style',
-      label: __('Grid', 'user-grid')
-    }, {
-      value: 'list-style',
-      label: __('List', 'user-grid')
-    }],
-    onChange: grid_style => {
-      setAttributes({
-        grid_style
-      });
-    }
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
     label: __("Role In", "user-grid"),
     className: "dowp-control-field label-inline dowp-expand",
     value: role_in,
-    options: [{
-      value: 'grid-style',
-      label: __('Grid', 'user-grid')
-    }, {
-      value: 'list-style',
-      label: __('List', 'user-grid')
-    }],
+    options: userData,
     onChange: role_in => {
       setAttributes({
         role_in
@@ -3238,6 +3215,7 @@ const Edit = props => {
         query_change: false
       });
       setUsers(data);
+      console.log(data);
     });
   };
   const fetch_users_data_inspector = () => {
@@ -3470,8 +3448,7 @@ function CustomUsersBlock({
   const {
     layout,
     uniqueId,
-    image_link,
-    grid_style
+    image_link
   } = attributes;
   const newClintID = clientId.substr(0, 6);
   useEffect(() => {
@@ -3487,7 +3464,6 @@ function CustomUsersBlock({
   }, []);
   let wrapper_classes = image_link ? '' : ' no-image-link';
   wrapper_classes += ' dowp' + layout;
-  wrapper_classes += grid_style;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: `dowp-block-postgrid dowp-block-wrapper dowp-block-${uniqueId} ${wrapper_classes}`
   }, userData.users && userData.users.length ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {

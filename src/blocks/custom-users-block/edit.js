@@ -57,6 +57,7 @@ const Edit = (props) => {
         }).then((data) => {
             setAttributes({query_change: false})
             setUsers(data)
+            console.log(data)
         });
     }
 

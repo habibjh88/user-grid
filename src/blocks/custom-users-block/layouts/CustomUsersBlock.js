@@ -9,7 +9,6 @@ function CustomUsersBlock({props, userData}) {
         layout,
         uniqueId,
         image_link,
-        grid_style,
     } = attributes;
 
     const newClintID = clientId.substr(0, 6);
@@ -24,7 +23,6 @@ function CustomUsersBlock({props, userData}) {
 
     let wrapper_classes = image_link ? '' : ' no-image-link';
     wrapper_classes += ' dowp' + layout;
-    wrapper_classes += grid_style;
 
     return (
         <div className={`dowp-block-postgrid dowp-block-wrapper dowp-block-${uniqueId} ${wrapper_classes}`}>

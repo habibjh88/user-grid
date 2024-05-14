@@ -2,8 +2,7 @@ const {Spinner} = wp.components;
 import GridColumn from "../../../components/GridColumn";
 import {
     __experimentalHeading as Heading,
-    __experimentalNumberControl as NumberControl, TextControl,
-    ToggleControl
+    __experimentalNumberControl as NumberControl, TextControl
 } from '@wordpress/components';
 import {SelectControl, PanelBody} from "@wordpress/components";
 import Select from 'react-select';
@@ -33,7 +32,6 @@ function ContentControl(props) {
         orderby,
         order,
         role_in,
-        grid_style,
         content_order
     } = attributes;
 
@@ -162,26 +160,10 @@ function ContentControl(props) {
             <Heading className="dowp-control-heading">{__("Layouts", "user-grid")}</Heading>
 
             <SelectControl
-                label={__("Style", "user-grid")}
-                className="dowp-control-field label-inline dowp-expand"
-                value={grid_style}
-                options={[
-                    {value: 'grid-style', label: __('Grid', 'user-grid')},
-                    {value: 'list-style', label: __('List', 'user-grid')}
-                ]}
-                onChange={(grid_style) => {
-                    setAttributes({grid_style})
-                }}
-            />
-
-            <SelectControl
                 label={__("Role In", "user-grid")}
                 className="dowp-control-field label-inline dowp-expand"
                 value={role_in}
-                options={[
-                    {value: 'grid-style', label: __('Grid', 'user-grid')},
-                    {value: 'list-style', label: __('List', 'user-grid')}
-                ]}
+                options={userData}
                 onChange={(role_in) => {
                     setAttributes({role_in})
                 }}
