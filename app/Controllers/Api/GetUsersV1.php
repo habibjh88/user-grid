@@ -78,6 +78,7 @@ class GetUsersV1 {
 
 		if ( ! empty( $data['users_lists'] ) ) {
 			$args['include'] = wp_list_pluck( $data['users_lists'], 'value' );
+			$args['orderby'] = 'include';
 		}
 
 		$user_lists  = get_users( $args );
