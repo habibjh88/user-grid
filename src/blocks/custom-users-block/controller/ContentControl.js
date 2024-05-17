@@ -15,6 +15,7 @@ import {
     FORMATE_USERS, USER_ORDER_BY, POST_SORT_ORDER, GRID_LAYOUT_OPT
 } from "../../../components/Constants";
 import MultiSelectSort from "../../../components/MultiSelectSort";
+import LayoutStyle from "../../../components/LayoutStyle";
 
 
 function ContentControl(props) {
@@ -23,6 +24,7 @@ function ContentControl(props) {
     //All attribute
     const {
         layout,
+        layout_style,
         grid_column,
         users_lists,
         user_limit,
@@ -47,6 +49,13 @@ function ContentControl(props) {
                     options={GRID_LAYOUT_OPT}
                 />
 
+                <LayoutStyle
+                    label={__("Choose Grid Layout", "user-grid")}
+                    options={['left', 'center', 'right']}
+                    value={layout_style}
+                    onChange={layout_style => setAttributes({layout_style})}
+                />
+
                 <GridColumn
                     label={__("Grid Column", "user-grid")}
                     className="dowp-control-field"
@@ -57,6 +66,8 @@ function ContentControl(props) {
                     colStyle="grid"
                     changeQuery={changeQuery}
                 />
+
+
 
                 <Alignment
                     label={__("Alignment", "user-grid")}

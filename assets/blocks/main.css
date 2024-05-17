@@ -240,7 +240,7 @@
   transition: var(--dowp-transition);
   overflow: hidden;
   height: 62px;
-  border-radius: 4px;
+  border-radius: 0;
   background-color: #fff;
 }
 .dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-layout img,
@@ -290,6 +290,31 @@
 .dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list.dowp-style-columns-4,
 .dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list.dowp-style-columns-4 {
   grid-template-columns: repeat(4, 1fr);
+}
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/LayoutStyle.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-btn-group {
+  gap: 5px;
+}
+.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button {
+  flex: 0 0 25%;
+  cursor: pointer;
+  transition: 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button:hover, .dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button.active {
+  border-color: var(--dowp-primary) !important;
+  background-color: var(--dowp-primary) !important;
+}
+.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button:hover svg path, .dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button.active svg path {
+  transition: 0.4s;
+  fill: #FFF;
+}
+.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button svg:focus {
+  outline: none;
 }
 /*!***********************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/components/scss/dimension.scss ***!

@@ -15,11 +15,9 @@ function Select(props) {
         onChange(newData);
     }
 
-
     return (
 
         <div className="dowp-control-field components-base-control">
-
             <div className="dowp-cf-head">
                 <span className="dowp-label">{label}</span>
                 {responsive && <Devices device={device} onChange={_device => {

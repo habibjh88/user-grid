@@ -4,7 +4,7 @@ namespace DOWP\UserGrid\Controllers\Blocks;
 
 use DOWP\UserGrid\Helpers\Fns;
 
-class CustomUserBlock extends BlockBase {
+class UserBlock extends BlockBase {
 
 	private $prefix;
 	private $block_type;
@@ -54,6 +54,11 @@ class CustomUserBlock extends BlockBase {
 			'layout'                 => [
 				'type'    => 'string',
 				'default' => 'grid-1',
+			],
+
+			'layout_style'         => [
+				'type'    => 'string',
+				'default' => '',
 			],
 
 			'user_limit'             => [
@@ -114,7 +119,7 @@ class CustomUserBlock extends BlockBase {
 				],
 			],
 
-			'grid_alignment'         => [
+            'grid_alignment'         => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [

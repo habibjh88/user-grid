@@ -54,14 +54,13 @@
 					cursor: pointer;
 					overflow: hidden;
 
-
 					.dowp-layout {
 						display: block;
 						border: 1px solid var(--dowp-border);
 						transition: var(--dowp-transition);
 						overflow: hidden;
 						height: 62px;
-						border-radius: 4px;
+						border-radius: 0;
 						background-color: #fff;;
 
 						img {

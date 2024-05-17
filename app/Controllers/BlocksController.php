@@ -2,7 +2,7 @@
 
 namespace DOWP\UserGrid\Controllers;
 
-use DOWP\UserGrid\Controllers\Blocks\CustomUserBlock;
+use DOWP\UserGrid\Controllers\Blocks\UserBlock;
 use DOWP\UserGrid\Helpers\Fns;
 
 class BlocksController {
@@ -15,7 +15,7 @@ class BlocksController {
 	public function __construct() {
 
 		//Layout initialize
-		new CustomUserBlock();
+		new UserBlock();
 
 		$this->version = defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : USER_GRID_VERSION;
 		add_action( 'enqueue_block_editor_assets', [ $this, 'editor_assets' ] );
