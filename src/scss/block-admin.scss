@@ -1,5 +1,6 @@
 @import "variables";
 @import "dragable";
+
 .dowp-sidebar {
     .components-panel {
         .block-editor-block-card {
@@ -29,6 +30,7 @@
 
     .components-base-control {
         margin-bottom: 12px;
+
         div, p {
             margin-top: 0;
             margin-bottom: 0;
@@ -36,12 +38,20 @@
         }
 
         &.should-single-line .dowp-sortable-react-select div[class*="-ValueContainer"] > div {
-            flex: 0 0 100%;
-            cursor: move;
-            background: #e9edf0;
-            [role=button] {
-                margin-left: auto;
-                cursor: pointer;
+            &:not(:last-child) {
+                flex: 0 0 100%;
+                cursor: move;
+                background: #e9edf0;
+
+                [role=button] {
+                    margin-left: auto;
+                    cursor: pointer;
+                }
+            }
+
+            &:only-child,
+            &:last-child {
+                background: #FFF;
             }
         }
 
@@ -139,6 +149,7 @@
             border: 1px solid #ced7db;
             border-bottom: none;
             color: var(--dowp-primary);
+
             svg path {
                 fill: var(--dowp-primary)
             }
@@ -488,7 +499,7 @@
     background: #FFFFFF;
 }
 
-.dowp-tab-panel .components-panel__body.is-opened>.components-panel__body-title {
+.dowp-tab-panel .components-panel__body.is-opened > .components-panel__body-title {
     margin: -16px -16px 15px;
 }
 

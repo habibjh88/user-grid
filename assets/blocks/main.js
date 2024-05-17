@@ -2603,6 +2603,17 @@ function ContentControl(props) {
       layout: val
     }),
     options: _components_Constants__WEBPACK_IMPORTED_MODULE_6__.GRID_LAYOUT_OPT
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_GridColumn__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    label: __("Grid Column", "user-grid"),
+    className: "dowp-control-field",
+    value: grid_column,
+    onChange: grid_column => {
+      setAttributes({
+        grid_column
+      });
+    },
+    colStyle: "grid",
+    changeQuery: changeQuery
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Alignment__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: __("Alignment", "user-grid"),
     options: ['left', 'center', 'right'],
@@ -2700,17 +2711,6 @@ function ContentControl(props) {
       });
       changeQuery();
     }
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_GridColumn__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    label: __("Grid Column", "user-grid"),
-    className: "dowp-control-field",
-    value: grid_column,
-    onChange: grid_column => {
-      setAttributes({
-        grid_column
-      });
-    },
-    colStyle: "grid",
-    changeQuery: changeQuery
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "dowp-control-section"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalHeading, {

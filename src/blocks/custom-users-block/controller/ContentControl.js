@@ -47,6 +47,17 @@ function ContentControl(props) {
                     options={GRID_LAYOUT_OPT}
                 />
 
+                <GridColumn
+                    label={__("Grid Column", "user-grid")}
+                    className="dowp-control-field"
+                    value={grid_column}
+                    onChange={(grid_column) => {
+                        setAttributes({grid_column})
+                    }}
+                    colStyle="grid"
+                    changeQuery={changeQuery}
+                />
+
                 <Alignment
                     label={__("Alignment", "user-grid")}
                     options={['left', 'center', 'right']}
@@ -159,16 +170,7 @@ function ContentControl(props) {
                 />
 
 
-                <GridColumn
-                    label={__("Grid Column", "user-grid")}
-                    className="dowp-control-field"
-                    value={grid_column}
-                    onChange={(grid_column) => {
-                        setAttributes({grid_column})
-                    }}
-                    colStyle="grid"
-                    changeQuery={changeQuery}
-                />
+
             </div>
 
             <div className="dowp-control-section">
