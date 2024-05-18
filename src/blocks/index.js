@@ -7,9 +7,9 @@ import {updateCategory} from '@wordpress/blocks';
 window.dowpDevice = 'lg';
 
 //Impost post grid block
-import "./custom-users-block";
+import "./user-grid";
 
-const allCustomBlocks = ['dowp/custom-users-block'];
+const allCustomBlocks = ['dowp/user-grid'];
 // Save Style CSS within Database/File
 window.bindCss = false;
 wp.data.subscribe(() => {

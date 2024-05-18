@@ -4,17 +4,21 @@ namespace DOWP\UserGrid\Controllers\Blocks;
 
 use DOWP\UserGrid\Helpers\Fns;
 
+/**
+ * UserBlock Class
+ */
 class UserBlock extends BlockBase {
 
 	private $prefix;
 	private $block_type;
 
+	/**
+	 * Class Constructor
+	 */
 	public function __construct() {
 		add_action( 'init', [ $this, 'register_blocks' ] );
-		$this->prefix     = 'category';
-		$this->block_type = 'dowp/custom-users-block';
+		$this->block_type = 'dowp/user-grid';
 	}
-
 
 	/**
 	 * Register Block
@@ -51,14 +55,14 @@ class UserBlock extends BlockBase {
 				'default' => false,
 			],
 
-			'layout'                 => [
+			'layout_style'           => [
 				'type'    => 'string',
-				'default' => 'grid-1',
+				'default' => 'grid',
 			],
 
-			'layout_style'         => [
+			'layout'                 => [
 				'type'    => 'string',
-				'default' => '',
+				'default' => 'grid1',
 			],
 
 			'user_limit'             => [
@@ -119,12 +123,32 @@ class UserBlock extends BlockBase {
 				],
 			],
 
-            'grid_alignment'         => [
-				'type'    => 'string',
-				'default' => '',
+			// 'grid_alignment'         => [
+			// 'type'    => 'string',
+			// 'default' => '',
+			// 'style'   => [
+			// (object) [
+			// 'selector' => '{{UserGrid}} .dwp-users-block-wrapper {text-align: {{grid_alignment}}; }',
+			// ],
+			// ],
+			// ],
+
+			'grid_alignment'         => [
+				'type'    => 'object',
+				'default' => [],
 				'style'   => [
 					(object) [
 						'selector' => '{{UserGrid}} .dwp-users-block-wrapper {text-align: {{grid_alignment}}; }',
+					],
+				],
+			],
+
+			'grid_v_alignment'         => [
+				'type'    => 'object',
+				'default' => [],
+				'style'   => [
+					(object) [
+						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-inner-wrapper {align-items: {{grid_v_alignment}}; }',
 					],
 				],
 			],
@@ -695,12 +719,15 @@ class UserBlock extends BlockBase {
 		$user_lists     = get_users( $args );
 		$count_users    = count( $user_lists );
 		$uniqueId       = $data['uniqueId'] ?? null;
-		$wrapper_class  = 'dowp-block-postgrid dowp-block-wrapper dowp-block-' . $uniqueId;
+		$wrapper_class  = 'dowp-block-usergrid dowp-block-wrapper dowp-block-' . $uniqueId;
 		$wrapper_class .= 'yes' == $data['image_link'] ? '' : ' no-image-link';
+
+		$inner_class  = preg_replace( '/[0-9]/', '', $data['layout'] ) . '-style';
+		$inner_class .= ' dowp-' . $data['layout'];
 		?>
 
 		<div class="<?php echo esc_attr( $wrapper_class ); ?>">
-			<div class="dwp-users-block-wrapper clearfix">
+			<div class="dwp-users-block-wrapper clearfix <?php echo esc_attr( $inner_class ); ?>">
 				<?php if ( is_array( $user_lists ) && $count_users > 0 ) { ?>
 					<div class="dwp-row">
 						<?php

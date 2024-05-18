@@ -1,4 +1,4 @@
-@import "variables";
+@import "utility/variables";
 @import "dragable";
 
 .dowp-sidebar {
@@ -160,7 +160,7 @@
         border-bottom: 1px solid #ced7db;
     }
 
-
+    .dowp-cf-layout-style .dowp-cf-head,
     .dowp-column-group .dowp-cf-head {
         margin-bottom: 5px;
         display: block;
@@ -240,6 +240,10 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        .dowp-cf-head {
+            display: flex;
+        }
     }
 
     .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button {

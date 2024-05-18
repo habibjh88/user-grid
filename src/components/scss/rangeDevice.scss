@@ -12,11 +12,32 @@
         }
 
         &.dowp-cf-range-wrap {
-            --row-gap: 5px;
+            row-gap: 5px;
 
             .components-input-control__input {
                 height: 30px !important;
                 min-width: 70px;
+            }
+
+            .dowp-cf-head {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .dowp-units-choices  {
+                display: flex;
+                gap: 5px;
+                justify-content: flex-end;
+                label {
+                    cursor: pointer;
+                    padding: 0;
+                    text-transform: uppercase;
+                    font-size: 10px;
+                    font-weight: 500;
+                    &.active {
+                        color: var(--dowp-primary, #009FFF);
+                    }
+                }
             }
 
             // components-range-control

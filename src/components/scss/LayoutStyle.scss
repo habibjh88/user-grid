@@ -10,18 +10,20 @@
         justify-content: center;
         align-items: center;
 
+        svg {
+            transition: fill 0.4s;
+            fill: #7d7d85;
+        }
+        svg:focus {
+            outline: none;
+        }
+
         &:hover,
         &.active {
             border-color: var(--dowp-primary) !important;
-            background-color: var(--dowp-primary) !important;
-            svg path {
-                transition: 0.4s;
-                fill: #FFF;
+            svg {
+                fill: var(--dowp-primary) !important;;
             }
-        }
-
-        svg:focus {
-            outline: none;
         }
     }
 }

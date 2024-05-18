@@ -1,6 +1,5 @@
 const {__} = wp.i18n;
 import './scss/styles.scss'
-import cogoToast from "cogo-toast";
 
 function Styles(props) {
 
@@ -19,17 +18,11 @@ function Styles(props) {
                     <div
                         role="button"
                         tabindex={index} aria-label={data.label ? data.label : ''}
-                        onClick={() => {
-                            (! dowpParams.hasPro && data.isPro) ?
-                                cogoToast.warn('Please install "The Post Grid Pro" for this layout!',{ position: 'top-right' })
-                                :
-                            onChange(data.value)
-                        }}
-                        className={`${value == data.value ? 'dowp-active' : ''} ${(! dowpParams.hasPro && data.isPro) ? 'is-pro' : ''}`}
+                        onClick={() => onChange(data.value)}
+                        className={`${value == data.value ? 'dowp-active' : ''}`}
                     >
                         {data.icon && <span className="dowp-layout dowp-style-icon">{data.icon}</span>}
                         {data.label && <span className="dowp-label">{data.label}</span>}
-                        {(! dowpParams.hasPro && data.isPro) && <span className={`pro-lable`}>{__('Pro','user-grid')}</span>}
                     </div>
                 ))}
 

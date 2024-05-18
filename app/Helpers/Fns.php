@@ -18,6 +18,109 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Fns {
 
 	/**
+	 * Allowed HTML for wp_kses.
+	 *
+	 * @param $html
+	 * @param $echo
+	 *
+	 * @return string
+	 */
+	public static function print_html( $html, $echo = true, $context = 'basic' ) {
+		$allowed_html = [];
+		if ( 'basic' == $context ) {
+			$allowed_html = [
+				'b'      => [
+					'class' => [],
+					'id'    => [],
+				],
+				'i'      => [
+					'class' => [],
+					'id'    => [],
+				],
+				'u'      => [
+					'class' => [],
+					'id'    => [],
+				],
+				'br'     => [
+					'class' => [],
+					'id'    => [],
+				],
+				'em'     => [
+					'class' => [],
+					'id'    => [],
+				],
+				'span'   => [
+					'class' => [],
+					'id'    => [],
+				],
+				'strong' => [
+					'class' => [],
+					'id'    => [],
+				],
+				'hr'     => [
+					'class' => [],
+					'id'    => [],
+				],
+				'a'      => [
+					'href'   => [],
+					'title'  => [],
+					'class'  => [],
+					'id'     => [],
+					'target' => [],
+				],
+				'input'  => [
+					'type'  => [],
+					'name'  => [],
+					'class' => [],
+					'value' => [],
+				],
+				'img'    => [
+					'src'      => [],
+					'data-src' => [],
+					'alt'      => [],
+					'height'   => [],
+					'width'    => [],
+					'class'    => [],
+					'id'       => [],
+					'style'    => [],
+					'srcset'   => [],
+					'loading'  => [],
+					'sizes'    => [],
+				],
+				'div'    => [
+					'class' => [],
+				],
+			];
+		}
+
+		if ( $echo ) {
+			echo wp_kses( $html, $allowed_html );
+		} else {
+			return wp_kses( $html, $allowed_html );
+		}
+	}
+
+
+	/**
+	 * Prints HTMl.
+	 *
+	 * @param $html
+	 * @param $allHtml
+	 *
+	 * @return void
+	 */
+	public static function print_html_all( $html, $allHtml = false ) {
+		if ( ! $html ) {
+			return;
+		}
+		if ( $allHtml ) {
+			echo stripslashes_deep( $html ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		} else {
+			echo wp_kses_post( stripslashes_deep( $html ) );
+		}
+	}
+
+	/**
 	 * Get Ajax URL.
 	 *
 	 * @return string
@@ -112,31 +215,6 @@ class Fns {
 		return true;
 	}
 
-
-	/**
-	 * Custom wp_kses
-	 *
-	 * @param $string
-	 *
-	 * @return string
-	 */
-	public static function wp_kses( $string ) {
-		$allowed_html = [
-			'a'      => [
-				'href'    => [],
-				'title'   => [],
-				'data-id' => [],
-				'target'  => [],
-				'class'   => [],
-			],
-			'strong' => [],
-			'b'      => [],
-			'br'     => [ [] ],
-		];
-
-		return wp_kses( $string, $allowed_html );
-	}
-
 	/**
 	 * Get user social icon
 	 *
@@ -144,7 +222,7 @@ class Fns {
 	 *
 	 * @return false|string
 	 */
-	public static function get_user_social_icon( $user_id, $email_visibility ) {
+	public static function get_user_social_icon( $user_id, $email_visibility, $echo = true ) {
 		$facebook  = get_user_meta( $user_id, 'user_grid_facebook', true );
 		$twitter   = get_user_meta( $user_id, 'user_grid_twitter', true );
 		$linkedin  = get_user_meta( $user_id, 'user_grid_linkedin', true );
@@ -177,8 +255,12 @@ class Fns {
 			?>
 		</div>
 		<?php
-
-		return ob_get_clean();
+		$output = ob_get_clean();
+		if ( $echo ) {
+			echo self::print_html( $output );
+		} else {
+			return $output;
+		}
 	}
 
 	/**

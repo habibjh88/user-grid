@@ -17,10 +17,17 @@
         color: $body_color;
         display: flex;
         flex-direction: column;
+        flex: 1;
+        > *:last-child {
+            margin-bottom: 0!important;
+        }
     }
+
     .user-avatar {
+        display: flex;
         max-width: 100%;
         margin-bottom: 8px;
+        overflow: hidden;
     }
 
     .user-avatar a {
@@ -77,15 +84,6 @@
 
 }
 
-.list-style .dwp-users-block-wrapper {
-    .user-inner-wrapper {
-        display: flex;
-    }
-    .user-avatar {
-        flex: 0 0 160px;
-        margin-right: 15px
-    }
-}
 
 .dwp-user-social-icons {
     margin-bottom: 10px;
@@ -284,6 +282,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .editor-styles-wrapper .wp-block-post-content .dowp-block-wrapper a:where(:not(.wp-element-button)) {
     color: inherit;
 }

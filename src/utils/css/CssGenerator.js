@@ -24,7 +24,7 @@ const isEmpty = obj => (typeof obj === 'undefined' ? 'undefined' : _typeof(obj))
 
 // {{UserGrid}} Replace
 const replaceWarp = (selector, ID) => {
-    selector = selector.replace(new RegExp('{{UserGrid}}', "g"), '.dowp-block-postgrid.dowp-block-' + ID);
+    selector = selector.replace(new RegExp('{{UserGrid}}', "g"), '.dowp-block-usergrid.dowp-block-' + ID);
     selector = selector.replace(new RegExp('{{UserGrid_ID}}', "g"), 'block-' + ID);
     return selector;
 }
