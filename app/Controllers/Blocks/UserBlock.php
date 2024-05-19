@@ -143,7 +143,7 @@ class UserBlock extends BlockBase {
 				],
 			],
 
-			'grid_v_alignment'         => [
+			'grid_v_alignment'       => [
 				'type'    => 'object',
 				'default' => [],
 				'style'   => [
@@ -239,6 +239,16 @@ class UserBlock extends BlockBase {
 						'unit'     => '%',
 						'value'    => '',
 					],
+					'md' => [
+						'isLinked' => true,
+						'unit'     => 'px',
+						'value'    => '',
+					],
+					'sm' => [
+						'isLinked' => true,
+						'unit'     => 'px',
+						'value'    => '',
+					],
 				],
 				'style'   => [
 					(object) [
@@ -255,10 +265,45 @@ class UserBlock extends BlockBase {
 						'unit'     => 'px',
 						'value'    => '',
 					],
+					'md' => [
+						'isLinked' => true,
+						'unit'     => 'px',
+						'value'    => '',
+					],
+					'sm' => [
+						'isLinked' => true,
+						'unit'     => 'px',
+						'value'    => '',
+					],
 				],
 				'style'   => [
 					(object) [
 						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-avatar a{{avatar_border_radius}}',
+					],
+				],
+			],
+			'avatar_margin'          => [
+				'type'    => 'object',
+				'default' => [
+					'lg' => [
+						'isLinked' => false,
+						'unit'     => 'px',
+						'value'    => '',
+					],
+					'md' => [
+						'isLinked' => false,
+						'unit'     => 'px',
+						'value'    => '',
+					],
+					'sm' => [
+						'isLinked' => false,
+						'unit'     => 'px',
+						'value'    => '',
+					],
+				],
+				'style'   => [
+					(object) [
+						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-avatar{{avatar_margin}}',
 					],
 				],
 			],
@@ -312,6 +357,16 @@ class UserBlock extends BlockBase {
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
+						'isLinked' => false,
+						'unit'     => 'px',
+						'value'    => '',
+					],
+					'md' => [
+						'isLinked' => false,
+						'unit'     => 'px',
+						'value'    => '',
+					],
+					'sm' => [
 						'isLinked' => false,
 						'unit'     => 'px',
 						'value'    => '',
@@ -377,6 +432,16 @@ class UserBlock extends BlockBase {
 						'unit'     => 'px',
 						'value'    => '',
 					],
+					'md' => [
+						'isLinked' => false,
+						'unit'     => 'px',
+						'value'    => '',
+					],
+					'sm' => [
+						'isLinked' => false,
+						'unit'     => 'px',
+						'value'    => '',
+					],
 				],
 				'style'   => [
 					(object) [
@@ -425,6 +490,16 @@ class UserBlock extends BlockBase {
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
+						'isLinked' => false,
+						'unit'     => 'px',
+						'value'    => '',
+					],
+					'md' => [
+						'isLinked' => false,
+						'unit'     => 'px',
+						'value'    => '',
+					],
+					'sm' => [
 						'isLinked' => false,
 						'unit'     => 'px',
 						'value'    => '',
@@ -481,6 +556,16 @@ class UserBlock extends BlockBase {
 						'unit'     => 'px',
 						'value'    => '',
 					],
+					'md' => [
+						'isLinked' => false,
+						'unit'     => 'px',
+						'value'    => '',
+					],
+					'sm' => [
+						'isLinked' => false,
+						'unit'     => 'px',
+						'value'    => '',
+					],
 				],
 				'style'   => [
 					(object) [
@@ -519,6 +604,16 @@ class UserBlock extends BlockBase {
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
+						'isLinked' => false,
+						'unit'     => 'px',
+						'value'    => '',
+					],
+					'md' => [
+						'isLinked' => false,
+						'unit'     => 'px',
+						'value'    => '',
+					],
+					'sm' => [
 						'isLinked' => false,
 						'unit'     => 'px',
 						'value'    => '',
@@ -594,6 +689,16 @@ class UserBlock extends BlockBase {
 						'unit'     => 'px',
 						'value'    => '',
 					],
+					'md' => [
+						'isLinked' => true,
+						'unit'     => 'px',
+						'value'    => '',
+					],
+					'sm' => [
+						'isLinked' => true,
+						'unit'     => 'px',
+						'value'    => '',
+					],
 				],
 				'style'   => [
 					(object) [
@@ -606,6 +711,16 @@ class UserBlock extends BlockBase {
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
+						'isLinked' => true,
+						'unit'     => 'px',
+						'value'    => '',
+					],
+					'md' => [
+						'isLinked' => true,
+						'unit'     => 'px',
+						'value'    => '',
+					],
+					'sm' => [
 						'isLinked' => true,
 						'unit'     => 'px',
 						'value'    => '',
@@ -637,6 +752,16 @@ class UserBlock extends BlockBase {
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
+						'isLinked' => true,
+						'unit'     => 'px',
+						'value'    => '',
+					],
+					'md' => [
+						'isLinked' => true,
+						'unit'     => 'px',
+						'value'    => '',
+					],
+					'sm' => [
 						'isLinked' => true,
 						'unit'     => 'px',
 						'value'    => '',
@@ -723,6 +848,7 @@ class UserBlock extends BlockBase {
 		$wrapper_class .= 'yes' == $data['image_link'] ? '' : ' no-image-link';
 
 		$inner_class  = preg_replace( '/[0-9]/', '', $data['layout'] ) . '-style';
+		$inner_class .= Fns::extendClass( $data['layout'] );
 		$inner_class .= ' dowp-' . $data['layout'];
 		?>
 

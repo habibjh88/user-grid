@@ -26,5 +26,5 @@ define( 'NSER_GRID_PLUGIN_BASE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'USER_GRID_LANGUAGE_PATH', dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
 if ( ! class_exists( 'UserGrid' ) ) {
-	require_once 'app/App.php';
+	require_once 'app/UserGrid.php';
 }

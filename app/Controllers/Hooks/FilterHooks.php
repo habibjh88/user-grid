@@ -87,13 +87,41 @@ class FilterHooks {
 				'frameborder'     => true,
 				'allowfullscreen' => true,
 			];
-			$tags['input']  = [
-				'type'        => true,
-				'class'       => true,
-				'placeholder' => true,
+
+			$tags['svg'] = [
+				'class'           => true,
+				'aria-hidden'     => true,
+				'aria-labelledby' => true,
+				'role'            => true,
+				'xmlns'           => true,
+				'width'           => true,
+				'height'          => true,
+				'viewbox'         => true,
+				'stroke'          => true,
+				'fill'            => true,
 			];
-			$tags['style']  = [
-				'src' => true,
+
+			$tags['g']     = [ 'fill' => true ];
+			$tags['title'] = [ 'title' => true ];
+			$tags['path']  = [
+				'd'               => true,
+				'fill'            => true,
+				'stroke-width'    => true,
+				'stroke-linecap'  => true,
+				'stroke-linejoin' => true,
+				'fill-rule'       => true,
+				'clip-rule'       => true,
+				'stroke'          => true,
+			];
+			$tags['defs']  = [
+				'd'               => true,
+				'fill'            => true,
+				'stroke-width'    => true,
+				'stroke-linecap'  => true,
+				'stroke-linejoin' => true,
+				'fill-rule'       => true,
+				'clip-rule'       => true,
+				'stroke'          => true,
 			];
 		}
 

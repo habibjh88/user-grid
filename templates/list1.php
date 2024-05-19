@@ -1,6 +1,6 @@
 <?php
 /**
- * User layout 1
+ * User List layout 1
  *
  * @author  DevOfWP
  * @since   1.0

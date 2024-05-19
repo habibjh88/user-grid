@@ -29,6 +29,10 @@
 .dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button:last-child {
   border-radius: 0 4px 4px 0;
 }
+.dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button svg:focus,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button svg:focus {
+  outline: none;
+}
 .dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button i,
 .dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button i {
   transition: none;
@@ -172,7 +176,7 @@
 .dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-layout,
 .dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-layout {
   display: block;
-  border: 1px solid var(--dowp-border);
+  border: 2px solid var(--dowp-border);
   transition: var(--dowp-transition);
   overflow: hidden;
   height: 62px;
@@ -183,8 +187,8 @@
 .dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-layout img {
   display: block;
   width: 100%;
-  opacity: 0.75;
   transition: 0.4s;
+  filter: grayscale(1);
 }
 .dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-style-icon,
 .dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-style-svg,
@@ -208,7 +212,7 @@
 .dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div:hover .dowp-layout img, .dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div.dowp-active .dowp-layout img,
 .dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div:hover .dowp-layout img,
 .dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div.dowp-active .dowp-layout img {
-  opacity: 1;
+  filter: grayscale(0);
 }
 .dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div:hover .dowp-label, .dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div.dowp-active .dowp-label,
 .dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div:hover .dowp-label,

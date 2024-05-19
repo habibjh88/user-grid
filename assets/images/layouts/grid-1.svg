@@ -1,27 +1,19 @@
-<svg width="136" height="106" viewBox="0 0 136 106" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H136V106H0V0Z" fill="white"/>
-<rect x="10" y="10" width="34.4865" height="24.5714" rx="1" fill="#5DDAED"/>
-<rect x="10" y="38.6667" width="20.7597" height="2" rx="1" fill="#A6B2C5"/>
-<rect x="10" y="85" width="20.7597" height="2" rx="1" fill="#A6B2C5"/>
-<rect x="10" y="44" width="32.6224" height="1" rx="0.5" fill="#A6B2C5"/>
-<rect x="10" y="90.3333" width="32.6224" height="1" rx="0.5" fill="#A6B2C5"/>
-<rect x="10" y="48.2143" width="32.6224" height="1" rx="0.5" fill="#A6B2C5"/>
-<rect x="10" y="94.5476" width="32.6224" height="1" rx="0.5" fill="#A6B2C5"/>
-<rect x="10" y="56.0714" width="34.4865" height="24.5714" rx="1" fill="#FFD600"/>
-<rect x="50.7568" y="10" width="34.4865" height="24.5714" rx="1" fill="#72A6FC"/>
-<rect x="50.7568" y="38.6667" width="20.7597" height="2" rx="1" fill="#A6B2C5"/>
-<rect x="50.7568" y="85" width="20.7597" height="2" rx="1" fill="#A6B2C5"/>
-<rect x="50.7568" y="44" width="32.6224" height="1" rx="0.5" fill="#A6B2C5"/>
-<rect x="50.7568" y="90.3333" width="32.6224" height="1" rx="0.5" fill="#A6B2C5"/>
-<rect x="50.7568" y="48.2143" width="32.6224" height="1" rx="0.5" fill="#A6B2C5"/>
-<rect x="50.7568" y="94.5476" width="32.6224" height="1" rx="0.5" fill="#A6B2C5"/>
-<rect x="50.7568" y="56.0714" width="34.4865" height="24.5714" rx="1" fill="#F3A4CF"/>
-<rect x="91.5134" y="10" width="34.4865" height="24.5714" rx="1" fill="#FF9900"/>
-<rect x="91.5134" y="38.6667" width="20.7597" height="2" rx="1" fill="#A6B2C5"/>
-<rect x="91.5134" y="85" width="20.7597" height="2" rx="1" fill="#A6B2C5"/>
-<rect x="91.5134" y="44" width="32.6224" height="1" rx="0.5" fill="#A6B2C5"/>
-<rect x="91.5134" y="90.3333" width="32.6224" height="1" rx="0.5" fill="#A6B2C5"/>
-<rect x="91.5134" y="48.2143" width="32.6224" height="1" rx="0.5" fill="#A6B2C5"/>
-<rect x="91.5134" y="94.5476" width="32.6224" height="1" rx="0.5" fill="#A6B2C5"/>
-<rect x="91.5134" y="56.0714" width="34.4865" height="24.5714" rx="1" fill="#CF86F1"/>
+<svg width="78" height="61" viewBox="0 0 78 61" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.0465088" y="0.0241089" width="77" height="60" fill="white"/>
+<rect x="41.9084" y="6.37334" width="26.4538" height="11.323" stroke="#62B3EB" stroke-width="1.4"/>
+<line x1="41.2084" y1="21.9022" x2="66.2579" y2="21.9022" stroke="#62B3EB" stroke-width="1.4"/>
+<line x1="41.2084" y1="25.4788" x2="63.1301" y2="25.4788" stroke="#62B3EB" stroke-width="1.4"/>
+<rect x="8.73064" y="6.37334" width="26.4538" height="11.323" stroke="#62B3EB" stroke-width="1.4"/>
+<line x1="8.03064" y1="21.9022" x2="33.0802" y2="21.9022" stroke="#62B3EB" stroke-width="1.4"/>
+<line x1="8.03064" y1="25.4788" x2="29.9523" y2="25.4788" stroke="#62B3EB" stroke-width="1.4"/>
+<rect x="41.9084" y="34.5695" width="26.4538" height="11.323" stroke="#62B3EB" stroke-width="1.4"/>
+<line x1="41.2084" y1="50.0984" x2="66.2579" y2="50.0984" stroke="#62B3EB" stroke-width="1.4"/>
+<line x1="41.2084" y1="53.6749" x2="63.1301" y2="53.6749" stroke="#62B3EB" stroke-width="1.4"/>
+<rect x="8.73064" y="34.5695" width="26.4538" height="11.323" stroke="#62B3EB" stroke-width="1.4"/>
+<line x1="8.03064" y1="50.0984" x2="33.0802" y2="50.0984" stroke="#62B3EB" stroke-width="1.4"/>
+<line x1="8.03064" y1="53.6749" x2="29.9523" y2="53.6749" stroke="#62B3EB" stroke-width="1.4"/>
+<path d="M15.7537 14.5122L17.5887 12.4732L18.8936 13.8801L21.8705 10.8013L25.3571 14.3491M15.7537 9.55756H16.977V11.0256H15.7537V9.55756Z" stroke="#62B3EB" stroke-opacity="0.9" stroke-width="0.5"/>
+<path d="M15.7537 42.7084L17.5887 40.6694L18.8936 42.0763L21.8705 38.9975L25.3571 42.5452M15.7537 37.7537H16.977V39.2218H15.7537V37.7537Z" stroke="#62B3EB" stroke-opacity="0.9" stroke-width="0.5"/>
+<path d="M50.3336 14.5122L52.1687 12.4732L53.4736 13.8801L56.4504 10.8013L59.937 14.3491M50.3336 9.55756H51.557V11.0256H50.3336V9.55756Z" stroke="#62B3EB" stroke-opacity="0.9" stroke-width="0.5"/>
+<path d="M50.3336 42.7084L52.1687 40.6694L53.4736 42.0763L56.4504 38.9975L59.937 42.5452M50.3336 37.7537H51.557V39.2218H50.3336V37.7537Z" stroke="#62B3EB" stroke-opacity="0.9" stroke-width="0.5"/>
 </svg>

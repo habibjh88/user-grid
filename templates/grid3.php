@@ -1,6 +1,6 @@
 <?php
 /**
- * User Grid layout 1
+ * User Grid layout 3
  *
  * @author  DevOfWP
  * @since   1.0
@@ -60,7 +60,7 @@ $col_class        = Fns::get_dynamic_cols( $grid_column );
 
 		<?php
 		if ( $social_visibility ) {
-			Fns::get_user_social_icon( $user_info->ID, $email_visibility );
+			echo Fns::get_user_social_icon( $user_info->ID, $email_visibility );
 		}
 		?>
 	</div>
