@@ -1,0 +1,117 @@
+.dowp-components-popover,
+.dowp-panel-control-wrapper {
+	.dowp-control-field {
+		&.dowp-cf-styles-wrap {
+			margin-bottom: 16px !important;
+
+			.dowp-style-list {
+				--row-gap: 10px;
+				--column-gap: 6px;
+				display: grid;
+				row-gap: var(--row-gap);
+				column-gap: var(--column-gap);
+
+
+				.is-pro {
+					position: relative;
+					.pro-lable {
+						position: absolute;
+						top: 0;
+						right: 0;
+						line-height: 1;
+						background: red;
+						display: inline-block;
+						z-index: 99;
+						padding: 2px 4px 3px;
+						font-size: 10px;
+						font-weight: 600;
+						text-transform: uppercase;
+						color: #fff;
+					}
+					.dowp-layout {
+						position: relative;
+						border: none;
+						&:after {
+							content: '';
+							position: absolute;
+							top: 0;
+							right: 0;
+							left: 0;
+							bottom: 0;
+							background: rgba(0, 0, 0, .25);
+							z-index: 1;
+						}
+					}
+				}
+
+				> div {
+					--row-gap: 6px;
+					--column-gap: 6px;
+					display: grid;
+					row-gap: var(--row-gap);
+					column-gap: var(--column-gap);
+					text-align: center;
+					cursor: pointer;
+					overflow: hidden;
+
+
+					.dowp-layout {
+						display: block;
+						border: 2px solid var(--dowp-border);
+						transition: var(--dowp-transition);
+						overflow: hidden;
+						height: 62px;
+						border-radius: 0;
+						background-color: #fff;;
+
+						img {
+							display: block;
+							width: 100%;
+							transition: 0.4s;
+							filter: grayscale(1)
+						}
+					}
+
+					.dowp-style-icon,
+					.dowp-style-svg,
+					.dowp-label {
+						display: block;
+					}
+
+					.dowp-label {
+						font-size: 11px !important;
+						line-height: 1.3;
+						transition: var(--dowp-transition);
+					}
+
+					&:hover,
+					&.dowp-active {
+
+						.dowp-layout {
+							border-color: var(--dowp-primary, #009FFF);
+							img {
+								filter: grayscale(0)
+							}
+						}
+
+						.dowp-label {
+							color: var(--dowp-primary, #009FFF) !important;
+						}
+					}
+				}
+
+				&.dowp-style-columns-2 {
+					grid-template-columns: repeat(2, 1fr);
+				}
+
+				&.dowp-style-columns-3 {
+					grid-template-columns: repeat(3, 1fr);
+				}
+
+				&.dowp-style-columns-4 {
+					grid-template-columns: repeat(4, 1fr);
+				}
+			}
+		}
+	}
+}

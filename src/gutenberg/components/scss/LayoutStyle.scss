@@ -1,0 +1,31 @@
+.dowp-panel-control-wrapper .dowp-cf-layout-style {
+    .dowp-btn-group {
+        gap: 5px;
+    }
+    .dowp-button {
+        flex: 0 0 32%;
+        cursor: pointer;
+        transition: 0.4s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 36px;
+
+        svg {
+            transition: fill 0.4s;
+            fill: #7d7d85;
+            transform: scale(1.2);
+        }
+        svg:focus {
+            outline: none;
+        }
+
+        &:hover,
+        &.active {
+            border-color: var(--dowp-primary) !important;
+            svg {
+                fill: var(--dowp-primary) !important;;
+            }
+        }
+    }
+}

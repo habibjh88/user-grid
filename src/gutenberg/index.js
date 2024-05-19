@@ -1,13 +1,13 @@
 /* global wp */
 const {__} = wp.i18n;
 const {render} = wp.element;
-import ParseCss from "../utils/css/ParseCss";
+import ParseCss from "./utils/css/ParseCss";
 import {updateCategory} from '@wordpress/blocks';
 
 window.dowpDevice = 'lg';
 
 //Impost post grid block
-import "./user-grid";
+import "./blocks";
 
 const allCustomBlocks = ['dowp/user-grid'];
 // Save Style CSS within Database/File

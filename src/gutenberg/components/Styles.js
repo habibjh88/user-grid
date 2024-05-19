@@ -1,6 +1,5 @@
 const {__} = wp.i18n;
 import './scss/styles.scss'
-
 function Styles(props) {
 
     const {label, value, options, columns = 3, onChange} = props

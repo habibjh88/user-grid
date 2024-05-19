@@ -1,0 +1,84 @@
+.dowp-components-popover,
+.dowp-panel-control-wrapper {
+	.dowp-device {
+		&-switcher {
+			color: #a4afb7;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			z-index: 2;
+			cursor: pointer;
+			height: 0;
+			transform: scale(0);
+			opacity: 0;
+			transition: 0.15s;
+			font-size: 11px;
+
+			i {
+				font-size: inherit;
+			}
+
+			&.active {
+				height: 24px;
+				transform: scale(1);
+				opacity: 1;
+				font-size: 14px;
+				margin-top: -2px;
+			}
+		}
+
+		&-switchers {
+			position: relative;
+			width: 24px;
+			height: 24px;
+
+			&-wrap {
+				position: absolute;
+				width: 100%;
+				top: 1px;
+				color: #e0e1e3;
+				z-index: 44;
+			}
+
+			&-open {
+				.dowp-device-switchers-wrap {
+					box-shadow: 0 0 20px 0 rgb(0 0 0 / 25%);
+					background: #ffffff;
+					border-radius: 2px;
+				}
+
+				&.active-md {
+					.dowp-device-switchers-wrap {
+						top: 0;
+					}
+				}
+
+				&.active-sm {
+					.dowp-device-switchers-wrap {
+						top: 0;
+					}
+				}
+
+				&.active-xs {
+					.dowp-device-switchers-wrap {
+						top: 0;
+					}
+				}
+
+				.dowp-device-switcher {
+					height: 24px;
+					transform: scale(1);
+					opacity: 1;
+					font-size: 14px;
+				}
+			}
+		}
+
+
+	}
+}
+
+.dowp-device-switchers-open .dowp-device-switcher.active {
+	color: var(--dowp-primary, #009FFF)
+}

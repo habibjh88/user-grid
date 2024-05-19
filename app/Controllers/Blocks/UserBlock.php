@@ -86,7 +86,7 @@ class UserBlock extends BlockBase {
 
 			'content_order'          => [
 				'type'    => 'array',
-				'default' => [ 'title', 'designation', 'short_description', 'biography', 'social' ],
+				'default' => [ 'title', 'designation', 'short_description', 'biography', 'social', 'button_visibility' ],
 			],
 
 			'users_role'             => [
@@ -188,7 +188,12 @@ class UserBlock extends BlockBase {
 				'default' => 'show',
 			],
 
-			// User Avatar Settings
+			'button_visibility'      => [
+				'type'    => 'string',
+				'default' => 'show',
+			],
+
+			// User Avatar Settings.
 			'avatar_dimension'       => [
 				'type'    => 'number',
 				'default' => '360',
@@ -858,7 +863,9 @@ class UserBlock extends BlockBase {
 					<div class="dwp-row">
 						<?php
 						foreach ( $user_lists as $user ) {
-							$data['user'] = $user;
+							$user_info = get_user_by( 'id', $user );
+							$data['user_id']      = $user;
+							$data['display_name'] = $user_info->display_name;
 							Fns::get_template( $data['layout'], $data );
 						}
 						?>

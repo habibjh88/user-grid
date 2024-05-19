@@ -160,10 +160,10 @@
 
 .dwp-user-social-icons {
     margin-bottom: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    gap:5px;
     a {
+        display: inline-block;
+        margin-right: 2px;
+        margin-top: 0;
         font-size: 20px;
         color: inherit !important;
         text-decoration: none !important;
@@ -331,7 +331,10 @@
     color: inherit;
 }
 
-
+.wp-admin .dwp-users-block-wrapper .user-avatar a {
+    pointer-events: none;
+    cursor: pointer;
+}
 
 [class*='dowp-icon'] svg {
     width: 1em;

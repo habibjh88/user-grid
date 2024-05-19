@@ -2,6 +2,8 @@
 
 namespace DOWP\UserGrid\Controllers\Api;
 
+use DOWP\UserGrid\Helpers\Fns;
+
 class GetUsersV1 {
 	/**
 	 * Class constructor
@@ -84,27 +86,37 @@ class GetUsersV1 {
 		$user_lists  = get_users( $args );
 		$avatar_size = [ 'size' => $data['avatar_dimension'] ?? '300' ];
 
+		$newData = [
+			'layout'                 => $data['layout'],
+			'name_tag'               => $data['name_tag'],
+			'users_lists'            => $data['users_lists'],
+			'grid_column'            => $data['grid_column'],
+			'content_order'          => $data['content_order'],
+			'user_limit'             => $data['user_limit'],
+			'users_role'             => $data['users_role'],
+			'avatar_dimension'       => $data['avatar_dimension'],
+			'user_filter_by_domain'  => $data['user_filter_by_domain'],
+			'orderby'                => $data['orderby'],
+			'order'                  => $data['order'],
+			'avatar_visibility'      => $data['avatar_visibility'],
+			'name_visibility'        => $data['name_visibility'],
+			'email_visibility'       => $data['email_visibility'],
+			'designation_visibility' => $data['designation_visibility'],
+			'short_desc_visibility'  => $data['short_desc_visibility'],
+			'bio_visibility'         => $data['bio_visibility'],
+			'social_visibility'      => $data['social_visibility'],
+		];
+
 		if ( ! empty( $user_lists ) ) {
-
+			ob_start();
 			foreach ( $user_lists as $user ) {
-				$send_data['users'][] = [
-					'id'          => esc_html( $user->ID ),
-					'name'        => esc_html( $user->display_name ),
-					'email'       => esc_html( $user->user_email ),
-					'designation' => get_user_meta( $user->ID, 'user_grid_designation', true ),
-					'avatar'      => get_avatar_url( $user->ID, $avatar_size ),
-					'desc'        => get_user_meta( $user->ID, 'description', true ),
-					'short_desc'  => get_user_meta( $user->ID, 'user_grid_short_desc', true ),
-					'social'      => [
-						'facebook'  => get_user_meta( $user->ID, 'user_grid_facebook', true ),
-						'twitter'   => get_user_meta( $user->ID, 'user_grid_twitter', true ),
-						'linkedin'  => get_user_meta( $user->ID, 'user_grid_linkedin', true ),
-						'gplus'     => get_user_meta( $user->ID, 'user_grid_gplus', true ),
-						'pinterest' => get_user_meta( $user->ID, 'user_grid_pinterest', true ),
-					],
-				];
-
+				$user_info               = get_user_by( 'id', $user->ID );
+				$newData['user_id']      = $user->ID;
+				$newData['display_name'] = $user_info->display_name;
+				Fns::get_template( $data['layout'], $newData );
 			}
+			$markup              = ob_get_clean();
+			$send_data['markup'] = $markup;
 		} else {
 			$send_data['message'] = 'Sorry! No Users found';
 		}

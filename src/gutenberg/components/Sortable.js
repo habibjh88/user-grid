@@ -15,6 +15,7 @@ function Sortable(props) {
         })
         onChange(newData);
     }
+
     return (
         <div className="components-base-control dowp-sortable-field">
             <div className="dowp-cf-head components-base-control__label">

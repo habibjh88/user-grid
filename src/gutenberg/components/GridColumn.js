@@ -13,6 +13,7 @@ function GridColumn( props ) {
         const newData = JSON.parse( JSON.stringify( data ) );
         newData[device] = val;
         onChange( newData );
+        changeQuery();
     };
 
     const GRID_CLOUMN = colStyle === 'grid' ? COL_OPTIONS_GRID : COL_OPTIONS;
@@ -33,7 +34,6 @@ function GridColumn( props ) {
                     options={ GRID_CLOUMN }
                     onChange={ ( val ) => {
                         setSettings( 'lg', val );
-                        changeQuery();
                     } }
                 />
 

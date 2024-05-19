@@ -225,37 +225,30 @@ class Fns {
 	public static function get_user_social_icon( $user_id, $email_visibility ) {
 
 		$social_list = self::social_list();
-//		$facebook  = get_user_meta( $user_id, 'user_grid_facebook', true );
-//		$twitter   = get_user_meta( $user_id, 'user_grid_twitter', true );
-//		$linkedin  = get_user_meta( $user_id, 'user_grid_linkedin', true );
-//		$gplus     = get_user_meta( $user_id, 'user_grid_gplus', true );
-//		$pinterest = get_user_meta( $user_id, 'user_grid_pinterest', true );
-		$user_info = get_user_by( 'id', $user_id );
-		$email     = $user_info->user_email;
+		$user_info   = get_user_by( 'id', $user_id );
+		$email       = $user_info->user_email;
 
-		?>
-		<div class="dwp-user-social-icons">
-			<?php
-			foreach ( $social_list as $icon => $label ) {
-				$meta_key   = "user_grid_{$icon}";
-				$meta_value = get_user_meta( $user_id, $meta_key, true );
 
-				if ( $meta_value ) {
-					?>
-					<a class="<?php echo esc_attr( $icon ) ?>"
-					   href="<?php echo esc_url( $meta_value ) ?>">
-						<?php SvgIcons::get_svg( $icon ); ?>
-					</a>
-					<?php
-				}
-			}
-			if ( $email_visibility === 'show' ) {
+		foreach ( $social_list as $icon => $label ) {
+			$meta_key   = "user_grid_{$icon}";
+			$meta_value = get_user_meta( $user_id, $meta_key, true );
+
+			if ( $meta_value ) {
 				?>
-				<a class="pinterest" href="mailto:<?php echo esc_attr( $email ) ?>"><?php SvgIcons::get_svg( 'email' ); ?></a>
+				<a class="<?php echo esc_attr( $icon ) ?>"
+				   href="<?php echo esc_url( $meta_value ) ?>">
+					<?php SvgIcons::get_svg( $icon ); ?>
+				</a>
 				<?php
 			}
+		}
+		if ( $email_visibility === 'show' ) {
 			?>
-		</div>
+			<a class="pinterest" href="mailto:<?php echo esc_attr( $email ) ?>"><?php SvgIcons::get_svg( 'email' ); ?></a>
+			<?php
+		}
+		?>
+
 		<?php
 	}
 
@@ -317,5 +310,17 @@ class Fns {
 		return $classes;
 	}
 
+	/**
+	 * Order Class
+	 *
+	 * @param $item
+	 * @param $content_order
+	 *
+	 * @return void
+	 */
+	public static function order_class( $item, $content_order ) {
+		$index = array_search( $item, $content_order );
+		echo esc_attr( "order-{$index}" );
+	}
 
 }
