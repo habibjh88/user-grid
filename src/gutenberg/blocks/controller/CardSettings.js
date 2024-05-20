@@ -8,7 +8,7 @@ import {UserGrid_COLOR_PALATE} from "../../components/Constants";
 import RangeDevice from "../../components/RangeDevice";
 import BoxShadow from "../../components/BoxShadow";
 
-const {__} = wp.i18n;
+import {__} from "@wordpress/i18n";
 
 function CardSettings(props) {
     const {attributes, setAttributes} = props.data;

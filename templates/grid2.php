@@ -17,6 +17,9 @@
  * @var $bio_visibility
  * @var $social_visibility
  * @var $email_visibility
+ * @var $content_order
+ * @var $button_visibility
+ * @var $button_visibility
  */
 
 use DOWP\UserGrid\Helpers\Fns;
@@ -70,11 +73,19 @@ $col_class        = Fns::get_dynamic_cols( $grid_column );
 			</div>
 		<?php endif; ?>
 
-		<?php
-		if ( $social_visibility ) {
-			Fns::get_user_social_icon( $user_id, $email_visibility );
-		}
-		?>
+		<?php if ( $social_visibility ) : ?>
+            <div class="dwp-user-social-icons <?php Fns::order_class( 'social', $content_order ); ?>">
+				<?php Fns::get_user_social_icon( $user_id, $email_visibility ); ?>
+            </div>
+		<?php endif; ?>
+
+		<?php if ( $button_visibility ) : ?>
+            <div class="read-articles-btn <?php Fns::order_class( 'button', $content_order ); ?>">
+                <a class="read-btn" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
+					<?php esc_html_e( 'Read Articles', 'user-grid' ); ?>
+                </a>
+            </div>
+		<?php endif; ?>
 	</div>
 </div>
 </div>

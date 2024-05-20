@@ -4,8 +4,7 @@ import {
     __experimentalBorderControl as BorderControl
 } from "@wordpress/components";
 import Dimension from "../../components/Dimension";
-
-const {__} = wp.i18n;
+import {__} from "@wordpress/i18n";
 import {UserGrid_COLOR_PALATE} from "../../components/Constants";
 import Range from "../../components/Range";
 import RangeDevice from "../../components/RangeDevice";

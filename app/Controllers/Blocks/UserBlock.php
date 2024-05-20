@@ -86,7 +86,7 @@ class UserBlock extends BlockBase {
 
 			'content_order'          => [
 				'type'    => 'array',
-				'default' => [ 'title', 'designation', 'short_description', 'biography', 'social', 'button_visibility' ],
+				'default' => [ 'title', 'designation', 'short_description', 'biography', 'social', 'button' ],
 			],
 
 			'users_role'             => [
@@ -651,6 +651,53 @@ class UserBlock extends BlockBase {
 					],
 				],
 			],
+
+			'read_btn_spacing'         => [
+				'type'    => 'object',
+				'default' => [
+					'lg' => [
+						'isLinked' => false,
+						'unit'     => 'px',
+						'value'    => '',
+					],
+					'md' => [
+						'isLinked' => false,
+						'unit'     => 'px',
+						'value'    => '',
+					],
+					'sm' => [
+						'isLinked' => false,
+						'unit'     => 'px',
+						'value'    => '',
+					],
+				],
+				'style'   => [
+					(object) [
+						'selector' => '{{UserGrid}} .dwp-user-social-icons {{read_btn_spacing}}',
+					],
+				],
+			],
+
+			'read_btn_color'           => [
+				'type'    => 'string',
+				'default' => '',
+				'style'   => [
+					(object) [
+						'selector' => '{{UserGrid}} .dwp-user-social-icons a i {color: {{read_btn_color}}; }',
+					],
+				],
+			],
+
+			'read_btn_color_hover'     => [
+				'type'    => 'string',
+				'default' => '',
+				'style'   => [
+					(object) [
+						'selector' => '{{UserGrid}} .dwp-user-social-icons a:hover i {color: {{read_btn_color_hover}}; }',
+					],
+				],
+			],
+
 
 			'card_gap'               => [
 				'type'    => 'object',

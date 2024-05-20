@@ -4,7 +4,7 @@ import {
 } from '@wordpress/components';
 import {PanelBody} from "@wordpress/components";
 
-const {__} = wp.i18n;
+import {__} from "@wordpress/i18n";
 
 function FieldVisibility(props) {
     const {attributes, setAttributes, changeQuery, userData} = props.data;

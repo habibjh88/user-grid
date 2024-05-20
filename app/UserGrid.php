@@ -13,12 +13,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once NSER_GRID_PLUGIN_BASE_DIR . 'vendor/autoload.php';
 
 
-use DOWP\UserGrid\Controllers\Api\RestApi;
 use DOWP\UserGrid\Controllers\AjaxController;
+use DOWP\UserGrid\Controllers\Api\RestApi;
 use DOWP\UserGrid\Controllers\BlocksController;
-use DOWP\UserGrid\Controllers\ScriptController;
-use DOWP\UserGrid\Controllers\Hooks\FilterHooks;
 use DOWP\UserGrid\Controllers\Hooks\ActionHooks;
+use DOWP\UserGrid\Controllers\Hooks\FilterHooks;
+use DOWP\UserGrid\Controllers\ScriptController;
 use DOWP\UserGrid\Helpers\Install;
 
 

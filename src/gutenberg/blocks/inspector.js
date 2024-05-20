@@ -8,6 +8,7 @@ import ShortDesc from "./controller/ShortDesc";
 import BioSettings from "./controller/BioSettings";
 import DesignationSettings from "./controller/DesignationSettings";
 import SocialShareSettings from "./controller/SocialShareSettings";
+import ReadArticleBtn from "./controller/ReadArticleBtn";
 import CardSettings from "./controller/CardSettings";
 import TabTitle from "../components/TabTitle";
 
@@ -19,10 +20,10 @@ function Inspector(props) {
         avatar_visibility,
         name_visibility,
         designation_visibility,
-        email_visibility,
         bio_visibility,
         social_visibility,
-        short_desc_visibility
+        short_desc_visibility,
+        button_visibility
     } = attributes;
 
     return (
@@ -61,6 +62,7 @@ function Inspector(props) {
                                     {designation_visibility && <DesignationSettings data={props}/>}
                                     {bio_visibility && <BioSettings data={props}/>}
                                     {social_visibility && <SocialShareSettings data={props}/>}
+                                    {button_visibility && <ReadArticleBtn data={props}/>}
                                     <CardSettings data={props}/>
                                 </>
                             )}

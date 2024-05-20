@@ -5,7 +5,7 @@ import Color from "../../components/Color";
 import Typography from "../../components/Typography";
 import Dimension from "../../components/Dimension";
 
-const {__} = wp.i18n;
+import {__} from "@wordpress/i18n";
 
 function DesignationSettings(props) {
     const {attributes, setAttributes} = props.data;

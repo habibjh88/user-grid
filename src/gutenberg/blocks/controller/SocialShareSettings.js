@@ -5,7 +5,7 @@ import Color from "../../components/Color";
 import Dimension from "../../components/Dimension";
 import RangeDevice from "../../components/RangeDevice";
 
-const {__} = wp.i18n
+import {__} from "@wordpress/i18n";
 
 function SocialShareSettings(props) {
     const {attributes, setAttributes} = props.data;

@@ -10,7 +10,7 @@ import Typography from "../../components/Typography";
 import Dimension from "../../components/Dimension";
 import {UserGrid_COLOR_PALATE, NORMAL_HOVER} from "../../components/Constants";
 
-const {__} = wp.i18n;
+import {__} from "@wordpress/i18n";
 
 function BioSettings(props) {
     const {attributes, setAttributes} = props.data;
