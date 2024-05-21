@@ -47,9 +47,9 @@ $col_class        = Fns::get_dynamic_cols(
 			<div class="user-avatar">
 				<a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
 					<img width="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-					     height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-					     src="<?php echo esc_url( $avater_image_url ); ?>"
-					     alt="<?php echo esc_html( $display_name ); ?>"/>
+						 height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
+						 src="<?php echo esc_url( $avater_image_url ); ?>"
+						 alt="<?php echo esc_html( $display_name ); ?>"/>
 				</a>
 			</div>
 		<?php endif; ?>
@@ -79,17 +79,17 @@ $col_class        = Fns::get_dynamic_cols(
 		<?php endif; ?>
 
 		<?php if ( $social_visibility ) : ?>
-            <div class="dwp-user-social-icons <?php Fns::order_class( 'social', $content_order ); ?>">
+			<div class="dwp-user-social-icons <?php Fns::order_class( 'social', $content_order ); ?>">
 				<?php Fns::get_user_social_icon( $user_id, $email_visibility ); ?>
-            </div>
+			</div>
 		<?php endif; ?>
 
 		<?php if ( $button_visibility ) : ?>
-            <div class="read-articles-btn <?php Fns::order_class( 'button', $content_order ); ?>">
-                <a class="read-btn" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
+			<div class="read-articles-btn <?php Fns::order_class( 'button', $content_order ); ?>">
+				<a class="read-btn <?php echo esc_attr( $button_style ); ?>" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
 					<?php esc_html_e( 'Read Articles', 'user-grid' ); ?>
-                </a>
-            </div>
+				</a>
+			</div>
 		<?php endif; ?>
 	</div>
 </div>

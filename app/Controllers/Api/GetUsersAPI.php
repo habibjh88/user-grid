@@ -4,7 +4,7 @@ namespace DOWP\UserGrid\Controllers\Api;
 
 use DOWP\UserGrid\Helpers\Fns;
 
-class GetUsersV1 {
+class GetUsersAPI {
 	/**
 	 * Class constructor
 	 */
@@ -106,6 +106,7 @@ class GetUsersV1 {
 			'bio_visibility'         => $data['bio_visibility'],
 			'social_visibility'      => $data['social_visibility'],
 			'button_visibility'      => $data['button_visibility'],
+			'button_style'           => $data['button_style'],
 		];
 
 		if ( ! empty( $user_lists ) ) {

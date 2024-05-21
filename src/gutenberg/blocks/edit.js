@@ -30,6 +30,7 @@ const Edit = (props) => {
         short_desc_visibility,
         bio_visibility,
         social_visibility,
+        button_style,
         button_visibility,
     } = attributes;
 
@@ -76,6 +77,7 @@ const Edit = (props) => {
                 short_desc_visibility,
                 bio_visibility,
                 social_visibility,
+                button_style,
                 button_visibility,
             }
         }).then((data) => {

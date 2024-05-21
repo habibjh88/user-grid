@@ -62,7 +62,7 @@ function Inspector(props) {
                                     {designation_visibility && <DesignationSettings data={props}/>}
                                     {bio_visibility && <BioSettings data={props}/>}
                                     {social_visibility && <SocialShareSettings data={props}/>}
-                                    {button_visibility && <ReadArticleBtn data={props}/>}
+                                    {button_visibility && <ReadArticleBtn data={props} changeQuery={changeQuery}/>}
                                     <CardSettings data={props}/>
                                 </>
                             )}

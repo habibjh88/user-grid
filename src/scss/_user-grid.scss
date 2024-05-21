@@ -85,17 +85,49 @@
     .read-articles-btn .read-btn {
         padding: 7px 15px;
         border-radius: 4px;
-        background: #d4dbe3;
-        color: #212121;
         display: inline-block;
         font-size: 15px;
         transition: 0.4s;
+        border: 1px solid transparent;
 
         &:hover {
             background-color: $primary_color;
             color: #FFFFFF;
         }
 
+    }
+
+    .btn-default {
+        background: #d4dbe3;
+        color: #212121;
+        &:hover {
+            background: #c1cad2;
+        }
+    }
+
+    .btn-dark {
+        background: #565656;
+        color: #FFFFFF;
+        &:hover {
+            background: #2a2a2a;
+        }
+    }
+    .btn-light {
+        background: #eaeaee;
+        border-color: #c0c2ca;
+        color: #FFFFFF;
+        &:hover {
+            background: #e2e2e6;
+            border-color: #b5b7be;
+        }
+    }
+
+    .btn-primary {
+        background: $primary_color;
+        color: #FFFFFF;
+        &:hover {
+            background: $primary_dark;
+        }
     }
 
 

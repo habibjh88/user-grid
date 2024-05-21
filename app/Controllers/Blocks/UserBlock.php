@@ -678,6 +678,11 @@ class UserBlock extends BlockBase {
 				],
 			],
 
+			'button_style'           => [
+				'type'    => 'string',
+				'default' => 'btn-default',
+			],
+
 			'read_btn_color'         => [
 				'type'    => 'string',
 				'default' => '',
@@ -714,6 +719,26 @@ class UserBlock extends BlockBase {
 				'style'   => [
 					(object) [
 						'selector' => '{{UserGrid}} .read-articles-btn a.read-btn:hover {background-color: {{read_btn_bg_hover}}; }',
+					],
+				],
+			],
+
+			'border_color'           => [
+				'type'    => 'string',
+				'default' => '',
+				'style'   => [
+					(object) [
+						'selector' => '{{UserGrid}} .read-articles-btn a.read-btn {border: 1px solid {{border_color}}; }',
+					],
+				],
+			],
+
+			'border_color_hover'     => [
+				'type'    => 'string',
+				'default' => '',
+				'style'   => [
+					(object) [
+						'selector' => '{{UserGrid}} .read-articles-btn a.read-btn:hover {border: 1px solid {{border_color_hover}}; }',
 					],
 				],
 			],

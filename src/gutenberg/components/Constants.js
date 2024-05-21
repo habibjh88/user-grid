@@ -114,13 +114,20 @@ export const POST_SORT_ORDER = [
     {value: 'DESC', label: __('DESC', 'user-grid')}
 ];
 
+export const BUTTON_STYLE = [
+    {value: 'btn-default', label: __('Default', 'user-grid')},
+    {value: 'btn-dark', label: __('Dark Button', 'user-grid')},
+    {value: 'btn-light', label: __('Light Button', 'user-grid')},
+    {value: 'btn-primary', label: __('Primary Button', 'user-grid')},
+];
+
 export const FORMATE_USERS = (data, field) => {
-    if (! data) {
+    if (!data) {
         return;
     }
     return data.map((user) => ({
         value: user.id,
-        label: user.name + (field ? " - " +user[field] : ''),
+        label: user.name + (field ? " - " + user[field] : ''),
     }));
 }
 

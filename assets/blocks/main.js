@@ -3087,21 +3087,36 @@ __webpack_require__.r(__webpack_exports__);
 function ReadArticleBtn(props) {
   const {
     attributes,
-    setAttributes
+    setAttributes,
+    changeQuery
   } = props.data;
   const [styleTab, setStyleTab] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)('normal');
   //All attribute
   const {
+    button_style,
     read_btn_spacing,
     read_btn_color,
     read_btn_bg,
     read_btn_color_hover,
-    read_btn_bg_hover
+    read_btn_bg_hover,
+    border_color,
+    border_color_hover
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Read Articles Button', 'user-grid'),
     initialOpen: false
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Dimension__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Button Style", "user-grid"),
+    className: "dowp-control-field label-inline dowp-expand",
+    value: button_style,
+    options: _components_Constants__WEBPACK_IMPORTED_MODULE_4__.BUTTON_STYLE,
+    onChange: button_style => {
+      setAttributes({
+        button_style
+      });
+      changeQuery();
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Dimension__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Spacing", "user-grid"),
     type: "margin",
     responsive: true,
@@ -3125,10 +3140,16 @@ function ReadArticleBtn(props) {
       read_btn_color
     })
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Color__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Color', 'user-grid'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Background Color', 'user-grid'),
     color: read_btn_bg,
     onChange: read_btn_bg => setAttributes({
       read_btn_bg
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Color__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Border Color', 'user-grid'),
+    color: border_color,
+    onChange: border_color => setAttributes({
+      border_color
     })
   })), 'hover' === styleTab && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Color__WEBPACK_IMPORTED_MODULE_2__["default"], {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Color - Hover', 'user-grid'),
@@ -3137,10 +3158,16 @@ function ReadArticleBtn(props) {
       read_btn_color_hover
     })
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Color__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Color - Hover', 'user-grid'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Background Color - Hover', 'user-grid'),
     color: read_btn_bg_hover,
     onChange: read_btn_bg_hover => setAttributes({
       read_btn_bg_hover
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Color__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Border Color - Hover', 'user-grid'),
+    color: border_color_hover,
+    onChange: border_color_hover => setAttributes({
+      border_color_hover
     })
   })));
 }
@@ -3353,6 +3380,7 @@ const Edit = props => {
     short_desc_visibility,
     bio_visibility,
     social_visibility,
+    button_style,
     button_visibility
   } = attributes;
 
@@ -3396,6 +3424,7 @@ const Edit = props => {
         short_desc_visibility,
         bio_visibility,
         social_visibility,
+        button_style,
         button_visibility
       }
     }).then(data => {
@@ -3594,7 +3623,8 @@ function Inspector(props) {
   }), social_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_SocialShareSettings__WEBPACK_IMPORTED_MODULE_9__["default"], {
     data: props
   }), button_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_ReadArticleBtn__WEBPACK_IMPORTED_MODULE_10__["default"], {
-    data: props
+    data: props,
+    changeQuery: changeQuery
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_CardSettings__WEBPACK_IMPORTED_MODULE_11__["default"], {
     data: props
   }))))));
@@ -4391,6 +4421,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   BACKGROUND_REPEAT: () => (/* binding */ BACKGROUND_REPEAT),
 /* harmony export */   BACKGROUND_SIZE: () => (/* binding */ BACKGROUND_SIZE),
 /* harmony export */   BACKGROUND_TYPE: () => (/* binding */ BACKGROUND_TYPE),
+/* harmony export */   BUTTON_STYLE: () => (/* binding */ BUTTON_STYLE),
 /* harmony export */   CATEGORY_PREVIEW: () => (/* binding */ CATEGORY_PREVIEW),
 /* harmony export */   COL_OPTIONS: () => (/* binding */ COL_OPTIONS),
 /* harmony export */   COL_OPTIONS_GRID: () => (/* binding */ COL_OPTIONS_GRID),
@@ -4640,6 +4671,19 @@ const POST_SORT_ORDER = [{
 }, {
   value: 'DESC',
   label: __('DESC', 'user-grid')
+}];
+const BUTTON_STYLE = [{
+  value: 'btn-default',
+  label: __('Default', 'user-grid')
+}, {
+  value: 'btn-dark',
+  label: __('Dark Button', 'user-grid')
+}, {
+  value: 'btn-light',
+  label: __('Light Button', 'user-grid')
+}, {
+  value: 'btn-primary',
+  label: __('Primary Button', 'user-grid')
 }];
 const FORMATE_USERS = (data, field) => {
   if (!data) {
@@ -26528,16 +26572,16 @@ const size = function (options) {
         widthSide = side;
         heightSide = alignment === 'end' ? 'top' : 'bottom';
       }
-      const maximumClippingHeight = height - overflow.top - overflow.bottom;
-      const maximumClippingWidth = width - overflow.left - overflow.right;
-      const overflowAvailableHeight = (0,_floating_ui_utils__WEBPACK_IMPORTED_MODULE_0__.min)(height - overflow[heightSide], maximumClippingHeight);
-      const overflowAvailableWidth = (0,_floating_ui_utils__WEBPACK_IMPORTED_MODULE_0__.min)(width - overflow[widthSide], maximumClippingWidth);
+      const overflowAvailableHeight = height - overflow[heightSide];
+      const overflowAvailableWidth = width - overflow[widthSide];
       const noShift = !state.middlewareData.shift;
       let availableHeight = overflowAvailableHeight;
       let availableWidth = overflowAvailableWidth;
       if (isYAxis) {
+        const maximumClippingWidth = width - overflow.left - overflow.right;
         availableWidth = alignment || noShift ? (0,_floating_ui_utils__WEBPACK_IMPORTED_MODULE_0__.min)(overflowAvailableWidth, maximumClippingWidth) : maximumClippingWidth;
       } else {
+        const maximumClippingHeight = height - overflow.top - overflow.bottom;
         availableHeight = alignment || noShift ? (0,_floating_ui_utils__WEBPACK_IMPORTED_MODULE_0__.min)(overflowAvailableHeight, maximumClippingHeight) : maximumClippingHeight;
       }
       if (noShift && !alignment) {
