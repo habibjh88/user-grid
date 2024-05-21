@@ -3074,11 +3074,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_Color__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Color */ "./src/gutenberg/components/Color.js");
 /* harmony import */ var _components_Dimension__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Dimension */ "./src/gutenberg/components/Dimension.js");
-/* harmony import */ var _components_RangeDevice__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/RangeDevice */ "./src/gutenberg/components/RangeDevice.js");
-/* harmony import */ var _components_Constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/Constants */ "./src/gutenberg/components/Constants.js");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__);
-
+/* harmony import */ var _components_Constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Constants */ "./src/gutenberg/components/Constants.js");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
@@ -3101,10 +3099,10 @@ function ReadArticleBtn(props) {
     read_btn_bg_hover
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('Read Articles Button', 'user-grid'),
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Read Articles Button', 'user-grid'),
     initialOpen: false
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Dimension__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)("Spacing", "user-grid"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Spacing", "user-grid"),
     type: "margin",
     responsive: true,
     value: read_btn_spacing,
@@ -3115,31 +3113,31 @@ function ReadArticleBtn(props) {
     }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "dowp-btn-hover-group"
-  }, _components_Constants__WEBPACK_IMPORTED_MODULE_5__.NORMAL_HOVER.map((item, key) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+  }, _components_Constants__WEBPACK_IMPORTED_MODULE_4__.NORMAL_HOVER.map((item, key) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
     key: key,
     isPrimary: styleTab === item.value,
     isSecondary: styleTab !== item.value,
     onClick: () => setStyleTab(item.value)
   }, item.label))), 'normal' === styleTab && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Color__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('Color', 'user-grid'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Color', 'user-grid'),
     color: read_btn_color,
     onChange: read_btn_color => setAttributes({
       read_btn_color
     })
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Color__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('Color', 'user-grid'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Color', 'user-grid'),
     color: read_btn_bg,
     onChange: read_btn_bg => setAttributes({
       read_btn_bg
     })
   })), 'hover' === styleTab && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Color__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('Color - Hover', 'user-grid'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Color - Hover', 'user-grid'),
     color: read_btn_color_hover,
     onChange: read_btn_color_hover => setAttributes({
       read_btn_color_hover
     })
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Color__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('Color - Hover', 'user-grid'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Color - Hover', 'user-grid'),
     color: read_btn_bg_hover,
     onChange: read_btn_bg_hover => setAttributes({
       read_btn_bg_hover
@@ -26530,16 +26528,16 @@ const size = function (options) {
         widthSide = side;
         heightSide = alignment === 'end' ? 'top' : 'bottom';
       }
-      const overflowAvailableHeight = height - overflow[heightSide];
-      const overflowAvailableWidth = width - overflow[widthSide];
+      const maximumClippingHeight = height - overflow.top - overflow.bottom;
+      const maximumClippingWidth = width - overflow.left - overflow.right;
+      const overflowAvailableHeight = (0,_floating_ui_utils__WEBPACK_IMPORTED_MODULE_0__.min)(height - overflow[heightSide], maximumClippingHeight);
+      const overflowAvailableWidth = (0,_floating_ui_utils__WEBPACK_IMPORTED_MODULE_0__.min)(width - overflow[widthSide], maximumClippingWidth);
       const noShift = !state.middlewareData.shift;
       let availableHeight = overflowAvailableHeight;
       let availableWidth = overflowAvailableWidth;
       if (isYAxis) {
-        const maximumClippingWidth = width - overflow.left - overflow.right;
         availableWidth = alignment || noShift ? (0,_floating_ui_utils__WEBPACK_IMPORTED_MODULE_0__.min)(overflowAvailableWidth, maximumClippingWidth) : maximumClippingWidth;
       } else {
-        const maximumClippingHeight = height - overflow.top - overflow.bottom;
         availableHeight = alignment || noShift ? (0,_floating_ui_utils__WEBPACK_IMPORTED_MODULE_0__.min)(overflowAvailableHeight, maximumClippingHeight) : maximumClippingHeight;
       }
       if (noShift && !alignment) {

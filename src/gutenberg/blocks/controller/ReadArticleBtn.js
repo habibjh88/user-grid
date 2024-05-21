@@ -4,7 +4,6 @@ import {
 } from '@wordpress/components';
 import Color from "../../components/Color";
 import Dimension from "../../components/Dimension";
-import RangeDevice from "../../components/RangeDevice";
 import {NORMAL_HOVER} from "../../components/Constants";
 import {__} from "@wordpress/i18n";
 
@@ -44,7 +43,6 @@ export default function ReadArticleBtn(props) {
                     </Button>
                 ))}
             </div>
-
 
             {'normal' === styleTab &&
                 <>

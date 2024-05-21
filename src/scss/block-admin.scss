@@ -13,14 +13,13 @@
             font-size: 16px;
         }
     }
-
-
 }
 
 .components-panel__body .dowp-btn-hover-group {
     display: flex;
     margin-top: 5px;
     margin-bottom: 15px;
+    gap: 5px;
     button {
         flex: 1;
         height: 27px;
@@ -31,13 +30,19 @@
         line-height: 1;
         text-transform: uppercase;
         font-size: 12px;
+        &:hover,
+        &.is-primary:active,
+        &.is-primary {
+            color: #FFFFFF;
+            background-color: $primary_color;
+            outline: none !important;
+            box-shadow: none !important;
+        }
     }
 }
 
 .dowp-panel-control-wrapper {
-
     background: #fff;
-
     .dowp-control-section {
         padding: 0 16px 15px;
         border-radius: 0;
@@ -134,7 +139,6 @@
                 color: inherit !important;
                 background-color: #d3e1e9 !important;
                 outline: none;
-
             }
         }
     }
