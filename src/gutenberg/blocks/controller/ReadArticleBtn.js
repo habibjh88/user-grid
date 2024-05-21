@@ -15,7 +15,9 @@ export default function ReadArticleBtn(props) {
     const {
         read_btn_spacing,
         read_btn_color,
+        read_btn_bg,
         read_btn_color_hover,
+        read_btn_bg_hover,
     } = attributes;
 
     return (
@@ -30,7 +32,7 @@ export default function ReadArticleBtn(props) {
                 }}
             />
 
-            <ButtonGroup className="rttpg-btn-group rttpg-btn-group-state rttpg-bottom-border-radius-none">
+            <div className="dowp-btn-hover-group">
                 {NORMAL_HOVER.map((item, key) => (
                     <Button
                         key={key}
@@ -41,22 +43,37 @@ export default function ReadArticleBtn(props) {
                         {item.label}
                     </Button>
                 ))}
-            </ButtonGroup>
+            </div>
+
 
             {'normal' === styleTab &&
-                <Color
-                    label={__('Color', 'user-grid')}
-                    color={read_btn_color}
-                    onChange={(read_btn_color) => setAttributes({read_btn_color})}
-                />
+                <>
+                    <Color
+                        label={__('Color', 'user-grid')}
+                        color={read_btn_color}
+                        onChange={(read_btn_color) => setAttributes({read_btn_color})}
+                    />
+                    <Color
+                        label={__('Color', 'user-grid')}
+                        color={read_btn_bg}
+                        onChange={(read_btn_bg) => setAttributes({read_btn_bg})}
+                    />
+                </>
             }
 
-            {'normal' === styleTab &&
-                <Color
-                    label={__('Color - Hover', 'user-grid')}
-                    color={read_btn_color_hover}
-                    onChange={(read_btn_color_hover) => setAttributes({read_btn_color_hover})}
-                />
+            {'hover' === styleTab &&
+                <>
+                    <Color
+                        label={__('Color - Hover', 'user-grid')}
+                        color={read_btn_color_hover}
+                        onChange={(read_btn_color_hover) => setAttributes({read_btn_color_hover})}
+                    />
+                    <Color
+                        label={__('Color - Hover', 'user-grid')}
+                        color={read_btn_bg_hover}
+                        onChange={(read_btn_bg_hover) => setAttributes({read_btn_bg_hover})}
+                    />
+                </>
             }
 
         </PanelBody>

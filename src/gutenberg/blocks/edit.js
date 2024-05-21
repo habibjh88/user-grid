@@ -30,6 +30,7 @@ const Edit = (props) => {
         short_desc_visibility,
         bio_visibility,
         social_visibility,
+        button_visibility,
     } = attributes;
 
     //set block preview
@@ -75,6 +76,7 @@ const Edit = (props) => {
                 short_desc_visibility,
                 bio_visibility,
                 social_visibility,
+                button_visibility,
             }
         }).then((data) => {
             setAttributes({query_change: false})

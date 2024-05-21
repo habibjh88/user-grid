@@ -13,6 +13,25 @@
             font-size: 16px;
         }
     }
+
+
+}
+
+.components-panel__body .dowp-btn-hover-group {
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    button {
+        flex: 1;
+        height: 27px;
+        padding: 0 15px 2px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        text-transform: uppercase;
+        font-size: 12px;
+    }
 }
 
 .dowp-panel-control-wrapper {

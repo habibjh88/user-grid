@@ -652,7 +652,7 @@ class UserBlock extends BlockBase {
 				],
 			],
 
-			'read_btn_spacing'         => [
+			'read_btn_spacing'       => [
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
@@ -673,31 +673,50 @@ class UserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-user-social-icons {{read_btn_spacing}}',
+						'selector' => '{{UserGrid}} .read-articles-btn {{read_btn_spacing}}',
 					],
 				],
 			],
 
-			'read_btn_color'           => [
+			'read_btn_color'         => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-user-social-icons a i {color: {{read_btn_color}}; }',
+						'selector' => '{{UserGrid}} .read-articles-btn a.read-btn {color: {{read_btn_color}}; }',
 					],
 				],
 			],
 
-			'read_btn_color_hover'     => [
+			'read_btn_bg'            => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-user-social-icons a:hover i {color: {{read_btn_color_hover}}; }',
+						'selector' => '{{UserGrid}} .read-articles-btn a.read-btn {background-color: {{read_btn_bg}}; }',
 					],
 				],
 			],
 
+			'read_btn_color_hover'   => [
+				'type'    => 'string',
+				'default' => '',
+				'style'   => [
+					(object) [
+						'selector' => '{{UserGrid}} .read-articles-btn a.read-btn:hover {color: {{read_btn_color_hover}}; }',
+					],
+				],
+			],
+
+			'read_btn_bg_hover'      => [
+				'type'    => 'string',
+				'default' => '',
+				'style'   => [
+					(object) [
+						'selector' => '{{UserGrid}} .read-articles-btn a.read-btn:hover {background-color: {{read_btn_bg_hover}}; }',
+					],
+				],
+			],
 
 			'card_gap'               => [
 				'type'    => 'object',
@@ -729,7 +748,7 @@ class UserBlock extends BlockBase {
 					'transition' => 0.5,
 				],
 				'style'   => [
-					(object) [ 'selector' => '{{RTTPG}} .dwp-users-block-wrapper .user-item-col .user-inner-wrapper' ],
+					(object) [ 'selector' => '{{dowp}} .dwp-users-block-wrapper .user-item-col .user-inner-wrapper' ],
 				],
 			],
 
@@ -910,7 +929,7 @@ class UserBlock extends BlockBase {
 					<div class="dwp-row">
 						<?php
 						foreach ( $user_lists as $user ) {
-							$user_info = get_user_by( 'id', $user );
+							$user_info            = get_user_by( 'id', $user );
 							$data['user_id']      = $user;
 							$data['display_name'] = $user_info->display_name;
 							Fns::get_template( $data['layout'], $data );

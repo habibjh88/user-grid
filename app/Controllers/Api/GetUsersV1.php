@@ -105,6 +105,7 @@ class GetUsersV1 {
 			'short_desc_visibility'  => $data['short_desc_visibility'],
 			'bio_visibility'         => $data['bio_visibility'],
 			'social_visibility'      => $data['social_visibility'],
+			'button_visibility'      => $data['button_visibility'],
 		];
 
 		if ( ! empty( $user_lists ) ) {

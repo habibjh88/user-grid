@@ -3096,7 +3096,9 @@ function ReadArticleBtn(props) {
   const {
     read_btn_spacing,
     read_btn_color,
-    read_btn_color_hover
+    read_btn_bg,
+    read_btn_color_hover,
+    read_btn_bg_hover
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('Read Articles Button', 'user-grid'),
@@ -3111,26 +3113,38 @@ function ReadArticleBtn(props) {
         read_btn_spacing: value
       });
     }
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ButtonGroup, {
-    className: "rttpg-btn-group rttpg-btn-group-state rttpg-bottom-border-radius-none"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "dowp-btn-hover-group"
   }, _components_Constants__WEBPACK_IMPORTED_MODULE_5__.NORMAL_HOVER.map((item, key) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
     key: key,
     isPrimary: styleTab === item.value,
     isSecondary: styleTab !== item.value,
     onClick: () => setStyleTab(item.value)
-  }, item.label))), 'normal' === styleTab && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Color__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, item.label))), 'normal' === styleTab && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Color__WEBPACK_IMPORTED_MODULE_2__["default"], {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('Color', 'user-grid'),
     color: read_btn_color,
     onChange: read_btn_color => setAttributes({
       read_btn_color
     })
-  }), 'normal' === styleTab && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Color__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Color__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('Color', 'user-grid'),
+    color: read_btn_bg,
+    onChange: read_btn_bg => setAttributes({
+      read_btn_bg
+    })
+  })), 'hover' === styleTab && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Color__WEBPACK_IMPORTED_MODULE_2__["default"], {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('Color - Hover', 'user-grid'),
     color: read_btn_color_hover,
     onChange: read_btn_color_hover => setAttributes({
       read_btn_color_hover
     })
-  }));
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Color__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('Color - Hover', 'user-grid'),
+    color: read_btn_bg_hover,
+    onChange: read_btn_bg_hover => setAttributes({
+      read_btn_bg_hover
+    })
+  })));
 }
 
 /***/ }),
@@ -3340,7 +3354,8 @@ const Edit = props => {
     designation_visibility,
     short_desc_visibility,
     bio_visibility,
-    social_visibility
+    social_visibility,
+    button_visibility
   } = attributes;
 
   //set block preview
@@ -3382,7 +3397,8 @@ const Edit = props => {
         designation_visibility,
         short_desc_visibility,
         bio_visibility,
-        social_visibility
+        social_visibility,
+        button_visibility
       }
     }).then(data => {
       setAttributes({
@@ -26514,16 +26530,16 @@ const size = function (options) {
         widthSide = side;
         heightSide = alignment === 'end' ? 'top' : 'bottom';
       }
-      const maximumClippingHeight = height - overflow.top - overflow.bottom;
-      const maximumClippingWidth = width - overflow.left - overflow.right;
-      const overflowAvailableHeight = (0,_floating_ui_utils__WEBPACK_IMPORTED_MODULE_0__.min)(height - overflow[heightSide], maximumClippingHeight);
-      const overflowAvailableWidth = (0,_floating_ui_utils__WEBPACK_IMPORTED_MODULE_0__.min)(width - overflow[widthSide], maximumClippingWidth);
+      const overflowAvailableHeight = height - overflow[heightSide];
+      const overflowAvailableWidth = width - overflow[widthSide];
       const noShift = !state.middlewareData.shift;
       let availableHeight = overflowAvailableHeight;
       let availableWidth = overflowAvailableWidth;
       if (isYAxis) {
+        const maximumClippingWidth = width - overflow.left - overflow.right;
         availableWidth = alignment || noShift ? (0,_floating_ui_utils__WEBPACK_IMPORTED_MODULE_0__.min)(overflowAvailableWidth, maximumClippingWidth) : maximumClippingWidth;
       } else {
+        const maximumClippingHeight = height - overflow.top - overflow.bottom;
         availableHeight = alignment || noShift ? (0,_floating_ui_utils__WEBPACK_IMPORTED_MODULE_0__.min)(overflowAvailableHeight, maximumClippingHeight) : maximumClippingHeight;
       }
       if (noShift && !alignment) {
