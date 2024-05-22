@@ -20,6 +20,7 @@
  * @var $content_order
  * @var $button_visibility
  * @var $button_visibility
+ * @var $button_style
  */
 
 use DOWP\UserGrid\Helpers\Fns;

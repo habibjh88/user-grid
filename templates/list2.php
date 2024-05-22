@@ -19,6 +19,7 @@
  * @var $email_visibility
  * @var $content_order
  * @var $button_visibility
+ * @var $button_style
  */
 
 use DOWP\UserGrid\Helpers\Fns;
@@ -53,44 +54,44 @@ $col_class        = Fns::get_dynamic_cols(
 				</a>
 			</div>
 		<?php endif; ?>
-		<div class="user-content-wrap">
+        <div class="user-content-wrap">
 			<?php if ( $name_visibility ) : ?>
-			<<?php echo esc_attr( $name_tag ); ?> class="user-name">
-			<a href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>"><?php echo esc_html( $display_name ); ?></a>
-		</<?php echo esc_attr( $name_tag ); ?>>
+            <<?php echo esc_attr( $name_tag ); ?> class="user-name <?php Fns::order_class( 'title', $content_order ); ?>">
+            <a href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>"><?php echo esc_html( $display_name ); ?></a>
+        </<?php echo esc_attr( $name_tag ); ?>>
 	<?php endif; ?>
 
 		<?php if ( $designation && $designation_visibility ) : ?>
-			<div class="user-designation">
+            <div class="user-designation <?php Fns::order_class( 'designation', $content_order ); ?>">
 				<?php echo esc_html( $designation ); ?>
-			</div>
+            </div>
 		<?php endif; ?>
 
 		<?php if ( $short_desc_visibility && $short_desc ) : ?>
-			<div class="user-short-desc">
+            <div class="user-short-desc <?php Fns::order_class( 'short_description', $content_order ); ?>">
 				<?php echo esc_html( $short_desc ); ?>
-			</div>
+            </div>
 		<?php endif; ?>
 
 		<?php if ( $bio_visibility && $description ) : ?>
-			<div class="user-biography">
+            <div class="user-biography <?php Fns::order_class( 'biography', $content_order ); ?>">
 				<?php echo esc_html( $description ); ?>
-			</div>
+            </div>
 		<?php endif; ?>
 
 		<?php if ( $social_visibility ) : ?>
-			<div class="dwp-user-social-icons <?php Fns::order_class( 'social', $content_order ); ?>">
+            <div class="dwp-user-social-icons <?php Fns::order_class( 'social', $content_order ); ?>">
 				<?php Fns::get_user_social_icon( $user_id, $email_visibility ); ?>
-			</div>
+            </div>
 		<?php endif; ?>
 
 		<?php if ( $button_visibility ) : ?>
-			<div class="read-articles-btn <?php Fns::order_class( 'button', $content_order ); ?>">
-				<a class="read-btn <?php echo esc_attr( $button_style ); ?>" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
+            <div class="read-articles-btn <?php Fns::order_class( 'button', $content_order ); ?>">
+                <a class="read-btn <?php echo esc_attr($button_style) ?>" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
 					<?php esc_html_e( 'Read Articles', 'user-grid' ); ?>
-				</a>
-			</div>
+                </a>
+            </div>
 		<?php endif; ?>
-	</div>
+    </div>
 </div>
 </div>
