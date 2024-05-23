@@ -22,7 +22,7 @@ use DOWP\UserGrid\Helpers\Fns;
  */
 class ActionHooks {
 
-	private static $avatar_size = 96;
+	private static $avatar_size = 300;
 
 	/**
 	 * Class init.
@@ -82,12 +82,14 @@ class ActionHooks {
 			<tr>
 				<th><label for="pinterest"><?php esc_html_e( 'User Avater', 'user-grid' ); ?></label></th>
 				<td>
+                    <div class="user-grid-attachment-avatar" style="max-height: 300px;display:inline-block;">
 					<?php
 					$default_avatar = ScriptController::get_default_avatar_url( $user->user_email );
 					$des_hidden     = ! empty( $attachment_id ) ? 'hidden' : '';
 					$btn_hidden     = empty( $attachment_id ) ? 'hidden' : '';
-					echo get_avatar( $user->ID, self::$avatar_size, '', $user->display_name, [ 'class' => 'user-grid-attachment-avatar' ] );
+					echo get_avatar( $user->ID, self::$avatar_size, '', $user->display_name );
 					?>
+                    </div>
 					<p class="description <?php echo esc_attr( $des_hidden ); ?>" id="user-grid-attachment-description">
 						<?php esc_html_e( "You're seeing the default profile picture.", 'user-grid' ); ?>
 					</p>
@@ -132,6 +134,9 @@ class ActionHooks {
 				</td>
 			</tr>
 		</table>
+        <style>
+            img{object-fit: cover}
+        </style>
 		<?php
 		wp_nonce_field( userGrid()->nonceText(), userGrid()->nonceId() );
 	}

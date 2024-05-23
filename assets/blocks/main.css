@@ -1,14 +1,838 @@
-.dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button{align-items:center;background:#fff;border:1px solid #ced7db;cursor:pointer;display:inline-flex;font-size:14px;height:30px;justify-content:center;line-height:30px;margin-left:-1px;transition:var(--dowp-transition)}.dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button.active,.dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button:hover,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button.active,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button:hover{background:var(--dowp-primary);color:#fff}.dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button:first-child,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button:first-child{border-radius:4px 0 0 4px}.dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button:last-child,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button:last-child{border-radius:0 4px 4px 0}.dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button svg:focus,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button svg:focus{outline:none}.dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button i,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button i{transition:none}
-.dowp-components-popover .dowp-device-switcher,.dowp-panel-control-wrapper .dowp-device-switcher{align-items:center;color:#a4afb7;cursor:pointer;display:flex;font-size:11px;height:0;justify-content:center;opacity:0;position:relative;transform:scale(0);transition:.15s;z-index:2}.dowp-components-popover .dowp-device-switcher i,.dowp-panel-control-wrapper .dowp-device-switcher i{font-size:inherit}.dowp-components-popover .dowp-device-switcher.active,.dowp-panel-control-wrapper .dowp-device-switcher.active{font-size:14px;height:24px;margin-top:-2px;opacity:1;transform:scale(1)}.dowp-components-popover .dowp-device-switchers,.dowp-panel-control-wrapper .dowp-device-switchers{height:24px;position:relative;width:24px}.dowp-components-popover .dowp-device-switchers-wrap,.dowp-panel-control-wrapper .dowp-device-switchers-wrap{color:#e0e1e3;position:absolute;top:1px;width:100%;z-index:44}.dowp-components-popover .dowp-device-switchers-open .dowp-device-switchers-wrap,.dowp-panel-control-wrapper .dowp-device-switchers-open .dowp-device-switchers-wrap{background:#fff;border-radius:2px;box-shadow:0 0 20px 0 rgba(0,0,0,.25)}.dowp-components-popover .dowp-device-switchers-open.active-md .dowp-device-switchers-wrap,.dowp-components-popover .dowp-device-switchers-open.active-sm .dowp-device-switchers-wrap,.dowp-components-popover .dowp-device-switchers-open.active-xs .dowp-device-switchers-wrap,.dowp-panel-control-wrapper .dowp-device-switchers-open.active-md .dowp-device-switchers-wrap,.dowp-panel-control-wrapper .dowp-device-switchers-open.active-sm .dowp-device-switchers-wrap,.dowp-panel-control-wrapper .dowp-device-switchers-open.active-xs .dowp-device-switchers-wrap{top:0}.dowp-components-popover .dowp-device-switchers-open .dowp-device-switcher,.dowp-panel-control-wrapper .dowp-device-switchers-open .dowp-device-switcher{font-size:14px;height:24px;opacity:1;transform:scale(1)}.dowp-device-switchers-open .dowp-device-switcher.active{color:var(--dowp-primary,#009fff)}
-.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap{margin-bottom:16px!important}.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list{--row-gap:10px;--column-gap:6px;-moz-column-gap:var(--column-gap);column-gap:var(--column-gap);display:grid;row-gap:var(--row-gap)}.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro{position:relative}.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro .pro-lable,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro .pro-lable{background:red;color:#fff;display:inline-block;font-size:10px;font-weight:600;line-height:1;padding:2px 4px 3px;position:absolute;right:0;text-transform:uppercase;top:0;z-index:99}.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro .dowp-layout,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro .dowp-layout{border:none;position:relative}.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro .dowp-layout:after,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro .dowp-layout:after{background:rgba(0,0,0,.25);bottom:0;content:"";left:0;position:absolute;right:0;top:0;z-index:1}.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div{--row-gap:6px;--column-gap:6px;-moz-column-gap:var(--column-gap);column-gap:var(--column-gap);cursor:pointer;display:grid;overflow:hidden;row-gap:var(--row-gap);text-align:center}.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div .dowp-layout,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div .dowp-layout{background-color:#fff;border:2px solid var(--dowp-border);border-radius:0;display:block;height:62px;overflow:hidden;transition:var(--dowp-transition)}.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div .dowp-layout img,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div .dowp-layout img{display:block;filter:grayscale(1);transition:.4s;width:100%}.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div .dowp-label,.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div .dowp-style-icon,.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div .dowp-style-svg,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div .dowp-label,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div .dowp-style-icon,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div .dowp-style-svg{display:block}.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div .dowp-label,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div .dowp-label{font-size:11px!important;line-height:1.3;transition:var(--dowp-transition)}.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div.dowp-active .dowp-layout,.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div:hover .dowp-layout,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div.dowp-active .dowp-layout,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div:hover .dowp-layout{border-color:var(--dowp-primary,#009fff)}.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div.dowp-active .dowp-layout img,.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div:hover .dowp-layout img,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div.dowp-active .dowp-layout img,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div:hover .dowp-layout img{filter:grayscale(0)}.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div.dowp-active .dowp-label,.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div:hover .dowp-label,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div.dowp-active .dowp-label,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list>div:hover .dowp-label{color:var(--dowp-primary,#009fff)!important}.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list.dowp-style-columns-2,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list.dowp-style-columns-2{grid-template-columns:repeat(2,1fr)}.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list.dowp-style-columns-3,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list.dowp-style-columns-3{grid-template-columns:repeat(3,1fr)}.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list.dowp-style-columns-4,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list.dowp-style-columns-4{grid-template-columns:repeat(4,1fr)}
-.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-btn-group{gap:5px}.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button{align-items:center;cursor:pointer;display:flex;flex:0 0 32%;height:36px;justify-content:center;transition:.4s}.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button svg{fill:#7d7d85;transform:scale(1.2);transition:fill .4s}.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button svg:focus{outline:none}.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button.active,.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button:hover{border-color:var(--dowp-primary)!important}.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button.active svg,.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button:hover svg{fill:var(--dowp-primary)!important}
-.dowp-components-popover .dowp-control-field .dowp-cf-head .rt-left-part,.dowp-panel-control-wrapper .dowp-control-field .dowp-cf-head .rt-left-part{align-items:center;display:flex}.dowp-components-popover .dowp-control-field .dowp-cf-head .dowp-label,.dowp-panel-control-wrapper .dowp-control-field .dowp-cf-head .dowp-label{margin-bottom:2px;margin-right:4px}.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap{row-gap:5px}.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .components-input-control__input,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .components-input-control__input{height:30px!important;min-width:70px}.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-head,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-head{display:flex;flex-direction:row;justify-content:space-between}.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-units-choices,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-units-choices{display:flex;gap:5px;justify-content:flex-end}.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-units-choices label,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-units-choices label{cursor:pointer;font-size:10px;font-weight:500;padding:0;text-transform:uppercase}.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-units-choices label.active,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-units-choices label.active{color:var(--dowp-primary,#009fff)}.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .components-range-control__wrapper,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .components-range-control__wrapper{color:var(--dowp-primary,#009fff);flex:1 1 90%!important;height:25px;min-height:25px}.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .components-range-control__wrapper .acf-bf-cf-b-afb-199wkr,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .components-range-control__wrapper .acf-bf-cf-b-afb-199wkr{background-color:var(--dowp-primary,#009fff)}.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body{align-items:center;display:flex;gap:8px}.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .components-base-control,.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .components-base-control__field,.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-control-field,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .components-base-control,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .components-base-control__field,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-control-field{flex-grow:1;margin-bottom:0}.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-undo-btn,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-undo-btn{background-color:transparent;color:var(--dowp-secondary,#555);font-size:16px}.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-undo-btn span,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-undo-btn span{font-size:inherit;line-height:1.5}.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-undo-btn:focus,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-undo-btn:focus{box-shadow:none;outline:0}
-.dowp-components-popover .dowp-control-dimensions,.dowp-panel-control-wrapper .dowp-control-dimensions{display:flex;overflow:hidden}.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension:first-child input,.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension:first-child input{border-left:1px solid var(--dowp-border);border-radius:3px 0 0 3px}.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension input,.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension input{border-left:none;border-color:var(--dowp-border);border-radius:0;display:block;height:27px;padding:4px 0;text-align:center;width:100%}.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension input:active,.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension input:focus,.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension input:hover,.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension input:active,.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension input:focus,.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension input:hover{box-shadow:none;outline:0}.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions,.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions{align-items:center;border:1px solid var(--dowp-border);border-radius:0 3px 3px 0;cursor:pointer;display:inline-flex;font-size:15px;height:30px;justify-content:center;width:40px}.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions.linked,.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions.linked{background-color:#d3e1e9;border-color:#d3e1e9}.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions .rt-dm-link-icon,.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions .rt-dm-link-icon{align-items:center;display:inline-flex;font-size:15px;height:auto;line-height:1;width:auto}.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions:focus,.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions:focus-visible,.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions:focus,.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions:focus-visible{box-shadow:none;outline:0}.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension-label,.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension-label{display:block;font-size:9px;padding-top:5px;text-align:center;text-transform:uppercase}
-.dowp-media{margin-bottom:15px}.dowp-media label{display:block;font-weight:500;margin-bottom:10px}.dowp-media .dowp-single-img .dowp-media-image-parent{display:inline-block;height:120px;overflow:hidden;position:relative;width:100%}.dowp-media .dowp-single-img .dowp-media-image-parent img{height:100%;margin:0;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center;width:100%}.dowp-media .dowp-placeholder-image{background-color:#d5dadf;background-position:50%;background-repeat:no-repeat;background-size:cover;border:1px dashed #a7a7a7;border-radius:0;cursor:pointer;height:120px;padding:20px 20px 25px;position:relative;text-align:center;transition:.4s}.dowp-media .dowp-placeholder-image:hover{background-color:#bfc3c7;border-color:#838383}.dowp-media .dowp-placeholder-image .dashicons{font-size:20px;height:20px;margin-bottom:15px;padding-top:25px}.dowp-media .dowp-media-image-parent .dowp-media-actions{margin-top:0!important;position:absolute;right:10px!important;top:10px!important}.dowp-media .dowp-media-image-parent .dowp-media-actions button{background-color:hsla(0,0%,100%,.9);border:1px solid;border-radius:3px;color:#575c60;cursor:pointer;font-size:10px;height:22px;line-height:1.6;margin-left:5px;min-height:22px;padding:0 0 2px;position:static;right:10px;text-align:center;top:10px;transition:.4s;width:22px;z-index:9}.dowp-media .dowp-media-image-parent .dowp-media-actions button span{font-size:13px;height:auto;width:auto}.dowp-media .dowp-media-image-parent .dowp-media-actions button:hover{box-shadow:0 0 5px 0 #000!important;color:#373c41!important}
-.dowp-components-popover .dowp-control-field.dowp-cf-color-wrap,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-color-wrap{align-items:center;display:flex;gap:15px;justify-content:space-between}.dowp-components-popover .dowp-control-field.dowp-cf-color-wrap .dowp-color,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-color-wrap .dowp-color{align-items:center;display:flex;flex-direction:row-reverse;gap:6px}.dowp-components-popover .dowp-control-field.dowp-cf-color-wrap .dowp-color .dowp-undo-btn,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-color-wrap .dowp-color .dowp-undo-btn{padding:0}.dowp-components-popover .dowp-control-field.dowp-cf-color-wrap .dowp-color .dashicon,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-color-wrap .dowp-color .dashicon{line-height:22px}.dowp-components-popover .dowp-control-field.dowp-cf-color-wrap .dowp-color-ball,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-color-wrap .dowp-color-ball{background-image:linear-gradient(45deg,#e9e9e9 25%,transparent 0),linear-gradient(-45deg,#e9e9e9 25%,transparent 0),linear-gradient(45deg,transparent 75%,#e9e9e9 0),linear-gradient(-45deg,transparent 75%,#e9e9e9 0);background-position:0 0,0 5px,5px -5px,-5px 0;background-size:10px 10px;border-radius:0;overflow:hidden}.dowp-components-popover .dowp-control-field.dowp-cf-color-wrap .dowp-color-ball div,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-color-wrap .dowp-color-ball div{cursor:pointer}
-.dowp-components-popover .dowp-control-field.dowp-cf-typography-wrap,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-typography-wrap{align-items:center;display:flex;justify-content:space-between}.dowp-components-popover .dowp-control-field.dowp-cf-typography-wrap .components-button,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-typography-wrap .components-button{align-items:center;background:transparent;border:1px solid #d5dadf;border-radius:3px;color:#1e1e1e;display:inline-flex;font-size:12px;height:28px!important;justify-content:center;padding:0;width:28px!important}.dowp-components-popover .dowp-control-field.dowp-cf-typography-wrap .components-button>span,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-typography-wrap .components-button>span{font-size:19px;height:22px;line-height:1;transition:unset}.dowp-components-popover .dowp-control-field.dowp-cf-typography-wrap .components-button svg,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-typography-wrap .components-button svg{width:15px}.dowp-components-popover .dowp-control-field.dowp-cf-typography-wrap .components-button:hover,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-typography-wrap .components-button:hover{background-color:#d3e1e9}.dowp-components-popover .dowp-typography-content,.dowp-panel-control-wrapper .dowp-typography-content{min-width:230px;padding:5px 6px}
-.dowp-components-popover .dowp-control-field.dowp-cf-gradient-color,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-color{row-gap:0}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap{--row-gap:12px}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__swatches,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__swatches{gap:8px}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper{height:22px;width:22px}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper:hover,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper:hover{transform:scale(1)}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper:before,.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper>svg,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper:before,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper>svg{display:none}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option{padding:5px;position:relative}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option:after,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option:after{display:none}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option.is-pressed,.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option:hover,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option.is-pressed,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option:hover{box-shadow:none!important}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option.is-pressed:before,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option.is-pressed:before{background:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 448 512%27 width=%271em%27 height=%271em%27 fill=%27%23fff%27%3E%3Cpath d=%27M438.6 105.4c12.5 12.5 12.5 32.7 0 45.2l-256 256c-12.5 12.5-32.7 12.5-45.2 0L9.372 278.6c-12.496-12.5-12.496-32.7 0-45.2 12.498-12.5 32.758-12.5 45.258 0L159.1 338.7l234.3-233.3c12.5-12.52 32.7-12.52 45.2 0z%27/%3E%3C/svg%3E")!important;content:"";height:16px;left:50%;pointer-events:none;position:absolute;top:50%;transform:translate(-50%,-50%);width:16px}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper{margin-top:6px}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button{align-items:center;background-color:#e0e0e0;border:none;box-shadow:none;color:var(--dowp-black,#000);display:inline-flex;font-size:var(--dowp-admin-text-xs,12px);justify-content:center;padding:5px 10px}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:hover,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:hover{background-color:var(--dowp-primary,#009fff);color:var(--dowp-white,#fff)}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:focus,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:focus{box-shadow:none;outline:0}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker>div:nth-of-type(2)>div:nth-of-type(2)>div,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker>div:nth-of-type(2)>div:nth-of-type(2)>div{position:relative!important;top:6.5px!important}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__gradient-bar,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__gradient-bar{border-radius:4px;height:36px}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__markers-container,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__markers-container{height:100%}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button,.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point{background:transparent;border:2.5px solid #fff;border-radius:50%;box-shadow:none;color:#fff;top:50%;transform:translateY(-50%)}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:focus,.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover,.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point:focus,.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:focus,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point:focus,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover{box-shadow:none;outline:0}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover,.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover{background:transparent}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point{top:11px}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__input,.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-select-control__input,.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-textarea-control__input,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__input,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-select-control__input,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-textarea-control__input{height:34px!important;min-height:34px!important}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__backdrop,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__backdrop{display:none!important}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle{border:1px solid var(--dowp-border)}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle-indicator,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle-indicator{background:var(--dowp-primary,#009fff);border-color:var(--dowp-primary,#009fff);border-radius:50%}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line{margin-bottom:6px}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-input-control__label,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-input-control__label{margin-bottom:0!important;padding-bottom:8px!important;text-transform:capitalize}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type{align-self:baseline}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container{border:1px solid var(--dowp-border);height:34px!important}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-truncate,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-truncate{color:var(--dowp-primary,#009fff)!important}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-input-control__input,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-input-control__input{border:none!important;height:31.5px!important;min-height:31.5px!important;padding:3px 0 3px 6px!important}.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container:focus,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container:focus{border-color:var(--dowp-primary,#009fff);box-shadow:none;outline:0}
-.dowp-components-popover .dowp-control-field.dowp-cf-bg-property,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-bg-property{display:flex;justify-content:space-between;margin-bottom:0!important}.dowp-components-popover .dowp-control-field.dowp-cf-bg-property select,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-bg-property select{height:30px!important;min-height:30px!important;padding-bottom:3px;padding-top:3px;width:130px}.dowp-components-popover .dowp-control-field.dowp-cf-bg-property .dowp-cf-body>*,.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-bg-property .dowp-cf-body>*{margin-bottom:0!important}
-.dowp-components-popover .dowp-bg-img .components-base-control__field,.dowp-panel-control-wrapper .dowp-bg-img .components-base-control__field{display:grid;gap:6px}.dowp-components-popover .dowp-bg-img .components-base-control .dowp-image-avatar,.dowp-components-popover .dowp-bg-img .components-base-control .dowp-img-remove-btn,.dowp-panel-control-wrapper .dowp-bg-img .components-base-control .dowp-image-avatar,.dowp-panel-control-wrapper .dowp-bg-img .components-base-control .dowp-img-remove-btn{margin-bottom:0}.dowp-components-popover .dowp-bg-img .components-base-control .dowp-image-avatar .open-image-button,.dowp-components-popover .dowp-bg-img .components-base-control .dowp-img-remove-btn .open-image-button,.dowp-panel-control-wrapper .dowp-bg-img .components-base-control .dowp-image-avatar .open-image-button,.dowp-panel-control-wrapper .dowp-bg-img .components-base-control .dowp-img-remove-btn .open-image-button{background:transparent;border:none;bottom:0;cursor:pointer;height:100%;left:0;position:absolute;right:0;top:0;width:100%}
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/alignment.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+.dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button {
+  font-size: 14px;
+  background: #fff;
+  border: 1px solid #ced7db;
+  height: 30px;
+  line-height: 30px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -1px;
+  cursor: pointer;
+  transition: var(--dowp-transition);
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button:hover, .dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button.active,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button:hover,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button.active {
+  background: var(--dowp-primary);
+  color: #ffffff;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button:first-child,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button:first-child {
+  border-radius: 4px 0 0 4px;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button:last-child,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button:last-child {
+  border-radius: 0 4px 4px 0;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button svg:focus,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button svg:focus {
+  outline: none;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button i,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button i {
+  transition: none;
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/devices.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
+.dowp-components-popover .dowp-device-switcher,
+.dowp-panel-control-wrapper .dowp-device-switcher {
+  color: #a4afb7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  height: 0;
+  transform: scale(0);
+  opacity: 0;
+  transition: 0.15s;
+  font-size: 11px;
+}
+.dowp-components-popover .dowp-device-switcher i,
+.dowp-panel-control-wrapper .dowp-device-switcher i {
+  font-size: inherit;
+}
+.dowp-components-popover .dowp-device-switcher.active,
+.dowp-panel-control-wrapper .dowp-device-switcher.active {
+  height: 24px;
+  transform: scale(1);
+  opacity: 1;
+  font-size: 14px;
+  margin-top: -2px;
+}
+.dowp-components-popover .dowp-device-switchers,
+.dowp-panel-control-wrapper .dowp-device-switchers {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+.dowp-components-popover .dowp-device-switchers-wrap,
+.dowp-panel-control-wrapper .dowp-device-switchers-wrap {
+  position: absolute;
+  width: 100%;
+  top: 1px;
+  color: #e0e1e3;
+  z-index: 44;
+}
+.dowp-components-popover .dowp-device-switchers-open .dowp-device-switchers-wrap,
+.dowp-panel-control-wrapper .dowp-device-switchers-open .dowp-device-switchers-wrap {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+  background: #ffffff;
+  border-radius: 2px;
+}
+.dowp-components-popover .dowp-device-switchers-open.active-md .dowp-device-switchers-wrap,
+.dowp-panel-control-wrapper .dowp-device-switchers-open.active-md .dowp-device-switchers-wrap {
+  top: 0;
+}
+.dowp-components-popover .dowp-device-switchers-open.active-sm .dowp-device-switchers-wrap,
+.dowp-panel-control-wrapper .dowp-device-switchers-open.active-sm .dowp-device-switchers-wrap {
+  top: 0;
+}
+.dowp-components-popover .dowp-device-switchers-open.active-xs .dowp-device-switchers-wrap,
+.dowp-panel-control-wrapper .dowp-device-switchers-open.active-xs .dowp-device-switchers-wrap {
+  top: 0;
+}
+.dowp-components-popover .dowp-device-switchers-open .dowp-device-switcher,
+.dowp-panel-control-wrapper .dowp-device-switchers-open .dowp-device-switcher {
+  height: 24px;
+  transform: scale(1);
+  opacity: 1;
+  font-size: 14px;
+}
 
-.dowp-components-popover .dowp-boxshadow-content,.dowp-panel-control-wrapper .dowp-boxshadow-content{min-width:220px}
+.dowp-device-switchers-open .dowp-device-switcher.active {
+  color: var(--dowp-primary, #009FFF);
+}
+/*!******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/styles.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************/
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap {
+  margin-bottom: 16px !important;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list {
+  --row-gap: 10px;
+  --column-gap: 6px;
+  display: grid;
+  row-gap: var(--row-gap);
+  -moz-column-gap: var(--column-gap);
+       column-gap: var(--column-gap);
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro {
+  position: relative;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro .pro-lable,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro .pro-lable {
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 1;
+  background: red;
+  display: inline-block;
+  z-index: 99;
+  padding: 2px 4px 3px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro .dowp-layout,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro .dowp-layout {
+  position: relative;
+  border: none;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro .dowp-layout:after,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list .is-pro .dowp-layout:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div {
+  --row-gap: 6px;
+  --column-gap: 6px;
+  display: grid;
+  row-gap: var(--row-gap);
+  -moz-column-gap: var(--column-gap);
+       column-gap: var(--column-gap);
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-layout,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-layout {
+  display: block;
+  border: 2px solid var(--dowp-border);
+  transition: var(--dowp-transition);
+  overflow: hidden;
+  height: 62px;
+  border-radius: 0;
+  background-color: #fff;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-layout img,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-layout img {
+  display: block;
+  width: 100%;
+  transition: 0.4s;
+  filter: grayscale(1);
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-style-icon,
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-style-svg,
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-label,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-style-icon,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-style-svg,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-label {
+  display: block;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-label,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div .dowp-label {
+  font-size: 11px !important;
+  line-height: 1.3;
+  transition: var(--dowp-transition);
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div:hover .dowp-layout, .dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div.dowp-active .dowp-layout,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div:hover .dowp-layout,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div.dowp-active .dowp-layout {
+  border-color: var(--dowp-primary, #009FFF);
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div:hover .dowp-layout img, .dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div.dowp-active .dowp-layout img,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div:hover .dowp-layout img,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div.dowp-active .dowp-layout img {
+  filter: grayscale(0);
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div:hover .dowp-label, .dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div.dowp-active .dowp-label,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div:hover .dowp-label,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list > div.dowp-active .dowp-label {
+  color: var(--dowp-primary, #009FFF) !important;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list.dowp-style-columns-2,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list.dowp-style-columns-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list.dowp-style-columns-3,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list.dowp-style-columns-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list.dowp-style-columns-4,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-styles-wrap .dowp-style-list.dowp-style-columns-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+/*!***********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/LayoutStyle.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************/
+.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-btn-group {
+  gap: 5px;
+}
+.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button {
+  flex: 0 0 32%;
+  cursor: pointer;
+  transition: 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
+}
+.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button svg {
+  transition: fill 0.4s;
+  fill: #7d7d85;
+  transform: scale(1.2);
+}
+.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button svg:focus {
+  outline: none;
+}
+.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button:hover, .dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button.active {
+  border-color: var(--dowp-primary) !important;
+}
+.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button:hover svg, .dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button.active svg {
+  fill: var(--dowp-primary) !important;
+}
+/*!***********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/rangeDevice.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************/
+.dowp-components-popover .dowp-control-field .dowp-cf-head .rt-left-part,
+.dowp-panel-control-wrapper .dowp-control-field .dowp-cf-head .rt-left-part {
+  display: flex;
+  align-items: center;
+}
+.dowp-components-popover .dowp-control-field .dowp-cf-head .dowp-label,
+.dowp-panel-control-wrapper .dowp-control-field .dowp-cf-head .dowp-label {
+  margin-bottom: 2px;
+  margin-right: 4px;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap {
+  row-gap: 5px;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .components-input-control__input,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .components-input-control__input {
+  height: 30px !important;
+  min-width: 70px;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-head,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-units-choices,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-units-choices {
+  display: flex;
+  gap: 5px;
+  justify-content: flex-end;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-units-choices label,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-units-choices label {
+  cursor: pointer;
+  padding: 0;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 500;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-units-choices label.active,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-units-choices label.active {
+  color: var(--dowp-primary, #009FFF);
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .components-range-control__wrapper,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .components-range-control__wrapper {
+  color: var(--dowp-primary, #009FFF);
+  min-height: 25px;
+  height: 25px;
+  flex: 1 1 90% !important;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .components-range-control__wrapper .acf-bf-cf-b-afb-199wkr,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .components-range-control__wrapper .acf-bf-cf-b-afb-199wkr {
+  background-color: var(--dowp-primary, #009FFF);
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .components-base-control,
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .components-base-control__field,
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-control-field,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .components-base-control,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .components-base-control__field,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-control-field {
+  flex-grow: 1;
+  margin-bottom: 0;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-undo-btn,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-undo-btn {
+  font-size: 16px;
+  color: var(--dowp-secondary, #555);
+  background-color: transparent;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-undo-btn span,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-undo-btn span {
+  font-size: inherit;
+  line-height: 1.5;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-undo-btn:focus,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-range-wrap .dowp-cf-body .dowp-undo-btn:focus {
+  outline: 0;
+  box-shadow: none;
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/dimension.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+.dowp-components-popover .dowp-control-dimensions,
+.dowp-panel-control-wrapper .dowp-control-dimensions {
+  overflow: hidden;
+  display: flex;
+}
+.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension:first-child input,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension:first-child input {
+  border-left: 1px solid var(--dowp-border);
+  border-radius: 3px 0 0 3px;
+}
+.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension input,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension input {
+  border-left: none;
+  border-radius: 0;
+  padding: 4px 0;
+  display: block;
+  text-align: center;
+  width: 100%;
+  height: 27px;
+  border-color: var(--dowp-border);
+}
+.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension input:active, .dowp-components-popover .dowp-control-dimensions .dowp-control-dimension input:focus, .dowp-components-popover .dowp-control-dimensions .dowp-control-dimension input:hover,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension input:active,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension input:focus,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension input:hover {
+  box-shadow: none;
+  outline: 0;
+}
+.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions {
+  width: 40px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 0 3px 3px 0;
+  border: 1px solid var(--dowp-border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions.linked,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions.linked {
+  background-color: #d3e1e9;
+  border-color: #d3e1e9;
+}
+.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions .rt-dm-link-icon,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions .rt-dm-link-icon {
+  font-size: 15px;
+  width: auto;
+  height: auto;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions:focus, .dowp-components-popover .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions:focus-visible,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions:focus,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions:focus-visible {
+  outline: 0;
+  box-shadow: none;
+}
+.dowp-components-popover .dowp-control-dimensions .dowp-control-dimension-label,
+.dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension-label {
+  display: block;
+  text-align: center;
+  font-size: 9px;
+  text-transform: uppercase;
+  padding-top: 5px;
+}
+/*!*****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/media.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************/
+.dowp-media {
+  margin-bottom: 15px;
+}
+.dowp-media label {
+  margin-bottom: 10px;
+  display: block;
+  font-weight: 500;
+}
+.dowp-media .dowp-single-img .dowp-media-image-parent {
+  position: relative;
+  display: inline-block;
+  height: 120px;
+  width: 100%;
+  overflow: hidden;
+}
+.dowp-media .dowp-single-img .dowp-media-image-parent img {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.dowp-media .dowp-placeholder-image {
+  position: relative;
+  border: 1px dashed #a7a7a7;
+  padding: 20px 20px 25px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0;
+  background-color: #d5dadf;
+  transition: 0.4s;
+  height: 120px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.dowp-media .dowp-placeholder-image:hover {
+  background-color: #bfc3c7;
+  border-color: #838383;
+}
+.dowp-media .dowp-placeholder-image .dashicons {
+  height: 20px;
+  padding-top: 25px;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+.dowp-media .dowp-media-image-parent .dowp-media-actions {
+  position: absolute;
+  top: 10px !important;
+  right: 10px !important;
+  margin-top: 0 !important;
+}
+.dowp-media .dowp-media-image-parent .dowp-media-actions button {
+  position: static;
+  text-align: center;
+  padding: 0 0 2px 0;
+  margin-left: 5px;
+  top: 10px;
+  right: 10px;
+  width: 22px;
+  height: 22px;
+  min-height: 22px;
+  font-size: 10px;
+  color: #575c60;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 3px;
+  line-height: 1.6;
+  border: 1px solid;
+  cursor: pointer;
+  z-index: 9;
+  transition: 0.4s;
+}
+.dowp-media .dowp-media-image-parent .dowp-media-actions button span {
+  font-size: 13px;
+  width: auto;
+  height: auto;
+}
+.dowp-media .dowp-media-image-parent .dowp-media-actions button:hover {
+  color: #373c41 !important;
+  box-shadow: 0 0 5px 0 #000 !important;
+}
+/*!*****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/color.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************/
+.dowp-components-popover .dowp-control-field.dowp-cf-color-wrap,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-color-wrap {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: space-between;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-color-wrap .dowp-color,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-color-wrap .dowp-color {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-direction: row-reverse;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-color-wrap .dowp-color .dowp-undo-btn,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-color-wrap .dowp-color .dowp-undo-btn {
+  padding: 0;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-color-wrap .dowp-color .dashicon,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-color-wrap .dowp-color .dashicon {
+  line-height: 22px;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-color-wrap .dowp-color-ball,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-color-wrap .dowp-color-ball {
+  background-image: linear-gradient(45deg, #e9e9e9 25%, transparent 0), linear-gradient(-45deg, #e9e9e9 25%, transparent 0), linear-gradient(45deg, transparent 75%, #e9e9e9 0), linear-gradient(-45deg, transparent 75%, #e9e9e9 0);
+  background-position: 0 0, 0 5px, 5px -5px, -5px 0;
+  background-size: 10px 10px;
+  border-radius: 0;
+  overflow: hidden;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-color-wrap .dowp-color-ball div,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-color-wrap .dowp-color-ball div {
+  cursor: pointer;
+}
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/typography.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+.dowp-components-popover .dowp-control-field.dowp-cf-typography-wrap,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-typography-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-typography-wrap .components-button,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-typography-wrap .components-button {
+  font-size: 12px;
+  height: 28px !important;
+  width: 28px !important;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d5dadf;
+  background: transparent;
+  border-radius: 3px;
+  color: #1e1e1e;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-typography-wrap .components-button > span,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-typography-wrap .components-button > span {
+  transition: unset;
+  line-height: 1;
+  height: 22px;
+  font-size: 19px;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-typography-wrap .components-button svg,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-typography-wrap .components-button svg {
+  width: 15px;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-typography-wrap .components-button:hover,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-typography-wrap .components-button:hover {
+  background-color: #d3e1e9;
+}
+.dowp-components-popover .dowp-typography-content,
+.dowp-panel-control-wrapper .dowp-typography-content {
+  min-width: 230px;
+  padding: 5px 6px;
+}
+/*!********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/gradient.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************/
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-color,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-color {
+  row-gap: 0;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap {
+  --row-gap: 12px;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__swatches,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__swatches {
+  gap: 8px;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper {
+  height: 22px;
+  width: 22px;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper:hover,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper:hover {
+  transform: scale(1);
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper::before,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper::before {
+  display: none;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper > svg,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option-wrapper > svg {
+  display: none;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option {
+  position: relative;
+  padding: 5px;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option::after,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option::after {
+  display: none;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option.is-pressed, .dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option:hover,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option.is-pressed,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option:hover {
+  box-shadow: none !important;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option.is-pressed::before,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__option.is-pressed::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background: url("data:image/svg+xml,%0A%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 448 512%27 width=%271em%27 height=%271em%27 fill=%27%23ffffff%27 %3E%3Cpath d=%27M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z%27/%3E%3C/svg%3E") !important;
+  pointer-events: none;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper {
+  margin-top: 6px;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button {
+  font-size: var(--dowp-admin-text-xs, 12px);
+  padding: 5px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: none;
+  color: var(--dowp-black, #000);
+  background-color: #e0e0e0;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:hover,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:hover {
+  color: var(--dowp-white, #fff);
+  background-color: var(--dowp-primary, #009FFF);
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:focus,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:focus {
+  outline: 0;
+  box-shadow: none;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker > div:nth-of-type(2) > div:nth-of-type(2) > div,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker > div:nth-of-type(2) > div:nth-of-type(2) > div {
+  position: relative !important;
+  top: 6.5px !important;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__gradient-bar,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__gradient-bar {
+  height: 36px;
+  border-radius: 4px;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__markers-container,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__markers-container {
+  height: 100%;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point, .dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button {
+  color: #fff;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  top: 50%;
+  background: transparent;
+  border: 2.5px solid #ffffff;
+  box-shadow: none;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover, .dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point:focus, .dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover, .dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:focus,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point:focus,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:focus {
+  box-shadow: none;
+  outline: 0;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover, .dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover {
+  background: transparent;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__insert-point {
+  top: 11px;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-select-control__input,
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-textarea-control__input,
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__input,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-select-control__input,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-textarea-control__input,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__input {
+  height: 34px !important;
+  min-height: 34px !important;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__backdrop,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__backdrop {
+  display: none !important;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle {
+  border: 1px solid var(--dowp-border);
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle-indicator,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle-indicator {
+  background: var(--dowp-primary, #009FFF);
+  border-radius: 50%;
+  border-color: var(--dowp-primary, #009FFF);
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line {
+  margin-bottom: 6px;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-input-control__label,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-input-control__label {
+  text-transform: capitalize;
+  padding-bottom: 8px !important;
+  margin-bottom: 0 !important;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type {
+  align-self: baseline;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container {
+  height: 34px !important;
+  border: 1px solid var(--dowp-border);
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-truncate,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-truncate {
+  color: var(--dowp-primary, #009FFF) !important;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-input-control__input,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-input-control__input {
+  border: none !important;
+  height: 31.5px !important;
+  min-height: 31.5px !important;
+  padding-right: 0 !important;
+  padding-left: 6px !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container:focus,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container:focus {
+  outline: 0;
+  box-shadow: none;
+  border-color: var(--dowp-primary, #009FFF);
+}
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/SelectObj1.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+.dowp-components-popover .dowp-control-field.dowp-cf-bg-property,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-bg-property {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0 !important;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-bg-property select,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-bg-property select {
+  width: 130px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  min-height: 30px !important;
+  height: 30px !important;
+}
+.dowp-components-popover .dowp-control-field.dowp-cf-bg-property .dowp-cf-body > *,
+.dowp-panel-control-wrapper .dowp-control-field.dowp-cf-bg-property .dowp-cf-body > * {
+  margin-bottom: 0 !important;
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/bgImage.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
+.dowp-components-popover .dowp-bg-img .components-base-control__field,
+.dowp-panel-control-wrapper .dowp-bg-img .components-base-control__field {
+  display: grid;
+  gap: 6px;
+}
+.dowp-components-popover .dowp-bg-img .components-base-control .dowp-img-remove-btn,
+.dowp-components-popover .dowp-bg-img .components-base-control .dowp-image-avatar,
+.dowp-panel-control-wrapper .dowp-bg-img .components-base-control .dowp-img-remove-btn,
+.dowp-panel-control-wrapper .dowp-bg-img .components-base-control .dowp-image-avatar {
+  margin-bottom: 0;
+}
+.dowp-components-popover .dowp-bg-img .components-base-control .dowp-img-remove-btn .open-image-button,
+.dowp-components-popover .dowp-bg-img .components-base-control .dowp-image-avatar .open-image-button,
+.dowp-panel-control-wrapper .dowp-bg-img .components-base-control .dowp-img-remove-btn .open-image-button,
+.dowp-panel-control-wrapper .dowp-bg-img .components-base-control .dowp-image-avatar .open-image-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/background.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/boxshadow.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+.dowp-components-popover .dowp-boxshadow-content,
+.dowp-panel-control-wrapper .dowp-boxshadow-content {
+  min-width: 220px;
+}
+
+/*# sourceMappingURL=main.css.map*/
