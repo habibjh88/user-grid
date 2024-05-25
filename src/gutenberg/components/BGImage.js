@@ -86,7 +86,7 @@ function BGImage(props) {
 
             <div className="dowp-bg-img">
                 <Color
-                    label={__('Color')}
+                    label={__('Classic Color')}
                     color={value['color'] || ''}
                     onChange={(val) => setSettings(val, 'color')}
                 />

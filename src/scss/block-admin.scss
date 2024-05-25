@@ -105,9 +105,31 @@
         }
     }
 
+
     .components-border-control {
         legend {
             line-height: 2.5;
+        }
+
+        .components-input-control__container {
+            height: 34px;
+            overflow: hidden;
+            border: 1px solid #DDD;
+            > * {
+                height: 34px !important;
+                border: none !important;
+                * {
+                    border: none !important;
+                }
+            }
+            .components-input-control__input {
+                border-left: 1px solid #DDD !important;
+                border-right: 1px solid #DDD !important;
+                padding: 0 3px;
+                min-width: 28px !important;
+                text-align: center;
+            }
+
         }
     }
 
@@ -201,7 +223,7 @@
 
             &.is-primary {
                 color: inherit !important;
-                background-color: #d3e1e9 !important;
+                background-color: #e2e6e9 !important;
                 outline: none;
             }
         }
@@ -473,12 +495,14 @@
         width: 30px;
     }
 
-    .dowp-cf-body-btn-wrap .components-button .classic-btn {
-        font-size: 10px;
+    .dowp-cf-body-btn-wrap .components-button .classic-btn,
+    .dowp-cf-body-btn-wrap .components-button .gradient-btn {
+        display: flex;
+        justify-content: center;
     }
 
-    .dowp-cf-body-btn-wrap .components-button .gradient-btn {
-        font-size: 12px;
+    .dowp-cf-background-wrap .dowp-bg-img {
+        margin-top: 8px;
     }
 
     .dowp-cf-body-btn-wrap .dowp-undo-btn {

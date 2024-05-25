@@ -70,7 +70,7 @@
 .dowp-components-popover .dowp-device-switchers,
 .dowp-panel-control-wrapper .dowp-device-switchers {
   position: relative;
-  width: 24px;
+  width: 26px;
   height: 24px;
 }
 .dowp-components-popover .dowp-device-switchers-wrap,
@@ -393,8 +393,8 @@
 }
 .dowp-components-popover .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions.linked,
 .dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions.linked {
-  background-color: #d3e1e9;
-  border-color: #d3e1e9;
+  background-color: #e2e6e9;
+  border-color: #d0d4d7;
 }
 .dowp-components-popover .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions .rt-dm-link-icon,
 .dowp-panel-control-wrapper .dowp-control-dimensions .dowp-control-dimension .dowp-link-dimensions .rt-dm-link-icon {
