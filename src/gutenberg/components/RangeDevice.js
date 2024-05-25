@@ -1,3 +1,5 @@
+import ResetButton from "./ResetButton";
+
 const {__} = wp.i18n;
 const {useState} = wp.element;
 const {RangeControl, Button} = wp.components;
@@ -80,12 +82,7 @@ function RangeDevice(props) {
                 />
 
                 {(data[device] || data[device] !== 0) && (
-                    <Button
-                        isSmall
-                        className="dowp-undo-btn"
-                        icon="image-rotate"
-                        onClick={() => onChange(dftData)}
-                    ></Button>
+                    <ResetButton onChange={() => onChange(dftData)}/>
                 )}
             </div>
         </div>

@@ -1,3 +1,5 @@
+import ResetButton from "./ResetButton";
+
 const { RangeControl, Button } = wp.components;
 
 import './scss/rangeDevice.scss'
@@ -26,12 +28,7 @@ function Range( props ) {
                     { ...dataAttributes }
                 />
 
-                { (reset && data) ? <Button
-                    isSmall
-                    className="dowp-undo-btn"
-                    icon="image-rotate"
-                    onClick={ () => onChange( null ) }
-                ></Button> : ''
+                { (reset && data) ? <ResetButton onChange={() => onChange(null)}/>: ''
                 }
             </div>
         </div>

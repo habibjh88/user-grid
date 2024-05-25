@@ -66,7 +66,6 @@ function CardSettings(props) {
                 }}
             />
 
-
             <Background
                 image={false}
                 label={__("Card Background", "the-post-grid")}

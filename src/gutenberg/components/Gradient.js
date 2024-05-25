@@ -1,3 +1,5 @@
+import ResetButton from "./ResetButton";
+
 const {__} = wp.i18n;
 const {useState, useEffect} = wp.element;
 const {GradientPicker} = wp.components;
@@ -22,11 +24,9 @@ function Gradient(props) {
 
             <div className="dowp-cf-body">
                 <GradientPicker
-                    label={'helloooooo'}
+                    label={'Gradient Color'}
                     value={value}
                     onChange={(val) => setSettings(val)}
-
-
                     gradients={[
                         {
                             name: 'Green',

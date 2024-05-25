@@ -870,7 +870,7 @@ class UserBlock extends BlockBase {
 				],
 			],
 
-			'card_bg'                => [
+			'card_bg'                         => [
 				'type'    => 'object',
 				'default' => (object) [
 					'openBGColor' => 0,
@@ -888,7 +888,7 @@ class UserBlock extends BlockBase {
 							'imgSize'       => (object) [ 'lg' => '' ],
 						],
 					],
-					'gradient'    => '',
+					'gradient'    => null,
 				],
 				'style'   => [
 					(object) [

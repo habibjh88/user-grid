@@ -47,7 +47,7 @@ function AvatarSettings(props) {
                 }}
             />
 
-            <Range
+            <RangeDevice
                 label={__("Gravatar Size")}
                 value={avatar_dimension}
                 onChange={(val) => {

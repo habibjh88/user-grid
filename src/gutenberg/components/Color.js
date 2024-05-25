@@ -1,3 +1,5 @@
+import ResetButton from "./ResetButton";
+
 const {__} = wp.i18n;
 const {useState, useEffect} = wp.element;
 const {Dropdown, Tooltip, ColorPicker, Button} = wp.components;
@@ -52,12 +54,7 @@ function Color({label, color, onChange}) {
                     )}
                 />
                 {bgColor && (
-                    <Button
-                        isSmall
-                        className="dowp-undo-btn"
-                        icon="image-rotate"
-                        onClick={() => onChange(undefined)}
-                    ></Button>
+                    <ResetButton onChange={() => onChange(undefined)}/>
                 )}
             </div>
 

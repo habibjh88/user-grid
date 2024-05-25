@@ -62,6 +62,60 @@
         margin-right: -17px;
     }
 
+    .dowp-gradient-color-wrap {
+        margin-top: 10px;
+        position: relative;
+
+        .components-custom-gradient-picker__gradient-bar {
+            width: calc(100% - 26px);
+            border-radius: 30px !important;
+            overflow: hidden;
+        }
+        .dowp-undo-btn {
+            position: absolute;
+            top: 5px;
+            right: -5px;
+        }
+
+        .components-custom-gradient-picker__ui-line {
+            > .components-flex-item:nth-child(1) {
+                margin-top: 5px !important;
+                margin-right: 5px !important;
+                flex: 0 0 38%;
+            }
+
+            .components-angle-picker-control__input-field {
+                margin-right: 11px;
+            }
+            .components-spacer {
+                padding-top: 14px;
+            }
+        }
+
+        .components-circular-option-picker__custom-clear-wrapper {
+            position: absolute !important;
+            bottom: 0;
+            right: -5px;
+            button {
+                height: 25px;
+                border-radius: 30px;
+                font-size: 11px;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .components-border-control {
+        legend {
+            line-height: 2.5;
+        }
+    }
+
+    .dowp-undo-btn:focus {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
     .components-base-control {
         margin-bottom: 12px;
 
@@ -401,23 +455,10 @@
         justify-content: space-between;
     }
 
-    .dowp-cf-background-wrap {
-        border: 1px solid var(--dowp-border);
-        padding: 0 8px 8px;
-    }
-
-
     .dowp-cf-body-btn-wrap {
         display: flex;
         align-items: center;
         gap: 6px;
-        padding: 5px;
-        background: #e3eaf5;
-        border-bottom: 1px solid #dbdbdb;
-        margin-bottom: -1px;
-        height: 30px;
-        margin-left: -8px;
-        margin-right: -8px;
     }
 
     .dowp-cf-body-btn-wrap .dowp-btn-group {
@@ -430,7 +471,6 @@
         padding: 0;
         height: 27px;
         width: 30px;
-        border: 1px solid var(--dowp-admin-color-primary, #06f);
     }
 
     .dowp-cf-body-btn-wrap .components-button .classic-btn {

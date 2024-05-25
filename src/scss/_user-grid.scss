@@ -68,19 +68,16 @@
 
     .user-designation {
         color: $title_color;
-        margin-bottom: 5px;
         font-size: 17px;
     }
 
     .user-short-desc {
         font-size: 16px;
         color: $title_color;
-        margin-bottom: 10px;
     }
 
     .user-biography {
         font-size: 15px;
-        margin-bottom: 15px;
     }
 
     .read-btn {
@@ -137,7 +134,7 @@
 
                 .user-avatar {
                     border-radius: 8px;
-                    border: 1px solid #e5e5e5;
+                    border: 1px solid #eaebed;
                 }
             }
         }
@@ -210,6 +207,7 @@
 
 .dwp-user-social-icons {
     display: flex;
+    flex-wrap: wrap;
     gap: 5px;
 
     a {
