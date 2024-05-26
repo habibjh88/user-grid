@@ -1,7 +1,7 @@
 {
   "name": "user-grid",
   "version": "1.0.0",
-  "description": "=== The Post Grid ===",
+  "description": "=== User Grid ===",
   "main": "index.js",
   "directories": {
     "lib": "lib"

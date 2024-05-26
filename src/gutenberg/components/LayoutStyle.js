@@ -21,6 +21,7 @@ const LayoutStyle = (props) => {
         defaultData = options.list;
     }
 
+    const proLayout = ['grid4', 'list4'];
     return (
         <div className="dowp-control-field components-base-control dowp-cf-layout-style">
 
@@ -36,9 +37,15 @@ const LayoutStyle = (props) => {
 
                 {defaultData.map((data, index) => {
                     return (
-                        <button className={(_filterValue() == data ? 'active' : '') + ' dowp-button'}
+                        <button className={(_filterValue() == data ? 'active' : '') + ' dowp-button ' + (proLayout.includes(data) ? 'pro-layout' : '')}
                                 key={index}
-                                onClick={() => setSettings(_filterValue() == data ? '' : data)}>
+                                onClick={() => {
+                                    if(proLayout.includes(data)) {
+                                        alert('pro rquired');
+                                        return false;
+                                    }
+                                    setSettings(_filterValue() == data ? '' : data);
+                                }}>
                             <LyaoutItems styleLayout={data}/>
                         </button>
                     )

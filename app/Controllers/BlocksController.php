@@ -14,13 +14,13 @@ class BlocksController {
 
 	public function __construct() {
 
-		//Layout initialize
+		// Layout initialize
 		new UserBlock();
 
 		$this->version = defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : USER_GRID_VERSION;
 		add_action( 'enqueue_block_editor_assets', [ $this, 'editor_assets' ] );
 
-		//All css/js file load in back-end and front-end
+		// All css/js file load in back-end and front-end
 		add_action( 'wp_enqueue_scripts', [ $this, 'dowp_block_enqueue' ] );
 		add_action( 'enqueue_block_editor_assets', [ $this, 'dowp_block_enqueue' ] );
 
@@ -67,11 +67,12 @@ class BlocksController {
 
 	/**
 	 * Add Block File CSS
+	 *
 	 * @return void
 	 */
 	public function add_block_css_file() {
 
-		$post_id            = get_the_ID();
+		$post_id         = get_the_ID();
 		$dowp_upload_dir = wp_upload_dir()['basedir'] . '/dowp/';
 		$dowp_upload_url = wp_upload_dir()['baseurl'] . '/dowp/';
 		// phpcs:ignore
@@ -83,7 +84,7 @@ class BlocksController {
 					wp_enqueue_style( 'dowp-block-post-preview', $dowp_upload_url . 'dowp-block-preview.css', false, $this->version );
 				}
 			}
-		} else if ( $post_id ) {
+		} elseif ( $post_id ) {
 			$css_dir_path = $dowp_upload_dir . "dowp-block-$post_id.css";
 			$css_dir_url  = $dowp_upload_dir . "dowp-block-$post_id.css";
 
@@ -103,6 +104,7 @@ class BlocksController {
 
 	/**
 	 * Admin editor css load
+	 *
 	 * @return void
 	 */
 	public function dowp_block_enqueue() {
@@ -116,6 +118,7 @@ class BlocksController {
 
 	/**
 	 * Determine if wppb editor is open
+	 *
 	 * @return bool
 	 */
 	private function is_editor_screen() {
@@ -129,22 +132,29 @@ class BlocksController {
 
 	/**
 	 * Load Editor Assets
+	 *
 	 * @return void
 	 */
 	public function editor_assets() {
 
-		//Block editor css
-		wp_enqueue_style( 'dowp-block-admin-css', userGrid()->get_assets_uri( 'css/block-admin.min.css' ), '', $this->version );
+		// Block editor css.
+		wp_enqueue_style( 'dowp-block-admin', userGrid()->dowp_can_be_rtl( 'css/block-admin' ), '', $this->version );
 
-		//Main compile css and js file
+		// Main compile css and js file.
 		wp_enqueue_style( 'dowp-blocks-css', userGrid()->get_assets_uri( 'blocks/main.css' ), '', $this->version );
-		wp_enqueue_script( 'dowp-blocks-js', userGrid()->get_assets_uri( 'blocks/main.js' ), [
-			'wp-block-editor',
-			'wp-blocks',
-			'wp-components',
-			'wp-element',
-			'wp-i18n',
-		], $this->version, true );
+		wp_enqueue_script(
+			'dowp-blocks-js',
+			userGrid()->get_assets_uri( 'blocks/main.js' ),
+			[
+				'wp-block-editor',
+				'wp-blocks',
+				'wp-components',
+				'wp-element',
+				'wp-i18n',
+			],
+			$this->version,
+			true
+		);
 
 		global $pagenow;
 		$editor_type = 'edit-post';
@@ -153,22 +163,25 @@ class BlocksController {
 			$editor_type = 'edit-site';
 		}
 
-		wp_localize_script( 'dowp-blocks-js', 'dowpParams', [
+		wp_localize_script(
+			'dowp-blocks-js',
+			'dowpParams',
+			[
 				'editor_type' => $editor_type,
 				'nonce'       => wp_create_nonce( 'dowp_nonce' ),
 				'ajaxurl'     => Fns::ajax_url(),
 				'site_url'    => site_url(),
 				'admin_url'   => admin_url(),
 				'plugin_url'  => USER_GRID_PLUGIN_URL,
-				'hasPro'      => false,
+				'hasPro'      => userGrid()->hasPro(),
 			]
 		);
-
 	}
 
 
 	/**
 	 * Add inLine css for page or post
+	 *
 	 * @return void
 	 */
 	public function add_block_inline_css() {
@@ -176,26 +189,26 @@ class BlocksController {
 		$post_id = get_the_ID();
 		if ( $post_id ) {
 			$dowp_upload_dir = wp_upload_dir()['basedir'] . '/dowp/';
-			$css_dir_path       = $dowp_upload_dir . "dowp-block-$post_id.css";
+			$css_dir_path    = $dowp_upload_dir . "dowp-block-$post_id.css";
 			if ( file_exists( $css_dir_path ) ) {
 				$blockCss = file_get_contents( $css_dir_path );
 				echo '<style>' . sanitize_textarea_field( $blockCss ) . '</style>';
-			} else if ( $metaCss = get_post_meta( $post_id, '_dowp_block_css', true ) ) {
+			} elseif ( $metaCss = get_post_meta( $post_id, '_dowp_block_css', true ) ) {
 				echo '<style>' . sanitize_textarea_field( $metaCss ) . '</style>';
 			}
 		}
 
 		$this->add_reusable_css();
-
 	}
 
 
 	/**
 	 * Add reusable css
+	 *
 	 * @return void
 	 */
 	public function add_reusable_css() {
-		$post_id            = get_the_ID();
+		$post_id         = get_the_ID();
 		$dowp_upload_dir = wp_upload_dir()['basedir'] . '/dowp/';
 		$dowp_upload_url = wp_upload_dir()['baseurl'] . '/dowp/';
 		if ( $post_id ) {
@@ -221,6 +234,7 @@ class BlocksController {
 
 	/**
 	 * Save Import CSS in the top of the File
+	 *
 	 * @return void
 	 */
 	public function save_block_css() {
@@ -231,7 +245,7 @@ class BlocksController {
 			}
 			global $wp_filesystem;
 			if ( ! $wp_filesystem ) {
-				require_once( ABSPATH . 'wp-admin/includes/file.php' );
+				require_once ABSPATH . 'wp-admin/includes/file.php';
 			}
 
 			$post_id  = ! empty( $_POST['post_id'] ) ? sanitize_text_field( $_POST['post_id'] ) : '';
@@ -290,12 +304,15 @@ class BlocksController {
 				$fonts   = $matches[0];
 				$get_css = str_replace( $fonts, '', $get_css );
 				if ( preg_match_all( '/font-weight[ ]?:[ ]?[\d]{3}[ ]?;/', $get_css, $matche_weight ) ) {
-					$weight = array_map( function ( $val ) {
-						$process = trim( str_replace( [ 'font-weight', ':', ';' ], '', $val ) );
-						if ( is_numeric( $process ) ) {
-							return $process;
-						}
-					}, $matche_weight[0] );
+					$weight = array_map(
+						function ( $val ) {
+							$process = trim( str_replace( [ 'font-weight', ':', ';' ], '', $val ) );
+							if ( is_numeric( $process ) ) {
+								  return $process;
+							}
+						},
+						$matche_weight[0]
+					);
 					foreach ( $fonts as $key => $val ) {
 						$fonts[ $key ] = str_replace( "');", '', $val ) . ':' . implode( ',', $weight ) . "');";
 					}
@@ -310,6 +327,7 @@ class BlocksController {
 
 	/**
 	 * Save Import CSS in the top of the File
+	 *
 	 * @return void
 	 */
 	public function get_posts_call() {
@@ -334,7 +352,7 @@ class BlocksController {
 		}
 		global $wp_filesystem;
 		if ( ! $wp_filesystem ) {
-			require_once( ABSPATH . 'wp-admin/includes/file.php' );
+			require_once ABSPATH . 'wp-admin/includes/file.php';
 		}
 		$post    = $server->get_params();
 		$css     = $post['inner_css'];

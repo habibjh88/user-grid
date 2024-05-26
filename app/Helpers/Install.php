@@ -16,11 +16,25 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Install Helper class.
  */
 class Install {
+
+	/**
+	 * Plugin activated hook
+	 *
+	 * @return void
+	 */
 	public static function activate() {
-		update_option( userGrid()->options['installed_version'], USER_GRID_VERSION );
+		if ( ! get_option( 'dowp_ug_time' ) ) {
+			update_option( 'dowp_ug_time', time() );
+		}
+		update_option( 'dowp_ug_version', USER_GRID_VERSION );
 	}
 
+	/**
+	 * Plugin Deactivated hook
+	 *
+	 * @return void
+	 */
 	public static function deactivate() {
-		update_option( 'dowp_flush_rewrite_rules', 0 );
+
 	}
 }

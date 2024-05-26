@@ -14,7 +14,7 @@ A lightweight plugin for display WordPress users in Gutenberg Editor
 
 ## Description ##
 
-This plugins will help to display your users gor gutenberg editor. 
+This plugins will help to display your users for gutenberg editor. 
 
 ## Developement Guide ##
 **Install:**

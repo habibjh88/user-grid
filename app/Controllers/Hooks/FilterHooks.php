@@ -30,7 +30,6 @@ class FilterHooks {
 		add_filter( 'wp_calculate_image_srcset', [ __CLASS__, 'calculate_image_srcset' ] );
 		add_filter( 'get_avatar', [ __CLASS__, 'get_avatar_filter' ], 5, 5 );
 		add_filter( 'get_avatar_data', [ __CLASS__, 'get_avater_data_filter' ], 5, 2 );
-
 	}
 
 
@@ -56,13 +55,12 @@ class FilterHooks {
 	 *
 	 * @return string
 	 */
-
 	public static function admin_body_class( $classes ) {
 		global $pagenow;
-		//check if the current page is post.php and if the post parameteris set
-		if ( $pagenow === 'post.php' && isset( $_GET['post'] ) ) {
-			$classes .= ' dowp';
+		// check if the current page is post.php and if the post parameteris set.
+		if ( 'post.php' === $pagenow && isset( $_GET['post'] ) ) {
 			$classes .= ' dowp-body-wrap';
+			$classes .= userGrid()->hasPro() ? ' dowp-has-pro' : ' dowp-has-no-pro';
 		}
 
 		return $classes;
@@ -127,6 +125,7 @@ class FilterHooks {
 
 	/**
 	 * Remove calculate image srcset
+	 *
 	 * @return array
 	 */
 	public static function calculate_image_srcset() {
@@ -205,7 +204,6 @@ class FilterHooks {
 		}
 
 		return $avatar;
-
 	}
 
 	public static function get_avater_data_filter( $args, $id_or_email ) {
@@ -235,7 +233,6 @@ class FilterHooks {
 			return $args;
 		}
 
-
 		// Get the user's local avatar from usermeta.
 		$avatar_id_local = get_user_meta( $user_id, userGrid()->avatar_meta_key, true );
 		$_avatars_image  = wp_get_attachment_image_src( $avatar_id_local, 'full' );
@@ -246,5 +243,4 @@ class FilterHooks {
 
 		return apply_filters( 'basic_user_avatar_data', $return_args );
 	}
-
 }

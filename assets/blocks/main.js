@@ -2774,6 +2774,302 @@ function ContentControl(props) {
 
 /***/ }),
 
+/***/ "./src/gutenberg/blocks/controller/ContentLayout.js":
+/*!**********************************************************!*\
+  !*** ./src/gutenberg/blocks/controller/ContentLayout.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ContentLayout)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_Alignment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Alignment */ "./src/gutenberg/components/Alignment.js");
+/* harmony import */ var _components_Styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Styles */ "./src/gutenberg/components/Styles.js");
+/* harmony import */ var _components_Constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/Constants */ "./src/gutenberg/components/Constants.js");
+/* harmony import */ var _components_LayoutStyle__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/LayoutStyle */ "./src/gutenberg/components/LayoutStyle.js");
+/* harmony import */ var _components_GridColumn__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/GridColumn */ "./src/gutenberg/components/GridColumn.js");
+
+
+
+
+
+
+
+
+function ContentLayout(props) {
+  const {
+    attributes,
+    setAttributes,
+    changeQuery,
+    userData
+  } = props.data;
+
+  //All attribute
+  const {
+    layout,
+    grid_column,
+    grid_alignment,
+    grid_v_alignment
+  } = attributes;
+  let latyouStyleDefault = 'grid';
+  if (layout) {
+    latyouStyleDefault = layout.indexOf('list') != '-1' ? 'list' : latyouStyleDefault;
+  }
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('layout', 'user-grid'),
+    initialOpen: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Styles__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    value: latyouStyleDefault,
+    onChange: layout_style => setAttributes({
+      layout_style
+    }),
+    options: _components_Constants__WEBPACK_IMPORTED_MODULE_5__.GRID_LAYOUT_OPT
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_LayoutStyle__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    attributes: attributes,
+    value: layout,
+    options: {
+      grid: ['grid1', 'grid2', 'grid3', 'grid4'],
+      list: ['list1', 'list2', 'list3']
+    },
+    onChange: layout => {
+      setAttributes({
+        layout
+      });
+      changeQuery();
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_GridColumn__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Grid Column", "user-grid"),
+    className: "dowp-control-field",
+    value: grid_column,
+    onChange: grid_column => {
+      setAttributes({
+        grid_column
+      });
+    },
+    colStyle: "grid",
+    changeQuery: changeQuery
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Alignment__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Alignment", "user-grid"),
+    options: ['left', 'center', 'right'],
+    value: grid_alignment,
+    responsive: true,
+    onChange: grid_alignment => setAttributes({
+      grid_alignment
+    })
+  }), latyouStyleDefault === 'list' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Alignment__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Vertical Alignment", "user-grid"),
+    options: ['flex-start', 'center', 'flex-end'],
+    direction: "vertical",
+    value: grid_v_alignment,
+    responsive: true,
+    onChange: grid_v_alignment => setAttributes({
+      grid_v_alignment
+    })
+  }));
+}
+
+/***/ }),
+
+/***/ "./src/gutenberg/blocks/controller/ContentQuery.js":
+/*!*********************************************************!*\
+  !*** ./src/gutenberg/blocks/controller/ContentQuery.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ContentQuery)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
+/* harmony import */ var _components_Constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Constants */ "./src/gutenberg/components/Constants.js");
+/* harmony import */ var _components_MultiSelectSort__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/MultiSelectSort */ "./src/gutenberg/components/MultiSelectSort.js");
+
+
+
+
+
+const {
+  Spinner
+} = wp.components;
+
+
+function ContentQuery(props) {
+  const {
+    attributes,
+    setAttributes,
+    changeQuery,
+    userData
+  } = props.data;
+
+  //All attribute
+  const {
+    users_lists,
+    user_limit,
+    users_role,
+    user_filter_by_domain,
+    orderby,
+    order
+  } = attributes;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Query', 'user-grid'),
+    initialOpen: false
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalNumberControl, {
+    isShiftStepEnabled: true,
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("User Limit", "user-grid"),
+    max: 1000,
+    min: -1,
+    value: user_limit,
+    onChange: user_limit => {
+      setAttributes({
+        user_limit
+      });
+      changeQuery();
+    },
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Eg. 10", "user-grid"),
+    shiftStep: 10,
+    step: "1",
+    className: "dowp-control-field label-inline"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("small", {
+    className: "dowp-help"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("The number of users to show. Enter -1 to show all found posts.", "user-grid")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "components-base-control dowp-repeater"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+    className: "components-base-control__label components-input-control__label",
+    htmlFor: "react-select-2-input"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Choose Users', 'user-grid'), !userData.users && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Spinner, null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_MultiSelectSort__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    options: (0,_components_Constants__WEBPACK_IMPORTED_MODULE_3__.FORMATE_USERS)(userData.users, 'email'),
+    value: users_lists,
+    onChange: value => {
+      setAttributes({
+        users_lists: value
+      });
+      changeQuery();
+    },
+    closeMenuOnSelect: false,
+    isClearable: false,
+    isSingleLine: true
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "components-base-control dowp-repeater"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+    className: "components-base-control__label components-input-control__label",
+    htmlFor: "react-select-2-input"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Users Role', 'user-grid'), !userData.roles && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Spinner, null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_select__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    options: (0,_components_Constants__WEBPACK_IMPORTED_MODULE_3__.FORMATE_USERS)(userData.roles),
+    value: users_role,
+    onChange: value => {
+      setAttributes({
+        users_role: value
+      });
+      changeQuery();
+    },
+    isMulti: true,
+    closeMenuOnSelect: true,
+    isClearable: false
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    autocomplete: "off",
+    help: "Search by E-mail keywords, Eg. your-company.com",
+    label: "Filter by email domain",
+    value: user_filter_by_domain,
+    placeholder: "Eg. @website.com, @inof.com etc",
+    onChange: user_filter_by_domain => {
+      setAttributes({
+        user_filter_by_domain
+      });
+      changeQuery();
+    }
+  }), !users_lists.length && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Order By", "user-grid"),
+    className: "dowp-control-field label-inline dowp-expand",
+    value: orderby,
+    options: _components_Constants__WEBPACK_IMPORTED_MODULE_3__.USER_ORDER_BY,
+    onChange: orderby => {
+      setAttributes({
+        orderby
+      });
+      changeQuery();
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Sort Order", "user-grid"),
+    className: "dowp-control-field label-inline dowp-expand",
+    value: order,
+    options: _components_Constants__WEBPACK_IMPORTED_MODULE_3__.POST_SORT_ORDER,
+    onChange: order => {
+      setAttributes({
+        order
+      });
+      changeQuery();
+    }
+  }));
+}
+
+/***/ }),
+
+/***/ "./src/gutenberg/blocks/controller/ContentSort.js":
+/*!********************************************************!*\
+  !*** ./src/gutenberg/blocks/controller/ContentSort.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ContentSort)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_Sortable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Sortable */ "./src/gutenberg/components/Sortable.js");
+
+
+
+
+function ContentSort(props) {
+  const {
+    attributes,
+    setAttributes,
+    changeQuery,
+    userData
+  } = props.data;
+
+  //All attribute
+  const {
+    content_order
+  } = attributes;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Sort Content', 'user-grid'),
+    initialOpen: false
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Sortable__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: content_order,
+    onChange: val => {
+      setAttributes({
+        content_order: val
+      });
+      changeQuery();
+    },
+    label: "Sort Content"
+  }));
+}
+
+/***/ }),
+
 /***/ "./src/gutenberg/blocks/controller/DesignationSettings.js":
 /*!****************************************************************!*\
   !*** ./src/gutenberg/blocks/controller/DesignationSettings.js ***!
@@ -3532,23 +3828,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _controller_ContentControl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./controller/ContentControl */ "./src/gutenberg/blocks/controller/ContentControl.js");
-/* harmony import */ var _controller_FieldVisibility__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./controller/FieldVisibility */ "./src/gutenberg/blocks/controller/FieldVisibility.js");
-/* harmony import */ var _controller_AvatarSettings__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./controller/AvatarSettings */ "./src/gutenberg/blocks/controller/AvatarSettings.js");
-/* harmony import */ var _controller_NameSettings__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./controller/NameSettings */ "./src/gutenberg/blocks/controller/NameSettings.js");
-/* harmony import */ var _controller_ShortDesc__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./controller/ShortDesc */ "./src/gutenberg/blocks/controller/ShortDesc.js");
-/* harmony import */ var _controller_BioSettings__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./controller/BioSettings */ "./src/gutenberg/blocks/controller/BioSettings.js");
-/* harmony import */ var _controller_DesignationSettings__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./controller/DesignationSettings */ "./src/gutenberg/blocks/controller/DesignationSettings.js");
-/* harmony import */ var _controller_SocialShareSettings__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./controller/SocialShareSettings */ "./src/gutenberg/blocks/controller/SocialShareSettings.js");
-/* harmony import */ var _controller_ReadArticleBtn__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./controller/ReadArticleBtn */ "./src/gutenberg/blocks/controller/ReadArticleBtn.js");
-/* harmony import */ var _controller_CardSettings__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./controller/CardSettings */ "./src/gutenberg/blocks/controller/CardSettings.js");
-/* harmony import */ var _components_TabTitle__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/TabTitle */ "./src/gutenberg/components/TabTitle.js");
+/* harmony import */ var _controller_ContentQuery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./controller/ContentQuery */ "./src/gutenberg/blocks/controller/ContentQuery.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _controller_ContentLayout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./controller/ContentLayout */ "./src/gutenberg/blocks/controller/ContentLayout.js");
+/* harmony import */ var _controller_ContentControl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./controller/ContentControl */ "./src/gutenberg/blocks/controller/ContentControl.js");
+/* harmony import */ var _controller_FieldVisibility__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./controller/FieldVisibility */ "./src/gutenberg/blocks/controller/FieldVisibility.js");
+/* harmony import */ var _controller_AvatarSettings__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./controller/AvatarSettings */ "./src/gutenberg/blocks/controller/AvatarSettings.js");
+/* harmony import */ var _controller_NameSettings__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./controller/NameSettings */ "./src/gutenberg/blocks/controller/NameSettings.js");
+/* harmony import */ var _controller_ShortDesc__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./controller/ShortDesc */ "./src/gutenberg/blocks/controller/ShortDesc.js");
+/* harmony import */ var _controller_BioSettings__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./controller/BioSettings */ "./src/gutenberg/blocks/controller/BioSettings.js");
+/* harmony import */ var _controller_DesignationSettings__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./controller/DesignationSettings */ "./src/gutenberg/blocks/controller/DesignationSettings.js");
+/* harmony import */ var _controller_SocialShareSettings__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./controller/SocialShareSettings */ "./src/gutenberg/blocks/controller/SocialShareSettings.js");
+/* harmony import */ var _controller_ReadArticleBtn__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./controller/ReadArticleBtn */ "./src/gutenberg/blocks/controller/ReadArticleBtn.js");
+/* harmony import */ var _controller_CardSettings__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./controller/CardSettings */ "./src/gutenberg/blocks/controller/CardSettings.js");
+/* harmony import */ var _components_TabTitle__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../components/TabTitle */ "./src/gutenberg/components/TabTitle.js");
+/* harmony import */ var _controller_ContentSort__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./controller/ContentSort */ "./src/gutenberg/blocks/controller/ContentSort.js");
+
 
 const {
   InspectorControls
 } = wp.blockEditor;
+
+
 
 
 
@@ -3582,19 +3884,19 @@ function Inspector(props) {
     key: "controls"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "dowp-panel-control-wrapper"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TabPanel, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TabPanel, {
     className: "dowp-tab-panel",
     activeClass: "active-tab",
     tabs: [{
       name: "content",
-      title: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_TabTitle__WEBPACK_IMPORTED_MODULE_12__["default"], {
+      title: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_TabTitle__WEBPACK_IMPORTED_MODULE_14__["default"], {
         title: `Content`,
         icon: `dashicons-edit`
       }),
       className: "dowp-tab-btn content"
     }, {
       name: "styles",
-      title: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_TabTitle__WEBPACK_IMPORTED_MODULE_12__["default"], {
+      title: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_TabTitle__WEBPACK_IMPORTED_MODULE_14__["default"], {
         title: `Settings / Styles`,
         icon: `dashicons-admin-generic`
       }),
@@ -3602,30 +3904,38 @@ function Inspector(props) {
     }]
   }, tab => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "dowp-tab-content"
-  }, tab.name === "content" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_ContentControl__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, tab.name === "content" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_ContentLayout__WEBPACK_IMPORTED_MODULE_3__["default"], {
     data: props,
     changeQuery: changeQuery,
     userData: userData
-  })), tab.name === "styles" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_FieldVisibility__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_ContentQuery__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    data: props,
+    changeQuery: changeQuery,
+    userData: userData
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_ContentSort__WEBPACK_IMPORTED_MODULE_15__["default"], {
+    data: props,
+    changeQuery: changeQuery,
+    userData: userData
+  })), tab.name === "styles" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_FieldVisibility__WEBPACK_IMPORTED_MODULE_5__["default"], {
     data: props,
     changeQuery: changeQuery
-  }), avatar_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_AvatarSettings__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), avatar_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_AvatarSettings__WEBPACK_IMPORTED_MODULE_6__["default"], {
     data: props,
     changeQuery: changeQuery
-  }), name_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_NameSettings__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }), name_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_NameSettings__WEBPACK_IMPORTED_MODULE_7__["default"], {
     data: props
-  }), short_desc_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_ShortDesc__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }), short_desc_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_ShortDesc__WEBPACK_IMPORTED_MODULE_8__["default"], {
     data: props
-  }), designation_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_DesignationSettings__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }), designation_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_DesignationSettings__WEBPACK_IMPORTED_MODULE_10__["default"], {
     data: props
-  }), bio_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_BioSettings__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }), bio_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_BioSettings__WEBPACK_IMPORTED_MODULE_9__["default"], {
     data: props
-  }), social_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_SocialShareSettings__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), social_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_SocialShareSettings__WEBPACK_IMPORTED_MODULE_11__["default"], {
     data: props
-  }), button_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_ReadArticleBtn__WEBPACK_IMPORTED_MODULE_10__["default"], {
+  }), button_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_ReadArticleBtn__WEBPACK_IMPORTED_MODULE_12__["default"], {
     data: props,
     changeQuery: changeQuery
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_CardSettings__WEBPACK_IMPORTED_MODULE_11__["default"], {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_CardSettings__WEBPACK_IMPORTED_MODULE_13__["default"], {
     data: props
   }))))));
 }
@@ -5283,6 +5593,7 @@ const LayoutStyle = props => {
   if ('list' === layout_style) {
     defaultData = options.list;
   }
+  const proLayout = ['grid4', 'list4'];
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "dowp-control-field components-base-control dowp-cf-layout-style"
   }, (label || responsive) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -5293,9 +5604,15 @@ const LayoutStyle = props => {
     className: "dowp-cf-body dowp-btn-group"
   }, defaultData.map((data, index) => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-      className: (_filterValue() == data ? 'active' : '') + ' dowp-button',
+      className: (_filterValue() == data ? 'active' : '') + ' dowp-button ' + (proLayout.includes(data) ? 'pro-layout' : ''),
       key: index,
-      onClick: () => setSettings(_filterValue() == data ? '' : data)
+      onClick: () => {
+        if (proLayout.includes(data)) {
+          alert('pro rquired');
+          return false;
+        }
+        setSettings(_filterValue() == data ? '' : data);
+      }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_utils_LyaoutItems__WEBPACK_IMPORTED_MODULE_1__["default"], {
       styleLayout: data
     }));
@@ -6824,226 +7141,398 @@ const styleIcon = {
   grid1: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 1')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "50",
-    height: "18",
-    viewBox: "0 0 50 18",
+    width: "64",
+    height: "24",
+    viewBox: "0 0 64 24",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     "fill-rule": "evenodd",
     "clip-rule": "evenodd",
-    d: "M0.71875 0.566406V10.7812H23.082V0.566406H0.71875ZM22.382 1.26641H1.41875V10.0813H22.382V1.26641Z",
-    fill: "current_color"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M20.8301 14.158H0.71875V13.458H20.8301V14.158Z",
-    fill: "current_color"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M17.5352 17.0294H0.71875V16.3294H17.5352V17.0294Z",
+    d: "M12.307 0.900781H1.43945C1.21854 0.900781 1.03945 1.07987 1.03945 1.30078V11.073C1.03945 11.2939 1.21854 11.473 1.43945 11.473H12.307C12.5279 11.473 12.707 11.2939 12.707 11.073V1.30078C12.707 1.07987 12.5279 0.900781 12.307 0.900781ZM1.43945 0.300781C0.887168 0.300781 0.439453 0.748497 0.439453 1.30078V11.073C0.439453 11.6253 0.887169 12.073 1.43945 12.073H12.307C12.8593 12.073 13.307 11.6253 13.307 11.073V1.30078C13.307 0.748497 12.8593 0.300781 12.307 0.300781H1.43945Z",
     fill: "current_color"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     "fill-rule": "evenodd",
     "clip-rule": "evenodd",
-    d: "M27.2852 0.566406V10.7812H49.6484V0.566406H27.2852ZM48.9484 1.26641H27.9852V10.0813H48.9484V1.26641Z",
+    d: "M12.4093 15.8051H0.439453V15.2051H12.4093V15.8051Z",
     fill: "current_color"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M47.3965 14.158H27.2852V13.458H47.3965V14.158Z",
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M10.8984 19.6918H0.439453V19.0918H10.8984V19.6918Z",
     fill: "current_color"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M44.1016 17.0294H27.2852V16.3294H44.1016V17.0294Z",
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M7.70212 23.8251H0.439453V23.2251H7.70212V23.8251Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M28.9437 0.900781H18.0762C17.8553 0.900781 17.6762 1.07987 17.6762 1.30078V11.073C17.6762 11.2939 17.8553 11.473 18.0762 11.473H28.9437C29.1646 11.473 29.3437 11.2939 29.3437 11.073V1.30078C29.3437 1.07987 29.1646 0.900781 28.9437 0.900781ZM18.0762 0.300781C17.5239 0.300781 17.0762 0.748497 17.0762 1.30078V11.073C17.0762 11.6253 17.5239 12.073 18.0762 12.073H28.9437C29.496 12.073 29.9437 11.6253 29.9437 11.073V1.30078C29.9437 0.748497 29.496 0.300781 28.9437 0.300781H18.0762Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M29.0461 15.8051H17.0762V15.2051H29.0461V15.8051Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M27.5351 19.6918H17.0762V19.0918H27.5351V19.6918Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M24.3388 23.8251H17.0762V23.2251H24.3388V23.8251Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M45.5824 0.900781H34.7148C34.4939 0.900781 34.3148 1.07987 34.3148 1.30078V11.073C34.3148 11.2939 34.4939 11.473 34.7148 11.473H45.5824C45.8033 11.473 45.9824 11.2939 45.9824 11.073V1.30078C45.9824 1.07987 45.8033 0.900781 45.5824 0.900781ZM34.7148 0.300781C34.1626 0.300781 33.7148 0.748497 33.7148 1.30078V11.073C33.7148 11.6253 34.1626 12.073 34.7148 12.073H45.5824C46.1347 12.073 46.5824 11.6253 46.5824 11.073V1.30078C46.5824 0.748497 46.1347 0.300781 45.5824 0.300781H34.7148Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M45.6847 15.8051H33.7148V15.2051H45.6847V15.8051Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M44.1738 19.6918H33.7148V19.0918H44.1738V19.6918Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M40.9775 23.8251H33.7148V23.2251H40.9775V23.8251Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M62.2211 0.900781H51.3535C51.1326 0.900781 50.9535 1.07987 50.9535 1.30078V11.073C50.9535 11.2939 51.1326 11.473 51.3535 11.473H62.2211C62.442 11.473 62.6211 11.2939 62.6211 11.073V1.30078C62.6211 1.07987 62.442 0.900781 62.2211 0.900781ZM51.3535 0.300781C50.8012 0.300781 50.3535 0.748497 50.3535 1.30078V11.073C50.3535 11.6253 50.8012 12.073 51.3535 12.073H62.2211C62.7733 12.073 63.2211 11.6253 63.2211 11.073V1.30078C63.2211 0.748497 62.7733 0.300781 62.2211 0.300781H51.3535Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M62.3234 15.8051H50.3535V15.2051H62.3234V15.8051Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M60.8125 19.6918H50.3535V19.0918H60.8125V19.6918Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M57.6162 23.8251H50.3535V23.2251H57.6162V23.8251Z",
     fill: "current_color"
   }))),
   grid2: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 2')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "51",
-    height: "21",
-    viewBox: "0 0 51 21",
+    width: "64",
+    height: "24",
+    viewBox: "0 0 64 24",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     "fill-rule": "evenodd",
     "clip-rule": "evenodd",
-    d: "M18.7091 4.60552H5.63164V11.5957H18.7091V4.60552ZM4.93164 3.90552V12.2957H19.4091V3.90552H4.93164Z",
+    d: "M3.33984 4.40356C3.33984 3.85128 3.78756 3.40356 4.33984 3.40356H15.1642C15.7165 3.40356 16.1642 3.85128 16.1642 4.40356V12.7888C16.1642 13.3411 15.7165 13.7888 15.1642 13.7888H4.33984C3.78756 13.7888 3.33984 13.3411 3.33984 12.7888V4.40356ZM4.33984 4.00356H15.1642C15.3851 4.00356 15.5642 4.18265 15.5642 4.40356V12.7888C15.5642 13.0097 15.3851 13.1888 15.1642 13.1888H4.33984C4.11893 13.1888 3.93984 13.0097 3.93984 12.7888V4.40356C3.93984 4.18265 4.11893 4.00356 4.33984 4.00356Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M16.1642 17.4308H3.33984V16.8308H16.1642V17.4308Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M3.33984 20.5965H14.873V19.9965H3.33984V20.5965Z",
     fill: "current_color"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     "fill-rule": "evenodd",
     "clip-rule": "evenodd",
-    d: "M22.459 0.872852H1.88086C1.43903 0.872852 1.08086 1.23102 1.08086 1.67285V19.9816C1.08086 20.4234 1.43903 20.7816 1.88086 20.7816H22.459C22.9008 20.7816 23.259 20.4234 23.259 19.9816V1.67285C23.259 1.23102 22.9008 0.872852 22.459 0.872852ZM1.88086 0.672852C1.32857 0.672852 0.880859 1.12057 0.880859 1.67285V19.9816C0.880859 20.5339 1.32857 20.9816 1.88086 20.9816H22.459C23.0113 20.9816 23.459 20.5339 23.459 19.9816V1.67285C23.459 1.12057 23.0113 0.672852 22.459 0.672852H1.88086Z",
+    d: "M0.439453 1.23792C0.439453 0.685631 0.887168 0.237915 1.43945 0.237915H17.9087C18.461 0.237915 18.9087 0.68563 18.9087 1.23792V22.7622C18.9087 23.3145 18.461 23.7622 17.9087 23.7622H1.43945C0.887168 23.7622 0.439453 23.3145 0.439453 22.7622V1.23792ZM1.43945 0.537915H17.9087C18.2953 0.537915 18.6087 0.851316 18.6087 1.23792V22.7622C18.6087 23.1488 18.2953 23.4622 17.9087 23.4622H1.43945C1.05285 23.4622 0.739453 23.1488 0.739453 22.7622V1.23792C0.739453 0.851316 1.05285 0.537915 1.43945 0.537915Z",
     fill: "current_color"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     "fill-rule": "evenodd",
     "clip-rule": "evenodd",
-    d: "M17.9513 14.6316H4.93164V13.9316H17.9513V14.6316Z",
+    d: "M26.4961 3.40356C25.9438 3.40356 25.4961 3.85128 25.4961 4.40356V12.7888C25.4961 13.3411 25.9438 13.7888 26.4961 13.7888H37.3204C37.8727 13.7888 38.3204 13.3411 38.3204 12.7888V4.40356C38.3204 3.85128 37.8727 3.40356 37.3204 3.40356H26.4961ZM37.3204 4.00356H26.4961C26.2752 4.00356 26.0961 4.18265 26.0961 4.40356V12.7888C26.0961 13.0097 26.2752 13.1888 26.4961 13.1888H37.3204C37.5413 13.1888 37.7204 13.0097 37.7204 12.7888V4.40356C37.7204 4.18265 37.5413 4.00356 37.3204 4.00356Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M38.3204 17.4308H25.4961V16.8308H38.3204V17.4308Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M25.4961 20.5965H37.0292V19.9965H25.4961V20.5965Z",
     fill: "current_color"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     "fill-rule": "evenodd",
     "clip-rule": "evenodd",
-    d: "M15.8182 16.7054H4.93164V16.0054H15.8182V16.7054Z",
+    d: "M22.5957 1.23792C22.5957 0.685631 23.0434 0.237915 23.5957 0.237915H40.0649C40.6172 0.237915 41.0649 0.68563 41.0649 1.23792V22.7622C41.0649 23.3145 40.6172 23.7622 40.0649 23.7622H23.5957C23.0434 23.7622 22.5957 23.3145 22.5957 22.7622V1.23792ZM23.5957 0.537915H40.0649C40.4515 0.537915 40.7649 0.851316 40.7649 1.23792V22.7622C40.7649 23.1488 40.4515 23.4622 40.0649 23.4622H23.5957C23.2091 23.4622 22.8957 23.1488 22.8957 22.7622V1.23792C22.8957 0.851316 23.2091 0.537915 23.5957 0.537915Z",
     fill: "current_color"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     "fill-rule": "evenodd",
     "clip-rule": "evenodd",
-    d: "M18.7091 4.60552H5.63164V11.5957H18.7091V4.60552ZM4.93164 3.90552V12.2957H19.4091V3.90552H4.93164Z",
+    d: "M48.6523 3.40356C48.1001 3.40356 47.6523 3.85128 47.6523 4.40356V12.7888C47.6523 13.3411 48.1001 13.7888 48.6523 13.7888H59.4767C60.029 13.7888 60.4767 13.3411 60.4767 12.7888V4.40356C60.4767 3.85128 60.029 3.40356 59.4767 3.40356H48.6523ZM59.4767 4.00356H48.6523C48.4314 4.00356 48.2523 4.18265 48.2523 4.40356V12.7888C48.2523 13.0097 48.4314 13.1888 48.6523 13.1888H59.4767C59.6976 13.1888 59.8767 13.0097 59.8767 12.7888V4.40356C59.8767 4.18265 59.6976 4.00356 59.4767 4.00356Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M60.4767 17.4308H47.6523V16.8308H60.4767V17.4308Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M47.6523 20.5965H59.1855V19.9965H47.6523V20.5965Z",
     fill: "current_color"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     "fill-rule": "evenodd",
     "clip-rule": "evenodd",
-    d: "M22.459 0.872852H1.88086C1.43903 0.872852 1.08086 1.23102 1.08086 1.67285V19.9816C1.08086 20.4234 1.43903 20.7816 1.88086 20.7816H22.459C22.9008 20.7816 23.259 20.4234 23.259 19.9816V1.67285C23.259 1.23102 22.9008 0.872852 22.459 0.872852ZM1.88086 0.672852C1.32857 0.672852 0.880859 1.12057 0.880859 1.67285V19.9816C0.880859 20.5339 1.32857 20.9816 1.88086 20.9816H22.459C23.0113 20.9816 23.459 20.5339 23.459 19.9816V1.67285C23.459 1.12057 23.0113 0.672852 22.459 0.672852H1.88086Z",
-    fill: "current_color"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M17.9513 14.6316H4.93164V13.9316H17.9513V14.6316Z",
-    fill: "current_color"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M15.8182 16.7054H4.93164V16.0054H15.8182V16.7054Z",
-    fill: "current_color"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M45.4181 4.60552H32.3406V11.5957H45.4181V4.60552ZM31.6406 3.90552V12.2957H46.1181V3.90552H31.6406Z",
-    fill: "current_color"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M49.168 0.872852H28.5898C28.148 0.872852 27.7898 1.23102 27.7898 1.67285V19.9816C27.7898 20.4234 28.148 20.7816 28.5898 20.7816H49.168C49.6098 20.7816 49.968 20.4234 49.968 19.9816V1.67285C49.968 1.23102 49.6098 0.872852 49.168 0.872852ZM28.5898 0.672852C28.0376 0.672852 27.5898 1.12057 27.5898 1.67285V19.9816C27.5898 20.5339 28.0376 20.9816 28.5898 20.9816H49.168C49.7203 20.9816 50.168 20.5339 50.168 19.9816V1.67285C50.168 1.12057 49.7203 0.672852 49.168 0.672852H28.5898Z",
-    fill: "current_color"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M44.6603 14.6316H31.6406V13.9316H44.6603V14.6316Z",
-    fill: "current_color"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M42.5272 16.7054H31.6406V16.0054H42.5272V16.7054Z",
-    fill: "current_color"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M45.4181 4.60552H32.3406V11.5957H45.4181V4.60552ZM31.6406 3.90552V12.2957H46.1181V3.90552H31.6406Z",
-    fill: "current_color"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M49.168 0.872852H28.5898C28.148 0.872852 27.7898 1.23102 27.7898 1.67285V19.9816C27.7898 20.4234 28.148 20.7816 28.5898 20.7816H49.168C49.6098 20.7816 49.968 20.4234 49.968 19.9816V1.67285C49.968 1.23102 49.6098 0.872852 49.168 0.872852ZM28.5898 0.672852C28.0376 0.672852 27.5898 1.12057 27.5898 1.67285V19.9816C27.5898 20.5339 28.0376 20.9816 28.5898 20.9816H49.168C49.7203 20.9816 50.168 20.5339 50.168 19.9816V1.67285C50.168 1.12057 49.7203 0.672852 49.168 0.672852H28.5898Z",
-    fill: "current_color"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M44.6603 14.6316H31.6406V13.9316H44.6603V14.6316Z",
-    fill: "current_color"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M42.5272 16.7054H31.6406V16.0054H42.5272V16.7054Z",
+    d: "M44.752 1.23792C44.752 0.685631 45.1997 0.237915 45.752 0.237915H62.2212C62.7735 0.237915 63.2212 0.68563 63.2212 1.23792V22.7622C63.2212 23.3145 62.7735 23.7622 62.2212 23.7622H45.752C45.1997 23.7622 44.752 23.3145 44.752 22.7622V1.23792ZM45.752 0.537915H62.2212C62.6078 0.537915 62.9212 0.851316 62.9212 1.23792V22.7622C62.9212 23.1488 62.6078 23.4622 62.2212 23.4622H45.752C45.3654 23.4622 45.052 23.1488 45.052 22.7622V1.23792C45.052 0.851316 45.3654 0.537915 45.752 0.537915Z",
     fill: "current_color"
   }))),
   grid3: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 3')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "50",
-    height: "18",
-    viewBox: "0 0 50 18",
+    width: "64",
+    height: "24",
+    viewBox: "0 0 64 24",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M4.28906 11.3503H17.3087V10.6503H4.28906V11.3503Z",
+    d: "M16.1642 14.3129H3.33984V13.7129H16.1642V14.3129Z",
     fill: "current_color"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M15.1756 13.4241H4.28906V12.7241H15.1756V13.4241Z",
+    d: "M3.33984 17.4785H14.873V16.8785H3.33984V17.4785Z",
     fill: "current_color"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M4.28906 0.624268H18.7666V4.56433H21.8164C22.3687 4.56433 22.8164 5.01205 22.8164 5.56433V16.7003C22.8164 17.2526 22.3687 17.7003 21.8164 17.7003H1.23828C0.685997 17.7003 0.238281 17.2526 0.238281 16.7003V5.56433C0.238281 5.01205 0.685997 4.56433 1.23828 4.56433H4.28906V0.624268ZM4.98906 1.32427H18.0666V8.31448H4.98906V1.32427ZM4.28906 4.76433H1.23828C0.796453 4.76433 0.438281 5.1225 0.438281 5.56433V16.7003C0.438281 17.1421 0.796454 17.5003 1.23828 17.5003H21.8164C22.2582 17.5003 22.6164 17.1421 22.6164 16.7003V5.56433C22.6164 5.1225 22.2582 4.76433 21.8164 4.76433H18.7666V9.01448H4.28906V4.76433Z",
-    fill: "current_color"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M30.6406 11.3503H43.6603V10.6503H30.6406V11.3503Z",
-    fill: "current_color"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M41.5272 13.4241H30.6406V12.7241H41.5272V13.4241Z",
+    d: "M11.3848 20.7985H3.33984V20.1985H11.3848V20.7985Z",
     fill: "current_color"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     "fill-rule": "evenodd",
     "clip-rule": "evenodd",
-    d: "M30.6406 0.624268V4.56433H27.5898C27.0376 4.56433 26.5898 5.01205 26.5898 5.56433V16.7003C26.5898 17.2526 27.0376 17.7003 27.5898 17.7003H48.168C48.7203 17.7003 49.168 17.2526 49.168 16.7003V5.56433C49.168 5.01205 48.7203 4.56433 48.168 4.56433H45.1181V0.624268H30.6406ZM44.4181 1.32427H31.3406V8.31448H44.4181V1.32427ZM45.1181 4.76433V9.01448H30.6406V4.76433H27.5898C27.148 4.76433 26.7898 5.1225 26.7898 5.56433V16.7003C26.7898 17.1421 27.148 17.5003 27.5898 17.5003H48.168C48.6098 17.5003 48.968 17.1421 48.968 16.7003V5.56433C48.968 5.1225 48.6098 4.76433 48.168 4.76433H45.1181Z",
+    d: "M4.33984 0.285645C3.78756 0.285645 3.33984 0.73336 3.33984 1.28564V7.5686H1.43945C0.887168 7.5686 0.439453 8.01632 0.439453 8.5686V22.7622C0.439453 23.3145 0.887168 23.7622 1.43945 23.7622H17.9087C18.461 23.7622 18.9087 23.3145 18.9087 22.7622V8.5686C18.9087 8.01632 18.461 7.5686 17.9087 7.5686H16.1642V1.28564C16.1642 0.73336 15.7165 0.285645 15.1642 0.285645H4.33984ZM15.1642 0.885645H4.33984C4.11893 0.885645 3.93984 1.06473 3.93984 1.28564V9.6709C3.93984 9.89181 4.11893 10.0709 4.33984 10.0709H15.1642C15.3851 10.0709 15.5642 9.89181 15.5642 9.6709V1.28564C15.5642 1.06473 15.3851 0.885645 15.1642 0.885645ZM16.1642 7.8686V9.6709C16.1642 10.2232 15.7165 10.6709 15.1642 10.6709H4.33984C3.78756 10.6709 3.33984 10.2232 3.33984 9.6709V7.8686H1.43945C1.05285 7.8686 0.739453 8.182 0.739453 8.5686V22.7622C0.739453 23.1488 1.05285 23.4622 1.43945 23.4622H17.9087C18.2953 23.4622 18.6087 23.1488 18.6087 22.7622V8.5686C18.6087 8.182 18.2953 7.8686 17.9087 7.8686H16.1642Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M55.6973 20.7985H47.6523V20.1985H55.6973V20.7985Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M25.4961 20.7985H33.541V20.1985H25.4961V20.7985Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M38.3204 14.3129H25.4961V13.7129H38.3204V14.3129Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M25.4961 17.4785H37.0292V16.8785H25.4961V17.4785Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M25.4961 1.28564C25.4961 0.73336 25.9438 0.285645 26.4961 0.285645H37.3204C37.8727 0.285645 38.3204 0.73336 38.3204 1.28564V7.5686H40.0649C40.6172 7.5686 41.0649 8.01632 41.0649 8.5686V22.7622C41.0649 23.3145 40.6172 23.7622 40.0649 23.7622H23.5957C23.0434 23.7622 22.5957 23.3145 22.5957 22.7622V8.5686C22.5957 8.01632 23.0434 7.5686 23.5957 7.5686H25.4961V1.28564ZM26.4961 0.885645H37.3204C37.5413 0.885645 37.7204 1.06473 37.7204 1.28564V9.6709C37.7204 9.89181 37.5413 10.0709 37.3204 10.0709H26.4961C26.2752 10.0709 26.0961 9.89181 26.0961 9.6709V1.28564C26.0961 1.06473 26.2752 0.885645 26.4961 0.885645ZM38.3204 9.6709V7.8686H40.0649C40.4515 7.8686 40.7649 8.182 40.7649 8.5686V22.7622C40.7649 23.1488 40.4515 23.4622 40.0649 23.4622H23.5957C23.2091 23.4622 22.8957 23.1488 22.8957 22.7622V8.5686C22.8957 8.182 23.2091 7.8686 23.5957 7.8686H25.4961V9.6709C25.4961 10.2232 25.9438 10.6709 26.4961 10.6709H37.3204C37.8727 10.6709 38.3204 10.2232 38.3204 9.6709Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M48.6523 0.285645C48.1001 0.285645 47.6523 0.73336 47.6523 1.28564V7.5686H45.8301C45.2778 7.5686 44.8301 8.01632 44.8301 8.5686V22.7622C44.8301 23.3145 45.2778 23.7622 45.8301 23.7622H62.2993C62.8516 23.7622 63.2993 23.3145 63.2993 22.7622V8.5686C63.2993 8.01632 62.8516 7.5686 62.2993 7.5686H60.5548V7.8686H62.2993C62.6859 7.8686 62.9993 8.182 62.9993 8.5686V22.7622C62.9993 23.1488 62.6859 23.4622 62.2993 23.4622H45.8301C45.4435 23.4622 45.1301 23.1488 45.1301 22.7622V8.5686C45.1301 8.182 45.4435 7.8686 45.8301 7.8686H47.6523V9.6709C47.6523 10.2232 48.1001 10.6709 48.6523 10.6709H59.4767C60.029 10.6709 60.4767 10.2232 60.4767 9.6709V1.28564C60.4767 0.73336 60.029 0.285645 59.4767 0.285645H48.6523ZM59.4767 0.885645H48.6523C48.4314 0.885645 48.2523 1.06473 48.2523 1.28564V9.6709C48.2523 9.89181 48.4314 10.0709 48.6523 10.0709H59.4767C59.6976 10.0709 59.8767 9.89181 59.8767 9.6709V1.28564C59.8767 1.06473 59.6976 0.885645 59.4767 0.885645Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M47.6523 14.3129H60.4767V13.7129H47.6523V14.3129Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M59.1855 17.4785H47.6523V16.8785H59.1855V17.4785Z",
+    fill: "current_color"
+  }))),
+  grid4: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Grid 4')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    width: "64",
+    height: "24",
+    viewBox: "0 0 64 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M12.2638 0.885645H1.43945C1.21854 0.885645 1.03945 1.06473 1.03945 1.28564V11.2158C1.03945 11.4367 1.21854 11.6158 1.43945 11.6158H12.2638C12.4847 11.6158 12.6638 11.4367 12.6638 11.2158V1.28564C12.6638 1.06473 12.4847 0.885645 12.2638 0.885645ZM1.43945 0.285645C0.887168 0.285645 0.439453 0.73336 0.439453 1.28564V11.2158C0.439453 11.7681 0.887169 12.2158 1.43945 12.2158H12.2638C12.8161 12.2158 13.2638 11.7681 13.2638 11.2158V1.28564C13.2638 0.73336 12.8161 0.285645 12.2638 0.285645H1.43945Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M9.25575 23.7622H4.44922V23.1622H9.25575V23.7622Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M11.754 20.2621H1.95117V19.0621H11.754V20.2621Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M10.875 16.8704H2.83008V16.2704H10.875V16.8704Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M9.25586 14.6455H4.44922V14.0455H9.25586V14.6455Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M28.922 0.885645H18.0977C17.8767 0.885645 17.6977 1.06473 17.6977 1.28564V11.2158C17.6977 11.4367 17.8767 11.6158 18.0977 11.6158H28.922C29.1429 11.6158 29.322 11.4367 29.322 11.2158V1.28564C29.322 1.06473 29.1429 0.885645 28.922 0.885645ZM18.0977 0.285645C17.5454 0.285645 17.0977 0.73336 17.0977 1.28564V11.2158C17.0977 11.7681 17.5454 12.2158 18.0977 12.2158H28.922C29.4743 12.2158 29.922 11.7681 29.922 11.2158V1.28564C29.922 0.73336 29.4743 0.285645 28.922 0.285645H18.0977Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M25.914 23.7622H21.1074V23.1622H25.914V23.7622Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M28.4122 20.2621H18.6094V19.0621H28.4122V20.2621Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M27.5332 16.8704H19.4883V16.2704H27.5332V16.8704Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M25.9141 14.6455H21.1074V14.0455H25.9141V14.6455Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M45.5802 0.885645H34.7559C34.5349 0.885645 34.3559 1.06473 34.3559 1.28564V11.2158C34.3559 11.4367 34.5349 11.6158 34.7559 11.6158H45.5802C45.8011 11.6158 45.9802 11.4367 45.9802 11.2158V1.28564C45.9802 1.06473 45.8011 0.885645 45.5802 0.885645ZM34.7559 0.285645C34.2036 0.285645 33.7559 0.73336 33.7559 1.28564V11.2158C33.7559 11.7681 34.2036 12.2158 34.7559 12.2158H45.5802C46.1325 12.2158 46.5802 11.7681 46.5802 11.2158V1.28564C46.5802 0.73336 46.1325 0.285645 45.5802 0.285645H34.7559Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M42.5722 23.7622H37.7656V23.1622H42.5722V23.7622Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M45.0704 20.2621H35.2676V19.0621H45.0704V20.2621Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M44.1914 16.8704H36.1465V16.2704H44.1914V16.8704Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M42.5723 14.6455H37.7656V14.0455H42.5723V14.6455Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M62.2384 0.885645H51.4141C51.1931 0.885645 51.0141 1.06473 51.0141 1.28564V11.2158C51.0141 11.4367 51.1931 11.6158 51.4141 11.6158H62.2384C62.4593 11.6158 62.6384 11.4367 62.6384 11.2158V1.28564C62.6384 1.06473 62.4593 0.885645 62.2384 0.885645ZM51.4141 0.285645C50.8618 0.285645 50.4141 0.73336 50.4141 1.28564V11.2158C50.4141 11.7681 50.8618 12.2158 51.4141 12.2158H62.2384C62.7907 12.2158 63.2384 11.7681 63.2384 11.2158V1.28564C63.2384 0.73336 62.7907 0.285645 62.2384 0.285645H51.4141Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M59.2304 23.7622H54.4238V23.1622H59.2304V23.7622Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M61.7286 20.2621H51.9258V19.0621H61.7286V20.2621Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M60.8496 16.8704H52.8047V16.2704H60.8496V16.8704Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M59.2305 14.6455H54.4238V14.0455H59.2305V14.6455Z",
     fill: "current_color"
   }))),
   list1: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('List 1')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "50",
-    height: "15",
-    viewBox: "0 0 50 15",
+    width: "64",
+    height: "25",
+    viewBox: "0 0 64 25",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     "fill-rule": "evenodd",
     "clip-rule": "evenodd",
-    d: "M2.41211 0.146118C1.30754 0.146118 0.412109 1.04155 0.412109 2.14612V12.6415C0.412109 13.746 1.30754 14.6415 2.41211 14.6415H17.3672C18.4718 14.6415 19.3672 13.746 19.3672 12.6415V2.14612C19.3672 1.04155 18.4718 0.146118 17.3672 0.146118H2.41211ZM2.41211 0.846118H17.3672C18.0852 0.846118 18.6672 1.42815 18.6672 2.14612V12.6415C18.6672 13.3594 18.0852 13.9415 17.3672 13.9415H2.41211C1.69414 13.9415 1.11211 13.3594 1.11211 12.6415V2.14612C1.11211 1.42815 1.69414 0.846118 2.41211 0.846118Z",
+    d: "M2.43945 0.758789C1.33488 0.758789 0.439453 1.65422 0.439453 2.75879V22.2831C0.439453 23.3877 1.33488 24.2831 2.43945 24.2831H25.6509C26.7555 24.2831 27.6509 23.3876 27.6509 22.2831V2.75879C27.6509 1.65422 26.7555 0.758789 25.6509 0.758789H2.43945ZM2.43945 1.35879H25.6509C26.4241 1.35879 27.0509 1.98559 27.0509 2.75879V22.2831C27.0509 23.0563 26.4241 23.6831 25.6509 23.6831H2.43945C1.66625 23.6831 1.03945 23.0563 1.03945 22.2831V2.75879C1.03945 1.98559 1.66625 1.35879 2.43945 1.35879Z",
     fill: "current_color"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M21.8809 4.2592H49.168V3.5592H21.8809V4.2592Z",
+    d: "M31.2598 7.43372H63.221V6.83372H31.2598V7.43372Z",
     fill: "current_color"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M45.8906 7.39385H21.8809V6.69385H45.8906V7.39385Z",
+    d: "M59.3822 12.521H31.2598V11.921H59.3822V12.521Z",
     fill: "current_color"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M21.8809 10.5285H40.5898V9.82849H21.8809V10.5285Z",
+    d: "M31.2598 17.6082H53.1735V17.0082H31.2598V17.6082Z",
     fill: "current_color"
   }))),
   list2: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('List 2')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "50",
-    height: "22",
-    viewBox: "0 0 50 22",
+    width: "64",
+    height: "24",
+    viewBox: "0 0 64 24",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     "fill-rule": "evenodd",
     "clip-rule": "evenodd",
-    d: "M3.66016 5.60706C3.66016 4.50249 4.55559 3.60706 5.66016 3.60706H18.666C19.7706 3.60706 20.666 4.50249 20.666 5.60706V16.1024C20.666 17.207 19.7706 18.1024 18.666 18.1024H5.66016C4.55559 18.1024 3.66016 17.207 3.66016 16.1024V5.60706ZM18.666 4.30706H5.66016C4.94219 4.30706 4.36016 4.88909 4.36016 5.60706V16.1024C4.36016 16.8204 4.94219 17.4024 5.66016 17.4024H18.666C19.384 17.4024 19.966 16.8204 19.966 16.1024V5.60706C19.966 4.88909 19.384 4.30706 18.666 4.30706Z",
-    fill: "current_color"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M23.9316 7.72014H46.1953V7.02014H23.9316V7.72014Z",
-    fill: "current_color"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M43.5213 10.8548H23.9316V10.1548H43.5213V10.8548Z",
-    fill: "current_color"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M23.9316 13.9894H39.1964V13.2894H23.9316V13.9894Z",
+    d: "M22.7093 3.78359H6.3125C5.5393 3.78359 4.9125 4.4104 4.9125 5.18359V18.8166C4.9125 19.5898 5.5393 20.2166 6.3125 20.2166H22.7093C23.4825 20.2166 24.1093 19.5898 24.1093 18.8166V5.18359C24.1093 4.41039 23.4825 3.78359 22.7093 3.78359ZM4.3125 5.18359C4.3125 4.07902 5.20793 3.18359 6.3125 3.18359H22.7093C23.8139 3.18359 24.7093 4.07902 24.7093 5.18359V18.8166C24.7093 19.9212 23.8138 20.8166 22.7093 20.8166H6.3125C5.20793 20.8166 4.3125 19.9212 4.3125 18.8166V5.18359Z",
     fill: "current_color"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     "fill-rule": "evenodd",
     "clip-rule": "evenodd",
-    d: "M0.412109 2.33472C0.412109 1.23015 1.30754 0.334717 2.41211 0.334717H47.168C48.2725 0.334717 49.168 1.23015 49.168 2.33472V19.3749C49.168 20.4794 48.2725 21.3749 47.168 21.3749H2.41211C1.30754 21.3749 0.412109 20.4794 0.412109 19.3749V2.33472ZM47.168 0.534717H2.41211C1.418 0.534717 0.612109 1.3406 0.612109 2.33472V19.3749C0.612109 20.369 1.418 21.1749 2.41211 21.1749H47.168C48.1621 21.1749 48.968 20.369 48.968 19.3749V2.33472C48.968 1.3406 48.1621 0.534717 47.168 0.534717Z",
+    d: "M61.2207 0.537915H2.43945C1.50057 0.537915 0.739453 1.29903 0.739453 2.23792V21.7622C0.739453 22.7011 1.50057 23.4622 2.43945 23.4622H61.2207C62.1596 23.4622 62.9207 22.7011 62.9207 21.7622V2.23792C62.9207 1.29903 62.1596 0.537915 61.2207 0.537915ZM0.439453 2.23792C0.439453 1.13335 1.33488 0.237915 2.43945 0.237915H61.2207C62.3253 0.237915 63.2207 1.13335 63.2207 2.23792V21.7622C63.2207 22.8668 62.3253 23.7622 61.2207 23.7622H2.43945C1.33488 23.7622 0.439453 22.8668 0.439453 21.7622V2.23792Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M57.9238 8.18689H27.4141V7.58689H57.9238V8.18689Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M54.2594 12H27.4141V11.4H54.2594V12Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M48.3326 15.8132H27.4141V15.2132H48.3326V15.8132Z",
     fill: "current_color"
   }))),
   list3: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('List 3')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "50",
-    height: "22",
-    viewBox: "0 0 50 22",
+    width: "64",
+    height: "24",
+    viewBox: "0 0 64 24",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M21.8828 8.12109H44.1465V7.42109H21.8828V8.12109Z",
-    fill: "current_color"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M41.4725 11.2557H21.8828V10.5557H41.4725V11.2557Z",
-    fill: "current_color"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M21.8828 14.3904H37.1476V13.6904H21.8828V14.3904Z",
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M18.8362 3.78359H2.43945C1.66625 3.78359 1.03945 4.4104 1.03945 5.18359V18.8166C1.03945 19.5898 1.66625 20.2166 2.43945 20.2166H18.8362C19.6094 20.2166 20.2362 19.5898 20.2362 18.8166V5.18359C20.2362 4.41039 19.6094 3.78359 18.8362 3.78359ZM0.439453 5.18359C0.439453 4.07902 1.33488 3.18359 2.43945 3.18359H18.8362C19.9408 3.18359 20.8362 4.07902 20.8362 5.18359V18.8166C20.8362 19.9212 19.9408 20.8166 18.8362 20.8166H2.43945C1.33488 20.8166 0.439453 19.9212 0.439453 18.8166V5.18359Z",
     fill: "current_color"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     "fill-rule": "evenodd",
     "clip-rule": "evenodd",
-    d: "M2.41406 18.5034H7.48242V19.9136C7.48242 21.0181 8.37785 21.9136 9.48242 21.9136H47.168C48.2725 21.9136 49.168 21.0181 49.168 19.9136V2.59802C49.168 1.49345 48.2725 0.598022 47.168 0.598022H9.48242C8.37785 0.598022 7.48242 1.49345 7.48242 2.59802V4.00806H2.41406C1.30949 4.00806 0.414062 4.90349 0.414062 6.00806V16.5034C0.414062 17.608 1.30949 18.5034 2.41406 18.5034ZM9.48242 0.798022H47.168C48.1621 0.798022 48.968 1.60391 48.968 2.59802V19.9136C48.968 20.9077 48.1621 21.7136 47.168 21.7136H9.48242C8.48831 21.7136 7.68242 20.9077 7.68242 19.9136V18.5034H17.3691C18.4737 18.5034 19.3691 17.608 19.3691 16.5034V6.00806C19.3691 4.90349 18.4737 4.00806 17.3691 4.00806H7.68242V2.59802C7.68242 1.60391 8.48831 0.798022 9.48242 0.798022ZM17.3691 4.70806H2.41406C1.69609 4.70806 1.11406 5.29009 1.11406 6.00806V16.5034C1.11406 17.2214 1.69609 17.8034 2.41406 17.8034H17.3691C18.0871 17.8034 18.6691 17.2214 18.6691 16.5034V6.00806C18.6691 5.29009 18.0871 4.70806 17.3691 4.70806Z",
+    d: "M57.9238 8.18689H27.4141V7.58689H57.9238V8.18689Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M54.2594 12H27.4141V11.4H54.2594V12Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M48.3326 15.8132H27.4141V15.2132H48.3326V15.8132Z",
+    fill: "current_color"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M10.7402 0.537915H61.2207C62.1596 0.537915 62.9207 1.29903 62.9207 2.23792V21.7622C62.9207 22.7011 62.1596 23.4622 61.2207 23.4622H10.7402C9.80135 23.4622 9.04023 22.7011 9.04023 21.7622V20.8166H8.74023V21.7622C8.74023 22.8668 9.63566 23.7622 10.7402 23.7622H61.2207C62.3253 23.7622 63.2207 22.8668 63.2207 21.7622V2.23792C63.2207 1.13335 62.3253 0.237915 61.2207 0.237915H10.7402C9.63566 0.237915 8.74023 1.13335 8.74023 2.23792V3.18359H9.04023V2.23792C9.04023 1.29903 9.80135 0.537915 10.7402 0.537915Z",
     fill: "current_color"
   })))
 };
@@ -28749,7 +29238,7 @@ wp.data.subscribe(() => {
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.updateCategory)("dowp", {
   icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: dowpParams.plugin_url + "/assets/images/block-cat.svg",
-    alt: __("The Post Grid")
+    alt: __("User Grid")
   })
 });
 })();

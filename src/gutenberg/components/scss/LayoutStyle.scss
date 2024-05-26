@@ -2,30 +2,46 @@
     .dowp-btn-group {
         gap: 5px;
     }
+
     .dowp-button {
-        flex: 0 0 32%;
+        flex: 0 0 31.8%;
         cursor: pointer;
         transition: 0.4s;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 36px;
+        position: relative;
+
 
         svg {
             transition: fill 0.4s;
-            fill: #7d7d85;
-            transform: scale(1.2);
+            fill: #000000;
         }
+
         svg:focus {
             outline: none;
+        }
+
+        &.active {
+            background: #eef7fd  !important;
         }
 
         &:hover,
         &.active {
             border-color: var(--dowp-primary) !important;
+
             svg {
-                fill: var(--dowp-primary) !important;;
+                fill: var(--dowp-primary) !important;
             }
         }
+    }
+}
+
+.dowp-has-no-pro .dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button.pro-layout {
+    border-color: #912d2d !important;
+    background: #fbf0f0;
+    svg {
+        fill: #912d2d !important;
     }
 }

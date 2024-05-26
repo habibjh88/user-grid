@@ -42,9 +42,9 @@ if ( ! class_exists( UserGrid::class ) ) {
 		 * @var array
 		 */
 		public $options = [
-			'settings'          => 'rt_dowp_settings',
+			'settings'          => 'dowp_settings',
 			'version'           => USER_GRID_VERSION,
-			'installed_version' => 'rt_dowp_current_version',
+			'installed_version' => 'user_grid_version',
 			'slug'              => USER_GRID_PLUGIN_SLUG,
 		];
 
@@ -135,7 +135,7 @@ if ( ! class_exists( UserGrid::class ) ) {
 		 * @return void
 		 */
 		public function on_plugins_loaded() {
-			do_action( 'dowp_loaded', $this );
+			do_action( 'dowp_ug_loaded', $this );
 		}
 
 		/**
@@ -187,13 +187,12 @@ if ( ! class_exists( UserGrid::class ) ) {
 		 * @return string
 		 */
 		public function dowp_can_be_rtl( $file ) {
-			$file = ltrim( str_replace( '.css', '', $file ), '/' );
 
 			if ( is_rtl() ) {
 				$file .= '.rtl';
 			}
 
-			return trailingslashit( USER_GRID_PLUGIN_URL . '/assets' ) . $file . '.min.css';
+			return trailingslashit( USER_GRID_PLUGIN_URL . '/assets/' ) . $file . '.css';
 		}
 
 		/**
@@ -203,6 +202,15 @@ if ( ! class_exists( UserGrid::class ) ) {
 		 */
 		public function get_template_path() {
 			return apply_filters( 'dowp_template_path', 'user-grid/' );
+		}
+
+		/**
+		 * Check Pro Plugin
+		 *
+		 * @return boolean
+		 */
+		public function hasPro() {
+			return class_exists( 'UserGridPro' );
 		}
 
 	}

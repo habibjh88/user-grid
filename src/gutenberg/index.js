@@ -39,7 +39,7 @@ updateCategory("dowp", {
     icon: (
         <img
             src={dowpParams.plugin_url + "/assets/images/block-cat.svg"}
-            alt={__("The Post Grid")}
+            alt={__("User Grid")}
         />
     ),
 });

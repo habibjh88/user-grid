@@ -28,7 +28,7 @@ if ((!process.env.npm_config_block && !process.env.npm_config_package) && (proce
         fsExtra.ensureDir(languages, function (err) {
             if (err) return console.error(err); // if file or folder does not exist
             wpPot({
-                package: 'The Post Grid',
+                package: 'User Grid',
                 bugReport: '',
                 src: '**/*.php',
                 domain: 'user-grid',
@@ -41,8 +41,8 @@ if ((!process.env.npm_config_block && !process.env.npm_config_package) && (proce
             .sourceMaps(false, 'inline-source-map');
     }
 
-    mix.sass( 'src/scss/block.scss', 'assets/css/block.min.css' )
-    mix.sass( 'src/scss/block-admin.scss', 'assets/css/block-admin.min.css' )
+    mix.sass( 'src/scss/style.scss', 'assets/css/style.css' )
+    mix.sass( 'src/scss/block-admin.scss', 'assets/css/block-admin.css' )
         .options( {
             terser: {
                 extractComments: false
@@ -52,7 +52,7 @@ if ((!process.env.npm_config_block && !process.env.npm_config_package) && (proce
         .webpackConfig( {
             plugins: [
                 new WebpackRTLPlugin( {
-                    filename: [ /(\.min.css)/i, '.rtl$1' ],
+                    filename: '[name].rtl.css',
                     minify: isProduction,
                 } )
             ],

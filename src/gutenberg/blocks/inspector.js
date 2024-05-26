@@ -1,5 +1,8 @@
+import ContentQuery from "./controller/ContentQuery";
+
 const {InspectorControls} = wp.blockEditor;
 import {TabPanel} from "@wordpress/components";
+import ContentLayout from "./controller/ContentLayout";
 import ContentControl from "./controller/ContentControl";
 import FieldVisibility from "./controller/FieldVisibility";
 import AvatarSettings from "./controller/AvatarSettings";
@@ -11,6 +14,7 @@ import SocialShareSettings from "./controller/SocialShareSettings";
 import ReadArticleBtn from "./controller/ReadArticleBtn";
 import CardSettings from "./controller/CardSettings";
 import TabTitle from "../components/TabTitle";
+import ContentSort from "./controller/ContentSort";
 
 function Inspector(props) {
     const {attributes, changeQuery, userData} = props;
@@ -48,7 +52,9 @@ function Inspector(props) {
                             {/* Content Tab*/}
                             {tab.name === "content" && (
                                 <>
-                                    <ContentControl data={props} changeQuery={changeQuery} userData={userData}/>
+                                    <ContentLayout data={props} changeQuery={changeQuery} userData={userData}/>
+                                    <ContentQuery data={props} changeQuery={changeQuery} userData={userData}/>
+                                    <ContentSort data={props} changeQuery={changeQuery} userData={userData}/>
                                 </>
                             )}
 
