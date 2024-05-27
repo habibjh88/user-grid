@@ -32,3 +32,20 @@ export const extendClass = layout => {
     classes += layout === 'list3' ? ' dowp-list2' : '';
     return classes;
 }
+
+/**
+ * Layout Alignment
+ *
+ * @param grid_alignment
+ * @returns {string}
+ */
+export const layoutAlign = (grid_alignment) => {
+    let alignClass = '';
+    for (const [device, value] of Object.entries(grid_alignment)) {
+        if (!value) {
+            continue;
+        }
+        alignClass += `${device}-${value} `;
+    }
+    return alignClass.trim();
+}

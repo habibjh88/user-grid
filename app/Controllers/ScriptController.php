@@ -69,7 +69,8 @@ class ScriptController {
 		];
 
 		// Plugin specific css.
-		$styles['dowp-block'] = userGrid()->dowp_can_be_rtl( 'css/style' );
+
+		$styles['dowp-block'] = userGrid()->dowp_can_be_rtl( 'css/style', true );
 
 		foreach ( $scripts as $script ) {
 			wp_register_script( $script['handle'], $script['src'], $script['deps'], $script['version'] ?? $this->version, $script['footer'] );

@@ -1,6 +1,6 @@
 const {Spinner} = wp.components;
 const {useEffect} = wp.element;
-import {extendClass} from "../../utils/Utility";
+import {extendClass, layoutAlign} from "../../utils/Utility";
 
 function CustomUsersBlock({props, userData}) {
     const {attributes, setAttributes, clientId} = props;
@@ -8,6 +8,7 @@ function CustomUsersBlock({props, userData}) {
         layout,
         uniqueId,
         image_link,
+        grid_alignment
     } = attributes;
 
     const newClintID = clientId.substr(0, 6);
@@ -20,12 +21,14 @@ function CustomUsersBlock({props, userData}) {
         }
     }, []);
 
+
     let wrapper_classes = image_link ? '' : ' no-image-link';
     wrapper_classes += `dowp-block-${uniqueId}`;
 
     let inner_classes = layout.replace(/[0-9]/g, '') + '-style';
     inner_classes += extendClass(layout);
     inner_classes += ' dowp-' + layout;
+    inner_classes += ' ' + layoutAlign(grid_alignment);
 
     return (
         <div className={`dowp-block-usergrid dowp-block-wrapper ${wrapper_classes}`}>

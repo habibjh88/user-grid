@@ -123,24 +123,9 @@ class UserBlock extends BlockBase {
 				],
 			],
 
-			// 'grid_alignment'         => [
-			// 'type'    => 'string',
-			// 'default' => '',
-			// 'style'   => [
-			// (object) [
-			// 'selector' => '{{UserGrid}} .dwp-users-block-wrapper {text-align: {{grid_alignment}}; }',
-			// ],
-			// ],
-			// ],
-
 			'grid_alignment'         => [
 				'type'    => 'object',
 				'default' => [],
-				'style'   => [
-					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper {text-align: {{grid_alignment}}; }',
-					],
-				],
 			],
 
 			'grid_v_alignment'       => [
@@ -870,7 +855,7 @@ class UserBlock extends BlockBase {
 				],
 			],
 
-			'card_bg'                         => [
+			'card_bg'                => [
 				'type'    => 'object',
 				'default' => (object) [
 					'openBGColor' => 0,
@@ -946,6 +931,7 @@ class UserBlock extends BlockBase {
 		$inner_class  = preg_replace( '/[0-9]/', '', $data['layout'] ) . '-style';
 		$inner_class .= Fns::extendClass( $data['layout'] );
 		$inner_class .= ' dowp-' . $data['layout'];
+		$inner_class .= ' ' . Fns::layout_align( $data['grid_alignment'] )
 		?>
 
 		<div class="<?php echo esc_attr( $wrapper_class ); ?>">

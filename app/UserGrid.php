@@ -186,10 +186,14 @@ if ( ! class_exists( UserGrid::class ) ) {
 		 *
 		 * @return string
 		 */
-		public function dowp_can_be_rtl( $file ) {
+		public function dowp_can_be_rtl( $file, $checkPro = '' ) {
 
 			if ( is_rtl() ) {
 				$file .= '.rtl';
+			}
+
+			if ( $checkPro && userGrid()->hasPro() ) {
+				return trailingslashit( USER_GRID_PRO_PLUGIN_URL . '/assets/' ) . $file . '.css';
 			}
 
 			return trailingslashit( USER_GRID_PLUGIN_URL . '/assets/' ) . $file . '.css';

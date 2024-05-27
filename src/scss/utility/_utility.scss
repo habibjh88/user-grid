@@ -3,3 +3,41 @@
         order: #{$i};
     }
 }
+
+
+.lg-left {
+    text-align: left;
+}
+
+.lg-right {
+    text-align: right;
+}
+
+.lg-center {
+    text-align: center;
+}
+
+@media (max-width: 1200px) {
+    .md-left {
+        text-align: left;
+    }
+    .md-right {
+        text-align: right;
+    }
+    .md-center {
+        text-align: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .sm-left {
+        text-align: left;
+    }
+    .sm-right {
+        text-align: right;
+    }
+    .sm-center {
+        text-align: center;
+    }
+}
+

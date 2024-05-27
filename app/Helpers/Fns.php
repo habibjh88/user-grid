@@ -283,7 +283,7 @@ class Fns {
 	public static function get_dynamic_cols( $grid_column, $default_grid_columns = [] ) {
 		if ( ! $default_grid_columns ) {
 			$default_grid_columns = [
-				'lg' => '4',
+				'lg' => '3',
 				'md' => '6',
 				'sm' => '12',
 			];
@@ -322,5 +322,17 @@ class Fns {
 		$index = array_search( $item, $content_order );
 		echo esc_attr( "order-{$index}" );
 	}
+
+	public static function layout_align($alignment) {
+		$align_class = '';
+		foreach($alignment as $device => $value){
+			if(! $value) {
+				continue;
+			}
+			$align_class .= $device.'-'.$value.' ';
+		}
+		return $align_class;
+	}
+
 
 }

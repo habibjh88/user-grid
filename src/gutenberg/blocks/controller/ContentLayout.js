@@ -36,7 +36,7 @@ export default function ContentLayout(props) {
                 attributes={attributes}
                 value={layout}
                 options={{
-                    grid: ['grid1', 'grid2', 'grid3', 'grid4'],
+                    grid: ['grid1', 'grid2', 'grid3', 'grid4', 'grid5'],
                     list: ['list1', 'list2', 'list3']
                 }}
                 onChange={layout => {
@@ -62,7 +62,10 @@ export default function ContentLayout(props) {
                 options={['left', 'center', 'right']}
                 value={grid_alignment}
                 responsive
-                onChange={grid_alignment => setAttributes({grid_alignment})}
+                onChange={grid_alignment => {
+                    setAttributes({grid_alignment})
+                    changeQuery();
+                }}
             />
 
             {latyouStyleDefault === 'list' &&
