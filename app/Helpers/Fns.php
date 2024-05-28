@@ -258,6 +258,7 @@ class Fns {
 	 */
 	public static function social_list() {
 		return apply_filters( 'user_grid_social_list', [
+			'phone'    => esc_html__( 'Phone Number', 'user-grid' ),
 			'twitter'    => esc_html__( 'Twitter', 'user-grid' ),
 			'facebook'   => esc_html__( 'Facebook', 'user-grid' ),
 			'linkedin'   => esc_html__( 'LinkedIn', 'user-grid' ),

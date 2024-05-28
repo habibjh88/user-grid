@@ -140,7 +140,7 @@ class UserBlock extends BlockBase {
 
 			'avatar_visibility'      => [
 				'type'    => 'string',
-				'default' => 'yes',
+				'default' => 'show',
 			],
 
 			'name_visibility'        => [
@@ -165,7 +165,7 @@ class UserBlock extends BlockBase {
 
 			'bio_visibility'         => [
 				'type'    => 'string',
-				'default' => 'show',
+				'default' => '',
 			],
 
 			'social_visibility'      => [
@@ -385,6 +385,16 @@ class UserBlock extends BlockBase {
 				'style'   => [
 					(object) [
 						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-name a:hover {color: {{name_color_hover}}; }',
+					],
+				],
+			],
+
+			'line_color'             => [
+				'type'    => 'string',
+				'default' => '',
+				'style'   => [
+					(object) [
+						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-name::before {background-color: {{line_color}} !important; }',
 					],
 				],
 			],
@@ -939,10 +949,15 @@ class UserBlock extends BlockBase {
 				<?php if ( is_array( $user_lists ) && $count_users > 0 ) { ?>
 					<div class="dwp-row">
 						<?php
-						foreach ( $user_lists as $user ) {
-							$user_info            = get_user_by( 'id', $user );
-							$data['user_id']      = $user;
+						foreach ( $user_lists as $user_id ) {
+							$user_info            = get_user_by( 'id', $user_id );
+							$data['user_id']      = $user_id;
 							$data['display_name'] = $user_info->display_name;
+							$data['email']        = $user_info->user_email;
+							$data['designation']  = get_user_meta( $user_id, 'user_grid_designation', true );
+							$data['description']  = get_user_meta( $user_id, 'description', true );
+							$data['phone']        = get_user_meta( $user_id, 'user_grid_phone', true );
+							$data['short_desc']   = get_user_meta( $user_id, 'user_grid_short_desc', true );
 							Fns::get_template( $data['layout'], $data );
 						}
 						?>

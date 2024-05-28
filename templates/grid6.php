@@ -19,7 +19,6 @@
  * @var $email_visibility
  * @var $content_order
  * @var $button_visibility
- * @var $button_visibility
  * @var $button_style
  */
 
@@ -31,6 +30,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $avatar_size      = [ 'size' => $avatar_dimension ?? '300' ];
 $avater_image_url = get_avatar_url( $user_id, $avatar_size );
+$designation      = get_user_meta( $user_id, 'user_grid_designation', true );
+$description      = get_user_meta( $user_id, 'description', true );
+$short_desc       = get_user_meta( $user_id, 'user_grid_short_desc', true );
 $col_class        = Fns::get_dynamic_cols( $grid_column );
 ?>
 
@@ -40,9 +42,9 @@ $col_class        = Fns::get_dynamic_cols( $grid_column );
 			<div class="user-avatar">
 				<a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
 					<img width="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-					     height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-					     src="<?php echo esc_url( $avater_image_url ); ?>"
-					     alt="<?php echo esc_html( $display_name ); ?>"/>
+						 height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
+						 src="<?php echo esc_url( $avater_image_url ); ?>"
+						 alt="<?php echo esc_html( $display_name ); ?>"/>
 				</a>
 			</div>
 		<?php endif; ?>
@@ -65,11 +67,6 @@ $col_class        = Fns::get_dynamic_cols( $grid_column );
 			</div>
 		<?php endif; ?>
 
-		<div class="user-contact">
-			<a class="email" href="mailto:<?php echo esc_attr( $email ) ?>"><?php echo esc_html( $email ) ?></a>
-			<a class="phone" href="tel:<?php echo esc_attr( $phone ) ?>"><?php echo esc_html( $phone ) ?></a>
-		</div>
-
 		<?php if ( $bio_visibility && $description ) : ?>
 			<div class="user-biography <?php Fns::order_class( 'biography', $content_order ); ?>">
 				<?php echo esc_html( $description ); ?>
@@ -84,7 +81,7 @@ $col_class        = Fns::get_dynamic_cols( $grid_column );
 
 		<?php if ( $button_visibility ) : ?>
 			<div class="read-articles-btn <?php Fns::order_class( 'button', $content_order ); ?>">
-				<a class="read-btn <?php echo esc_attr( $button_style ) ?>" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
+				<a class="read-btn <?php echo esc_attr( $button_style ); ?>" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
 					<?php esc_html_e( 'Read Articles', 'user-grid' ); ?>
 				</a>
 			</div>

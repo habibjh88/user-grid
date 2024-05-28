@@ -115,6 +115,11 @@ class GetUsersAPI {
 				$user_info               = get_user_by( 'id', $user->ID );
 				$newData['user_id']      = $user->ID;
 				$newData['display_name'] = $user_info->display_name;
+				$newData['email']           = $user_info->user_email;
+				$newData['designation']     = get_user_meta( $user->ID, 'user_grid_designation', true );
+				$newData['description']     = get_user_meta( $user->ID, 'description', true );
+				$newData['phone']           = get_user_meta( $user->ID, 'user_grid_phone', true );
+				$newData['short_desc']      = get_user_meta( $user->ID, 'user_grid_short_desc', true );
 				Fns::get_template( $data['layout'], $newData );
 			}
 			$markup              = ob_get_clean();

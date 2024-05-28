@@ -17,6 +17,7 @@ function NameSettings(props) {
         name_typography,
         name_spacing,
         name_color,
+        line_color,
         name_color_hover
     } = attributes;
 
@@ -56,6 +57,11 @@ function NameSettings(props) {
                 label={__('Color - Hover', 'user-grid')}
                 color={name_color_hover}
                 onChange={(name_color_hover) => setAttributes({name_color_hover})}
+            />
+            <Color
+                label={__('Bottom Line Color', 'user-grid')}
+                color={line_color}
+                onChange={(line_color) => setAttributes({line_color})}
             />
 
         </PanelBody>
