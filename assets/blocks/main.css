@@ -246,6 +246,7 @@
   align-items: center;
   height: 36px;
   position: relative;
+  border-width: 1.5px !important;
 }
 .dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button svg {
   transition: fill 0.4s;
@@ -259,9 +260,6 @@
 }
 .dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button:hover, .dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button.active {
   border-color: var(--dowp-primary) !important;
-}
-.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button:hover svg, .dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button.active svg {
-  fill: var(--dowp-primary) !important;
 }
 
 .dowp-has-no-pro .dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button.pro-layout {
