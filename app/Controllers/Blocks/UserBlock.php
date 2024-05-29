@@ -45,32 +45,37 @@ class UserBlock extends BlockBase {
 	public function get_attributes() {
 
 		return [
-			'uniqueId'               => [
+			'uniqueId' => [
 				'type'    => 'string',
 				'default' => '',
 			],
 
-			'preview'                => [
+			'preview' => [
 				'type'    => 'boolean',
 				'default' => false,
 			],
 
-			'layout_style'           => [
+			'layout_style' => [
 				'type'    => 'string',
 				'default' => 'grid',
 			],
 
-			'layout'                 => [
+			'layout' => [
 				'type'    => 'string',
 				'default' => 'grid1',
 			],
 
-			'user_limit'             => [
+			'grid_height' => [
+				'type'    => 'string',
+				'default' => 'height-auto',
+			],
+
+			'user_limit' => [
 				'type'    => 'string',
 				'default' => '12',
 			],
 
-			'grid_column'            => [
+			'grid_column' => [
 				'type'    => 'object',
 				'default' => [
 					'lg' => 0,
@@ -79,35 +84,35 @@ class UserBlock extends BlockBase {
 				],
 			],
 
-			'users_lists'            => [
+			'users_lists' => [
 				'type'    => 'array',
 				'default' => [],
 			],
 
-			'content_order'          => [
+			'content_order' => [
 				'type'    => 'array',
 				'default' => [ 'title', 'designation', 'short_description', 'biography', 'social', 'button' ],
 			],
 
-			'users_role'             => [
+			'users_role' => [
 				'type'    => 'array',
 				'default' => [],
 			],
 
-			'orderby'                => [
+			'orderby'               => [
 				'type'    => 'string',
 				'default' => '',
 			],
-			'order'                  => [
+			'order'                 => [
 				'type'    => 'string',
 				'default' => '',
 			],
-			'user_filter_by_domain'  => [
+			'user_filter_by_domain' => [
 				'type'    => 'string',
 				'default' => '',
 			],
 
-			'grid_gap'               => [
+			'grid_gap' => [
 				'type'    => 'object',
 				'default' => (object) [
 					'lg' => '',
@@ -123,27 +128,27 @@ class UserBlock extends BlockBase {
 				],
 			],
 
-			'grid_alignment'         => [
+			'grid_alignment' => [
 				'type'    => 'object',
 				'default' => [],
 			],
 
-			'grid_v_alignment'       => [
+			'grid_v_alignment' => [
 				'type'    => 'object',
 				'default' => [],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-inner-wrapper {align-items: {{grid_v_alignment}}; }',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-inner-wrapper {align-items: {{grid_v_alignment}}; }',
 					],
 				],
 			],
 
-			'avatar_visibility'      => [
+			'avatar_visibility' => [
 				'type'    => 'string',
 				'default' => 'show',
 			],
 
-			'name_visibility'        => [
+			'name_visibility' => [
 				'type'    => 'string',
 				'default' => 'show',
 			],
@@ -153,48 +158,53 @@ class UserBlock extends BlockBase {
 				'default' => 'show',
 			],
 
-			'email_visibility'       => [
+			'email_visibility' => [
 				'type'    => 'string',
 				'default' => 'show',
 			],
 
-			'short_desc_visibility'  => [
+			'phone_visibility' => [
 				'type'    => 'string',
 				'default' => 'show',
 			],
 
-			'bio_visibility'         => [
+			'short_desc_visibility' => [
+				'type'    => 'string',
+				'default' => 'show',
+			],
+
+			'bio_visibility' => [
 				'type'    => 'string',
 				'default' => '',
 			],
 
-			'social_visibility'      => [
+			'social_visibility' => [
 				'type'    => 'string',
 				'default' => 'show',
 			],
 
-			'button_visibility'      => [
+			'button_visibility' => [
 				'type'    => 'string',
 				'default' => 'show',
 			],
 
 			// User Avatar Settings.
-			'avatar_dimension'       => [
+			'avatar_dimension'  => [
 				'type'    => 'number',
 				'default' => '360',
 			],
 
-			'image_link'             => [
+			'image_link' => [
 				'type'    => 'string',
 				'default' => 'yes',
 			],
 
-			'default_image'          => [
+			'default_image' => [
 				'type'    => 'object',
 				'default' => [],
 			],
 
-			'avatar_width'           => [
+			'avatar_width'  => [
 				'type'    => 'object',
 				'default' => (object) [
 					'lg' => '',
@@ -203,11 +213,11 @@ class UserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-avatar {width: {{avatar_width}}; }',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-avatar {width: {{avatar_width}}; }',
 					],
 				],
 			],
-			'avatar_height'          => [
+			'avatar_height' => [
 				'type'    => 'object',
 				'default' => (object) [
 					'lg' => '',
@@ -216,12 +226,12 @@ class UserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-avatar {height: {{avatar_height}}; }',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-avatar {height: {{avatar_height}}; }',
 					],
 				],
 			],
 
-			'avatar_position'        => [
+			'avatar_position' => [
 				'type'    => 'object',
 				'default' => (object) [
 					'lg' => [
@@ -242,12 +252,12 @@ class UserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-avatar img {object-position: 50% {{avatar_position}}; }',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-avatar img {object-position: 50% {{avatar_position}}; }',
 					],
 				],
 			],
 
-			'avatar_border_radius'   => [
+			'avatar_border_radius' => [
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
@@ -268,11 +278,11 @@ class UserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-avatar a{{avatar_border_radius}}',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-avatar a{{avatar_border_radius}}',
 					],
 				],
 			],
-			'avatar_margin'          => [
+			'avatar_margin'        => [
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
@@ -293,12 +303,12 @@ class UserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-avatar{{avatar_margin}}',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-avatar{{avatar_margin}}',
 					],
 				],
 			],
 
-			'avatar_border'          => [
+			'avatar_border' => [
 				'type'    => 'object',
 				'default' => (object) [
 					'openTpgBorder' => 1,
@@ -308,18 +318,18 @@ class UserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-avatar',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-avatar',
 					],
 				],
 			],
 
 			// User Name Settings
-			'name_tag'               => [
+			'name_tag'      => [
 				'type'    => 'string',
 				'default' => 'h3',
 			],
 
-			'name_typography'        => [
+			'name_typography' => [
 				'type'    => 'object',
 				'default' => (object) [
 					'openTypography' => 1,
@@ -339,11 +349,11 @@ class UserBlock extends BlockBase {
 					'weight'         => '',
 				],
 				'style'   => [
-					(object) [ 'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-name' ],
+					(object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-name' ],
 				],
 			],
 
-			'name_spacing'           => [
+			'name_spacing' => [
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
@@ -364,27 +374,27 @@ class UserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-name {{name_spacing}}',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-name {{name_spacing}}',
 					],
 				],
 			],
 
-			'name_color'             => [
+			'name_color' => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-name a {color: {{name_color}}; }',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-name a {color: {{name_color}}; }',
 					],
 				],
 			],
 
-			'name_color_hover'       => [
+			'name_color_hover' => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-name a:hover {color: {{name_color_hover}}; }',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-name a:hover {color: {{name_color_hover}}; }',
 					],
 				],
 			],
@@ -394,7 +404,7 @@ class UserBlock extends BlockBase {
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-name::before {background-color: {{line_color}} !important; }',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-name::before {background-color: {{line_color}} !important; }',
 					],
 				],
 			],
@@ -420,11 +430,11 @@ class UserBlock extends BlockBase {
 					'weight'         => '',
 				],
 				'style'   => [
-					(object) [ 'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-designation' ],
+					(object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-designation' ],
 				],
 			],
 
-			'designation_spacing'    => [
+			'designation_spacing' => [
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
@@ -445,24 +455,24 @@ class UserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-designation {{designation_spacing}}',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-designation {{designation_spacing}}',
 					],
 				],
 			],
 
-			'designation_color'      => [
+			'designation_color' => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-designation {color: {{designation_color}}; }',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-designation {color: {{designation_color}}; }',
 					],
 				],
 			],
 
 			// Bio Settings
 
-			'bio_typography'         => [
+			'bio_typography' => [
 				'type'    => 'object',
 				'default' => (object) [
 					'openTypography' => 1,
@@ -482,11 +492,11 @@ class UserBlock extends BlockBase {
 					'weight'         => '',
 				],
 				'style'   => [
-					(object) [ 'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-biography' ],
+					(object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-biography' ],
 				],
 			],
 
-			'bio_spacing'            => [
+			'bio_spacing' => [
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
@@ -507,24 +517,24 @@ class UserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-biography {{bio_spacing}}',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-biography {{bio_spacing}}',
 					],
 				],
 			],
 
-			'bio_color'              => [
+			'bio_color' => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-biography {color: {{bio_color}}; }',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-biography {color: {{bio_color}}; }',
 					],
 				],
 			],
 
 			// Short Description.
 
-			'short_desc_typography'  => [
+			'short_desc_typography' => [
 				'type'    => 'object',
 				'default' => (object) [
 					'openTypography' => 1,
@@ -544,11 +554,11 @@ class UserBlock extends BlockBase {
 					'weight'         => '',
 				],
 				'style'   => [
-					(object) [ 'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-short-desc' ],
+					(object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-short-desc' ],
 				],
 			],
 
-			'short_desc_spacing'     => [
+			'short_desc_spacing' => [
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
@@ -569,23 +579,23 @@ class UserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-short-desc {{short_desc_spacing}}',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-short-desc {{short_desc_spacing}}',
 					],
 				],
 			],
 
-			'short_desc_color'       => [
+			'short_desc_color' => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-short-desc {color: {{short_desc_color}}; }',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-short-desc {color: {{short_desc_color}}; }',
 					],
 				],
 			],
 
 			// Social Style
-			'icon_font_size'         => [
+			'icon_font_size'   => [
 				'type'    => 'object',
 				'default' => (object) [
 					'lg' => '',
@@ -594,13 +604,13 @@ class UserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-user-social-icons a i {font-size:{{icon_font_size}}}
-						{{UserGrid}} .dwp-user-social-icons a svg {width:calc({{icon_font_size}} - 2px); height: {{icon_font_size}}}',
+						'selector' => '{{UserGrid}} .dowp-user-social-icons a i {font-size:{{icon_font_size}}}
+						{{UserGrid}} .dowp-user-social-icons a svg {width:calc({{icon_font_size}} - 2px); height: {{icon_font_size}}}',
 					],
 				],
 			],
 
-			'social_spacing'         => [
+			'social_spacing' => [
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
@@ -621,33 +631,33 @@ class UserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-user-social-icons {{social_spacing}}',
+						'selector' => '{{UserGrid}} .dowp-user-social-icons {{social_spacing}}',
 					],
 				],
 			],
 
-			'social_color'           => [
+			'social_color' => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-user-social-icons a i {color: {{social_color}}; }
-						{{UserGrid}} .dwp-user-social-icons a svg path {fill: {{social_color}}; }',
+						'selector' => '{{UserGrid}} .dowp-user-social-icons a i {color: {{social_color}}; }
+						{{UserGrid}} .dowp-user-social-icons a svg path {fill: {{social_color}}; }',
 					],
 				],
 			],
 
-			'social_color_hover'     => [
+			'social_color_hover' => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-user-social-icons a:hover i {color: {{social_color_hover}}; }',
+						'selector' => '{{UserGrid}} .dowp-user-social-icons a:hover i {color: {{social_color_hover}}; }',
 					],
 				],
 			],
 
-			'read_btn_spacing'       => [
+			'read_btn_spacing' => [
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
@@ -673,12 +683,12 @@ class UserBlock extends BlockBase {
 				],
 			],
 
-			'button_style'           => [
+			'button_style' => [
 				'type'    => 'string',
 				'default' => 'btn-default',
 			],
 
-			'read_btn_color'         => [
+			'read_btn_color' => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
@@ -688,7 +698,7 @@ class UserBlock extends BlockBase {
 				],
 			],
 
-			'read_btn_bg'            => [
+			'read_btn_bg' => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
@@ -698,7 +708,7 @@ class UserBlock extends BlockBase {
 				],
 			],
 
-			'read_btn_color_hover'   => [
+			'read_btn_color_hover' => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
@@ -708,7 +718,7 @@ class UserBlock extends BlockBase {
 				],
 			],
 
-			'read_btn_bg_hover'      => [
+			'read_btn_bg_hover' => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
@@ -718,7 +728,7 @@ class UserBlock extends BlockBase {
 				],
 			],
 
-			'border_color'           => [
+			'border_color' => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
@@ -728,7 +738,7 @@ class UserBlock extends BlockBase {
 				],
 			],
 
-			'border_color_hover'     => [
+			'border_color_hover' => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
@@ -738,7 +748,7 @@ class UserBlock extends BlockBase {
 				],
 			],
 
-			'card_gap'               => [
+			'card_gap' => [
 				'type'    => 'object',
 				'default' => (object) [
 					'lg' => '',
@@ -747,13 +757,13 @@ class UserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-item-col {padding-left:{{card_gap}};padding-right:{{card_gap}};padding-bottom:calc({{card_gap}} * 2)}
-						{{UserGrid}} .dwp-users-block-wrapper .dwp-row {margin-left:-{{card_gap}};margin-right:-{{card_gap}}}',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-item-col {padding-left:{{card_gap}};padding-right:{{card_gap}};padding-bottom:calc({{card_gap}} * 2)}
+						{{UserGrid}} .dowp-users-block-wrapper .dowp-row {margin-left:-{{card_gap}};margin-right:-{{card_gap}}}',
 					],
 				],
 			],
 
-			'card_box_shadow'        => [
+			'card_box_shadow' => [
 				'type'    => 'object',
 				'default' => (object) [
 					'openShadow' => 1,
@@ -768,11 +778,11 @@ class UserBlock extends BlockBase {
 					'transition' => 0.5,
 				],
 				'style'   => [
-					(object) [ 'selector' => '{{dowp}} .dwp-users-block-wrapper .user-item-col .user-inner-wrapper' ],
+					(object) [ 'selector' => '{{dowp}} .dowp-users-block-wrapper .user-item-col .user-inner-wrapper' ],
 				],
 			],
 
-			'card_padding'           => [
+			'card_padding' => [
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
@@ -793,12 +803,12 @@ class UserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-inner-wrapper {{card_padding}}',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-inner-wrapper {{card_padding}}',
 					],
 				],
 			],
 
-			'content_padding'        => [
+			'content_padding' => [
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
@@ -819,12 +829,12 @@ class UserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-inner-wrapper .user-content-wrap {{content_padding}}',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-inner-wrapper .user-content-wrap {{content_padding}}',
 					],
 				],
 			],
 
-			'card_border'            => [
+			'card_border' => [
 				'type'    => 'object',
 				'default' => (object) [
 					'openTpgBorder' => 1,
@@ -834,12 +844,12 @@ class UserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-inner-wrapper',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-inner-wrapper',
 					],
 				],
 			],
 
-			'card_radius'            => [
+			'card_radius' => [
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
@@ -860,12 +870,12 @@ class UserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-inner-wrapper{{card_radius}}',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-inner-wrapper{{card_radius}}',
 					],
 				],
 			],
 
-			'card_bg'                => [
+			'card_bg' => [
 				'type'    => 'object',
 				'default' => (object) [
 					'openBGColor' => 0,
@@ -887,7 +897,7 @@ class UserBlock extends BlockBase {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dwp-users-block-wrapper .user-inner-wrapper',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-inner-wrapper',
 					],
 				],
 			],
@@ -905,9 +915,17 @@ class UserBlock extends BlockBase {
 
 		ob_start();
 
+		$paged      = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+		$user_limit = $data['user_limit'] ?? 6;
+		if ( $paged == 1 ) {
+			$offset = 0;
+		} else {
+			$offset = ( $paged - 1 ) * $user_limit;
+		}
+
 		$args = [
-			'number' => $data['user_limit'] ?? 6,
-			'fields' => 'ID',
+			'number' => $user_limit,
+			'offset' => $offset
 		];
 
 		if ( ! empty( $data['users_role'] ) ) {
@@ -932,47 +950,65 @@ class UserBlock extends BlockBase {
 			$args['orderby'] = 'include';
 		}
 
-		$user_lists     = get_users( $args );
-		$count_users    = count( $user_lists );
-		$uniqueId       = $data['uniqueId'] ?? null;
-		$wrapper_class  = 'dowp-block-usergrid dowp-block-wrapper dowp-block-' . $uniqueId;
+
+		$user_query    = new \WP_User_Query( $args );  // get_users( $args );
+		$uniqueId      = $data['uniqueId'] ?? null;
+		$wrapper_class = 'dowp-block-usergrid dowp-block-wrapper dowp-block-' . $uniqueId;
 		$wrapper_class .= 'yes' == $data['image_link'] ? '' : ' no-image-link';
 
-		$inner_class  = preg_replace( '/[0-9]/', '', $data['layout'] ) . '-style';
+		$inner_class = preg_replace( '/[0-9]/', '', $data['layout'] ) . '-style';
 		$inner_class .= Fns::extendClass( $data['layout'] );
 		$inner_class .= ' dowp-' . $data['layout'];
-		$inner_class .= ' ' . Fns::layout_align( $data['grid_alignment'] )
+		$inner_class .= ' ' . $data['grid_height'];
+		$inner_class .= ' ' . Fns::layout_align( $data['grid_alignment'] );
+		$layout_data = Fns::get_post_args( $data );
 		?>
 
-		<div class="<?php echo esc_attr( $wrapper_class ); ?>">
-			<div class="dwp-users-block-wrapper clearfix <?php echo esc_attr( $inner_class ); ?>">
-				<?php if ( is_array( $user_lists ) && $count_users > 0 ) { ?>
-					<div class="dwp-row">
+        <div class="<?php echo esc_attr( $wrapper_class ); ?>">
+            <div class="dowp-users-block-wrapper clearfix <?php echo esc_attr( $inner_class ); ?>">
+				<?php if ( ! empty( $user_query->results ) ) { ?>
+                    <div class="dowp-row">
 						<?php
-						foreach ( $user_lists as $user_id ) {
-							$user_info            = get_user_by( 'id', $user_id );
-							$data['user_id']      = $user_id;
-							$data['display_name'] = $user_info->display_name;
-							$data['email']        = $user_info->user_email;
-							$data['designation']  = get_user_meta( $user_id, 'user_grid_designation', true );
-							$data['description']  = get_user_meta( $user_id, 'description', true );
-							$data['phone']        = get_user_meta( $user_id, 'user_grid_phone', true );
-							$data['short_desc']   = get_user_meta( $user_id, 'user_grid_short_desc', true );
-							Fns::get_template( $data['layout'], $data );
+						foreach ( $user_query->results as $user ) {
+							$user_id                     = $user->ID;
+							$layout_data['user_id']      = $user_id;
+							$layout_data['display_name'] = $user->display_name;
+							$layout_data['email']        = $user->user_email;
+							$layout_data['designation']  = get_user_meta( $user_id, 'user_grid_designation', true );
+							$layout_data['description']  = get_user_meta( $user_id, 'description', true );
+							$layout_data['phone']        = get_user_meta( $user_id, 'user_grid_phone', true );
+							$layout_data['short_desc']   = get_user_meta( $user_id, 'user_grid_short_desc', true );
+							Fns::get_template( $data['layout'], $layout_data );
 						}
 						?>
-					</div>
+                    </div>
 					<?php
 				} else {
 					?>
-					<div class="not-found-wrap">
+                    <div class="not-found-wrap">
 						<?php echo esc_html__( "Sorry! No user's found.", 'user-grid' ); ?>
-					</div>
+                    </div>
 					<?php
 				}
 				?>
-			</div>
-		</div>
+            </div>
+
+			<?php
+
+			$total_user  = $user_query->total_users;
+			$total_pages = ceil( $total_user / $user_limit );
+
+			echo paginate_links( [
+				'base'      => get_pagenum_link( 1 ) . '%_%',
+				'format'    => '?paged=%#%',
+				'current'   => $paged,
+				'total'     => $total_pages,
+				'prev_text' => 'Previous',
+				'next_text' => 'Next',
+				'type'      => 'list',
+			] );
+			?>
+        </div>
 		<?php
 
 		do_action( 'dowp_elementor_script' );

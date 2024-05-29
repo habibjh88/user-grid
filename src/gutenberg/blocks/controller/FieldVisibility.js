@@ -14,6 +14,7 @@ function FieldVisibility(props) {
         avatar_visibility,
         name_visibility,
         email_visibility,
+        phone_visibility,
         designation_visibility,
         short_desc_visibility,
         bio_visibility,
@@ -64,6 +65,28 @@ function FieldVisibility(props) {
                 }}
             />
 
+
+            <ToggleControl
+                label={__("Email", "user-grid")}
+                className="dowp-toggle-control-field"
+                checked={email_visibility}
+                onChange={(email_visibility) => {
+                    setAttributes({email_visibility: email_visibility ? 'show' : ''});
+                    changeQuery();
+                }}
+            />
+
+            <ToggleControl
+                label={__("Phone", "user-grid")}
+                className="dowp-toggle-control-field"
+                checked={phone_visibility}
+                onChange={(phone_visibility) => {
+                    setAttributes({phone_visibility: phone_visibility ? 'show' : ''});
+                    changeQuery();
+                }}
+            />
+
+
             <ToggleControl
                 label={__("Biography", "user-grid")}
                 className="dowp-toggle-control-field"
@@ -84,17 +107,7 @@ function FieldVisibility(props) {
                 }}
             />
 
-            {'show' === social_visibility &&
-                <ToggleControl
-                    label={__("Email", "user-grid")}
-                    className="dowp-toggle-control-field"
-                    checked={email_visibility}
-                    onChange={(email_visibility) => {
-                        setAttributes({email_visibility: email_visibility ? 'show' : ''});
-                        changeQuery();
-                    }}
-                />
-            }
+
             <ToggleControl
                 label={__("Read Articles Button", "user-grid")}
                 className="dowp-toggle-control-field"

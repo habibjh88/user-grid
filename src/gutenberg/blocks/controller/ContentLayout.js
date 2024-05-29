@@ -1,10 +1,11 @@
 import {__} from "@wordpress/i18n";
-import {PanelBody} from "@wordpress/components";
+import {PanelBody, SelectControl} from "@wordpress/components";
 import Alignment from "../../components/Alignment";
 import Layouts from "../../components/Styles";
-import {GRID_LAYOUT_OPT} from "../../components/Constants";
+import {BUTTON_STYLE, FORMATE_USERS, GRID_LAYOUT_OPT} from "../../components/Constants";
 import LayoutStyle from "../../components/LayoutStyle";
 import GridColumn from "../../components/GridColumn";
+import Select from "react-select";
 
 export default function ContentLayout(props) {
     const {attributes, setAttributes, changeQuery, userData} = props.data;
@@ -15,6 +16,7 @@ export default function ContentLayout(props) {
         grid_column,
         grid_alignment,
         grid_v_alignment,
+        grid_height
     } = attributes;
 
     let latyouStyleDefault = 'grid';
@@ -56,6 +58,19 @@ export default function ContentLayout(props) {
                 changeQuery={changeQuery}
             />
 
+            <SelectControl
+                label={__("Grid Height", "user-grid")}
+                options={[
+                    {value: 'height-auto', label: __('Auto', 'user-grid')},
+                    {value: 'height-equal', label: __('Equal Height', 'user-grid')},
+                ]}
+                className="dowp-control-field label-inline dowp-expand"
+                value={grid_height}
+                onChange={(grid_height) => {
+                    setAttributes({grid_height})
+                    changeQuery()
+                }}
+            />
 
             <Alignment
                 label={__("Alignment", "user-grid")}

@@ -235,16 +235,17 @@ class Fns {
 
 			if ( $meta_value ) {
 				?>
-				<a class="<?php echo esc_attr( $icon ) ?>"
-				   href="<?php echo esc_url( $meta_value ) ?>">
+                <a class="<?php echo esc_attr( $icon ) ?>"
+                   href="<?php echo esc_url( $meta_value ) ?>">
 					<?php SvgIcons::get_svg( $icon ); ?>
-				</a>
+                </a>
 				<?php
 			}
 		}
 		if ( $email_visibility === 'show' ) {
 			?>
-			<a class="pinterest" href="mailto:<?php echo esc_attr( $email ) ?>"><?php SvgIcons::get_svg( 'email' ); ?></a>
+            <a class="pinterest"
+               href="mailto:<?php echo esc_attr( $email ) ?>"><?php SvgIcons::get_svg( 'email' ); ?></a>
 			<?php
 		}
 		?>
@@ -258,7 +259,7 @@ class Fns {
 	 */
 	public static function social_list() {
 		return apply_filters( 'user_grid_social_list', [
-			'phone'    => esc_html__( 'Phone Number', 'user-grid' ),
+			'phone'      => esc_html__( 'Phone Number', 'user-grid' ),
 			'twitter'    => esc_html__( 'Twitter', 'user-grid' ),
 			'facebook'   => esc_html__( 'Facebook', 'user-grid' ),
 			'linkedin'   => esc_html__( 'LinkedIn', 'user-grid' ),
@@ -293,7 +294,7 @@ class Fns {
 		$grid_column_tab     = ( isset( $grid_column['md'] ) && 0 != $grid_column['md'] ) ? $grid_column['md'] : $default_grid_columns['md'];
 		$grid_column_mobile  = ( isset( $grid_column['sm'] ) && 0 != $grid_column['sm'] ) ? $grid_column['sm'] : $default_grid_columns['sm'];
 
-		return "dwp-col-md-{$grid_column_desktop} dwp-col-sm-{$grid_column_tab} dwp-col-xs-{$grid_column_mobile}";
+		return "dowp-col-md-{$grid_column_desktop} dowp-col-sm-{$grid_column_tab} dowp-col-xs-{$grid_column_mobile}";
 	}
 
 	/**
@@ -324,16 +325,64 @@ class Fns {
 		echo esc_attr( "order-{$index}" );
 	}
 
-	public static function layout_align($alignment) {
+	public static function layout_align( $alignment ) {
 		$align_class = '';
-		foreach($alignment as $device => $value){
-			if(! $value) {
+		foreach ( $alignment as $device => $value ) {
+			if ( ! $value ) {
 				continue;
 			}
-			$align_class .= $device.'-'.$value.' ';
+			$align_class .= $device . '-' . $value . ' ';
 		}
+
 		return $align_class;
 	}
 
+
+	/**
+	 * Get Post Arguments
+	 *
+	 * @param $data
+	 *
+	 * @return mixed|null
+	 */
+	public static function get_post_args( $data ) {
+		return apply_filters( 'dowp_ug_post_args', [
+			'layout'                 => $data['layout'],
+			'name_tag'               => $data['name_tag'],
+			'users_lists'            => $data['users_lists'],
+			'grid_column'            => $data['grid_column'],
+			'content_order'          => $data['content_order'],
+			'user_limit'             => $data['user_limit'],
+			'users_role'             => $data['users_role'],
+			'avatar_dimension'       => $data['avatar_dimension'],
+			'user_filter_by_domain'  => $data['user_filter_by_domain'],
+			'orderby'                => $data['orderby'],
+			'order'                  => $data['order'],
+			'avatar_visibility'      => $data['avatar_visibility'],
+			'name_visibility'        => $data['name_visibility'],
+			'email_visibility'       => $data['email_visibility'],
+			'phone_visibility'       => $data['phone_visibility'],
+			'designation_visibility' => $data['designation_visibility'],
+			'short_desc_visibility'  => $data['short_desc_visibility'],
+			'bio_visibility'         => $data['bio_visibility'],
+			'social_visibility'      => $data['social_visibility'],
+			'button_visibility'      => $data['button_visibility'],
+			'button_style'           => $data['button_style'],
+		] );
+	}
+
+	public static function layout_image( $user_id, $avatar_dimension = '', $default_size = 300, $alt='' ) {
+		$avatar_size      = [ 'size' => $avatar_dimension ?? $default_size ];
+		$avater_image_url = get_avatar_url( $user_id, $avatar_size );
+		?>
+        <a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
+            <img width="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
+                 height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
+                 src="<?php echo esc_url( $avater_image_url ); ?>"
+                 alt="<?php echo esc_html( $alt ); ?>"/>
+        </a>
+		<?php
+
+	}
 
 }

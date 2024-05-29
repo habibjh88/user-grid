@@ -74,7 +74,7 @@ $col_class        = Fns::get_dynamic_cols( $grid_column );
 		<?php endif; ?>
 
 		<?php if ( $social_visibility ) : ?>
-			<div class="dwp-user-social-icons <?php Fns::order_class( 'social', $content_order ); ?>">
+			<div class="dowp-user-social-icons <?php Fns::order_class( 'social', $content_order ); ?>">
 				<?php Fns::get_user_social_icon( $user_id, $email_visibility ); ?>
 			</div>
 		<?php endif; ?>

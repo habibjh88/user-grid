@@ -3,7 +3,7 @@
  *
  * @param grid_column
  * @param default_grid_columns
- * @returns {`dwp-col-md-4 dwp-col-sm-6 dwp-col-xs-${string|[]|boolean|*}`}
+ * @returns {`dowp-col-md-4 dowp-col-sm-6 dowp-col-xs-${string|[]|boolean|*}`}
  */
 export const dynamicCols = (grid_column, default_grid_columns = []) => {
     if (default_grid_columns.length < 1) {
@@ -17,7 +17,7 @@ export const dynamicCols = (grid_column, default_grid_columns = []) => {
     const grid_column_desktop = grid_column.lg > 0 ? grid_column.lg : default_grid_columns.lg;
     const grid_column_tab = grid_column.md > 0 ? grid_column.md : default_grid_columns.md;
     const grid_column_mobile = grid_column.sm > 0 ? grid_column.sm : default_grid_columns.sm;
-    return `dwp-col-md-${grid_column_desktop} dwp-col-sm-${grid_column_tab} dwp-col-xs-${grid_column_mobile}`;
+    return `dowp-col-md-${grid_column_desktop} dowp-col-sm-${grid_column_tab} dowp-col-xs-${grid_column_mobile}`;
 }
 
 /**

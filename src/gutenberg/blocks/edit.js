@@ -1,9 +1,11 @@
 const {useEffect, useState} = wp.element;
 import apiFetch from "@wordpress/api-fetch";
+
+const {Spinner} = wp.components;
 import Inspector from "./inspector";
-import CustomUsersBlock from "./layouts/CustomUsersBlock";
 import {CssGenerator} from "../utils/css/CssGenerator";
 import {CATEGORY_PREVIEW} from "../components/Constants";
+
 const Edit = (props) => {
     const {isSelected, attributes, setAttributes} = props;
 
@@ -15,6 +17,7 @@ const Edit = (props) => {
         uniqueId,
         users_lists,
         grid_column,
+        grid_height,
         grid_alignment,
         content_order,
         users_role,
@@ -63,6 +66,7 @@ const Edit = (props) => {
                 name_tag,
                 users_lists,
                 grid_column,
+                grid_height,
                 grid_alignment,
                 content_order,
                 user_limit,
@@ -125,9 +129,14 @@ const Edit = (props) => {
                 userData={userData}
             />
         ),
-        
-        <CustomUsersBlock props={props} userData={users}/>
-    
+
+        users.markup ?
+            <div className="dowp-editor-markup" dangerouslySetInnerHTML={{__html: users.markup}}></div>
+            :
+            <div className="dowp-usergrid-is-loading">
+                {users.message ? <div className={`not-found-wrap`}>{users.message}</div> : <Spinner/>}
+            </div>
+
     ]
 }
 export default Edit;

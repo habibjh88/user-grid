@@ -57,8 +57,17 @@ class GetUsersAPI {
 			'message' => '',
 		];
 
+		$paged      = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+		$user_limit = $data['user_limit'] ?? 6;
+		if ( $paged == 1 ) {
+			$offset = 0;
+		} else {
+			$offset = ( $paged - 1 ) * $user_limit;
+		}
+
 		$args = [
-			'number' => $data['user_limit'] ?? 6,
+			'number' => $user_limit,
+			'offset' => $offset
 		];
 
 		if ( ! empty( $data['users_role'] ) ) {
@@ -75,7 +84,7 @@ class GetUsersAPI {
 
 		if ( ! empty( $data['user_filter_by_domain'] ) ) {
 			$args['search']         = '*' . $data['user_filter_by_domain'] . '*';
-			$args['search_columns'] = array( 'user_email' );
+			$args['search_columns'] = [ 'user_email' ];
 		}
 
 		if ( ! empty( $data['users_lists'] ) ) {
@@ -83,52 +92,69 @@ class GetUsersAPI {
 			$args['orderby'] = 'include';
 		}
 
-		$user_lists  = get_users( $args );
-		$avatar_size = [ 'size' => $data['avatar_dimension'] ?? '300' ];
 
-		$newData = [
-			'layout'                 => $data['layout'],
-			'name_tag'               => $data['name_tag'],
-			'users_lists'            => $data['users_lists'],
-			'grid_column'            => $data['grid_column'],
-			'content_order'          => $data['content_order'],
-			'user_limit'             => $data['user_limit'],
-			'users_role'             => $data['users_role'],
-			'avatar_dimension'       => $data['avatar_dimension'],
-			'user_filter_by_domain'  => $data['user_filter_by_domain'],
-			'orderby'                => $data['orderby'],
-			'order'                  => $data['order'],
-			'avatar_visibility'      => $data['avatar_visibility'],
-			'name_visibility'        => $data['name_visibility'],
-			'email_visibility'       => $data['email_visibility'],
-			'designation_visibility' => $data['designation_visibility'],
-			'short_desc_visibility'  => $data['short_desc_visibility'],
-			'bio_visibility'         => $data['bio_visibility'],
-			'social_visibility'      => $data['social_visibility'],
-			'button_visibility'      => $data['button_visibility'],
-			'button_style'           => $data['button_style'],
-		];
+		$user_query    = new \WP_User_Query( $args );  // get_users( $args );
+		$uniqueId      = $data['uniqueId'] ?? null;
+		$wrapper_class = 'dowp-block-usergrid dowp-block-wrapper dowp-block-' . $uniqueId;
+		$wrapper_class .= 'yes' == $data['image_link'] ? '' : ' no-image-link';
 
-		if ( ! empty( $user_lists ) ) {
-			ob_start();
-			foreach ( $user_lists as $user ) {
-				$user_info               = get_user_by( 'id', $user->ID );
-				$newData['user_id']      = $user->ID;
-				$newData['display_name'] = $user_info->display_name;
-				$newData['email']           = $user_info->user_email;
-				$newData['designation']     = get_user_meta( $user->ID, 'user_grid_designation', true );
-				$newData['description']     = get_user_meta( $user->ID, 'description', true );
-				$newData['phone']           = get_user_meta( $user->ID, 'user_grid_phone', true );
-				$newData['short_desc']      = get_user_meta( $user->ID, 'user_grid_short_desc', true );
-				Fns::get_template( $data['layout'], $newData );
-			}
-			$markup              = ob_get_clean();
-			$send_data['markup'] = $markup;
-		} else {
-			$send_data['message'] = 'Sorry! No Users found';
-		}
+		$inner_class = preg_replace( '/[0-9]/', '', $data['layout'] ) . '-style';
+		$inner_class .= Fns::extendClass( $data['layout'] );
+		$inner_class .= ' dowp-' . $data['layout'];
+		$inner_class .= ' ' . $data['grid_height'];
+		$inner_class .= ' ' . Fns::layout_align( $data['grid_alignment'] );
+		$layout_data = Fns::get_post_args( $data );
+		ob_start();
+		?>
+        <div class="<?php echo esc_attr( $wrapper_class ); ?>">
+            <div class="dowp-users-block-wrapper clearfix <?php echo esc_attr( $inner_class ); ?>">
+				<?php if ( ! empty( $user_query->results ) ) { ?>
+                    <div class="dowp-row">
+						<?php
+						foreach ( $user_query->results as $user ) {
+							$user_id                     = $user->ID;
+							$layout_data['user_id']      = $user_id;
+							$layout_data['display_name'] = $user->display_name;
+							$layout_data['email']        = $user->user_email;
+							$layout_data['designation']  = get_user_meta( $user_id, 'user_grid_designation', true );
+							$layout_data['description']  = get_user_meta( $user_id, 'description', true );
+							$layout_data['phone']        = get_user_meta( $user_id, 'user_grid_phone', true );
+							$layout_data['short_desc']   = get_user_meta( $user_id, 'user_grid_short_desc', true );
+							Fns::get_template( $data['layout'], $layout_data );
+						}
+						?>
+                    </div>
+					<?php
+				} else {
+					?>
+                    <div class="not-found-wrap">
+						<?php echo esc_html__( "Sorry! No user's found.", 'user-grid' ); ?>
+                    </div>
+					<?php
+				}
+				?>
+            </div>
 
-		wp_reset_postdata();
+			<?php
+
+			$total_user  = $user_query->total_users;
+			$total_pages = ceil( $total_user / $user_limit );
+
+			echo paginate_links( [
+				'base'      => get_pagenum_link( 1 ) . '%_%',
+				'format'    => '?paged=%#%',
+				'current'   => $paged,
+				'total'     => $total_pages,
+				'prev_text' => 'Previous',
+				'next_text' => 'Next',
+				'type'      => 'list',
+			] );
+			?>
+        </div>
+		<?php
+
+		$markup              = ob_get_clean();
+		$send_data['markup'] = $markup;
 
 		return rest_ensure_response( $send_data );
 	}
