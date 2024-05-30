@@ -150,17 +150,18 @@ class Fns {
 		}
 
 		if ( ! $default_path ) {
-			$default_path = untrailingslashit( NSER_GRID_PLUGIN_BASE_DIR ) . '/templates/';
+			$default_path = untrailingslashit( USER_GRID_PLUGIN_BASE_DIR ) . '/templates/';
 		}
 
 		$template_files = trailingslashit( $template_path ) . $template_name;
 
 		$template = locate_template( apply_filters( 'user_grid_locate_template_files', $template_files, $template_name, $template_path, $default_path ) );
-
+        
 		// Get default template.
 		if ( ! $template ) {
 			$template = trailingslashit( $default_path ) . $template_name;
 		}
+
 
 		return apply_filters( 'user_grid_locate_template', $template, $template_name );
 	}
@@ -181,12 +182,9 @@ class Fns {
 
 		$located = self::locate_template( $template_name, $template_path, $default_path );
 
-
 		if ( ! file_exists( $located ) ) {
-			// translators: %s template
-			self::doing_it_wrong( __FUNCTION__, sprintf( __( '%s does not exist.', 'classified-listing' ), '<code>' . $located . '</code>' ), '1.0' );
-
-			return;
+			$default_path = untrailingslashit( USER_GRID_PRO_PLUGIN_BASE_DIR ) . '/templates/';
+			$located = self::locate_template( $template_name, $template_path, $default_path );
 		}
 
 		// Allow 3rd party plugin filter template file from their plugin.

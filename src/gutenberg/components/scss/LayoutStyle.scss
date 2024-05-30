@@ -14,10 +14,6 @@
         position: relative;
         border-width: 1.5px !important;
 
-        svg {
-            transition: fill 0.4s;
-            fill: #000000;
-        }
 
         svg:focus {
             outline: none;
@@ -37,7 +33,4 @@
 .dowp-has-no-pro .dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button.pro-layout {
     border-color: #912d2d !important;
     background: #fbf0f0;
-    svg {
-        fill: #912d2d !important;
-    }
 }
