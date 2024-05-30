@@ -1,15 +1,11 @@
+import {__} from "@wordpress/i18n";
+import {UserGrid_COLOR_PALATE} from "../../components/Constants";
 import {
     PanelBody,
     ToggleControl,
     __experimentalBorderControl as BorderControl
 } from "@wordpress/components";
-import Dimension from "../../components/Dimension";
-import {__} from "@wordpress/i18n";
-import {UserGrid_COLOR_PALATE} from "../../components/Constants";
-import Range from "../../components/Range";
-import RangeDevice from "../../components/RangeDevice";
-import Media from "../../components/Media";
-
+import {Dimension, RangeDevice, Media} from "../../components/Components";
 function AvatarSettings(props) {
     const {attributes, setAttributes, changeQuery} = props.data;
     //All attribute

@@ -1,13 +1,7 @@
-import {
-    SelectControl,
-    PanelBody,
-} from '@wordpress/components';
-import Color from "../../components/Color";
-import Typography from "../../components/Typography";
-import Dimension from "../../components/Dimension";
-
 import {__} from "@wordpress/i18n";
+import {SelectControl, PanelBody} from '@wordpress/components';
 import {HEADING} from "../../components/Constants";
+import {Dimension, Color, Typography} from "../../components/Components";
 
 function NameSettings(props) {
     const {attributes, setAttributes} = props.data;
@@ -22,7 +16,7 @@ function NameSettings(props) {
     } = attributes;
 
     return (
-        <PanelBody title={__('User Name', 'user-grid')} initialOpen={false}>
+        <PanelBody title={__('Name', 'user-grid')} initialOpen={false}>
 
             <SelectControl
                 label={__('Name Tags', 'user-grid')}

@@ -1,8 +1,9 @@
 import {__} from "@wordpress/i18n";
 import { PanelBody} from "@wordpress/components";
-import Sortable from "../../components/Sortable";
+import { Sortable } from "../../components/Components";
+
 export default function ContentSort(props) {
-    const {attributes, setAttributes, changeQuery, userData} = props.data;
+    const {attributes, setAttributes, changeQuery} = props.data;
 
     //All attribute
     const {

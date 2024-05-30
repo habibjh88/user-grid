@@ -1,13 +1,15 @@
+import CustomUsersBlock from "./CustomUsersBlock";
+
 const {useEffect, useState} = wp.element;
 import apiFetch from "@wordpress/api-fetch";
 
-const {Spinner} = wp.components;
+
 import Inspector from "./inspector";
 import {CssGenerator} from "../utils/css/CssGenerator";
 import {CATEGORY_PREVIEW} from "../components/Constants";
 
 const Edit = (props) => {
-    const {isSelected, attributes, setAttributes} = props;
+    const {isSelected, attributes, setAttributes, clientId} = props;
 
     //all attribute
     const {
@@ -30,6 +32,7 @@ const Edit = (props) => {
         avatar_visibility,
         name_visibility,
         email_visibility,
+        phone_visibility,
         designation_visibility,
         short_desc_visibility,
         bio_visibility,
@@ -42,6 +45,16 @@ const Edit = (props) => {
     if (preview) {
         return CATEGORY_PREVIEW;
     }
+
+    const newClintID = clientId.substr(0, 6);
+
+    useEffect(() => {
+        if (!uniqueId) {
+            setAttributes({uniqueId: newClintID});
+        } else if (uniqueId && uniqueId !== newClintID) {
+            setAttributes({uniqueId: newClintID});
+        }
+    }, []);
 
     const [users, setUsers] = useState([]);
     const [userData, setUserData] = useState([]);
@@ -64,6 +77,7 @@ const Edit = (props) => {
             data: {
                 layout,
                 name_tag,
+                uniqueId,
                 users_lists,
                 grid_column,
                 grid_height,
@@ -79,6 +93,7 @@ const Edit = (props) => {
                 avatar_visibility,
                 name_visibility,
                 email_visibility,
+                phone_visibility,
                 designation_visibility,
                 short_desc_visibility,
                 bio_visibility,
@@ -130,12 +145,7 @@ const Edit = (props) => {
             />
         ),
 
-        users.markup ?
-            <div className="dowp-editor-markup" dangerouslySetInnerHTML={{__html: users.markup}}></div>
-            :
-            <div className="dowp-usergrid-is-loading">
-                {users.message ? <div className={`not-found-wrap`}>{users.message}</div> : <Spinner/>}
-            </div>
+        <CustomUsersBlock props={props} userData={users}/>
 
     ]
 }

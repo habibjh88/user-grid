@@ -1,13 +1,9 @@
-import {
-    __experimentalHeading as Heading,
-    ToggleControl
-} from '@wordpress/components';
+import {__} from "@wordpress/i18n";
+import {ToggleControl} from '@wordpress/components';
 import {PanelBody} from "@wordpress/components";
 
-import {__} from "@wordpress/i18n";
-
 function FieldVisibility(props) {
-    const {attributes, setAttributes, changeQuery, userData} = props.data;
+    const {attributes, setAttributes, changeQuery} = props.data;
 
     //All attribute
     const {

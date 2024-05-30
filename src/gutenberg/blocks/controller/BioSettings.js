@@ -1,14 +1,7 @@
 import {
-    SelectControl,
     PanelBody,
-    ButtonGroup,
-    Button,
-    TextControl, __experimentalHeading as Heading, __experimentalBorderControl as BorderControl
 } from '@wordpress/components';
-import Color from "../../components/Color";
-import Typography from "../../components/Typography";
-import Dimension from "../../components/Dimension";
-import {UserGrid_COLOR_PALATE, NORMAL_HOVER} from "../../components/Constants";
+import { Dimension, Color, Typography } from "../../components/Components";
 
 import {__} from "@wordpress/i18n";
 
@@ -22,7 +15,7 @@ function BioSettings(props) {
     } = attributes;
 
     return (
-        <PanelBody title={__('User Biography', 'user-grid')} initialOpen={false}>
+        <PanelBody title={__('Biography', 'user-grid')} initialOpen={false}>
 
             <Typography
                 label={__('Typography')}

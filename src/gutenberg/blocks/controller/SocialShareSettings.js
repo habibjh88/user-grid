@@ -1,11 +1,6 @@
-import {
-    PanelBody,
-} from '@wordpress/components';
-import Color from "../../components/Color";
-import Dimension from "../../components/Dimension";
-import RangeDevice from "../../components/RangeDevice";
-
 import {__} from "@wordpress/i18n";
+import {PanelBody} from '@wordpress/components';
+import {Dimension, RangeDevice, Color} from "../../components/Components";
 
 function SocialShareSettings(props) {
     const {attributes, setAttributes} = props.data;

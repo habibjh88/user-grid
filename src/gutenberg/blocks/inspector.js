@@ -1,20 +1,22 @@
-import ContentQuery from "./controller/ContentQuery";
-
 const {InspectorControls} = wp.blockEditor;
 import {TabPanel} from "@wordpress/components";
-import ContentLayout from "./controller/ContentLayout";
-import ContentControl from "./controller/ContentControl";
-import FieldVisibility from "./controller/FieldVisibility";
-import AvatarSettings from "./controller/AvatarSettings";
-import NameSettings from "./controller/NameSettings";
-import ShortDesc from "./controller/ShortDesc";
-import BioSettings from "./controller/BioSettings";
-import DesignationSettings from "./controller/DesignationSettings";
-import SocialShareSettings from "./controller/SocialShareSettings";
-import ReadArticleBtn from "./controller/ReadArticleBtn";
-import CardSettings from "./controller/CardSettings";
 import TabTitle from "../components/TabTitle";
-import ContentSort from "./controller/ContentSort";
+import {
+    ContentQuery,
+    ContentLayout,
+    FieldVisibility,
+    AvatarSettings,
+    NameSettings,
+    ShortDesc,
+    BioSettings,
+    DesignationSettings,
+    SocialShareSettings,
+    ReadArticleBtn,
+    CardSettings,
+    ContentSort,
+    EmailSettings,
+    PhoneSettings
+} from "./controller/Controllers";
 
 function Inspector(props) {
     const {attributes, changeQuery, userData} = props;
@@ -27,7 +29,9 @@ function Inspector(props) {
         bio_visibility,
         social_visibility,
         short_desc_visibility,
-        button_visibility
+        button_visibility,
+        email_visibility,
+        phone_visibility
     } = attributes;
 
     return (
@@ -52,23 +56,25 @@ function Inspector(props) {
                             {/* Content Tab*/}
                             {tab.name === "content" && (
                                 <>
-                                    <ContentLayout data={props} changeQuery={changeQuery} userData={userData}/>
-                                    <ContentQuery data={props} changeQuery={changeQuery} userData={userData}/>
-                                    <ContentSort data={props} changeQuery={changeQuery} userData={userData}/>
+                                    <ContentLayout data={props}/>
+                                    <ContentQuery data={props}/>
+                                    <ContentSort data={props}/>
                                 </>
                             )}
 
                             {/* Style Tab*/}
                             {tab.name === "styles" && (
                                 <>
-                                    <FieldVisibility data={props} changeQuery={changeQuery}/>
-                                    {avatar_visibility && <AvatarSettings data={props} changeQuery={changeQuery}/>}
+                                    <FieldVisibility data={props}/>
+                                    {avatar_visibility && <AvatarSettings data={props}/>}
                                     {name_visibility && <NameSettings data={props}/>}
                                     {short_desc_visibility && <ShortDesc data={props}/>}
                                     {designation_visibility && <DesignationSettings data={props}/>}
+                                    {email_visibility && <EmailSettings data={props}/>}
+                                    {phone_visibility && <PhoneSettings data={props}/>}
                                     {bio_visibility && <BioSettings data={props}/>}
                                     {social_visibility && <SocialShareSettings data={props}/>}
-                                    {button_visibility && <ReadArticleBtn data={props} changeQuery={changeQuery}/>}
+                                    {button_visibility && <ReadArticleBtn data={props}/>}
                                     <CardSettings data={props}/>
                                 </>
                             )}

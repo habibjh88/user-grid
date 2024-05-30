@@ -3,7 +3,7 @@ const {useState, useEffect} = wp.element;
 const {Dropdown, Button, SelectControl} = wp.components;
 
 import RangeDevice from "./RangeDevice";
-import {FONT_WEIGHTS, TEXT_TRANSFORM} from "./Constants";
+import {FONT_WEIGHTS, TEXT_DECORATION, TEXT_TRANSFORM} from "./Constants";
 import "./scss/typography.scss";
 
 function Typography(props) {
@@ -67,6 +67,14 @@ function Typography(props) {
                                 options={TEXT_TRANSFORM}
                                 onChange={(val) =>
                                     setSettings(val, 'transform')
+                                }
+                            />
+                            <SelectControl
+                                label={__("Text Decoration")}
+                                value={data["decoration"]}
+                                options={TEXT_DECORATION}
+                                onChange={(val) =>
+                                    setSettings(val, 'decoration')
                                 }
                             />
                             <RangeDevice

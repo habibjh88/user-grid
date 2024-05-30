@@ -1,6 +1,6 @@
 <?php
 
-namespace DOWP\UserGrid\Controllers\Blocks;
+namespace DOWP\UserGrid\Abstract;
 
 use DOWP\UserGrid\Helpers\Fns;
 

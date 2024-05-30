@@ -1,10 +1,6 @@
-import {
-    PanelBody,
-} from '@wordpress/components';
-import Color from "../../components/Color";
-import Typography from "../../components/Typography";
-import Dimension from "../../components/Dimension";
 import {__} from "@wordpress/i18n";
+import {PanelBody} from '@wordpress/components';
+import {Dimension, Color, Typography} from "../../components/Components";
 
 function ShortDesc(props) {
     const {attributes, setAttributes} = props.data;

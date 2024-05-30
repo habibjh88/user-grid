@@ -1,14 +1,11 @@
 import {__} from "@wordpress/i18n";
-import {
-    __experimentalNumberControl as NumberControl, TextControl
-} from '@wordpress/components';
+import {__experimentalNumberControl as NumberControl, TextControl} from '@wordpress/components';
 import {SelectControl, PanelBody} from "@wordpress/components";
 import Select from 'react-select';
+import {FORMATE_USERS, USER_ORDER_BY, POST_SORT_ORDER} from "../../components/Constants";
+import {MultiSelectSort} from "../../components/Components";
+
 const {Spinner} = wp.components;
-import {
-    FORMATE_USERS, USER_ORDER_BY, POST_SORT_ORDER
-} from "../../components/Constants";
-import MultiSelectSort from "../../components/MultiSelectSort";
 
 export default function ContentQuery(props) {
     const {attributes, setAttributes, changeQuery, userData} = props.data;
@@ -42,7 +39,8 @@ export default function ContentQuery(props) {
                 step="1"
                 className="dowp-control-field label-inline"
             />
-            <small className="dowp-help">{__("The number of users to show. Enter -1 to show all found posts.", "user-grid")}</small>
+            <small
+                className="dowp-help">{__("The number of users to show. Enter -1 to show all found posts.", "user-grid")}</small>
 
             <div className="components-base-control dowp-repeater">
                 <label

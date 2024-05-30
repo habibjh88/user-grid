@@ -2,7 +2,7 @@
 
 namespace DOWP\UserGrid\Controllers;
 
-use DOWP\UserGrid\Controllers\Blocks\UserBlock;
+use DOWP\UserGrid\Blocks\UserBlock;
 use DOWP\UserGrid\Helpers\Fns;
 
 class BlocksController {

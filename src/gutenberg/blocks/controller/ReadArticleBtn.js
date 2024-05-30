@@ -1,11 +1,8 @@
-import {useState} from '@wordpress/element';
-import {
-    PanelBody, ButtonGroup, Button, SelectControl
-} from '@wordpress/components';
-import Color from "../../components/Color";
-import Dimension from "../../components/Dimension";
-import {BUTTON_STYLE, NORMAL_HOVER, POST_SORT_ORDER} from "../../components/Constants";
 import {__} from "@wordpress/i18n";
+import {useState} from '@wordpress/element';
+import {PanelBody, Button, SelectControl} from '@wordpress/components';
+import {BUTTON_STYLE, NORMAL_HOVER} from "../../components/Constants";
+import {Dimension, Color} from "../../components/Components";
 
 export default function ReadArticleBtn(props) {
     const {attributes, setAttributes, changeQuery} = props.data;

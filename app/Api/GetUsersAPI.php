@@ -1,9 +1,12 @@
 <?php
 
-namespace DOWP\UserGrid\Controllers\Api;
+namespace DOWP\UserGrid\Api;
 
 use DOWP\UserGrid\Helpers\Fns;
 
+/**
+ * GetUsersAPI class
+ */
 class GetUsersAPI {
 	/**
 	 * Class constructor
@@ -67,7 +70,7 @@ class GetUsersAPI {
 
 		$args = [
 			'number' => $user_limit,
-			'offset' => $offset
+			'offset' => $offset,
 		];
 
 		if ( ! empty( $data['users_role'] ) ) {
@@ -92,24 +95,23 @@ class GetUsersAPI {
 			$args['orderby'] = 'include';
 		}
 
-
-		$user_query    = new \WP_User_Query( $args );  // get_users( $args );
-		$uniqueId      = $data['uniqueId'] ?? null;
-		$wrapper_class = 'dowp-block-usergrid dowp-block-wrapper dowp-block-' . $uniqueId;
+		$user_query     = new \WP_User_Query( $args );
+		$uniqueId       = $data['uniqueId'] ?? null;
+		$wrapper_class  = 'dowp-block-usergrid dowp-block-' . $uniqueId;
 		$wrapper_class .= 'yes' == $data['image_link'] ? '' : ' no-image-link';
 
-		$inner_class = preg_replace( '/[0-9]/', '', $data['layout'] ) . '-style';
+		$inner_class  = preg_replace( '/[0-9]/', '', $data['layout'] ) . '-style';
 		$inner_class .= Fns::extendClass( $data['layout'] );
 		$inner_class .= ' dowp-' . $data['layout'];
 		$inner_class .= ' ' . $data['grid_height'];
 		$inner_class .= ' ' . Fns::layout_align( $data['grid_alignment'] );
-		$layout_data = Fns::get_post_args( $data );
+		$layout_data  = Fns::get_post_args( $data );
 		ob_start();
 		?>
-        <div class="<?php echo esc_attr( $wrapper_class ); ?>">
-            <div class="dowp-users-block-wrapper clearfix <?php echo esc_attr( $inner_class ); ?>">
+
+			<div class="dowp-users-block-wrapper clearfix <?php echo esc_attr( $inner_class ); ?>">
 				<?php if ( ! empty( $user_query->results ) ) { ?>
-                    <div class="dowp-row">
+					<div class="dowp-row">
 						<?php
 						foreach ( $user_query->results as $user ) {
 							$user_id                     = $user->ID;
@@ -123,34 +125,36 @@ class GetUsersAPI {
 							Fns::get_template( $data['layout'], $layout_data );
 						}
 						?>
-                    </div>
+					</div>
 					<?php
 				} else {
 					?>
-                    <div class="not-found-wrap">
+					<div class="not-found-wrap">
 						<?php echo esc_html__( "Sorry! No user's found.", 'user-grid' ); ?>
-                    </div>
+					</div>
 					<?php
 				}
 				?>
-            </div>
+			</div>
 
 			<?php
 
 			$total_user  = $user_query->total_users;
 			$total_pages = ceil( $total_user / $user_limit );
 
-			echo paginate_links( [
-				'base'      => get_pagenum_link( 1 ) . '%_%',
-				'format'    => '?paged=%#%',
-				'current'   => $paged,
-				'total'     => $total_pages,
-				'prev_text' => 'Previous',
-				'next_text' => 'Next',
-				'type'      => 'list',
-			] );
+			echo paginate_links(
+				[
+					'base'      => get_pagenum_link( 1 ) . '%_%',
+					'format'    => '?paged=%#%',
+					'current'   => $paged,
+					'total'     => $total_pages,
+					'prev_text' => 'Previous',
+					'next_text' => 'Next',
+					'type'      => 'list',
+				]
+			);
 			?>
-        </div>
+
 		<?php
 
 		$markup              = ob_get_clean();

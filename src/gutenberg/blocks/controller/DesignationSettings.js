@@ -1,10 +1,5 @@
-import {
-    PanelBody,
-} from '@wordpress/components';
-import Color from "../../components/Color";
-import Typography from "../../components/Typography";
-import Dimension from "../../components/Dimension";
-
+import {PanelBody} from '@wordpress/components';
+import {Dimension, Color, Typography} from "../../components/Components";
 import {__} from "@wordpress/i18n";
 
 function DesignationSettings(props) {
@@ -17,7 +12,7 @@ function DesignationSettings(props) {
     } = attributes;
 
     return (
-        <PanelBody title={__('User Designation', 'user-grid')} initialOpen={false}>
+        <PanelBody title={__('Designation', 'user-grid')} initialOpen={false}>
 
             <Typography
                 label={__('Typography')}

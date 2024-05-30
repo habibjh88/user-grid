@@ -5,7 +5,7 @@
  * @package USER_GRID
  */
 
-namespace DOWP\UserGrid\Controllers\Hooks;
+namespace DOWP\UserGrid\Hooks;
 
 // Do not allow directly accessing this file.
 if ( ! defined( 'ABSPATH' ) ) {

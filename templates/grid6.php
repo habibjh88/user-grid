@@ -1,6 +1,6 @@
 <?php
 /**
- * User Grid layout 1
+ * User Grid layout 6
  *
  * @author  DevOfWP
  * @since   1.0
@@ -9,17 +9,25 @@
  * @var $user_id
  * @var $display_name
  * @var $grid_column
+ * @var $avatar_dimension
  * @var $avatar_visibility
  * @var $name_visibility
+ * @var $designation
  * @var $name_tag
+ * @var $short_desc
  * @var $designation_visibility
  * @var $short_desc_visibility
  * @var $bio_visibility
  * @var $social_visibility
  * @var $email_visibility
+ * @var $phone_visibility
  * @var $content_order
  * @var $button_visibility
+ * @var $button_visibility
  * @var $button_style
+ * @var $description
+ * @var $email
+ * @var $phone
  */
 
 use DOWP\UserGrid\Helpers\Fns;
@@ -28,24 +36,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$avatar_size      = [ 'size' => $avatar_dimension ?? '300' ];
-$avater_image_url = get_avatar_url( $user_id, $avatar_size );
-$designation      = get_user_meta( $user_id, 'user_grid_designation', true );
-$description      = get_user_meta( $user_id, 'description', true );
-$short_desc       = get_user_meta( $user_id, 'user_grid_short_desc', true );
-$col_class        = Fns::get_dynamic_cols( $grid_column );
+$col_class = Fns::get_dynamic_cols( $grid_column );
 ?>
 
 <div class="user-item-col <?php echo esc_attr( $col_class ); ?>">
 	<div class="user-inner-wrapper">
 		<?php if ( $avatar_visibility ) : ?>
 			<div class="user-avatar">
-				<a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
-					<img width="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-						 height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-						 src="<?php echo esc_url( $avater_image_url ); ?>"
-						 alt="<?php echo esc_html( $display_name ); ?>"/>
-				</a>
+				<?php Fns::layout_image( $user_id, $avatar_dimension, '300', $display_name ); ?>
 			</div>
 		<?php endif; ?>
 		<div class="user-content-wrap">
@@ -67,6 +65,17 @@ $col_class        = Fns::get_dynamic_cols( $grid_column );
 			</div>
 		<?php endif; ?>
 
+		<?php if ( $email_visibility || $phone_visibility ) : ?>
+			<div class="user-contact <?php Fns::order_class( 'contact', $content_order ); ?>">
+				<?php if ( $email && $email_visibility ) : ?>
+					<p><a class="user-email" href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a></p>
+				<?php endif; ?>
+				<?php if ( $phone && $phone_visibility ) : ?>
+					<p><a class="user-phone" href="tel:<?php echo esc_attr( $phone ); ?>"><?php echo esc_html( $phone ); ?></a></p>
+				<?php endif; ?>
+			</div>
+		<?php endif; ?>
+
 		<?php if ( $bio_visibility && $description ) : ?>
 			<div class="user-biography <?php Fns::order_class( 'biography', $content_order ); ?>">
 				<?php echo esc_html( $description ); ?>
@@ -81,7 +90,8 @@ $col_class        = Fns::get_dynamic_cols( $grid_column );
 
 		<?php if ( $button_visibility ) : ?>
 			<div class="read-articles-btn <?php Fns::order_class( 'button', $content_order ); ?>">
-				<a class="read-btn <?php echo esc_attr( $button_style ); ?>" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
+				<a class="read-btn <?php echo esc_attr( $button_style ) ?>"
+				   href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
 					<?php esc_html_e( 'Read Articles', 'user-grid' ); ?>
 				</a>
 			</div>

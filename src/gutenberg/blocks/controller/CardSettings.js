@@ -2,12 +2,8 @@ import {
     PanelBody,
     __experimentalBorderControl as BorderControl
 } from '@wordpress/components';
-import Dimension from "../../components/Dimension";
-import Background from "../../components/Background";
 import {UserGrid_COLOR_PALATE} from "../../components/Constants";
-import RangeDevice from "../../components/RangeDevice";
-import BoxShadow from "../../components/BoxShadow";
-
+import { Dimension, RangeDevice, Background, BoxShadow } from "../../components/Components";
 import {__} from "@wordpress/i18n";
 
 function CardSettings(props) {

@@ -1,14 +1,10 @@
 import {__} from "@wordpress/i18n";
 import {PanelBody, SelectControl} from "@wordpress/components";
-import Alignment from "../../components/Alignment";
-import Layouts from "../../components/Styles";
-import {BUTTON_STYLE, FORMATE_USERS, GRID_LAYOUT_OPT} from "../../components/Constants";
-import LayoutStyle from "../../components/LayoutStyle";
-import GridColumn from "../../components/GridColumn";
-import Select from "react-select";
+import { GRID_LAYOUT_OPT} from "../../components/Constants";
+import {  Alignment, Layouts, LayoutStyle, GridColumn } from "../../components/Components";
 
 export default function ContentLayout(props) {
-    const {attributes, setAttributes, changeQuery, userData} = props.data;
+    const {attributes, setAttributes, changeQuery} = props.data;
 
     //All attribute
     const {
