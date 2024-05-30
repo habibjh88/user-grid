@@ -12,6 +12,7 @@ use DOWP\UserGrid\Helpers\Attributes;
 class UserBlock extends BlockBase {
 
 	private $prefix;
+
 	private $block_type;
 
 	/**
@@ -45,7 +46,6 @@ class UserBlock extends BlockBase {
 	 * @return array
 	 */
 	public function get_attributes() {
-
 		$initial = [
 			'uniqueId' => [
 				'type'    => 'string',
@@ -75,7 +75,6 @@ class UserBlock extends BlockBase {
 			Attributes::card(),
 		);
 	}
-
 
 	/**
 	 * Render Block
@@ -134,10 +133,11 @@ class UserBlock extends BlockBase {
 		$layout_data  = Fns::get_post_args( $data );
 		?>
 
-		<div class="<?php echo esc_attr( $wrapper_class ); ?>">
-			<div class="dowp-users-block-wrapper clearfix <?php echo esc_attr( $inner_class ); ?>">
+	<div class="<?php echo esc_attr( $wrapper_class ); ?>">
+	  <div
+		class="dowp-users-block-wrapper clearfix <?php echo esc_attr( $inner_class ); ?>">
 				<?php if ( ! empty( $user_query->results ) ) { ?>
-					<div class="dowp-row">
+		  <div class="dowp-row">
 						<?php
 						foreach ( $user_query->results as $user ) {
 							$user_id                     = $user->ID;
@@ -151,17 +151,17 @@ class UserBlock extends BlockBase {
 							Fns::get_template( $data['layout'], $layout_data );
 						}
 						?>
-					</div>
+		  </div>
 					<?php
 				} else {
 					?>
-					<div class="not-found-wrap">
+		  <div class="not-found-wrap">
 						<?php echo esc_html__( "Sorry! No user's found.", 'user-grid' ); ?>
-					</div>
+		  </div>
 					<?php
 				}
 				?>
-			</div>
+	  </div>
 
 			<?php
 			$total_user  = $user_query->total_users;
@@ -178,7 +178,7 @@ class UserBlock extends BlockBase {
 				]
 			);
 			?>
-		</div>
+	</div>
 		<?php
 
 		do_action( 'dowp_elementor_script' );

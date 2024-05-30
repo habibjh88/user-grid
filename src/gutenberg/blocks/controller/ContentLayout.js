@@ -69,7 +69,7 @@ export default function ContentLayout(props) {
             />
 
             <Alignment
-                label={__("Alignment", "user-grid")}
+                label={__("Text Align", "user-grid")}
                 options={['left', 'center', 'right']}
                 value={grid_alignment}
                 responsive
@@ -81,7 +81,7 @@ export default function ContentLayout(props) {
 
             {latyouStyleDefault === 'list' &&
                 <Alignment
-                    label={__("Vertical Alignment", "user-grid")}
+                    label={__("V Alignment", "user-grid")}
                     options={['flex-start', 'center', 'flex-end']}
                     direction="vertical"
                     value={grid_v_alignment}

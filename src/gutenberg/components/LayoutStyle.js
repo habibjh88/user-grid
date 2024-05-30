@@ -21,7 +21,7 @@ const LayoutStyle = (props) => {
         defaultData = options.list;
     }
 
-    const proLayout = ['grid1', 'grid2', 'grid3', 'list1', 'list2', 'list3'];
+    const proLayout = ['grid1', 'grid2', 'grid3', 'list1', 'list2', 'list3', 'slider1'];
 
     return (
         <div className="dowp-control-field components-base-control dowp-cf-layout-style">

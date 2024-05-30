@@ -573,6 +573,11 @@
   position: relative;
   border-width: 1.5px !important;
 }
+.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button svg:focus {
   outline: none;
 }
