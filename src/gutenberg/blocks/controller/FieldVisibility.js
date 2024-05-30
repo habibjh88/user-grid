@@ -12,7 +12,7 @@ function FieldVisibility(props) {
         email_visibility,
         phone_visibility,
         designation_visibility,
-        short_desc_visibility,
+        job_role_visibility,
         bio_visibility,
         social_visibility,
         button_visibility
@@ -52,11 +52,11 @@ function FieldVisibility(props) {
             />
 
             <ToggleControl
-                label={__("Short Description", "user-grid")}
+                label={__("Job Role", "user-grid")}
                 className="dowp-toggle-control-field"
-                checked={short_desc_visibility}
-                onChange={(short_desc_visibility) => {
-                    setAttributes({short_desc_visibility: short_desc_visibility ? 'show' : ''});
+                checked={job_role_visibility}
+                onChange={(job_role_visibility) => {
+                    setAttributes({job_role_visibility: job_role_visibility ? 'show' : ''});
                     changeQuery();
                 }}
             />

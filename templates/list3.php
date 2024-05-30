@@ -14,9 +14,9 @@
  * @var $name_visibility
  * @var $designation
  * @var $name_tag
- * @var $short_desc
+ * @var $job_role
  * @var $designation_visibility
- * @var $short_desc_visibility
+ * @var $job_role_visibility
  * @var $bio_visibility
  * @var $social_visibility
  * @var $email_visibility
@@ -66,9 +66,9 @@ $col_class = Fns::get_dynamic_cols(
 			</div>
 		<?php endif; ?>
 
-		<?php if ( $short_desc_visibility && $short_desc ) : ?>
-			<div class="user-short-desc <?php Fns::order_class( 'short_description', $content_order ); ?>">
-				<?php echo esc_html( $short_desc ); ?>
+		<?php if ( $job_role_visibility && $job_role ) : ?>
+			<div class="user-short-desc <?php Fns::order_class( 'job_roleription', $content_order ); ?>">
+				<?php echo esc_html( $job_role ); ?>
 			</div>
 		<?php endif; ?>
 

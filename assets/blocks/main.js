@@ -2647,7 +2647,7 @@ function ContentLayout(props) {
     attributes: attributes,
     value: layout,
     options: {
-      grid: ['grid1', 'grid2', 'grid3', 'grid4', 'grid5', 'grid6'],
+      grid: ['grid1', 'grid2', 'grid3', 'grid4', 'grid5', 'grid6', 'grid7', 'grid8'],
       list: ['list1', 'list2', 'list3']
     },
     onChange: layout => {
@@ -3126,7 +3126,7 @@ function FieldVisibility(props) {
     email_visibility,
     phone_visibility,
     designation_visibility,
-    short_desc_visibility,
+    job_role_visibility,
     bio_visibility,
     social_visibility,
     button_visibility
@@ -3165,12 +3165,12 @@ function FieldVisibility(props) {
       changeQuery();
     }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Short Description", "user-grid"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Job Role", "user-grid"),
     className: "dowp-toggle-control-field",
-    checked: short_desc_visibility,
-    onChange: short_desc_visibility => {
+    checked: job_role_visibility,
+    onChange: job_role_visibility => {
       setAttributes({
-        short_desc_visibility: short_desc_visibility ? 'show' : ''
+        job_role_visibility: job_role_visibility ? 'show' : ''
       });
       changeQuery();
     }
@@ -3533,34 +3533,34 @@ function ShortDesc(props) {
   } = props.data;
   //All attribute
   const {
-    short_desc_typography,
-    short_desc_spacing,
-    short_desc_color
+    job_role_typography,
+    job_role_spacing,
+    job_role_color
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Short Description', 'user-grid'),
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Job Role', 'user-grid'),
     initialOpen: false
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.Typography, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Typography'),
-    value: short_desc_typography,
+    value: job_role_typography,
     onChange: val => setAttributes({
-      short_desc_typography: val
+      job_role_typography: val
     })
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.Dimension, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Spacing", "user-grid"),
     type: "margin",
     responsive: true,
-    value: short_desc_spacing,
+    value: job_role_spacing,
     onChange: value => {
       setAttributes({
-        short_desc_spacing: value
+        job_role_spacing: value
       });
     }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.Color, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color', 'user-grid'),
-    color: short_desc_color,
-    onChange: short_desc_color => setAttributes({
-      short_desc_color
+    color: job_role_color,
+    onChange: job_role_color => setAttributes({
+      job_role_color
     })
   }));
 }
@@ -3703,7 +3703,7 @@ const Edit = props => {
     email_visibility,
     phone_visibility,
     designation_visibility,
-    short_desc_visibility,
+    job_role_visibility,
     bio_visibility,
     social_visibility,
     button_style,
@@ -3763,7 +3763,7 @@ const Edit = props => {
         email_visibility,
         phone_visibility,
         designation_visibility,
-        short_desc_visibility,
+        job_role_visibility,
         bio_visibility,
         social_visibility,
         button_style,
@@ -3899,7 +3899,7 @@ function Inspector(props) {
     designation_visibility,
     bio_visibility,
     social_visibility,
-    short_desc_visibility,
+    job_role_visibility,
     button_visibility,
     email_visibility,
     phone_visibility
@@ -3940,7 +3940,7 @@ function Inspector(props) {
     data: props
   }), name_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.NameSettings, {
     data: props
-  }), short_desc_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.ShortDesc, {
+  }), job_role_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.ShortDesc, {
     data: props
   }), designation_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.DesignationSettings, {
     data: props
@@ -4880,7 +4880,7 @@ const BACKGROUND_ATTACHMENT = [{
 }];
 const TEXT_TRANSFORM = [{
   label: __("Default", "user-grid"),
-  value: "default"
+  value: ""
 }, {
   label: __("None", "user-grid"),
   value: "none"
@@ -4896,7 +4896,7 @@ const TEXT_TRANSFORM = [{
 }];
 const TEXT_DECORATION = [{
   label: __("Default", "user-grid"),
-  value: "default"
+  value: ""
 }, {
   label: __("None", "user-grid"),
   value: "none"
@@ -4915,7 +4915,7 @@ const TEXT_DECORATION = [{
 }];
 const FONT_WEIGHTS = [{
   label: __("Default", "user-grid"),
-  value: "default"
+  value: ""
 }, {
   label: __("Light", "user-grid"),
   value: "300"
@@ -7172,18 +7172,20 @@ const {
 const styleIcon = {
   grid1: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 1')
-  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
     width: "64",
     height: "24",
     viewBox: "0 0 64 24",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "0.777344",
-    y: "0.45813",
-    width: "17.6194",
-    height: "10.3853",
-    fill: "#FFDD55"
+    x: "0.877344",
+    y: "0.55813",
+    width: "17.4194",
+    height: "10.1853",
+    fill: "#FFDD55",
+    stroke: "black",
+    "stroke-width": "0.2"
   }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
     x1: "0.777344",
     y1: "14.1854",
@@ -7213,11 +7215,13 @@ const styleIcon = {
     stroke: "black",
     "stroke-width": "0.6"
   }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "45.9385",
-    y: "0.45813",
-    width: "17.6194",
-    height: "10.3853",
-    fill: "#90D758"
+    x: "46.0385",
+    y: "0.55813",
+    width: "17.4194",
+    height: "10.1853",
+    fill: "#90D758",
+    stroke: "black",
+    "stroke-width": "0.2"
   }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
     x1: "45.9385",
     y1: "14.1854",
@@ -7247,11 +7251,13 @@ const styleIcon = {
     stroke: "black",
     "stroke-width": "0.6"
   }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "23.3594",
-    y: "0.45813",
-    width: "17.6194",
-    height: "10.3853",
-    fill: "#DC6FC6"
+    x: "23.4594",
+    y: "0.55813",
+    width: "17.4194",
+    height: "10.1853",
+    fill: "#DC6FC6",
+    stroke: "black",
+    "stroke-width": "0.2"
   }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
     x1: "23.3594",
     y1: "14.1854",
@@ -7283,19 +7289,21 @@ const styleIcon = {
   }), " ")),
   grid2: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 2')
-  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
     width: "64",
     height: "25",
     viewBox: "0 0 64 25",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "3.67871",
-    y: "4.03784",
-    width: "12.8243",
-    height: "10.3853",
-    rx: "1",
-    fill: "#F47666"
+    x: "3.77871",
+    y: "4.13784",
+    width: "12.6243",
+    height: "10.1853",
+    rx: "0.9",
+    fill: "#F47666",
+    stroke: "black",
+    "stroke-width": "0.2"
   }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
     x: "0.927344",
     y: "1.02219",
@@ -7319,12 +7327,14 @@ const styleIcon = {
     stroke: "black",
     "stroke-width": "0.6"
   }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "25.834",
-    y: "4.03784",
-    width: "12.8243",
-    height: "10.3853",
-    rx: "1",
-    fill: "#9EC015"
+    x: "25.934",
+    y: "4.13784",
+    width: "12.6243",
+    height: "10.1853",
+    rx: "0.9",
+    fill: "#9EC015",
+    stroke: "black",
+    "stroke-width": "0.2"
   }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
     x: "23.0836",
     y: "1.02219",
@@ -7348,12 +7358,14 @@ const styleIcon = {
     stroke: "black",
     "stroke-width": "0.6"
   }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "47.9902",
-    y: "4.03784",
-    width: "12.8243",
-    height: "10.3853",
-    rx: "1",
-    fill: "#63D1FF"
+    x: "48.0902",
+    y: "4.13784",
+    width: "12.6243",
+    height: "10.1853",
+    rx: "0.9",
+    fill: "#63D1FF",
+    stroke: "black",
+    "stroke-width": "0.2"
   }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
     x: "45.2389",
     y: "1.02219",
@@ -7376,170 +7388,281 @@ const styleIcon = {
     y2: "20.9307",
     stroke: "black",
     "stroke-width": "0.6"
-  }), " "), " "),
+  }), " ")),
   grid3: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 3')
-  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
     width: "64",
-    height: "24",
-    viewBox: "0 0 64 24",
+    height: "25",
+    viewBox: "0 0 64 25",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
-  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M16.1642 14.3129H3.33984V13.7129H16.1642V14.3129Z",
-    fill: "black"
+  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "3.77773",
+    y: "1.01992",
+    width: "12.6243",
+    height: "10.1853",
+    rx: "0.9",
+    fill: "#F16633",
+    stroke: "black",
+    "stroke-width": "0.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "3.67773",
+    y1: "14.6471",
+    x2: "16.5021",
+    y2: "14.6471",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "3.67773",
+    y1: "17.8128",
+    x2: "15.2109",
+    y2: "17.8128",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "3.67773",
+    y1: "21.1327",
+    x2: "11.7227",
+    y2: "21.1327",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "25.834",
+    y1: "21.1327",
+    x2: "33.8789",
+    y2: "21.1327",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "47.9902",
+    y1: "21.1327",
+    x2: "56.0352",
+    y2: "21.1327",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "25.934",
+    y: "1.01992",
+    width: "12.6243",
+    height: "10.1853",
+    rx: "0.9",
+    fill: "#5FEFCB",
+    stroke: "black",
+    "stroke-width": "0.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "25.834",
+    y1: "14.6471",
+    x2: "38.6583",
+    y2: "14.6471",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "25.834",
+    y1: "17.8128",
+    x2: "37.3671",
+    y2: "17.8128",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "48.0902",
+    y: "1.01992",
+    width: "12.6243",
+    height: "10.1853",
+    rx: "0.9",
+    fill: "#FFC107",
+    stroke: "black",
+    "stroke-width": "0.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "47.9902",
+    y1: "14.6471",
+    x2: "60.8146",
+    y2: "14.6471",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "47.9902",
+    y1: "17.8128",
+    x2: "59.5234",
+    y2: "17.8128",
+    stroke: "black",
+    "stroke-width": "0.6"
   }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M3.33984 17.4785H14.873V16.8785H3.33984V17.4785Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M11.3848 20.7985H3.33984V20.1985H11.3848V20.7985Z",
+    "fill-rule": "evenodd",
+    "clip-rule": "evenodd",
+    d: "M3.67773 8.20288H1.77734C1.22506 8.20288 0.777344 8.6506 0.777344 9.20288V23.3965C0.777344 23.9488 1.22506 24.3965 1.77734 24.3965H18.2466C18.7989 24.3965 19.2466 23.9488 19.2466 23.3965V9.20288C19.2466 8.6506 18.7989 8.20288 18.2466 8.20288H16.5021V8.50288H18.2466C18.6332 8.50288 18.9466 8.81628 18.9466 9.20288V23.3965C18.9466 23.7831 18.6332 24.0965 18.2466 24.0965H1.77734C1.39074 24.0965 1.07734 23.7831 1.07734 23.3965V9.20288C1.07734 8.81628 1.39074 8.50288 1.77734 8.50288H3.67773V8.20288Z",
     fill: "black"
   }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     "fill-rule": "evenodd",
     "clip-rule": "evenodd",
-    d: "M4.33984 0.285645C3.78756 0.285645 3.33984 0.73336 3.33984 1.28564V7.5686H1.43945C0.887168 7.5686 0.439453 8.01632 0.439453 8.5686V22.7622C0.439453 23.3145 0.887168 23.7622 1.43945 23.7622H17.9087C18.461 23.7622 18.9087 23.3145 18.9087 22.7622V8.5686C18.9087 8.01632 18.461 7.5686 17.9087 7.5686H16.1642V1.28564C16.1642 0.73336 15.7165 0.285645 15.1642 0.285645H4.33984ZM15.1642 0.885645H4.33984C4.11893 0.885645 3.93984 1.06473 3.93984 1.28564V9.6709C3.93984 9.89181 4.11893 10.0709 4.33984 10.0709H15.1642C15.3851 10.0709 15.5642 9.89181 15.5642 9.6709V1.28564C15.5642 1.06473 15.3851 0.885645 15.1642 0.885645ZM16.1642 7.8686V9.6709C16.1642 10.2232 15.7165 10.6709 15.1642 10.6709H4.33984C3.78756 10.6709 3.33984 10.2232 3.33984 9.6709V7.8686H1.43945C1.05285 7.8686 0.739453 8.182 0.739453 8.5686V22.7622C0.739453 23.1488 1.05285 23.4622 1.43945 23.4622H17.9087C18.2953 23.4622 18.6087 23.1488 18.6087 22.7622V8.5686C18.6087 8.182 18.2953 7.8686 17.9087 7.8686H16.1642Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M55.6973 20.7985H47.6523V20.1985H55.6973V20.7985Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M25.4961 20.7985H33.541V20.1985H25.4961V20.7985Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M38.3204 14.3129H25.4961V13.7129H38.3204V14.3129Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M25.4961 17.4785H37.0292V16.8785H25.4961V17.4785Z",
+    d: "M25.834 8.20288H23.9336C23.3813 8.20288 22.9336 8.6506 22.9336 9.20288V23.3965C22.9336 23.9488 23.3813 24.3965 23.9336 24.3965H40.4028C40.9551 24.3965 41.4028 23.9488 41.4028 23.3965V9.20288C41.4028 8.6506 40.9551 8.20288 40.4028 8.20288H38.6583V8.50288H40.4028C40.7894 8.50288 41.1028 8.81628 41.1028 9.20288V23.3965C41.1028 23.7831 40.7894 24.0965 40.4028 24.0965H23.9336C23.547 24.0965 23.2336 23.7831 23.2336 23.3965V9.20288C23.2336 8.81628 23.547 8.50288 23.9336 8.50288H25.834V8.20288Z",
     fill: "black"
   }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     "fill-rule": "evenodd",
     "clip-rule": "evenodd",
-    d: "M25.4961 1.28564C25.4961 0.73336 25.9438 0.285645 26.4961 0.285645H37.3204C37.8727 0.285645 38.3204 0.73336 38.3204 1.28564V7.5686H40.0649C40.6172 7.5686 41.0649 8.01632 41.0649 8.5686V22.7622C41.0649 23.3145 40.6172 23.7622 40.0649 23.7622H23.5957C23.0434 23.7622 22.5957 23.3145 22.5957 22.7622V8.5686C22.5957 8.01632 23.0434 7.5686 23.5957 7.5686H25.4961V1.28564ZM26.4961 0.885645H37.3204C37.5413 0.885645 37.7204 1.06473 37.7204 1.28564V9.6709C37.7204 9.89181 37.5413 10.0709 37.3204 10.0709H26.4961C26.2752 10.0709 26.0961 9.89181 26.0961 9.6709V1.28564C26.0961 1.06473 26.2752 0.885645 26.4961 0.885645ZM38.3204 9.6709V7.8686H40.0649C40.4515 7.8686 40.7649 8.182 40.7649 8.5686V22.7622C40.7649 23.1488 40.4515 23.4622 40.0649 23.4622H23.5957C23.2091 23.4622 22.8957 23.1488 22.8957 22.7622V8.5686C22.8957 8.182 23.2091 7.8686 23.5957 7.8686H25.4961V9.6709C25.4961 10.2232 25.9438 10.6709 26.4961 10.6709H37.3204C37.8727 10.6709 38.3204 10.2232 38.3204 9.6709Z",
+    d: "M48.0684 8.20288H46.168C45.6157 8.20288 45.168 8.6506 45.168 9.20288V23.3965C45.168 23.9488 45.6157 24.3965 46.168 24.3965H62.6372C63.1895 24.3965 63.6372 23.9488 63.6372 23.3965V9.20288C63.6372 8.6506 63.1895 8.20288 62.6372 8.20288H60.8927V8.50288H62.6372C63.0238 8.50288 63.3372 8.81628 63.3372 9.20288V23.3965C63.3372 23.7831 63.0238 24.0965 62.6372 24.0965H46.168C45.7814 24.0965 45.468 23.7831 45.468 23.3965V9.20288C45.468 8.81628 45.7814 8.50288 46.168 8.50288H48.0684V8.20288Z",
     fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M48.6523 0.285645C48.1001 0.285645 47.6523 0.73336 47.6523 1.28564V7.5686H45.8301C45.2778 7.5686 44.8301 8.01632 44.8301 8.5686V22.7622C44.8301 23.3145 45.2778 23.7622 45.8301 23.7622H62.2993C62.8516 23.7622 63.2993 23.3145 63.2993 22.7622V8.5686C63.2993 8.01632 62.8516 7.5686 62.2993 7.5686H60.5548V7.8686H62.2993C62.6859 7.8686 62.9993 8.182 62.9993 8.5686V22.7622C62.9993 23.1488 62.6859 23.4622 62.2993 23.4622H45.8301C45.4435 23.4622 45.1301 23.1488 45.1301 22.7622V8.5686C45.1301 8.182 45.4435 7.8686 45.8301 7.8686H47.6523V9.6709C47.6523 10.2232 48.1001 10.6709 48.6523 10.6709H59.4767C60.029 10.6709 60.4767 10.2232 60.4767 9.6709V1.28564C60.4767 0.73336 60.029 0.285645 59.4767 0.285645H48.6523ZM59.4767 0.885645H48.6523C48.4314 0.885645 48.2523 1.06473 48.2523 1.28564V9.6709C48.2523 9.89181 48.4314 10.0709 48.6523 10.0709H59.4767C59.6976 10.0709 59.8767 9.89181 59.8767 9.6709V1.28564C59.8767 1.06473 59.6976 0.885645 59.4767 0.885645Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M47.6523 14.3129H60.4767V13.7129H47.6523V14.3129Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M59.1855 17.4785H47.6523V16.8785H59.1855V17.4785Z",
-    fill: "black"
-  }), " "), " "),
+  }), " ")),
   grid4: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 4')
-  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
     width: "64",
     height: "24",
     viewBox: "0 0 64 24",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
-  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M12.2638 0.885645H1.43945C1.21854 0.885645 1.03945 1.06473 1.03945 1.28564V11.2158C1.03945 11.4367 1.21854 11.6158 1.43945 11.6158H12.2638C12.4847 11.6158 12.6638 11.4367 12.6638 11.2158V1.28564C12.6638 1.06473 12.4847 0.885645 12.2638 0.885645ZM1.43945 0.285645C0.887168 0.285645 0.439453 0.73336 0.439453 1.28564V11.2158C0.439453 11.7681 0.887169 12.2158 1.43945 12.2158H12.2638C12.8161 12.2158 13.2638 11.7681 13.2638 11.2158V1.28564C13.2638 0.73336 12.8161 0.285645 12.2638 0.285645H1.43945Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M9.25575 23.7622H4.44922V23.1622H9.25575V23.7622Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M11.754 20.2621H1.95117V19.0621H11.754V20.2621Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M10.875 16.8704H2.83008V16.2704H10.875V16.8704Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M9.25586 14.6455H4.44922V14.0455H9.25586V14.6455Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M28.922 0.885645H18.0977C17.8767 0.885645 17.6977 1.06473 17.6977 1.28564V11.2158C17.6977 11.4367 17.8767 11.6158 18.0977 11.6158H28.922C29.1429 11.6158 29.322 11.4367 29.322 11.2158V1.28564C29.322 1.06473 29.1429 0.885645 28.922 0.885645ZM18.0977 0.285645C17.5454 0.285645 17.0977 0.73336 17.0977 1.28564V11.2158C17.0977 11.7681 17.5454 12.2158 18.0977 12.2158H28.922C29.4743 12.2158 29.922 11.7681 29.922 11.2158V1.28564C29.922 0.73336 29.4743 0.285645 28.922 0.285645H18.0977Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M25.914 23.7622H21.1074V23.1622H25.914V23.7622Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M28.4122 20.2621H18.6094V19.0621H28.4122V20.2621Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M27.5332 16.8704H19.4883V16.2704H27.5332V16.8704Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M25.9141 14.6455H21.1074V14.0455H25.9141V14.6455Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M45.5802 0.885645H34.7559C34.5349 0.885645 34.3559 1.06473 34.3559 1.28564V11.2158C34.3559 11.4367 34.5349 11.6158 34.7559 11.6158H45.5802C45.8011 11.6158 45.9802 11.4367 45.9802 11.2158V1.28564C45.9802 1.06473 45.8011 0.885645 45.5802 0.885645ZM34.7559 0.285645C34.2036 0.285645 33.7559 0.73336 33.7559 1.28564V11.2158C33.7559 11.7681 34.2036 12.2158 34.7559 12.2158H45.5802C46.1325 12.2158 46.5802 11.7681 46.5802 11.2158V1.28564C46.5802 0.73336 46.1325 0.285645 45.5802 0.285645H34.7559Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M42.5722 23.7622H37.7656V23.1622H42.5722V23.7622Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M45.0704 20.2621H35.2676V19.0621H45.0704V20.2621Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M44.1914 16.8704H36.1465V16.2704H44.1914V16.8704Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M42.5723 14.6455H37.7656V14.0455H42.5723V14.6455Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M62.2384 0.885645H51.4141C51.1931 0.885645 51.0141 1.06473 51.0141 1.28564V11.2158C51.0141 11.4367 51.1931 11.6158 51.4141 11.6158H62.2384C62.4593 11.6158 62.6384 11.4367 62.6384 11.2158V1.28564C62.6384 1.06473 62.4593 0.885645 62.2384 0.885645ZM51.4141 0.285645C50.8618 0.285645 50.4141 0.73336 50.4141 1.28564V11.2158C50.4141 11.7681 50.8618 12.2158 51.4141 12.2158H62.2384C62.7907 12.2158 63.2384 11.7681 63.2384 11.2158V1.28564C63.2384 0.73336 62.7907 0.285645 62.2384 0.285645H51.4141Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M59.2304 23.7622H54.4238V23.1622H59.2304V23.7622Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M61.7286 20.2621H51.9258V19.0621H61.7286V20.2621Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M60.8496 16.8704H52.8047V16.2704H60.8496V16.8704Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M59.2305 14.6455H54.4238V14.0455H59.2305V14.6455Z",
-    fill: "black"
-  }), " "), " "),
+  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "0.877344",
+    y: "0.605859",
+    width: "12.6243",
+    height: "11.7302",
+    rx: "0.9",
+    fill: "#5CC1F9",
+    stroke: "black",
+    "stroke-width": "0.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "4.78711",
+    y1: "23.6824",
+    x2: "9.59364",
+    y2: "23.6824",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "2.28906",
+    y1: "19.8823",
+    x2: "12.0919",
+    y2: "19.8823",
+    stroke: "black",
+    "stroke-width": "1.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "3.16797",
+    y1: "16.7906",
+    x2: "11.2129",
+    y2: "16.7906",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "4.78711",
+    y1: "14.5657",
+    x2: "9.59375",
+    y2: "14.5657",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "17.5355",
+    y: "0.605859",
+    width: "12.6243",
+    height: "11.7302",
+    rx: "0.9",
+    fill: "#90D758",
+    stroke: "black",
+    "stroke-width": "0.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "21.4453",
+    y1: "23.6824",
+    x2: "26.2518",
+    y2: "23.6824",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "18.9473",
+    y1: "19.8823",
+    x2: "28.7501",
+    y2: "19.8823",
+    stroke: "black",
+    "stroke-width": "1.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "19.8262",
+    y1: "16.7906",
+    x2: "27.8711",
+    y2: "16.7906",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "21.4453",
+    y1: "14.5657",
+    x2: "26.252",
+    y2: "14.5657",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "34.1938",
+    y: "0.605859",
+    width: "12.6243",
+    height: "11.7302",
+    rx: "0.9",
+    fill: "#FD705E",
+    stroke: "black",
+    "stroke-width": "0.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "38.1035",
+    y1: "23.6824",
+    x2: "42.91",
+    y2: "23.6824",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "35.6055",
+    y1: "19.8823",
+    x2: "45.4083",
+    y2: "19.8823",
+    stroke: "black",
+    "stroke-width": "1.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "36.4844",
+    y1: "16.7906",
+    x2: "44.5293",
+    y2: "16.7906",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "38.1035",
+    y1: "14.5657",
+    x2: "42.9102",
+    y2: "14.5657",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "50.852",
+    y: "0.605859",
+    width: "12.6243",
+    height: "11.7302",
+    rx: "0.9",
+    fill: "#5DA9AE",
+    stroke: "black",
+    "stroke-width": "0.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "54.7617",
+    y1: "23.6824",
+    x2: "59.5683",
+    y2: "23.6824",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "52.2637",
+    y1: "19.8823",
+    x2: "62.0665",
+    y2: "19.8823",
+    stroke: "black",
+    "stroke-width": "1.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "53.1426",
+    y1: "16.7906",
+    x2: "61.1875",
+    y2: "16.7906",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "54.7617",
+    y1: "14.5657",
+    x2: "59.5684",
+    y2: "14.5657",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ")),
   grid5: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 5')
-  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
     width: "64",
     height: "24",
     viewBox: "0 0 64 24",
@@ -7692,97 +7815,431 @@ const styleIcon = {
   }), " "), " "),
   grid6: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 6')
-  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
     width: "64",
     height: "24",
     viewBox: "0 0 64 24",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
-  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M0.439453 4.42487C0.439453 2.13884 2.29265 0.285645 4.57867 0.285645C6.8647 0.285645 8.7179 2.13884 8.7179 4.42487C8.7179 6.71089 6.8647 8.56409 4.57867 8.56409C2.29265 8.56409 0.439453 6.71089 0.439453 4.42487Z",
-    fill: "#D7A458"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M10.2422 19H0.439453V17.8H10.2422V19Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M8.48438 15H0.439453V14.4H8.48438V15Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M5.24609 12H0.439453V11.4H5.24609V12Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M0.439453 22.9478C0.439453 22.498 0.804069 22.1334 1.25385 22.1334H4.61432C5.0641 22.1334 5.42871 22.498 5.42871 22.9478C5.42871 23.3976 5.0641 23.7622 4.61432 23.7622H1.25385C0.804069 23.7622 0.439453 23.3976 0.439453 22.9478Z",
+  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "0.539453",
+    y: "0.385645",
+    width: "8.07844",
+    height: "8.07844",
+    rx: "4.03922",
+    fill: "#E9A847",
+    stroke: "black",
+    "stroke-width": "0.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "0.439453",
+    y1: "18.4",
+    x2: "10.2422",
+    y2: "18.4",
+    stroke: "black",
+    "stroke-width": "1.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "0.439453",
+    y1: "14.7",
+    x2: "8.48438",
+    y2: "14.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "0.439453",
+    y1: "11.7",
+    x2: "5.24609",
+    y2: "11.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "0.439453",
+    y: "22.1334",
+    width: "4.98926",
+    height: "1.62878",
+    rx: "0.814392",
     fill: "#0085FF"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M18.1279 4.42487C18.1279 2.13884 19.9811 0.285645 22.2672 0.285645C24.5532 0.285645 26.4064 2.13884 26.4064 4.42487C26.4064 6.71089 24.5532 8.56409 22.2672 8.56409C19.9811 8.56409 18.1279 6.71089 18.1279 4.42487Z",
-    fill: "#90D758"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M27.9307 19H18.1279V17.8H27.9307V19Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M26.1729 15H18.1279V14.4H26.1729V15Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M22.9346 12H18.1279V11.4H22.9346V12Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M18.1279 22.9478C18.1279 22.498 18.4925 22.1334 18.9423 22.1334H22.3028C22.7526 22.1334 23.1172 22.498 23.1172 22.9478C23.1172 23.3976 22.7526 23.7622 22.3028 23.7622H18.9423C18.4925 23.7622 18.1279 23.3976 18.1279 22.9478Z",
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "18.2279",
+    y: "0.385645",
+    width: "8.07844",
+    height: "8.07844",
+    rx: "4.03922",
+    fill: "#90D758",
+    stroke: "black",
+    "stroke-width": "0.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "18.1279",
+    y1: "18.4",
+    x2: "27.9307",
+    y2: "18.4",
+    stroke: "black",
+    "stroke-width": "1.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "18.1279",
+    y1: "14.7",
+    x2: "26.1729",
+    y2: "14.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "18.1279",
+    y1: "11.7",
+    x2: "22.9346",
+    y2: "11.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "18.1279",
+    y: "22.1334",
+    width: "4.98926",
+    height: "1.62878",
+    rx: "0.814392",
     fill: "#0085FF"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M35.8164 4.42487C35.8164 2.13884 37.6696 0.285645 39.9556 0.285645C42.2417 0.285645 44.0948 2.13884 44.0948 4.42487C44.0948 6.71089 42.2417 8.56409 39.9556 8.56409C37.6696 8.56409 35.8164 6.71089 35.8164 4.42487Z",
-    fill: "#D75858"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M45.6192 19H35.8164V17.8H45.6192V19Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M43.8613 15H35.8164V14.4H43.8613V15Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M40.623 12H35.8164V11.4H40.623V12Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M35.8164 22.9478C35.8164 22.498 36.181 22.1334 36.6308 22.1334H39.9913C40.441 22.1334 40.8057 22.498 40.8057 22.9478C40.8057 23.3976 40.441 23.7622 39.9913 23.7622H36.6308C36.181 23.7622 35.8164 23.3976 35.8164 22.9478Z",
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "35.9164",
+    y: "0.385645",
+    width: "8.07844",
+    height: "8.07844",
+    rx: "4.03922",
+    fill: "#FC6E7D",
+    stroke: "black",
+    "stroke-width": "0.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "35.8164",
+    y1: "18.4",
+    x2: "45.6192",
+    y2: "18.4",
+    stroke: "black",
+    "stroke-width": "1.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "35.8164",
+    y1: "14.7",
+    x2: "43.8613",
+    y2: "14.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "35.8164",
+    y1: "11.7",
+    x2: "40.623",
+    y2: "11.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "35.8164",
+    y: "22.1334",
+    width: "4.98926",
+    height: "1.62878",
+    rx: "0.814392",
     fill: "#0085FF"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M53.5049 4.42487C53.5049 2.13884 55.3581 0.285645 57.6441 0.285645C59.9301 0.285645 61.7833 2.13884 61.7833 4.42487C61.7833 6.71089 59.9301 8.56409 57.6441 8.56409C55.3581 8.56409 53.5049 6.71089 53.5049 4.42487Z",
-    fill: "#58C0D7"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M63.3077 19H53.5049V17.8H63.3077V19Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M61.5498 15H53.5049V14.4H61.5498V15Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M58.3115 12H53.5049V11.4H58.3115V12Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M53.5049 22.9478C53.5049 22.498 53.8695 22.1334 54.3193 22.1334H57.6797C58.1295 22.1334 58.4941 22.498 58.4941 22.9478C58.4941 23.3976 58.1295 23.7622 57.6797 23.7622H54.3193C53.8695 23.7622 53.5049 23.3976 53.5049 22.9478Z",
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "53.6049",
+    y: "0.385645",
+    width: "8.07844",
+    height: "8.07844",
+    rx: "4.03922",
+    fill: "#58C0D7",
+    stroke: "black",
+    "stroke-width": "0.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "53.5049",
+    y1: "18.4",
+    x2: "63.3077",
+    y2: "18.4",
+    stroke: "black",
+    "stroke-width": "1.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "53.5049",
+    y1: "14.7",
+    x2: "61.5498",
+    y2: "14.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "53.5049",
+    y1: "11.7",
+    x2: "58.3115",
+    y2: "11.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "53.5049",
+    y: "22.1334",
+    width: "4.98926",
+    height: "1.62878",
+    rx: "0.814392",
     fill: "#0085FF"
-  }), " "), " "),
+  }), " ")),
+  grid7: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Grid 6')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    width: "64",
+    height: "24",
+    viewBox: "0 0 64 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "0.689453",
+    y: "6.79395",
+    width: "17.21",
+    height: "16.6042",
+    stroke: "black",
+    "stroke-width": "0.5"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+    cx: "9.29492",
+    cy: "5.6239",
+    r: "5.5",
+    fill: "#FFBB0E"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "5.66602",
+    y1: "13.586",
+    x2: "12.923",
+    y2: "13.586",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "6.26875",
+    y1: "21.586",
+    x2: "12.3199",
+    y2: "21.586",
+    stroke: "black",
+    "stroke-width": "0.6",
+    "stroke-linecap": "round",
+    "stroke-dasharray": "1.2 1.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "3.50977",
+    y1: "16.586",
+    x2: "15.0781",
+    y2: "16.586",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "4.09277",
+    y1: "18.586",
+    x2: "14.4964",
+    y2: "18.586",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "23.2168",
+    y: "6.79395",
+    width: "17.21",
+    height: "16.6042",
+    stroke: "black",
+    "stroke-width": "0.5"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+    cx: "31.8223",
+    cy: "5.6239",
+    r: "5.5",
+    fill: "#EE1930"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "28.1934",
+    y1: "13.586",
+    x2: "35.4504",
+    y2: "13.586",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "28.7961",
+    y1: "21.586",
+    x2: "34.8473",
+    y2: "21.586",
+    stroke: "black",
+    "stroke-width": "0.6",
+    "stroke-linecap": "round",
+    "stroke-dasharray": "1.2 1.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "26.0371",
+    y1: "16.586",
+    x2: "37.6055",
+    y2: "16.586",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "26.6201",
+    y1: "18.586",
+    x2: "37.0238",
+    y2: "18.586",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "45.7441",
+    y: "6.79395",
+    width: "17.21",
+    height: "16.6042",
+    stroke: "black",
+    "stroke-width": "0.5"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+    cx: "54.3496",
+    cy: "5.6239",
+    r: "5.5",
+    fill: "#4EA8FC"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "50.7207",
+    y1: "13.586",
+    x2: "57.9777",
+    y2: "13.586",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "51.3234",
+    y1: "21.586",
+    x2: "57.3746",
+    y2: "21.586",
+    stroke: "black",
+    "stroke-width": "0.6",
+    "stroke-linecap": "round",
+    "stroke-dasharray": "1.2 1.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "48.5645",
+    y1: "16.586",
+    x2: "60.1328",
+    y2: "16.586",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "49.1475",
+    y1: "18.586",
+    x2: "59.5511",
+    y2: "18.586",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ")),
+  grid8: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Grid 6')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    width: "64",
+    height: "24",
+    viewBox: "0 0 64 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "0.689453",
+    y: "6.79395",
+    width: "17.21",
+    height: "16.6042",
+    stroke: "black",
+    "stroke-width": "0.5"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+    cx: "9.29492",
+    cy: "5.6239",
+    r: "5.5",
+    fill: "#FFBB0E"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "5.66602",
+    y1: "13.586",
+    x2: "12.923",
+    y2: "13.586",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "6.26875",
+    y1: "21.586",
+    x2: "12.3199",
+    y2: "21.586",
+    stroke: "black",
+    "stroke-width": "0.6",
+    "stroke-linecap": "round",
+    "stroke-dasharray": "1.2 1.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "3.50977",
+    y1: "16.586",
+    x2: "15.0781",
+    y2: "16.586",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "4.09277",
+    y1: "18.586",
+    x2: "14.4964",
+    y2: "18.586",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "23.2168",
+    y: "6.79395",
+    width: "17.21",
+    height: "16.6042",
+    stroke: "black",
+    "stroke-width": "0.5"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+    cx: "31.8223",
+    cy: "5.6239",
+    r: "5.5",
+    fill: "#EE1930"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "28.1934",
+    y1: "13.586",
+    x2: "35.4504",
+    y2: "13.586",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "28.7961",
+    y1: "21.586",
+    x2: "34.8473",
+    y2: "21.586",
+    stroke: "black",
+    "stroke-width": "0.6",
+    "stroke-linecap": "round",
+    "stroke-dasharray": "1.2 1.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "26.0371",
+    y1: "16.586",
+    x2: "37.6055",
+    y2: "16.586",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "26.6201",
+    y1: "18.586",
+    x2: "37.0238",
+    y2: "18.586",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "45.7441",
+    y: "6.79395",
+    width: "17.21",
+    height: "16.6042",
+    stroke: "black",
+    "stroke-width": "0.5"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+    cx: "54.3496",
+    cy: "5.6239",
+    r: "5.5",
+    fill: "#4EA8FC"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "50.7207",
+    y1: "13.586",
+    x2: "57.9777",
+    y2: "13.586",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "51.3234",
+    y1: "21.586",
+    x2: "57.3746",
+    y2: "21.586",
+    stroke: "black",
+    "stroke-width": "0.6",
+    "stroke-linecap": "round",
+    "stroke-dasharray": "1.2 1.2"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "48.5645",
+    y1: "16.586",
+    x2: "60.1328",
+    y2: "16.586",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "49.1475",
+    y1: "18.586",
+    x2: "59.5511",
+    y2: "18.586",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), " ")),
   list1: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('List 1')
   }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
@@ -25512,11 +25969,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _arrayLikeToArray)
 /* harmony export */ });
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
-  return arr2;
+function _arrayLikeToArray(r, a) {
+  (null == a || a > r.length) && (a = r.length);
+  for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e];
+  return n;
 }
+
 
 /***/ }),
 
@@ -25531,9 +25989,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _arrayWithHoles)
 /* harmony export */ });
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
+function _arrayWithHoles(r) {
+  if (Array.isArray(r)) return r;
 }
+
 
 /***/ }),
 
@@ -25550,9 +26009,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _arrayLikeToArray_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./arrayLikeToArray.js */ "./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js");
 
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) return (0,_arrayLikeToArray_js__WEBPACK_IMPORTED_MODULE_0__["default"])(arr);
+function _arrayWithoutHoles(r) {
+  if (Array.isArray(r)) return (0,_arrayLikeToArray_js__WEBPACK_IMPORTED_MODULE_0__["default"])(r);
 }
+
 
 /***/ }),
 
@@ -25567,12 +26027,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _assertThisInitialized)
 /* harmony export */ });
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-  return self;
+function _assertThisInitialized(e) {
+  if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  return e;
 }
+
 
 /***/ }),
 
@@ -25587,11 +26046,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _classCallCheck)
 /* harmony export */ });
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
+function _classCallCheck(a, n) {
+  if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function");
 }
+
 
 /***/ }),
 
@@ -25608,23 +26066,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _toPropertyKey_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./toPropertyKey.js */ "./node_modules/@babel/runtime/helpers/esm/toPropertyKey.js");
 
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, (0,_toPropertyKey_js__WEBPACK_IMPORTED_MODULE_0__["default"])(descriptor.key), descriptor);
+function _defineProperties(e, r) {
+  for (var t = 0; t < r.length; t++) {
+    var o = r[t];
+    o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, (0,_toPropertyKey_js__WEBPACK_IMPORTED_MODULE_0__["default"])(o.key), o);
   }
 }
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  Object.defineProperty(Constructor, "prototype", {
-    writable: false
-  });
-  return Constructor;
+function _createClass(e, r, t) {
+  return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", {
+    writable: !1
+  }), e;
 }
+
 
 /***/ }),
 
@@ -25645,20 +26098,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function _createSuper(Derived) {
-  var hasNativeReflectConstruct = (0,_isNativeReflectConstruct_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
-  return function _createSuperInternal() {
-    var Super = (0,_getPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Derived),
-      result;
-    if (hasNativeReflectConstruct) {
-      var NewTarget = (0,_getPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__["default"])(this).constructor;
-      result = Reflect.construct(Super, arguments, NewTarget);
-    } else {
-      result = Super.apply(this, arguments);
-    }
-    return (0,_possibleConstructorReturn_js__WEBPACK_IMPORTED_MODULE_2__["default"])(this, result);
+function _createSuper(t) {
+  var r = (0,_isNativeReflectConstruct_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  return function () {
+    var e,
+      o = (0,_getPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__["default"])(t);
+    if (r) {
+      var s = (0,_getPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__["default"])(this).constructor;
+      e = Reflect.construct(o, arguments, s);
+    } else e = o.apply(this, arguments);
+    return (0,_possibleConstructorReturn_js__WEBPACK_IMPORTED_MODULE_2__["default"])(this, e);
   };
 }
+
 
 /***/ }),
 
@@ -25675,20 +26127,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _toPropertyKey_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./toPropertyKey.js */ "./node_modules/@babel/runtime/helpers/esm/toPropertyKey.js");
 
-function _defineProperty(obj, key, value) {
-  key = (0,_toPropertyKey_js__WEBPACK_IMPORTED_MODULE_0__["default"])(key);
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-  return obj;
+function _defineProperty(e, r, t) {
+  return (r = (0,_toPropertyKey_js__WEBPACK_IMPORTED_MODULE_0__["default"])(r)) in e ? Object.defineProperty(e, r, {
+    value: t,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : e[r] = t, e;
 }
+
 
 /***/ }),
 
@@ -25704,19 +26151,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ _extends)
 /* harmony export */ });
 function _extends() {
-  _extends = Object.assign ? Object.assign.bind() : function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
-    return target;
-  };
-  return _extends.apply(this, arguments);
+    return n;
+  }, _extends.apply(null, arguments);
 }
+
 
 /***/ }),
 
@@ -25731,12 +26174,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _getPrototypeOf)
 /* harmony export */ });
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
+function _getPrototypeOf(t) {
+  return _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (t) {
+    return t.__proto__ || Object.getPrototypeOf(t);
+  }, _getPrototypeOf(t);
 }
+
 
 /***/ }),
 
@@ -25753,22 +26196,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setPrototypeOf.js */ "./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js");
 
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
+function _inherits(t, e) {
+  if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function");
+  t.prototype = Object.create(e && e.prototype, {
     constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
+      value: t,
+      writable: !0,
+      configurable: !0
     }
-  });
-  Object.defineProperty(subClass, "prototype", {
-    writable: false
-  });
-  if (superClass) (0,_setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__["default"])(subClass, superClass);
+  }), Object.defineProperty(t, "prototype", {
+    writable: !1
+  }), e && (0,_setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__["default"])(t, e);
 }
+
 
 /***/ }),
 
@@ -25792,6 +26232,7 @@ function _isNativeReflectConstruct() {
   })();
 }
 
+
 /***/ }),
 
 /***/ "./node_modules/@babel/runtime/helpers/esm/iterableToArray.js":
@@ -25805,9 +26246,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _iterableToArray)
 /* harmony export */ });
-function _iterableToArray(iter) {
-  if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
+function _iterableToArray(r) {
+  if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r);
 }
+
 
 /***/ }),
 
@@ -25850,6 +26292,7 @@ function _iterableToArrayLimit(r, l) {
   }
 }
 
+
 /***/ }),
 
 /***/ "./node_modules/@babel/runtime/helpers/esm/nonIterableRest.js":
@@ -25866,6 +26309,7 @@ __webpack_require__.r(__webpack_exports__);
 function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
+
 
 /***/ }),
 
@@ -25884,6 +26328,7 @@ function _nonIterableSpread() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
+
 /***/ }),
 
 /***/ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js":
@@ -25899,21 +26344,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _defineProperty_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./defineProperty.js */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
 
-function _objectSpread(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? Object(arguments[i]) : {};
-    var ownKeys = Object.keys(source);
-    if (typeof Object.getOwnPropertySymbols === 'function') {
-      ownKeys.push.apply(ownKeys, Object.getOwnPropertySymbols(source).filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(source, sym).enumerable;
-      }));
-    }
-    ownKeys.forEach(function (key) {
-      (0,_defineProperty_js__WEBPACK_IMPORTED_MODULE_0__["default"])(target, key, source[key]);
+function _objectSpread(e) {
+  for (var r = 1; r < arguments.length; r++) {
+    var t = null != arguments[r] ? Object(arguments[r]) : {},
+      o = Object.keys(t);
+    "function" == typeof Object.getOwnPropertySymbols && o.push.apply(o, Object.getOwnPropertySymbols(t).filter(function (e) {
+      return Object.getOwnPropertyDescriptor(t, e).enumerable;
+    })), o.forEach(function (r) {
+      (0,_defineProperty_js__WEBPACK_IMPORTED_MODULE_0__["default"])(e, r, t[r]);
     });
   }
-  return target;
+  return e;
 }
+
 
 /***/ }),
 
@@ -25952,6 +26395,7 @@ function _objectSpread2(e) {
   return e;
 }
 
+
 /***/ }),
 
 /***/ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js":
@@ -25967,21 +26411,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _objectWithoutPropertiesLoose_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./objectWithoutPropertiesLoose.js */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
 
-function _objectWithoutProperties(source, excluded) {
-  if (source == null) return {};
-  var target = (0,_objectWithoutPropertiesLoose_js__WEBPACK_IMPORTED_MODULE_0__["default"])(source, excluded);
-  var key, i;
+function _objectWithoutProperties(e, t) {
+  if (null == e) return {};
+  var o,
+    r,
+    i = (0,_objectWithoutPropertiesLoose_js__WEBPACK_IMPORTED_MODULE_0__["default"])(e, t);
   if (Object.getOwnPropertySymbols) {
-    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
-    for (i = 0; i < sourceSymbolKeys.length; i++) {
-      key = sourceSymbolKeys[i];
-      if (excluded.indexOf(key) >= 0) continue;
-      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
-      target[key] = source[key];
-    }
+    var n = Object.getOwnPropertySymbols(e);
+    for (r = 0; r < n.length; r++) o = n[r], t.indexOf(o) >= 0 || {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
-  return target;
+  return i;
 }
+
 
 /***/ }),
 
@@ -25996,17 +26437,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _objectWithoutPropertiesLoose)
 /* harmony export */ });
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  for (var key in source) {
-    if (Object.prototype.hasOwnProperty.call(source, key)) {
-      if (excluded.indexOf(key) >= 0) continue;
-      target[key] = source[key];
-    }
+function _objectWithoutPropertiesLoose(r, e) {
+  if (null == r) return {};
+  var t = {};
+  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
+    if (e.indexOf(n) >= 0) continue;
+    t[n] = r[n];
   }
-  return target;
+  return t;
 }
+
 
 /***/ }),
 
@@ -26025,14 +26465,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assertThisInitialized_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assertThisInitialized.js */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
 
 
-function _possibleConstructorReturn(self, call) {
-  if (call && ((0,_typeof_js__WEBPACK_IMPORTED_MODULE_0__["default"])(call) === "object" || typeof call === "function")) {
-    return call;
-  } else if (call !== void 0) {
-    throw new TypeError("Derived constructors may only return object or undefined");
-  }
-  return (0,_assertThisInitialized_js__WEBPACK_IMPORTED_MODULE_1__["default"])(self);
+function _possibleConstructorReturn(t, e) {
+  if (e && ("object" == (0,_typeof_js__WEBPACK_IMPORTED_MODULE_0__["default"])(e) || "function" == typeof e)) return e;
+  if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined");
+  return (0,_assertThisInitialized_js__WEBPACK_IMPORTED_MODULE_1__["default"])(t);
 }
+
 
 /***/ }),
 
@@ -26047,13 +26485,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _setPrototypeOf)
 /* harmony export */ });
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-  return _setPrototypeOf(o, p);
+function _setPrototypeOf(t, e) {
+  return _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) {
+    return t.__proto__ = e, t;
+  }, _setPrototypeOf(t, e);
 }
+
 
 /***/ }),
 
@@ -26076,9 +26513,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function _slicedToArray(arr, i) {
-  return (0,_arrayWithHoles_js__WEBPACK_IMPORTED_MODULE_0__["default"])(arr) || (0,_iterableToArrayLimit_js__WEBPACK_IMPORTED_MODULE_1__["default"])(arr, i) || (0,_unsupportedIterableToArray_js__WEBPACK_IMPORTED_MODULE_2__["default"])(arr, i) || (0,_nonIterableRest_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
+function _slicedToArray(r, e) {
+  return (0,_arrayWithHoles_js__WEBPACK_IMPORTED_MODULE_0__["default"])(r) || (0,_iterableToArrayLimit_js__WEBPACK_IMPORTED_MODULE_1__["default"])(r, e) || (0,_unsupportedIterableToArray_js__WEBPACK_IMPORTED_MODULE_2__["default"])(r, e) || (0,_nonIterableRest_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
 }
+
 
 /***/ }),
 
@@ -26093,16 +26531,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _taggedTemplateLiteral)
 /* harmony export */ });
-function _taggedTemplateLiteral(strings, raw) {
-  if (!raw) {
-    raw = strings.slice(0);
-  }
-  return Object.freeze(Object.defineProperties(strings, {
+function _taggedTemplateLiteral(e, t) {
+  return t || (t = e.slice(0)), Object.freeze(Object.defineProperties(e, {
     raw: {
-      value: Object.freeze(raw)
+      value: Object.freeze(t)
     }
   }));
 }
+
 
 /***/ }),
 
@@ -26125,9 +26561,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function _toConsumableArray(arr) {
-  return (0,_arrayWithoutHoles_js__WEBPACK_IMPORTED_MODULE_0__["default"])(arr) || (0,_iterableToArray_js__WEBPACK_IMPORTED_MODULE_1__["default"])(arr) || (0,_unsupportedIterableToArray_js__WEBPACK_IMPORTED_MODULE_2__["default"])(arr) || (0,_nonIterableSpread_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
+function _toConsumableArray(r) {
+  return (0,_arrayWithoutHoles_js__WEBPACK_IMPORTED_MODULE_0__["default"])(r) || (0,_iterableToArray_js__WEBPACK_IMPORTED_MODULE_1__["default"])(r) || (0,_unsupportedIterableToArray_js__WEBPACK_IMPORTED_MODULE_2__["default"])(r) || (0,_nonIterableSpread_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
 }
+
 
 /***/ }),
 
@@ -26155,6 +26592,7 @@ function toPrimitive(t, r) {
   return ("string" === r ? String : Number)(t);
 }
 
+
 /***/ }),
 
 /***/ "./node_modules/@babel/runtime/helpers/esm/toPropertyKey.js":
@@ -26176,6 +26614,7 @@ function toPropertyKey(t) {
   var i = (0,_toPrimitive_js__WEBPACK_IMPORTED_MODULE_1__["default"])(t, "string");
   return "symbol" == (0,_typeof_js__WEBPACK_IMPORTED_MODULE_0__["default"])(i) ? i : i + "";
 }
+
 
 /***/ }),
 
@@ -26200,6 +26639,7 @@ function _typeof(o) {
   }, _typeof(o);
 }
 
+
 /***/ }),
 
 /***/ "./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js":
@@ -26215,14 +26655,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _arrayLikeToArray_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./arrayLikeToArray.js */ "./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js");
 
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return (0,_arrayLikeToArray_js__WEBPACK_IMPORTED_MODULE_0__["default"])(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return (0,_arrayLikeToArray_js__WEBPACK_IMPORTED_MODULE_0__["default"])(o, minLen);
+function _unsupportedIterableToArray(r, a) {
+  if (r) {
+    if ("string" == typeof r) return (0,_arrayLikeToArray_js__WEBPACK_IMPORTED_MODULE_0__["default"])(r, a);
+    var t = {}.toString.call(r).slice(8, -1);
+    return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? (0,_arrayLikeToArray_js__WEBPACK_IMPORTED_MODULE_0__["default"])(r, a) : void 0;
+  }
 }
+
 
 /***/ }),
 

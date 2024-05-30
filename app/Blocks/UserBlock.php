@@ -69,7 +69,7 @@ class UserBlock extends BlockBase {
 			Attributes::email(),
 			Attributes::phone(),
 			Attributes::biography(),
-			Attributes::short_desc(),
+			Attributes::job_role(),
 			Attributes::social(),
 			Attributes::button(),
 			Attributes::card(),
@@ -147,7 +147,7 @@ class UserBlock extends BlockBase {
 							$layout_data['designation']  = get_user_meta( $user_id, 'user_grid_designation', true );
 							$layout_data['description']  = get_user_meta( $user_id, 'description', true );
 							$layout_data['phone']        = get_user_meta( $user_id, 'user_grid_phone', true );
-							$layout_data['short_desc']   = get_user_meta( $user_id, 'user_grid_short_desc', true );
+							$layout_data['job_role']   = get_user_meta( $user_id, 'user_grid_job_role', true );
 							Fns::get_template( $data['layout'], $layout_data );
 						}
 						?>

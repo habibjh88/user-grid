@@ -52,14 +52,14 @@ export const BACKGROUND_ATTACHMENT = [
 ];
 
 export const TEXT_TRANSFORM = [
-    {label: __("Default", "user-grid"), value: "default"},
+    {label: __("Default", "user-grid"), value: ""},
     {label: __("None", "user-grid"), value: "none"},
     {label: __("Lowercase", "user-grid"), value: "lowercase"},
     {label: __("Capitalize", "user-grid"), value: "capitalize"},
     {label: __("Uppercase", "user-grid"), value: "uppercase"}
 ];
 export const TEXT_DECORATION = [
-    {label: __("Default", "user-grid"), value: "default"},
+    {label: __("Default", "user-grid"), value: ""},
     {label: __("None", "user-grid"), value: "none"},
     {label: __("Underline", "user-grid"), value: "underline"},
     {label: __("Overline", "user-grid"), value: "overline"},
@@ -68,7 +68,7 @@ export const TEXT_DECORATION = [
 ];
 
 export const FONT_WEIGHTS = [
-    {label: __("Default", "user-grid"), value: "default"},
+    {label: __("Default", "user-grid"), value: ""},
     {label: __("Light", "user-grid"), value: "300"},
     {label: __("Normal", "user-grid"), value: "400"},
     {label: __("Medium", "user-grid"), value: "500"},

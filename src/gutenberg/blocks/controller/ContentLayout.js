@@ -34,7 +34,7 @@ export default function ContentLayout(props) {
                 attributes={attributes}
                 value={layout}
                 options={{
-                    grid: ['grid1', 'grid2', 'grid3', 'grid4', 'grid5', 'grid6'],
+                    grid: ['grid1', 'grid2', 'grid3', 'grid4', 'grid5', 'grid6', 'grid7', 'grid8'],
                     list: ['list1', 'list2', 'list3']
                 }}
                 onChange={layout => {

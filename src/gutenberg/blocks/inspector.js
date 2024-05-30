@@ -28,7 +28,7 @@ function Inspector(props) {
         designation_visibility,
         bio_visibility,
         social_visibility,
-        short_desc_visibility,
+        job_role_visibility,
         button_visibility,
         email_visibility,
         phone_visibility
@@ -68,7 +68,7 @@ function Inspector(props) {
                                     <FieldVisibility data={props}/>
                                     {avatar_visibility && <AvatarSettings data={props}/>}
                                     {name_visibility && <NameSettings data={props}/>}
-                                    {short_desc_visibility && <ShortDesc data={props}/>}
+                                    {job_role_visibility && <ShortDesc data={props}/>}
                                     {designation_visibility && <DesignationSettings data={props}/>}
                                     {email_visibility && <EmailSettings data={props}/>}
                                     {phone_visibility && <PhoneSettings data={props}/>}

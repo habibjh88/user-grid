@@ -62,10 +62,10 @@ class ActionHooks {
 				<tr>
 					<th><label for="<?php echo esc_attr( $input_id ); ?>"><?php echo esc_html( $s_title ); ?></label></th>
 					<td><input type="text"
-					           name="<?php echo esc_attr( $input_id ); ?>"
-					           id="<?php echo esc_attr( $input_id ); ?>"
-					           value="<?php echo esc_attr( $input_val ); ?>"
-					           class="regular-text"/><br/>
+							   name="<?php echo esc_attr( $input_id ); ?>"
+							   id="<?php echo esc_attr( $input_id ); ?>"
+							   value="<?php echo esc_attr( $input_val ); ?>"
+							   class="regular-text"/><br/>
 						<span class="description">
 							<?php
 							// translators: %s is the Social title.
@@ -82,14 +82,14 @@ class ActionHooks {
 			<tr>
 				<th><label for="pinterest"><?php esc_html_e( 'User Avater', 'user-grid' ); ?></label></th>
 				<td>
-                    <div class="user-grid-attachment-avatar" style="max-height: 300px;display:inline-block;">
+					<div class="user-grid-attachment-avatar" style="max-height: 300px;display:inline-block;">
 					<?php
 					$default_avatar = ScriptController::get_default_avatar_url( $user->user_email );
 					$des_hidden     = ! empty( $attachment_id ) ? 'hidden' : '';
 					$btn_hidden     = empty( $attachment_id ) ? 'hidden' : '';
 					echo get_avatar( $user->ID, self::$avatar_size, '', $user->display_name );
 					?>
-                    </div>
+					</div>
 					<p class="description <?php echo esc_attr( $des_hidden ); ?>" id="user-grid-attachment-description">
 						<?php esc_html_e( "You're seeing the default profile picture.", 'user-grid' ); ?>
 					</p>
@@ -116,27 +116,27 @@ class ActionHooks {
 			<tr>
 				<th><label for="designation"><?php esc_html_e( 'Designation', 'user-grid' ); ?></label></th>
 				<td><input type="text" name="user_grid_designation" id="designation"
-				           placeholder="<?php esc_attr_e( 'Founder & CEO', 'user-grid' ); ?>"
-				           value="<?php echo esc_attr( get_the_author_meta( 'user_grid_designation', $user->ID ) ); ?>"
-				           class="regular-text"/><br/><span
+						   placeholder="<?php esc_attr_e( 'Founder & CEO', 'user-grid' ); ?>"
+						   value="<?php echo esc_attr( get_the_author_meta( 'user_grid_designation', $user->ID ) ); ?>"
+						   class="regular-text"/><br/><span
 						class="description"><?php esc_html_e( 'Please enter your Designation', 'user-grid' ); ?></span>
 				</td>
 			</tr>
 
 			<tr>
-				<th><label for="designation"><?php esc_html_e( 'Short Description', 'user-grid' ); ?></label></th>
-				<td><input type="text" name="user_grid_short_desc" id="designation"
-				           placeholder="<?php esc_attr_e( 'Lead engineering teams at DevOfWP, Pitch, and Protocol Labs.', 'user-grid' ); ?>"
-				           value="<?php echo esc_attr( get_the_author_meta( 'user_grid_short_desc', $user->ID ) ); ?>"
-				           style="width: 500px;max-width: 100%"
-				           class="regular-text"/><br/><span
-						class="description"><?php esc_html_e( 'Please enter your Short Description', 'user-grid' ); ?></span>
+				<th><label for="designation"><?php esc_html_e( 'Job Role', 'user-grid' ); ?></label></th>
+				<td><input type="text" name="user_grid_job_role" id="designation"
+						   placeholder="<?php esc_attr_e( 'Lead engineering teams at DevOfWP, Pitch, and Protocol Labs.', 'user-grid' ); ?>"
+						   value="<?php echo esc_attr( get_the_author_meta( 'user_grid_job_role', $user->ID ) ); ?>"
+						   style="width: 500px;max-width: 100%"
+						   class="regular-text"/><br/><span
+						class="description"><?php esc_html_e( 'Please enter your Job Role', 'user-grid' ); ?></span>
 				</td>
 			</tr>
 		</table>
-        <style>
-            img{object-fit: cover}
-        </style>
+		<style>
+			img{object-fit: cover}
+		</style>
 		<?php
 		wp_nonce_field( userGrid()->nonceText(), userGrid()->nonceId() );
 	}
@@ -169,6 +169,12 @@ class ActionHooks {
 		// Validate POST data and, if is ok, add it.
 		if ( ! empty( $_POST[ userGrid()->avatar_meta_key ] ) ) {
 			update_user_meta( $user_id, userGrid()->avatar_meta_key, (int) $_POST[ userGrid()->avatar_meta_key ] );
+		}
+		if ( isset( $_POST['user_grid_job_role'] ) ) {
+			update_user_meta( $user_id, 'user_grid_job_role', sanitize_text_field( wp_unslash( $_POST['user_grid_job_role'] ) ) );
+		}
+		if ( isset( $_POST['user_grid_designation'] ) ) {
+			update_user_meta( $user_id, 'user_grid_designation', sanitize_text_field( wp_unslash( $_POST['user_grid_designation'] ) ) );
 		}
 	}
 }

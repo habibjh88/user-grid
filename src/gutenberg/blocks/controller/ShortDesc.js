@@ -6,34 +6,34 @@ function ShortDesc(props) {
     const {attributes, setAttributes} = props.data;
     //All attribute
     const {
-        short_desc_typography,
-        short_desc_spacing,
-        short_desc_color,
+        job_role_typography,
+        job_role_spacing,
+        job_role_color,
     } = attributes;
 
     return (
-        <PanelBody title={__('Short Description', 'user-grid')} initialOpen={false}>
+        <PanelBody title={__('Job Role', 'user-grid')} initialOpen={false}>
 
 
             <Typography
                 label={__('Typography')}
-                value={short_desc_typography}
-                onChange={(val) => setAttributes({short_desc_typography: val})}
+                value={job_role_typography}
+                onChange={(val) => setAttributes({job_role_typography: val})}
             />
 
             <Dimension
                 label={__("Spacing", "user-grid")}
                 type="margin" responsive
-                value={short_desc_spacing}
+                value={job_role_spacing}
                 onChange={(value) => {
-                    setAttributes({short_desc_spacing: value})
+                    setAttributes({job_role_spacing: value})
                 }}
             />
 
             <Color
                 label={__('Color', 'user-grid')}
-                color={short_desc_color}
-                onChange={(short_desc_color) => setAttributes({short_desc_color})}
+                color={job_role_color}
+                onChange={(job_role_color) => setAttributes({job_role_color})}
             />
 
         </PanelBody>

@@ -361,7 +361,7 @@ class Fns {
 			'email_visibility'       => $data['email_visibility'],
 			'phone_visibility'       => $data['phone_visibility'],
 			'designation_visibility' => $data['designation_visibility'],
-			'short_desc_visibility'  => $data['short_desc_visibility'],
+			'job_role_visibility'  => $data['job_role_visibility'],
 			'bio_visibility'         => $data['bio_visibility'],
 			'social_visibility'      => $data['social_visibility'],
 			'button_visibility'      => $data['button_visibility'],

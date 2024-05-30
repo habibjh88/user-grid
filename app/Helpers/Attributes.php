@@ -78,7 +78,7 @@ class Attributes {
 			],
 			'content_order'         => [
 				'type'    => 'array',
-				'default' => [ 'title', 'designation', 'short_description', 'contact', 'biography', 'social', 'button' ],
+				'default' => [ 'title', 'designation', 'job_roleription', 'contact', 'biography', 'social', 'button' ],
 			],
 		];
 	}
@@ -110,7 +110,7 @@ class Attributes {
 				'default' => 'show',
 			],
 
-			'short_desc_visibility'  => [
+			'job_role_visibility'  => [
 				'type'    => 'string',
 				'default' => 'show',
 			],
@@ -637,9 +637,9 @@ class Attributes {
 		];
 	}
 
-	public static function short_desc() {
+	public static function job_role() {
 		return [
-			'short_desc_typography' => [
+			'job_role_typography' => [
 				'type'    => 'object',
 				'default' => (object) [
 					'openTypography' => 1,
@@ -663,7 +663,7 @@ class Attributes {
 				],
 			],
 
-			'short_desc_spacing'    => [
+			'job_role_spacing'    => [
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
@@ -684,17 +684,17 @@ class Attributes {
 				],
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-short-desc {{short_desc_spacing}}',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-short-desc {{job_role_spacing}}',
 					],
 				],
 			],
 
-			'short_desc_color'      => [
+			'job_role_color'      => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
 					(object) [
-						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-short-desc {color: {{short_desc_color}}; }',
+						'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-short-desc {color: {{job_role_color}}; }',
 					],
 				],
 			],
