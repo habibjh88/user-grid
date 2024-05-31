@@ -2,11 +2,13 @@
     --dowp-primary: #009FFF;
     --dowp-primary-dark: #007FCB;
     --dowp-border: #b7b7c3;
+    --dowp-title: #212121;
     --dowp-body: #313234;
     --dowp-transition: .4s;
 }
 
-$primary_color: #009FFF;
-$primary_dark: #007FCB;
-$title_color: #212121;
-$body_color: #4e4e4e;
+$primary_color: var(--dowp-primary, #009FFF);
+$primary_dark: var(--dowp-primary-dark, #007FCB);
+$title_color: var(--dowp-title, #212121);
+$body_color: var(--dowp-body, #313234);
+$body_border: var(--dowp-border, #313234);

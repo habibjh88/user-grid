@@ -61,7 +61,12 @@
         margin-left: -17px;
         margin-right: -17px;
     }
-
+    .disable-shorting .dowp-sortable-field {
+        opacity: .5;
+        * {
+            pointer-events: none;
+        }
+    }
     .dowp-gradient-color-wrap {
         margin-top: 10px;
         position: relative;

@@ -39,6 +39,26 @@ class Attributes {
 				'default' => [],
 			],
 
+			'primary_color'    => [
+				'type'    => 'string',
+				'default' => '',
+				'style'   => [
+					(object) [
+						'selector' => '{{UserGrid}} {--dowp-primary: {{primary_color}}; }',
+					],
+				],
+			],
+
+			'primary_dark'     => [
+				'type'    => 'string',
+				'default' => '',
+				'style'   => [
+					(object) [
+						'selector' => '{{UserGrid}} {--dowp-primary-dark: {{primary_dark}}; }',
+					],
+				],
+			],
+
 			'grid_v_alignment' => [
 				'type'    => 'object',
 				'default' => [],
@@ -76,9 +96,19 @@ class Attributes {
 				'type'    => 'string',
 				'default' => '',
 			],
+
+			'enable_order'      => [
+				'type'    => 'string',
+				'default' => '',
+			],
+
+			'content_order_default'         => [
+				'type'    => 'array',
+				'default' => [ 'name', 'hr_1', 'designation', 'job_roleription', 'contact', 'biography', 'hr_2', 'social', 'button' ],
+			],
 			'content_order'         => [
 				'type'    => 'array',
-				'default' => [ 'title', 'designation', 'job_roleription', 'contact', 'biography', 'social', 'button' ],
+				'default' => [ 'name', 'hr_1', 'designation', 'job_roleription', 'contact', 'biography', 'hr_2', 'social', 'button' ],
 			],
 		];
 	}
@@ -110,7 +140,7 @@ class Attributes {
 				'default' => 'show',
 			],
 
-			'job_role_visibility'  => [
+			'job_role_visibility'    => [
 				'type'    => 'string',
 				'default' => 'show',
 			],
@@ -128,6 +158,16 @@ class Attributes {
 			'button_visibility'      => [
 				'type'    => 'string',
 				'default' => 'show',
+			],
+
+			'hr_1'                   => [
+				'type'    => 'string',
+				'default' => '',
+			],
+
+			'hr_2'                   => [
+				'type'    => 'string',
+				'default' => '',
 			],
 		];
 	}
@@ -364,7 +404,7 @@ class Attributes {
 
 	public static function phone() {
 		return [
-			'phone_typography' => [
+			'phone_typography'  => [
 				'type'    => 'object',
 				'default' => (object) [
 					'openTypography' => 1,
@@ -388,7 +428,7 @@ class Attributes {
 				],
 			],
 
-			'phone_spacing'    => [
+			'phone_spacing'     => [
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
@@ -414,7 +454,7 @@ class Attributes {
 				],
 			],
 
-			'phone_color'      => [
+			'phone_color'       => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
@@ -424,7 +464,7 @@ class Attributes {
 				],
 			],
 
-			'phone_color_hover'      => [
+			'phone_color_hover' => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
@@ -438,7 +478,7 @@ class Attributes {
 
 	public static function email() {
 		return [
-			'email_typography' => [
+			'email_typography'  => [
 				'type'    => 'object',
 				'default' => (object) [
 					'openTypography' => 1,
@@ -462,7 +502,7 @@ class Attributes {
 				],
 			],
 
-			'email_spacing'    => [
+			'email_spacing'     => [
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
@@ -488,7 +528,7 @@ class Attributes {
 				],
 			],
 
-			'email_color'      => [
+			'email_color'       => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
@@ -497,7 +537,7 @@ class Attributes {
 					],
 				],
 			],
-			'email_color_hover'      => [
+			'email_color_hover' => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
@@ -769,7 +809,7 @@ class Attributes {
 
 	public static function button() {
 		return [
-			'read_btn_spacing'       => [
+			'read_btn_spacing'     => [
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
@@ -795,12 +835,12 @@ class Attributes {
 				],
 			],
 
-			'button_style'           => [
+			'button_style'         => [
 				'type'    => 'string',
 				'default' => 'btn-default',
 			],
 
-			'read_btn_color'         => [
+			'read_btn_color'       => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
@@ -810,7 +850,7 @@ class Attributes {
 				],
 			],
 
-			'read_btn_bg'            => [
+			'read_btn_bg'          => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
@@ -820,7 +860,7 @@ class Attributes {
 				],
 			],
 
-			'read_btn_color_hover'   => [
+			'read_btn_color_hover' => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
@@ -830,7 +870,7 @@ class Attributes {
 				],
 			],
 
-			'read_btn_bg_hover'      => [
+			'read_btn_bg_hover'    => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
@@ -840,7 +880,7 @@ class Attributes {
 				],
 			],
 
-			'border_color'           => [
+			'border_color'         => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
@@ -850,7 +890,7 @@ class Attributes {
 				],
 			],
 
-			'border_color_hover'     => [
+			'border_color_hover'   => [
 				'type'    => 'string',
 				'default' => '',
 				'style'   => [
@@ -864,7 +904,7 @@ class Attributes {
 
 	public static function card() {
 		return [
-			'card_gap'               => [
+			'card_gap'        => [
 				'type'    => 'object',
 				'default' => (object) [
 					'lg' => '',
@@ -879,7 +919,7 @@ class Attributes {
 				],
 			],
 
-			'card_box_shadow'        => [
+			'card_box_shadow' => [
 				'type'    => 'object',
 				'default' => (object) [
 					'openShadow' => 1,
@@ -898,7 +938,7 @@ class Attributes {
 				],
 			],
 
-			'card_padding'           => [
+			'card_padding'    => [
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
@@ -924,7 +964,7 @@ class Attributes {
 				],
 			],
 
-			'content_padding'        => [
+			'content_padding' => [
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
@@ -950,7 +990,7 @@ class Attributes {
 				],
 			],
 
-			'card_border'            => [
+			'card_border'     => [
 				'type'    => 'object',
 				'default' => (object) [
 					'openTpgBorder' => 1,
@@ -965,7 +1005,7 @@ class Attributes {
 				],
 			],
 
-			'card_radius'            => [
+			'card_radius'     => [
 				'type'    => 'object',
 				'default' => [
 					'lg' => [
@@ -991,7 +1031,7 @@ class Attributes {
 				],
 			],
 
-			'card_bg'                => [
+			'card_bg'         => [
 				'type'    => 'object',
 				'default' => (object) [
 					'openBGColor' => 0,

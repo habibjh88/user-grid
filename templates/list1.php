@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $col_class = Fns::get_dynamic_cols(
 	$grid_column,
 	[
-		'lg' => '12',
+		'lg' => '6',
 		'md' => '12',
 		'sm' => '12',
 	]
@@ -55,7 +55,7 @@ $col_class = Fns::get_dynamic_cols(
 		<?php endif; ?>
 		<div class="user-content-wrap">
 			<?php if ( $name_visibility ) : ?>
-			<<?php echo esc_attr( $name_tag ); ?> class="user-name <?php Fns::order_class( 'title', $content_order ); ?>">
+			<<?php echo esc_attr( $name_tag ); ?> class="user-name <?php Fns::order_class( 'name', $content_order ); ?>">
 			<a href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>"><?php echo esc_html( $display_name ); ?></a>
 		</<?php echo esc_attr( $name_tag ); ?>>
 	<?php endif; ?>

@@ -138,19 +138,19 @@ class UserBlock extends BlockBase {
 		class="dowp-users-block-wrapper clearfix <?php echo esc_attr( $inner_class ); ?>">
 				<?php if ( ! empty( $user_query->results ) ) { ?>
 		  <div class="dowp-row">
-						<?php
-						foreach ( $user_query->results as $user ) {
-							$user_id                     = $user->ID;
-							$layout_data['user_id']      = $user_id;
-							$layout_data['display_name'] = $user->display_name;
-							$layout_data['email']        = $user->user_email;
-							$layout_data['designation']  = get_user_meta( $user_id, 'user_grid_designation', true );
-							$layout_data['description']  = get_user_meta( $user_id, 'description', true );
-							$layout_data['phone']        = get_user_meta( $user_id, 'user_grid_phone', true );
-							$layout_data['job_role']   = get_user_meta( $user_id, 'user_grid_job_role', true );
-							Fns::get_template( $data['layout'], $layout_data );
-						}
-						?>
+					<?php
+					foreach ( $user_query->results as $user ) {
+						$user_id                     = $user->ID;
+						$layout_data['user_id']      = $user_id;
+						$layout_data['display_name'] = $user->display_name;
+						$layout_data['email']        = $user->user_email;
+						$layout_data['designation']  = get_user_meta( $user_id, 'user_grid_designation', true );
+						$layout_data['description']  = get_user_meta( $user_id, 'description', true );
+						$layout_data['phone']        = get_user_meta( $user_id, 'user_grid_phone', true );
+						$layout_data['job_role']     = get_user_meta( $user_id, 'user_grid_job_role', true );
+						Fns::get_template( $data['layout'], $layout_data );
+					}
+					?>
 		  </div>
 					<?php
 				} else {

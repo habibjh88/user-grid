@@ -4,6 +4,8 @@ import TabTitle from "../components/TabTitle";
 import {
     ContentQuery,
     ContentLayout,
+    ContentSort,
+    ContentGlobal,
     FieldVisibility,
     AvatarSettings,
     NameSettings,
@@ -13,7 +15,6 @@ import {
     SocialShareSettings,
     ReadArticleBtn,
     CardSettings,
-    ContentSort,
     EmailSettings,
     PhoneSettings
 } from "./controller/Controllers";
@@ -59,6 +60,7 @@ function Inspector(props) {
                                     <ContentLayout data={props}/>
                                     <ContentQuery data={props}/>
                                     <ContentSort data={props}/>
+                                    <ContentGlobal data={props}/>
                                 </>
                             )}
 

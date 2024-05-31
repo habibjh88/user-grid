@@ -15,7 +15,8 @@ function FieldVisibility(props) {
         job_role_visibility,
         bio_visibility,
         social_visibility,
-        button_visibility
+        hr_1,
+        hr_2
     } = attributes;
 
     return (
@@ -37,6 +38,16 @@ function FieldVisibility(props) {
                 checked={name_visibility}
                 onChange={(name_visibility) => {
                     setAttributes({name_visibility: name_visibility ? 'show' : ''});
+                    changeQuery();
+                }}
+            />
+
+            <ToggleControl
+                label={__("Horizontal Line - 1", "user-grid")}
+                className="dowp-toggle-control-field"
+                checked={hr_1}
+                onChange={(hr_1) => {
+                    setAttributes({hr_1: hr_1 ? 'show' : ''});
                     changeQuery();
                 }}
             />
@@ -89,6 +100,16 @@ function FieldVisibility(props) {
                 checked={bio_visibility}
                 onChange={(bio_visibility) => {
                     setAttributes({bio_visibility: bio_visibility ? 'show' : ''});
+                    changeQuery();
+                }}
+            />
+
+            <ToggleControl
+                label={__("Horizontal Line - 2", "user-grid")}
+                className="dowp-toggle-control-field"
+                checked={hr_2}
+                onChange={(hr_2) => {
+                    setAttributes({hr_2: hr_2 ? 'show' : ''});
                     changeQuery();
                 }}
             />

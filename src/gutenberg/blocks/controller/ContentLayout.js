@@ -1,7 +1,7 @@
 import {__} from "@wordpress/i18n";
 import {PanelBody, SelectControl} from "@wordpress/components";
 import { GRID_LAYOUT_OPT} from "../../components/Constants";
-import {  Alignment, Layouts, LayoutStyle, GridColumn } from "../../components/Components";
+import {Alignment, Layouts, LayoutStyle, GridColumn } from "../../components/Components";
 
 export default function ContentLayout(props) {
     const {attributes, setAttributes, changeQuery} = props.data;
@@ -12,17 +12,17 @@ export default function ContentLayout(props) {
         grid_column,
         grid_alignment,
         grid_v_alignment,
-        grid_height
+        grid_height,
     } = attributes;
 
     let latyouStyleDefault = 'grid';
+
     if(layout) {
         latyouStyleDefault = layout.indexOf('list') != '-1' ? 'list' : latyouStyleDefault
     }
 
     return (
-        <PanelBody title={__('layout', 'user-grid')} initialOpen={true}>
-
+        <PanelBody title={__('Layout', 'user-grid')} initialOpen={true}>
 
             <Layouts
                 value={latyouStyleDefault}
@@ -35,7 +35,7 @@ export default function ContentLayout(props) {
                 value={layout}
                 options={{
                     grid: ['grid1', 'grid2', 'grid3', 'grid4', 'grid5', 'grid6', 'grid7', 'grid8'],
-                    list: ['list1', 'list2', 'list3']
+                    list: ['list1', 'list2', 'list3','list4']
                 }}
                 onChange={layout => {
                     setAttributes({layout});
@@ -89,6 +89,7 @@ export default function ContentLayout(props) {
                     onChange={grid_v_alignment => setAttributes({grid_v_alignment})}
                 />
             }
+
         </PanelBody>
     );
 }

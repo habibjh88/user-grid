@@ -316,11 +316,14 @@ class Fns {
 	 * @param $item
 	 * @param $content_order
 	 *
-	 * @return void
+	 * @return string|null
 	 */
-	public static function order_class( $item, $content_order ) {
+	public static function order_class( $item, $content_order, $enable_order ) {
+		if('show' !== $enable_order){
+			return "";
+		}
 		$index = array_search( $item, $content_order );
-		echo esc_attr( "order-{$index}" );
+		return esc_attr( "order-{$index}" );
 	}
 
 	public static function layout_align( $alignment ) {
@@ -344,12 +347,11 @@ class Fns {
 	 * @return mixed|null
 	 */
 	public static function get_post_args( $data ) {
-		return apply_filters( 'dowp_ug_post_args', [
+		$template_data = [
 			'layout'                 => $data['layout'],
 			'name_tag'               => $data['name_tag'],
 			'users_lists'            => $data['users_lists'],
 			'grid_column'            => $data['grid_column'],
-			'content_order'          => $data['content_order'],
 			'user_limit'             => $data['user_limit'],
 			'users_role'             => $data['users_role'],
 			'avatar_dimension'       => $data['avatar_dimension'],
@@ -366,7 +368,14 @@ class Fns {
 			'social_visibility'      => $data['social_visibility'],
 			'button_visibility'      => $data['button_visibility'],
 			'button_style'           => $data['button_style'],
-		] );
+			'enable_order'           => $data['enable_order'],
+			'content_order'          => $data['content_order'],
+			'name_order' => self::order_class( 'name', $data['content_order'], $data['enable_order']),
+			'designation_order' => self::order_class( 'designation', $data['content_order'], $data['enable_order']),
+		];
+
+		return apply_filters( 'dowp_ug_post_args', $template_data );
+
 	}
 
 	public static function layout_image( $user_id, $avatar_dimension = '', $default_size = 300, $alt='' ) {
