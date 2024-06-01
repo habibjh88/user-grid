@@ -1,6 +1,9 @@
 .dowp-users-block-wrapper {
     font-size: 16px;
 
+    .user-inner-wrapper {
+        position: relative;
+    }
     &.height-equal {
         .user-inner-wrapper {
             height: 100%;
@@ -69,6 +72,7 @@
         max-width: 100%;
         margin-bottom: 15px;
         overflow: hidden;
+        background: #DDD;
     }
 
     .user-avatar a {

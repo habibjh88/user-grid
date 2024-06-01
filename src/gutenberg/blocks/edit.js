@@ -41,7 +41,7 @@ const Edit = (props) => {
         button_visibility,
         hr_1_visibility,
         should_show_hr1,
-        should_show_hr2,
+        should_show_btn,
         hr_2_visibility,
         button_style,
     } = attributes;
@@ -107,7 +107,7 @@ const Edit = (props) => {
                 button_visibility,
                 hr_1_visibility,
                 should_show_hr1,
-                should_show_hr2,
+                should_show_btn,
                 hr_2_visibility,
                 button_style,
             }

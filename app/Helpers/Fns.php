@@ -315,13 +315,25 @@ class Fns {
 	 *
 	 * @return string
 	 */
+
 	public static function extendClass( $layout ) {
 		$classes = '';
-		$classes .= $layout === 'grid3' ? ' dowp-grid2' : '';
-		$classes .= $layout === 'list3' ? ' dowp-list2' : '';
+
+		switch ($layout) {
+			case 'grid3':
+				$classes = ' dowp-grid2';
+				break;
+			case 'list3':
+				$classes = ' dowp-list2';
+				break;
+			case 'list6':
+				$classes = ' dowp-list3 dowp-list2';
+				break;
+		}
 
 		return $classes;
 	}
+
 
 	/**
 	 * Order Class
@@ -386,6 +398,7 @@ class Fns {
 			'hr_1_visibility'        => $data['hr_1_visibility'],
 			'hr_2_visibility'        => $data['hr_2_visibility'],
 			'should_show_hr1'        => $data['should_show_hr1'],
+			'should_show_btn'        => $data['should_show_btn'],
 			'name_order'             => self::content_order( 'name', $data ),
 			'designation_order'      => self::content_order( 'designation', $data ),
 			'job_role_order'         => self::content_order( 'job_role', $data ),

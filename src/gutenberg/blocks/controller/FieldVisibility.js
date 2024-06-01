@@ -1,6 +1,7 @@
 import {__} from "@wordpress/i18n";
 import {ToggleControl} from '@wordpress/components';
 import {PanelBody} from "@wordpress/components";
+
 const {useEffect, useState} = wp.element;
 
 export default function FieldVisibility(props) {
@@ -21,14 +22,18 @@ export default function FieldVisibility(props) {
         hr_1_visibility,
         hr_2_visibility,
         should_show_hr1,
-        should_show_hr2,
+        should_show_btn,
     } = attributes;
 
 
     useEffect(() => {
-       if(layout === 'list4' && should_show_hr1 === 'show'){
-           let hr_1_visibility = 'show'
-       }
+        if (['list4'].includes(layout) && should_show_hr1 === 'show') {
+            let hr_1_visibility = 'show'
+        }
+        if (layout === 'list4' && should_show_btn === 'show') {
+            let button_visibility = 'show'
+        }
+
     }, []);
 
 
@@ -132,7 +137,6 @@ export default function FieldVisibility(props) {
                 checked={hr_2_visibility}
                 onChange={(hr_2_visibility) => {
                     setAttributes({hr_2_visibility: hr_2_visibility ? 'show' : ''});
-                    setAttributes({should_show_hr2: ''});
                     changeQuery();
                 }}
             />
@@ -143,6 +147,7 @@ export default function FieldVisibility(props) {
                 checked={button_visibility}
                 onChange={(button_visibility) => {
                     setAttributes({button_visibility: button_visibility ? 'show' : ''});
+                    setAttributes({should_show_btn: ''})
                     changeQuery();
                 }}
             />

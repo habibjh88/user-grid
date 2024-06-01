@@ -42,14 +42,14 @@ class Attributes {
 			'designation_visibility' => [ 'type' => 'string', 'default' => 'show', ],
 			'email_visibility'       => [ 'type' => 'string', 'default' => 'show', ],
 			'phone_visibility'       => [ 'type' => 'string', 'default' => 'show', ],
-			'job_role_visibility'    => [ 'type' => 'string', 'default' => '', ],
+			'job_role_visibility'    => [ 'type' => 'string', 'default' => 'show', ],
 			'bio_visibility'         => [ 'type' => 'string', 'default' => '', ],
 			'social_visibility'      => [ 'type' => 'string', 'default' => 'show', ],
 			'button_visibility'      => [ 'type' => 'string', 'default' => '', ],
 			'hr_1_visibility'        => [ 'type' => 'string', 'default' => '', ],
 			'hr_2_visibility'        => [ 'type' => 'string', 'default' => '', ],
 			'should_show_hr1'        => [ 'type' => 'string', 'default' => 'show', ],
-			'should_show_hr2'        => [ 'type' => 'string', 'default' => 'show', ],
+			'should_show_btn'        => [ 'type' => 'string', 'default' => 'show', ],
 		];
 	}
 

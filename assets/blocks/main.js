@@ -2708,7 +2708,7 @@ function ContentLayout(props) {
     value: layout,
     options: {
       grid: ['grid1', 'grid2', 'grid3', 'grid4', 'grid5', 'grid6', 'grid7', 'grid8'],
-      list: ['list1', 'list2', 'list3', 'list4']
+      list: ['list1', 'list2', 'list3', 'list4', 'list5', 'list6']
     },
     onChange: layout => {
       setAttributes({
@@ -3222,11 +3222,14 @@ function FieldVisibility(props) {
     hr_1_visibility,
     hr_2_visibility,
     should_show_hr1,
-    should_show_hr2
+    should_show_btn
   } = attributes;
   useEffect(() => {
-    if (layout === 'list4' && should_show_hr1 === 'show') {
+    if (['list4'].includes(layout) && should_show_hr1 === 'show') {
       let hr_1_visibility = 'show';
+    }
+    if (layout === 'list4' && should_show_btn === 'show') {
+      let button_visibility = 'show';
     }
   }, []);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
@@ -3333,9 +3336,6 @@ function FieldVisibility(props) {
       setAttributes({
         hr_2_visibility: hr_2_visibility ? 'show' : ''
       });
-      setAttributes({
-        should_show_hr2: ''
-      });
       changeQuery();
     }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
@@ -3345,6 +3345,9 @@ function FieldVisibility(props) {
     onChange: button_visibility => {
       setAttributes({
         button_visibility: button_visibility ? 'show' : ''
+      });
+      setAttributes({
+        should_show_btn: ''
       });
       changeQuery();
     }
@@ -3968,7 +3971,7 @@ const Edit = props => {
     button_visibility,
     hr_1_visibility,
     should_show_hr1,
-    should_show_hr2,
+    should_show_btn,
     hr_2_visibility,
     button_style
   } = attributes;
@@ -4033,7 +4036,7 @@ const Edit = props => {
         button_visibility,
         hr_1_visibility,
         should_show_hr1,
-        should_show_hr2,
+        should_show_btn,
         hr_2_visibility,
         button_style
       }
