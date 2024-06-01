@@ -1,12 +1,14 @@
 import {__} from "@wordpress/i18n";
 import {ToggleControl} from '@wordpress/components';
 import {PanelBody} from "@wordpress/components";
+const {useEffect, useState} = wp.element;
 
-function FieldVisibility(props) {
+export default function FieldVisibility(props) {
     const {attributes, setAttributes, changeQuery} = props.data;
 
     //All attribute
     const {
+        layout,
         avatar_visibility,
         name_visibility,
         email_visibility,
@@ -15,9 +17,20 @@ function FieldVisibility(props) {
         job_role_visibility,
         bio_visibility,
         social_visibility,
-        hr_1,
-        hr_2
+        button_visibility,
+        hr_1_visibility,
+        hr_2_visibility,
+        should_show_hr1,
+        should_show_hr2,
     } = attributes;
+
+
+    useEffect(() => {
+       if(layout === 'list4' && should_show_hr1 === 'show'){
+           let hr_1_visibility = 'show'
+       }
+    }, []);
+
 
     return (
         <PanelBody title={__('Field Visibility', 'user-grid')} initialOpen={true}>
@@ -45,9 +58,10 @@ function FieldVisibility(props) {
             <ToggleControl
                 label={__("Horizontal Line - 1", "user-grid")}
                 className="dowp-toggle-control-field"
-                checked={hr_1}
-                onChange={(hr_1) => {
-                    setAttributes({hr_1: hr_1 ? 'show' : ''});
+                checked={hr_1_visibility}
+                onChange={(hr_1_visibility) => {
+                    setAttributes({hr_1_visibility: hr_1_visibility ? 'show' : ''});
+                    setAttributes({should_show_hr1: ''});
                     changeQuery();
                 }}
             />
@@ -72,7 +86,6 @@ function FieldVisibility(props) {
                 }}
             />
 
-
             <ToggleControl
                 label={__("Email", "user-grid")}
                 className="dowp-toggle-control-field"
@@ -93,23 +106,12 @@ function FieldVisibility(props) {
                 }}
             />
 
-
             <ToggleControl
                 label={__("Biography", "user-grid")}
                 className="dowp-toggle-control-field"
                 checked={bio_visibility}
                 onChange={(bio_visibility) => {
                     setAttributes({bio_visibility: bio_visibility ? 'show' : ''});
-                    changeQuery();
-                }}
-            />
-
-            <ToggleControl
-                label={__("Horizontal Line - 2", "user-grid")}
-                className="dowp-toggle-control-field"
-                checked={hr_2}
-                onChange={(hr_2) => {
-                    setAttributes({hr_2: hr_2 ? 'show' : ''});
                     changeQuery();
                 }}
             />
@@ -124,6 +126,16 @@ function FieldVisibility(props) {
                 }}
             />
 
+            <ToggleControl
+                label={__("Horizontal Line - 2", "user-grid")}
+                className="dowp-toggle-control-field"
+                checked={hr_2_visibility}
+                onChange={(hr_2_visibility) => {
+                    setAttributes({hr_2_visibility: hr_2_visibility ? 'show' : ''});
+                    setAttributes({should_show_hr2: ''});
+                    changeQuery();
+                }}
+            />
 
             <ToggleControl
                 label={__("Read Articles Button", "user-grid")}
@@ -134,10 +146,6 @@ function FieldVisibility(props) {
                     changeQuery();
                 }}
             />
-
-
         </PanelBody>
     );
 }
-
-export default FieldVisibility;

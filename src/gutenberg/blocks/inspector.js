@@ -16,7 +16,8 @@ import {
     ReadArticleBtn,
     CardSettings,
     EmailSettings,
-    PhoneSettings
+    PhoneSettings,
+    HrSetting
 } from "./controller/Controllers";
 
 function Inspector(props) {
@@ -32,7 +33,9 @@ function Inspector(props) {
         job_role_visibility,
         button_visibility,
         email_visibility,
-        phone_visibility
+        phone_visibility,
+        hr_1_visibility,
+        hr_2_visibility
     } = attributes;
 
     return (
@@ -77,6 +80,7 @@ function Inspector(props) {
                                     {bio_visibility && <BioSettings data={props}/>}
                                     {social_visibility && <SocialShareSettings data={props}/>}
                                     {button_visibility && <ReadArticleBtn data={props}/>}
+                                    {(hr_1_visibility || hr_2_visibility) && <HrSetting data={props}/>}
                                     <CardSettings data={props}/>
                                 </>
                             )}

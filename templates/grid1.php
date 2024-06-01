@@ -28,6 +28,17 @@
  * @var $description
  * @var $email
  * @var $phone
+ * @var $name_order
+ * @var $designation_order
+ * @var $job_role_order
+ * @var $contact_order
+ * @var $biography_order
+ * @var $social_order
+ * @var $button_order
+ * @var $hr_1_order
+ * @var $hr_2_order
+ * @var $hr_1_visibility
+ * @var $hr_2_visibility
  */
 
 use DOWP\UserGrid\Helpers\Fns;
@@ -48,25 +59,29 @@ $col_class = Fns::get_dynamic_cols( $grid_column );
 		<?php endif; ?>
 		<div class="user-content-wrap">
 			<?php if ( $name_visibility ) : ?>
-			<<?php echo esc_attr( $name_tag ); ?> class="user-name <?php Fns::order_class( 'name', $content_order ); ?>">
-			<a href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>"><?php echo esc_html( $display_name ); ?></a>
-		</<?php echo esc_attr( $name_tag ); ?>>
-	<?php endif; ?>
+				<<?php echo esc_attr( $name_tag ); ?> class="user-name <?php echo esc_attr( $name_order ); ?>">
+					<a href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>"><?php echo esc_html( $display_name ); ?></a>
+				</<?php echo esc_attr( $name_tag ); ?>>
+			<?php endif; ?>
+
+		<?php if ( $hr_1_visibility ) : ?>
+		<div class="hr-1 <?php echo esc_attr( $hr_1_order ); ?>"><span></span></div>
+		<?php endif; ?>
 
 		<?php if ( $designation && $designation_visibility ) : ?>
-			<div class="user-designation <?php Fns::order_class( 'designation', $content_order ); ?>">
+			<div class="user-designation <?php echo esc_attr( $designation_order ); ?>">
 				<?php echo esc_html( $designation ); ?>
 			</div>
 		<?php endif; ?>
 
 		<?php if ( $job_role_visibility && $job_role ) : ?>
-			<div class="user-short-desc <?php Fns::order_class( 'job_roleription', $content_order ); ?>">
+			<div class="user-short-desc <?php echo esc_attr( $job_role_order ); ?>">
 				<?php echo esc_html( $job_role ); ?>
 			</div>
 		<?php endif; ?>
 
 		<?php if ( $email_visibility || $phone_visibility ) : ?>
-			<div class="user-contact <?php Fns::order_class( 'contact', $content_order ); ?>">
+			<div class="user-contact <?php echo esc_attr( $contact_order ); ?>">
 				<?php if ( $email && $email_visibility ) : ?>
 					<p><a class="user-email" href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a></p>
 				<?php endif; ?>
@@ -77,19 +92,23 @@ $col_class = Fns::get_dynamic_cols( $grid_column );
 		<?php endif; ?>
 
 		<?php if ( $bio_visibility && $description ) : ?>
-			<div class="user-biography <?php Fns::order_class( 'biography', $content_order ); ?>">
+			<div class="user-biography <?php echo esc_attr( $biography_order ); ?>">
 				<?php echo esc_html( $description ); ?>
 			</div>
 		<?php endif; ?>
 
 		<?php if ( $social_visibility ) : ?>
-			<div class="dowp-user-social-icons <?php Fns::order_class( 'social', $content_order ); ?>">
-				<?php Fns::get_user_social_icon( $user_id, $email_visibility ); ?>
+			<div class="dowp-user-social-icons <?php echo esc_attr( $social_order ); ?>">
+				<?php Fns::get_user_social_icon( $user_id, $email_visibility, $phone_visibility ); ?>
 			</div>
 		<?php endif; ?>
 
+		<?php if ( $hr_2_visibility ) : ?>
+			<div class="hr-2 <?php echo esc_attr( $hr_2_order ); ?>"><span></span></div>
+		<?php endif; ?>
+
 		<?php if ( $button_visibility ) : ?>
-			<div class="read-articles-btn <?php Fns::order_class( 'button', $content_order ); ?>">
+			<div class="read-articles-btn <?php echo esc_attr( $button_order ); ?>">
 				<a class="read-btn <?php echo esc_attr( $button_style ); ?>"
 				   href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
 					<?php esc_html_e( 'Read Articles', 'user-grid' ); ?>

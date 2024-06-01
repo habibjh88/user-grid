@@ -9,6 +9,14 @@
         :is(.read-articles-btn, .dowp-user-social-icons):last-child {
             margin-top: auto;
         }
+
+        .hr-2 {
+            margin-top: auto !important;
+        }
+
+        .hr-2 ~ div {
+            margin-top: inherit !important;
+        }
     }
 
     .user-item-col {
@@ -25,6 +33,35 @@
         > *:last-child {
             margin-bottom: 0 !important;
         }
+    }
+
+    .hr-1 {
+        span {
+            display: block;
+            width: 20%;
+            height: 4px;
+            background: $primary_color;
+        }
+    }
+
+    .hr-2 {
+        span {
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: #DDD;
+        }
+    }
+
+    &.lg-left :is(.hr-1, .hr-2) span {
+        margin-right: auto;
+    }
+    &.lg-center :is(.hr-1, .hr-2) span {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    &.lg-right :is(.hr-1, .hr-2) span {
+        margin-left: auto;
     }
 
     .user-avatar {
@@ -76,9 +113,6 @@
             }
         }
 
-        + .user-designation {
-            margin-top: -15px;
-        }
     }
 
     .user-contact {
@@ -101,19 +135,11 @@
         color: $title_color;
         font-size: 16px;
         font-weight: 500;
-
-        + .user-short-desc {
-            margin-top: -15px;
-        }
     }
 
     .user-short-desc {
         font-size: 16px;
         color: $title_color;
-
-        + .user-biography {
-            margin-top: 5px;
-        }
     }
 
     .user-biography {
@@ -258,6 +284,15 @@
                 }
             }
         }
+    }
+
+    &.no-order .user-designation + .user-short-desc,
+    &.no-order .user-name + .user-designation {
+        margin-top: -15px;
+    }
+
+    &.no-order .user-short-desc + .user-biography {
+        margin-top: 5px;
     }
 
 }

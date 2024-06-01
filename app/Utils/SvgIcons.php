@@ -5,9 +5,11 @@
  * @package USER_GRID
  */
 
-namespace DOWP\UserGrid\Helpers;
+namespace DOWP\UserGrid\Utils;
 
 // Do not allow directly accessing this file.
+use DOWP\UserGrid\Helpers\Fns;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'This script cannot be accessed directly.' );
 }

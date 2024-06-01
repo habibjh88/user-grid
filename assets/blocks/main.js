@@ -2997,6 +2997,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   DesignationSettings: () => (/* reexport safe */ _DesignationSettings__WEBPACK_IMPORTED_MODULE_9__["default"]),
 /* harmony export */   EmailSettings: () => (/* reexport safe */ _EmailSettings__WEBPACK_IMPORTED_MODULE_13__["default"]),
 /* harmony export */   FieldVisibility: () => (/* reexport safe */ _FieldVisibility__WEBPACK_IMPORTED_MODULE_4__["default"]),
+/* harmony export */   HrSetting: () => (/* reexport safe */ _HrSetting__WEBPACK_IMPORTED_MODULE_15__["default"]),
 /* harmony export */   NameSettings: () => (/* reexport safe */ _NameSettings__WEBPACK_IMPORTED_MODULE_6__["default"]),
 /* harmony export */   PhoneSettings: () => (/* reexport safe */ _PhoneSettings__WEBPACK_IMPORTED_MODULE_14__["default"]),
 /* harmony export */   ReadArticleBtn: () => (/* reexport safe */ _ReadArticleBtn__WEBPACK_IMPORTED_MODULE_11__["default"]),
@@ -3018,7 +3019,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CardSettings__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./CardSettings */ "./src/gutenberg/blocks/controller/CardSettings.js");
 /* harmony import */ var _EmailSettings__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./EmailSettings */ "./src/gutenberg/blocks/controller/EmailSettings.js");
 /* harmony import */ var _PhoneSettings__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./PhoneSettings */ "./src/gutenberg/blocks/controller/PhoneSettings.js");
+/* harmony import */ var _HrSetting__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./HrSetting */ "./src/gutenberg/blocks/controller/HrSetting.js");
 // controller/index.js
+
 
 
 
@@ -3181,7 +3184,7 @@ function EmailSettings(props) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ FieldVisibility)
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
@@ -3193,6 +3196,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const {
+  useEffect,
+  useState
+} = wp.element;
 function FieldVisibility(props) {
   const {
     attributes,
@@ -3202,6 +3209,7 @@ function FieldVisibility(props) {
 
   //All attribute
   const {
+    layout,
     avatar_visibility,
     name_visibility,
     email_visibility,
@@ -3210,9 +3218,17 @@ function FieldVisibility(props) {
     job_role_visibility,
     bio_visibility,
     social_visibility,
-    hr_1,
-    hr_2
+    button_visibility,
+    hr_1_visibility,
+    hr_2_visibility,
+    should_show_hr1,
+    should_show_hr2
   } = attributes;
+  useEffect(() => {
+    if (layout === 'list4' && should_show_hr1 === 'show') {
+      let hr_1_visibility = 'show';
+    }
+  }, []);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Field Visibility', 'user-grid'),
     initialOpen: true
@@ -3239,10 +3255,13 @@ function FieldVisibility(props) {
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Horizontal Line - 1", "user-grid"),
     className: "dowp-toggle-control-field",
-    checked: hr_1,
-    onChange: hr_1 => {
+    checked: hr_1_visibility,
+    onChange: hr_1_visibility => {
       setAttributes({
-        hr_1: hr_1 ? 'show' : ''
+        hr_1_visibility: hr_1_visibility ? 'show' : ''
+      });
+      setAttributes({
+        should_show_hr1: ''
       });
       changeQuery();
     }
@@ -3297,22 +3316,25 @@ function FieldVisibility(props) {
       changeQuery();
     }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Horizontal Line - 2", "user-grid"),
-    className: "dowp-toggle-control-field",
-    checked: hr_2,
-    onChange: hr_2 => {
-      setAttributes({
-        hr_2: hr_2 ? 'show' : ''
-      });
-      changeQuery();
-    }
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Social Icon", "user-grid"),
     className: "dowp-toggle-control-field",
     checked: social_visibility,
     onChange: social_visibility => {
       setAttributes({
         social_visibility: social_visibility ? 'show' : ''
+      });
+      changeQuery();
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Horizontal Line - 2", "user-grid"),
+    className: "dowp-toggle-control-field",
+    checked: hr_2_visibility,
+    onChange: hr_2_visibility => {
+      setAttributes({
+        hr_2_visibility: hr_2_visibility ? 'show' : ''
+      });
+      setAttributes({
+        should_show_hr2: ''
       });
       changeQuery();
     }
@@ -3328,7 +3350,141 @@ function FieldVisibility(props) {
     }
   }));
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FieldVisibility);
+
+/***/ }),
+
+/***/ "./src/gutenberg/blocks/controller/HrSetting.js":
+/*!******************************************************!*\
+  !*** ./src/gutenberg/blocks/controller/HrSetting.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ HrSetting)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_Components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Components */ "./src/gutenberg/components/Components.js");
+
+
+
+
+function HrSetting(props) {
+  const {
+    attributes,
+    setAttributes
+  } = props.data;
+  //All attribute
+  const {
+    hr1_spacing,
+    hr1_color,
+    hr1_width,
+    hr1_height,
+    hr1_radius,
+    hr2_spacing,
+    hr2_color,
+    hr2_width,
+    hr2_height
+  } = attributes;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Horizontal Line', 'user-grid'),
+    initialOpen: false
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: `dowp-controll-heading`
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Horizontal 1")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.Dimension, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Spacing", "user-grid"),
+    type: "margin",
+    responsive: true,
+    value: hr1_spacing,
+    onChange: value => {
+      setAttributes({
+        hr1_spacing: value
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.Color, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color', 'user-grid'),
+    color: hr1_color,
+    onChange: hr1_color => setAttributes({
+      hr1_color
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.RangeDevice, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Width'),
+    responsive: true,
+    units: ['px', '%'],
+    value: hr1_width,
+    min: 0,
+    max: 100,
+    step: 1,
+    onChange: val => setAttributes({
+      hr1_width: val
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.RangeDevice, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Height'),
+    responsive: true,
+    value: hr1_height,
+    min: 0,
+    max: 100,
+    step: 1,
+    onChange: val => setAttributes({
+      hr1_height: val
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.RangeDevice, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Border Radius'),
+    units: ['px', '%'],
+    value: hr1_radius,
+    min: 0,
+    max: 100,
+    step: 1,
+    onChange: val => setAttributes({
+      hr1_radius: val
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: `dowp-controll-heading`
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Horizontal 2")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.Dimension, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Spacing", "user-grid"),
+    type: "margin",
+    responsive: true,
+    value: hr2_spacing,
+    onChange: value => {
+      setAttributes({
+        hr2_spacing: value
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.Color, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color', 'user-grid'),
+    color: hr2_color,
+    onChange: hr2_color => setAttributes({
+      hr2_color
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.RangeDevice, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Width'),
+    responsive: true,
+    value: hr2_width,
+    units: ['px', '%'],
+    min: 0,
+    max: 100,
+    step: 1,
+    onChange: val => setAttributes({
+      hr2_width: val
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.RangeDevice, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Height'),
+    responsive: true,
+    value: hr2_height,
+    min: 0,
+    max: 100,
+    step: 1,
+    onChange: val => setAttributes({
+      hr2_height: val
+    })
+  }));
+}
 
 /***/ }),
 
@@ -3809,8 +3965,12 @@ const Edit = props => {
     job_role_visibility,
     bio_visibility,
     social_visibility,
-    button_style,
-    button_visibility
+    button_visibility,
+    hr_1_visibility,
+    should_show_hr1,
+    should_show_hr2,
+    hr_2_visibility,
+    button_style
   } = attributes;
 
   //set block preview
@@ -3870,8 +4030,12 @@ const Edit = props => {
         job_role_visibility,
         bio_visibility,
         social_visibility,
-        button_style,
-        button_visibility
+        button_visibility,
+        hr_1_visibility,
+        should_show_hr1,
+        should_show_hr2,
+        hr_2_visibility,
+        button_style
       }
     }).then(data => {
       setAttributes({
@@ -3897,7 +4061,6 @@ const Edit = props => {
   };
 
   // Fetch All Posts
-  //== == == == == == == ==
   useEffect(() => {
     fetch_all_users_frontend();
   }, [queryEffect]);
@@ -4006,7 +4169,9 @@ function Inspector(props) {
     job_role_visibility,
     button_visibility,
     email_visibility,
-    phone_visibility
+    phone_visibility,
+    hr_1_visibility,
+    hr_2_visibility
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InspectorControls, {
     key: "controls"
@@ -4059,6 +4224,8 @@ function Inspector(props) {
   }), social_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.SocialShareSettings, {
     data: props
   }), button_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.ReadArticleBtn, {
+    data: props
+  }), (hr_1_visibility || hr_2_visibility) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.HrSetting, {
     data: props
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.CardSettings, {
     data: props
@@ -8682,6 +8849,8 @@ const styleIcon = {
     fill: "black"
   }), " "), " ")
 };
+
+//@formatter:on
 
 /***/ }),
 

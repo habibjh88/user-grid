@@ -8,6 +8,8 @@
 namespace DOWP\UserGrid\Helpers;
 
 // Do not allow directly accessing this file.
+use DOWP\UserGrid\Utils\SvgIcons;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'This script cannot be accessed directly.' );
 }
@@ -156,7 +158,7 @@ class Fns {
 		$template_files = trailingslashit( $template_path ) . $template_name;
 
 		$template = locate_template( apply_filters( 'user_grid_locate_template_files', $template_files, $template_name, $template_path, $default_path ) );
-        
+
 		// Get default template.
 		if ( ! $template ) {
 			$template = trailingslashit( $default_path ) . $template_name;
@@ -184,7 +186,7 @@ class Fns {
 
 		if ( ! file_exists( $located ) ) {
 			$default_path = untrailingslashit( USER_GRID_PRO_PLUGIN_BASE_DIR ) . '/templates/';
-			$located = self::locate_template( $template_name, $template_path, $default_path );
+			$located      = self::locate_template( $template_name, $template_path, $default_path );
 		}
 
 		// Allow 3rd party plugin filter template file from their plugin.
@@ -220,12 +222,15 @@ class Fns {
 	 *
 	 * @return false|string
 	 */
-	public static function get_user_social_icon( $user_id, $email_visibility ) {
+	public static function get_user_social_icon( $user_id, $email_visibility, $phone_visibility ) {
 
 		$social_list = self::social_list();
 		$user_info   = get_user_by( 'id', $user_id );
 		$email       = $user_info->user_email;
 
+		if ( $phone_visibility === 'show' ) {
+			unset($social_list['phone']);
+		}
 
 		foreach ( $social_list as $icon => $label ) {
 			$meta_key   = "user_grid_{$icon}";
@@ -233,17 +238,25 @@ class Fns {
 
 			if ( $meta_value ) {
 				?>
-                <a class="<?php echo esc_attr( $icon ) ?>"
-                   href="<?php echo esc_url( $meta_value ) ?>">
+				<a class="<?php echo esc_attr( $icon ) ?>"
+				   href="<?php echo esc_url( $meta_value ) ?>">
 					<?php SvgIcons::get_svg( $icon ); ?>
-                </a>
+				</a>
 				<?php
 			}
 		}
-		if ( $email_visibility === 'show' ) {
+
+		if ( $email_visibility !== 'show' ) {
 			?>
-            <a class="pinterest"
-               href="mailto:<?php echo esc_attr( $email ) ?>"><?php SvgIcons::get_svg( 'email' ); ?></a>
+			<a class="pinterest"
+			   href="mailto:<?php echo esc_attr( $email ) ?>"><?php SvgIcons::get_svg( 'email' ); ?></a>
+			<?php
+		}
+		if ( $phone_visibility !== 'show' ) {
+			$phone = get_user_meta( $user_id, 'user_grid_phone', true );
+			?>
+			<a class="phone"
+			   href="call:<?php echo esc_attr( $phone ) ?>"><?php SvgIcons::get_svg( 'phone' ); ?></a>
 			<?php
 		}
 		?>
@@ -257,7 +270,7 @@ class Fns {
 	 */
 	public static function social_list() {
 		return apply_filters( 'user_grid_social_list', [
-			'phone'      => esc_html__( 'Phone Number', 'user-grid' ),
+			'phone'      => esc_html__( 'Phone', 'user-grid' ),
 			'twitter'    => esc_html__( 'Twitter', 'user-grid' ),
 			'facebook'   => esc_html__( 'Facebook', 'user-grid' ),
 			'linkedin'   => esc_html__( 'LinkedIn', 'user-grid' ),
@@ -318,11 +331,13 @@ class Fns {
 	 *
 	 * @return string|null
 	 */
-	public static function order_class( $item, $content_order, $enable_order ) {
-		if('show' !== $enable_order){
+	public static function content_order( $item, $data ) {
+
+		if ( 'show' !== $data['enable_order'] ) {
 			return "";
 		}
-		$index = array_search( $item, $content_order );
+		$index = array_search( $item, $data['content_order'] );
+
 		return esc_attr( "order-{$index}" );
 	}
 
@@ -363,31 +378,39 @@ class Fns {
 			'email_visibility'       => $data['email_visibility'],
 			'phone_visibility'       => $data['phone_visibility'],
 			'designation_visibility' => $data['designation_visibility'],
-			'job_role_visibility'  => $data['job_role_visibility'],
+			'job_role_visibility'    => $data['job_role_visibility'],
 			'bio_visibility'         => $data['bio_visibility'],
 			'social_visibility'      => $data['social_visibility'],
 			'button_visibility'      => $data['button_visibility'],
 			'button_style'           => $data['button_style'],
-			'enable_order'           => $data['enable_order'],
-			'content_order'          => $data['content_order'],
-			'name_order' => self::order_class( 'name', $data['content_order'], $data['enable_order']),
-			'designation_order' => self::order_class( 'designation', $data['content_order'], $data['enable_order']),
+			'hr_1_visibility'        => $data['hr_1_visibility'],
+			'hr_2_visibility'        => $data['hr_2_visibility'],
+			'should_show_hr1'        => $data['should_show_hr1'],
+			'name_order'             => self::content_order( 'name', $data ),
+			'designation_order'      => self::content_order( 'designation', $data ),
+			'job_role_order'         => self::content_order( 'job_role', $data ),
+			'contact_order'          => self::content_order( 'contact', $data ),
+			'biography_order'        => self::content_order( 'biography', $data ),
+			'social_order'           => self::content_order( 'social', $data ),
+			'button_order'           => self::content_order( 'button', $data ),
+			'hr_1_order'             => self::content_order( 'hr_1', $data ),
+			'hr_2_order'             => self::content_order( 'hr_2', $data ),
 		];
 
 		return apply_filters( 'dowp_ug_post_args', $template_data );
 
 	}
 
-	public static function layout_image( $user_id, $avatar_dimension = '', $default_size = 300, $alt='' ) {
+	public static function layout_image( $user_id, $avatar_dimension = '', $default_size = 300, $alt = '' ) {
 		$avatar_size      = [ 'size' => $avatar_dimension ?? $default_size ];
 		$avater_image_url = get_avatar_url( $user_id, $avatar_size );
 		?>
-        <a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
-            <img width="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-                 height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-                 src="<?php echo esc_url( $avater_image_url ); ?>"
-                 alt="<?php echo esc_html( $alt ); ?>"/>
-        </a>
+		<a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
+			<img width="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
+			     height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
+			     src="<?php echo esc_url( $avater_image_url ); ?>"
+			     alt="<?php echo esc_html( $alt ); ?>"/>
+		</a>
 		<?php
 
 	}

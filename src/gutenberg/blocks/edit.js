@@ -38,8 +38,12 @@ const Edit = (props) => {
         job_role_visibility,
         bio_visibility,
         social_visibility,
-        button_style,
         button_visibility,
+        hr_1_visibility,
+        should_show_hr1,
+        should_show_hr2,
+        hr_2_visibility,
+        button_style,
     } = attributes;
 
     //set block preview
@@ -100,8 +104,12 @@ const Edit = (props) => {
                 job_role_visibility,
                 bio_visibility,
                 social_visibility,
-                button_style,
                 button_visibility,
+                hr_1_visibility,
+                should_show_hr1,
+                should_show_hr2,
+                hr_2_visibility,
+                button_style,
             }
         }).then((data) => {
             setAttributes({query_change: false})
@@ -123,7 +131,6 @@ const Edit = (props) => {
     }
 
     // Fetch All Posts
-    //== == == == == == == ==
     useEffect(() => {
         fetch_all_users_frontend();
     }, [queryEffect]);
@@ -148,7 +155,6 @@ const Edit = (props) => {
         ),
 
         <CustomUsersBlock props={props} userData={users}/>
-
     ]
 }
 export default Edit;

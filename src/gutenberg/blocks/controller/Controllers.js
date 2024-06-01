@@ -15,3 +15,4 @@ export { default as ReadArticleBtn } from "./ReadArticleBtn";
 export { default as CardSettings } from "./CardSettings";
 export { default as EmailSettings } from "./EmailSettings";
 export { default as PhoneSettings } from "./PhoneSettings";
+export { default as HrSetting } from "./HrSetting";
