@@ -7,7 +7,7 @@ import { Dimension, RangeDevice, Background, BoxShadow } from "../../components/
 import {__} from "@wordpress/i18n";
 
 function CardSettings(props) {
-    const {attributes, setAttributes} = props.data;
+    const {attributes, setAttributes, changeQuery} = props.data;
     //All attribute
     const {
         card_gap,
@@ -16,7 +16,7 @@ function CardSettings(props) {
         card_bg,
         card_border,
         card_radius,
-        card_box_shadow
+        card_box_shadow,
     } = attributes;
 
     return (
@@ -53,7 +53,7 @@ function CardSettings(props) {
             />
 
             <Dimension
-                label={__("Avatar Border Radius", "user-grid")}
+                label={__("Card Radius", "user-grid")}
                 className={`dowp-dimension-wrap`}
                 type="borderRadius" responsive
                 value={card_radius}
@@ -85,6 +85,7 @@ function CardSettings(props) {
                 value={card_box_shadow}
                 onChange={val => setAttributes({card_box_shadow: val})}
             />
+
         </PanelBody>
     );
 }

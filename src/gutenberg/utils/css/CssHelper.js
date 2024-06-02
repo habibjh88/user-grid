@@ -220,16 +220,33 @@ const getDimensionCss = (data, cssProperty) => {
         let temp = data.value ? data.value.split(" ") : ['', '', '', ''];
         if (temp[0] === '' || temp[1] === '' || temp[2] === '' || temp[3] === '') {
             if (temp[0]) {
-                _css += `${cssProperty}-top:${temp[0]}${temp[0] !== '0' ? unit : ''} ${isInportant};`
+                if('border-radius' === cssProperty) {
+                    _css += `border-top-left-radius:${temp[0]}${temp[0] !== '0' ? unit : ''} ${isInportant};`
+                } else {
+                    _css += `${cssProperty}-top:${temp[0]}${temp[0] !== '0' ? unit : ''} ${isInportant};`
+
+                }
             }
             if (temp[1]) {
-                _css += `${cssProperty}-right:${temp[1]}${temp[1] !== '0' ? unit : ''} ${isInportant};`
+                 if('border-radius' === cssProperty) {
+                     _css += `border-top-right-radius:${temp[1]}${temp[1] !== '0' ? unit : ''} ${isInportant};`
+                 } else {
+                     _css += `${cssProperty}-right:${temp[1]}${temp[1] !== '0' ? unit : ''} ${isInportant};`
+                 }
             }
             if (temp[2]) {
-                _css += `${cssProperty}-bottom:${temp[2]}${temp[2] !== '0' ? unit : ''} ${isInportant};`
+                 if('border-radius' === cssProperty) {
+                     _css += `border-bottom-right-radius:${temp[2]}${temp[2] !== '0' ? unit : ''} ${isInportant};`
+                 } else {
+                     _css += `${cssProperty}-bottom:${temp[2]}${temp[2] !== '0' ? unit : ''} ${isInportant};`
+                 }
             }
             if (temp[3]) {
-                _css += `${cssProperty}-left:${temp[3]}${temp[3] !== '0' ? unit : ''} ${isInportant};`
+                 if('border-radius' === cssProperty) {
+                     _css += `border-bottom-left-radius:${temp[3]}${temp[3] !== '0' ? unit : ''} ${isInportant};`
+                 } else {
+                     _css += `${cssProperty}-left:${temp[3]}${temp[3] !== '0' ? unit : ''} ${isInportant};`
+                 }
             }
         } else {
             _css = `${cssProperty}:${temp[0] ? temp[0] : `0`}${unit} ${temp[1] ? temp[1] : `0`}${unit} ${temp[2] ? temp[2] : `0`}${unit} ${temp[3] ? temp[3] : `0`}${unit} ${isInportant};`;

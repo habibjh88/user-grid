@@ -3,6 +3,8 @@
 
     .user-inner-wrapper {
         position: relative;
+        background: var(--card-bg, transparent);
+        transition: 0.3s;
     }
     &.height-equal {
         .user-inner-wrapper {
@@ -18,12 +20,30 @@
         }
 
         .hr-2 ~ div {
-            margin-top: inherit !important;
+            margin-top: 0 !important;
         }
     }
 
     .user-item-col {
         padding-bottom: 30px;
+    }
+
+    &.no-multi-bg.need-multiple-bg .user-item-col {
+        &:nth-child(4n + 1) .user-content-wrap {
+            background-color: #E6F0F2;
+        }
+        &:nth-child(4n + 2) .user-content-wrap {
+            background-color: #E9E7E7;
+        }
+        &:nth-child(4n + 3) .user-content-wrap {
+            background-color: #F3EDDE;
+        }
+        &:nth-child(4n + 4) .user-content-wrap {
+            background-color: #E8EFCD;
+        }
+        &:nth-child(5n + 4) .user-content-wrap {
+            background-color: #DCF5F2;
+        }
     }
 
     .user-content-wrap {
@@ -73,6 +93,7 @@
         margin-bottom: 15px;
         overflow: hidden;
         background: #DDD;
+        position: relative;
     }
 
     .user-avatar a {
@@ -205,90 +226,6 @@
         }
     }
 
-    //Grid Style Start
-    //====================================
-    &.grid-style {
-        .user-inner-wrapper {
-            display: flex;
-            flex-direction: column;
-        }
-
-        &.dowp-grid2 {
-            .user-inner-wrapper {
-                padding: 20px;
-                background: #FFFFFF;
-                border: 1px solid #d9dadc;
-                border-radius: 10px;
-
-                .user-avatar {
-                    border-radius: 8px;
-                    border: 1px solid #eaebed;
-                }
-            }
-        }
-
-        &.dowp-grid3 {
-            .user-inner-wrapper {
-                padding: 15px 30px 25px;
-            }
-
-            .user-avatar {
-                margin-top: -70px;
-            }
-
-            .user-item-col {
-                padding-top: 55px;
-            }
-        }
-    }
-
-    //List Style Start
-    //====================================
-    &.list-style {
-        .user-inner-wrapper {
-            display: flex;
-            align-items: flex-start;
-        }
-
-
-        .user-avatar {
-            flex: 0 0 160px;
-            margin-right: 20px;
-            margin-bottom: 0;
-        }
-
-        //List Style 2
-        &.dowp-list2 {
-            .user-inner-wrapper {
-                padding: 20px;
-                background: #FFFFFF;
-                border: 1px solid #d9dadc;
-                border-radius: 10px;
-
-                .user-avatar {
-                    border-radius: 8px;
-                }
-            }
-        }
-
-        //List Style 3
-        &.dowp-list3 {
-            .user-item-col {
-                padding-left: 60px;
-            }
-
-            .user-inner-wrapper {
-                align-items: center;
-                padding: 30px 20px;
-
-                .user-avatar {
-                    margin-left: -60px;
-                    position: relative;
-                    border: 1px solid #e5e5e5;
-                }
-            }
-        }
-    }
 
     &.no-order .user-designation + .user-short-desc,
     &.no-order .user-name + .user-designation {
@@ -304,7 +241,7 @@
 .dowp-user-social-icons {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 8px;
 
 
     .lg-left & {
@@ -346,11 +283,18 @@
     a {
         display: inline-flex;
         font-size: 20px;
-        color: inherit !important;
         transition: 0.4s;
+        color: $title_color;
+
+        &:hover {
+            color: $primary_color;
+        }
 
         span {
             display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
         }
     }
 
@@ -376,6 +320,7 @@
 [class*='dowp-icon'] svg {
     width: 1em;
     height: 1em;
+    fill: currentColor;
 }
 
 .dowp-editor-markup {

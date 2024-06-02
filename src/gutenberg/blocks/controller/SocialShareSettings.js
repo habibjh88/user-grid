@@ -1,11 +1,13 @@
 import {__} from "@wordpress/i18n";
-import {PanelBody} from '@wordpress/components';
+import {PanelBody, SelectControl} from '@wordpress/components';
 import {Dimension, RangeDevice, Color} from "../../components/Components";
+import {SOCIAL_STYLE} from "../../components/Constants";
 
 function SocialShareSettings(props) {
     const {attributes, setAttributes} = props.data;
     //All attribute
     const {
+        social_style,
         icon_font_size,
         social_spacing,
         social_color,
@@ -15,6 +17,16 @@ function SocialShareSettings(props) {
     return (
         <PanelBody title={__('Social Share', 'user-grid')} initialOpen={false}>
 
+            <SelectControl
+                label={__("Button Style", "user-grid")}
+                className="dowp-control-field label-inline dowp-expand"
+                value={social_style}
+                options={SOCIAL_STYLE}
+                onChange={(social_style) => {
+                    setAttributes({social_style})
+                    changeQuery()
+                }}
+            />
             <RangeDevice
                 label={__('Icon Size')}
                 responsive={true}

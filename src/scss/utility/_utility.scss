@@ -5,38 +5,38 @@
 }
 
 
-.lg-left {
+.lg-left * {
     text-align: left;
 }
 
-.lg-right {
+.lg-right * {
     text-align: right;
 }
 
-.lg-center {
+.lg-center * {
     text-align: center;
 }
 
 @media (max-width: 1200px) {
-    .md-left {
+    .md-left * {
         text-align: left;
     }
-    .md-right {
+    .md-right * {
         text-align: right;
     }
-    .md-center {
+    .md-center * {
         text-align: center;
     }
 }
 
 @media (max-width: 767px) {
-    .sm-left {
+    .sm-left * {
         text-align: left;
     }
-    .sm-right {
+    .sm-right * {
         text-align: right;
     }
-    .sm-center {
+    .sm-center * {
         text-align: center;
     }
 }

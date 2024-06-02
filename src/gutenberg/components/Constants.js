@@ -1,6 +1,4 @@
 import icons from "./icon/icons";
-import {Icon} from '@wordpress/components';
-import renderControlIcons from './icon/renderControlIcons'
 
 const {__} = wp.i18n;
 
@@ -128,6 +126,13 @@ export const BUTTON_STYLE = [
     {value: 'btn-dark', label: __('Dark Button', 'user-grid')},
     {value: 'btn-light', label: __('Light Button', 'user-grid')},
     {value: 'btn-primary', label: __('Primary Button', 'user-grid')},
+];
+
+export const SOCIAL_STYLE = [
+    {value: 'social-default', label: __('Default', 'user-grid')},
+    {value: 'social-round', label: __('Round Icon', 'user-grid')},
+    {value: 'social-square', label: __('Round Square', 'user-grid')},
+    {value: 'social-border', label: __('Border Icon', 'user-grid')},
 ];
 
 export const FORMATE_USERS = (data, field) => {

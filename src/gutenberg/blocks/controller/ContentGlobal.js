@@ -1,5 +1,5 @@
 import {__} from "@wordpress/i18n";
-import {PanelBody} from "@wordpress/components";
+import {PanelBody, TextareaControl} from "@wordpress/components";
 import {Color} from "../../components/Components";
 
 export default function ContentGlobal(props) {
@@ -9,6 +9,7 @@ export default function ContentGlobal(props) {
     const {
         primary_color,
         primary_dark,
+        multiple_bg
     } = attributes;
 
 
@@ -29,6 +30,18 @@ export default function ContentGlobal(props) {
                     setAttributes({primary_dark})
                     changeQuery();
                 }}
+            />
+
+            <TextareaControl
+                label="Different Card Background"
+                value={ multiple_bg }
+                rows={2}
+                placeholder={`#E8EFCD, #DCF5F2, lightcoral, lightpink`}
+                onChange={val => {
+                    setAttributes({multiple_bg: val})
+                    changeQuery()
+                }}
+                help="Enter colors code or name separate by comma (,) for each card item. Eg. #E6F0F2, #E9E7E7, #F3EDDE, #E8EFCD, #DCF5F2"
             />
         </PanelBody>
     );

@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $col_class = Fns::get_dynamic_cols( $grid_column );
 ?>
 
-<div class="user-item-col <?php echo esc_attr( $col_class ); ?>">
+<div class="user-item-col <?php echo esc_attr( $col_class ); ?>" style="<?php echo esc_attr( $card_bg ? "--card-bg:$card_bg" : '' ); ?>">
 	<div class="user-inner-wrapper">
 		<?php if ( $avatar_visibility ) : ?>
 			<div class="user-avatar">

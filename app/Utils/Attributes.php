@@ -123,6 +123,7 @@ class Attributes {
 
 	public static function social() {
 		return [
+			'social_style'       => [ 'type' => 'string', 'default' => 'social-default' ],
 			'icon_font_size'     => [ 'type' => 'object', 'default' => (object) [ 'lg' => '', 'md' => '', 'sm' => '', ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-user-social-icons a i {font-size:{{icon_font_size}}}						{{UserGrid}} .dowp-user-social-icons a svg {width:calc({{icon_font_size}} - 2px); height: {{icon_font_size}}}', ], ], ],
 			'social_spacing'     => [ 'type' => 'object', 'default' => [ 'lg' => [ 'isLinked' => false, 'unit' => 'px', 'value' => '', ], 'md' => [ 'isLinked' => false, 'unit' => 'px', 'value' => '', ], 'sm' => [ 'isLinked' => false, 'unit' => 'px', 'value' => '', ], ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-user-social-icons {{social_spacing}}', ], ], ],
 			'social_color'       => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-user-social-icons a i {color: {{social_color}}; }						{{UserGrid}} .dowp-user-social-icons a svg path {fill: {{social_color}}; }', ], ], ],
@@ -152,6 +153,7 @@ class Attributes {
 			'card_border'     => [ 'type' => 'object', 'default' => (object) [ 'openTpgBorder' => 1, 'color' => '', 'style' => '', 'width' => '', ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-inner-wrapper', ], ], ],
 			'card_radius'     => [ 'type' => 'object', 'default' => [ 'lg' => [ 'isLinked' => true, 'unit' => 'px', 'value' => '', ], 'md' => [ 'isLinked' => true, 'unit' => 'px', 'value' => '', ], 'sm' => [ 'isLinked' => true, 'unit' => 'px', 'value' => '', ], ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-inner-wrapper{{card_radius}}', ], ], ],
 			'card_bg'         => [ 'type' => 'object', 'default' => (object) [ 'openBGColor' => 0, 'type' => 'classic', 'classic' => (object) [ 'color' => '', 'img' => (object) [ 'imgURL' => '', 'imgID' => '', ], 'imgProperty' => (object) [ 'imgPosition' => (object) [ 'lg' => '' ], 'imgAttachment' => (object) [ 'lg' => '' ], 'imgRepeat' => (object) [ 'lg' => '' ], 'imgSize' => (object) [ 'lg' => '' ], ], ], 'gradient' => null, ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-inner-wrapper', ], ], ],
+			'multiple_bg'     => [ 'type' => 'string', 'default' => '' ],
 		];
 	}
 

@@ -42,8 +42,10 @@ const Edit = (props) => {
         hr_1_visibility,
         should_show_hr1,
         should_show_btn,
+        multiple_bg,
         hr_2_visibility,
         button_style,
+        social_style,
     } = attributes;
 
     //set block preview
@@ -108,8 +110,10 @@ const Edit = (props) => {
                 hr_1_visibility,
                 should_show_hr1,
                 should_show_btn,
+                multiple_bg,
                 hr_2_visibility,
                 button_style,
+                social_style,
             }
         }).then((data) => {
             setAttributes({query_change: false})

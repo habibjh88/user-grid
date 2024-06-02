@@ -229,7 +229,7 @@ class Fns {
 		$email       = $user_info->user_email;
 
 		if ( $phone_visibility === 'show' ) {
-			unset($social_list['phone']);
+			unset( $social_list['phone'] );
 		}
 
 		foreach ( $social_list as $icon => $label ) {
@@ -309,6 +309,25 @@ class Fns {
 	}
 
 	/**
+	 * Layout Alignment Class
+	 *
+	 * @param $alignment
+	 *
+	 * @return string
+	 */
+	public static function layout_align( $alignment ) {
+		$align_class = '';
+		foreach ( $alignment as $device => $value ) {
+			if ( ! $value ) {
+				continue;
+			}
+			$align_class .= $device . '-' . $value . ' ';
+		}
+
+		return trim( $align_class );
+	}
+
+	/**
 	 * Extended class
 	 *
 	 * @param $layout
@@ -316,22 +335,44 @@ class Fns {
 	 * @return string
 	 */
 
-	public static function extendClass( $layout ) {
+	public static function extend_class( $layout ) {
 		$classes = '';
 
-		switch ($layout) {
+		switch ( $layout ) {
 			case 'grid3':
-				$classes = ' dowp-grid2';
+				$classes = 'dowp-grid2';
 				break;
 			case 'list3':
-				$classes = ' dowp-list2';
+				$classes = 'dowp-list2';
 				break;
 			case 'list6':
-				$classes = ' dowp-list3 dowp-list2';
+				$classes = 'dowp-list3 dowp-list2';
 				break;
+			case 'grid10':
+				$classes = 'need-multiple-bg';
+				break;
+//			case 'grid12':
+//				$classes = ' dowp-grid3';
+//				break;
 		}
 
 		return $classes;
+	}
+
+	public static function inner_class( $data ) {
+		$layout        = esc_html( $data['layout'] );
+		$multiple_bg   = $data['multiple_bg'] ? $data['multiple_bg'] : '';
+		$inner_class   = [];
+		$inner_class[] = preg_replace( '/[0-9]/', '', $layout ) . '-style';
+		$inner_class[] = self::extend_class( $layout );
+		$inner_class[] = 'dowp-' . $layout;
+		$inner_class[] = $data['grid_height'];
+		$inner_class[] = $data['social_style'];
+		$inner_class[] = $data['enable_order'] ? 'is-order' : 'no-order';
+		$inner_class[] = $multiple_bg ? 'has-multi-bg' : 'no-multi-bg';
+		$inner_class[] = self::layout_align( $data['grid_alignment'] );
+
+		return trim( implode( ' ', $inner_class ) );
 	}
 
 
@@ -351,18 +392,6 @@ class Fns {
 		$index = array_search( $item, $data['content_order'] );
 
 		return esc_attr( "order-{$index}" );
-	}
-
-	public static function layout_align( $alignment ) {
-		$align_class = '';
-		foreach ( $alignment as $device => $value ) {
-			if ( ! $value ) {
-				continue;
-			}
-			$align_class .= $device . '-' . $value . ' ';
-		}
-
-		return $align_class;
 	}
 
 
@@ -428,4 +457,110 @@ class Fns {
 
 	}
 
+	/**
+	 * Make User Query Arguments
+	 *
+	 * @param $data
+	 *
+	 * @return mixed|null
+	 */
+	public static function user_query_args( $data ) {
+		$paged      = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+		$user_limit = $data['user_limit'] ? esc_html( $data['user_limit'] ) : 6;
+		if ( 1 == $paged ) {
+			$offset = 0;
+		} else {
+			$offset = ( $paged - 1 ) * $user_limit;
+		}
+
+		$args = [
+			'number' => $user_limit,
+			'offset' => $offset,
+		];
+
+		if ( ! empty( $data['users_role'] ) ) {
+			$args['role__in'] = wp_list_pluck( esc_html( $data['users_role'] ), 'value' );
+		}
+
+		if ( ! empty( $data['orderby'] ) ) {
+			$args['orderby'] = esc_html( $data['orderby'] );
+		}
+
+		if ( ! empty( $data['order'] ) ) {
+			$args['order'] = esc_html( $data['order'] );
+		}
+
+		if ( ! empty( $data['user_filter_by_domain'] ) ) {
+			$args['search']         = '*' . esc_html( $data['user_filter_by_domain'] ) . '*';
+			$args['search_columns'] = [ 'user_email' ];
+		}
+
+		if ( ! empty( $data['users_lists'] ) ) {
+			$args['include'] = wp_list_pluck( $data['users_lists'], 'value' );
+			$args['orderby'] = 'include';
+		}
+
+		return apply_filters( 'dowp_user_query_args', $args, $data );
+	}
+
+	/**
+	 * Pagination
+	 *
+	 * @param $total_user
+	 * @param $user_limit
+	 *
+	 * @return void
+	 */
+	public static function pagination( $total_user, $user_limit = 6 ) {
+
+		global $wp;
+
+
+
+		$total_pages = ceil( $total_user / $user_limit );
+
+		$paged = get_query_var('paged') ? get_query_var('paged') : 1;
+
+
+		$current_url = home_url(add_query_arg(array(), $wp->request));
+
+		$current_url = remove_query_arg('paged', $current_url);
+
+
+
+		//$format = (strpos($current_url, '?') === false ? '?' : '&') . 'paged=%#%';
+
+
+		if(strpos($current_url, '?') === false){
+			$format = '?paged=%#%';
+			$base_url = trailingslashit($current_url) . '%_%';
+		} else {
+			$format = '&paged=%#%';
+			$base_url = get_pagenum_link( 1 ) . '%_%';
+		}
+
+
+		echo paginate_links([
+			'base'      => $base_url,
+			'format'    => $format,
+			'current'   => $paged,
+			'total'     => $total_pages,
+			'prev_text' => 'Previous',
+			'next_text' => 'Next',
+			'type'      => 'list',
+		]);
+
+
+		/*echo paginate_links(
+			[
+				'base'      => get_pagenum_link( 1 ) . '%_%',
+				'format'    => '?paged=%#%',
+				'current'   => $paged,
+				'total'     => $total_pages,
+				'prev_text' => 'Previous',
+				'next_text' => 'Next',
+				'type'      => 'list',
+			]
+		);*/
+	}
 }

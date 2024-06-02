@@ -1,7 +1,20 @@
 import {__} from "@wordpress/i18n";
+
+const {useEffect} = wp.element;
 import {PanelBody, SelectControl} from "@wordpress/components";
-import { GRID_LAYOUT_OPT} from "../../components/Constants";
-import {Alignment, Layouts, LayoutStyle, GridColumn } from "../../components/Components";
+import {GRID_LAYOUT_OPT} from "../../components/Constants";
+import {Alignment, Layouts, LayoutStyle, GridColumn} from "../../components/Components";
+import {styleIcon} from "../../utils/LyaoutIcons";
+
+const getKeysByPrefix = (obj, prefix) => {
+    return Object.keys(obj).filter(key => key.startsWith(prefix));
+};
+
+// Create the final object with arrays of keys
+export const DOWP_LAYOUT = {
+    grid: getKeysByPrefix(styleIcon, 'grid'),
+    list: getKeysByPrefix(styleIcon, 'list'),
+};
 
 export default function ContentLayout(props) {
     const {attributes, setAttributes, changeQuery} = props.data;
@@ -13,19 +26,22 @@ export default function ContentLayout(props) {
         grid_alignment,
         grid_v_alignment,
         grid_height,
+        layout_style,
     } = attributes;
 
-    let latyouStyleDefault = 'grid';
-
-    if(layout) {
-        latyouStyleDefault = layout.indexOf('list') != '-1' ? 'list' : latyouStyleDefault
-    }
+    useEffect(function () {
+        if (layout.indexOf('list') != '-1') {
+            setAttributes({layout_style: 'list'})
+        } else {
+            setAttributes({layout_style: 'grid'})
+        }
+    }, [])
 
     return (
         <PanelBody title={__('Layout', 'user-grid')} initialOpen={true}>
 
             <Layouts
-                value={latyouStyleDefault}
+                value={layout_style}
                 onChange={layout_style => setAttributes({layout_style})}
                 options={GRID_LAYOUT_OPT}
             />
@@ -33,10 +49,7 @@ export default function ContentLayout(props) {
             <LayoutStyle
                 attributes={attributes}
                 value={layout}
-                options={{
-                    grid: ['grid1', 'grid2', 'grid3', 'grid4', 'grid5', 'grid6', 'grid7', 'grid8'],
-                    list: ['list1', 'list2', 'list3','list4', 'list5', 'list6']
-                }}
+                options={DOWP_LAYOUT}
                 onChange={layout => {
                     setAttributes({layout});
                     changeQuery();
@@ -79,7 +92,7 @@ export default function ContentLayout(props) {
                 }}
             />
 
-            {latyouStyleDefault === 'list' &&
+            {layout_style === 'list' &&
                 <Alignment
                     label={__("V Alignment", "user-grid")}
                     options={['flex-start', 'center', 'flex-end']}

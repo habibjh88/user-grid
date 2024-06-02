@@ -1,4 +1,4 @@
-import LyaoutItems from "../utils/LyaoutItems";
+import {LyaoutIcons} from "../utils/LyaoutIcons";
 import "./scss/LayoutStyle.scss";
 const LayoutStyle = (props) => {
 
@@ -21,7 +21,8 @@ const LayoutStyle = (props) => {
         defaultData = options.list;
     }
 
-    const proLayout = ['grid1', 'grid2', 'grid3', 'list1', 'list2', 'list3', 'slider1'];
+
+    const freeLayout = ['grid1', 'grid2', 'grid3', 'list1', 'list2', 'list3', 'slider1'];
 
     return (
         <div className="dowp-control-field components-base-control dowp-cf-layout-style">
@@ -38,16 +39,16 @@ const LayoutStyle = (props) => {
 
                 {defaultData.map((data, index) => {
                     return (
-                        <button className={(_filterValue() == data ? 'active' : '') + ' dowp-button ' + ( proLayout.includes(data) ? '' : 'pro-layout')}
+                        <button className={(_filterValue() == data ? 'active' : '') + ' dowp-button ' + ( freeLayout.includes(data) ? '' : 'pro-layout')}
                                 key={index}
                                 onClick={() => {
-                                    if(! dowpParams.hasPro && ! proLayout.includes(data) ) {
+                                    if(! dowpParams.hasPro && ! freeLayout.includes(data) ) {
                                         alert('pro required');
                                         return false;
                                     }
                                     setSettings(_filterValue() == data ? '' : data);
                                 }}>
-                            <LyaoutItems styleLayout={data}/>
+                            <LyaoutIcons styleLayout={data} layout_style={layout_style}/>
                         </button>
                     )
                 })}
