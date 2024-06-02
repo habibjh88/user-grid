@@ -2511,7 +2511,8 @@ function CardSettings(props) {
     card_bg,
     card_border,
     card_radius,
-    card_box_shadow
+    card_box_shadow,
+    lift_box_hover
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Card Settings', 'user-grid'),
@@ -2586,6 +2587,16 @@ function CardSettings(props) {
     onChange: val => setAttributes({
       card_box_shadow: val
     })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Lift Box on Hover", "user-grid"),
+    className: "dowp-toggle-control-field",
+    checked: lift_box_hover,
+    onChange: lift_box_hover => {
+      setAttributes({
+        lift_box_hover: lift_box_hover ? 'lift-on-hover' : ''
+      });
+      changeQuery();
+    }
   }));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CardSettings);
@@ -3890,7 +3901,8 @@ __webpack_require__.r(__webpack_exports__);
 function SocialShareSettings(props) {
   const {
     attributes,
-    setAttributes
+    setAttributes,
+    changeQuery
   } = props.data;
   //All attribute
   const {
@@ -3898,13 +3910,17 @@ function SocialShareSettings(props) {
     icon_font_size,
     social_spacing,
     social_color,
-    social_color_hover
+    social_color_hover,
+    social_bg,
+    social_bg_hover,
+    social_border_color,
+    social_border_color_hover
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Social Share', 'user-grid'),
     initialOpen: false
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Button Style", "user-grid"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Icon Style", "user-grid"),
     className: "dowp-control-field label-inline dowp-expand",
     value: social_style,
     options: _components_Constants__WEBPACK_IMPORTED_MODULE_4__.SOCIAL_STYLE,
@@ -3914,16 +3930,21 @@ function SocialShareSettings(props) {
       });
       changeQuery();
     }
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.RangeDevice, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Icon Size'),
-    responsive: true,
-    value: icon_font_size,
-    min: 0,
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalNumberControl, {
+    isShiftStepEnabled: true,
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Font Size", "user-grid"),
+    min: 5,
     max: 100,
-    step: 1,
-    onChange: val => setAttributes({
-      icon_font_size: val
-    })
+    value: icon_font_size,
+    onChange: icon_font_size => {
+      setAttributes({
+        icon_font_size
+      });
+    },
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Eg. 10", "user-grid"),
+    shiftStep: 4,
+    step: "1",
+    className: "dowp-control-field label-inline"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.Dimension, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Spacing", "user-grid"),
     type: "margin",
@@ -3945,6 +3966,30 @@ function SocialShareSettings(props) {
     color: social_color_hover,
     onChange: social_color_hover => setAttributes({
       social_color_hover
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.Color, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background', 'user-grid'),
+    color: social_bg,
+    onChange: social_bg => setAttributes({
+      social_bg
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.Color, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background - Hover', 'user-grid'),
+    color: social_bg_hover,
+    onChange: social_bg_hover => setAttributes({
+      social_bg_hover
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.Color, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Border Color', 'user-grid'),
+    color: social_border_color,
+    onChange: social_border_color => setAttributes({
+      social_border_color
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.Color, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Border - Hover', 'user-grid'),
+    color: social_border_color_hover,
+    onChange: social_border_color_hover => setAttributes({
+      social_border_color_hover
     })
   }));
 }
@@ -4023,7 +4068,8 @@ const Edit = props => {
     multiple_bg,
     hr_2_visibility,
     button_style,
-    social_style
+    social_style,
+    lift_box_hover
   } = attributes;
 
   //set block preview
@@ -4090,7 +4136,8 @@ const Edit = props => {
         multiple_bg,
         hr_2_visibility,
         button_style,
-        social_style
+        social_style,
+        lift_box_hover
       }
     }).then(data => {
       setAttributes({
@@ -5374,14 +5421,17 @@ const SOCIAL_STYLE = [{
   value: 'social-default',
   label: __('Default', 'user-grid')
 }, {
-  value: 'social-round',
-  label: __('Round Icon', 'user-grid')
+  value: 'social-border-square',
+  label: __('Border Square', 'user-grid')
 }, {
-  value: 'social-square',
-  label: __('Round Square', 'user-grid')
+  value: 'social-border-round',
+  label: __('Border Round', 'user-grid')
 }, {
-  value: 'social-border',
-  label: __('Border Icon', 'user-grid')
+  value: 'social-bg-square',
+  label: __('Background Square', 'user-grid')
+}, {
+  value: 'social-bg-round',
+  label: __('Background Round', 'user-grid')
 }];
 const FORMATE_USERS = (data, field) => {
   if (!data) {

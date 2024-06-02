@@ -1,10 +1,10 @@
 import {__} from "@wordpress/i18n";
-import {PanelBody, SelectControl} from '@wordpress/components';
+import {__experimentalNumberControl as NumberControl, PanelBody, SelectControl} from '@wordpress/components';
 import {Dimension, RangeDevice, Color} from "../../components/Components";
 import {SOCIAL_STYLE} from "../../components/Constants";
 
 function SocialShareSettings(props) {
-    const {attributes, setAttributes} = props.data;
+    const {attributes, setAttributes, changeQuery} = props.data;
     //All attribute
     const {
         social_style,
@@ -12,13 +12,17 @@ function SocialShareSettings(props) {
         social_spacing,
         social_color,
         social_color_hover,
+        social_bg,
+        social_bg_hover,
+        social_border_color,
+        social_border_color_hover,
     } = attributes;
 
     return (
         <PanelBody title={__('Social Share', 'user-grid')} initialOpen={false}>
 
             <SelectControl
-                label={__("Button Style", "user-grid")}
+                label={__("Icon Style", "user-grid")}
                 className="dowp-control-field label-inline dowp-expand"
                 value={social_style}
                 options={SOCIAL_STYLE}
@@ -27,7 +31,7 @@ function SocialShareSettings(props) {
                     changeQuery()
                 }}
             />
-            <RangeDevice
+           {/* <RangeDevice
                 label={__('Icon Size')}
                 responsive={true}
                 value={icon_font_size}
@@ -35,6 +39,21 @@ function SocialShareSettings(props) {
                 max={100}
                 step={1}
                 onChange={(val) => setAttributes({icon_font_size: val})}
+            />
+*/}
+            <NumberControl
+                isShiftStepEnabled
+                label={__("Font Size", "user-grid")}
+                min={5}
+                max={100}
+                value={icon_font_size}
+                onChange={(icon_font_size) => {
+                    setAttributes({icon_font_size})
+                }}
+                placeholder={__("Eg. 10", "user-grid")}
+                shiftStep={4}
+                step="1"
+                className="dowp-control-field label-inline"
             />
 
             <Dimension
@@ -56,6 +75,30 @@ function SocialShareSettings(props) {
                 label={__('Color - Hover', 'user-grid')}
                 color={social_color_hover}
                 onChange={(social_color_hover) => setAttributes({social_color_hover})}
+            />
+
+            <Color
+                label={__('Background', 'user-grid')}
+                color={social_bg}
+                onChange={(social_bg) => setAttributes({social_bg})}
+            />
+
+            <Color
+                label={__('Background - Hover', 'user-grid')}
+                color={social_bg_hover}
+                onChange={(social_bg_hover) => setAttributes({social_bg_hover})}
+            />
+
+            <Color
+                label={__('Border Color', 'user-grid')}
+                color={social_border_color}
+                onChange={(social_border_color) => setAttributes({social_border_color})}
+            />
+
+            <Color
+                label={__('Border - Hover', 'user-grid')}
+                color={social_border_color_hover}
+                onChange={(social_border_color_hover) => setAttributes({social_border_color_hover})}
             />
 
         </PanelBody>

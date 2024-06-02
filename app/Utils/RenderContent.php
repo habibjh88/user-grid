@@ -76,23 +76,6 @@ class RenderContent {
 				$user_limit = $data['user_limit'] ? esc_html( $data['user_limit'] ) : 6;
 				Fns::pagination( $user_query->total_users, $user_limit );
 			}
-
-			/*
-			$paged       = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-			$user_limit  = $data['user_limit'] ? esc_html( $data['user_limit'] ) : 6;
-			$total_user  = $user_query->total_users;
-			$total_pages = ceil( $total_user / $user_limit );
-			echo paginate_links(
-				[
-					'base'      => get_pagenum_link( 1 ) . '%_%',
-					'format'    => '?paged=%#%',
-					'current'   => $paged,
-					'total'     => $total_pages,
-					'prev_text' => 'Previous',
-					'next_text' => 'Next',
-					'type'      => 'list',
-				]
-			);*/
 			?>
 		</div>
 		<?php

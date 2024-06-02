@@ -1,5 +1,5 @@
 import {__} from "@wordpress/i18n";
-import {PanelBody, TextareaControl} from "@wordpress/components";
+import {PanelBody, TextareaControl, ToggleControl} from "@wordpress/components";
 import {Color} from "../../components/Components";
 
 export default function ContentGlobal(props) {
@@ -43,6 +43,7 @@ export default function ContentGlobal(props) {
                 }}
                 help="Enter colors code or name separate by comma (,) for each card item. Eg. #E6F0F2, #E9E7E7, #F3EDDE, #E8EFCD, #DCF5F2"
             />
+
         </PanelBody>
     );
 }

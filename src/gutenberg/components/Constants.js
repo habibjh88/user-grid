@@ -130,9 +130,10 @@ export const BUTTON_STYLE = [
 
 export const SOCIAL_STYLE = [
     {value: 'social-default', label: __('Default', 'user-grid')},
-    {value: 'social-round', label: __('Round Icon', 'user-grid')},
-    {value: 'social-square', label: __('Round Square', 'user-grid')},
-    {value: 'social-border', label: __('Border Icon', 'user-grid')},
+    {value: 'social-border-square', label: __('Border Square', 'user-grid')},
+    {value: 'social-border-round', label: __('Border Round', 'user-grid')},
+    {value: 'social-bg-square', label: __('Background Square', 'user-grid')},
+    {value: 'social-bg-round', label: __('Background Round', 'user-grid')},
 ];
 
 export const FORMATE_USERS = (data, field) => {

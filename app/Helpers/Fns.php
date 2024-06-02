@@ -368,6 +368,7 @@ class Fns {
 		$inner_class[] = 'dowp-' . $layout;
 		$inner_class[] = $data['grid_height'];
 		$inner_class[] = $data['social_style'];
+		$inner_class[] = $data['lift_box_hover'];
 		$inner_class[] = $data['enable_order'] ? 'is-order' : 'no-order';
 		$inner_class[] = $multiple_bg ? 'has-multi-bg' : 'no-multi-bg';
 		$inner_class[] = self::layout_align( $data['grid_alignment'] );
@@ -512,24 +513,11 @@ class Fns {
 	 * @return void
 	 */
 	public static function pagination( $total_user, $user_limit = 6 ) {
-
 		global $wp;
-
-
-
 		$total_pages = ceil( $total_user / $user_limit );
-
 		$paged = get_query_var('paged') ? get_query_var('paged') : 1;
-
-
 		$current_url = home_url(add_query_arg(array(), $wp->request));
-
 		$current_url = remove_query_arg('paged', $current_url);
-
-
-
-		//$format = (strpos($current_url, '?') === false ? '?' : '&') . 'paged=%#%';
-
 
 		if(strpos($current_url, '?') === false){
 			$format = '?paged=%#%';
@@ -538,7 +526,6 @@ class Fns {
 			$format = '&paged=%#%';
 			$base_url = get_pagenum_link( 1 ) . '%_%';
 		}
-
 
 		echo paginate_links([
 			'base'      => $base_url,

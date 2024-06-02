@@ -1,6 +1,6 @@
 import {
     PanelBody,
-    __experimentalBorderControl as BorderControl
+    __experimentalBorderControl as BorderControl, ToggleControl
 } from '@wordpress/components';
 import {UserGrid_COLOR_PALATE} from "../../components/Constants";
 import { Dimension, RangeDevice, Background, BoxShadow } from "../../components/Components";
@@ -17,6 +17,7 @@ function CardSettings(props) {
         card_border,
         card_radius,
         card_box_shadow,
+        lift_box_hover
     } = attributes;
 
     return (
@@ -86,6 +87,15 @@ function CardSettings(props) {
                 onChange={val => setAttributes({card_box_shadow: val})}
             />
 
+            <ToggleControl
+                label={__("Lift Box on Hover", "user-grid")}
+                className="dowp-toggle-control-field"
+                checked={lift_box_hover}
+                onChange={(lift_box_hover) => {
+                    setAttributes({lift_box_hover: lift_box_hover ? 'lift-on-hover' : ''});
+                    changeQuery();
+                }}
+            />
         </PanelBody>
     );
 }

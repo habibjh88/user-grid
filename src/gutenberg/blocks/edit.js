@@ -46,6 +46,7 @@ const Edit = (props) => {
         hr_2_visibility,
         button_style,
         social_style,
+        lift_box_hover
     } = attributes;
 
     //set block preview
@@ -114,6 +115,7 @@ const Edit = (props) => {
                 hr_2_visibility,
                 button_style,
                 social_style,
+                lift_box_hover
             }
         }).then((data) => {
             setAttributes({query_change: false})

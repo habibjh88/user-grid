@@ -6,6 +6,7 @@
         background: var(--card-bg, transparent);
         transition: 0.3s;
     }
+
     &.height-equal {
         .user-inner-wrapper {
             height: 100%;
@@ -24,6 +25,104 @@
         }
     }
 
+    &.lift-on-hover {
+        .user-inner-wrapper:hover {
+            transform: translateY(-15px);
+        }
+    }
+
+    .dowp-user-social-icons {
+        .phone {
+            color: #34B7F1;
+        }
+
+        .twitter {
+            color: #1DA1F2;
+        }
+
+        .facebook {
+            color: #1877F2;
+        }
+
+        .linkedin {
+            color: #0077B5;
+        }
+
+        .googleplus {
+            color: #DB4437;
+        }
+
+        .pinterest {
+            color: #E60023;
+        }
+
+        .instagram {
+            color: #E1306C;
+        }
+
+        .whatsapp {
+            color: #25D366;
+        }
+
+        .skype {
+            color: #00AFF0;
+        }
+
+        .tiktok {
+            color: #69C9D0;
+        }
+
+        .youtube {
+            color: #FF0000;
+        }
+
+        .reddit {
+            color: #FF4500;
+        }
+    }
+
+    &.social-bg-square .dowp-user-social-icons,
+    &.social-bg-round .dowp-user-social-icons,
+    &.social-border-square .dowp-user-social-icons,
+    &.social-border-round .dowp-user-social-icons {
+        a {
+            width: 24px;
+            height: 24px;
+            border: 1px solid currentColor;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:hover {
+                background-color: currentColor;
+                svg {
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+
+    &.social-bg-round .dowp-user-social-icons,
+    &.social-border-round .dowp-user-social-icons {
+        a {
+            border-radius: 50%;
+        }
+    }
+
+    &.social-bg-round .dowp-user-social-icons,
+    &.social-bg-square .dowp-user-social-icons{
+        a {
+            background-color: currentColor;
+            svg {
+                color: #FFFFFF;
+            }
+            &:hover {
+                opacity: .8;
+            }
+        }
+    }
+
     .user-item-col {
         padding-bottom: 30px;
     }
@@ -32,15 +131,19 @@
         &:nth-child(4n + 1) .user-content-wrap {
             background-color: #E6F0F2;
         }
+
         &:nth-child(4n + 2) .user-content-wrap {
             background-color: #E9E7E7;
         }
+
         &:nth-child(4n + 3) .user-content-wrap {
             background-color: #F3EDDE;
         }
+
         &:nth-child(4n + 4) .user-content-wrap {
             background-color: #E8EFCD;
         }
+
         &:nth-child(5n + 4) .user-content-wrap {
             background-color: #DCF5F2;
         }
@@ -79,10 +182,12 @@
     &.lg-left :is(.hr-1, .hr-2) span {
         margin-right: auto;
     }
+
     &.lg-center :is(.hr-1, .hr-2) span {
         margin-left: auto;
         margin-right: auto;
     }
+
     &.lg-right :is(.hr-1, .hr-2) span {
         margin-left: auto;
     }
@@ -241,7 +346,7 @@
 .dowp-user-social-icons {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 5px;
 
 
     .lg-left & {
@@ -282,24 +387,13 @@
 
     a {
         display: inline-flex;
-        font-size: 20px;
         transition: 0.4s;
         color: $title_color;
-
+        font-size: 16px;
         &:hover {
             color: $primary_color;
         }
 
-        span {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 16px;
-        }
-    }
-
-    svg path {
-        transition: 0.4s;
     }
 }
 
@@ -327,4 +421,9 @@
     .page-numbers a {
         pointer-events: none;
     }
+}
+
+@keyframes spin {
+    0%{transform: rotate(0deg)}
+    100%{transform: rotate(360deg)}
 }
