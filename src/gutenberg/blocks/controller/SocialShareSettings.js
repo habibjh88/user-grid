@@ -1,6 +1,6 @@
 import {__} from "@wordpress/i18n";
 import {__experimentalNumberControl as NumberControl, PanelBody, SelectControl} from '@wordpress/components';
-import {Dimension, RangeDevice, Color} from "../../components/Components";
+import {Dimension, Color} from "../../components/Components";
 import {SOCIAL_STYLE} from "../../components/Constants";
 
 function SocialShareSettings(props) {
@@ -31,16 +31,6 @@ function SocialShareSettings(props) {
                     changeQuery()
                 }}
             />
-           {/* <RangeDevice
-                label={__('Icon Size')}
-                responsive={true}
-                value={icon_font_size}
-                min={0}
-                max={100}
-                step={1}
-                onChange={(val) => setAttributes({icon_font_size: val})}
-            />
-*/}
             <NumberControl
                 isShiftStepEnabled
                 label={__("Font Size", "user-grid")}

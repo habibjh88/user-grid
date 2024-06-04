@@ -108,6 +108,8 @@
     }
 }
 
+.social-wide-square .dowp-user-social-icons,
+.social-wide-round .dowp-user-social-icons,
 .social-bg-square .dowp-user-social-icons,
 .social-bg-round .dowp-user-social-icons,
 .social-border-square .dowp-user-social-icons,
@@ -130,6 +132,23 @@
             }
         }
     }
+}
+
+.social-wide-square .dowp-user-social-icons,
+.social-wide-round .dowp-user-social-icons {
+    a {
+        width: 80px;
+        height: 28px;
+        background-color: currentColor;
+
+        svg {
+            color: #FFFFFF;
+        }
+    }
+}
+
+.social-wide-round .dowp-user-social-icons a {
+    border-radius: 30px;
 }
 
 .social-bg-round .dowp-user-social-icons,

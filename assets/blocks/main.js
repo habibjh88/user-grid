@@ -5432,6 +5432,15 @@ const SOCIAL_STYLE = [{
 }, {
   value: 'social-bg-round',
   label: __('Background Round', 'user-grid')
+}, {
+  value: 'social-bg-square',
+  label: __('Background Square', 'user-grid')
+}, {
+  value: 'social-wide-round',
+  label: __('Wide Round', 'user-grid')
+}, {
+  value: 'social-wide-square',
+  label: __('Wide Square', 'user-grid')
 }];
 const FORMATE_USERS = (data, field) => {
   if (!data) {

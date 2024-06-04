@@ -578,6 +578,9 @@
   justify-content: center;
   align-items: center;
 }
+.dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button svg {
+  max-width: 100%;
+}
 .dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button svg:focus {
   outline: none;
 }

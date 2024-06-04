@@ -45,7 +45,8 @@
 
                 frame.on('select', function () {
                     var attachment = frame.state().get('selection').first().toJSON();
-                    var attachmentSrc = attachment.sizes['medium'].url;
+                    console.log(attachment)
+                    var attachmentSrc = attachment.sizes['full'].url;
                     updateAttachment(attachmentSrc, attachmentSrc, attachment.id);
                 });
 

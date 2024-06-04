@@ -20,6 +20,10 @@
             align-items: center;
         }
 
+        svg {
+            max-width: 100%;
+        }
+
         svg:focus {
             outline: none;
         }
