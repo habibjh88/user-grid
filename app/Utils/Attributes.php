@@ -123,7 +123,7 @@ class Attributes {
 
 	public static function social() {
 		return [
-			'social_style'              => [ 'type' => 'string', 'default' => 'social-default' ],
+			'social_style'              => [ 'type' => 'string', 'default' => 'social-bg-round' ],
 			'icon_font_size'            => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-user-social-icons a {font-size:{{icon_font_size}}px}', ], ] ],
 			'social_spacing'            => [ 'type' => 'object', 'default' => [ 'lg' => [ 'isLinked' => false, 'unit' => 'px', 'value' => '', ], 'md' => [ 'isLinked' => false, 'unit' => 'px', 'value' => '', ], 'sm' => [ 'isLinked' => false, 'unit' => 'px', 'value' => '', ], ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-user-social-icons {{social_spacing}}', ], ], ],
 			'social_color'              => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-user-social-icons a svg {color: {{social_color}}; }', ], ], ],
