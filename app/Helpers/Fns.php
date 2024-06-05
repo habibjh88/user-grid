@@ -238,25 +238,25 @@ class Fns {
 
 			if ( $meta_value ) {
 				?>
-				<a class="<?php echo esc_attr( $icon ) ?>"
-				   href="<?php echo esc_url( $meta_value ) ?>">
+                <a class="<?php echo esc_attr( $icon ) ?>"
+                   href="<?php echo esc_url( $meta_value ) ?>">
 					<?php SvgIcons::get_svg( $icon ); ?>
-				</a>
+                </a>
 				<?php
 			}
 		}
 
 		if ( $email_visibility !== 'show' ) {
 			?>
-			<a class="pinterest"
-			   href="mailto:<?php echo esc_attr( $email ) ?>"><?php SvgIcons::get_svg( 'email' ); ?></a>
+            <a class="pinterest"
+               href="mailto:<?php echo esc_attr( $email ) ?>"><?php SvgIcons::get_svg( 'email' ); ?></a>
 			<?php
 		}
 		if ( $phone_visibility !== 'show' ) {
 			$phone = get_user_meta( $user_id, 'user_grid_phone', true );
 			?>
-			<a class="phone"
-			   href="call:<?php echo esc_attr( $phone ) ?>"><?php SvgIcons::get_svg( 'phone' ); ?></a>
+            <a class="phone"
+               href="call:<?php echo esc_attr( $phone ) ?>"><?php SvgIcons::get_svg( 'phone' ); ?></a>
 			<?php
 		}
 		?>
@@ -406,7 +406,7 @@ class Fns {
 	public static function get_post_args( $data ) {
 		$template_data = [
 			'layout'                 => $data['layout'],
-			'name_tag'               => $data['name_tag'],
+			'name_tag'               => self::validated_html_tag( $data['name_tag'] ),
 			'users_lists'            => $data['users_lists'],
 			'grid_column'            => $data['grid_column'],
 			'user_limit'             => $data['user_limit'],
@@ -448,12 +448,12 @@ class Fns {
 		$avatar_size      = [ 'size' => $avatar_dimension ?? $default_size ];
 		$avater_image_url = get_avatar_url( $user_id, $avatar_size );
 		?>
-		<a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
-			<img width="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-			     height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-			     src="<?php echo esc_url( $avater_image_url ); ?>"
-			     alt="<?php echo esc_html( $alt ); ?>"/>
-		</a>
+        <a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
+            <img width="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
+                 height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
+                 src="<?php echo esc_url( $avater_image_url ); ?>"
+                 alt="<?php echo esc_html( $alt ); ?>"/>
+        </a>
 		<?php
 
 	}
@@ -515,19 +515,19 @@ class Fns {
 	public static function pagination( $total_user, $user_limit = 6 ) {
 		global $wp;
 		$total_pages = ceil( $total_user / $user_limit );
-		$paged = get_query_var('paged') ? get_query_var('paged') : 1;
-		$current_url = home_url(add_query_arg(array(), $wp->request));
-		$current_url = remove_query_arg('paged', $current_url);
+		$paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+		$current_url = home_url( add_query_arg( array(), $wp->request ) );
+		$current_url = remove_query_arg( 'paged', $current_url );
 
-		if(strpos($current_url, '?') === false){
-			$format = '?paged=%#%';
-			$base_url = trailingslashit($current_url) . '%_%';
+		if ( strpos( $current_url, '?' ) === false ) {
+			$format   = '?paged=%#%';
+			$base_url = trailingslashit( $current_url ) . '%_%';
 		} else {
-			$format = '&paged=%#%';
+			$format   = '&paged=%#%';
 			$base_url = get_pagenum_link( 1 ) . '%_%';
 		}
 
-		echo paginate_links([
+		echo paginate_links( [
 			'base'      => $base_url,
 			'format'    => $format,
 			'current'   => $paged,
@@ -535,7 +535,7 @@ class Fns {
 			'prev_text' => 'Previous',
 			'next_text' => 'Next',
 			'type'      => 'list',
-		]);
+		] );
 
 
 		/*echo paginate_links(
@@ -549,5 +549,27 @@ class Fns {
 				'type'      => 'list',
 			]
 		);*/
+	}
+
+	/**
+	 * Print Validated html tags
+	 *
+	 * @param $tag
+	 *
+	 * @return string|null
+	 */
+	public static function validated_html_tag( $tag ) {
+		$allowed_html_wrapper_tags = [
+			'h1',
+			'h2',
+			'h3',
+			'h4',
+			'h5',
+			'h6',
+			'p',
+			'div',
+		];
+
+		return in_array( strtolower( $tag ), $allowed_html_wrapper_tags, true ) ? $tag : 'div';
 	}
 }
