@@ -69,14 +69,14 @@ class RenderContent {
 					<?php
 				}
 				?>
-			</div>
 
-			<?php
-			if ( ! empty( $user_query->total_users ) ) {
-				$user_limit = $data['user_limit'] ? esc_html( $data['user_limit'] ) : 6;
-				Fns::pagination( $user_query->total_users, $user_limit );
-			}
-			?>
+				<?php
+				if ( ! empty( $user_query->total_users ) && 'show' === $data['pagination_visibility'] ) {
+					$user_limit = $data['user_limit'] ? esc_html( $data['user_limit'] ) : 6;
+					Fns::pagination( $user_query->total_users, $user_limit );
+				}
+				?>
+			</div>
 		</div>
 		<?php
 	}

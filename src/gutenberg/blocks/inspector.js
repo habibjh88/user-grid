@@ -9,7 +9,7 @@ import {
     FieldVisibility,
     AvatarSettings,
     NameSettings,
-    ShortDesc,
+    JobRole,
     BioSettings,
     DesignationSettings,
     SocialShareSettings,
@@ -17,7 +17,8 @@ import {
     CardSettings,
     EmailSettings,
     PhoneSettings,
-    HrSetting
+    HrSetting,
+    Pagination
 } from "./controller/Controllers";
 
 function Inspector(props) {
@@ -35,7 +36,8 @@ function Inspector(props) {
         email_visibility,
         phone_visibility,
         hr_1_visibility,
-        hr_2_visibility
+        hr_2_visibility,
+        pagination_visibility
     } = attributes;
 
     return (
@@ -73,13 +75,14 @@ function Inspector(props) {
                                     <FieldVisibility data={props}/>
                                     {avatar_visibility && <AvatarSettings data={props}/>}
                                     {name_visibility && <NameSettings data={props}/>}
-                                    {job_role_visibility && <ShortDesc data={props}/>}
+                                    {job_role_visibility && <JobRole data={props}/>}
                                     {designation_visibility && <DesignationSettings data={props}/>}
                                     {email_visibility && <EmailSettings data={props}/>}
                                     {phone_visibility && <PhoneSettings data={props}/>}
                                     {bio_visibility && <BioSettings data={props}/>}
                                     {social_visibility && <SocialShareSettings data={props}/>}
                                     {button_visibility && <ReadArticleBtn data={props}/>}
+                                    {pagination_visibility && <Pagination data={props}/>}
                                     {(hr_1_visibility || hr_2_visibility) && <HrSetting data={props}/>}
                                     <CardSettings data={props}/>
                                 </>

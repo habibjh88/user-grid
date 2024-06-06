@@ -50,6 +50,7 @@ class Attributes {
 			'hr_2_visibility'        => [ 'type' => 'string', 'default' => '', ],
 			'should_show_hr1'        => [ 'type' => 'string', 'default' => 'show', ],
 			'should_show_btn'        => [ 'type' => 'string', 'default' => 'show', ],
+			'pagination_visibility'  => [ 'type' => 'string', 'default' => '', ],
 		];
 	}
 
@@ -173,6 +174,15 @@ class Attributes {
 			'hr1_radius'  => [ 'type' => 'object', 'default' => (object) [ 'lg' => [ 'isLinked' => true, 'unit' => '%', 'value' => '', ], 'md' => [ 'isLinked' => true, 'unit' => 'px', 'value' => '', ], 'sm' => [ 'isLinked' => true, 'unit' => 'px', 'value' => '', ], ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .hr-1 span {border-radius: {{hr1_radius}}; }', ], ], ],
 			'hr2_width'   => [ 'type' => 'object', 'default' => (object) [ 'lg' => [ 'isLinked' => true, 'unit' => '%', 'value' => '', ], 'md' => [ 'isLinked' => true, 'unit' => 'px', 'value' => '', ], 'sm' => [ 'isLinked' => true, 'unit' => 'px', 'value' => '', ], ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .hr-2 span {width: {{hr2_width}}; }', ], ], ],
 			'hr2_height'  => [ 'type' => 'object', 'default' => (object) [ 'lg' => [ 'isLinked' => true, 'unit' => '%', 'value' => '', ], 'md' => [ 'isLinked' => true, 'unit' => 'px', 'value' => '', ], 'sm' => [ 'isLinked' => true, 'unit' => 'px', 'value' => '', ], ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .hr-2 span {height: {{hr2_height}}; }', ], ], ],
+		];
+	}
+
+	public static function pagination() {
+		return [
+			'pagination_style'      => [ 'type' => 'string', 'default' => 'nav-default' ],
+			'pagination_typography' => [ 'type' => 'object', 'default' => (object) [ 'openTypography' => 1, 'size' => (object) [ 'lg' => '', 'unit' => 'px', ], 'spacing' => (object) [ 'lg' => '', 'unit' => 'px', ], 'height' => (object) [ 'lg' => '', 'unit' => 'px', ], 'transform' => '', 'weight' => '', ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .dowp-pagination' ], ], ],
+			'pagination_spacing'    => [ 'type' => 'object', 'default' => [ 'lg' => [ 'isLinked' => false, 'unit' => 'px', 'value' => '', ], 'md' => [ 'isLinked' => false, 'unit' => 'px', 'value' => '', ], 'sm' => [ 'isLinked' => false, 'unit' => 'px', 'value' => '', ], ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-pagination {{pagination_spacing}}', ], ], ],
+			'pagination_color'      => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .dowp-pagination {color: {{pagination_color}}; }', ], ], ],
 		];
 	}
 }

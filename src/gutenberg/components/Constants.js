@@ -128,6 +128,12 @@ export const BUTTON_STYLE = [
     {value: 'btn-primary', label: __('Primary Button', 'user-grid')},
 ];
 
+export const PAGINATION_STYLE = [
+    {value: 'nav-default', label: __('Default', 'user-grid')},
+    {value: 'nav-round', label: __('Round Shape', 'user-grid')},
+    {value: 'nav-border', label: __('Border Style', 'user-grid')},
+];
+
 export const SOCIAL_STYLE = [
     {value: 'social-default', label: __('Default', 'user-grid')},
     {value: 'social-border-square', label: __('Border Square', 'user-grid')},

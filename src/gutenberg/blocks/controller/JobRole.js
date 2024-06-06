@@ -2,7 +2,7 @@ import {__} from "@wordpress/i18n";
 import {PanelBody} from '@wordpress/components';
 import {Dimension, Color, Typography} from "../../components/Components";
 
-function ShortDesc(props) {
+function JobRole(props) {
     const {attributes, setAttributes} = props.data;
     //All attribute
     const {
@@ -40,4 +40,4 @@ function ShortDesc(props) {
     );
 }
 
-export default ShortDesc;
+export default JobRole;

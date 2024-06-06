@@ -75,6 +75,7 @@ class UserBlock extends BlockBase {
 			Attributes::button(),
 			Attributes::card(),
 			Attributes::horizontal_line(),
+			Attributes::pagination(),
 		);
 	}
 
@@ -88,7 +89,6 @@ class UserBlock extends BlockBase {
 	public function render_block( $data ) {
 		ob_start();
 		RenderContent::get_render_content( $data );
-		do_action( 'dowp_elementor_script' );
 		return ob_get_clean();
 	}
 }

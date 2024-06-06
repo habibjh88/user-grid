@@ -78,7 +78,6 @@ class ActionHooks {
 			}
 			?>
 
-
 			<tr>
 				<th><label for="pinterest"><?php esc_html_e( 'User Avater', 'user-grid' ); ?></label></th>
 				<td>

@@ -46,7 +46,9 @@ const Edit = (props) => {
         hr_2_visibility,
         button_style,
         social_style,
-        lift_box_hover
+        lift_box_hover,
+        pagination_visibility,
+        pagination_style
     } = attributes;
 
     //set block preview
@@ -115,7 +117,9 @@ const Edit = (props) => {
                 hr_2_visibility,
                 button_style,
                 social_style,
-                lift_box_hover
+                lift_box_hover,
+                pagination_visibility,
+                pagination_style
             }
         }).then((data) => {
             setAttributes({query_change: false})

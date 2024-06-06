@@ -1,6 +1,5 @@
 import {__} from "@wordpress/i18n";
-import {ToggleControl} from '@wordpress/components';
-import {PanelBody} from "@wordpress/components";
+import {ToggleControl, PanelBody} from '@wordpress/components';
 
 const {useEffect, useState} = wp.element;
 
@@ -23,6 +22,7 @@ export default function FieldVisibility(props) {
         hr_2_visibility,
         should_show_hr1,
         should_show_btn,
+        pagination_visibility
     } = attributes;
 
 
@@ -39,6 +39,8 @@ export default function FieldVisibility(props) {
 
     return (
         <PanelBody title={__('Field Visibility', 'user-grid')} initialOpen={true}>
+
+            <h3>{__("User Content Visibility", "user-grid")}</h3>
 
             <ToggleControl
                 label={__("Image", "user-grid")}
@@ -148,6 +150,18 @@ export default function FieldVisibility(props) {
                 onChange={(button_visibility) => {
                     setAttributes({button_visibility: button_visibility ? 'show' : ''});
                     setAttributes({should_show_btn: ''})
+                    changeQuery();
+                }}
+            />
+            <hr/>
+            <h3>{__("Others Visibility", "user-grid")}</h3>
+
+            <ToggleControl
+                label={__("Pagination", "user-grid")}
+                className="dowp-toggle-control-field"
+                checked={pagination_visibility}
+                onChange={(pagination_visibility) => {
+                    setAttributes({pagination_visibility: pagination_visibility ? 'show' : ''});
                     changeQuery();
                 }}
             />
