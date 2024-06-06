@@ -94,7 +94,7 @@ class BlocksController {
 				}
 				$this->add_reusable_css();
 			} else {
-				// phpcs: ignore
+				// phpcs:ignore
 				wp_register_style( 'dowp-post-data', false );
 				wp_enqueue_style( 'dowp-post-data' );
 				wp_add_inline_style( 'dowp-post-data', get_post_meta( get_the_ID(), '_dowp_block_css', true ) );
@@ -122,7 +122,7 @@ class BlocksController {
 	 * @return bool
 	 */
 	private function is_editor_screen() {
-		if ( ! empty( $_GET['action'] ) && 'wppb_editor' === $_GET['action'] ) {
+		if ( ! empty( $_GET['action'] ) && 'wppb_editor' === $_GET['action'] ) { //phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			return true;
 		}
 
@@ -191,10 +191,10 @@ class BlocksController {
 			$dowp_upload_dir = wp_upload_dir()['basedir'] . '/dowp/';
 			$css_dir_path    = $dowp_upload_dir . "dowp-block-$post_id.css";
 			if ( file_exists( $css_dir_path ) ) {
-				$blockCss = file_get_contents( $css_dir_path );
-				echo '<style>' . sanitize_textarea_field( $blockCss ) . '</style>';
+				$blockCss = file_get_contents( $css_dir_path ); //phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+				echo '<style>' . sanitize_textarea_field( $blockCss ) . '</style>'; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			} elseif ( $metaCss = get_post_meta( $post_id, '_dowp_block_css', true ) ) {
-				echo '<style>' . sanitize_textarea_field( $metaCss ) . '</style>';
+				echo '<style>' . sanitize_textarea_field( $metaCss ) . '</style>';  //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 
@@ -243,6 +243,9 @@ class BlocksController {
 			if ( ! current_user_can( 'edit_posts' ) ) {
 				throw new Exception( __( 'User permission error', 'user-grid' ) );
 			}
+
+			check_ajax_referer( 'dowp_nonce', 'nonce' );
+
 			global $wp_filesystem;
 			if ( ! $wp_filesystem ) {
 				require_once ABSPATH . 'wp-admin/includes/file.php';
@@ -278,7 +281,7 @@ class BlocksController {
 			} else {
 				delete_post_meta( $post_id, '_dowp_block_active' );
 				if ( file_exists( $dir . $filename ) ) {
-					unlink( $dir . $filename );
+					wp_delete_file( $dir . $filename );
 				}
 				delete_post_meta( $post_id, '_dowp_block_css' );
 				wp_send_json_success( [ 'message' => __( 'Data Delete Done', 'user-grid' ) ] );
@@ -331,7 +334,8 @@ class BlocksController {
 	 * @return void
 	 */
 	public function get_posts_call() {
-		$post_id = absint( $_POST['postId'] );
+		check_ajax_referer( 'dowp_nonce', 'nonce' );
+		$post_id = isset( $_POST['postId'] ) ? absint( $_POST['postId'] ) : '';
 		if ( $post_id ) {
 			wp_send_json_success( get_post( $post_id )->post_content );
 		} else {

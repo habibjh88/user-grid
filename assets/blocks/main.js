@@ -10609,7 +10609,8 @@ const getData = pId => {
     type: "POST",
     data: {
       postId: pId,
-      action: 'dowp_block_css_get_posts'
+      action: 'dowp_block_css_get_posts',
+      nonce: dowpParams.nonce
     }
   }).then(function (response) {
     if (response.success) {
@@ -10658,6 +10659,7 @@ const ParseCss = (setDatabase = true) => {
       dataType: "json",
       type: "POST",
       data: {
+        nonce: dowpParams.nonce,
         block_css: blockCss,
         post_id: getCurrentPostId,
         has_block: hasRtdowpBlocks,

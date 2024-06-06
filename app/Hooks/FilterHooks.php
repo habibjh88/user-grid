@@ -57,8 +57,8 @@ class FilterHooks {
 	 */
 	public static function admin_body_class( $classes ) {
 		global $pagenow;
-		// check if the current page is post.php and if the post parameteris set.
-		if ( 'post.php' === $pagenow && isset( $_GET['post'] ) ) {
+
+		if ( 'post.php' === $pagenow && isset( $_GET['post'] ) ) { //phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			$classes .= ' dowp-body-wrap';
 			$classes .= userGrid()->hasPro() ? ' dowp-has-pro' : ' dowp-has-no-pro';
 		}

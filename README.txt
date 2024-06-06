@@ -1,16 +1,19 @@
 === User Grid – for Gutenberg editor ===
 Contributors: devofwp
 Donate link:
-Tags: grid view, list view, user display, user profiles, user grid, user list, query builder, responsive design
+Tags: user grid, user list, query builder, responsive design
 Requires at least: 5.9
 Tested up to: 6.2
 Stable tag: 1.0.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
+
+User Grid is a powerful WordPress plugin to showcase users in stunning grids/lists with a robust query builder, customization, and responsive design.
+
 == Description ==
 
-**User Display Pro** is a powerful WordPress plugin that allows you to display users in stunning grid and list layouts. This plugin provides a robust query builder, multiple customization options, and responsive design features to ensure your user profiles look amazing on any device.
+**User Grid** is a powerful WordPress plugin that allows you to display users in stunning grid and list layouts. This plugin provides a robust query builder, multiple customization options, and responsive design features to ensure your user profiles look amazing on any device.
 
 == 👉 Features: ==
 

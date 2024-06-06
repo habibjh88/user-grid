@@ -28,28 +28,31 @@ class AjaxController {
 
 	/**
 	 * Users biography ajax
+	 *
 	 * @return void
 	 */
 	public static function dowp_user_biography() {
+		//phpcs:disable WordPress.Security.NonceVerification.Recommended
 		if ( Fns::verifyNonce() ) {
-			$user_info = get_user_by( 'id', sanitize_text_field( wp_unslash( $_REQUEST['user_id'] ) ) );
+			$user_info = ! empty( $_REQUEST['user_id'] ) ? get_user_by( 'id', sanitize_text_field( wp_unslash( $_REQUEST['user_id'] ) ) ) : '';
 			$biography = get_user_meta( $user_info->ID, 'description', true );
 
 			if ( $biography ) {
 				$bio = $biography;
-			}  else {
-				$bio = esc_html__("There is no biography for this user.", "user-grid");
+			} else {
+				$bio = esc_html__( 'There is no biography for this user.', 'user-grid' );
 			}
 			$return = [
 				'biography' => $bio,
-				'success' => "ok",
+				'success'   => 'ok',
 			];
 		} else {
 			$return = [
-				'success' => esc_html__( 'Server Error !!', 'user-grid' )
+				'success' => esc_html__( 'Server Error !!', 'user-grid' ),
 			];
 		}
 		wp_send_json( $return );
 		wp_die();
+		//phpcs:enable WordPress.Security.NonceVerification.Recommended
 	}
 }
