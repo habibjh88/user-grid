@@ -4,6 +4,24 @@
     flex-wrap: wrap;
     gap: 5px;
 
+    a {
+        display: inline-flex;
+        transition: 0.4s;
+        color: $title_color;
+        font-size: 16px;
+
+        span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &:hover {
+            color: $primary_color;
+        }
+
+    }
+
     .phone {
         color: #34B7F1;
     }
@@ -89,23 +107,6 @@
         }
     }
 
-    a {
-        display: inline-flex;
-        transition: 0.4s;
-        color: $title_color;
-        font-size: 16px;
-
-        span {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        &:hover {
-            color: $primary_color;
-        }
-
-    }
 }
 
 .social-wide-square .dowp-user-social-icons,
@@ -115,8 +116,8 @@
 .social-border-square .dowp-user-social-icons,
 .social-border-round .dowp-user-social-icons {
     a {
-        width: 24px;
-        height: 24px;
+        width: 26px;
+        height: 26px;
         border: 1px solid currentColor;
         border-radius: 4px;
         display: flex;
