@@ -1,13 +1,14 @@
 import {__} from "@wordpress/i18n";
 import {__experimentalNumberControl as NumberControl, PanelBody, SelectControl} from '@wordpress/components';
 import {Dimension, Color} from "../../components/Components";
-import {SOCIAL_STYLE} from "../../components/Constants";
+import {SOCIAL_POSITION, SOCIAL_STYLE} from "../../components/Constants";
 
 function SocialShareSettings(props) {
     const {attributes, setAttributes, changeQuery} = props.data;
     //All attribute
     const {
         social_style,
+        social_position,
         icon_font_size,
         social_spacing,
         social_color,
@@ -31,6 +32,18 @@ function SocialShareSettings(props) {
                     changeQuery()
                 }}
             />
+
+            <SelectControl
+                label={__("Icon Position", "user-grid")}
+                className="dowp-control-field label-inline dowp-expand"
+                value={social_position}
+                options={SOCIAL_POSITION}
+                onChange={(social_position) => {
+                    setAttributes({social_position})
+                    changeQuery()
+                }}
+            />
+
             <NumberControl
                 isShiftStepEnabled
                 label={__("Font Size", "user-grid")}

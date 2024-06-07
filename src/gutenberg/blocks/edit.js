@@ -46,6 +46,7 @@ const Edit = (props) => {
         hr_2_visibility,
         button_style,
         social_style,
+        social_position,
         lift_box_hover,
         pagination_visibility,
         pagination_style
@@ -117,6 +118,7 @@ const Edit = (props) => {
                 hr_2_visibility,
                 button_style,
                 social_style,
+                social_position,
                 lift_box_hover,
                 pagination_visibility,
                 pagination_style

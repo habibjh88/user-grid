@@ -3998,6 +3998,7 @@ function SocialShareSettings(props) {
   //All attribute
   const {
     social_style,
+    social_position,
     icon_font_size,
     social_spacing,
     social_color,
@@ -4018,6 +4019,17 @@ function SocialShareSettings(props) {
     onChange: social_style => {
       setAttributes({
         social_style
+      });
+      changeQuery();
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Icon Position", "user-grid"),
+    className: "dowp-control-field label-inline dowp-expand",
+    value: social_position,
+    options: _components_Constants__WEBPACK_IMPORTED_MODULE_4__.SOCIAL_POSITION,
+    onChange: social_position => {
+      setAttributes({
+        social_position
       });
       changeQuery();
     }
@@ -4160,6 +4172,7 @@ const Edit = props => {
     hr_2_visibility,
     button_style,
     social_style,
+    social_position,
     lift_box_hover,
     pagination_visibility,
     pagination_style
@@ -4230,6 +4243,7 @@ const Edit = props => {
         hr_2_visibility,
         button_style,
         social_style,
+        social_position,
         lift_box_hover,
         pagination_visibility,
         pagination_style
@@ -5243,6 +5257,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   NORMAL_HOVER: () => (/* binding */ NORMAL_HOVER),
 /* harmony export */   PAGINATION_STYLE: () => (/* binding */ PAGINATION_STYLE),
 /* harmony export */   POST_SORT_ORDER: () => (/* binding */ POST_SORT_ORDER),
+/* harmony export */   SOCIAL_POSITION: () => (/* binding */ SOCIAL_POSITION),
 /* harmony export */   SOCIAL_STYLE: () => (/* binding */ SOCIAL_STYLE),
 /* harmony export */   TEXT_DECORATION: () => (/* binding */ TEXT_DECORATION),
 /* harmony export */   TEXT_TRANSFORM: () => (/* binding */ TEXT_TRANSFORM),
@@ -5550,6 +5565,31 @@ const SOCIAL_STYLE = [{
 }, {
   value: 'social-wide-square',
   label: __('Wide Square', 'user-grid')
+}];
+const SOCIAL_POSITION = [{
+  value: 'spos-d',
+  label: __('Default', 'user-grid')
+}, {
+  value: 'spos-l-t',
+  label: __('Thumb Left Top', 'user-grid')
+}, {
+  value: 'spos-l-b',
+  label: __('Thumb Left Bottom', 'user-grid')
+}, {
+  value: 'spos-r-t',
+  label: __('Thumb Right Top', 'user-grid')
+}, {
+  value: 'spos-r-b',
+  label: __('Thumb Left Bottom', 'user-grid')
+}, {
+  value: 'spos-r-cr',
+  label: __('Thumb Right Corner', 'user-grid')
+}, {
+  value: 'spos-l-cr',
+  label: __('Thumb Left Corner', 'user-grid')
+}, {
+  value: 'spos-c',
+  label: __('Thumb Center', 'user-grid')
 }];
 const FORMATE_USERS = (data, field) => {
   if (!data) {

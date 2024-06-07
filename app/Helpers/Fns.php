@@ -361,13 +361,14 @@ class Fns {
 
 	public static function inner_class( $data ) {
 		$layout        = esc_html( $data['layout'] );
-		$multiple_bg   = $data['multiple_bg'] ? $data['multiple_bg'] : '';
+		$multiple_bg   = $data['multiple_bg'] ?: '';
 		$inner_class   = [];
 		$inner_class[] = preg_replace( '/[0-9]/', '', $layout ) . '-style';
 		$inner_class[] = self::extend_class( $layout );
 		$inner_class[] = 'dowp-' . $layout;
 		$inner_class[] = $data['grid_height'];
 		$inner_class[] = $data['social_style'];
+		$inner_class[] = $data['social_position'];
 		$inner_class[] = $data['lift_box_hover'];
 		$inner_class[] = $data['pagination_style'];
 		$inner_class[] = $data['enable_order'] ? 'is-order' : 'no-order';
@@ -424,6 +425,7 @@ class Fns {
 			'job_role_visibility'    => $data['job_role_visibility'],
 			'bio_visibility'         => $data['bio_visibility'],
 			'social_visibility'      => $data['social_visibility'],
+			'social_position'        => $data['social_position'],
 			'button_visibility'      => $data['button_visibility'],
 			'button_style'           => $data['button_style'],
 			'hr_1_visibility'        => $data['hr_1_visibility'],

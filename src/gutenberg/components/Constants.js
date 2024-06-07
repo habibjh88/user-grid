@@ -145,6 +145,17 @@ export const SOCIAL_STYLE = [
     {value: 'social-wide-square', label: __('Wide Square', 'user-grid')},
 ];
 
+export const SOCIAL_POSITION = [
+    {value: 'spos-d', label: __('Default', 'user-grid')},
+    {value: 'spos-l-t', label: __('Thumb Left Top', 'user-grid')},
+    {value: 'spos-l-b', label: __('Thumb Left Bottom', 'user-grid')},
+    {value: 'spos-r-t', label: __('Thumb Right Top', 'user-grid')},
+    {value: 'spos-r-b', label: __('Thumb Left Bottom', 'user-grid')},
+    {value: 'spos-r-cr', label: __('Thumb Right Corner', 'user-grid')},
+    {value: 'spos-l-cr', label: __('Thumb Left Corner', 'user-grid')},
+    {value: 'spos-c', label: __('Thumb Center', 'user-grid')},
+];
+
 export const FORMATE_USERS = (data, field) => {
     if (!data) {
         return;
