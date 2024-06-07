@@ -37,7 +37,7 @@ export default function EmailSettings(props) {
             />
 
             <Color
-                label={__('Color', 'user-grid')}
+                label={__('Color - Hover', 'user-grid')}
                 color={email_color_hover}
                 onChange={(email_color_hover) => setAttributes({email_color_hover})}
             />
