@@ -61,9 +61,25 @@ $col_class = Fns::get_dynamic_cols(
 	<div class="user-inner-wrapper">
 		<?php if ( $avatar_visibility ) : ?>
 			<div class="user-avatar">
-				<?php Fns::layout_image( $user_id, $avatar_dimension, '300', $display_name ); ?>
+				<?php
+				Fns::layout_image_with_social(
+					[
+						'user_id'           => $user_id,
+						'avatar_dimension'  => $avatar_dimension,
+						'default_size'      => 300,
+						'display_name'      => $display_name,
+						'social_visibility' => $social_visibility,
+						'social_position'   => $social_position,
+						'alt_txt'           => $display_name,
+						'email_visibility'  => $email_visibility,
+						'phone_visibility'  => $phone_visibility,
+						'share_icon'        => true,
+					]
+				);
+				?>
 			</div>
 		<?php endif; ?>
+
 		<div class="user-content-wrap">
 			<?php if ( $name_visibility ) : ?>
 			<<?php echo esc_attr( $name_tag ); ?> class="user-name <?php echo esc_attr( $name_order ); ?>">
@@ -104,7 +120,7 @@ $col_class = Fns::get_dynamic_cols(
 			</div>
 		<?php endif; ?>
 
-		<?php if ( $social_visibility ) : ?>
+		<?php if ( $social_visibility && 'spos-d' === $social_position ) : ?>
 			<div class="dowp-user-social-icons <?php echo esc_attr( $social_order ); ?>">
 				<?php Fns::get_user_social_icon( $user_id, $email_visibility, $phone_visibility ); ?>
 			</div>

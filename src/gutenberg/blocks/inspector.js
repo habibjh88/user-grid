@@ -26,6 +26,7 @@ function Inspector(props) {
 
     //All attribute
     const {
+        hasPro,
         avatar_visibility,
         name_visibility,
         designation_visibility,

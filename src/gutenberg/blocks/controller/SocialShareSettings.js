@@ -2,11 +2,13 @@ import {__} from "@wordpress/i18n";
 import {__experimentalNumberControl as NumberControl, PanelBody, SelectControl} from '@wordpress/components';
 import {Dimension, Color} from "../../components/Components";
 import {SOCIAL_POSITION, SOCIAL_STYLE} from "../../components/Constants";
+import {isPlain} from "@wordpress/blocks/build/api/raw-handling/utils";
 
 function SocialShareSettings(props) {
     const {attributes, setAttributes, changeQuery} = props.data;
     //All attribute
     const {
+        hasPro,
         social_style,
         social_position,
         icon_font_size,
@@ -35,9 +37,10 @@ function SocialShareSettings(props) {
 
             <SelectControl
                 label={__("Icon Position", "user-grid")}
-                className="dowp-control-field label-inline dowp-expand"
+                className={`dowp-control-field label-inline dowp-expand ${hasPro ? '' : 'pro-field'}`}
+                disable={true}
                 value={social_position}
-                options={SOCIAL_POSITION}
+                options={SOCIAL_POSITION(hasPro)}
                 onChange={(social_position) => {
                     setAttributes({social_position})
                     changeQuery()

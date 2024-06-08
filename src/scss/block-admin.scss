@@ -470,6 +470,24 @@
     }
 
 
+    .dowp-control-field.pro-field {
+        position: relative;
+        &:before {
+            content: "Pro";
+            position: absolute;
+            right: 0;
+            padding: 4px 7px;
+            background: #F00;
+            border-radius: 3px;
+            z-index: 999;
+            line-height: 1;
+            color: #FFF;
+            font-size: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+            top: 0;
+        }
+    }
     .components-base-control .dowp-units-choices,
     .dowp-control-field .dowp-units-choices {
         display: flex;

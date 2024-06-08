@@ -3984,6 +3984,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _components_Components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Components */ "./src/gutenberg/components/Components.js");
 /* harmony import */ var _components_Constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Constants */ "./src/gutenberg/components/Constants.js");
+/* harmony import */ var _wordpress_blocks_build_api_raw_handling_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/blocks/build/api/raw-handling/utils */ "@wordpress/blocks/build/api/raw-handling/utils");
+/* harmony import */ var _wordpress_blocks_build_api_raw_handling_utils__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks_build_api_raw_handling_utils__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -3997,6 +4000,7 @@ function SocialShareSettings(props) {
   } = props.data;
   //All attribute
   const {
+    hasPro,
     social_style,
     social_position,
     icon_font_size,
@@ -4024,9 +4028,10 @@ function SocialShareSettings(props) {
     }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Icon Position", "user-grid"),
-    className: "dowp-control-field label-inline dowp-expand",
+    className: `dowp-control-field label-inline dowp-expand ${hasPro ? '' : 'pro-field'}`,
+    disable: true,
     value: social_position,
-    options: _components_Constants__WEBPACK_IMPORTED_MODULE_4__.SOCIAL_POSITION,
+    options: (0,_components_Constants__WEBPACK_IMPORTED_MODULE_4__.SOCIAL_POSITION)(hasPro),
     onChange: social_position => {
       setAttributes({
         social_position
@@ -4372,6 +4377,7 @@ function Inspector(props) {
 
   //All attribute
   const {
+    hasPro,
     avatar_visibility,
     name_visibility,
     designation_visibility,
@@ -5566,31 +5572,29 @@ const SOCIAL_STYLE = [{
   value: 'social-wide-square',
   label: __('Wide Square', 'user-grid')
 }];
-const SOCIAL_POSITION = [{
-  value: 'spos-d',
-  label: __('Default', 'user-grid')
-}, {
-  value: 'spos-l-t',
-  label: __('Thumb Left Top', 'user-grid')
-}, {
-  value: 'spos-l-b',
-  label: __('Thumb Left Bottom', 'user-grid')
-}, {
-  value: 'spos-r-t',
-  label: __('Thumb Right Top', 'user-grid')
-}, {
-  value: 'spos-r-b',
-  label: __('Thumb Left Bottom', 'user-grid')
-}, {
-  value: 'spos-r-cr',
-  label: __('Thumb Right Corner', 'user-grid')
-}, {
-  value: 'spos-l-cr',
-  label: __('Thumb Left Corner', 'user-grid')
-}, {
-  value: 'spos-c',
-  label: __('Thumb Center', 'user-grid')
-}];
+const SOCIAL_POSITION = function (hasPro) {
+  const isDisable = !hasPro;
+  return [{
+    value: 'spos-d',
+    label: __('Default', 'user-grid')
+  }, {
+    value: 'spos-l-t',
+    label: __('Thumb Left Top', 'user-grid'),
+    disabled: isDisable
+  }, {
+    value: 'spos-l-b',
+    label: __('Thumb Left Bottom', 'user-grid'),
+    disabled: isDisable
+  }, {
+    value: 'spos-r-t',
+    label: __('Thumb Right Top', 'user-grid'),
+    disabled: isDisable
+  }, {
+    value: 'spos-r-b',
+    label: __('Thumb Right Bottom', 'user-grid'),
+    disabled: isDisable
+  }];
+};
 const FORMATE_USERS = (data, field) => {
   if (!data) {
     return;
@@ -27483,6 +27487,17 @@ module.exports = window["wp"]["apiFetch"];
 
 "use strict";
 module.exports = window["wp"]["blocks"];
+
+/***/ }),
+
+/***/ "@wordpress/blocks/build/api/raw-handling/utils":
+/*!************************************************************!*\
+  !*** external ["wp","blocks/build/api/rawHandling/utils"] ***!
+  \************************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["wp"]["blocks/build/api/rawHandling/utils"];
 
 /***/ }),
 

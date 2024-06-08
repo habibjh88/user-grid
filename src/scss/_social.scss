@@ -1,14 +1,138 @@
 
-.dowp-user-social-icons {
+.thumbnail-social.dowp-user-social-icons {
     display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: absolute;
+    z-index: 10;
+    top: 15px;
+    left: 15px;
+    height: calc(100% - 30px);
 
-    a {
-        display: inline-flex;
-        transition: 0.4s;
-        color: $title_color;
-        font-size: 16px;
+    ul.dowp-social-list {
+        &,
+        > li {
+            height: 25px;
+
+
+            a {
+                width: 26px;
+                height: 26px;
+                aspect-ratio: 1/1;
+            }
+
+            ul {
+                opacity: 0;
+                visibility: hidden;
+                margin-top: 5px;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                height: calc(100% - 30px);
+                column-gap: 4px;
+                position: absolute;
+                left: 0;
+                top: 27px;
+                transition: 0.4s;
+                width: 56px;
+
+                li {
+                    transition: 0.4s;
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+            }
+
+            &:hover > ul {
+                opacity: 1;
+                visibility: visible;
+
+                li {
+                    transform: translateY(0);
+                    opacity: 1;
+                    @for $i from 1 through 15 {
+                        &:nth-child(#{$i}) {
+                            transition-delay: 0.05s * $i;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    ul {
+        height: 100%;
+
+        li {
+            display: block;
+        }
+    }
+
+
+    //Different Style
+
+    &.spos-l-t {
+        top: 15px;
+        left: 15px;
+    }
+
+    &.spos-r-t {
+        top: 15px;
+        left: auto;
+        right: 15px;
+
+        ul.dowp-social-list ul {
+            left: auto;
+            right: 0;
+            direction: rtl;
+        }
+    }
+
+    &.spos-r-b,
+    &.spos-l-b {
+        justify-content: flex-end;
+        bottom: 18px;
+        left: 15px;
+        top: auto;
+
+        ul.dowp-social-list ul {
+            top: auto;
+            bottom: 27px;
+            justify-content: flex-end;
+        }
+
+    }
+
+    &.spos-r-b {
+        left: auto;
+        right: 15px;
+
+        ul.dowp-social-list ul {
+            direction: rtl;
+            right: 0;
+            left: auto;
+        }
+
+    }
+}
+
+.dowp-user-social-icons {
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 -4px;
+    }
+
+    li {
+        display: inline-block;
+        margin-bottom: 4px;
+
+        a {
+            transition: 0.4s;
+            color: $title_color;
+            font-size: 16px;
+        }
 
         span {
             display: flex;
@@ -70,43 +194,6 @@
         color: #FF4500;
     }
 
-
-    .lg-left & {
-        justify-content: flex-start;
-    }
-
-    .lg-right & {
-        justify-content: flex-end;
-    }
-
-    .lg-center & {
-        justify-content: center;
-    }
-
-    @media (max-width: 1200px) {
-        .md-left & {
-            justify-content: flex-start;
-        }
-        .md-right & {
-            justify-content: flex-end;
-        }
-        .md-center & {
-            justify-content: center;
-        }
-    }
-
-    @media (max-width: 767px) {
-        .sm-left & {
-            justify-content: flex-start;
-        }
-        .sm-right & {
-            justify-content: flex-end;
-        }
-        .sm-center & {
-            justify-content: center;
-        }
-    }
-
 }
 
 .social-wide-square .dowp-user-social-icons,
@@ -124,6 +211,7 @@
         justify-content: center;
         align-items: center;
         font-size: 14px;
+        aspect-ratio: 1 / 1;
 
         &:hover {
             background-color: currentColor;

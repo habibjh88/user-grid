@@ -109,7 +109,7 @@
         position: relative;
     }
 
-    .user-avatar a {
+    .user-avatar a.user-link {
         overflow: hidden;
         display: inline-block;
         width: 100%;
@@ -250,7 +250,7 @@
 
 }
 
-.no-image-link .user-avatar a {
+.no-image-link .user-avatar a.user-link {
     pointer-events: none;
 }
 
@@ -259,7 +259,7 @@
     background: #f1f1f5;
 }
 
-.wp-admin .dowp-users-block-wrapper .user-avatar a {
+.wp-admin .dowp-users-block-wrapper .user-avatar a.user-link {
     pointer-events: none;
     cursor: pointer;
 }

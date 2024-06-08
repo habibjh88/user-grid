@@ -53,6 +53,11 @@ class UserBlock extends BlockBase {
 				'default' => '',
 			],
 
+			'hasPro'   => [
+				'type'    => 'string',
+				'default' => userGrid()->hasPro(),
+			],
+
 			'preview'  => [
 				'type'    => 'boolean',
 				'default' => false,

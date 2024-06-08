@@ -222,7 +222,7 @@ class Fns {
 	 *
 	 * @return false|string
 	 */
-	public static function get_user_social_icon( $user_id, $email_visibility, $phone_visibility ) {
+	public static function get_user_social_icon( $user_id, $email_visibility, $phone_visibility, $share_icon = false ) {
 
 		$social_list = self::social_list();
 		$user_info   = get_user_by( 'id', $user_id );
@@ -232,34 +232,57 @@ class Fns {
 			unset( $social_list['phone'] );
 		}
 
-		foreach ( $social_list as $icon => $label ) {
-			$meta_key   = "user_grid_{$icon}";
-			$meta_value = get_user_meta( $user_id, $meta_key, true );
+		?>
 
-			if ( $meta_value ) {
-				?>
-				<a class="<?php echo esc_attr( $icon ) ?>"
-				   href="<?php echo esc_url( $meta_value ) ?>">
-					<?php SvgIcons::get_svg( $icon ); ?>
-				</a>
-				<?php
-			}
-		}
+		<ul class="dowp-social-list">
+			<?php if ( $share_icon ) { ?>
+			<li>
+				<a href="#" class="share-icon"><?php SvgIcons::get_svg( 'share' ); ?></a>
+				<ul>
+					<?php
+					}
 
-		if ( $email_visibility !== 'show' ) {
-			?>
-			<a class="pinterest"
-			   href="mailto:<?php echo esc_attr( $email ) ?>"><?php SvgIcons::get_svg( 'email' ); ?></a>
-			<?php
-		}
-		if ( $phone_visibility !== 'show' ) {
-			$phone = get_user_meta( $user_id, 'user_grid_phone', true );
-			?>
-			<a class="phone"
-			   href="call:<?php echo esc_attr( $phone ) ?>"><?php SvgIcons::get_svg( 'phone' ); ?></a>
-			<?php
+					foreach ( $social_list as $icon => $label ) {
+						$meta_key   = "user_grid_{$icon}";
+						$meta_value = get_user_meta( $user_id, $meta_key, true );
+
+						if ( $meta_value ) {
+							?>
+							<li>
+								<a class="<?php echo esc_attr( $icon ) ?>"
+								   href="<?php echo esc_url( $meta_value ) ?>">
+									<?php SvgIcons::get_svg( $icon ); ?>
+								</a>
+							</li>
+							<?php
+						}
+					}
+
+					if ( $email_visibility !== 'show' ) {
+						?>
+						<li>
+							<a class="pinterest"
+							   href="mailto:<?php echo esc_attr( $email ) ?>"><?php SvgIcons::get_svg( 'email' ); ?></a>
+						</li>
+						<?php
+					}
+					if ( $phone_visibility !== 'show' ) {
+						$phone = get_user_meta( $user_id, 'user_grid_phone', true ); ?>
+						<li>
+							<a class="phone"
+							   href="call:<?php echo esc_attr( $phone ) ?>"><?php SvgIcons::get_svg( 'phone' ); ?></a>
+						</li>
+						<?php
+					}
+					if ( $share_icon ){
+					?>
+				</ul>
+			</li>
+		<?php
 		}
 		?>
+
+		</ul>
 
 		<?php
 	}
@@ -447,7 +470,7 @@ class Fns {
 
 	}
 
-	public static function layout_image( $user_id, $avatar_dimension = '', $default_size = 300, $alt = '' ) {
+	public static function layout_image( $user_id, $avatar_dimension = '', $default_size = 300, $alt_txt = '' ) {
 		$avatar_size      = [ 'size' => $avatar_dimension ?? $default_size ];
 		$avater_image_url = get_avatar_url( $user_id, $avatar_size );
 		?>
@@ -455,9 +478,26 @@ class Fns {
 			<img width="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
 			     height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
 			     src="<?php echo esc_url( $avater_image_url ); ?>"
-			     alt="<?php echo esc_html( $alt ); ?>"/>
+			     alt="<?php echo esc_html( $alt_txt ); ?>"/>
 		</a>
 		<?php
+	}
+
+	public static function layout_image_with_social( $args ) {
+		$args = wp_parse_args( $args, [
+			'avatar_dimension' => 360,
+			'default_size'     => 300,
+			'alt_txt'          => '',
+			'email_visibility' => 'show',
+			'phone_visibility' => 'show',
+			'share_icon'       => true
+		] );
+		if ( 'spos-d' !== $args['social_position'] && $args['social_visibility'] && userGrid()->hasPro()) {
+			echo "<div class='dowp-user-social-icons thumbnail-social ".esc_attr($args['social_position'])."'>";
+			self::get_user_social_icon( $args['user_id'], $args['email_visibility'], $args['phone_visibility'], $args['share_icon'] );
+			echo "</div>";
+		}
+		self::layout_image( $args['user_id'], $args['avatar_dimension'], $args['default_size'], $args['alt_txt'] );
 
 	}
 

@@ -19,6 +19,7 @@
  * @var $job_role_visibility
  * @var $bio_visibility
  * @var $social_visibility
+ * @var $social_position
  * @var $email_visibility
  * @var $phone_visibility
  * @var $content_order
@@ -39,6 +40,7 @@
  * @var $hr_2_order
  * @var $hr_1_visibility
  * @var $hr_2_visibility
+ * @var $card_bg
  */
 
 use DOWP\UserGrid\Helpers\Fns;
@@ -46,7 +48,6 @@ use DOWP\UserGrid\Helpers\Fns;
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
 $col_class = Fns::get_dynamic_cols( $grid_column );
 ?>
 
@@ -54,18 +55,34 @@ $col_class = Fns::get_dynamic_cols( $grid_column );
 	<div class="user-inner-wrapper">
 		<?php if ( $avatar_visibility ) : ?>
 			<div class="user-avatar">
-				<?php Fns::layout_image( $user_id, $avatar_dimension, '300', $display_name ); ?>
+				<?php
+				Fns::layout_image_with_social(
+					[
+						'user_id'           => $user_id,
+						'avatar_dimension'  => $avatar_dimension,
+						'default_size'      => 300,
+						'display_name'      => $display_name,
+						'social_visibility' => $social_visibility,
+						'social_position'   => $social_position,
+						'alt_txt'           => $display_name,
+						'email_visibility'  => $email_visibility,
+						'phone_visibility'  => $phone_visibility,
+						'share_icon'        => true,
+					]
+				);
+				?>
 			</div>
 		<?php endif; ?>
+
 		<div class="user-content-wrap">
 			<?php if ( $name_visibility ) : ?>
-				<<?php echo esc_attr( $name_tag ); ?> class="user-name <?php echo esc_attr( $name_order ); ?>">
-					<a href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>"><?php echo esc_html( $display_name ); ?></a>
-				</<?php echo esc_attr( $name_tag ); ?>>
-			<?php endif; ?>
+			<<?php echo esc_attr( $name_tag ); ?> class="user-name <?php echo esc_attr( $name_order ); ?>">
+			<a href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>"><?php echo esc_html( $display_name ); ?></a>
+		</<?php echo esc_attr( $name_tag ); ?>>
+	<?php endif; ?>
 
 		<?php if ( $hr_1_visibility ) : ?>
-		<div class="hr-1 <?php echo esc_attr( $hr_1_order ); ?>"><span></span></div>
+			<div class="hr-1 <?php echo esc_attr( $hr_1_order ); ?>"><span></span></div>
 		<?php endif; ?>
 
 		<?php if ( $designation && $designation_visibility ) : ?>
@@ -97,7 +114,7 @@ $col_class = Fns::get_dynamic_cols( $grid_column );
 			</div>
 		<?php endif; ?>
 
-		<?php if ( $social_visibility ) : ?>
+		<?php if ( $social_visibility && 'spos-d' === $social_position ) : ?>
 			<div class="dowp-user-social-icons <?php echo esc_attr( $social_order ); ?>">
 				<?php Fns::get_user_social_icon( $user_id, $email_visibility, $phone_visibility ); ?>
 			</div>
