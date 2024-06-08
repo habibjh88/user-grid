@@ -3,7 +3,17 @@ import icons from "./icon/icons";
 const {__} = wp.i18n;
 
 const img_path = dowpParams.plugin_url + '/assets/images';
-export const CATEGORY_PREVIEW = <img src={`${img_path}/preview/user-preview.png`} alt={__('User Preview')}/>;
+export const USER_PREVIEW = <img src={`${img_path}/preview/user-preview.png`} alt={__('User Preview')}/>;
+
+export const NORMAL_HOVER = [
+    {label: "Normal", value: "normal"},
+    {label: "Hover", value: "hover"}
+];
+export const BOX_HOVER = [
+    {label: "Normal", value: "normal"},
+    {label: "Hover", value: "hover"},
+    {label: "Box Hover", value: "box_hover"}
+];
 
 export const BACKGROUND_TYPE = [
     {label: __("Classic", "user-grid"), value: "classic"},
@@ -165,11 +175,6 @@ export const FORMATE_USERS = (data, field) => {
         label: user.name + (field ? " - " + user[field] : ''),
     }));
 }
-
-export const NORMAL_HOVER = [
-    {label: "Normal", value: "normal"},
-    {label: "Hover", value: "hover"}
-];
 export const UserGrid_COLOR_PALATE = [
     {name: 'Color 1', color: '#72aee6'},
     {name: 'Color 2', color: '#0074FF'},

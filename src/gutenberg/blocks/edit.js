@@ -6,7 +6,7 @@ import apiFetch from "@wordpress/api-fetch";
 
 import Inspector from "./inspector";
 import {CssGenerator} from "../utils/css/CssGenerator";
-import {CATEGORY_PREVIEW} from "../components/Constants";
+import {USER_PREVIEW} from "../components/Constants";
 
 const Edit = (props) => {
     const {isSelected, attributes, setAttributes, clientId} = props;
@@ -47,6 +47,7 @@ const Edit = (props) => {
         button_style,
         social_style,
         social_position,
+        social_show_on,
         lift_box_hover,
         pagination_visibility,
         pagination_style
@@ -54,7 +55,7 @@ const Edit = (props) => {
 
     //set block preview
     if (preview) {
-        return CATEGORY_PREVIEW;
+        return USER_PREVIEW;
     }
 
     const newClintID = clientId.substr(0, 6);
@@ -119,6 +120,7 @@ const Edit = (props) => {
                 button_style,
                 social_style,
                 social_position,
+                social_show_on,
                 lift_box_hover,
                 pagination_visibility,
                 pagination_style

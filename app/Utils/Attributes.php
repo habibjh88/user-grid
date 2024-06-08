@@ -57,15 +57,17 @@ class Attributes {
 
 	public static function image() {
 		return [
+			'image_overlay_bg'     => [ 'type' => 'object', 'default' => (object) [ 'openBGColor' => 0, 'type' => 'classic', 'classic' => (object) [ 'color' => '', 'img' => (object) [ 'imgURL' => '', 'imgID' => '', ], 'imgProperty' => (object) [ 'imgPosition' => (object) [ 'lg' => '' ], 'imgAttachment' => (object) [ 'lg' => '' ], 'imgRepeat' => (object) [ 'lg' => '' ], 'imgSize' => (object) [ 'lg' => '' ], ], ], 'gradient' => null, ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-avatar a.user-link:before', ], ], ],
+			'image_overlay_bg_h'   => [ 'type' => 'object', 'default' => (object) [ 'openBGColor' => 0, 'type' => 'classic', 'classic' => (object) [ 'color' => '', 'img' => (object) [ 'imgURL' => '', 'imgID' => '', ], 'imgProperty' => (object) [ 'imgPosition' => (object) [ 'lg' => '' ], 'imgAttachment' => (object) [ 'lg' => '' ], 'imgRepeat' => (object) [ 'lg' => '' ], 'imgSize' => (object) [ 'lg' => '' ], ], ], 'gradient' => null, ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-avatar:hover a.user-link:before', ], ], ],
 			'avatar_dimension'     => [ 'type' => 'number', 'default' => '360', ],
 			'image_link'           => [ 'type' => 'string', 'default' => 'yes', ],
 			'default_image'        => [ 'type' => 'object', 'default' => [], ],
-			'avatar_width'         => [ 'type' => 'object', 'default' => (object) [ 'lg' => '', 'md' => '', 'sm' => '' ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-avatar {width: {{avatar_width}}; }', ], ], ],
-			'avatar_height'        => [ 'type' => 'object', 'default' => (object) [ 'lg' => '', 'md' => '', 'sm' => '' ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-avatar {height: {{avatar_height}}; }', ], ], ],
+			'avatar_width'         => [ 'type' => 'object', 'default' => (object) [ 'lg' => '', 'md' => '', 'sm' => '' ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-avatar a.user-link {width: {{avatar_width}}; }', ], ], ],
+			'avatar_height'        => [ 'type' => 'object', 'default' => (object) [ 'lg' => '', 'md' => '', 'sm' => '' ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-avatar a.user-link {height: {{avatar_height}}; }', ], ], ],
 			'avatar_position'      => [ 'type' => 'object', 'default' => (object) [ 'lg' => [ 'isLinked' => true, 'unit' => '%', 'value' => '', ], 'md' => [ 'isLinked' => true, 'unit' => 'px', 'value' => '', ], 'sm' => [ 'isLinked' => true, 'unit' => 'px', 'value' => '', ], ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-avatar img {object-position: 50% {{avatar_position}}; }', ], ], ],
-			'avatar_border_radius' => [ 'type' => 'object', 'default' => [ 'lg' => [ 'isLinked' => true, 'unit' => 'px', 'value' => '', ], 'md' => [ 'isLinked' => true, 'unit' => 'px', 'value' => '', ], 'sm' => [ 'isLinked' => true, 'unit' => 'px', 'value' => '', ], ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-avatar a{{avatar_border_radius}}', ], ], ],
+			'avatar_border_radius' => [ 'type' => 'object', 'default' => [ 'lg' => [ 'isLinked' => true, 'unit' => 'px', 'value' => '', ], 'md' => [ 'isLinked' => true, 'unit' => 'px', 'value' => '', ], 'sm' => [ 'isLinked' => true, 'unit' => 'px', 'value' => '', ], ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-avatar a.user-link {{avatar_border_radius}}', ], ], ],
 			'avatar_margin'        => [ 'type' => 'object', 'default' => [ 'lg' => [ 'isLinked' => false, 'unit' => 'px', 'value' => '', ], 'md' => [ 'isLinked' => false, 'unit' => 'px', 'value' => '', ], 'sm' => [ 'isLinked' => false, 'unit' => 'px', 'value' => '', ], ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-avatar{{avatar_margin}}', ], ], ],
-			'avatar_border'        => [ 'type' => 'object', 'default' => (object) [ 'openTpgBorder' => 1, 'color' => '', 'style' => '', 'width' => '', ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-avatar', ], ], ],
+			'avatar_border'        => [ 'type' => 'object', 'default' => (object) [ 'openTpgBorder' => 1, 'color' => '', 'style' => '', 'width' => '', ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-avatar a.user-link', ], ], ],
 		];
 	}
 
@@ -126,13 +128,16 @@ class Attributes {
 		return [
 			'social_style'              => [ 'type' => 'string', 'default' => 'social-bg-round' ],
 			'social_position'           => [ 'type' => 'string', 'default' => 'spos-d' ],
+			'social_show_on'            => [ 'type' => 'string', 'default' => '' ],
 			'icon_font_size'            => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-user-social-icons a {font-size:{{icon_font_size}}px}', ], ] ],
 			'social_spacing'            => [ 'type' => 'object', 'default' => [ 'lg' => [ 'isLinked' => false, 'unit' => 'px', 'value' => '', ], 'md' => [ 'isLinked' => false, 'unit' => 'px', 'value' => '', ], 'sm' => [ 'isLinked' => false, 'unit' => 'px', 'value' => '', ], ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-user-social-icons {{social_spacing}}', ], ], ],
 			'social_color'              => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-user-social-icons a svg {color: {{social_color}}; }', ], ], ],
 			'social_color_hover'        => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-user-social-icons a:hover svg {color: {{social_color_hover}}; }', ], ], ],
 			'social_bg'                 => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-user-social-icons a {background-color: {{social_bg}}; }', ], ], ],
 			'social_bg_hover'           => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-user-social-icons a:hover {background-color: {{social_bg_hover}}; }', ], ], ],
-			'social_border_color'       => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-user-social-icons a:hover {border-color: {{social_border_color}}; }', ], ], ],
+			'social_share_bg'           => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-user-social-icons a.share-icon {background-color: {{social_share_bg}}; border-color: {{social_share_bg}}; }', ], ], ],
+			'social_share_bg_hover'     => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-user-social-icons a.share-icon:hover {background-color: {{social_share_bg_hover}}; border-color: {{social_share_bg_hover}}; }', ], ], ],
+			'social_border_color'       => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-user-social-icons a {border-color: {{social_border_color}}; }', ], ], ],
 			'social_border_color_hover' => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-user-social-icons a:hover {border-color: {{social_border_color_hover}}; }', ], ], ],
 		];
 	}

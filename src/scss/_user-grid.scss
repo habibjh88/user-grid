@@ -104,28 +104,38 @@
         display: flex;
         max-width: 100%;
         margin-bottom: 15px;
-        overflow: hidden;
-        background: #DDD;
         position: relative;
+        a.user-link {
+            background: #DDD;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            &:before {
+                content:"";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                transition: 0.4s;
+                z-index: 8;
+            }
+
+            img {
+                max-width: 100%;
+                width: 100%;
+                height: 100%;
+                object-position: 50% 50%;
+                -o-object-fit: cover;
+                object-fit: cover;
+                display: block;
+                transition: 0.3s;
+            }
+        }
     }
 
-    .user-avatar a.user-link {
-        overflow: hidden;
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-    }
-
-    .user-avatar img {
-        max-width: 100%;
-        width: 100%;
-        height: 100%;
-        object-position: 50% 50%;
-        -o-object-fit: cover;
-        object-fit: cover;
-        display: block;
-        transition: 0.3s;
-    }
 
     .user-inner-wrapper:hover {
         .user-avatar img {
@@ -162,6 +172,7 @@
         a {
             color: $title_color;
             text-decoration: underline;
+            transition: 0.4s;
 
             &:hover {
                 color: $primary_color;

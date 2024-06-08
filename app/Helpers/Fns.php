@@ -391,6 +391,7 @@ class Fns {
 		$inner_class[] = 'dowp-' . $layout;
 		$inner_class[] = $data['grid_height'];
 		$inner_class[] = $data['social_style'];
+		$inner_class[] = $data['social_show_on'];
 		$inner_class[] = $data['social_position'];
 		$inner_class[] = $data['lift_box_hover'];
 		$inner_class[] = $data['pagination_style'];
@@ -398,7 +399,7 @@ class Fns {
 		$inner_class[] = $multiple_bg ? 'has-multi-bg' : 'no-multi-bg';
 		$inner_class[] = self::layout_align( $data['grid_alignment'] );
 
-		return trim( implode( ' ', $inner_class ) );
+		return preg_replace( '/\s+/', ' ', trim( implode( ' ', $inner_class ) ) );
 	}
 
 
@@ -448,7 +449,7 @@ class Fns {
 			'job_role_visibility'    => $data['job_role_visibility'],
 			'bio_visibility'         => $data['bio_visibility'],
 			'social_visibility'      => $data['social_visibility'],
-			'social_position'        => $data['social_position'],
+			'social_position'        => userGrid()->hasPro() ? $data['social_position'] : 'spos-d',
 			'button_visibility'      => $data['button_visibility'],
 			'button_style'           => $data['button_style'],
 			'hr_1_visibility'        => $data['hr_1_visibility'],
@@ -492,8 +493,8 @@ class Fns {
 			'phone_visibility' => 'show',
 			'share_icon'       => true
 		] );
-		if ( 'spos-d' !== $args['social_position'] && $args['social_visibility'] && userGrid()->hasPro()) {
-			echo "<div class='dowp-user-social-icons thumbnail-social ".esc_attr($args['social_position'])."'>";
+		if ( 'spos-d' !== $args['social_position'] && $args['social_visibility'] && userGrid()->hasPro() ) {
+			echo "<div class='dowp-user-social-icons thumbnail-social " . esc_attr( $args['social_position'] ) . "'>";
 			self::get_user_social_icon( $args['user_id'], $args['email_visibility'], $args['phone_visibility'], $args['share_icon'] );
 			echo "</div>";
 		}

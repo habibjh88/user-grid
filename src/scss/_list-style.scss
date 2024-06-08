@@ -21,7 +21,7 @@
                 border: 1px solid #d9dadc;
                 border-radius: 10px;
 
-                .user-avatar {
+                .user-link {
                     border-radius: 8px;
                 }
             }
@@ -39,8 +39,9 @@
 
                 .user-avatar {
                     margin-left: -60px;
-                    position: relative;
-                    border: 1px solid #e5e5e5;
+                    .user-link {
+                        border: 1px solid #e5e5e5;
+                    }
                 }
             }
         }
