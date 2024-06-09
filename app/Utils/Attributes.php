@@ -5,7 +5,7 @@ namespace DOWP\UserGrid\Utils;
 /**
  * Attributes Class
  */
-// phpcs:ignoreFile
+// phpcs:disable
 class Attributes {
 	public static function layout() {
 		return [
@@ -51,6 +51,7 @@ class Attributes {
 			'should_show_hr1'        => [ 'type' => 'string', 'default' => 'show', ],
 			'should_show_btn'        => [ 'type' => 'string', 'default' => 'show', ],
 			'pagination_visibility'  => [ 'type' => 'string', 'default' => '', ],
+			'post_visibility'        => [ 'type' => 'string', 'default' => '', ],
 		];
 	}
 
@@ -146,6 +147,7 @@ class Attributes {
 		return [
 			'read_btn_spacing'     => [ 'type' => 'object', 'default' => [ 'lg' => [ 'isLinked' => false, 'unit' => 'px', 'value' => '', ], 'md' => [ 'isLinked' => false, 'unit' => 'px', 'value' => '', ], 'sm' => [ 'isLinked' => false, 'unit' => 'px', 'value' => '', ], ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .read-articles-btn {{read_btn_spacing}}', ], ], ],
 			'button_style'         => [ 'type' => 'string', 'default' => 'btn-default', ],
+			'button_text'          => [ 'type' => 'string', 'default' => 'Read Articles', ],
 			'read_btn_color'       => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .read-articles-btn a.read-btn {color: {{read_btn_color}}; }', ], ], ],
 			'read_btn_bg'          => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .read-articles-btn a.read-btn {background-color: {{read_btn_bg}}; }', ], ], ],
 			'read_btn_color_hover' => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .read-articles-btn a.read-btn:hover {color: {{read_btn_color_hover}}; }', ], ], ],
@@ -192,3 +194,4 @@ class Attributes {
 		];
 	}
 }
+// phpcs:enable

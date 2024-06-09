@@ -3298,7 +3298,8 @@ function FieldVisibility(props) {
     hr_2_visibility,
     should_show_hr1,
     should_show_btn,
-    pagination_visibility
+    pagination_visibility,
+    post_visibility
   } = attributes;
   useEffect(() => {
     if (['list4'].includes(layout) && should_show_hr1 === 'show') {
@@ -3434,6 +3435,16 @@ function FieldVisibility(props) {
     onChange: pagination_visibility => {
       setAttributes({
         pagination_visibility: pagination_visibility ? 'show' : ''
+      });
+      changeQuery();
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Recent Post", "user-grid"),
+    className: "dowp-toggle-control-field",
+    checked: post_visibility,
+    onChange: post_visibility => {
+      setAttributes({
+        post_visibility: post_visibility ? 'show' : ''
       });
       changeQuery();
     }
@@ -3913,6 +3924,7 @@ function ReadArticleBtn(props) {
   //All attribute
   const {
     button_style,
+    button_text,
     read_btn_spacing,
     read_btn_color,
     read_btn_bg,
@@ -3932,6 +3944,18 @@ function ReadArticleBtn(props) {
     onChange: button_style => {
       setAttributes({
         button_style
+      });
+      changeQuery();
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    autocomplete: "off",
+    help: "Keep empty for hide the button.",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Button Text", "user-grid"),
+    value: button_text,
+    placeholder: "Eg. @website.com, @inof.com etc",
+    onChange: button_text => {
+      setAttributes({
+        button_text
       });
       changeQuery();
     }
@@ -4246,11 +4270,13 @@ const Edit = props => {
     multiple_bg,
     hr_2_visibility,
     button_style,
+    button_text,
     social_style,
     social_position,
     social_show_on,
     lift_box_hover,
     pagination_visibility,
+    post_visibility,
     pagination_style
   } = attributes;
 
@@ -4318,11 +4344,13 @@ const Edit = props => {
         multiple_bg,
         hr_2_visibility,
         button_style,
+        button_text,
         social_style,
         social_position,
         social_show_on,
         lift_box_hover,
         pagination_visibility,
+        post_visibility,
         pagination_style
       }
     }).then(data => {
@@ -31139,6 +31167,11 @@ wp.data.subscribe(() => {
     src: dowpParams.plugin_url + "/assets/images/block-cat.svg",
     alt: __("User Grid")
   })
+});
+document.addEventListener('DOMContentLoaded', function () {
+  jQuery('body').on('click', '.dowp-users-block-wrapper a', function (e) {
+    e.preventDefault();
+  });
 });
 })();
 

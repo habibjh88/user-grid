@@ -45,11 +45,13 @@ const Edit = (props) => {
         multiple_bg,
         hr_2_visibility,
         button_style,
+        button_text,
         social_style,
         social_position,
         social_show_on,
         lift_box_hover,
         pagination_visibility,
+        post_visibility,
         pagination_style
     } = attributes;
 
@@ -118,11 +120,13 @@ const Edit = (props) => {
                 multiple_bg,
                 hr_2_visibility,
                 button_style,
+                button_text,
                 social_style,
                 social_position,
                 social_show_on,
                 lift_box_hover,
                 pagination_visibility,
+                post_visibility,
                 pagination_style
             }
         }).then((data) => {
@@ -130,6 +134,7 @@ const Edit = (props) => {
             setUsers(data)
         });
     }
+
     const fetch_users_data_inspector = () => {
         signalController?.abort();
         setSignalController(controller);

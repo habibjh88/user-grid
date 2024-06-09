@@ -43,3 +43,9 @@ updateCategory("dowp", {
         />
     ),
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    jQuery('body').on('click', '.dowp-users-block-wrapper a', function (e){
+       e.preventDefault();
+    })
+});

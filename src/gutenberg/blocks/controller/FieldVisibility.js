@@ -22,7 +22,8 @@ export default function FieldVisibility(props) {
         hr_2_visibility,
         should_show_hr1,
         should_show_btn,
-        pagination_visibility
+        pagination_visibility,
+        post_visibility
     } = attributes;
 
 
@@ -162,6 +163,16 @@ export default function FieldVisibility(props) {
                 checked={pagination_visibility}
                 onChange={(pagination_visibility) => {
                     setAttributes({pagination_visibility: pagination_visibility ? 'show' : ''});
+                    changeQuery();
+                }}
+            />
+
+            <ToggleControl
+                label={__("Recent Post", "user-grid")}
+                className="dowp-toggle-control-field"
+                checked={post_visibility}
+                onChange={(post_visibility) => {
+                    setAttributes({post_visibility: post_visibility ? 'show' : ''});
                     changeQuery();
                 }}
             />

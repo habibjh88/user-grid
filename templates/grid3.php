@@ -128,7 +128,7 @@ $col_class = Fns::get_dynamic_cols( $grid_column );
 			<div class="read-articles-btn <?php echo esc_attr( $button_order ); ?>">
 				<a class="read-btn <?php echo esc_attr( $button_style ); ?>"
 				   href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
-					<?php esc_html_e( 'Read Articles', 'user-grid' ); ?>
+					<?php esc_html( $button_text ); ?>
 				</a>
 			</div>
 		<?php endif; ?>

@@ -113,8 +113,7 @@ class Fns {
 	 */
 	public static function print_html_all( $html, $allHtml = false ) {
 		if ( ! $html ) {
-			return;
-		}
+			return; }
 		if ( $allHtml ) {
 			echo stripslashes_deep( $html ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
@@ -133,20 +132,20 @@ class Fns {
 
 
 	public static function doing_it_wrong( $function, $message, $version ) {
-		// @codingStandardsIgnoreStart
+
 		$message .= ' Backtrace: ' . wp_debug_backtrace_summary();
 		_doing_it_wrong( $function, $message, $version );
 	}
 
 	/**
 	 * @param        $template_name
-	 * @param string $template_path
-	 * @param string $default_path
+	 * @param string        $template_path
+	 * @param string        $default_path
 	 *
 	 * @return mixed|void
 	 */
 	public static function locate_template( $template_name, $template_path = '', $default_path = '' ) {
-		$template_name = $template_name . ".php";
+		$template_name = $template_name . '.php';
 		if ( ! $template_path ) {
 			$template_path = 'user-grid/';
 		}
@@ -164,7 +163,6 @@ class Fns {
 			$template = trailingslashit( $default_path ) . $template_name;
 		}
 
-
 		return apply_filters( 'user_grid_locate_template', $template, $template_name );
 	}
 
@@ -172,7 +170,7 @@ class Fns {
 	 * Template Content
 	 *
 	 * @param string $template_name Template name.
-	 * @param array $args Arguments. (default: array).
+	 * @param array  $args Arguments. (default: array).
 	 * @param string $template_path Template path. (default: '').
 	 * @param string $default_path Default path. (default: '').
 	 */
@@ -240,47 +238,48 @@ class Fns {
 				<a href="#" class="share-icon"><?php SvgIcons::get_svg( 'share' ); ?></a>
 				<ul>
 					<?php
-					}
+			}
 
-					foreach ( $social_list as $icon => $label ) {
-						$meta_key   = "user_grid_{$icon}";
-						$meta_value = get_user_meta( $user_id, $meta_key, true );
+			foreach ( $social_list as $icon => $label ) {
+				$meta_key   = "user_grid_{$icon}";
+				$meta_value = get_user_meta( $user_id, $meta_key, true );
 
-						if ( $meta_value ) {
-							?>
+				if ( $meta_value ) {
+					?>
 							<li>
-								<a class="<?php echo esc_attr( $icon ) ?>"
-								   href="<?php echo esc_url( $meta_value ) ?>">
-									<?php SvgIcons::get_svg( $icon ); ?>
+								<a class="<?php echo esc_attr( $icon ); ?>"
+								   href="<?php echo esc_url( $meta_value ); ?>">
+							<?php SvgIcons::get_svg( $icon ); ?>
 								</a>
 							</li>
 							<?php
-						}
-					}
+				}
+			}
 
-					if ( $email_visibility !== 'show' ) {
-						?>
+			if ( $email_visibility !== 'show' ) {
+				?>
 						<li>
 							<a class="pinterest"
-							   href="mailto:<?php echo esc_attr( $email ) ?>"><?php SvgIcons::get_svg( 'email' ); ?></a>
+							   href="mailto:<?php echo esc_attr( $email ); ?>"><?php SvgIcons::get_svg( 'email' ); ?></a>
 						</li>
-						<?php
-					}
-					if ( $phone_visibility !== 'show' ) {
-						$phone = get_user_meta( $user_id, 'user_grid_phone', true ); ?>
+				<?php
+			}
+			if ( $phone_visibility !== 'show' ) {
+				$phone = get_user_meta( $user_id, 'user_grid_phone', true );
+				?>
 						<li>
 							<a class="phone"
-							   href="call:<?php echo esc_attr( $phone ) ?>"><?php SvgIcons::get_svg( 'phone' ); ?></a>
+							   href="call:<?php echo esc_attr( $phone ); ?>"><?php SvgIcons::get_svg( 'phone' ); ?></a>
 						</li>
 						<?php
-					}
-					if ( $share_icon ){
-					?>
+			}
+			if ( $share_icon ) {
+				?>
 				</ul>
 			</li>
-		<?php
-		}
-		?>
+				<?php
+			}
+			?>
 
 		</ul>
 
@@ -289,23 +288,27 @@ class Fns {
 
 	/**
 	 * Social List
+	 *
 	 * @return mixed|null
 	 */
 	public static function social_list() {
-		return apply_filters( 'user_grid_social_list', [
-			'phone'      => esc_html__( 'Phone', 'user-grid' ),
-			'twitter'    => esc_html__( 'Twitter', 'user-grid' ),
-			'facebook'   => esc_html__( 'Facebook', 'user-grid' ),
-			'linkedin'   => esc_html__( 'LinkedIn', 'user-grid' ),
-			'googleplus' => esc_html__( 'Google+', 'user-grid' ),
-			'pinterest'  => esc_html__( 'Pinterest', 'user-grid' ),
-			'instagram'  => esc_html__( 'Instagram', 'user-grid' ),
-			'whatsapp'   => esc_html__( 'WhatsApp', 'user-grid' ),
-			'skype'      => esc_html__( 'Skype', 'user-grid' ),
-			'tiktok'     => esc_html__( 'TikTok', 'user-grid' ),
-			'youtube'    => esc_html__( 'YouTube', 'user-grid' ),
-			'reddit'     => esc_html__( 'Reddit', 'user-grid' ),
-		] );
+		return apply_filters(
+			'user_grid_social_list',
+			[
+				'phone'      => esc_html__( 'Phone', 'user-grid' ),
+				'twitter'    => esc_html__( 'Twitter', 'user-grid' ),
+				'facebook'   => esc_html__( 'Facebook', 'user-grid' ),
+				'linkedin'   => esc_html__( 'LinkedIn', 'user-grid' ),
+				'googleplus' => esc_html__( 'Google+', 'user-grid' ),
+				'pinterest'  => esc_html__( 'Pinterest', 'user-grid' ),
+				'instagram'  => esc_html__( 'Instagram', 'user-grid' ),
+				'whatsapp'   => esc_html__( 'WhatsApp', 'user-grid' ),
+				'skype'      => esc_html__( 'Skype', 'user-grid' ),
+				'tiktok'     => esc_html__( 'TikTok', 'user-grid' ),
+				'youtube'    => esc_html__( 'YouTube', 'user-grid' ),
+				'reddit'     => esc_html__( 'Reddit', 'user-grid' ),
+			]
+		);
 	}
 
 	/**
@@ -357,7 +360,6 @@ class Fns {
 	 *
 	 * @return string
 	 */
-
 	public static function extend_class( $layout ) {
 		$classes = '';
 
@@ -374,9 +376,9 @@ class Fns {
 			case 'grid10':
 				$classes = 'need-multiple-bg';
 				break;
-//			case 'grid12':
-//				$classes = ' dowp-grid3';
-//				break;
+			// case 'grid12':
+			// $classes = ' dowp-grid3';
+			// break;
 		}
 
 		return $classes;
@@ -414,7 +416,7 @@ class Fns {
 	public static function content_order( $item, $data ) {
 
 		if ( 'show' !== $data['enable_order'] ) {
-			return "";
+			return '';
 		}
 		$index = array_search( $item, $data['content_order'] );
 
@@ -451,11 +453,13 @@ class Fns {
 			'social_visibility'      => $data['social_visibility'],
 			'social_position'        => userGrid()->hasPro() ? $data['social_position'] : 'spos-d',
 			'button_visibility'      => $data['button_visibility'],
+			'button_text'            => $data['button_text'],
 			'button_style'           => $data['button_style'],
 			'hr_1_visibility'        => $data['hr_1_visibility'],
 			'hr_2_visibility'        => $data['hr_2_visibility'],
 			'should_show_hr1'        => $data['should_show_hr1'],
 			'should_show_btn'        => $data['should_show_btn'],
+			'post_visibility'        => userGrid()->hasPro() ? $data['post_visibility'] : false,
 			'name_order'             => self::content_order( 'name', $data ),
 			'designation_order'      => self::content_order( 'designation', $data ),
 			'job_role_order'         => self::content_order( 'job_role', $data ),
@@ -468,7 +472,6 @@ class Fns {
 		];
 
 		return apply_filters( 'dowp_ug_post_args', $template_data );
-
 	}
 
 	public static function layout_image( $user_id, $avatar_dimension = '', $default_size = 300, $alt_txt = '' ) {
@@ -477,29 +480,33 @@ class Fns {
 		?>
 		<a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
 			<img width="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-			     height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-			     src="<?php echo esc_url( $avater_image_url ); ?>"
-			     alt="<?php echo esc_html( $alt_txt ); ?>"/>
+				 height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
+				 src="<?php echo esc_url( $avater_image_url ); ?>"
+				 alt="<?php echo esc_html( $alt_txt ); ?>"/>
 		</a>
 		<?php
 	}
 
 	public static function layout_image_with_social( $args ) {
-		$args = wp_parse_args( $args, [
-			'avatar_dimension' => 360,
-			'default_size'     => 300,
-			'alt_txt'          => '',
-			'email_visibility' => 'show',
-			'phone_visibility' => 'show',
-			'share_icon'       => true
-		] );
+		$args = wp_parse_args(
+			$args,
+			[
+				'avatar_dimension' => 360,
+				'default_size'     => 300,
+				'alt_txt'          => '',
+				'email_visibility' => 'show',
+				'phone_visibility' => 'show',
+				'share_icon'       => true,
+			]
+		);
 		if ( 'spos-d' !== $args['social_position'] && $args['social_visibility'] && userGrid()->hasPro() ) {
-			echo "<div class='dowp-user-social-icons thumbnail-social " . esc_attr( $args['social_position'] ) . "'>";
-			self::get_user_social_icon( $args['user_id'], $args['email_visibility'], $args['phone_visibility'], $args['share_icon'] );
-			echo "</div>";
+			echo '<div class="user-avatar">';
+				echo "<div class='dowp-user-social-icons thumbnail-social " . esc_attr( $args['social_position'] ) . "'>";
+				self::get_user_social_icon( $args['user_id'], $args['email_visibility'], $args['phone_visibility'], $args['share_icon'] );
+				echo '</div>';
+			echo '</div>';
 		}
 		self::layout_image( $args['user_id'], $args['avatar_dimension'], $args['default_size'], $args['alt_txt'] );
-
 	}
 
 	/**
@@ -549,6 +556,56 @@ class Fns {
 	}
 
 	/**
+	 * @param $user_id
+	 *
+	 * @return void
+	 */
+	public static function recent_posts( $user_id, $post_visibility ) {
+
+		if ( ! $post_visibility ) {
+			return;
+		}
+
+		$args      = array(
+			'post_type'      => 'post',
+			'posts_per_page' => 5,
+			'post_status'    => 'publish',
+			'author'         => $user_id,
+		);
+		$postslist = get_posts( $args );
+		?>
+
+
+		<?php if ( $postslist ) { ?>
+			<div class='user-recent-posts'>
+				<h3 class="recent-posts-title">Recent Post</h3>
+			<?php
+			foreach ( $postslist as $post ) :
+				setup_postdata( $post );
+				?>
+<div class="post-item">
+	<div class="post-image">
+				<?php
+				$thumb_id = get_post_thumbnail_id( $post );
+				echo wp_get_attachment_image( $thumb_id );
+				?>
+	</div>
+	<div class="post-content">
+		<h4 class="post-title"><a href="<?php echo esc_url( get_the_permalink( $post ) ); ?>"><?php echo esc_html( get_the_title( $post ) ); ?></a></h4>
+		<ul class="post-meta">
+							<li><?php echo get_the_category_list( ',', '', $post ); ?></li>
+							<li><?php echo get_the_date( null, $post ); ?></li>
+						</ul>
+					</div>
+				</div>
+				<?php
+			endforeach;
+			wp_reset_postdata();
+			echo '</div>';
+		}
+	}
+
+	/**
 	 * Pagination
 	 *
 	 * @param $total_user
@@ -571,16 +628,18 @@ class Fns {
 			$base_url = get_pagenum_link( 1 ) . '%_%';
 		}
 		echo "<div class='dowp-pagination'>";
-		echo paginate_links( [
-			'base'      => $base_url,
-			'format'    => $format,
-			'current'   => $paged,
-			'total'     => $total_pages,
-			'prev_text' => __( 'Prev', 'user-grid' ),
-			'next_text' => __( 'Next', 'user-grid' ),
-			'type'      => 'list',
-		] );
-		echo "</div>";
+		echo paginate_links(
+			[
+				'base'      => $base_url,
+				'format'    => $format,
+				'current'   => $paged,
+				'total'     => $total_pages,
+				'prev_text' => __( 'Prev', 'user-grid' ),
+				'next_text' => __( 'Next', 'user-grid' ),
+				'type'      => 'list',
+			]
+		);
+		echo '</div>';
 	}
 
 	/**

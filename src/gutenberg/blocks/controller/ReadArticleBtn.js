@@ -1,6 +1,6 @@
 import {__} from "@wordpress/i18n";
 import {useState} from '@wordpress/element';
-import {PanelBody, Button, SelectControl} from '@wordpress/components';
+import {PanelBody, Button, SelectControl, TextControl} from '@wordpress/components';
 import {BUTTON_STYLE, NORMAL_HOVER} from "../../components/Constants";
 import {Dimension, Color} from "../../components/Components";
 
@@ -10,6 +10,7 @@ export default function ReadArticleBtn(props) {
     //All attribute
     const {
         button_style,
+        button_text,
         read_btn_spacing,
         read_btn_color,
         read_btn_bg,
@@ -30,6 +31,18 @@ export default function ReadArticleBtn(props) {
                 onChange={(button_style) => {
                     setAttributes({button_style})
                     changeQuery()
+                }}
+            />
+
+            <TextControl
+                autocomplete="off"
+                help="Keep empty for hide the button."
+                label={__("Button Text", "user-grid")}
+                value={button_text}
+                placeholder="Eg. @website.com, @inof.com etc"
+                onChange={(button_text) => {
+                    setAttributes({button_text})
+                    changeQuery();
                 }}
             />
 
