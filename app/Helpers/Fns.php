@@ -113,7 +113,8 @@ class Fns {
 	 */
 	public static function print_html_all( $html, $allHtml = false ) {
 		if ( ! $html ) {
-			return; }
+			return;
+		}
 		if ( $allHtml ) {
 			echo stripslashes_deep( $html ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
@@ -177,7 +178,7 @@ class Fns {
 	public static function get_template( $template_name, $args = null, $template_path = '', $default_path = '' ) {
 
 		if ( ! empty( $args ) && is_array( $args ) ) {
-			extract( $args ); // @codingStandardsIgnoreLine
+			extract( $args );
 		}
 
 		$located = self::locate_template( $template_name, $template_path, $default_path );
@@ -262,7 +263,7 @@ class Fns {
 							<a class="pinterest"
 							   href="mailto:<?php echo esc_attr( $email ); ?>"><?php SvgIcons::get_svg( 'email' ); ?></a>
 						</li>
-				<?php
+						<?php
 			}
 			if ( $phone_visibility !== 'show' ) {
 				$phone = get_user_meta( $user_id, 'user_grid_phone', true );
@@ -309,29 +310,6 @@ class Fns {
 				'reddit'     => esc_html__( 'Reddit', 'user-grid' ),
 			]
 		);
-	}
-
-	/**
-	 * Get Dynamic columns for each block
-	 *
-	 * @param $grid_column
-	 * @param $default_grid_columns
-	 *
-	 * @return string
-	 */
-	public static function get_dynamic_cols( $grid_column, $default_grid_columns = [] ) {
-		if ( ! $default_grid_columns ) {
-			$default_grid_columns = [
-				'lg' => '3',
-				'md' => '6',
-				'sm' => '12',
-			];
-		}
-		$grid_column_desktop = ( isset( $grid_column['lg'] ) && 0 != $grid_column['lg'] ) ? $grid_column['lg'] : $default_grid_columns['lg'];
-		$grid_column_tab     = ( isset( $grid_column['md'] ) && 0 != $grid_column['md'] ) ? $grid_column['md'] : $default_grid_columns['md'];
-		$grid_column_mobile  = ( isset( $grid_column['sm'] ) && 0 != $grid_column['sm'] ) ? $grid_column['sm'] : $default_grid_columns['sm'];
-
-		return "dowp-col-md-{$grid_column_desktop} dowp-col-sm-{$grid_column_tab} dowp-col-xs-{$grid_column_mobile}";
 	}
 
 	/**
@@ -384,6 +362,13 @@ class Fns {
 		return $classes;
 	}
 
+	/**
+	 * Generate Inner Classes
+	 *
+	 * @param $data
+	 *
+	 * @return array|string|string[]|null
+	 */
 	public static function inner_class( $data ) {
 		$layout        = esc_html( $data['layout'] );
 		$multiple_bg   = $data['multiple_bg'] ?: '';
@@ -395,11 +380,18 @@ class Fns {
 		$inner_class[] = $data['social_style'];
 		$inner_class[] = $data['social_show_on'];
 		$inner_class[] = $data['social_position'];
+		$inner_class[] = $data['post_box_style'];
+		$inner_class[] = ( $data['show_post_b_b'] ? 'show-p-b' : '' );
 		$inner_class[] = $data['lift_box_hover'];
 		$inner_class[] = $data['pagination_style'];
 		$inner_class[] = $data['enable_order'] ? 'is-order' : 'no-order';
 		$inner_class[] = $multiple_bg ? 'has-multi-bg' : 'no-multi-bg';
 		$inner_class[] = self::layout_align( $data['grid_alignment'] );
+
+		if ( userGrid()->hasPro() ) {
+			$inner_class[] = $data['dark_mode'] ? 'dowp-dark' : 'dowp-light';
+			$inner_class[] = $data['layout_reverse'] ? 'dowp-reverse' : '';
+		}
 
 		return preg_replace( '/\s+/', ' ', trim( implode( ' ', $inner_class ) ) );
 	}
@@ -433,42 +425,70 @@ class Fns {
 	 */
 	public static function get_post_args( $data ) {
 		$template_data = [
-			'layout'                 => $data['layout'],
-			'name_tag'               => self::validated_html_tag( $data['name_tag'] ),
-			'users_lists'            => $data['users_lists'],
-			'grid_column'            => $data['grid_column'],
-			'user_limit'             => $data['user_limit'],
-			'users_role'             => $data['users_role'],
-			'avatar_dimension'       => $data['avatar_dimension'],
-			'user_filter_by_domain'  => $data['user_filter_by_domain'],
-			'orderby'                => $data['orderby'],
-			'order'                  => $data['order'],
-			'avatar_visibility'      => $data['avatar_visibility'],
-			'name_visibility'        => $data['name_visibility'],
-			'email_visibility'       => $data['email_visibility'],
-			'phone_visibility'       => $data['phone_visibility'],
-			'designation_visibility' => $data['designation_visibility'],
-			'job_role_visibility'    => $data['job_role_visibility'],
-			'bio_visibility'         => $data['bio_visibility'],
-			'social_visibility'      => $data['social_visibility'],
-			'social_position'        => userGrid()->hasPro() ? $data['social_position'] : 'spos-d',
-			'button_visibility'      => $data['button_visibility'],
-			'button_text'            => $data['button_text'],
-			'button_style'           => $data['button_style'],
-			'hr_1_visibility'        => $data['hr_1_visibility'],
-			'hr_2_visibility'        => $data['hr_2_visibility'],
-			'should_show_hr1'        => $data['should_show_hr1'],
-			'should_show_btn'        => $data['should_show_btn'],
-			'post_visibility'        => userGrid()->hasPro() ? $data['post_visibility'] : false,
-			'name_order'             => self::content_order( 'name', $data ),
-			'designation_order'      => self::content_order( 'designation', $data ),
-			'job_role_order'         => self::content_order( 'job_role', $data ),
-			'contact_order'          => self::content_order( 'contact', $data ),
-			'biography_order'        => self::content_order( 'biography', $data ),
-			'social_order'           => self::content_order( 'social', $data ),
-			'button_order'           => self::content_order( 'button', $data ),
-			'hr_1_order'             => self::content_order( 'hr_1', $data ),
-			'hr_2_order'             => self::content_order( 'hr_2', $data ),
+			'layout'           => $data['layout'],
+			'grid_column'      => $data['grid_column'],
+			'button_args'      => [
+				'button_visibility' => $data['button_visibility'],
+				'button_text'       => $data['button_text'],
+				'button_style'      => $data['button_style'],
+				'button_order'      => self::content_order( 'button', $data ),
+			],
+			'social_args'      => [
+				'social_visibility' => $data['social_visibility'],
+				'social_position'   => userGrid()->hasPro() ? $data['social_position'] : 'spos-d',
+				'email_visibility'  => $data['email_visibility'],
+				'phone_visibility'  => $data['phone_visibility'],
+				'social_order'      => self::content_order( 'social', $data ),
+			],
+			'designation_args' => [
+				'designation_visibility' => $data['designation_visibility'],
+				'designation_order'      => self::content_order( 'designation', $data ),
+			],
+			'job_role_args'    => [
+				'job_role_visibility' => $data['job_role_visibility'],
+				'job_role_order'      => self::content_order( 'job_role', $data ),
+			],
+			'contact_args'     => [
+				'email_visibility' => $data['email_visibility'],
+				'phone_visibility' => $data['phone_visibility'],
+				'contact_order'    => self::content_order( 'contact', $data ),
+			],
+			'bio_args'         => [
+				'bio_visibility'  => $data['bio_visibility'],
+				'biography_order' => self::content_order( 'biography', $data ),
+			],
+			'hr1_args'         => [
+				'hr_1_visibility' => $data['hr_1_visibility'],
+				'hr_1_order'      => self::content_order( 'hr_1', $data ),
+			],
+			'hr2_args'         => [
+				'hr_2_visibility' => $data['hr_2_visibility'],
+				'hr_2_order'      => self::content_order( 'hr_2', $data ),
+			],
+			'name_args'        => [
+				'name_visibility' => $data['name_visibility'],
+				'name_tag'        => self::validated_html_tag( $data['name_tag'] ),
+				'name_order'      => self::content_order( 'name', $data ),
+			],
+			'image_args'       => [
+				'avatar_visibility' => $data['avatar_visibility'],
+				'avatar_dimension'  => $data['avatar_dimension'],
+				'default_size'      => 300,
+				'social_visibility' => $data['social_visibility'],
+				'social_position'   => userGrid()->hasPro() ? $data['social_position'] : 'spos-d',
+				'email_visibility'  => $data['email_visibility'],
+				'phone_visibility'  => $data['phone_visibility'],
+				'share_icon'        => true,
+			],
+			'post_args'        => [
+				'post_number'     => $data['post_number'],
+				'main_title_text' => $data['main_title_text'],
+				'post_type'       => $data['post_type'],
+				'show_post_img'   => $data['show_post_img'],
+				'show_post_cat'   => $data['show_post_cat'],
+				'show_post_date'  => $data['show_post_date'],
+				'post_visibility' => userGrid()->hasPro() ? $data['post_visibility'] : false,
+			],
 		];
 
 		return apply_filters( 'dowp_ug_post_args', $template_data );
@@ -485,28 +505,6 @@ class Fns {
 				 alt="<?php echo esc_html( $alt_txt ); ?>"/>
 		</a>
 		<?php
-	}
-
-	public static function layout_image_with_social( $args ) {
-		$args = wp_parse_args(
-			$args,
-			[
-				'avatar_dimension' => 360,
-				'default_size'     => 300,
-				'alt_txt'          => '',
-				'email_visibility' => 'show',
-				'phone_visibility' => 'show',
-				'share_icon'       => true,
-			]
-		);
-		if ( 'spos-d' !== $args['social_position'] && $args['social_visibility'] && userGrid()->hasPro() ) {
-			echo '<div class="user-avatar">';
-				echo "<div class='dowp-user-social-icons thumbnail-social " . esc_attr( $args['social_position'] ) . "'>";
-				self::get_user_social_icon( $args['user_id'], $args['email_visibility'], $args['phone_visibility'], $args['share_icon'] );
-				echo '</div>';
-			echo '</div>';
-		}
-		self::layout_image( $args['user_id'], $args['avatar_dimension'], $args['default_size'], $args['alt_txt'] );
 	}
 
 	/**
@@ -556,53 +554,34 @@ class Fns {
 	}
 
 	/**
-	 * @param $user_id
+	 * Get Post Type List
 	 *
-	 * @return void
+	 * @return array
 	 */
-	public static function recent_posts( $user_id, $post_visibility ) {
-
-		if ( ! $post_visibility ) {
-			return;
-		}
-
-		$args      = array(
-			'post_type'      => 'post',
-			'posts_per_page' => 5,
-			'post_status'    => 'publish',
-			'author'         => $user_id,
+	public static function get_post_types() {
+		$post_types = get_post_types(
+			[
+				'public' => true,
+			],
+			'objects'
 		);
-		$postslist = get_posts( $args );
-		?>
+		$post_types = wp_list_pluck( $post_types, 'label', 'name' );
 
+		$exclude = [ 'attachment', 'revision', 'nav_menu_item', 'elementor_library', 'tpg_builder', 'e-landing-page' ];
 
-		<?php if ( $postslist ) { ?>
-			<div class='user-recent-posts'>
-				<h3 class="recent-posts-title">Recent Post</h3>
-			<?php
-			foreach ( $postslist as $post ) :
-				setup_postdata( $post );
-				?>
-<div class="post-item">
-	<div class="post-image">
-				<?php
-				$thumb_id = get_post_thumbnail_id( $post );
-				echo wp_get_attachment_image( $thumb_id );
-				?>
-	</div>
-	<div class="post-content">
-		<h4 class="post-title"><a href="<?php echo esc_url( get_the_permalink( $post ) ); ?>"><?php echo esc_html( get_the_title( $post ) ); ?></a></h4>
-		<ul class="post-meta">
-							<li><?php echo get_the_category_list( ',', '', $post ); ?></li>
-							<li><?php echo get_the_date( null, $post ); ?></li>
-						</ul>
-					</div>
-				</div>
-				<?php
-			endforeach;
-			wp_reset_postdata();
-			echo '</div>';
+		foreach ( $exclude as $ex ) {
+			unset( $post_types[ $ex ] );
 		}
+
+		$postType = [];
+		foreach ( $post_types as $name => $label ) {
+			$postType[] = [
+				'value' => $name,
+				'label' => $label,
+			];
+		}
+
+		return $postType;
 	}
 
 	/**
@@ -662,5 +641,24 @@ class Fns {
 		];
 
 		return in_array( strtolower( $tag ), $allowed_html_wrapper_tags, true ) ? $tag : 'div';
+	}
+
+	/**
+	 * Get user url
+	 *
+	 * @param $user_id
+	 * @param $display_name
+	 *
+	 * @return void
+	 */
+	public static function user_url( $user_id, $first_tag = true ) {
+		$user_custm_url = get_user_meta( $user_id, 'user_grid_custom_url', true );
+		$user_url       = $user_custm_url ?: get_author_posts_url( $user_id );
+		if ( $first_tag ) {
+			echo '<a href="' . esc_url( $user_url ) . '">';
+		}
+		if ( ! $first_tag ) {
+			echo '</a>';
+		}
 	}
 }

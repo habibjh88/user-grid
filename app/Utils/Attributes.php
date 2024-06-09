@@ -2,6 +2,8 @@
 
 namespace DOWP\UserGrid\Utils;
 
+use DOWP\UserGrid\Helpers\Fns;
+
 /**
  * Attributes Class
  */
@@ -11,6 +13,8 @@ class Attributes {
 		return [
 			'layout_style'     => [ 'type' => 'string', 'default' => 'grid', ],
 			'layout'           => [ 'type' => 'string', 'default' => 'grid1', ],
+			'dark_mode'        => [ 'type' => 'string', 'default' => '', ],
+			'layout_reverse'   => [ 'type' => 'string', 'default' => '', ],
 			'grid_height'      => [ 'type' => 'string', 'default' => 'height-auto', ],
 			'user_limit'       => [ 'type' => 'string', 'default' => '12', ],
 			'grid_column'      => [ 'type' => 'object', 'default' => [ 'lg' => 0, 'md' => 0, 'sm' => 0, ], ],
@@ -193,5 +197,32 @@ class Attributes {
 			'pagination_color'      => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .dowp-pagination {color: {{pagination_color}}; }', ], ], ],
 		];
 	}
+
+	public static function recent_post() {
+		$post_type = Fns::get_post_types();
+
+		return [
+			'post_type_list'        => [ 'type' => 'object', 'default' => $post_type ],
+			'post_type'             => [ 'type' => 'string', 'default' => 'post' ],
+			'show_post_img'         => [ 'type' => 'string', 'default' => 'show' ],
+			'show_post_cat'         => [ 'type' => 'string', 'default' => 'show' ],
+			'show_post_date'        => [ 'type' => 'string', 'default' => 'show' ],
+			'show_post_b_b'         => [ 'type' => 'string', 'default' => 'show' ],
+			'main_title_text'       => [ 'type' => 'string', 'default' => __( 'Recent Post', 'user-grid' ) ],
+			'post_box_style'        => [ 'type' => 'string', 'default' => 'pbox-d' ],
+			'post_number'           => [ 'type' => 'string', 'default' => '3' ],
+			'post_main_title_typo'  => [ 'type' => 'object', 'default' => (object) [ 'openTypography' => 1, 'size' => (object) [ 'lg' => '', 'unit' => 'px', ], 'spacing' => (object) [ 'lg' => '', 'unit' => 'px', ], 'height' => (object) [ 'lg' => '', 'unit' => 'px', ], 'transform' => '', 'weight' => '', ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-recent-posts .recent-posts-title' ], ], ],
+			'post_meta_typo'        => [ 'type' => 'object', 'default' => (object) [ 'openTypography' => 1, 'size' => (object) [ 'lg' => '', 'unit' => 'px', ], 'spacing' => (object) [ 'lg' => '', 'unit' => 'px', ], 'height' => (object) [ 'lg' => '', 'unit' => 'px', ], 'transform' => '', 'weight' => '', ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-recent-posts .post-meta li' ], ], ],
+			'post_title_typo'       => [ 'type' => 'object', 'default' => (object) [ 'openTypography' => 1, 'size' => (object) [ 'lg' => '', 'unit' => 'px', ], 'spacing' => (object) [ 'lg' => '', 'unit' => 'px', ], 'height' => (object) [ 'lg' => '', 'unit' => 'px', ], 'transform' => '', 'weight' => '', ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-recent-posts .post-title' ], ], ],
+			'post_main_title_color' => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-recent-posts .recent-posts-title {color: {{post_main_title_color}}; }', ], ], ],
+			'post_title_color'      => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-recent-posts .post-title a {color: {{post_title_color}}; }', ], ], ],
+			'post_title_color_h'    => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-recent-posts .post-title a:hover {color: {{post_title_color_h}}; }', ], ], ],
+			'post_meta_color'       => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-recent-posts .post-meta :is(li, li a) {color: {{post_meta_color}}; }', ], ], ],
+			'post_meta_color_h'     => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-recent-posts .post-meta li a:hover {color: {{post_meta_color_h}}; }', ], ], ],
+			'post_title_spacing'    => [ 'type' => 'object', 'default' => [ 'lg' => [ 'isLinked' => false, 'unit' => 'px', 'value' => '', ], 'md' => [ 'isLinked' => false, 'unit' => 'px', 'value' => '', ], 'sm' => [ 'isLinked' => false, 'unit' => 'px', 'value' => '', ], ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-recent-posts .post-title {{post_title_spacing}}', ], ], ],
+			'post_box_bg'           => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-recent-posts {background-color: {{post_box_bg}}; }', ], ], ],
+			'post_bottom_b_color'   => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-recent-posts .post-item {border-bottom-color: {{post_bottom_b_color}}; }', ], ], ],
+			'post_box_b_color'      => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-recent-posts {border-color: {{post_box_b_color}}; }', ], ], ],
+		];
+	}
 }
-// phpcs:enable

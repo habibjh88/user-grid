@@ -1,7 +1,7 @@
 import {__} from "@wordpress/i18n";
 
 const {useEffect} = wp.element;
-import {PanelBody, SelectControl} from "@wordpress/components";
+import {PanelBody, SelectControl, ToggleControl} from "@wordpress/components";
 import {GRID_LAYOUT_OPT} from "../../components/Constants";
 import {Alignment, Layouts, LayoutStyle, GridColumn} from "../../components/Components";
 import {styleIcon} from "../../utils/LyaoutIcons";
@@ -23,6 +23,8 @@ export default function ContentLayout(props) {
     const {
         layout,
         grid_column,
+        dark_mode,
+        layout_reverse,
         grid_alignment,
         grid_v_alignment,
         grid_height,
@@ -53,6 +55,27 @@ export default function ContentLayout(props) {
                 onChange={layout => {
                     setAttributes({layout});
                     changeQuery();
+                }}
+            />
+
+
+            <ToggleControl
+                label={__("Dark Mode?", "user-grid")}
+                className="dowp-toggle-control-field"
+                checked={dark_mode}
+                onChange={(dark_mode) => {
+                    setAttributes({dark_mode: dark_mode ? 'show' : ''});
+                    changeQuery()
+                }}
+            />
+
+            <ToggleControl
+                label={__("Layout Reverse", "user-grid")}
+                className="dowp-toggle-control-field"
+                checked={layout_reverse}
+                onChange={(layout_reverse) => {
+                    setAttributes({layout_reverse: layout_reverse ? 'show' : ''});
+                    changeQuery()
                 }}
             />
 

@@ -81,6 +81,7 @@ class UserBlock extends BlockBase {
 			Attributes::card(),
 			Attributes::horizontal_line(),
 			Attributes::pagination(),
+			Attributes::recent_post(),
 		);
 	}
 

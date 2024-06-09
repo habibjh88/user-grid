@@ -41,7 +41,7 @@ export default function FieldVisibility(props) {
     return (
         <PanelBody title={__('Field Visibility', 'user-grid')} initialOpen={true}>
 
-            <h3>{__("User Content Visibility", "user-grid")}</h3>
+            <h3 className={`dowp-controll-heading`}>{__("User Content Visibility", "user-grid")}</h3>
 
             <ToggleControl
                 label={__("Image", "user-grid")}
@@ -155,7 +155,7 @@ export default function FieldVisibility(props) {
                 }}
             />
             <hr/>
-            <h3>{__("Others Visibility", "user-grid")}</h3>
+            <h3 className={`dowp-controll-heading`}>{__("Others Visibility", "user-grid")}</h3>
 
             <ToggleControl
                 label={__("Pagination", "user-grid")}

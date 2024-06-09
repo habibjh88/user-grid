@@ -186,3 +186,10 @@ export const UserGrid_COLOR_PALATE = [
     {name: 'Color 8', color: '#AAAAAA'},
     {name: 'Color 9', color: '#FFFFFF'},
 ];
+
+export const POST_BOX_STYLE = [
+    {value: 'pbox-d', label: __('Default', 'user-grid')},
+    {value: 'pbox-i-r', label: __('Image Round', 'user-grid')},
+    {value: 'pbox-b', label: __('Border Style', 'user-grid')},
+    {value: 'pbox-b pbox-b-i-r', label: __('Border & Image Round', 'user-grid')},
+];

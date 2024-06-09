@@ -37,23 +37,23 @@
 
     &.no-multi-bg.need-multiple-bg .user-item-col {
         &:nth-child(4n + 1) .user-content-wrap {
-            background-color: #E6F0F2;
+            background-color: rgb(155 183 189 / 31%);
         }
 
         &:nth-child(4n + 2) .user-content-wrap {
-            background-color: #E9E7E7;
+            background-color: rgb(201 173 173 / 39%);
         }
 
         &:nth-child(4n + 3) .user-content-wrap {
-            background-color: #F3EDDE;
+            background-color: rgb(221 208 175 / 38%);
         }
 
         &:nth-child(4n + 4) .user-content-wrap {
-            background-color: #E8EFCD;
+            background-color: rgb(167 215 173 / 28%);
         }
 
-        &:nth-child(5n + 4) .user-content-wrap {
-            background-color: #DCF5F2;
+        &:nth-child(5n + 5) .user-content-wrap {
+            background-color: rgb(139 183 177 / 32%);
         }
     }
 
@@ -70,8 +70,10 @@
     }
 
     .hr-1 {
+        margin-top: -20px;
+        margin-bottom: -5px;
         span {
-            display: block;
+            display: inline-block;
             width: 20%;
             height: 4px;
             background: $primary_color;
@@ -83,7 +85,7 @@
             display: block;
             width: 100%;
             height: 1px;
-            background: #DDD;
+            background: var(--dowp-border2);
         }
     }
 
@@ -106,7 +108,7 @@
         margin-bottom: 15px;
         position: relative;
         a.user-link {
-            background: #DDD;
+            background: #bfbfbf;
             overflow: hidden;
             display: inline-block;
             width: 100%;
@@ -194,6 +196,7 @@
     .user-biography {
         font-size: 15px;
         margin-bottom: 5px;
+        color: $body_color;
     }
 
     .read-articles-btn {

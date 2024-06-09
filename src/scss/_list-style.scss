@@ -17,8 +17,8 @@
         &.dowp-list2 {
             .user-inner-wrapper {
                 padding: 20px;
-                background: var(--card-bg, #FFFFFF);
-                border: 1px solid #d9dadc;
+                background: var(--card-bg);
+                border: 1px solid var(--dowp-border2);
                 border-radius: 10px;
 
                 .user-link {
@@ -30,17 +30,26 @@
         //List Style 3
         &.dowp-list3 {
             .user-item-col {
-                padding-left: 60px;
+                @media (min-width: 992px) {
+                    padding-left: 60px;
+                }
             }
 
             .user-inner-wrapper {
-                align-items: center;
-                padding: 30px 20px;
+                align-items: flex-start;
+                padding: 24px;
+                flex-wrap: wrap;
 
                 .user-avatar {
-                    margin-left: -60px;
+                    flex: 0 0 100px;
+                    @media (min-width: 992px) {
+                        margin-left: -60px;
+                        flex: 0 0 160px;
+                    }
+
+
                     .user-link {
-                        border: 1px solid #e5e5e5;
+                        border: 1px solid var(--dowp-border2);
                     }
                 }
             }

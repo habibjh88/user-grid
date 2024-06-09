@@ -14,6 +14,8 @@ const Edit = (props) => {
     //all attribute
     const {
         layout,
+        dark_mode,
+        layout_reverse,
         name_tag,
         preview,
         uniqueId,
@@ -52,6 +54,14 @@ const Edit = (props) => {
         lift_box_hover,
         pagination_visibility,
         post_visibility,
+        post_box_style,
+        post_number,
+        post_type,
+        main_title_text,
+        show_post_img,
+        show_post_cat,
+        show_post_date,
+        show_post_b_b,
         pagination_style
     } = attributes;
 
@@ -90,6 +100,8 @@ const Edit = (props) => {
             method: 'POST',
             data: {
                 layout,
+                dark_mode,
+                layout_reverse,
                 name_tag,
                 uniqueId,
                 users_lists,
@@ -127,6 +139,14 @@ const Edit = (props) => {
                 lift_box_hover,
                 pagination_visibility,
                 post_visibility,
+                post_box_style,
+                post_number,
+                post_type,
+                main_title_text,
+                show_post_img,
+                show_post_cat,
+                show_post_date,
+                show_post_b_b,
                 pagination_style
             }
         }).then((data) => {

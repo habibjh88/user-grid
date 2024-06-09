@@ -1,137 +1,61 @@
 <?php
 /**
- * User Grid layout 2
+ * User Grid layout 1
  *
  * @author  DevOfWP
  * @since   1.0
  * @version 1.0
  *
  * @var $user_id
+ * @var $card_bg
  * @var $display_name
- * @var $grid_column
- * @var $avatar_dimension
- * @var $avatar_visibility
- * @var $name_visibility
  * @var $designation
- * @var $name_tag
  * @var $job_role
- * @var $designation_visibility
- * @var $job_role_visibility
- * @var $bio_visibility
- * @var $social_visibility
- * @var $social_position
- * @var $email_visibility
- * @var $phone_visibility
- * @var $content_order
- * @var $button_visibility
- * @var $button_visibility
- * @var $button_style
- * @var $description
  * @var $email
  * @var $phone
- * @var $name_order
- * @var $designation_order
- * @var $job_role_order
- * @var $contact_order
- * @var $biography_order
- * @var $social_order
- * @var $button_order
- * @var $hr_1_order
- * @var $hr_2_order
- * @var $hr_1_visibility
- * @var $hr_2_visibility
- * @var $card_bg
+ * @var $description
+ * @var $grid_column
+ * @var $post_args
+ * @var $name_args
+ * @var $hr1_args
+ * @var $hr2_args
+ * @var $designation_args
+ * @var $job_role_args
+ * @var $contact_args
+ * @var $bio_args
+ * @var $social_args
+ * @var $button_args
  */
 
-use DOWP\UserGrid\Helpers\Fns;
+
+use DOWP\UserGrid\Helpers\TemplateFns;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-$col_class = Fns::get_dynamic_cols( $grid_column );
+$col_class = TemplateFns::get_dynamic_cols( $grid_column );
 ?>
 
-<div class="user-item-col <?php echo esc_attr( $col_class ); ?>" style="<?php echo esc_attr( $card_bg ? "--card-bg:$card_bg" : '' ); ?>">
+<div class="user-item-col <?php echo esc_attr( $col_class ); ?>"
+     style="<?php echo esc_attr( $card_bg ? "--card-bg:$card_bg" : '' ); ?>">
 	<div class="user-inner-wrapper">
-		<?php if ( $avatar_visibility ) : ?>
-			<div class="user-avatar">
-				<?php
-				Fns::layout_image_with_social(
-					[
-						'user_id'           => $user_id,
-						'avatar_dimension'  => $avatar_dimension,
-						'default_size'      => 300,
-						'display_name'      => $display_name,
-						'social_visibility' => $social_visibility,
-						'social_position'   => $social_position,
-						'alt_txt'           => $display_name,
-						'email_visibility'  => $email_visibility,
-						'phone_visibility'  => $phone_visibility,
-						'share_icon'        => true,
-					]
-				);
-				?>
-			</div>
-		<?php endif; ?>
+		<?php
+		$image_args['alt_txt'] = $display_name;
+		TemplateFns::layout_image_with_social( $user_id, $image_args );
+		?>
 
 		<div class="user-content-wrap">
-			<?php if ( $name_visibility ) : ?>
-			<<?php echo esc_attr( $name_tag ); ?> class="user-name <?php echo esc_attr( $name_order ); ?>">
-			<a href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>"><?php echo esc_html( $display_name ); ?></a>
-		</<?php echo esc_attr( $name_tag ); ?>>
-	<?php endif; ?>
+			<?php TemplateFns::user_name( $user_id, $display_name, $name_args ); ?>
+			<?php TemplateFns::hr_1( $hr1_args ); ?>
+			<?php TemplateFns::user_designation( $designation, $designation_args ); ?>
+			<?php TemplateFns::user_job_role( $job_role, $job_role_args ); ?>
+			<?php TemplateFns::user_contact( $email, $phone, $contact_args ); ?>
+			<?php TemplateFns::user_biography( $description, $bio_args ); ?>
+			<?php TemplateFns::social_info( $user_id, $social_args ); ?>
+			<?php TemplateFns::hr_2( $hr2_args ); ?>
+			<?php TemplateFns::user_button( $user_id, $button_args ); ?>
+		</div>
 
-		<?php if ( $hr_1_visibility ) : ?>
-			<div class="hr-1 <?php echo esc_attr( $hr_1_order ); ?>"><span></span></div>
-		<?php endif; ?>
-
-		<?php if ( $designation && $designation_visibility ) : ?>
-			<div class="user-designation <?php echo esc_attr( $designation_order ); ?>">
-				<?php echo esc_html( $designation ); ?>
-			</div>
-		<?php endif; ?>
-
-		<?php if ( $job_role_visibility && $job_role ) : ?>
-			<div class="user-short-desc <?php echo esc_attr( $job_role_order ); ?>">
-				<?php echo esc_html( $job_role ); ?>
-			</div>
-		<?php endif; ?>
-
-		<?php if ( $email_visibility || $phone_visibility ) : ?>
-			<div class="user-contact <?php echo esc_attr( $contact_order ); ?>">
-				<?php if ( $email && $email_visibility ) : ?>
-					<p><a class="user-email" href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a></p>
-				<?php endif; ?>
-				<?php if ( $phone && $phone_visibility ) : ?>
-					<p><a class="user-phone" href="tel:<?php echo esc_attr( $phone ); ?>"><?php echo esc_html( $phone ); ?></a></p>
-				<?php endif; ?>
-			</div>
-		<?php endif; ?>
-
-		<?php if ( $bio_visibility && $description ) : ?>
-			<div class="user-biography <?php echo esc_attr( $biography_order ); ?>">
-				<?php echo esc_html( $description ); ?>
-			</div>
-		<?php endif; ?>
-
-		<?php if ( $social_visibility && 'spos-d' === $social_position ) : ?>
-			<div class="dowp-user-social-icons <?php echo esc_attr( $social_order ); ?>">
-				<?php Fns::get_user_social_icon( $user_id, $email_visibility, $phone_visibility ); ?>
-			</div>
-		<?php endif; ?>
-
-		<?php if ( $hr_2_visibility ) : ?>
-			<div class="hr-2 <?php echo esc_attr( $hr_2_order ); ?>"><span></span></div>
-		<?php endif; ?>
-
-		<?php if ( $button_visibility ) : ?>
-			<div class="read-articles-btn <?php echo esc_attr( $button_order ); ?>">
-				<a class="read-btn <?php echo esc_attr( $button_style ); ?>"
-				   href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
-					<?php esc_html( $button_text ); ?>
-				</a>
-			</div>
-		<?php endif; ?>
+		<?php TemplateFns::recent_posts( $user_id, $post_args ); ?>
 	</div>
-</div>
 </div>

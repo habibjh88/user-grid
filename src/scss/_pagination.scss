@@ -25,7 +25,7 @@
 
     .nav-round & {
         ul {
-            background: #efefef;
+            background: var(--dowp-border2);
             border-radius: 30px;
             padding: 5px 50px;
         }
@@ -33,7 +33,7 @@
     .nav-border & {
         ul {
            li {
-               border: 1px solid #DDD;
+               border: 1px solid var(--dowp-border2);
            }
         }
     }

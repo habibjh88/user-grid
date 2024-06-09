@@ -114,7 +114,7 @@ class ActionHooks {
 							   value="<?php echo esc_attr( get_the_author_meta( 'user_grid_custom_url', $user->ID ) ); ?>"
 							   style="width: 500px;max-width: 100%"
 							   class="regular-text"/><br/><span
-							class="description"><?php esc_html_e( 'Enter custom url instead of the author post url', 'user-grid' ); ?></span>
+							class="description"><?php esc_html_e( 'Enter custom url instead of the author post url. Avoid this field if you would not like to redirect the user to a different page.`', 'user-grid' ); ?></span>
 					</td>
 				</tr>
 

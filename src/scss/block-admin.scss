@@ -71,7 +71,7 @@
     .dowp-controll-heading {
         font-size: 12px;
         font-weight: bold;
-        border-bottom: 1px solid #DDD;
+        border-bottom: 1px solid var(--dowp-border2);
         padding-bottom: 5px;
     }
 
@@ -127,7 +127,7 @@
         .components-input-control__container {
             height: 34px;
             overflow: hidden;
-            border: 1px solid #DDD;
+            border: 1px solid var(--dowp-border2);
             > * {
                 height: 34px !important;
                 border: none !important;
@@ -136,8 +136,8 @@
                 }
             }
             .components-input-control__input {
-                border-left: 1px solid #DDD !important;
-                border-right: 1px solid #DDD !important;
+                border-left: 1px solid var(--dowp-border2) !important;
+                border-right: 1px solid var(--dowp-border2) !important;
                 padding: 0 3px;
                 min-width: 28px !important;
                 text-align: center;
@@ -630,7 +630,7 @@
 }
 
 .dowp-tab-panel .is-opened .components-panel__body-toggle.components-button {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--dowp-border2);
 }
 
 .dowp-tab-panel .components-panel__body > .components-panel__body-title:hover {
