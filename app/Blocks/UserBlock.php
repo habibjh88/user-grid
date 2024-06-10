@@ -53,6 +53,11 @@ class UserBlock extends BlockBase {
 				'default' => '',
 			],
 
+			'hasPro'   => [
+				'type'    => 'string',
+				'default' => userGrid()->hasPro(),
+			],
+
 			'preview'  => [
 				'type'    => 'boolean',
 				'default' => false,
@@ -76,6 +81,7 @@ class UserBlock extends BlockBase {
 			Attributes::card(),
 			Attributes::horizontal_line(),
 			Attributes::pagination(),
+			Attributes::recent_post(),
 		);
 	}
 

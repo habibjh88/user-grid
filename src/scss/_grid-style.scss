@@ -8,13 +8,13 @@
         &.dowp-grid2 {
             .user-inner-wrapper {
                 padding: 20px;
-                background: var(--card-bg, #FFFFFF);
-                border: 1px solid #d9dadc;
+                background: var( --card-bg );
+                border: 1px solid var( --dowp-border2 );
                 border-radius: 10px;
 
-                .user-avatar {
+                .user-link {
                     border-radius: 8px;
-                    border: 1px solid #eaebed;
+                    border: 1px solid var( --dowp-border2 );
                 }
             }
         }

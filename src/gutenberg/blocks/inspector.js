@@ -18,7 +18,8 @@ import {
     EmailSettings,
     PhoneSettings,
     HrSetting,
-    Pagination
+    Pagination,
+    RecentPost
 } from "./controller/Controllers";
 
 function Inspector(props) {
@@ -26,6 +27,7 @@ function Inspector(props) {
 
     //All attribute
     const {
+        hasPro,
         avatar_visibility,
         name_visibility,
         designation_visibility,
@@ -37,7 +39,8 @@ function Inspector(props) {
         phone_visibility,
         hr_1_visibility,
         hr_2_visibility,
-        pagination_visibility
+        pagination_visibility,
+        post_visibility
     } = attributes;
 
     return (
@@ -84,6 +87,7 @@ function Inspector(props) {
                                     {button_visibility && <ReadArticleBtn data={props}/>}
                                     {pagination_visibility && <Pagination data={props}/>}
                                     {(hr_1_visibility || hr_2_visibility) && <HrSetting data={props}/>}
+                                    {post_visibility && <RecentPost data={props}/>}
                                     <CardSettings data={props}/>
                                 </>
                             )}

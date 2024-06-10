@@ -3,7 +3,17 @@ import icons from "./icon/icons";
 const {__} = wp.i18n;
 
 const img_path = dowpParams.plugin_url + '/assets/images';
-export const CATEGORY_PREVIEW = <img src={`${img_path}/preview/user-preview.png`} alt={__('User Preview')}/>;
+export const USER_PREVIEW = <img src={`${img_path}/preview/user-preview.png`} alt={__('User Preview')}/>;
+
+export const NORMAL_HOVER = [
+    {label: "Normal", value: "normal"},
+    {label: "Hover", value: "hover"}
+];
+export const BOX_HOVER = [
+    {label: "Normal", value: "normal"},
+    {label: "Hover", value: "hover"},
+    {label: "Box Hover", value: "box_hover"}
+];
 
 export const BACKGROUND_TYPE = [
     {label: __("Classic", "user-grid"), value: "classic"},
@@ -145,6 +155,17 @@ export const SOCIAL_STYLE = [
     {value: 'social-wide-square', label: __('Wide Square', 'user-grid')},
 ];
 
+export const SOCIAL_POSITION = function (hasPro){
+    const isDisable = ! hasPro;
+    return [
+        {value: 'spos-d', label: __('Default', 'user-grid')},
+        {value: 'spos-l-t', label: __('Thumb Left Top', 'user-grid'), disabled:isDisable},
+        {value: 'spos-l-b', label: __('Thumb Left Bottom', 'user-grid'), disabled:isDisable},
+        {value: 'spos-r-t', label: __('Thumb Right Top', 'user-grid'), disabled:isDisable},
+        {value: 'spos-r-b', label: __('Thumb Right Bottom', 'user-grid'), disabled:isDisable},
+    ]
+};
+
 export const FORMATE_USERS = (data, field) => {
     if (!data) {
         return;
@@ -154,11 +175,6 @@ export const FORMATE_USERS = (data, field) => {
         label: user.name + (field ? " - " + user[field] : ''),
     }));
 }
-
-export const NORMAL_HOVER = [
-    {label: "Normal", value: "normal"},
-    {label: "Hover", value: "hover"}
-];
 export const UserGrid_COLOR_PALATE = [
     {name: 'Color 1', color: '#72aee6'},
     {name: 'Color 2', color: '#0074FF'},
@@ -169,4 +185,11 @@ export const UserGrid_COLOR_PALATE = [
     {name: 'Color 7', color: '#000000'},
     {name: 'Color 8', color: '#AAAAAA'},
     {name: 'Color 9', color: '#FFFFFF'},
+];
+
+export const POST_BOX_STYLE = [
+    {value: 'pbox-d', label: __('Default', 'user-grid')},
+    {value: 'pbox-i-r', label: __('Image Round', 'user-grid')},
+    {value: 'pbox-b', label: __('Border Style', 'user-grid')},
+    {value: 'pbox-b pbox-b-i-r', label: __('Border & Image Round', 'user-grid')},
 ];

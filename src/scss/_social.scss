@@ -1,14 +1,20 @@
-
 .dowp-user-social-icons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
 
-    a {
-        display: inline-flex;
-        transition: 0.4s;
-        color: $title_color;
-        font-size: 16px;
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 -4px;
+    }
+
+    li {
+        display: inline-block;
+        margin-bottom: 4px;
+
+        a {
+            transition: 0.4s;
+            color: $title_color;
+            font-size: 16px;
+        }
 
         span {
             display: flex;
@@ -70,43 +76,6 @@
         color: #FF4500;
     }
 
-
-    .lg-left & {
-        justify-content: flex-start;
-    }
-
-    .lg-right & {
-        justify-content: flex-end;
-    }
-
-    .lg-center & {
-        justify-content: center;
-    }
-
-    @media (max-width: 1200px) {
-        .md-left & {
-            justify-content: flex-start;
-        }
-        .md-right & {
-            justify-content: flex-end;
-        }
-        .md-center & {
-            justify-content: center;
-        }
-    }
-
-    @media (max-width: 767px) {
-        .sm-left & {
-            justify-content: flex-start;
-        }
-        .sm-right & {
-            justify-content: flex-end;
-        }
-        .sm-center & {
-            justify-content: center;
-        }
-    }
-
 }
 
 .social-wide-square .dowp-user-social-icons,
@@ -124,6 +93,7 @@
         justify-content: center;
         align-items: center;
         font-size: 14px;
+        aspect-ratio: 1 / 1;
 
         &:hover {
             background-color: currentColor;

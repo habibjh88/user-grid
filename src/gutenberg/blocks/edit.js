@@ -6,7 +6,7 @@ import apiFetch from "@wordpress/api-fetch";
 
 import Inspector from "./inspector";
 import {CssGenerator} from "../utils/css/CssGenerator";
-import {CATEGORY_PREVIEW} from "../components/Constants";
+import {USER_PREVIEW} from "../components/Constants";
 
 const Edit = (props) => {
     const {isSelected, attributes, setAttributes, clientId} = props;
@@ -14,6 +14,8 @@ const Edit = (props) => {
     //all attribute
     const {
         layout,
+        dark_mode,
+        layout_reverse,
         name_tag,
         preview,
         uniqueId,
@@ -45,15 +47,27 @@ const Edit = (props) => {
         multiple_bg,
         hr_2_visibility,
         button_style,
+        button_text,
         social_style,
+        social_position,
+        social_show_on,
         lift_box_hover,
         pagination_visibility,
+        post_visibility,
+        post_box_style,
+        post_number,
+        post_type,
+        main_title_text,
+        show_post_img,
+        show_post_cat,
+        show_post_date,
+        show_post_b_b,
         pagination_style
     } = attributes;
 
     //set block preview
     if (preview) {
-        return CATEGORY_PREVIEW;
+        return USER_PREVIEW;
     }
 
     const newClintID = clientId.substr(0, 6);
@@ -86,6 +100,8 @@ const Edit = (props) => {
             method: 'POST',
             data: {
                 layout,
+                dark_mode,
+                layout_reverse,
                 name_tag,
                 uniqueId,
                 users_lists,
@@ -116,9 +132,21 @@ const Edit = (props) => {
                 multiple_bg,
                 hr_2_visibility,
                 button_style,
+                button_text,
                 social_style,
+                social_position,
+                social_show_on,
                 lift_box_hover,
                 pagination_visibility,
+                post_visibility,
+                post_box_style,
+                post_number,
+                post_type,
+                main_title_text,
+                show_post_img,
+                show_post_cat,
+                show_post_date,
+                show_post_b_b,
                 pagination_style
             }
         }).then((data) => {
@@ -126,6 +154,7 @@ const Edit = (props) => {
             setUsers(data)
         });
     }
+
     const fetch_users_data_inspector = () => {
         signalController?.abort();
         setSignalController(controller);

@@ -71,7 +71,7 @@
     .dowp-controll-heading {
         font-size: 12px;
         font-weight: bold;
-        border-bottom: 1px solid #DDD;
+        border-bottom: 1px solid var(--dowp-border2);
         padding-bottom: 5px;
     }
 
@@ -127,7 +127,7 @@
         .components-input-control__container {
             height: 34px;
             overflow: hidden;
-            border: 1px solid #DDD;
+            border: 1px solid var(--dowp-border2);
             > * {
                 height: 34px !important;
                 border: none !important;
@@ -136,8 +136,8 @@
                 }
             }
             .components-input-control__input {
-                border-left: 1px solid #DDD !important;
-                border-right: 1px solid #DDD !important;
+                border-left: 1px solid var(--dowp-border2) !important;
+                border-right: 1px solid var(--dowp-border2) !important;
                 padding: 0 3px;
                 min-width: 28px !important;
                 text-align: center;
@@ -410,7 +410,7 @@
 
     .dowp-control-field.label-inline.dowp-expand .components-text-control__input,
     .dowp-control-field.label-inline.dowp-expand .components-input-control__container {
-        max-width: 160px;
+        max-width: 120px;
         margin-left: 10px;
     }
 
@@ -470,6 +470,24 @@
     }
 
 
+    .dowp-control-field.pro-field {
+        position: relative;
+        &:before {
+            content: "Pro";
+            position: absolute;
+            right: 0;
+            padding: 4px 7px;
+            background: #F00;
+            border-radius: 3px;
+            z-index: 999;
+            line-height: 1;
+            color: #FFF;
+            font-size: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+            top: 0;
+        }
+    }
     .components-base-control .dowp-units-choices,
     .dowp-control-field .dowp-units-choices {
         display: flex;
@@ -612,7 +630,7 @@
 }
 
 .dowp-tab-panel .is-opened .components-panel__body-toggle.components-button {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--dowp-border2);
 }
 
 .dowp-tab-panel .components-panel__body > .components-panel__body-title:hover {

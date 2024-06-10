@@ -22,7 +22,8 @@ export default function FieldVisibility(props) {
         hr_2_visibility,
         should_show_hr1,
         should_show_btn,
-        pagination_visibility
+        pagination_visibility,
+        post_visibility
     } = attributes;
 
 
@@ -40,7 +41,7 @@ export default function FieldVisibility(props) {
     return (
         <PanelBody title={__('Field Visibility', 'user-grid')} initialOpen={true}>
 
-            <h3>{__("User Content Visibility", "user-grid")}</h3>
+            <h3 className={`dowp-controll-heading`}>{__("User Content Visibility", "user-grid")}</h3>
 
             <ToggleControl
                 label={__("Image", "user-grid")}
@@ -154,7 +155,7 @@ export default function FieldVisibility(props) {
                 }}
             />
             <hr/>
-            <h3>{__("Others Visibility", "user-grid")}</h3>
+            <h3 className={`dowp-controll-heading`}>{__("Others Visibility", "user-grid")}</h3>
 
             <ToggleControl
                 label={__("Pagination", "user-grid")}
@@ -162,6 +163,16 @@ export default function FieldVisibility(props) {
                 checked={pagination_visibility}
                 onChange={(pagination_visibility) => {
                     setAttributes({pagination_visibility: pagination_visibility ? 'show' : ''});
+                    changeQuery();
+                }}
+            />
+
+            <ToggleControl
+                label={__("Recent Post", "user-grid")}
+                className="dowp-toggle-control-field"
+                checked={post_visibility}
+                onChange={(post_visibility) => {
+                    setAttributes({post_visibility: post_visibility ? 'show' : ''});
                     changeQuery();
                 }}
             />
