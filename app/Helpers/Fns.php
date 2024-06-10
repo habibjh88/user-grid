@@ -592,33 +592,43 @@ class Fns {
 	 *
 	 * @return void
 	 */
-	public static function pagination( $total_user, $user_limit = 6 ) {
-		global $wp;
+	public static function pagination( $user_query, $data ) {
+
+		if ( ! isset( $user_query->total_users ) && 'show' !== $data['pagination_visibility'] ) {
+			return;
+		}
+        $total_user = $user_query->total_users;
+		$user_limit  = ! empty( $data['user_limit'] ) ? esc_html( $data['user_limit'] ) : 6;
 		$total_pages = ceil( $total_user / $user_limit );
 		$paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-		$current_url = home_url( add_query_arg( array(), $wp->request ) );
-		$current_url = remove_query_arg( 'paged', $current_url );
-
-		if ( strpos( $current_url, '?' ) === false ) {
-			$format   = '?paged=%#%';
-			$base_url = trailingslashit( $current_url ) . '%_%';
+		if ( ! empty( $_GET ) ) {
+			$format = '&paged=%#%';
 		} else {
-			$format   = '&paged=%#%';
-			$base_url = get_pagenum_link( 1 ) . '%_%';
+			$format = '?paged=%#%';
 		}
 		echo "<div class='dowp-pagination'>";
-		echo paginate_links(
+		echo paginate_links( [
+			'base'      => get_pagenum_link() . '%_%',
+			'format'    => $format,
+			'current'   => $paged,
+			'total'     => $total_pages,
+			'prev_text' => __( 'Prev', 'user-grid' ),
+			'next_text' => __( 'Next', 'user-grid' ),
+			'type'      => 'list',
+		] );
+		echo "</div>";
+
+		/*echo paginate_links(
 			[
-				'base'      => $base_url,
-				'format'    => $format,
+				'base'      => get_pagenum_link( 1 ) . '%_%',
+				'format'    => '&paged=%#%',
 				'current'   => $paged,
 				'total'     => $total_pages,
-				'prev_text' => __( 'Prev', 'user-grid' ),
-				'next_text' => __( 'Next', 'user-grid' ),
+				'prev_text' => 'Previous',
+				'next_text' => 'Next',
 				'type'      => 'list',
 			]
-		);
-		echo '</div>';
+		);*/
 	}
 
 	/**

@@ -37,7 +37,7 @@ export default function PhoneSettings(props) {
             />
 
             <Color
-                label={__('Color', 'user-grid')}
+                label={__('Color - Hover', 'user-grid')}
                 color={phone_color_hover}
                 onChange={(phone_color_hover) => setAttributes({phone_color_hover})}
             />

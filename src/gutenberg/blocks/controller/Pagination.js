@@ -1,16 +1,18 @@
 import {__} from "@wordpress/i18n";
-import {PanelBody, SelectControl} from '@wordpress/components';
-import {Dimension, Color, Typography} from "../../components/Components";
+import {__experimentalNumberControl as NumberControl, PanelBody, SelectControl} from '@wordpress/components';
+import {Dimension, Color, Typography, Alignment, RangeDevice} from "../../components/Components";
 import {BUTTON_STYLE, PAGINATION_STYLE} from "../../components/Constants";
 
 export default function Pagination(props) {
-    const {attributes, setAttributes} = props.data;
+    const {attributes, setAttributes, changeQuery} = props.data;
     //All attribute
     const {
         pagination_style,
+        pagination_alignment,
         pagination_typography,
         pagination_spacing,
         pagination_color,
+        pagination_gap
     } = attributes;
 
     return (
@@ -24,6 +26,16 @@ export default function Pagination(props) {
                 onChange={(pagination_style) => {
                     setAttributes({pagination_style})
                     changeQuery()
+                }}
+            />
+
+            <Alignment
+                label={__("Alignment", "user-grid")}
+                options={['left', 'center', 'right']}
+                value={pagination_alignment}
+                responsive
+                onChange={pagination_alignment => {
+                    setAttributes({pagination_alignment})
                 }}
             />
 
@@ -41,6 +53,21 @@ export default function Pagination(props) {
                     setAttributes({pagination_spacing: value})
                     changeQuery()
                 }}
+            />
+
+            <NumberControl
+                isShiftStepEnabled
+                label={__("Item Gap (px)", "user-grid")}
+                max={100}
+                min={0}
+                value={pagination_gap}
+                onChange={(pagination_gap) => {
+                    setAttributes({pagination_gap})
+                }}
+                placeholder={__("Eg. 10", "user-grid")}
+                shiftStep={10}
+                step="1"
+                className="dowp-control-field label-inline"
             />
 
             <Color

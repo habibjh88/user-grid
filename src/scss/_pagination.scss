@@ -1,5 +1,4 @@
 .dowp-pagination {
-    text-align: center;
     ul {
         list-style: none;
         margin: 0;
@@ -7,6 +6,8 @@
         justify-content: center;
         align-items: center;
         gap: 2px;
+        padding: 0;
+
         li {
             > * {
                 display: block;
@@ -22,6 +23,13 @@
             }
         }
     }
+    .nav-default {
+        li {
+           > * {
+               background: #f6f5f5;
+           }
+       }
+    }
 
     .nav-round & {
         ul {
@@ -33,7 +41,10 @@
     .nav-border & {
         ul {
            li {
-               border: 1px solid var(--dowp-border2);
+               border: 1px solid #DDD;
+               > * {
+                   background: none;
+               }
            }
         }
     }
