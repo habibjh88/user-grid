@@ -144,6 +144,11 @@ export const PAGINATION_STYLE = [
     {value: 'nav-border', label: __('Border Style', 'user-grid')},
 ];
 
+export const PAGINATION_TYPE = [
+    {value: 'default-pgn', label: __('Default', 'user-grid')},
+    {value: 'load-more-pgn', label: __('Load More', 'user-grid')},
+];
+
 export const SOCIAL_STYLE = [
     {value: 'social-default', label: __('Default', 'user-grid')},
     {value: 'social-border-square', label: __('Border Square', 'user-grid')},

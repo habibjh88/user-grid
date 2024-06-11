@@ -191,6 +191,7 @@ class Attributes {
 
 	public static function pagination() {
 		return [
+			'pagination_type'       => [ 'type' => 'string', 'default' => 'default-pgn' ],
 			'pagination_style'      => [ 'type' => 'string', 'default' => 'nav-default' ],
 			'pagination_gap'        => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .dowp-pagination .page-numbers {gap: {{pagination_gap}}px; }', ], ], ],
 			'pagination_alignment'  => [ 'type' => 'string', 'default' => 'left', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .dowp-pagination {text-align: {{pagination_alignment}}; }', ], ], ],

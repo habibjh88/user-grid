@@ -1,12 +1,13 @@
 import {__} from "@wordpress/i18n";
 import {__experimentalNumberControl as NumberControl, PanelBody, SelectControl} from '@wordpress/components';
 import {Dimension, Color, Typography, Alignment, RangeDevice} from "../../components/Components";
-import {BUTTON_STYLE, PAGINATION_STYLE} from "../../components/Constants";
+import {BUTTON_STYLE, PAGINATION_STYLE, PAGINATION_TYPE} from "../../components/Constants";
 
 export default function Pagination(props) {
     const {attributes, setAttributes, changeQuery} = props.data;
     //All attribute
     const {
+        pagination_type,
         pagination_style,
         pagination_alignment,
         pagination_typography,
@@ -17,6 +18,17 @@ export default function Pagination(props) {
 
     return (
         <PanelBody title={__('Pagination', 'user-grid')} initialOpen={false}>
+
+            <SelectControl
+                label={__("Type", "user-grid")}
+                className="dowp-control-field label-inline dowp-expand"
+                value={pagination_type}
+                options={PAGINATION_TYPE}
+                onChange={(pagination_type) => {
+                    setAttributes({pagination_type})
+                    changeQuery()
+                }}
+            />
 
             <SelectControl
                 label={__("Pagination Style", "user-grid")}

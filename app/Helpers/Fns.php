@@ -286,7 +286,7 @@ class Fns {
 
 		<?php
 	}
-	
+
 	/**
 	 * Social List
 	 *
@@ -380,6 +380,7 @@ class Fns {
 		$inner_class[] = $data['social_style'];
 		$inner_class[] = $data['social_show_on'];
 		$inner_class[] = $data['social_position'];
+		$inner_class[] = $data['pagination_type'];
 		$inner_class[] = $data['post_box_style'];
 		$inner_class[] = ( $data['show_post_b_b'] ? 'show-p-b' : '' );
 		$inner_class[] = $data['lift_box_hover'];
@@ -597,38 +598,44 @@ class Fns {
 		if ( ! isset( $user_query->total_users ) && 'show' !== $data['pagination_visibility'] ) {
 			return;
 		}
-        $total_user = $user_query->total_users;
+		$total_user  = $user_query->total_users;
 		$user_limit  = ! empty( $data['user_limit'] ) ? esc_html( $data['user_limit'] ) : 6;
 		$total_pages = ceil( $total_user / $user_limit );
 		$paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+		// default-pgn
+
+		if ( 'load-more-pgn' === $data['pagination_type'] ) {
+
+			?>
+			<button
+				class="user-loadmore-btn dowpLoadMore"
+				data-perPage="<?php echo esc_attr( $user_limit ) ?>"
+				data-totalUsers="<?php echo esc_attr( $total_user ) ?>"
+				data-totalPage="<?php echo esc_attr( $total_pages ) ?>"
+				data-paged="<?php echo esc_attr( $paged ) ?>"
+			>Load More</button>
+
+<?php
+		}
+		//phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		if ( ! empty( $_GET ) ) {
 			$format = '&paged=%#%';
 		} else {
 			$format = '?paged=%#%';
 		}
 		echo "<div class='dowp-pagination'>";
-		echo paginate_links( [
-			'base'      => get_pagenum_link() . '%_%',
-			'format'    => $format,
-			'current'   => $paged,
-			'total'     => $total_pages,
-			'prev_text' => __( 'Prev', 'user-grid' ),
-			'next_text' => __( 'Next', 'user-grid' ),
-			'type'      => 'list',
-		] );
-		echo "</div>";
-
-		/*echo paginate_links(
+		echo paginate_links(
 			[
-				'base'      => get_pagenum_link( 1 ) . '%_%',
-				'format'    => '&paged=%#%',
+				'base'      => get_pagenum_link() . '%_%',
+				'format'    => $format,
 				'current'   => $paged,
 				'total'     => $total_pages,
-				'prev_text' => 'Previous',
-				'next_text' => 'Next',
+				'prev_text' => __( 'Prev', 'user-grid' ),
+				'next_text' => __( 'Next', 'user-grid' ),
 				'type'      => 'list',
 			]
-		);*/
+		);
+		echo '</div>';
 	}
 
 	/**
