@@ -206,11 +206,11 @@ class Attributes {
 		return [
 			'post_type_list'        => [ 'type' => 'object', 'default' => $post_type ],
 			'post_type'             => [ 'type' => 'string', 'default' => 'post' ],
-			'show_post_img'         => [ 'type' => 'string', 'default' => 'show' ],
+			'show_post_img'         => [ 'type' => 'string', 'default' => '' ],
 			'show_post_cat'         => [ 'type' => 'string', 'default' => 'show' ],
 			'show_post_date'        => [ 'type' => 'string', 'default' => 'show' ],
 			'show_post_b_b'         => [ 'type' => 'string', 'default' => 'show' ],
-			'main_title_text'       => [ 'type' => 'string', 'default' => __( 'Recent Post', 'user-grid' ) ],
+			'main_title_text'       => [ 'type' => 'string', 'default' => '' ],
 			'post_box_style'        => [ 'type' => 'string', 'default' => 'pbox-d' ],
 			'post_number'           => [ 'type' => 'string', 'default' => '3' ],
 			'post_main_title_typo'  => [ 'type' => 'object', 'default' => (object) [ 'openTypography' => 1, 'size' => (object) [ 'lg' => '', 'unit' => 'px', ], 'spacing' => (object) [ 'lg' => '', 'unit' => 'px', ], 'height' => (object) [ 'lg' => '', 'unit' => 'px', ], 'transform' => '', 'weight' => '', ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-recent-posts .recent-posts-title' ], ], ],
