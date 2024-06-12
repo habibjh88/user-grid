@@ -21,10 +21,11 @@ class RenderContent {
 
 	public static function get_render_content( $data ) {
 
-		$user_query     = new \WP_User_Query( Fns::user_query_args( $data ) );
-		$uniqueId       = $data['uniqueId'] ?? null;
-		$wrapper_class  = 'dowp-block-usergrid dowp-block-' . $uniqueId;
-		$wrapper_class .= 'yes' == $data['image_link'] ? '' : ' no-image-link';
+		$post_query_args = Fns::user_query_args( $data );
+		$user_query      = new \WP_User_Query( $post_query_args );
+		$uniqueId        = $data['uniqueId'] ?? null;
+		$wrapper_class   = 'dowp-block-usergrid dowp-block-' . $uniqueId;
+		$wrapper_class  .= 'yes' == $data['image_link'] ? '' : ' no-image-link';
 
 		// Multiple Background.
 		$multiple_bg      = $data['multiple_bg'] ? esc_attr( $data['multiple_bg'] ) : '';
@@ -36,8 +37,10 @@ class RenderContent {
 		?>
 
 		<div class="<?php echo esc_attr( $wrapper_class ); ?>">
-			<div
-				class="dowp-users-block-wrapper clearfix <?php echo esc_attr( $inner_class ); ?>">
+			<div class="dowp-users-block-wrapper clearfix <?php echo esc_attr( $inner_class ); ?>"
+				 data-layout-args='<?php echo esc_attr( htmlspecialchars( wp_json_encode( $layout_data ), true ) ); ?>'
+				 data-post-args='<?php echo esc_attr( htmlspecialchars( wp_json_encode( $post_query_args ), true ) ); ?>'
+			>
 				<?php if ( ! empty( $user_query->results ) ) { ?>
 					<div class="dowp-row">
 						<?php

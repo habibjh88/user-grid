@@ -140,8 +140,8 @@ class Fns {
 
 	/**
 	 * @param        $template_name
-	 * @param string        $template_path
-	 * @param string        $default_path
+	 * @param string $template_path
+	 * @param string $default_path
 	 *
 	 * @return mixed|void
 	 */
@@ -171,7 +171,7 @@ class Fns {
 	 * Template Content
 	 *
 	 * @param string $template_name Template name.
-	 * @param array  $args Arguments. (default: array).
+	 * @param array $args Arguments. (default: array).
 	 * @param string $template_path Template path. (default: '').
 	 * @param string $default_path Default path. (default: '').
 	 */
@@ -233,56 +233,56 @@ class Fns {
 
 		?>
 
-		<ul class="dowp-social-list">
+        <ul class="dowp-social-list">
 			<?php if ( $share_icon ) { ?>
-			<li>
-				<a href="#" class="share-icon"><?php SvgIcons::get_svg( 'share' ); ?></a>
-				<ul>
+            <li>
+                <a href="#" class="share-icon"><?php SvgIcons::get_svg( 'share' ); ?></a>
+                <ul>
 					<?php
-			}
+					}
 
-			foreach ( $social_list as $icon => $label ) {
-				$meta_key   = "user_grid_{$icon}";
-				$meta_value = get_user_meta( $user_id, $meta_key, true );
+					foreach ( $social_list as $icon => $label ) {
+						$meta_key   = "user_grid_{$icon}";
+						$meta_value = get_user_meta( $user_id, $meta_key, true );
 
-				if ( $meta_value ) {
-					?>
-							<li>
-								<a class="<?php echo esc_attr( $icon ); ?>"
-								   href="<?php echo esc_url( $meta_value ); ?>">
-							<?php SvgIcons::get_svg( $icon ); ?>
-								</a>
-							</li>
+						if ( $meta_value ) {
+							?>
+                            <li>
+                                <a class="<?php echo esc_attr( $icon ); ?>"
+                                   href="<?php echo esc_url( $meta_value ); ?>">
+									<?php SvgIcons::get_svg( $icon ); ?>
+                                </a>
+                            </li>
 							<?php
-				}
-			}
+						}
+					}
 
-			if ( $email_visibility !== 'show' ) {
-				?>
-						<li>
-							<a class="pinterest"
-							   href="mailto:<?php echo esc_attr( $email ); ?>"><?php SvgIcons::get_svg( 'email' ); ?></a>
-						</li>
+					if ( $email_visibility !== 'show' ) {
+						?>
+                        <li>
+                            <a class="pinterest"
+                               href="mailto:<?php echo esc_attr( $email ); ?>"><?php SvgIcons::get_svg( 'email' ); ?></a>
+                        </li>
 						<?php
-			}
-			if ( $phone_visibility !== 'show' ) {
-				$phone = get_user_meta( $user_id, 'user_grid_phone', true );
-				?>
-						<li>
-							<a class="phone"
-							   href="call:<?php echo esc_attr( $phone ); ?>"><?php SvgIcons::get_svg( 'phone' ); ?></a>
-						</li>
+					}
+					if ( $phone_visibility !== 'show' ) {
+						$phone = get_user_meta( $user_id, 'user_grid_phone', true );
+						?>
+                        <li>
+                            <a class="phone"
+                               href="call:<?php echo esc_attr( $phone ); ?>"><?php SvgIcons::get_svg( 'phone' ); ?></a>
+                        </li>
 						<?php
-			}
-			if ( $share_icon ) {
-				?>
-				</ul>
-			</li>
-				<?php
-			}
-			?>
+					}
+					if ( $share_icon ) {
+					?>
+                </ul>
+            </li>
+		<?php
+		}
+		?>
 
-		</ul>
+        </ul>
 
 		<?php
 	}
@@ -428,6 +428,8 @@ class Fns {
 		$template_data = [
 			'layout'           => $data['layout'],
 			'grid_column'      => $data['grid_column'],
+			'multiple_bg'      => $data['multiple_bg'],
+			'user_limit'       => $data['user_limit'] ?? 6,
 			'button_args'      => [
 				'button_visibility' => $data['button_visibility'],
 				'button_text'       => $data['button_text'],
@@ -499,12 +501,12 @@ class Fns {
 		$avatar_size      = [ 'size' => $avatar_dimension ?? $default_size ];
 		$avater_image_url = get_avatar_url( $user_id, $avatar_size );
 		?>
-		<a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
-			<img width="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-				 height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-				 src="<?php echo esc_url( $avater_image_url ); ?>"
-				 alt="<?php echo esc_html( $alt_txt ); ?>"/>
-		</a>
+        <a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
+            <img width="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
+                 height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
+                 src="<?php echo esc_url( $avater_image_url ); ?>"
+                 alt="<?php echo esc_html( $alt_txt ); ?>"/>
+        </a>
 		<?php
 	}
 
@@ -607,15 +609,16 @@ class Fns {
 		if ( 'load-more-pgn' === $data['pagination_type'] ) {
 
 			?>
-			<button
-				class="user-loadmore-btn dowpLoadMore"
-				data-perPage="<?php echo esc_attr( $user_limit ) ?>"
-				data-totalUsers="<?php echo esc_attr( $total_user ) ?>"
-				data-totalPage="<?php echo esc_attr( $total_pages ) ?>"
-				data-paged="<?php echo esc_attr( $paged ) ?>"
-			>Load More</button>
+            <button
+                    class="user-loadmore-btn dowpLoadMore"
+                    data-perPage="<?php echo esc_attr( $user_limit ) ?>"
+                    data-totalUsers="<?php echo esc_attr( $total_user ) ?>"
+                    data-totalPage="<?php echo esc_attr( $total_pages ) ?>"
+                    data-paged="<?php echo esc_attr( $paged ) ?>"
+            >Load More
+            </button>
 
-<?php
+			<?php
 		}
 		//phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		if ( ! empty( $_GET ) ) {
