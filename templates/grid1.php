@@ -43,7 +43,6 @@ $col_class = TemplateFns::get_dynamic_cols( $grid_column );
 			$image_args['alt_txt'] = $display_name;
 			TemplateFns::layout_image_with_social( $user_id, $image_args );
 		?>
-
 		<div class="user-content-wrap">
 			<?php TemplateFns::user_name( $user_id, $display_name, $name_args ); ?>
 			<?php TemplateFns::hr_1( $hr1_args ); ?>

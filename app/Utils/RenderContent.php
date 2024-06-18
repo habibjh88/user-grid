@@ -34,12 +34,19 @@ class RenderContent {
 
 		$layout_data = Fns::get_post_args( $data );
 		$inner_class = Fns::inner_class( $data );
+		$nav_data    = [
+			'pagination_visibility' => $data['pagination_visibility'],
+			'user_limit'            => $data['user_limit'],
+			'pagination_type'       => $data['pagination_type'],
+			'load_more_label'       => $data['load_more_label'],
+		];
 		?>
 
 		<div class="<?php echo esc_attr( $wrapper_class ); ?>">
 			<div class="dowp-users-block-wrapper clearfix <?php echo esc_attr( $inner_class ); ?>"
 				 data-layout-args='<?php echo esc_attr( htmlspecialchars( wp_json_encode( $layout_data ), true ) ); ?>'
 				 data-post-args='<?php echo esc_attr( htmlspecialchars( wp_json_encode( $post_query_args ), true ) ); ?>'
+				 data-nav-args='<?php echo esc_attr( htmlspecialchars( wp_json_encode( $nav_data ), true ) ); ?>'
 			>
 				<?php if ( ! empty( $user_query->results ) ) { ?>
 					<div class="dowp-row">
@@ -72,7 +79,7 @@ class RenderContent {
 					<?php
 				}
 				?>
-				<?php Fns::pagination( $user_query, $data ); ?>
+				<?php Fns::pagination( $user_query, $nav_data ); ?>
 			</div>
 		</div>
 		<?php

@@ -1,5 +1,10 @@
 import {__} from "@wordpress/i18n";
-import {__experimentalNumberControl as NumberControl, PanelBody, SelectControl} from '@wordpress/components';
+import {
+    __experimentalNumberControl as NumberControl,
+    PanelBody,
+    SelectControl,
+    TextControl
+} from '@wordpress/components';
 import {Dimension, Color, Typography, Alignment, RangeDevice} from "../../components/Components";
 import {BUTTON_STYLE, PAGINATION_STYLE, PAGINATION_TYPE} from "../../components/Constants";
 
@@ -8,6 +13,7 @@ export default function Pagination(props) {
     //All attribute
     const {
         pagination_type,
+        load_more_label,
         pagination_style,
         pagination_alignment,
         pagination_typography,
@@ -29,7 +35,18 @@ export default function Pagination(props) {
                     changeQuery()
                 }}
             />
-
+            {'load-more-pgn' === pagination_type &&
+                <TextControl
+                    autocomplete="off"
+                    label={__("Load More label", "user-grid")}
+                    value={load_more_label}
+                    placeholder="Eg. Load More"
+                    onChange={(load_more_label) => {
+                        setAttributes({load_more_label})
+                        changeQuery();
+                    }}
+                />
+            }
             <SelectControl
                 label={__("Pagination Style", "user-grid")}
                 className="dowp-control-field label-inline dowp-expand"

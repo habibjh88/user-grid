@@ -233,11 +233,11 @@ class Fns {
 
 		?>
 
-        <ul class="dowp-social-list">
+		<ul class="dowp-social-list">
 			<?php if ( $share_icon ) { ?>
-            <li>
-                <a href="#" class="share-icon"><?php SvgIcons::get_svg( 'share' ); ?></a>
-                <ul>
+			<li>
+				<a href="#" class="share-icon"><?php SvgIcons::get_svg( 'share' ); ?></a>
+				<ul>
 					<?php
 					}
 
@@ -247,42 +247,42 @@ class Fns {
 
 						if ( $meta_value ) {
 							?>
-                            <li>
-                                <a class="<?php echo esc_attr( $icon ); ?>"
-                                   href="<?php echo esc_url( $meta_value ); ?>">
+							<li>
+								<a class="<?php echo esc_attr( $icon ); ?>"
+								   href="<?php echo esc_url( $meta_value ); ?>">
 									<?php SvgIcons::get_svg( $icon ); ?>
-                                </a>
-                            </li>
+								</a>
+							</li>
 							<?php
 						}
 					}
 
 					if ( $email_visibility !== 'show' ) {
 						?>
-                        <li>
-                            <a class="pinterest"
-                               href="mailto:<?php echo esc_attr( $email ); ?>"><?php SvgIcons::get_svg( 'email' ); ?></a>
-                        </li>
+						<li>
+							<a class="pinterest"
+							   href="mailto:<?php echo esc_attr( $email ); ?>"><?php SvgIcons::get_svg( 'email' ); ?></a>
+						</li>
 						<?php
 					}
 					if ( $phone_visibility !== 'show' ) {
 						$phone = get_user_meta( $user_id, 'user_grid_phone', true );
 						?>
-                        <li>
-                            <a class="phone"
-                               href="call:<?php echo esc_attr( $phone ); ?>"><?php SvgIcons::get_svg( 'phone' ); ?></a>
-                        </li>
+						<li>
+							<a class="phone"
+							   href="call:<?php echo esc_attr( $phone ); ?>"><?php SvgIcons::get_svg( 'phone' ); ?></a>
+						</li>
 						<?php
 					}
 					if ( $share_icon ) {
 					?>
-                </ul>
-            </li>
+				</ul>
+			</li>
 		<?php
 		}
 		?>
 
-        </ul>
+		</ul>
 
 		<?php
 	}
@@ -501,12 +501,12 @@ class Fns {
 		$avatar_size      = [ 'size' => $avatar_dimension ?? $default_size ];
 		$avater_image_url = get_avatar_url( $user_id, $avatar_size );
 		?>
-        <a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
-            <img width="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-                 height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-                 src="<?php echo esc_url( $avater_image_url ); ?>"
-                 alt="<?php echo esc_html( $alt_txt ); ?>"/>
-        </a>
+		<a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
+			<img width="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
+			     height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
+			     src="<?php echo esc_url( $avater_image_url ); ?>"
+			     alt="<?php echo esc_html( $alt_txt ); ?>"/>
+		</a>
 		<?php
 	}
 
@@ -597,28 +597,32 @@ class Fns {
 	 */
 	public static function pagination( $user_query, $data ) {
 
+
 		if ( ! isset( $user_query->total_users ) && 'show' !== $data['pagination_visibility'] ) {
 			return;
 		}
 		$total_user  = $user_query->total_users;
 		$user_limit  = ! empty( $data['user_limit'] ) ? esc_html( $data['user_limit'] ) : 6;
 		$total_pages = ceil( $total_user / $user_limit );
-		$paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+		if ( ! empty( $data['current_page'] ) ) {
+			$paged = $data['current_page'];
+		} else {
+			$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+		}
 		// default-pgn
 
 		if ( 'load-more-pgn' === $data['pagination_type'] ) {
-
 			?>
-            <button
-                    class="user-loadmore-btn dowpLoadMore"
-                    data-perPage="<?php echo esc_attr( $user_limit ) ?>"
-                    data-totalUsers="<?php echo esc_attr( $total_user ) ?>"
-                    data-totalPage="<?php echo esc_attr( $total_pages ) ?>"
-                    data-paged="<?php echo esc_attr( $paged ) ?>"
-            >Load More
-            </button>
-
+			<button
+				class="user-loadmore-btn dowpLoadMore"
+				data-perPage="<?php echo esc_attr( $user_limit ); ?>"
+				data-totalUsers="<?php echo esc_attr( $total_user ); ?>"
+				data-totalPage="<?php echo esc_attr( $total_pages ); ?>"
+				data-paged="<?php echo esc_attr( $paged ); ?>"
+			><?php echo esc_html( $data['load_more_label'] ); ?>
+			</button>
 			<?php
+		} else {
 		}
 		//phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		if ( ! empty( $_GET ) ) {
@@ -631,7 +635,7 @@ class Fns {
 			[
 				'base'      => get_pagenum_link() . '%_%',
 				'format'    => $format,
-				'current'   => $paged,
+				'current'   => max( 1, $paged ),
 				'total'     => $total_pages,
 				'prev_text' => __( 'Prev', 'user-grid' ),
 				'next_text' => __( 'Next', 'user-grid' ),
@@ -639,6 +643,7 @@ class Fns {
 			]
 		);
 		echo '</div>';
+
 	}
 
 	/**
