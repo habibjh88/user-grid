@@ -354,9 +354,9 @@ class Fns {
 			case 'grid10':
 				$classes = 'need-multiple-bg';
 				break;
-			// case 'grid12':
-			// $classes = ' dowp-grid3';
-			// break;
+//			 case 'slider1':
+//			 $classes = ' dowp-grid1 grid-layout';
+//			 break;
 		}
 
 		return $classes;

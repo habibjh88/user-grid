@@ -6,6 +6,7 @@ use DOWP\UserGrid\Helpers\Fns;
 use DOWP\UserGrid\Abstract\BlockBase;
 use DOWP\UserGrid\Utils\Attributes;
 use DOWP\UserGrid\Utils\RenderContent;
+use DOWP\UserGrid\Utils\RenderSlider;
 
 /**
  * UserBlock Class
@@ -94,7 +95,11 @@ class UserBlock extends BlockBase {
 	 */
 	public function render_block( $data ) {
 		ob_start();
-		RenderContent::get_render_content( $data );
+		if (strpos($data['layout'], 'slider') !== false) {
+			RenderSlider::get_render_content( $data );
+		} else {
+			RenderContent::get_render_content( $data );
+		}
 		return ob_get_clean();
 	}
 }

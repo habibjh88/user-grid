@@ -21,6 +21,9 @@ const LayoutStyle = (props) => {
         defaultData = options.list;
     }
 
+    if ('slider' === layout_style) {
+        defaultData = options.slider;
+    }
 
     const freeLayout = ['grid1', 'grid2', 'grid3', 'list1', 'list2', 'list3', 'slider1'];
 

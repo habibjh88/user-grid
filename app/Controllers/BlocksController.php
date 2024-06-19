@@ -113,6 +113,7 @@ class BlocksController {
 		}
 
 		wp_enqueue_style( 'dowp-block' );
+		wp_enqueue_script( 'dowp-script' );
 	}
 
 

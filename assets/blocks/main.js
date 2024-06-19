@@ -2741,7 +2741,8 @@ const getKeysByPrefix = (obj, prefix) => {
 // Create the final object with arrays of keys
 const DOWP_LAYOUT = {
   grid: getKeysByPrefix(_utils_LyaoutIcons__WEBPACK_IMPORTED_MODULE_5__.styleIcon, 'grid'),
-  list: getKeysByPrefix(_utils_LyaoutIcons__WEBPACK_IMPORTED_MODULE_5__.styleIcon, 'list')
+  list: getKeysByPrefix(_utils_LyaoutIcons__WEBPACK_IMPORTED_MODULE_5__.styleIcon, 'list'),
+  slider: getKeysByPrefix(_utils_LyaoutIcons__WEBPACK_IMPORTED_MODULE_5__.styleIcon, 'slider')
 };
 function ContentLayout(props) {
   const {
@@ -2765,6 +2766,10 @@ function ContentLayout(props) {
     if (layout.indexOf('list') != '-1') {
       setAttributes({
         layout_style: 'list'
+      });
+    } else if (layout.indexOf('slider') != '-1') {
+      setAttributes({
+        layout_style: 'slider'
       });
     } else {
       setAttributes({
@@ -5809,11 +5814,15 @@ const BACKGROUND_TYPE = [{
 const GRID_LAYOUT_OPT = [{
   value: 'grid',
   icon: _icon_icons__WEBPACK_IMPORTED_MODULE_1__["default"].layout1,
-  label: __('Grid Layout')
+  label: __('Grid')
 }, {
   value: 'list',
   icon: _icon_icons__WEBPACK_IMPORTED_MODULE_1__["default"].layout2,
-  label: __('List Layout')
+  label: __('List')
+}, {
+  value: 'slider',
+  icon: _icon_icons__WEBPACK_IMPORTED_MODULE_1__["default"].layout3,
+  label: __('Slider')
 }];
 const BACKGROUND_POSITION = [{
   label: __("Default", "user-grid"),
@@ -6753,6 +6762,9 @@ const LayoutStyle = props => {
   if ('list' === layout_style) {
     defaultData = options.list;
   }
+  if ('slider' === layout_style) {
+    defaultData = options.slider;
+  }
   const freeLayout = ['grid1', 'grid2', 'grid3', 'list1', 'list2', 'list3', 'slider1'];
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "dowp-control-field components-base-control dowp-cf-layout-style"
@@ -7673,12 +7685,16 @@ const icons = {};
 const img_path = dowpParams.plugin_url + '/assets/images';
 icons.usergrid_logo = `${img_path}/user-grid-logo.svg`;
 icons.layout1 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-  src: `${img_path}/layouts/grid-1.svg`,
-  alt: __('Grid Layout 1')
+  src: `${img_path}/layouts/grid.svg`,
+  alt: __('Grid Layout')
 });
 icons.layout2 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-  src: `${img_path}/layouts/list-1.svg`,
-  alt: __('Grid Layout 2')
+  src: `${img_path}/layouts/list.svg`,
+  alt: __('Grid Layout')
+});
+icons.layout3 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+  src: `${img_path}/layouts/slider.svg`,
+  alt: __('Slider Layout')
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (icons);
 
@@ -10259,6 +10275,227 @@ const styleIcon = {
   }))),
   list12: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('List 12')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    width: "76",
+    height: "36",
+    viewBox: "0 0 76 36",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    width: "75.66",
+    height: "36",
+    fill: "white"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "6.53945",
+    y: "6.33792",
+    width: "62.5812",
+    height: "23.3243",
+    rx: "0.9",
+    fill: "#E6EEF3",
+    stroke: "#7CB0D0",
+    "stroke-width": "0.2"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "31.5107",
+    y1: "15.7",
+    x2: "63.4629",
+    y2: "15.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "31.5107",
+    y1: "19.7",
+    x2: "52.4718",
+    y2: "19.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "31.5107",
+    y1: "11.7",
+    x2: "45.1796",
+    y2: "11.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "31.5107",
+    y1: "23.7",
+    x2: "55.1916",
+    y2: "23.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+    cx: "18.5857",
+    cy: "18",
+    r: "8.50366",
+    fill: "#4EBFFF"
+  }))),
+  //Slider Icons
+  slider1: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Slider 1')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    width: "76",
+    height: "36",
+    viewBox: "0 0 76 36",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    width: "75.66",
+    height: "36",
+    fill: "white"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "6.53945",
+    y: "6.33792",
+    width: "62.5812",
+    height: "23.3243",
+    rx: "0.9",
+    fill: "#E6EEF3",
+    stroke: "#7CB0D0",
+    "stroke-width": "0.2"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "31.5107",
+    y1: "15.7",
+    x2: "63.4629",
+    y2: "15.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "31.5107",
+    y1: "19.7",
+    x2: "52.4718",
+    y2: "19.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "31.5107",
+    y1: "11.7",
+    x2: "45.1796",
+    y2: "11.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "31.5107",
+    y1: "23.7",
+    x2: "55.1916",
+    y2: "23.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+    cx: "18.5857",
+    cy: "18",
+    r: "8.50366",
+    fill: "#4EBFFF"
+  }))),
+  slider2: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Slider 2')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    width: "76",
+    height: "36",
+    viewBox: "0 0 76 36",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    width: "75.66",
+    height: "36",
+    fill: "white"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "6.53945",
+    y: "6.33792",
+    width: "62.5812",
+    height: "23.3243",
+    rx: "0.9",
+    fill: "#E6EEF3",
+    stroke: "#7CB0D0",
+    "stroke-width": "0.2"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "31.5107",
+    y1: "15.7",
+    x2: "63.4629",
+    y2: "15.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "31.5107",
+    y1: "19.7",
+    x2: "52.4718",
+    y2: "19.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "31.5107",
+    y1: "11.7",
+    x2: "45.1796",
+    y2: "11.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "31.5107",
+    y1: "23.7",
+    x2: "55.1916",
+    y2: "23.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+    cx: "18.5857",
+    cy: "18",
+    r: "8.50366",
+    fill: "#4EBFFF"
+  }))),
+  slider3: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Slider 3')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    width: "76",
+    height: "36",
+    viewBox: "0 0 76 36",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    width: "75.66",
+    height: "36",
+    fill: "white"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "6.53945",
+    y: "6.33792",
+    width: "62.5812",
+    height: "23.3243",
+    rx: "0.9",
+    fill: "#E6EEF3",
+    stroke: "#7CB0D0",
+    "stroke-width": "0.2"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "31.5107",
+    y1: "15.7",
+    x2: "63.4629",
+    y2: "15.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "31.5107",
+    y1: "19.7",
+    x2: "52.4718",
+    y2: "19.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "31.5107",
+    y1: "11.7",
+    x2: "45.1796",
+    y2: "11.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+    x1: "31.5107",
+    y1: "23.7",
+    x2: "55.1916",
+    y2: "23.7",
+    stroke: "black",
+    "stroke-width": "0.6"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+    cx: "18.5857",
+    cy: "18",
+    r: "8.50366",
+    fill: "#4EBFFF"
+  }))),
+  slider4: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Slider 4')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
     width: "76",
     height: "36",

@@ -1,0 +1,184 @@
+# Copyright (C) 2024 User Grid
+# This file is distributed under the same license as the User Grid package.
+msgid ""
+msgstr ""
+"Project-Id-Version: User Grid\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-06-19 15:12+0000\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../app/Controllers/AjaxController.php:51, ../dist/user-grid/app/Controllers/AjaxController.php:51
+msgid "Server Error !!"
+msgstr ""
+
+#: ../app/Controllers/AjaxController.php:43, ../dist/user-grid/app/Controllers/AjaxController.php:43
+msgid "There is no biography for this user."
+msgstr ""
+
+#: ../app/Controllers/BlocksController.php:60, ../dist/user-grid/app/Controllers/BlocksController.php:60
+msgid "RGB Code"
+msgstr ""
+
+#: ../app/Controllers/BlocksController.php:244, ../app/Controllers/BlocksController.php:355, ../dist/user-grid/app/Controllers/BlocksController.php:244, ../dist/user-grid/app/Controllers/BlocksController.php:355
+msgid "User permission error"
+msgstr ""
+
+#: ../app/Controllers/BlocksController.php:259, ../dist/user-grid/app/Controllers/BlocksController.php:259
+msgid "Widget CSS Saved"
+msgstr ""
+
+#: ../app/Controllers/BlocksController.php:287, ../dist/user-grid/app/Controllers/BlocksController.php:287
+msgid "Data Delete Done"
+msgstr ""
+
+#: ../app/Controllers/BlocksController.php:277, ../app/Controllers/BlocksController.php:374, ../dist/user-grid/app/Controllers/BlocksController.php:277, ../dist/user-grid/app/Controllers/BlocksController.php:374
+msgid "CSS can not be saved due to permission!!!"
+msgstr ""
+
+#: ../app/Controllers/BlocksController.php:280, ../dist/user-grid/app/Controllers/BlocksController.php:280
+msgid "Css file has been updated"
+msgstr ""
+
+#: ../app/Controllers/BlocksController.php:342, ../app/Controllers/BlocksController.php:378, ../dist/user-grid/app/Controllers/BlocksController.php:342, ../dist/user-grid/app/Controllers/BlocksController.php:378
+msgid "Data not found!!"
+msgstr ""
+
+#: ../app/Controllers/BlocksController.php:376, ../dist/user-grid/app/Controllers/BlocksController.php:376
+msgid "Data retrieve done"
+msgstr ""
+
+#: ../app/Helpers/Fns.php:299, ../dist/user-grid/app/Helpers/Fns.php:299
+msgid "Phone"
+msgstr ""
+
+#: ../app/Helpers/Fns.php:300, ../dist/user-grid/app/Helpers/Fns.php:300
+msgid "Twitter"
+msgstr ""
+
+#: ../app/Helpers/Fns.php:301, ../dist/user-grid/app/Helpers/Fns.php:301
+msgid "Facebook"
+msgstr ""
+
+#: ../app/Helpers/Fns.php:302, ../dist/user-grid/app/Helpers/Fns.php:302
+msgid "LinkedIn"
+msgstr ""
+
+#: ../app/Helpers/Fns.php:303, ../dist/user-grid/app/Helpers/Fns.php:303
+msgid "Google+"
+msgstr ""
+
+#: ../app/Helpers/Fns.php:304, ../dist/user-grid/app/Helpers/Fns.php:304
+msgid "Pinterest"
+msgstr ""
+
+#: ../app/Helpers/Fns.php:305, ../dist/user-grid/app/Helpers/Fns.php:305
+msgid "Instagram"
+msgstr ""
+
+#: ../app/Helpers/Fns.php:306, ../dist/user-grid/app/Helpers/Fns.php:306
+msgid "WhatsApp"
+msgstr ""
+
+#: ../app/Helpers/Fns.php:307, ../dist/user-grid/app/Helpers/Fns.php:307
+msgid "Skype"
+msgstr ""
+
+#: ../app/Helpers/Fns.php:308, ../dist/user-grid/app/Helpers/Fns.php:308
+msgid "TikTok"
+msgstr ""
+
+#: ../app/Helpers/Fns.php:309, ../dist/user-grid/app/Helpers/Fns.php:309
+msgid "YouTube"
+msgstr ""
+
+#: ../app/Helpers/Fns.php:310, ../dist/user-grid/app/Helpers/Fns.php:310
+msgid "Reddit"
+msgstr ""
+
+#: ../app/Helpers/Fns.php:688, ../app/Helpers/Fns.php:670, ../dist/user-grid/app/Helpers/Fns.php:688, ../dist/user-grid/app/Helpers/Fns.php:670
+msgid "Prev"
+msgstr ""
+
+#: ../app/Helpers/Fns.php:689, ../app/Helpers/Fns.php:671, ../dist/user-grid/app/Helpers/Fns.php:689, ../dist/user-grid/app/Helpers/Fns.php:671
+msgid "Next"
+msgstr ""
+
+#: ../app/Hooks/ActionHooks.php:52, ../dist/user-grid/app/Hooks/ActionHooks.php:52
+msgid "User Grid: Extra User information"
+msgstr ""
+
+#: ../app/Hooks/ActionHooks.php:53, ../dist/user-grid/app/Hooks/ActionHooks.php:53
+msgid "The following settings are derived from the User Grid plugin. That helps to create more professional user blocks."
+msgstr ""
+
+#: ../app/Hooks/ActionHooks.php:57, ../dist/user-grid/app/Hooks/ActionHooks.php:57
+msgid "User Image"
+msgstr ""
+
+#: ../app/Hooks/ActionHooks.php:68, ../dist/user-grid/app/Hooks/ActionHooks.php:68
+msgid "You're seeing the default profile picture."
+msgstr ""
+
+#: ../app/Hooks/ActionHooks.php:76, ../dist/user-grid/app/Hooks/ActionHooks.php:76
+msgid "Choose Avatar"
+msgstr ""
+
+#: ../app/Hooks/ActionHooks.php:80, ../dist/user-grid/app/Hooks/ActionHooks.php:80
+msgid "Remove Avatar"
+msgstr ""
+
+#: ../app/Hooks/ActionHooks.php:91, ../dist/user-grid/app/Hooks/ActionHooks.php:91
+msgid "Designation"
+msgstr ""
+
+#: ../app/Hooks/ActionHooks.php:93, ../dist/user-grid/app/Hooks/ActionHooks.php:93
+msgid "Founder & CEO"
+msgstr ""
+
+#: ../app/Hooks/ActionHooks.php:96, ../dist/user-grid/app/Hooks/ActionHooks.php:96
+msgid "Please enter your Designation"
+msgstr ""
+
+#: ../app/Hooks/ActionHooks.php:101, ../dist/user-grid/app/Hooks/ActionHooks.php:101
+msgid "Job Role"
+msgstr ""
+
+#: ../app/Hooks/ActionHooks.php:103, ../dist/user-grid/app/Hooks/ActionHooks.php:103
+msgid "Lead engineering teams at DevOfWP, Pitch, and Protocol Labs."
+msgstr ""
+
+#: ../app/Hooks/ActionHooks.php:107, ../dist/user-grid/app/Hooks/ActionHooks.php:107
+msgid "Please enter your Job Role"
+msgstr ""
+
+#: ../app/Hooks/ActionHooks.php:111, ../dist/user-grid/app/Hooks/ActionHooks.php:111
+msgid "Custom Author URL"
+msgstr ""
+
+#: ../app/Hooks/ActionHooks.php:113, ../dist/user-grid/app/Hooks/ActionHooks.php:113
+msgid "Enter custom url for the user"
+msgstr ""
+
+#: ../app/Hooks/ActionHooks.php:117, ../dist/user-grid/app/Hooks/ActionHooks.php:117
+msgid "Enter custom url instead of the author post url. Avoid this field if you would not like to redirect the user to a different page.`"
+msgstr ""
+
+#: ../app/Hooks/ActionHooks.php:122, ../dist/user-grid/app/Hooks/ActionHooks.php:122
+msgid "Social Info:"
+msgstr ""
+
+#. translators: %s is the Social title.
+#: ../app/Hooks/ActionHooks.php:141, ../dist/user-grid/app/Hooks/ActionHooks.php:141
+msgid "Please enter your %s link."
+msgstr ""
+
+#: ../app/Utils/RenderContent.php:61, ../dist/user-grid/app/Utils/RenderContent.php:61
+msgid "Sorry! No user's found."
+msgstr ""

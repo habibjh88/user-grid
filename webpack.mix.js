@@ -57,6 +57,13 @@ if ((!process.env.npm_config_block && !process.env.npm_config_package) && (proce
                 } )
             ],
         } )
+
+    mix.scripts('src/js/user-avatar.js', 'assets/js/user-avatar.js');
+
+    mix.scripts([
+        'src/js/vendor/slick.js',
+        'src/js/user-grid.js'
+    ], 'assets/js/scripts.js');
 }
 
 

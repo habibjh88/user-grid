@@ -14,6 +14,7 @@ const getKeysByPrefix = (obj, prefix) => {
 export const DOWP_LAYOUT = {
     grid: getKeysByPrefix(styleIcon, 'grid'),
     list: getKeysByPrefix(styleIcon, 'list'),
+    slider: getKeysByPrefix(styleIcon, 'slider'),
 };
 
 export default function ContentLayout(props) {
@@ -34,10 +35,13 @@ export default function ContentLayout(props) {
     useEffect(function () {
         if (layout.indexOf('list') != '-1') {
             setAttributes({layout_style: 'list'})
+        } else if(layout.indexOf('slider') != '-1') {
+            setAttributes({layout_style: 'slider'})
         } else {
             setAttributes({layout_style: 'grid'})
         }
     }, [])
+
 
     return (
         <PanelBody title={__('Layout', 'user-grid')} initialOpen={true}>

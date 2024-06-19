@@ -1,0 +1,10 @@
+.dowp-users-block-wrapper {
+    &.slider-style {
+        opacity: 0;
+        .user-item-col {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+    }
+}
