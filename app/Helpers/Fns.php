@@ -140,8 +140,8 @@ class Fns {
 
 	/**
 	 * @param        $template_name
-	 * @param string $template_path
-	 * @param string $default_path
+	 * @param string        $template_path
+	 * @param string        $default_path
 	 *
 	 * @return mixed|void
 	 */
@@ -171,7 +171,7 @@ class Fns {
 	 * Template Content
 	 *
 	 * @param string $template_name Template name.
-	 * @param array $args Arguments. (default: array).
+	 * @param array  $args Arguments. (default: array).
 	 * @param string $template_path Template path. (default: '').
 	 * @param string $default_path Default path. (default: '').
 	 */
@@ -239,48 +239,48 @@ class Fns {
 				<a href="#" class="share-icon"><?php SvgIcons::get_svg( 'share' ); ?></a>
 				<ul>
 					<?php
-					}
+			}
 
-					foreach ( $social_list as $icon => $label ) {
-						$meta_key   = "user_grid_{$icon}";
-						$meta_value = get_user_meta( $user_id, $meta_key, true );
+			foreach ( $social_list as $icon => $label ) {
+				$meta_key   = "user_grid_{$icon}";
+				$meta_value = get_user_meta( $user_id, $meta_key, true );
 
-						if ( $meta_value ) {
-							?>
+				if ( $meta_value ) {
+					?>
 							<li>
 								<a class="<?php echo esc_attr( $icon ); ?>"
 								   href="<?php echo esc_url( $meta_value ); ?>">
-									<?php SvgIcons::get_svg( $icon ); ?>
+							<?php SvgIcons::get_svg( $icon ); ?>
 								</a>
 							</li>
 							<?php
-						}
-					}
+				}
+			}
 
-					if ( $email_visibility !== 'show' ) {
-						?>
+			if ( $email_visibility !== 'show' ) {
+				?>
 						<li>
 							<a class="pinterest"
 							   href="mailto:<?php echo esc_attr( $email ); ?>"><?php SvgIcons::get_svg( 'email' ); ?></a>
 						</li>
 						<?php
-					}
-					if ( $phone_visibility !== 'show' ) {
-						$phone = get_user_meta( $user_id, 'user_grid_phone', true );
-						?>
+			}
+			if ( $phone_visibility !== 'show' ) {
+				$phone = get_user_meta( $user_id, 'user_grid_phone', true );
+				?>
 						<li>
 							<a class="phone"
 							   href="call:<?php echo esc_attr( $phone ); ?>"><?php SvgIcons::get_svg( 'phone' ); ?></a>
 						</li>
 						<?php
-					}
-					if ( $share_icon ) {
-					?>
+			}
+			if ( $share_icon ) {
+				?>
 				</ul>
 			</li>
-		<?php
-		}
-		?>
+				<?php
+			}
+			?>
 
 		</ul>
 
@@ -492,20 +492,60 @@ class Fns {
 				'show_post_date'  => $data['show_post_date'],
 				'post_visibility' => userGrid()->hasPro() ? $data['post_visibility'] : false,
 			],
+			'nav_data'         => [
+				'pagination_visibility' => $data['pagination_visibility'],
+				'user_limit'            => $data['user_limit'],
+				'pagination_type'       => $data['pagination_type'],
+				'pagination_url'        => get_pagenum_link(),
+				'load_more_label'       => $data['load_more_label'],
+				'prev_label'            => $data['prev_label'],
+				'next_label'            => $data['next_label'],
+			],
 		];
 
 		return apply_filters( 'dowp_ug_post_args', $template_data );
 	}
 
+	/**
+	 * Modify Layout data
+	 *
+	 * @param $user
+	 * @param $layout_data
+	 *
+	 * @return mixed
+	 */
+	public static function modify_layout_data( $user, $layout_data ) {
+		$user_id                     = $user->ID;
+		$layout_data['user_id']      = $user_id;
+		$layout_data['display_name'] = $user->display_name;
+		$layout_data['email']        = $user->user_email;
+		$layout_data['designation']  = get_user_meta( $user_id, 'user_grid_designation', true );
+		$layout_data['description']  = get_user_meta( $user_id, 'description', true );
+		$layout_data['phone']        = get_user_meta( $user_id, 'user_grid_phone', true );
+		$layout_data['job_role']     = get_user_meta( $user_id, 'user_grid_job_role', true );
+
+		return $layout_data;
+	}
+
+	/**
+	 * Get Layout Image
+	 *
+	 * @param $user_id
+	 * @param $avatar_dimension
+	 * @param $default_size
+	 * @param $alt_txt
+	 *
+	 * @return void
+	 */
 	public static function layout_image( $user_id, $avatar_dimension = '', $default_size = 300, $alt_txt = '' ) {
 		$avatar_size      = [ 'size' => $avatar_dimension ?? $default_size ];
 		$avater_image_url = get_avatar_url( $user_id, $avatar_size );
 		?>
 		<a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
 			<img width="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-			     height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-			     src="<?php echo esc_url( $avater_image_url ); ?>"
-			     alt="<?php echo esc_html( $alt_txt ); ?>"/>
+				 height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
+				 src="<?php echo esc_url( $avater_image_url ); ?>"
+				 alt="<?php echo esc_html( $alt_txt ); ?>"/>
 		</a>
 		<?php
 	}
@@ -596,8 +636,6 @@ class Fns {
 	 * @return void
 	 */
 	public static function pagination( $user_query, $data ) {
-
-
 		if ( ! isset( $user_query->total_users ) && 'show' !== $data['pagination_visibility'] ) {
 			return;
 		}
@@ -609,8 +647,8 @@ class Fns {
 		} else {
 			$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 		}
-		// default-pgn
 
+		echo "<div class='dowp-pagination " . esc_attr( $data['pagination_type'] ) . "'>";
 		if ( 'load-more-pgn' === $data['pagination_type'] ) {
 			?>
 			<button
@@ -622,28 +660,38 @@ class Fns {
 			><?php echo esc_html( $data['load_more_label'] ); ?>
 			</button>
 			<?php
+		} elseif ( ( 'ajax-pgn' === $data['pagination_type'] ) ) {
+			echo paginate_links(
+				[
+					'base'      => $data['pagination_url'] . '%_%',
+					'format'    => '&paged=%#%',
+					'current'   => max( 1, $paged ),
+					'total'     => $total_pages,
+					'prev_text' => $data['prev_label'] ?? __( 'Prev', 'user-grid' ),
+					'next_text' => $data['next_label'] ?? __( 'Next', 'user-grid' ),
+					'type'      => 'list',
+				]
+			);
 		} else {
+			//phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			if ( ! empty( $_GET ) ) {
+				$format = '&paged=%#%';
+			} else {
+				$format = '?paged=%#%';
+			}
+			echo paginate_links(
+				[
+					'base'      => get_pagenum_link() . '%_%',
+					'format'    => $format,
+					'current'   => max( 1, $paged ),
+					'total'     => $total_pages,
+					'prev_text' => $data['prev_label'] ?? __( 'Prev', 'user-grid' ),
+					'next_text' => $data['next_label'] ?? __( 'Next', 'user-grid' ),
+					'type'      => 'list',
+				]
+			);
 		}
-		//phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		if ( ! empty( $_GET ) ) {
-			$format = '&paged=%#%';
-		} else {
-			$format = '?paged=%#%';
-		}
-		echo "<div class='dowp-pagination'>";
-		echo paginate_links(
-			[
-				'base'      => get_pagenum_link() . '%_%',
-				'format'    => $format,
-				'current'   => max( 1, $paged ),
-				'total'     => $total_pages,
-				'prev_text' => __( 'Prev', 'user-grid' ),
-				'next_text' => __( 'Next', 'user-grid' ),
-				'type'      => 'list',
-			]
-		);
 		echo '</div>';
-
 	}
 
 	/**

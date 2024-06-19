@@ -227,7 +227,7 @@ class TemplateFns {
 		}
 
 		$post_args = array(
-			'post_type'      => 'post',
+			'post_type'      => $args['post_type'] ?? 'post',
 			'posts_per_page' => $args['post_number'] ?? 3,
 			'post_status'    => 'publish',
 			'author'         => $user_id,
@@ -245,7 +245,6 @@ class TemplateFns {
 
 			foreach ( $postslist as $post ) :
 				setup_postdata( $post );
-
 				?>
 				<div class="post-item">
 					<?php if ( $args['show_post_img'] ) : ?>
@@ -261,7 +260,7 @@ class TemplateFns {
 						<?php if ( $args['show_post_cat'] || $args['show_post_date'] ) : ?>
 							<ul class="post-meta">
 
-								<?php if ( $args['show_post_cat'] ) : ?>
+								<?php if ( $args['show_post_cat'] && 'post' == $args['post_type'] ) : ?>
 								<li><?php echo get_the_category_list( ',', '', $post ); ?></li> <?php //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 								<?php endif; ?>
 

@@ -5,7 +5,7 @@ import {
     SelectControl,
     TextControl
 } from '@wordpress/components';
-import {Dimension, Color, Typography, Alignment, RangeDevice} from "../../components/Components";
+import {Dimension, Color, Typography, Alignment, CustomSelect} from "../../components/Components";
 import {BUTTON_STYLE, PAGINATION_STYLE, PAGINATION_TYPE} from "../../components/Constants";
 
 export default function Pagination(props) {
@@ -14,6 +14,8 @@ export default function Pagination(props) {
     const {
         pagination_type,
         load_more_label,
+        prev_label,
+        next_label,
         pagination_style,
         pagination_alignment,
         pagination_typography,
@@ -24,17 +26,40 @@ export default function Pagination(props) {
 
     return (
         <PanelBody title={__('Pagination', 'user-grid')} initialOpen={false}>
-
-            <SelectControl
+            <CustomSelect
                 label={__("Type", "user-grid")}
                 className="dowp-control-field label-inline dowp-expand"
                 value={pagination_type}
                 options={PAGINATION_TYPE}
-                onChange={(pagination_type) => {
-                    setAttributes({pagination_type})
-                    changeQuery()
+                onChange={val => {
+                    setAttributes({pagination_type: val});
+                    changeQuery();
                 }}
             />
+            {'load-more-pgn' !== pagination_type &&
+                <>
+                    <TextControl
+                        autocomplete="off"
+                        label={__("Prev label", "user-grid")}
+                        value={prev_label}
+                        placeholder="Prev"
+                        onChange={(prev_label) => {
+                            setAttributes({prev_label})
+                            changeQuery();
+                        }}
+                    />
+                    <TextControl
+                        autocomplete="off"
+                        label={__("Next label", "user-grid")}
+                        value={next_label}
+                        placeholder="Next"
+                        onChange={(next_label) => {
+                            setAttributes({next_label})
+                            changeQuery();
+                        }}
+                    />
+                </>
+            }
             {'load-more-pgn' === pagination_type &&
                 <TextControl
                     autocomplete="off"
@@ -57,6 +82,8 @@ export default function Pagination(props) {
                     changeQuery()
                 }}
             />
+
+            <h3 className={`dowp-controll-heading`}>{__("Style")}</h3>
 
             <Alignment
                 label={__("Alignment", "user-grid")}

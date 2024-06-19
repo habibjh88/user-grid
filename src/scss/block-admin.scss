@@ -365,8 +365,19 @@
             border: none !important;
         }
     }
-
+    .dowp-control-field.dowp-select-wrap {
+        select {
+            font-size: 13px;
+            padding: 2px 26px 3px 9px;
+            min-width: 110px;
+        }
+        select option:disabled {
+            background-color: #e2e2e2;
+            color: #646464;
+        }
+    }
     /*Alignment Button Style*/
+    .dowp-control-field.dowp-select-wrap,
     .dowp-control-field.dowp-cf-alignment-wrap {
         display: flex;
         justify-content: space-between;

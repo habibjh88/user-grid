@@ -63,7 +63,10 @@ const Edit = (props) => {
         show_post_date,
         show_post_b_b,
         pagination_style,
-        pagination_type
+        pagination_type,
+        load_more_label,
+        prev_label,
+        next_label,
     } = attributes;
 
     //set block preview
@@ -149,7 +152,10 @@ const Edit = (props) => {
                 show_post_date,
                 show_post_b_b,
                 pagination_style,
-                pagination_type
+                pagination_type,
+                load_more_label,
+                prev_label,
+                next_label,
             }
         }).then((data) => {
             setAttributes({query_change: false})

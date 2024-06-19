@@ -4,7 +4,6 @@ const { __ } = wp.i18n;
 
 import './scss/rangeDevice.scss'
 import { COL_OPTIONS, COL_OPTIONS_GRID } from "./Constants"
-import { useState, useEffect } from "react";
 
 function GridColumn( props ) {
     const { label, value: data, onChange, className, changeQuery, colStyle = "" } = props;

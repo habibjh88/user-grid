@@ -118,6 +118,10 @@ class ActionHooks {
 					</td>
 				</tr>
 
+				<tr>
+					<th colspan="2"><h2><?php esc_html_e( 'Social Info:', 'user-grid' ); ?></h2></th>
+				</tr>
+
 				<!-- User Social Info-->
 				<?php
 				foreach ( $social_list as $s_id => $s_title ) {

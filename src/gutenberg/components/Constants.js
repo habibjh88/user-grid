@@ -145,8 +145,9 @@ export const PAGINATION_STYLE = [
 ];
 
 export const PAGINATION_TYPE = [
-    {value: 'default-pgn', label: __('Default', 'user-grid')},
-    {value: 'load-more-pgn', label: __('Load More', 'user-grid')},
+    {value: 'default-pgn', label: __('Pagination', 'user-grid')},
+    {value: 'ajax-pgn', label: __('Ajax Pagination', 'user-grid'), disabled: true},
+    {value: 'load-more-pgn', label: __('Load More', 'user-grid'), disabled: true},
 ];
 
 export const SOCIAL_STYLE = [
@@ -160,14 +161,14 @@ export const SOCIAL_STYLE = [
     {value: 'social-wide-square', label: __('Wide Square', 'user-grid')},
 ];
 
-export const SOCIAL_POSITION = function (hasPro){
-    const isDisable = ! hasPro;
+export const SOCIAL_POSITION = function (hasPro) {
+    const isDisable = !hasPro;
     return [
         {value: 'spos-d', label: __('Default', 'user-grid')},
-        {value: 'spos-l-t', label: __('Thumb Left Top', 'user-grid'), disabled:isDisable},
-        {value: 'spos-l-b', label: __('Thumb Left Bottom', 'user-grid'), disabled:isDisable},
-        {value: 'spos-r-t', label: __('Thumb Right Top', 'user-grid'), disabled:isDisable},
-        {value: 'spos-r-b', label: __('Thumb Right Bottom', 'user-grid'), disabled:isDisable},
+        {value: 'spos-l-t', label: __('Thumb Left Top', 'user-grid'), disabled: isDisable},
+        {value: 'spos-l-b', label: __('Thumb Left Bottom', 'user-grid'), disabled: isDisable},
+        {value: 'spos-r-t', label: __('Thumb Right Top', 'user-grid'), disabled: isDisable},
+        {value: 'spos-r-b', label: __('Thumb Right Bottom', 'user-grid'), disabled: isDisable},
     ]
 };
 
