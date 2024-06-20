@@ -5,6 +5,7 @@ const {__} = wp.i18n;
 const img_path = dowpParams.plugin_url + '/assets/images';
 export const USER_PREVIEW = <img src={`${img_path}/preview/user-preview.png`} alt={__('User Preview')}/>;
 
+export const DOWP_IS_PRO = dowpParams.hasPro ? 'dowp-has-pro' : 'dowp-is-pro';
 export const NORMAL_HOVER = [
     {label: "Normal", value: "normal"},
     {label: "Hover", value: "hover"}
@@ -103,7 +104,11 @@ export const COL_OPTIONS = [
     {value: 3, label: __('3 Col', 'user-grid')},
     {value: 4, label: __('4 Col', 'user-grid')},
     {value: 5, label: __('5 Col', 'user-grid')},
-    {value: 6, label: __('6 Col', 'user-grid')}
+    {value: 6, label: __('6 Col', 'user-grid')},
+    {value: 7, label: __('7 Col', 'user-grid')},
+    {value: 8, label: __('8 Col', 'user-grid')},
+    {value: 9, label: __('9 Col', 'user-grid')},
+    {value: 10, label: __('10 Col', 'user-grid')},
 ];
 
 export const COL_OPTIONS_GRID = [
@@ -199,4 +204,10 @@ export const POST_BOX_STYLE = [
     {value: 'pbox-i-r', label: __('Image Round', 'user-grid')},
     {value: 'pbox-b', label: __('Border Style', 'user-grid')},
     {value: 'pbox-b pbox-b-i-r', label: __('Border & Image Round', 'user-grid')},
+];
+
+export const ALIGNMENT = [
+    {value: 'flex-start', label: __('Start', 'user-grid')},
+    {value: 'center', label: __('Center', 'user-grid')},
+    {value: 'end', label: __('End', 'user-grid')},
 ];

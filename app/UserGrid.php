@@ -12,14 +12,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once USER_GRID_PLUGIN_BASE_DIR . 'vendor/autoload.php';
 
-
 use DOWP\UserGrid\Controllers\AjaxController;
-use DOWP\UserGrid\Api\RestApi;
 use DOWP\UserGrid\Controllers\BlocksController;
+use DOWP\UserGrid\Controllers\ScriptController;
 use DOWP\UserGrid\Hooks\ActionHooks;
 use DOWP\UserGrid\Hooks\FilterHooks;
-use DOWP\UserGrid\Controllers\ScriptController;
 use DOWP\UserGrid\Helpers\Install;
+use DOWP\UserGrid\Api\RestApi;
 
 
 if ( ! class_exists( UserGrid::class ) ) {
@@ -34,6 +33,11 @@ if ( ! class_exists( UserGrid::class ) ) {
 		 */
 		public $post_type = 'dowp';
 
+		/**
+		 * Avatar meta key
+		 *
+		 * @var string
+		 */
 		public $avatar_meta_key = 'user_grid_attachment_id';
 
 		/**
@@ -84,7 +88,7 @@ if ( ! class_exists( UserGrid::class ) ) {
 			new ScriptController();
 			new BlocksController();
 
-			//Filter hooks init.
+			// Filter hooks init.
 			FilterHooks::init();
 			ActionHooks::init();
 
@@ -216,15 +220,15 @@ if ( ! class_exists( UserGrid::class ) ) {
 		public function hasPro() {
 			return class_exists( 'UserGridPro' );
 		}
-
 	}
 
-	/**
-	 * Function for external use.
-	 *
-	 * @return UserGrid
-	 */
+
 	if ( ! function_exists( 'userGrid' ) ) {
+		/**
+		 * Function for external use.
+		 *
+		 * @return UserGrid
+		 */
 		function userGrid() {
 			return UserGrid::getInstance();
 		}

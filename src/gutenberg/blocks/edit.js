@@ -13,6 +13,7 @@ const Edit = (props) => {
 
     //all attribute
     const {
+        layout_style,
         layout,
         dark_mode,
         layout_reverse,
@@ -67,6 +68,14 @@ const Edit = (props) => {
         load_more_label,
         prev_label,
         next_label,
+        dots,
+        arrow,
+        fade,
+        autoplay,
+        adaptiveHeight,
+        infinite,
+        speed,
+        autoplaySpeed,
     } = attributes;
 
     //set block preview
@@ -103,6 +112,7 @@ const Edit = (props) => {
             signal: controller?.signal,
             method: 'POST',
             data: {
+                layout_style,
                 layout,
                 dark_mode,
                 layout_reverse,
@@ -156,10 +166,19 @@ const Edit = (props) => {
                 load_more_label,
                 prev_label,
                 next_label,
+                dots,
+                arrow,
+                fade,
+                autoplay,
+                adaptiveHeight,
+                infinite,
+                speed,
+                autoplaySpeed,
             }
         }).then((data) => {
             setAttributes({query_change: false})
             setUsers(data)
+            setTimeout(function(){window.UserGrid._init()},100)
         });
     }
 

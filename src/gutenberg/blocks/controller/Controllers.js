@@ -2,6 +2,7 @@
 
 export {default as ContentLayout} from "./ContentLayout";
 export {default as ContentQuery} from "./ContentQuery";
+export {default as ContentSlider} from "./ContentSlider";
 export {default as ContentSort} from "./ContentSort";
 export {default as ContentGlobal} from "./ContentGlobal";
 export {default as FieldVisibility} from "./FieldVisibility";

@@ -2,9 +2,10 @@ import {__} from "@wordpress/i18n";
 
 const {useEffect} = wp.element;
 import {PanelBody, SelectControl, ToggleControl} from "@wordpress/components";
-import {GRID_LAYOUT_OPT} from "../../components/Constants";
+import {GRID_LAYOUT_OPT, DOWP_IS_PRO, COL_OPTIONS_GRID, COL_OPTIONS} from "../../components/Constants";
 import {Alignment, Layouts, LayoutStyle, GridColumn} from "../../components/Components";
 import {styleIcon} from "../../utils/LyaoutIcons";
+import cogoToast from "cogo-toast";
 
 const getKeysByPrefix = (obj, prefix) => {
     return Object.keys(obj).filter(key => key.startsWith(prefix));
@@ -35,7 +36,7 @@ export default function ContentLayout(props) {
     useEffect(function () {
         if (layout.indexOf('list') != '-1') {
             setAttributes({layout_style: 'list'})
-        } else if(layout.indexOf('slider') != '-1') {
+        } else if (layout.indexOf('slider') != '-1') {
             setAttributes({layout_style: 'slider'})
         } else {
             setAttributes({layout_style: 'grid'})
@@ -62,37 +63,62 @@ export default function ContentLayout(props) {
                 }}
             />
 
+            <div className="dowp-arert-wrapper">
+                <ToggleControl
+                    label={__("Dark Mode?", "user-grid")}
+                    className={`dowp-toggle-control-field ${DOWP_IS_PRO}`}
+                    checked={dark_mode}
+                    onChange={(dark_mode) => {
+                        setAttributes({dark_mode: dark_mode ? 'show' : ''});
+                        changeQuery()
+                    }}
+                />
+                {DOWP_IS_PRO === 'dowp-is-pro' &&
+                    <div className={`dowp-alert-message`} onClick={() => {
+                        cogoToast.warn('Upgrade to Pro for Dark Mode and enhanced features.', {position: 'top-right'});
+                    }}></div>}
+            </div>
 
-            <ToggleControl
-                label={__("Dark Mode?", "user-grid")}
-                className="dowp-toggle-control-field"
-                checked={dark_mode}
-                onChange={(dark_mode) => {
-                    setAttributes({dark_mode: dark_mode ? 'show' : ''});
-                    changeQuery()
-                }}
-            />
 
-            <ToggleControl
-                label={__("Layout Reverse", "user-grid")}
-                className="dowp-toggle-control-field"
-                checked={layout_reverse}
-                onChange={(layout_reverse) => {
-                    setAttributes({layout_reverse: layout_reverse ? 'show' : ''});
-                    changeQuery()
-                }}
-            />
+            <div className="dowp-arert-wrapper">
+                <ToggleControl
+                    label={__("Layout Reverse", "user-grid")}
+                    className={`dowp-toggle-control-field ${DOWP_IS_PRO}`}
+                    checked={layout_reverse}
+                    onChange={(layout_reverse) => {
+                        setAttributes({layout_reverse: layout_reverse ? 'show' : ''});
+                        changeQuery()
+                    }}
+                />
+                {DOWP_IS_PRO === 'dowp-is-pro' &&
+                    <div className={`dowp-alert-message`} onClick={() => {
+                        cogoToast.warn('Upgrade to Pro for Reverse Layout and enhanced features.', {position: 'top-right'});
+                    }}></div>}
+            </div>
 
-            <GridColumn
-                label={__("Grid Column", "user-grid")}
-                className="dowp-control-field"
-                value={grid_column}
-                onChange={(grid_column) => {
-                    setAttributes({grid_column})
-                }}
-                colStyle="grid"
-                changeQuery={changeQuery}
-            />
+            {layout_style === 'slider' ?
+                <GridColumn
+                    label={__("Slider Column", "user-grid")}
+                    className="dowp-control-field"
+                    value={grid_column}
+                    onChange={(grid_column) => {
+                        setAttributes({grid_column})
+                    }}
+                    options={COL_OPTIONS}
+                    changeQuery={changeQuery}
+                />
+                :
+                <GridColumn
+                    label={__("Grid Column", "user-grid")}
+                    className="dowp-control-field"
+                    value={grid_column}
+                    onChange={(grid_column) => {
+                        setAttributes({grid_column})
+                    }}
+                    options={COL_OPTIONS_GRID}
+                    changeQuery={changeQuery}
+                />
+            }
 
             <SelectControl
                 label={__("Grid Height", "user-grid")}

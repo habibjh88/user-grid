@@ -34,13 +34,14 @@ class RenderSlider {
 
 		$layout_data  = Fns::get_post_args( $data );
 		$inner_class  = Fns::inner_class( $data );
+		$dataSlick    = Fns::slider_args( $data );
 		$inner_class .= ' dowp-' . preg_replace( '/slider/', 'grid', $data['layout'] );
 		?>
 
 		<div class="<?php echo esc_attr( $wrapper_class ); ?>">
-			<div class="dowp-users-block-wrapper clearfix grid-layout <?php echo esc_attr( $inner_class ); ?>">
+			<div class="dowp-users-block-wrapper clearfix grid-style <?php echo esc_attr( $inner_class ); ?>">
 				<?php if ( ! empty( $user_query->results ) ) { ?>
-					<div class="dowp-row">
+					<div class="dowp-row dowp-carousel" data-slick="<?php echo esc_attr( htmlspecialchars( wp_json_encode( $dataSlick ) ) ); ?>">
 						<?php
 						$count_bg = 0;
 						foreach ( $user_query->results as $user ) {

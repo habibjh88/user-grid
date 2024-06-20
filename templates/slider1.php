@@ -33,11 +33,9 @@ use DOWP\UserGrid\Helpers\TemplateFns;
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-$col_class = TemplateFns::get_dynamic_cols( $grid_column );
 ?>
 
-<div class="user-item-col <?php echo esc_attr( $col_class ); ?>"
-	 style="<?php echo esc_attr( $card_bg ? "--card-bg:$card_bg" : '' ); ?>">
+<div class="user-item-col" style="<?php echo esc_attr( $card_bg ? "--card-bg:$card_bg" : '' ); ?>">
 	<div class="user-inner-wrapper">
 		<?php
 			$image_args['alt_txt'] = $display_name;

@@ -655,3 +655,79 @@
 .dowp-tab-panel .components-panel__body-toggle.components-button:focus {
     box-shadow: none;
 }
+
+
+
+//Pro check
+
+.dowp-panel-control-wrapper .dowp-is-pro {
+    position: relative;
+    cursor: not-allowed;
+}
+
+.dowp-panel-control-wrapper .dowp-is-pro *:not(.dowp-alert-message) {
+    pointer-events: none;
+}
+
+.dowp-panel-control-wrapper .dowp-arert-wrapper {
+    position: relative;
+}
+
+.dowp-panel-control-wrapper .dowp-alert-message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    cursor: not-allowed;
+}
+
+.dowp-panel-control-wrapper .dowp-is-pro label {
+    position: relative;
+    overflow: unset !important;
+}
+
+.dowp-panel-control-wrapper .dowp-is-pro.dowp-dimension-wrap .dowp-label {
+    position: relative;
+}
+
+.dowp-panel-control-wrapper .dowp-is-pro.dowp-dimension-wrap .dowp-label::after,
+.dowp-panel-control-wrapper .dowp-is-pro label::after {
+    content: "Pro";
+    border: 1px solid #e71313;
+    color: #fff;
+    background-color: #e71313;
+    padding: 0 0;
+    display: inline-block;
+    position: absolute;
+    line-height: 13px;
+    font-size: 9px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    width: 25px;
+    text-align: center;
+    margin-left: 7px;
+    top: 2.5px;
+}
+
+.dowp-panel-control-wrapper .dowp-is-pro.dowp-dimension-wrap label::after {
+    content: none;
+}
+
+.dowp-panel-control-wrapper .dowp-is-pro.dowp-dimension-wrap .dowp-device-switchers {
+    display: none;
+}
+
+.dowp-panel-control-wrapper .dowp-is-pro .components-form-toggle .components-form-toggle__track,
+.dowp-panel-control-wrapper .dowp-is-pro input[type=text],
+.dowp-panel-control-wrapper .dowp-is-pro input[type=number] {
+    background: #e1e1e1;
+}
+
+.dowp-panel-control-wrapper .dowp-is-pro .components-form-toggle .components-form-toggle__thumb {
+    background-color: #818181;
+    border: #818181;
+}

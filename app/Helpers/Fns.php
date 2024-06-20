@@ -140,8 +140,8 @@ class Fns {
 
 	/**
 	 * @param        $template_name
-	 * @param string        $template_path
-	 * @param string        $default_path
+	 * @param string $template_path
+	 * @param string $default_path
 	 *
 	 * @return mixed|void
 	 */
@@ -171,7 +171,7 @@ class Fns {
 	 * Template Content
 	 *
 	 * @param string $template_name Template name.
-	 * @param array  $args Arguments. (default: array).
+	 * @param array $args Arguments. (default: array).
 	 * @param string $template_path Template path. (default: '').
 	 * @param string $default_path Default path. (default: '').
 	 */
@@ -239,48 +239,48 @@ class Fns {
 				<a href="#" class="share-icon"><?php SvgIcons::get_svg( 'share' ); ?></a>
 				<ul>
 					<?php
-			}
+					}
 
-			foreach ( $social_list as $icon => $label ) {
-				$meta_key   = "user_grid_{$icon}";
-				$meta_value = get_user_meta( $user_id, $meta_key, true );
+					foreach ( $social_list as $icon => $label ) {
+						$meta_key   = "user_grid_{$icon}";
+						$meta_value = get_user_meta( $user_id, $meta_key, true );
 
-				if ( $meta_value ) {
-					?>
+						if ( $meta_value ) {
+							?>
 							<li>
 								<a class="<?php echo esc_attr( $icon ); ?>"
 								   href="<?php echo esc_url( $meta_value ); ?>">
-							<?php SvgIcons::get_svg( $icon ); ?>
+									<?php SvgIcons::get_svg( $icon ); ?>
 								</a>
 							</li>
 							<?php
-				}
-			}
+						}
+					}
 
-			if ( $email_visibility !== 'show' ) {
-				?>
+					if ( $email_visibility !== 'show' ) {
+						?>
 						<li>
 							<a class="pinterest"
 							   href="mailto:<?php echo esc_attr( $email ); ?>"><?php SvgIcons::get_svg( 'email' ); ?></a>
 						</li>
 						<?php
-			}
-			if ( $phone_visibility !== 'show' ) {
-				$phone = get_user_meta( $user_id, 'user_grid_phone', true );
-				?>
+					}
+					if ( $phone_visibility !== 'show' ) {
+						$phone = get_user_meta( $user_id, 'user_grid_phone', true );
+						?>
 						<li>
 							<a class="phone"
 							   href="call:<?php echo esc_attr( $phone ); ?>"><?php SvgIcons::get_svg( 'phone' ); ?></a>
 						</li>
 						<?php
-			}
-			if ( $share_icon ) {
-				?>
+					}
+					if ( $share_icon ) {
+					?>
 				</ul>
 			</li>
-				<?php
-			}
-			?>
+		<?php
+		}
+		?>
 
 		</ul>
 
@@ -343,6 +343,7 @@ class Fns {
 
 		switch ( $layout ) {
 			case 'grid3':
+			case 'slider3':
 				$classes = 'dowp-grid2';
 				break;
 			case 'list3':
@@ -352,11 +353,15 @@ class Fns {
 				$classes = 'dowp-list3 dowp-list2';
 				break;
 			case 'grid10':
+			case 'slider10':
 				$classes = 'need-multiple-bg';
 				break;
-//			 case 'slider1':
-//			 $classes = ' dowp-grid1 grid-layout';
-//			 break;
+			case 'grid14':
+			case 'slider14':
+			case 'grid15':
+			case 'slider15':
+				$classes = 'dowp-grid13';
+				break;
 		}
 
 		return $classes;
@@ -386,6 +391,7 @@ class Fns {
 		$inner_class[] = $data['lift_box_hover'];
 		$inner_class[] = $data['pagination_style'];
 		$inner_class[] = $data['enable_order'] ? 'is-order' : 'no-order';
+		$inner_class[] = $data['arrow'] ? 'has-arrow' : '';
 		$inner_class[] = $multiple_bg ? 'has-multi-bg' : 'no-multi-bg';
 		$inner_class[] = self::layout_align( $data['grid_alignment'] );
 
@@ -416,6 +422,60 @@ class Fns {
 		return esc_attr( "order-{$index}" );
 	}
 
+	/**
+	 * Get Slider Arguments
+	 *
+	 * @param $data
+	 *
+	 * @return mixed|null
+	 */
+	public static function slider_args( $data ) {
+		$grid_column         = $data['grid_column'];
+		$grid_column_desktop = intval( ( isset( $grid_column['lg'] ) && 0 != $grid_column['lg'] ) ? $grid_column['lg'] : 4 );
+		$grid_column_tab     = intval( ( isset( $grid_column['md'] ) && 0 != $grid_column['md'] ) ? $grid_column['md'] : 2 );
+		$grid_column_mobile  = intval( ( isset( $grid_column['sm'] ) && 0 != $grid_column['sm'] ) ? $grid_column['sm'] : 1 );
+
+		$dots           = (bool) $data['dots'] ?? true;
+		$arrow          = (bool) $data['arrow'] ?? false;
+		$fade           = (bool) $data['fade'];
+		$autoplay       = (bool) $data['autoplay'];
+		$adaptiveHeight = $data['adaptiveHeight'] ? true : false;
+		$infinite       = $data['infinite'] ? true : false;
+		$speed          = intval( $data['speed'] ?? 700 );
+		$autoplaySpeed  = intval( $data['autoplaySpeed'] ?? 3000 );
+
+		return apply_filters(
+			'user_grid_slider_args',
+			[
+				'dots'           => $dots,
+				'arrows'         => $arrow,
+				'fade'           => $fade,
+				'autoplay'       => $autoplay,
+				'adaptiveHeight' => $adaptiveHeight,
+				'infinite'       => $infinite,
+				'speed'          => $speed,
+				'autoplaySpeed'  => $autoplaySpeed,
+				'slidesToShow'   => $grid_column_desktop,
+				'slidesToScroll' => $grid_column_desktop,
+				'responsive'     => [
+					[
+						'breakpoint' => 1024,
+						'settings'   => [
+							'slidesToShow'   => $grid_column_tab,
+							'slidesToScroll' => $grid_column_tab,
+						],
+					],
+					[
+						'breakpoint' => 600,
+						'settings'   => [
+							'slidesToShow'   => $grid_column_mobile,
+							'slidesToScroll' => $grid_column_mobile,
+						],
+					],
+				],
+			]
+		);
+	}
 
 	/**
 	 * Get Post Arguments
@@ -543,9 +603,9 @@ class Fns {
 		?>
 		<a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
 			<img width="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-				 height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-				 src="<?php echo esc_url( $avater_image_url ); ?>"
-				 alt="<?php echo esc_html( $alt_txt ); ?>"/>
+			     height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
+			     src="<?php echo esc_url( $avater_image_url ); ?>"
+			     alt="<?php echo esc_html( $alt_txt ); ?>"/>
 		</a>
 		<?php
 	}

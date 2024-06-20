@@ -2725,11 +2725,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Constants */ "./src/gutenberg/components/Constants.js");
 /* harmony import */ var _components_Components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Components */ "./src/gutenberg/components/Components.js");
 /* harmony import */ var _utils_LyaoutIcons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/LyaoutIcons */ "./src/gutenberg/utils/LyaoutIcons.js");
+/* harmony import */ var cogo_toast__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! cogo-toast */ "./node_modules/cogo-toast/dist/index.es.js");
 
 
 const {
   useEffect
 } = wp.element;
+
 
 
 
@@ -2796,9 +2798,11 @@ function ContentLayout(props) {
       });
       changeQuery();
     }
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "dowp-arert-wrapper"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Dark Mode?", "user-grid"),
-    className: "dowp-toggle-control-field",
+    className: `dowp-toggle-control-field ${_components_Constants__WEBPACK_IMPORTED_MODULE_3__.DOWP_IS_PRO}`,
     checked: dark_mode,
     onChange: dark_mode => {
       setAttributes({
@@ -2806,9 +2810,18 @@ function ContentLayout(props) {
       });
       changeQuery();
     }
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+  }), _components_Constants__WEBPACK_IMPORTED_MODULE_3__.DOWP_IS_PRO === 'dowp-is-pro' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: `dowp-alert-message`,
+    onClick: () => {
+      cogo_toast__WEBPACK_IMPORTED_MODULE_6__["default"].warn('Upgrade to Pro for Dark Mode and enhanced features.', {
+        position: 'top-right'
+      });
+    }
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "dowp-arert-wrapper"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Layout Reverse", "user-grid"),
-    className: "dowp-toggle-control-field",
+    className: `dowp-toggle-control-field ${_components_Constants__WEBPACK_IMPORTED_MODULE_3__.DOWP_IS_PRO}`,
     checked: layout_reverse,
     onChange: layout_reverse => {
       setAttributes({
@@ -2816,7 +2829,25 @@ function ContentLayout(props) {
       });
       changeQuery();
     }
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_4__.GridColumn, {
+  }), _components_Constants__WEBPACK_IMPORTED_MODULE_3__.DOWP_IS_PRO === 'dowp-is-pro' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: `dowp-alert-message`,
+    onClick: () => {
+      cogo_toast__WEBPACK_IMPORTED_MODULE_6__["default"].warn('Upgrade to Pro for Reverse Layout and enhanced features.', {
+        position: 'top-right'
+      });
+    }
+  })), layout_style === 'slider' ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_4__.GridColumn, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Slider Column", "user-grid"),
+    className: "dowp-control-field",
+    value: grid_column,
+    onChange: grid_column => {
+      setAttributes({
+        grid_column
+      });
+    },
+    options: _components_Constants__WEBPACK_IMPORTED_MODULE_3__.COL_OPTIONS,
+    changeQuery: changeQuery
+  }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_4__.GridColumn, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Grid Column", "user-grid"),
     className: "dowp-control-field",
     value: grid_column,
@@ -2825,7 +2856,7 @@ function ContentLayout(props) {
         grid_column
       });
     },
-    colStyle: "grid",
+    options: _components_Constants__WEBPACK_IMPORTED_MODULE_3__.COL_OPTIONS_GRID,
     changeQuery: changeQuery
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Grid Height", "user-grid"),
@@ -3010,6 +3041,148 @@ function ContentQuery(props) {
 
 /***/ }),
 
+/***/ "./src/gutenberg/blocks/controller/ContentSlider.js":
+/*!**********************************************************!*\
+  !*** ./src/gutenberg/blocks/controller/ContentSlider.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ContentSlider)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_Constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Constants */ "./src/gutenberg/components/Constants.js");
+
+
+
+
+
+function ContentSlider(props) {
+  const {
+    attributes,
+    setAttributes,
+    changeQuery,
+    userData
+  } = props.data;
+
+  //All attribute
+  const {
+    dots,
+    arrow,
+    fade,
+    autoplay,
+    adaptiveHeight,
+    infinite,
+    speed,
+    autoplaySpeed
+  } = attributes;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Slider Settings', 'user-grid'),
+    initialOpen: false
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Dots", "user-grid"),
+    className: "dowp-toggle-control-field",
+    checked: dots,
+    onChange: dots => {
+      setAttributes({
+        dots: dots ? 'show' : ''
+      });
+      changeQuery();
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Arrow", "user-grid"),
+    className: "dowp-toggle-control-field",
+    checked: arrow,
+    onChange: arrow => {
+      setAttributes({
+        arrow: arrow ? 'show' : ''
+      });
+      changeQuery();
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Fade", "user-grid"),
+    className: "dowp-toggle-control-field",
+    checked: fade,
+    onChange: fade => {
+      setAttributes({
+        fade: fade ? 'show' : ''
+      });
+      changeQuery();
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Autoplay", "user-grid"),
+    className: "dowp-toggle-control-field",
+    checked: autoplay,
+    onChange: autoplay => {
+      setAttributes({
+        autoplay: autoplay ? 'show' : ''
+      });
+      changeQuery();
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Adaptive Height", "user-grid"),
+    className: "dowp-toggle-control-field",
+    checked: adaptiveHeight,
+    onChange: adaptiveHeight => {
+      setAttributes({
+        adaptiveHeight: adaptiveHeight ? 'show' : ''
+      });
+      changeQuery();
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Infinite", "user-grid"),
+    className: "dowp-toggle-control-field",
+    checked: infinite,
+    onChange: infinite => {
+      setAttributes({
+        infinite: infinite ? 'show' : ''
+      });
+      changeQuery();
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalNumberControl, {
+    isShiftStepEnabled: true,
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Speed", "user-grid"),
+    max: 5000,
+    min: 100,
+    value: speed,
+    onChange: speed => {
+      setAttributes({
+        speed
+      });
+      changeQuery();
+    },
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Eg. 700", "user-grid"),
+    shiftStep: 400,
+    step: "100",
+    className: "dowp-control-field label-inline"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalNumberControl, {
+    isShiftStepEnabled: true,
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Autoplay Speed", "user-grid"),
+    max: 20000,
+    min: 100,
+    value: autoplaySpeed,
+    onChange: autoplaySpeed => {
+      setAttributes({
+        autoplaySpeed
+      });
+      changeQuery();
+    },
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Eg. 30000", "user-grid"),
+    shiftStep: 500,
+    step: "100",
+    className: "dowp-control-field label-inline"
+  }));
+}
+
+/***/ }),
+
 /***/ "./src/gutenberg/blocks/controller/ContentSort.js":
 /*!********************************************************!*\
   !*** ./src/gutenberg/blocks/controller/ContentSort.js ***!
@@ -3087,44 +3260,47 @@ function ContentSort(props) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AvatarSettings: () => (/* reexport safe */ _AvatarSettings__WEBPACK_IMPORTED_MODULE_5__["default"]),
-/* harmony export */   BioSettings: () => (/* reexport safe */ _BioSettings__WEBPACK_IMPORTED_MODULE_8__["default"]),
-/* harmony export */   CardSettings: () => (/* reexport safe */ _CardSettings__WEBPACK_IMPORTED_MODULE_12__["default"]),
-/* harmony export */   ContentGlobal: () => (/* reexport safe */ _ContentGlobal__WEBPACK_IMPORTED_MODULE_3__["default"]),
+/* harmony export */   AvatarSettings: () => (/* reexport safe */ _AvatarSettings__WEBPACK_IMPORTED_MODULE_6__["default"]),
+/* harmony export */   BioSettings: () => (/* reexport safe */ _BioSettings__WEBPACK_IMPORTED_MODULE_9__["default"]),
+/* harmony export */   CardSettings: () => (/* reexport safe */ _CardSettings__WEBPACK_IMPORTED_MODULE_13__["default"]),
+/* harmony export */   ContentGlobal: () => (/* reexport safe */ _ContentGlobal__WEBPACK_IMPORTED_MODULE_4__["default"]),
 /* harmony export */   ContentLayout: () => (/* reexport safe */ _ContentLayout__WEBPACK_IMPORTED_MODULE_0__["default"]),
 /* harmony export */   ContentQuery: () => (/* reexport safe */ _ContentQuery__WEBPACK_IMPORTED_MODULE_1__["default"]),
-/* harmony export */   ContentSort: () => (/* reexport safe */ _ContentSort__WEBPACK_IMPORTED_MODULE_2__["default"]),
-/* harmony export */   DesignationSettings: () => (/* reexport safe */ _DesignationSettings__WEBPACK_IMPORTED_MODULE_9__["default"]),
-/* harmony export */   EmailSettings: () => (/* reexport safe */ _EmailSettings__WEBPACK_IMPORTED_MODULE_13__["default"]),
-/* harmony export */   FieldVisibility: () => (/* reexport safe */ _FieldVisibility__WEBPACK_IMPORTED_MODULE_4__["default"]),
-/* harmony export */   HrSetting: () => (/* reexport safe */ _HrSetting__WEBPACK_IMPORTED_MODULE_15__["default"]),
-/* harmony export */   JobRole: () => (/* reexport safe */ _JobRole__WEBPACK_IMPORTED_MODULE_7__["default"]),
-/* harmony export */   NameSettings: () => (/* reexport safe */ _NameSettings__WEBPACK_IMPORTED_MODULE_6__["default"]),
-/* harmony export */   Pagination: () => (/* reexport safe */ _Pagination__WEBPACK_IMPORTED_MODULE_16__["default"]),
-/* harmony export */   PhoneSettings: () => (/* reexport safe */ _PhoneSettings__WEBPACK_IMPORTED_MODULE_14__["default"]),
-/* harmony export */   ReadArticleBtn: () => (/* reexport safe */ _ReadArticleBtn__WEBPACK_IMPORTED_MODULE_11__["default"]),
-/* harmony export */   RecentPost: () => (/* reexport safe */ _RecentPost__WEBPACK_IMPORTED_MODULE_17__["default"]),
-/* harmony export */   SocialShareSettings: () => (/* reexport safe */ _SocialShareSettings__WEBPACK_IMPORTED_MODULE_10__["default"])
+/* harmony export */   ContentSlider: () => (/* reexport safe */ _ContentSlider__WEBPACK_IMPORTED_MODULE_2__["default"]),
+/* harmony export */   ContentSort: () => (/* reexport safe */ _ContentSort__WEBPACK_IMPORTED_MODULE_3__["default"]),
+/* harmony export */   DesignationSettings: () => (/* reexport safe */ _DesignationSettings__WEBPACK_IMPORTED_MODULE_10__["default"]),
+/* harmony export */   EmailSettings: () => (/* reexport safe */ _EmailSettings__WEBPACK_IMPORTED_MODULE_14__["default"]),
+/* harmony export */   FieldVisibility: () => (/* reexport safe */ _FieldVisibility__WEBPACK_IMPORTED_MODULE_5__["default"]),
+/* harmony export */   HrSetting: () => (/* reexport safe */ _HrSetting__WEBPACK_IMPORTED_MODULE_16__["default"]),
+/* harmony export */   JobRole: () => (/* reexport safe */ _JobRole__WEBPACK_IMPORTED_MODULE_8__["default"]),
+/* harmony export */   NameSettings: () => (/* reexport safe */ _NameSettings__WEBPACK_IMPORTED_MODULE_7__["default"]),
+/* harmony export */   Pagination: () => (/* reexport safe */ _Pagination__WEBPACK_IMPORTED_MODULE_17__["default"]),
+/* harmony export */   PhoneSettings: () => (/* reexport safe */ _PhoneSettings__WEBPACK_IMPORTED_MODULE_15__["default"]),
+/* harmony export */   ReadArticleBtn: () => (/* reexport safe */ _ReadArticleBtn__WEBPACK_IMPORTED_MODULE_12__["default"]),
+/* harmony export */   RecentPost: () => (/* reexport safe */ _RecentPost__WEBPACK_IMPORTED_MODULE_18__["default"]),
+/* harmony export */   SocialShareSettings: () => (/* reexport safe */ _SocialShareSettings__WEBPACK_IMPORTED_MODULE_11__["default"])
 /* harmony export */ });
 /* harmony import */ var _ContentLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ContentLayout */ "./src/gutenberg/blocks/controller/ContentLayout.js");
 /* harmony import */ var _ContentQuery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ContentQuery */ "./src/gutenberg/blocks/controller/ContentQuery.js");
-/* harmony import */ var _ContentSort__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ContentSort */ "./src/gutenberg/blocks/controller/ContentSort.js");
-/* harmony import */ var _ContentGlobal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ContentGlobal */ "./src/gutenberg/blocks/controller/ContentGlobal.js");
-/* harmony import */ var _FieldVisibility__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FieldVisibility */ "./src/gutenberg/blocks/controller/FieldVisibility.js");
-/* harmony import */ var _AvatarSettings__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AvatarSettings */ "./src/gutenberg/blocks/controller/AvatarSettings.js");
-/* harmony import */ var _NameSettings__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./NameSettings */ "./src/gutenberg/blocks/controller/NameSettings.js");
-/* harmony import */ var _JobRole__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./JobRole */ "./src/gutenberg/blocks/controller/JobRole.js");
-/* harmony import */ var _BioSettings__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./BioSettings */ "./src/gutenberg/blocks/controller/BioSettings.js");
-/* harmony import */ var _DesignationSettings__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./DesignationSettings */ "./src/gutenberg/blocks/controller/DesignationSettings.js");
-/* harmony import */ var _SocialShareSettings__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./SocialShareSettings */ "./src/gutenberg/blocks/controller/SocialShareSettings.js");
-/* harmony import */ var _ReadArticleBtn__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./ReadArticleBtn */ "./src/gutenberg/blocks/controller/ReadArticleBtn.js");
-/* harmony import */ var _CardSettings__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./CardSettings */ "./src/gutenberg/blocks/controller/CardSettings.js");
-/* harmony import */ var _EmailSettings__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./EmailSettings */ "./src/gutenberg/blocks/controller/EmailSettings.js");
-/* harmony import */ var _PhoneSettings__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./PhoneSettings */ "./src/gutenberg/blocks/controller/PhoneSettings.js");
-/* harmony import */ var _HrSetting__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./HrSetting */ "./src/gutenberg/blocks/controller/HrSetting.js");
-/* harmony import */ var _Pagination__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Pagination */ "./src/gutenberg/blocks/controller/Pagination.js");
-/* harmony import */ var _RecentPost__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./RecentPost */ "./src/gutenberg/blocks/controller/RecentPost.js");
+/* harmony import */ var _ContentSlider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ContentSlider */ "./src/gutenberg/blocks/controller/ContentSlider.js");
+/* harmony import */ var _ContentSort__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ContentSort */ "./src/gutenberg/blocks/controller/ContentSort.js");
+/* harmony import */ var _ContentGlobal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ContentGlobal */ "./src/gutenberg/blocks/controller/ContentGlobal.js");
+/* harmony import */ var _FieldVisibility__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./FieldVisibility */ "./src/gutenberg/blocks/controller/FieldVisibility.js");
+/* harmony import */ var _AvatarSettings__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./AvatarSettings */ "./src/gutenberg/blocks/controller/AvatarSettings.js");
+/* harmony import */ var _NameSettings__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./NameSettings */ "./src/gutenberg/blocks/controller/NameSettings.js");
+/* harmony import */ var _JobRole__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./JobRole */ "./src/gutenberg/blocks/controller/JobRole.js");
+/* harmony import */ var _BioSettings__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./BioSettings */ "./src/gutenberg/blocks/controller/BioSettings.js");
+/* harmony import */ var _DesignationSettings__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./DesignationSettings */ "./src/gutenberg/blocks/controller/DesignationSettings.js");
+/* harmony import */ var _SocialShareSettings__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./SocialShareSettings */ "./src/gutenberg/blocks/controller/SocialShareSettings.js");
+/* harmony import */ var _ReadArticleBtn__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ReadArticleBtn */ "./src/gutenberg/blocks/controller/ReadArticleBtn.js");
+/* harmony import */ var _CardSettings__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./CardSettings */ "./src/gutenberg/blocks/controller/CardSettings.js");
+/* harmony import */ var _EmailSettings__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./EmailSettings */ "./src/gutenberg/blocks/controller/EmailSettings.js");
+/* harmony import */ var _PhoneSettings__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./PhoneSettings */ "./src/gutenberg/blocks/controller/PhoneSettings.js");
+/* harmony import */ var _HrSetting__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./HrSetting */ "./src/gutenberg/blocks/controller/HrSetting.js");
+/* harmony import */ var _Pagination__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./Pagination */ "./src/gutenberg/blocks/controller/Pagination.js");
+/* harmony import */ var _RecentPost__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./RecentPost */ "./src/gutenberg/blocks/controller/RecentPost.js");
 // controller/index.js
+
 
 
 
@@ -4384,6 +4560,251 @@ function RecentPost(props) {
 
 /***/ }),
 
+/***/ "./src/gutenberg/blocks/controller/SliderStyle.js":
+/*!********************************************************!*\
+  !*** ./src/gutenberg/blocks/controller/SliderStyle.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ SliderStyle)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_Components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Components */ "./src/gutenberg/components/Components.js");
+/* harmony import */ var _components_Constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Constants */ "./src/gutenberg/components/Constants.js");
+
+
+
+
+
+
+function SliderStyle(props) {
+  const {
+    attributes,
+    setAttributes
+  } = props.data;
+  const [styleTab1, setStyleTab1] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)('normal');
+  const [styleTab2, setStyleTab2] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)('normal');
+  //All attribute
+  const {
+    slider_gap,
+    arrow_width,
+    arrow_radius,
+    arrow_color,
+    arrow_bg,
+    arrow_color_hover,
+    arrow_bg_hover,
+    dots_padding,
+    dots_color,
+    dots_active_color,
+    dots_color_hover,
+    dots_alignment,
+    dots_position,
+    dot_width,
+    dot_height,
+    dot_radius
+  } = attributes;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Slider', 'user-grid'),
+    initialOpen: false
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalNumberControl, {
+    isShiftStepEnabled: true,
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Slider Gap", "user-grid"),
+    max: 100,
+    min: 0,
+    value: slider_gap,
+    onChange: slider_gap => {
+      setAttributes({
+        slider_gap
+      });
+    },
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Eg. 15", "user-grid"),
+    shiftStep: 5,
+    step: "1",
+    className: "dowp-control-field label-inline"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: `dowp-controll-heading`
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Arrow Style", "user-grid")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalNumberControl, {
+    isShiftStepEnabled: true,
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Arrow Width", "user-grid"),
+    max: 100,
+    min: 10,
+    value: arrow_width,
+    onChange: arrow_width => {
+      setAttributes({
+        arrow_width
+      });
+    },
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Eg. 10", "user-grid"),
+    shiftStep: 5,
+    step: "1",
+    className: "dowp-control-field label-inline"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalNumberControl, {
+    isShiftStepEnabled: true,
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Arrow Radius", "user-grid"),
+    max: 150,
+    min: 0,
+    value: arrow_radius,
+    onChange: arrow_radius => {
+      setAttributes({
+        arrow_radius
+      });
+    },
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Eg. 10", "user-grid"),
+    shiftStep: 5,
+    step: "1",
+    className: "dowp-control-field label-inline"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "dowp-btn-hover-group"
+  }, _components_Constants__WEBPACK_IMPORTED_MODULE_4__.NORMAL_HOVER.map((item, key) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+    key: key,
+    isPrimary: styleTab1 === item.value,
+    isSecondary: styleTab1 !== item.value,
+    onClick: () => setStyleTab1(item.value)
+  }, item.label))), 'normal' === styleTab1 && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.Color, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Arrow Color', 'user-grid'),
+    color: arrow_color,
+    onChange: arrow_color => setAttributes({
+      arrow_color
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.Color, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Arrow Background', 'user-grid'),
+    color: arrow_bg,
+    onChange: arrow_bg => setAttributes({
+      arrow_bg
+    })
+  })), 'hover' === styleTab1 && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.Color, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Arrow Color - Hover', 'user-grid'),
+    color: arrow_color_hover,
+    onChange: arrow_color_hover => setAttributes({
+      arrow_color_hover
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.Color, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Arrow Background - Hover', 'user-grid'),
+    color: arrow_bg_hover,
+    onChange: arrow_bg_hover => setAttributes({
+      arrow_bg_hover
+    })
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: `dowp-controll-heading`
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Dot Style", "user-grid")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Dots Alignment", "user-grid"),
+    className: "dowp-control-field label-inline dowp-expand",
+    value: dots_alignment,
+    options: _components_Constants__WEBPACK_IMPORTED_MODULE_4__.ALIGNMENT,
+    onChange: dots_alignment => {
+      setAttributes({
+        dots_alignment
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Dots Positioin", "user-grid"),
+    className: "dowp-control-field label-inline dowp-expand",
+    value: dots_position,
+    options: [{
+      value: '-1',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Top', 'user-grid')
+    }, {
+      value: '10',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Bottom', 'user-grid')
+    }],
+    onChange: dots_position => {
+      setAttributes({
+        dots_position
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalNumberControl, {
+    isShiftStepEnabled: true,
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Dot Width", "user-grid"),
+    max: 50,
+    min: 2,
+    value: dot_width,
+    onChange: dot_width => {
+      setAttributes({
+        dot_width
+      });
+    },
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Eg. 10", "user-grid"),
+    shiftStep: 5,
+    step: "1",
+    className: "dowp-control-field label-inline"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalNumberControl, {
+    isShiftStepEnabled: true,
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Dot Height", "user-grid"),
+    max: 50,
+    min: 2,
+    value: dot_height,
+    onChange: dot_height => {
+      setAttributes({
+        dot_height
+      });
+    },
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Eg. 10", "user-grid"),
+    shiftStep: 5,
+    step: "1",
+    className: "dowp-control-field label-inline"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalNumberControl, {
+    isShiftStepEnabled: true,
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Dot Radius", "user-grid"),
+    max: 100,
+    min: 0,
+    value: dot_radius,
+    onChange: dot_radius => {
+      setAttributes({
+        dot_radius
+      });
+    },
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Eg. 10", "user-grid"),
+    shiftStep: 5,
+    step: "1",
+    className: "dowp-control-field label-inline"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.Dimension, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Dots Spacing", "user-grid"),
+    type: "margin",
+    responsive: true,
+    value: dots_padding,
+    onChange: value => {
+      setAttributes({
+        dots_padding: value
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "dowp-btn-hover-group"
+  }, _components_Constants__WEBPACK_IMPORTED_MODULE_4__.NORMAL_HOVER.map((item, key) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+    key: key,
+    isPrimary: styleTab2 === item.value,
+    isSecondary: styleTab2 !== item.value,
+    onClick: () => setStyleTab2(item.value)
+  }, item.label))), 'normal' === styleTab2 && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.Color, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Dots Color', 'user-grid'),
+    color: dots_color,
+    onChange: dots_color => setAttributes({
+      dots_color
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.Color, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Dots Active Color', 'user-grid'),
+    color: dots_active_color,
+    onChange: dots_active_color => setAttributes({
+      dots_active_color
+    })
+  })), 'hover' === styleTab2 && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.Color, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Dots Color - Hover', 'user-grid'),
+    color: dots_color_hover,
+    onChange: dots_color_hover => setAttributes({
+      dots_color_hover
+    })
+  })));
+}
+
+/***/ }),
+
 /***/ "./src/gutenberg/blocks/controller/SocialShareSettings.js":
 /*!****************************************************************!*\
   !*** ./src/gutenberg/blocks/controller/SocialShareSettings.js ***!
@@ -4605,6 +5026,7 @@ const Edit = props => {
 
   //all attribute
   const {
+    layout_style,
     layout,
     dark_mode,
     layout_reverse,
@@ -4658,7 +5080,15 @@ const Edit = props => {
     pagination_type,
     load_more_label,
     prev_label,
-    next_label
+    next_label,
+    dots,
+    arrow,
+    fade,
+    autoplay,
+    adaptiveHeight,
+    infinite,
+    speed,
+    autoplaySpeed
   } = attributes;
 
   //set block preview
@@ -4694,6 +5124,7 @@ const Edit = props => {
       signal: controller?.signal,
       method: 'POST',
       data: {
+        layout_style,
         layout,
         dark_mode,
         layout_reverse,
@@ -4746,13 +5177,24 @@ const Edit = props => {
         pagination_type,
         load_more_label,
         prev_label,
-        next_label
+        next_label,
+        dots,
+        arrow,
+        fade,
+        autoplay,
+        adaptiveHeight,
+        infinite,
+        speed,
+        autoplaySpeed
       }
     }).then(data => {
       setAttributes({
         query_change: false
       });
       setUsers(data);
+      setTimeout(function () {
+        window.UserGrid._init();
+      }, 100);
     });
   };
   const fetch_users_data_inspector = () => {
@@ -4852,10 +5294,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_TabTitle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/TabTitle */ "./src/gutenberg/components/TabTitle.js");
-/* harmony import */ var _controller_Controllers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./controller/Controllers */ "./src/gutenberg/blocks/controller/Controllers.js");
+/* harmony import */ var _controller_SliderStyle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./controller/SliderStyle */ "./src/gutenberg/blocks/controller/SliderStyle.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_TabTitle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/TabTitle */ "./src/gutenberg/components/TabTitle.js");
+/* harmony import */ var _controller_Controllers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./controller/Controllers */ "./src/gutenberg/blocks/controller/Controllers.js");
+
 
 const {
   InspectorControls
@@ -4873,6 +5317,7 @@ function Inspector(props) {
   //All attribute
   const {
     hasPro,
+    layout_style,
     avatar_visibility,
     name_visibility,
     designation_visibility,
@@ -4891,19 +5336,19 @@ function Inspector(props) {
     key: "controls"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "dowp-panel-control-wrapper"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TabPanel, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TabPanel, {
     className: "dowp-tab-panel",
     activeClass: "active-tab",
     tabs: [{
       name: "content",
-      title: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_TabTitle__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      title: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_TabTitle__WEBPACK_IMPORTED_MODULE_3__["default"], {
         title: `Content`,
         icon: `dashicons-edit`
       }),
       className: "dowp-tab-btn content"
     }, {
       name: "styles",
-      title: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_TabTitle__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      title: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_TabTitle__WEBPACK_IMPORTED_MODULE_3__["default"], {
         title: `Settings / Styles`,
         icon: `dashicons-admin-generic`
       }),
@@ -4911,41 +5356,45 @@ function Inspector(props) {
     }]
   }, tab => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "dowp-tab-content"
-  }, tab.name === "content" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.ContentLayout, {
+  }, tab.name === "content" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_4__.ContentLayout, {
     data: props
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.ContentQuery, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_4__.ContentQuery, {
     data: props
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.ContentSort, {
+  }), layout_style === 'slider' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_4__.ContentSlider, {
     data: props
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.ContentGlobal, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_4__.ContentSort, {
     data: props
-  })), tab.name === "styles" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.FieldVisibility, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_4__.ContentGlobal, {
     data: props
-  }), avatar_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.AvatarSettings, {
+  })), tab.name === "styles" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_4__.FieldVisibility, {
     data: props
-  }), name_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.NameSettings, {
+  }), avatar_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_4__.AvatarSettings, {
     data: props
-  }), job_role_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.JobRole, {
+  }), name_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_4__.NameSettings, {
     data: props
-  }), designation_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.DesignationSettings, {
+  }), job_role_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_4__.JobRole, {
     data: props
-  }), email_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.EmailSettings, {
+  }), designation_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_4__.DesignationSettings, {
     data: props
-  }), phone_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.PhoneSettings, {
+  }), email_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_4__.EmailSettings, {
     data: props
-  }), bio_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.BioSettings, {
+  }), phone_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_4__.PhoneSettings, {
     data: props
-  }), social_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.SocialShareSettings, {
+  }), bio_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_4__.BioSettings, {
     data: props
-  }), button_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.ReadArticleBtn, {
+  }), social_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_4__.SocialShareSettings, {
     data: props
-  }), pagination_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.Pagination, {
+  }), button_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_4__.ReadArticleBtn, {
     data: props
-  }), (hr_1_visibility || hr_2_visibility) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.HrSetting, {
+  }), layout_style === 'slider' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_SliderStyle__WEBPACK_IMPORTED_MODULE_1__["default"], {
     data: props
-  }), post_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.RecentPost, {
+  }), pagination_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_4__.Pagination, {
     data: props
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_3__.CardSettings, {
+  }), (hr_1_visibility || hr_2_visibility) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_4__.HrSetting, {
+    data: props
+  }), post_visibility && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_4__.RecentPost, {
+    data: props
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controller_Controllers__WEBPACK_IMPORTED_MODULE_4__.CardSettings, {
     data: props
   }))))));
 }
@@ -5748,6 +6197,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ALIGNMENT: () => (/* binding */ ALIGNMENT),
 /* harmony export */   BACKGROUND_ATTACHMENT: () => (/* binding */ BACKGROUND_ATTACHMENT),
 /* harmony export */   BACKGROUND_POSITION: () => (/* binding */ BACKGROUND_POSITION),
 /* harmony export */   BACKGROUND_REPEAT: () => (/* binding */ BACKGROUND_REPEAT),
@@ -5757,6 +6207,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   BUTTON_STYLE: () => (/* binding */ BUTTON_STYLE),
 /* harmony export */   COL_OPTIONS: () => (/* binding */ COL_OPTIONS),
 /* harmony export */   COL_OPTIONS_GRID: () => (/* binding */ COL_OPTIONS_GRID),
+/* harmony export */   DOWP_IS_PRO: () => (/* binding */ DOWP_IS_PRO),
 /* harmony export */   FONT_WEIGHTS: () => (/* binding */ FONT_WEIGHTS),
 /* harmony export */   FORMATE_USERS: () => (/* binding */ FORMATE_USERS),
 /* harmony export */   GRID_LAYOUT_OPT: () => (/* binding */ GRID_LAYOUT_OPT),
@@ -5787,6 +6238,7 @@ const USER_PREVIEW = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createEl
   src: `${img_path}/preview/user-preview.png`,
   alt: __('User Preview')
 });
+const DOWP_IS_PRO = dowpParams.hasPro ? 'dowp-has-pro' : 'dowp-is-pro';
 const NORMAL_HOVER = [{
   label: "Normal",
   value: "normal"
@@ -5994,6 +6446,18 @@ const COL_OPTIONS = [{
 }, {
   value: 6,
   label: __('6 Col', 'user-grid')
+}, {
+  value: 7,
+  label: __('7 Col', 'user-grid')
+}, {
+  value: 8,
+  label: __('8 Col', 'user-grid')
+}, {
+  value: 9,
+  label: __('9 Col', 'user-grid')
+}, {
+  value: 10,
+  label: __('10 Col', 'user-grid')
 }];
 const COL_OPTIONS_GRID = [{
   value: 0,
@@ -6181,6 +6645,16 @@ const POST_BOX_STYLE = [{
 }, {
   value: 'pbox-b pbox-b-i-r',
   label: __('Border & Image Round', 'user-grid')
+}];
+const ALIGNMENT = [{
+  value: 'flex-start',
+  label: __('Start', 'user-grid')
+}, {
+  value: 'center',
+  label: __('Center', 'user-grid')
+}, {
+  value: 'end',
+  label: __('End', 'user-grid')
 }];
 
 /***/ }),
@@ -6625,7 +7099,8 @@ function GridColumn(props) {
     onChange,
     className,
     changeQuery,
-    colStyle = ""
+    colStyle = "",
+    options
   } = props;
   const setSettings = (device, val) => {
     const newData = JSON.parse(JSON.stringify(data));
@@ -6633,7 +7108,6 @@ function GridColumn(props) {
     onChange(newData);
     changeQuery();
   };
-  const GRID_CLOUMN = colStyle === 'grid' ? _Constants__WEBPACK_IMPORTED_MODULE_3__.COL_OPTIONS_GRID : _Constants__WEBPACK_IMPORTED_MODULE_3__.COL_OPTIONS;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: `dowp-column-group components-base-control ${className}`
   }, label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -6646,7 +7120,7 @@ function GridColumn(props) {
     label: __('Desktop', 'user-grid'),
     className: "dowp-control-field",
     value: data.lg || '',
-    options: GRID_CLOUMN,
+    options: options,
     onChange: val => {
       setSettings('lg', val);
     }
@@ -6654,13 +7128,13 @@ function GridColumn(props) {
     label: __('Tablet', 'user-grid'),
     className: "dowp-control-field",
     value: data.md || '',
-    options: GRID_CLOUMN,
+    options: options,
     onChange: val => setSettings("md", val)
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
     label: __('Mobile', 'user-grid'),
     className: "dowp-control-field",
     value: data.sm || '',
-    options: GRID_CLOUMN,
+    options: options,
     onChange: val => setSettings("sm", val)
   })));
 }
@@ -7767,1931 +8241,1989 @@ const {
   __
 } = wp.i18n;
 //@formatter:off
+const iconGrid1 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  width: "64",
+  height: "24",
+  viewBox: "0 0 64 24",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "0.877344",
+  y: "0.55813",
+  width: "17.4194",
+  height: "10.1853",
+  fill: "#FFDD55",
+  stroke: "black",
+  "stroke-width": "0.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "0.777344",
+  y1: "14.1854",
+  x2: "18.3968",
+  y2: "14.1854",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "0.777344",
+  y1: "17.351",
+  x2: "16.6228",
+  y2: "17.351",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "0.777344",
+  y1: "20.5168",
+  x2: "14.5228",
+  y2: "20.5168",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "0.777344",
+  y1: "23.6824",
+  x2: "10.1598",
+  y2: "23.6824",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "46.0385",
+  y: "0.55813",
+  width: "17.4194",
+  height: "10.1853",
+  fill: "#90D758",
+  stroke: "black",
+  "stroke-width": "0.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "45.9385",
+  y1: "14.1854",
+  x2: "63.5579",
+  y2: "14.1854",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "45.9385",
+  y1: "17.351",
+  x2: "61.7839",
+  y2: "17.351",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "45.9385",
+  y1: "20.5168",
+  x2: "59.6839",
+  y2: "20.5168",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "45.9385",
+  y1: "23.6824",
+  x2: "55.3209",
+  y2: "23.6824",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "23.4594",
+  y: "0.55813",
+  width: "17.4194",
+  height: "10.1853",
+  fill: "#DC6FC6",
+  stroke: "black",
+  "stroke-width": "0.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "23.3594",
+  y1: "14.1854",
+  x2: "40.9788",
+  y2: "14.1854",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "23.3594",
+  y1: "17.351",
+  x2: "39.2048",
+  y2: "17.351",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "23.3594",
+  y1: "20.5168",
+  x2: "37.1048",
+  y2: "20.5168",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "23.3594",
+  y1: "23.6824",
+  x2: "32.7418",
+  y2: "23.6824",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ");
+const iconGrid2 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  width: "64",
+  height: "25",
+  viewBox: "0 0 64 25",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "3.77871",
+  y: "4.13784",
+  width: "12.6243",
+  height: "10.1853",
+  rx: "0.9",
+  fill: "#F47666",
+  stroke: "black",
+  "stroke-width": "0.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "0.927344",
+  y: "1.02219",
+  width: "18.1692",
+  height: "23.2243",
+  rx: "0.85",
+  stroke: "black",
+  "stroke-width": "0.3"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "3.67871",
+  y1: "17.7651",
+  x2: "16.503",
+  y2: "17.7651",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "3.67871",
+  y1: "20.9307",
+  x2: "15.2119",
+  y2: "20.9307",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "25.934",
+  y: "4.13784",
+  width: "12.6243",
+  height: "10.1853",
+  rx: "0.9",
+  fill: "#9EC015",
+  stroke: "black",
+  "stroke-width": "0.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "23.0836",
+  y: "1.02219",
+  width: "18.1692",
+  height: "23.2243",
+  rx: "0.85",
+  stroke: "black",
+  "stroke-width": "0.3"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "25.834",
+  y1: "17.7651",
+  x2: "38.6583",
+  y2: "17.7651",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "25.834",
+  y1: "20.9307",
+  x2: "37.3671",
+  y2: "20.9307",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "48.0902",
+  y: "4.13784",
+  width: "12.6243",
+  height: "10.1853",
+  rx: "0.9",
+  fill: "#63D1FF",
+  stroke: "black",
+  "stroke-width": "0.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "45.2389",
+  y: "1.02219",
+  width: "18.1692",
+  height: "23.2243",
+  rx: "0.85",
+  stroke: "black",
+  "stroke-width": "0.3"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "47.9902",
+  y1: "17.7651",
+  x2: "60.8146",
+  y2: "17.7651",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "47.9902",
+  y1: "20.9307",
+  x2: "59.5234",
+  y2: "20.9307",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ");
+const iconGrid3 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  width: "64",
+  height: "25",
+  viewBox: "0 0 64 25",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "3.77773",
+  y: "1.01992",
+  width: "12.6243",
+  height: "10.1853",
+  rx: "0.9",
+  fill: "#F16633",
+  stroke: "black",
+  "stroke-width": "0.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "3.67773",
+  y1: "14.6471",
+  x2: "16.5021",
+  y2: "14.6471",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "3.67773",
+  y1: "17.8128",
+  x2: "15.2109",
+  y2: "17.8128",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "3.67773",
+  y1: "21.1327",
+  x2: "11.7227",
+  y2: "21.1327",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "25.834",
+  y1: "21.1327",
+  x2: "33.8789",
+  y2: "21.1327",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "47.9902",
+  y1: "21.1327",
+  x2: "56.0352",
+  y2: "21.1327",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "25.934",
+  y: "1.01992",
+  width: "12.6243",
+  height: "10.1853",
+  rx: "0.9",
+  fill: "#5FEFCB",
+  stroke: "black",
+  "stroke-width": "0.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "25.834",
+  y1: "14.6471",
+  x2: "38.6583",
+  y2: "14.6471",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "25.834",
+  y1: "17.8128",
+  x2: "37.3671",
+  y2: "17.8128",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "48.0902",
+  y: "1.01992",
+  width: "12.6243",
+  height: "10.1853",
+  rx: "0.9",
+  fill: "#FFC107",
+  stroke: "black",
+  "stroke-width": "0.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "47.9902",
+  y1: "14.6471",
+  x2: "60.8146",
+  y2: "14.6471",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "47.9902",
+  y1: "17.8128",
+  x2: "59.5234",
+  y2: "17.8128",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M3.67773 8.20288H1.77734C1.22506 8.20288 0.777344 8.6506 0.777344 9.20288V23.3965C0.777344 23.9488 1.22506 24.3965 1.77734 24.3965H18.2466C18.7989 24.3965 19.2466 23.9488 19.2466 23.3965V9.20288C19.2466 8.6506 18.7989 8.20288 18.2466 8.20288H16.5021V8.50288H18.2466C18.6332 8.50288 18.9466 8.81628 18.9466 9.20288V23.3965C18.9466 23.7831 18.6332 24.0965 18.2466 24.0965H1.77734C1.39074 24.0965 1.07734 23.7831 1.07734 23.3965V9.20288C1.07734 8.81628 1.39074 8.50288 1.77734 8.50288H3.67773V8.20288Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M25.834 8.20288H23.9336C23.3813 8.20288 22.9336 8.6506 22.9336 9.20288V23.3965C22.9336 23.9488 23.3813 24.3965 23.9336 24.3965H40.4028C40.9551 24.3965 41.4028 23.9488 41.4028 23.3965V9.20288C41.4028 8.6506 40.9551 8.20288 40.4028 8.20288H38.6583V8.50288H40.4028C40.7894 8.50288 41.1028 8.81628 41.1028 9.20288V23.3965C41.1028 23.7831 40.7894 24.0965 40.4028 24.0965H23.9336C23.547 24.0965 23.2336 23.7831 23.2336 23.3965V9.20288C23.2336 8.81628 23.547 8.50288 23.9336 8.50288H25.834V8.20288Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M48.0684 8.20288H46.168C45.6157 8.20288 45.168 8.6506 45.168 9.20288V23.3965C45.168 23.9488 45.6157 24.3965 46.168 24.3965H62.6372C63.1895 24.3965 63.6372 23.9488 63.6372 23.3965V9.20288C63.6372 8.6506 63.1895 8.20288 62.6372 8.20288H60.8927V8.50288H62.6372C63.0238 8.50288 63.3372 8.81628 63.3372 9.20288V23.3965C63.3372 23.7831 63.0238 24.0965 62.6372 24.0965H46.168C45.7814 24.0965 45.468 23.7831 45.468 23.3965V9.20288C45.468 8.81628 45.7814 8.50288 46.168 8.50288H48.0684V8.20288Z",
+  fill: "black"
+}), " ");
+const iconGrid4 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  width: "64",
+  height: "24",
+  viewBox: "0 0 64 24",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "0.877344",
+  y: "0.605859",
+  width: "12.6243",
+  height: "11.7302",
+  rx: "0.9",
+  fill: "#5CC1F9",
+  stroke: "black",
+  "stroke-width": "0.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "4.78711",
+  y1: "23.6824",
+  x2: "9.59364",
+  y2: "23.6824",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "2.28906",
+  y1: "19.8823",
+  x2: "12.0919",
+  y2: "19.8823",
+  stroke: "black",
+  "stroke-width": "1.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "3.16797",
+  y1: "16.7906",
+  x2: "11.2129",
+  y2: "16.7906",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "4.78711",
+  y1: "14.5657",
+  x2: "9.59375",
+  y2: "14.5657",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "17.5355",
+  y: "0.605859",
+  width: "12.6243",
+  height: "11.7302",
+  rx: "0.9",
+  fill: "#90D758",
+  stroke: "black",
+  "stroke-width": "0.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "21.4453",
+  y1: "23.6824",
+  x2: "26.2518",
+  y2: "23.6824",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "18.9473",
+  y1: "19.8823",
+  x2: "28.7501",
+  y2: "19.8823",
+  stroke: "black",
+  "stroke-width": "1.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "19.8262",
+  y1: "16.7906",
+  x2: "27.8711",
+  y2: "16.7906",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "21.4453",
+  y1: "14.5657",
+  x2: "26.252",
+  y2: "14.5657",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "34.1938",
+  y: "0.605859",
+  width: "12.6243",
+  height: "11.7302",
+  rx: "0.9",
+  fill: "#FD705E",
+  stroke: "black",
+  "stroke-width": "0.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "38.1035",
+  y1: "23.6824",
+  x2: "42.91",
+  y2: "23.6824",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "35.6055",
+  y1: "19.8823",
+  x2: "45.4083",
+  y2: "19.8823",
+  stroke: "black",
+  "stroke-width": "1.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "36.4844",
+  y1: "16.7906",
+  x2: "44.5293",
+  y2: "16.7906",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "38.1035",
+  y1: "14.5657",
+  x2: "42.9102",
+  y2: "14.5657",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "50.852",
+  y: "0.605859",
+  width: "12.6243",
+  height: "11.7302",
+  rx: "0.9",
+  fill: "#5DA9AE",
+  stroke: "black",
+  "stroke-width": "0.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "54.7617",
+  y1: "23.6824",
+  x2: "59.5683",
+  y2: "23.6824",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "52.2637",
+  y1: "19.8823",
+  x2: "62.0665",
+  y2: "19.8823",
+  stroke: "black",
+  "stroke-width": "1.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "53.1426",
+  y1: "16.7906",
+  x2: "61.1875",
+  y2: "16.7906",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "54.7617",
+  y1: "14.5657",
+  x2: "59.5684",
+  y2: "14.5657",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ");
+const iconGrid5 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  width: "64",
+  height: "24",
+  viewBox: "0 0 64 24",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M0.598633 0.995849C0.598633 0.443565 1.04635 -0.00415039 1.59863 -0.00415039H13.4042C13.9565 -0.00415039 14.4042 0.443565 14.4042 0.99585V22.4725C14.4042 23.0248 13.9565 23.4725 13.4042 23.4725H1.59863C1.04635 23.4725 0.598633 23.0248 0.598633 22.4725V0.995849Z",
+  fill: "#FAFAFA"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M13.4042 0.49585H1.59863C1.32249 0.49585 1.09863 0.719707 1.09863 0.995849V22.4725C1.09863 22.7487 1.32249 22.9725 1.59863 22.9725H13.4042C13.6804 22.9725 13.9042 22.7487 13.9042 22.4725V0.99585C13.9042 0.719708 13.6804 0.49585 13.4042 0.49585ZM1.59863 -0.00415039C1.04635 -0.00415039 0.598633 0.443565 0.598633 0.995849V22.4725C0.598633 23.0248 1.04635 23.4725 1.59863 23.4725H13.4042C13.9565 23.4725 14.4042 23.0248 14.4042 22.4725V0.99585C14.4042 0.443565 13.9565 -0.00415039 13.4042 -0.00415039H1.59863Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M10.165 21.8312H5.77518V21.2312H10.165V21.8312Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M12.447 19.1698H3.49414V17.9698H12.447V19.1698Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M10.1996 13.8466H5.73926V13.2466H10.1996V13.8466Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M10.9482 16.5082H4.9921V15.9082H10.9482V16.5082Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M14.0049 8.35162L0.993164 13.8776L0.996435 0.824844C0.996435 0.539159 1.27941 0.423653 1.4209 0.401611H13.585C13.8566 0.401611 13.9781 0.72789 14.0049 0.891029V8.35162Z",
+  fill: "#D4EAFD"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M1.41316 0.301611H13.585C13.7671 0.301611 13.8923 0.412654 13.9701 0.529843C14.0475 0.646444 14.0885 0.783095 14.1036 0.87483L14.1049 0.882876V8.4178L0.893126 14.0287L0.896435 0.824844C0.896435 0.824853 0.896435 0.824836 0.896435 0.824844C0.896443 0.643697 0.988017 0.516294 1.09503 0.434804C1.19934 0.355369 1.32198 0.315817 1.40551 0.302803L1.41316 0.301611ZM1.42913 0.501611C1.37114 0.511848 1.28582 0.540898 1.2162 0.593919C1.14635 0.64711 1.09643 0.72032 1.09643 0.824844L1.0932 13.7265L13.9049 8.28545V0.899535C13.8921 0.828223 13.8593 0.724684 13.8034 0.640443C13.7459 0.553707 13.6745 0.501611 13.585 0.501611H1.42913Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M16.9268 0.995849C16.9268 0.443565 17.3745 -0.00415039 17.9268 -0.00415039H29.7324C30.2847 -0.00415039 30.7324 0.443565 30.7324 0.99585V22.4725C30.7324 23.0248 30.2847 23.4725 29.7324 23.4725H17.9268C17.3745 23.4725 16.9268 23.0248 16.9268 22.4725V0.995849Z",
+  fill: "#FAFAFA"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M29.7324 0.49585H17.9268C17.6506 0.49585 17.4268 0.719707 17.4268 0.995849V22.4725C17.4268 22.7487 17.6506 22.9725 17.9268 22.9725H29.7324C30.0085 22.9725 30.2324 22.7487 30.2324 22.4725V0.99585C30.2324 0.719708 30.0085 0.49585 29.7324 0.49585ZM17.9268 -0.00415039C17.3745 -0.00415039 16.9268 0.443565 16.9268 0.995849V22.4725C16.9268 23.0248 17.3745 23.4725 17.9268 23.4725H29.7324C30.2847 23.4725 30.7324 23.0248 30.7324 22.4725V0.99585C30.7324 0.443565 30.2847 -0.00415039 29.7324 -0.00415039H17.9268Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M26.4931 21.8312H22.1033V21.2312H26.4931V21.8312Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M28.7751 19.1698H19.8223V17.9698H28.7751V19.1698Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M26.5277 13.8466H22.0674V13.2466H26.5277V13.8466Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M27.2763 16.5082H21.3202V15.9082H27.2763V16.5082Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M30.333 8.35162L17.3213 13.8776L17.3246 0.824844C17.3246 0.539159 17.6075 0.423653 17.749 0.401611H29.9131C30.1847 0.401611 30.3062 0.72789 30.333 0.891029V8.35162Z",
+  fill: "#EDC68C"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M17.7413 0.301611H29.9131C30.0952 0.301611 30.2204 0.412654 30.2982 0.529843C30.3756 0.646444 30.4166 0.783095 30.4317 0.87483L30.433 0.882876V8.4178L17.2213 14.0287L17.2246 0.824844C17.2246 0.824853 17.2246 0.824836 17.2246 0.824844C17.2246 0.643697 17.3161 0.516294 17.4232 0.434804C17.5275 0.355369 17.6501 0.315817 17.7336 0.302803L17.7413 0.301611ZM17.7573 0.501611C17.6993 0.511848 17.6139 0.540898 17.5443 0.593919C17.4745 0.64711 17.4246 0.72032 17.4246 0.824844L17.4213 13.7265L30.233 8.28545V0.899535C30.2202 0.828223 30.1875 0.724684 30.1316 0.640443C30.074 0.553707 30.0026 0.501611 29.9131 0.501611H17.7573Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M33.2549 0.995849C33.2549 0.443565 33.7026 -0.00415039 34.2549 -0.00415039H46.0605C46.6128 -0.00415039 47.0605 0.443565 47.0605 0.99585V22.4725C47.0605 23.0248 46.6128 23.4725 46.0605 23.4725H34.2549C33.7026 23.4725 33.2549 23.0248 33.2549 22.4725V0.995849Z",
+  fill: "#FAFAFA"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M46.0605 0.49585H34.2549C33.9787 0.49585 33.7549 0.719707 33.7549 0.995849V22.4725C33.7549 22.7487 33.9787 22.9725 34.2549 22.9725H46.0605C46.3366 22.9725 46.5605 22.7487 46.5605 22.4725V0.99585C46.5605 0.719708 46.3366 0.49585 46.0605 0.49585ZM34.2549 -0.00415039C33.7026 -0.00415039 33.2549 0.443565 33.2549 0.995849V22.4725C33.2549 23.0248 33.7026 23.4725 34.2549 23.4725H46.0605C46.6128 23.4725 47.0605 23.0248 47.0605 22.4725V0.99585C47.0605 0.443565 46.6128 -0.00415039 46.0605 -0.00415039H34.2549Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M42.8212 21.8312H38.4314V21.2312H42.8212V21.8312Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M45.1033 19.1698H36.1504V17.9698H45.1033V19.1698Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M42.8559 13.8466H38.3955V13.2466H42.8559V13.8466Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M43.6044 16.5082H37.6483V15.9082H43.6044V16.5082Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M46.6611 8.35162L33.6494 13.8776L33.6527 0.824844C33.6527 0.539159 33.9357 0.423653 34.0772 0.401611H46.2412C46.5129 0.401611 46.6344 0.72789 46.6611 0.891029V8.35162Z",
+  fill: "#BADBDF"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M34.0694 0.301611H46.2412C46.4234 0.301611 46.5485 0.412654 46.6263 0.529843C46.7037 0.646444 46.7448 0.783095 46.7598 0.87483L46.7611 0.882876V8.4178L33.5494 14.0287L33.5527 0.824844C33.5527 0.824853 33.5527 0.824836 33.5527 0.824844C33.5527 0.643697 33.6443 0.516294 33.7513 0.434804C33.8556 0.355369 33.9782 0.315817 34.0618 0.302803L34.0694 0.301611ZM34.0854 0.501611C34.0274 0.511848 33.9421 0.540898 33.8724 0.593919C33.8026 0.64711 33.7527 0.72032 33.7527 0.824844L33.7495 13.7265L46.5611 8.28545V0.899535C46.5484 0.828223 46.5156 0.724684 46.4597 0.640443C46.4021 0.553707 46.3307 0.501611 46.2412 0.501611H34.0854Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M49.583 0.995849C49.583 0.443565 50.0307 -0.00415039 50.583 -0.00415039H62.3886C62.9409 -0.00415039 63.3886 0.443565 63.3886 0.99585V22.4725C63.3886 23.0248 62.9409 23.4725 62.3886 23.4725H50.583C50.0307 23.4725 49.583 23.0248 49.583 22.4725V0.995849Z",
+  fill: "#FAFAFA"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M62.3886 0.49585H50.583C50.3069 0.49585 50.083 0.719707 50.083 0.995849V22.4725C50.083 22.7487 50.3069 22.9725 50.583 22.9725H62.3886C62.6648 22.9725 62.8886 22.7487 62.8886 22.4725V0.99585C62.8886 0.719708 62.6648 0.49585 62.3886 0.49585ZM50.583 -0.00415039C50.0307 -0.00415039 49.583 0.443565 49.583 0.995849V22.4725C49.583 23.0248 50.0307 23.4725 50.583 23.4725H62.3886C62.9409 23.4725 63.3886 23.0248 63.3886 22.4725V0.99585C63.3886 0.443565 62.9409 -0.00415039 62.3886 -0.00415039H50.583Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M59.1494 21.8312H54.7596V21.2312H59.1494V21.8312Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M61.4314 19.1698H52.4785V17.9698H61.4314V19.1698Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M59.184 13.8466H54.7236V13.2466H59.184V13.8466Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M59.9325 16.5082H53.9765V15.9082H59.9325V16.5082Z",
+  fill: "black"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M62.9893 8.35162L49.9775 13.8776L49.9808 0.824844C49.9808 0.539159 50.2638 0.423653 50.4053 0.401611H62.5693C62.841 0.401611 62.9625 0.72789 62.9893 0.891029V8.35162Z",
+  fill: "#B8ECDF"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M50.3975 0.301611H62.5693C62.7515 0.301611 62.8767 0.412654 62.9544 0.529843C63.0318 0.646444 63.0729 0.783095 63.0879 0.87483L63.0893 0.882876V8.4178L49.8775 14.0287L49.8808 0.824844C49.8808 0.824853 49.8808 0.824836 49.8808 0.824844C49.8808 0.643697 49.9724 0.516294 50.0794 0.434804C50.1837 0.355369 50.3064 0.315817 50.3899 0.302803L50.3975 0.301611ZM50.4135 0.501611C50.3555 0.511848 50.2702 0.540898 50.2006 0.593919C50.1307 0.64711 50.0808 0.72032 50.0808 0.824844L50.0776 13.7265L62.8893 8.28545V0.899535C62.8765 0.828223 62.8437 0.724684 62.7878 0.640443C62.7302 0.553707 62.6589 0.501611 62.5693 0.501611H50.4135Z",
+  fill: "black"
+}), " ");
+const iconGrid6 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  width: "64",
+  height: "24",
+  viewBox: "0 0 64 24",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "0.539453",
+  y: "0.385645",
+  width: "8.07844",
+  height: "8.07844",
+  rx: "4.03922",
+  fill: "#E9A847",
+  stroke: "black",
+  "stroke-width": "0.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "0.439453",
+  y1: "18.4",
+  x2: "10.2422",
+  y2: "18.4",
+  stroke: "black",
+  "stroke-width": "1.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "0.439453",
+  y1: "14.7",
+  x2: "8.48438",
+  y2: "14.7",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "0.439453",
+  y1: "11.7",
+  x2: "5.24609",
+  y2: "11.7",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "0.439453",
+  y: "22.1334",
+  width: "4.98926",
+  height: "1.62878",
+  rx: "0.814392",
+  fill: "#0085FF"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "18.2279",
+  y: "0.385645",
+  width: "8.07844",
+  height: "8.07844",
+  rx: "4.03922",
+  fill: "#90D758",
+  stroke: "black",
+  "stroke-width": "0.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "18.1279",
+  y1: "18.4",
+  x2: "27.9307",
+  y2: "18.4",
+  stroke: "black",
+  "stroke-width": "1.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "18.1279",
+  y1: "14.7",
+  x2: "26.1729",
+  y2: "14.7",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "18.1279",
+  y1: "11.7",
+  x2: "22.9346",
+  y2: "11.7",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "18.1279",
+  y: "22.1334",
+  width: "4.98926",
+  height: "1.62878",
+  rx: "0.814392",
+  fill: "#0085FF"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "35.9164",
+  y: "0.385645",
+  width: "8.07844",
+  height: "8.07844",
+  rx: "4.03922",
+  fill: "#FC6E7D",
+  stroke: "black",
+  "stroke-width": "0.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "35.8164",
+  y1: "18.4",
+  x2: "45.6192",
+  y2: "18.4",
+  stroke: "black",
+  "stroke-width": "1.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "35.8164",
+  y1: "14.7",
+  x2: "43.8613",
+  y2: "14.7",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "35.8164",
+  y1: "11.7",
+  x2: "40.623",
+  y2: "11.7",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "35.8164",
+  y: "22.1334",
+  width: "4.98926",
+  height: "1.62878",
+  rx: "0.814392",
+  fill: "#0085FF"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "53.6049",
+  y: "0.385645",
+  width: "8.07844",
+  height: "8.07844",
+  rx: "4.03922",
+  fill: "#58C0D7",
+  stroke: "black",
+  "stroke-width": "0.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "53.5049",
+  y1: "18.4",
+  x2: "63.3077",
+  y2: "18.4",
+  stroke: "black",
+  "stroke-width": "1.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "53.5049",
+  y1: "14.7",
+  x2: "61.5498",
+  y2: "14.7",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "53.5049",
+  y1: "11.7",
+  x2: "58.3115",
+  y2: "11.7",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "53.5049",
+  y: "22.1334",
+  width: "4.98926",
+  height: "1.62878",
+  rx: "0.814392",
+  fill: "#0085FF"
+}), " ");
+const iconGrid7 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  width: "64",
+  height: "24",
+  viewBox: "0 0 64 24",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "0.689453",
+  y: "6.79395",
+  width: "17.21",
+  height: "16.6042",
+  stroke: "black",
+  "stroke-width": "0.5"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+  cx: "9.29492",
+  cy: "5.6239",
+  r: "5.5",
+  fill: "#FFBB0E"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "5.66602",
+  y1: "13.586",
+  x2: "12.923",
+  y2: "13.586",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "6.26875",
+  y1: "21.586",
+  x2: "12.3199",
+  y2: "21.586",
+  stroke: "black",
+  "stroke-width": "0.6",
+  "stroke-linecap": "round",
+  "stroke-dasharray": "1.2 1.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "3.50977",
+  y1: "16.586",
+  x2: "15.0781",
+  y2: "16.586",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "4.09277",
+  y1: "18.586",
+  x2: "14.4964",
+  y2: "18.586",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "23.2168",
+  y: "6.79395",
+  width: "17.21",
+  height: "16.6042",
+  stroke: "black",
+  "stroke-width": "0.5"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+  cx: "31.8223",
+  cy: "5.6239",
+  r: "5.5",
+  fill: "#EE1930"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "28.1934",
+  y1: "13.586",
+  x2: "35.4504",
+  y2: "13.586",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "28.7961",
+  y1: "21.586",
+  x2: "34.8473",
+  y2: "21.586",
+  stroke: "black",
+  "stroke-width": "0.6",
+  "stroke-linecap": "round",
+  "stroke-dasharray": "1.2 1.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "26.0371",
+  y1: "16.586",
+  x2: "37.6055",
+  y2: "16.586",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "26.6201",
+  y1: "18.586",
+  x2: "37.0238",
+  y2: "18.586",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "45.7441",
+  y: "6.79395",
+  width: "17.21",
+  height: "16.6042",
+  stroke: "black",
+  "stroke-width": "0.5"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+  cx: "54.3496",
+  cy: "5.6239",
+  r: "5.5",
+  fill: "#4EA8FC"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "50.7207",
+  y1: "13.586",
+  x2: "57.9777",
+  y2: "13.586",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "51.3234",
+  y1: "21.586",
+  x2: "57.3746",
+  y2: "21.586",
+  stroke: "black",
+  "stroke-width": "0.6",
+  "stroke-linecap": "round",
+  "stroke-dasharray": "1.2 1.2"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "48.5645",
+  y1: "16.586",
+  x2: "60.1328",
+  y2: "16.586",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "49.1475",
+  y1: "18.586",
+  x2: "59.5511",
+  y2: "18.586",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), " ");
+const iconGrid8 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  width: "64",
+  height: "25",
+  viewBox: "0 0 64 25",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M15.6488 1.01709H3.26895C1.69493 1.01709 0.418945 2.29308 0.418945 3.86709V21.3914C0.418945 22.9654 1.69493 24.2414 3.26895 24.2414H15.6488C17.2229 24.2414 18.4988 22.9654 18.4988 21.3914V3.86709C18.4988 2.29308 17.2229 1.01709 15.6488 1.01709Z",
+  stroke: "#292929",
+  "stroke-width": "0.3"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M9.45898 13.3505C12.4426 13.3505 14.8613 10.9318 14.8613 7.94812C14.8613 4.96449 12.4426 2.54578 9.45898 2.54578C6.47535 2.54578 4.05664 4.96449 4.05664 7.94812C4.05664 10.9318 6.47535 13.3505 9.45898 13.3505Z",
+  fill: "white",
+  stroke: "#0180C7",
+  "stroke-width": "0.3"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M9.459 11.7489C11.5581 11.7489 13.2598 10.0473 13.2598 7.94813C13.2598 5.84901 11.5581 4.14734 9.459 4.14734C7.35988 4.14734 5.6582 5.84901 5.6582 7.94813C5.6582 10.0473 7.35988 11.7489 9.459 11.7489Z",
+  fill: "#5DDA4E"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M5.83008 16.1274H13.0871",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M6.43262 21.9531H12.4838",
+  stroke: "black",
+  "stroke-width": "0.6",
+  "stroke-linecap": "round",
+  "stroke-dasharray": "1.2 1.2"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M3.6748 19.0403H15.2432",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M38.0092 1.01709H25.6293C24.0553 1.01709 22.7793 2.29308 22.7793 3.86709V21.3914C22.7793 22.9654 24.0553 24.2414 25.6293 24.2414H38.0092C39.5832 24.2414 40.8592 22.9654 40.8592 21.3914V3.86709C40.8592 2.29308 39.5832 1.01709 38.0092 1.01709Z",
+  stroke: "#292929",
+  "stroke-width": "0.3"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M31.8193 13.3505C34.803 13.3505 37.2217 10.9318 37.2217 7.94812C37.2217 4.96449 34.803 2.54578 31.8193 2.54578C28.8357 2.54578 26.417 4.96449 26.417 7.94812C26.417 10.9318 28.8357 13.3505 31.8193 13.3505Z",
+  fill: "white",
+  stroke: "#0180C7",
+  "stroke-width": "0.3"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M31.8184 11.7489C33.9175 11.7489 35.6192 10.0473 35.6192 7.94813C35.6192 5.84901 33.9175 4.14734 31.8184 4.14734C29.7193 4.14734 28.0176 5.84901 28.0176 7.94813C28.0176 10.0473 29.7193 11.7489 31.8184 11.7489Z",
+  fill: "#DC5948"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M28.1904 16.1274H35.4474",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M28.793 21.9531H34.8442",
+  stroke: "black",
+  "stroke-width": "0.6",
+  "stroke-linecap": "round",
+  "stroke-dasharray": "1.2 1.2"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M26.0352 19.0403H37.6036",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M60.3705 1.01709H47.9906C46.4166 1.01709 45.1406 2.29308 45.1406 3.86709V21.3914C45.1406 22.9654 46.4166 24.2414 47.9906 24.2414H60.3705C61.9445 24.2414 63.2205 22.9654 63.2205 21.3914V3.86709C63.2205 2.29308 61.9445 1.01709 60.3705 1.01709Z",
+  stroke: "#292929",
+  "stroke-width": "0.3"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M54.1807 13.3505C57.1643 13.3505 59.583 10.9318 59.583 7.94812C59.583 4.96449 57.1643 2.54578 54.1807 2.54578C51.197 2.54578 48.7783 4.96449 48.7783 7.94812C48.7783 10.9318 51.197 13.3505 54.1807 13.3505Z",
+  fill: "white",
+  stroke: "#0180C7",
+  "stroke-width": "0.3"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M54.1797 11.7489C56.2788 11.7489 57.9805 10.0473 57.9805 7.94813C57.9805 5.84901 56.2788 4.14734 54.1797 4.14734C52.0806 4.14734 50.3789 5.84901 50.3789 7.94813C50.3789 10.0473 52.0806 11.7489 54.1797 11.7489Z",
+  fill: "#5C95C9"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M50.5518 16.1274H57.8088",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M51.1543 21.9531H57.2055",
+  stroke: "black",
+  "stroke-width": "0.6",
+  "stroke-linecap": "round",
+  "stroke-dasharray": "1.2 1.2"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M48.3965 19.0403H59.9649",
+  stroke: "black",
+  "stroke-width": "0.6"
+}));
+const iconGrid9 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  width: "68",
+  height: "30",
+  viewBox: "0 0 68 30",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "2.68945",
+  y: "0.380981",
+  width: "17.9082",
+  height: "15.847",
+  rx: "1.25",
+  fill: "#FEDC55",
+  stroke: "#DEB100",
+  "stroke-width": "0.5"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+  filter: "url(#filter0_d_0_1)"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "4.51562",
+  y: "13.0179",
+  width: "14.2561",
+  height: "10.6374",
+  rx: "0.7",
+  fill: "white"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "4.61563",
+  y: "13.1179",
+  width: "14.0561",
+  height: "10.4374",
+  rx: "0.6",
+  stroke: "#313131",
+  "stroke-width": "0.2"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "7.05176",
+  y1: "18.1823",
+  x2: "16.236",
+  y2: "18.1823",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "7.66016",
+  y1: "20.4341",
+  x2: "15.6272",
+  y2: "20.4341",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "8.9248",
+  y1: "15.9305",
+  x2: "14.363",
+  y2: "15.9305",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "24.876",
+  y: "0.380859",
+  width: "17.9082",
+  height: "15.847",
+  rx: "1.25",
+  fill: "#90D758",
+  stroke: "#4DAF00",
+  "stroke-width": "0.5"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+  filter: "url(#filter1_d_0_1)"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "26.7021",
+  y: "13.0178",
+  width: "14.2561",
+  height: "10.6374",
+  rx: "0.7",
+  fill: "white"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "26.8021",
+  y: "13.1178",
+  width: "14.0561",
+  height: "10.4374",
+  rx: "0.6",
+  stroke: "#313131",
+  "stroke-width": "0.2"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "47.0625",
+  y: "0.380981",
+  width: "17.9082",
+  height: "15.847",
+  rx: "1.25",
+  fill: "#FD786F",
+  stroke: "#F44336",
+  "stroke-width": "0.5"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+  filter: "url(#filter2_d_0_1)"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "48.8887",
+  y: "13.0179",
+  width: "14.2561",
+  height: "10.6374",
+  rx: "0.7",
+  fill: "white"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "48.9887",
+  y: "13.1179",
+  width: "14.0561",
+  height: "10.4374",
+  rx: "0.6",
+  stroke: "#313131",
+  "stroke-width": "0.2"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "29.2383",
+  y1: "18.4299",
+  x2: "38.4225",
+  y2: "18.4299",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "29.8467",
+  y1: "20.6817",
+  x2: "37.8137",
+  y2: "20.6817",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "31.1113",
+  y1: "16.178",
+  x2: "36.5495",
+  y2: "16.178",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "51.4248",
+  y1: "18.4299",
+  x2: "60.6091",
+  y2: "18.4299",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "52.0332",
+  y1: "20.6817",
+  x2: "60.0003",
+  y2: "20.6817",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "53.2979",
+  y1: "16.178",
+  x2: "58.736",
+  y2: "16.178",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("defs", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("filter", {
+  id: "filter0_d_0_1",
+  x: "0.515625",
+  y: "13.0179",
+  width: "22.2559",
+  height: "18.6373",
+  filterUnits: "userSpaceOnUse",
+  "color-interpolation-filters": "sRGB"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feFlood", {
+  "flood-opacity": "0",
+  result: "BackgroundImageFix"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
+  in: "SourceAlpha",
+  type: "matrix",
+  values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0",
+  result: "hardAlpha"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feOffset", {
+  dy: "4"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feGaussianBlur", {
+  stdDeviation: "2"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feComposite", {
+  in2: "hardAlpha",
+  operator: "out"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
+  type: "matrix",
+  values: "0 0 0 0 0.804167 0 0 0 0 0.804167 0 0 0 0 0.804167 0 0 0 0.25 0"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
+  mode: "normal",
+  in2: "BackgroundImageFix",
+  result: "effect1_dropShadow_0_1"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
+  mode: "normal",
+  in: "SourceGraphic",
+  in2: "effect1_dropShadow_0_1",
+  result: "shape"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("filter", {
+  id: "filter1_d_0_1",
+  x: "22.7021",
+  y: "13.0178",
+  width: "22.2559",
+  height: "18.6373",
+  filterUnits: "userSpaceOnUse",
+  "color-interpolation-filters": "sRGB"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feFlood", {
+  "flood-opacity": "0",
+  result: "BackgroundImageFix"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
+  in: "SourceAlpha",
+  type: "matrix",
+  values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0",
+  result: "hardAlpha"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feOffset", {
+  dy: "4"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feGaussianBlur", {
+  stdDeviation: "2"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feComposite", {
+  in2: "hardAlpha",
+  operator: "out"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
+  type: "matrix",
+  values: "0 0 0 0 0.804167 0 0 0 0 0.804167 0 0 0 0 0.804167 0 0 0 0.25 0"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
+  mode: "normal",
+  in2: "BackgroundImageFix",
+  result: "effect1_dropShadow_0_1"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
+  mode: "normal",
+  in: "SourceGraphic",
+  in2: "effect1_dropShadow_0_1",
+  result: "shape"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("filter", {
+  id: "filter2_d_0_1",
+  x: "44.8887",
+  y: "13.0179",
+  width: "22.2559",
+  height: "18.6373",
+  filterUnits: "userSpaceOnUse",
+  "color-interpolation-filters": "sRGB"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feFlood", {
+  "flood-opacity": "0",
+  result: "BackgroundImageFix"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
+  in: "SourceAlpha",
+  type: "matrix",
+  values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0",
+  result: "hardAlpha"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feOffset", {
+  dy: "4"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feGaussianBlur", {
+  stdDeviation: "2"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feComposite", {
+  in2: "hardAlpha",
+  operator: "out"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
+  type: "matrix",
+  values: "0 0 0 0 0.804167 0 0 0 0 0.804167 0 0 0 0 0.804167 0 0 0 0.25 0"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
+  mode: "normal",
+  in2: "BackgroundImageFix",
+  result: "effect1_dropShadow_0_1"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
+  mode: "normal",
+  in: "SourceGraphic",
+  in2: "effect1_dropShadow_0_1",
+  result: "shape"
+}))));
+const iconGrid10 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  width: "64",
+  height: "24",
+  viewBox: "0 0 64 24",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "0.671094",
+  y: "6.99141",
+  width: "11.818",
+  height: "16.4201",
+  fill: "#D8EFF3",
+  stroke: "black",
+  "stroke-width": "0.1"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M6.57841 1.46887L12.441 4.64944V11.0106L6.57841 14.1911L0.71582 11.0106V4.64944L6.57841 1.46887Z",
+  fill: "white"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M6.58107 -0.00585938L12.5401 3.22702V9.69277L6.58107 12.9256L0.62207 9.69277V3.22702L6.58107 -0.00585938Z",
+  fill: "#62B3EB"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M6.58107 0.335446L0.92207 3.40557V9.51422L6.58107 12.5843L12.2401 9.51422V3.40557L6.58107 0.335446ZM12.5401 3.22702L6.58107 -0.00585938L0.62207 3.22702V9.69277L6.58107 12.9256L12.5401 9.69277V3.22702Z",
+  fill: "black"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "4.87891",
+  y1: "21.9297",
+  x2: "8.28244",
+  y2: "21.9297",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "3.11035",
+  y1: "19.1661",
+  x2: "10.0518",
+  y2: "19.1661",
+  stroke: "black",
+  "stroke-width": "1.2"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "4.87891",
+  y1: "16.5442",
+  x2: "8.28251",
+  y2: "16.5442",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "17.5734",
+  y: "6.99141",
+  width: "11.818",
+  height: "16.4201",
+  fill: "#EED4D4",
+  stroke: "black",
+  "stroke-width": "0.1"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M23.4808 1.46887L29.3433 4.64944V11.0106L23.4808 14.1911L17.6182 11.0106V4.64944L23.4808 1.46887Z",
+  fill: "white"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M23.4834 -0.00585938L29.4424 3.22702V9.69277L23.4834 12.9256L17.5244 9.69277V3.22702L23.4834 -0.00585938Z",
+  fill: "#F14731"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M23.4834 0.335446L17.8244 3.40557V9.51422L23.4834 12.5843L29.1424 9.51422V3.40557L23.4834 0.335446ZM29.4424 3.22702L23.4834 -0.00585938L17.5244 3.22702V9.69277L23.4834 12.9256L29.4424 9.69277V3.22702Z",
+  fill: "black"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "21.7812",
+  y1: "21.9297",
+  x2: "25.1848",
+  y2: "21.9297",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "20.0127",
+  y1: "19.1661",
+  x2: "26.9541",
+  y2: "19.1661",
+  stroke: "black",
+  "stroke-width": "1.2"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "21.7812",
+  y1: "16.5442",
+  x2: "25.1849",
+  y2: "16.5442",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "34.4758",
+  y: "6.99141",
+  width: "11.818",
+  height: "16.4201",
+  fill: "#F2E6C1",
+  stroke: "black",
+  "stroke-width": "0.1"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M40.3831 1.46887L46.2457 4.64944V11.0106L40.3831 14.1911L34.5205 11.0106V4.64944L40.3831 1.46887Z",
+  fill: "white"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M40.3858 -0.00585938L46.3448 3.22702V9.69277L40.3858 12.9256L34.4268 9.69277V3.22702L40.3858 -0.00585938Z",
+  fill: "#F4B801"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M40.3858 0.335446L34.7268 3.40557V9.51422L40.3858 12.5843L46.0448 9.51422V3.40557L40.3858 0.335446ZM46.3448 3.22702L40.3858 -0.00585938L34.4268 3.22702V9.69277L40.3858 12.9256L46.3448 9.69277V3.22702Z",
+  fill: "black"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "38.6836",
+  y1: "21.9297",
+  x2: "42.0871",
+  y2: "21.9297",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "36.915",
+  y1: "19.1661",
+  x2: "43.8564",
+  y2: "19.1661",
+  stroke: "black",
+  "stroke-width": "1.2"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "38.6836",
+  y1: "16.5442",
+  x2: "42.0872",
+  y2: "16.5442",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "51.3781",
+  y: "6.99141",
+  width: "11.818",
+  height: "16.4201",
+  fill: "#D6DFB3",
+  stroke: "black",
+  "stroke-width": "0.1"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M57.2854 1.46887L63.148 4.64944V11.0106L57.2854 14.1911L51.4229 11.0106V4.64944L57.2854 1.46887Z",
+  fill: "white"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M57.2881 -0.00585938L63.2471 3.22702V9.69277L57.2881 12.9256L51.3291 9.69277V3.22702L57.2881 -0.00585938Z",
+  fill: "#BCE617"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M57.2881 0.335446L51.6291 3.40557V9.51422L57.2881 12.5843L62.9471 9.51422V3.40557L57.2881 0.335446ZM63.2471 3.22702L57.2881 -0.00585938L51.3291 3.22702V9.69277L57.2881 12.9256L63.2471 9.69277V3.22702Z",
+  fill: "black"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "55.5859",
+  y1: "21.9297",
+  x2: "58.9895",
+  y2: "21.9297",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "53.8174",
+  y1: "19.1661",
+  x2: "60.7588",
+  y2: "19.1661",
+  stroke: "black",
+  "stroke-width": "1.2"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "55.5859",
+  y1: "16.5442",
+  x2: "58.9895",
+  y2: "16.5442",
+  stroke: "black",
+  "stroke-width": "0.6"
+}));
+const iconGrid11 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  width: "64",
+  height: "24",
+  viewBox: "0 0 64 24",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M9.47911 13.7534C11.8283 13.7534 13.7326 11.849 13.7326 9.49986C13.7326 7.15071 11.8283 5.24634 9.47911 5.24634C7.12995 5.24634 5.22559 7.15071 5.22559 9.49986C5.22559 11.849 7.12995 13.7534 9.47911 13.7534Z",
+  fill: "#94D6FE"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M1.83945 0.237915C1.06625 0.237915 0.439453 0.864716 0.439453 1.63791V9.49988H18.5195V1.63792C18.5195 0.864716 17.8927 0.237915 17.1195 0.237915H1.83945Z",
+  fill: "#94D6FE"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "0.539453",
+  y: "0.337915",
+  width: "17.8801",
+  height: "23.3243",
+  rx: "1.3",
+  stroke: "black",
+  "stroke-width": "0.2"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M9.47951 13.3007C11.5786 13.3007 13.2803 11.599 13.2803 9.49989C13.2803 7.40077 11.5786 5.6991 9.47951 5.6991C7.38038 5.6991 5.67871 7.40077 5.67871 9.49989C5.67871 11.599 7.38038 13.3007 9.47951 13.3007Z",
+  fill: "#71FF02",
+  stroke: "white",
+  "stroke-width": "0.3"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M5.85059 16.1609H13.1076",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M6.45312 21.9866H12.5043",
+  stroke: "black",
+  "stroke-width": "0.6",
+  "stroke-linecap": "round",
+  "stroke-dasharray": "1.2 1.2"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M3.69531 19.0737H15.2637",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M31.8297 13.7534C34.1789 13.7534 36.0832 11.849 36.0832 9.49986C36.0832 7.15071 34.1789 5.24634 31.8297 5.24634C29.4805 5.24634 27.5762 7.15071 27.5762 9.49986C27.5762 11.849 29.4805 13.7534 31.8297 13.7534Z",
+  fill: "#94D6FE"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M24.19 0.237915C23.4168 0.237915 22.79 0.864716 22.79 1.63791V9.49988H40.8701V1.63792C40.8701 0.864716 40.2433 0.237915 39.4701 0.237915H24.19Z",
+  fill: "#94D6FE"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "22.89",
+  y: "0.337915",
+  width: "17.8801",
+  height: "23.3243",
+  rx: "1.3",
+  stroke: "black",
+  "stroke-width": "0.2"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M31.8301 13.3007C33.9292 13.3007 35.6309 11.599 35.6309 9.49989C35.6309 7.40077 33.9292 5.6991 31.8301 5.6991C29.731 5.6991 28.0293 7.40077 28.0293 9.49989C28.0293 11.599 29.731 13.3007 31.8301 13.3007Z",
+  fill: "#FF0000",
+  stroke: "white",
+  "stroke-width": "0.3"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M28.2012 16.1609H35.4582",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M28.8037 21.9866H34.8549",
+  stroke: "black",
+  "stroke-width": "0.6",
+  "stroke-linecap": "round",
+  "stroke-dasharray": "1.2 1.2"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M26.0459 19.0737H37.6143",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M54.1803 13.7534C56.5294 13.7534 58.4338 11.849 58.4338 9.49986C58.4338 7.15071 56.5294 5.24634 54.1803 5.24634C51.8311 5.24634 49.9268 7.15071 49.9268 9.49986C49.9268 11.849 51.8311 13.7534 54.1803 13.7534Z",
+  fill: "#94D6FE"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M46.5406 0.237915C45.7674 0.237915 45.1406 0.864716 45.1406 1.63791V9.49988H63.2207V1.63792C63.2207 0.864716 62.5939 0.237915 61.8207 0.237915H46.5406Z",
+  fill: "#94D6FE"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "45.2406",
+  y: "0.337915",
+  width: "17.8801",
+  height: "23.3243",
+  rx: "1.3",
+  stroke: "black",
+  "stroke-width": "0.2"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M54.1807 13.3007C56.2798 13.3007 57.9815 11.599 57.9815 9.49989C57.9815 7.40077 56.2798 5.6991 54.1807 5.6991C52.0816 5.6991 50.3799 7.40077 50.3799 9.49989C50.3799 11.599 52.0816 13.3007 54.1807 13.3007Z",
+  fill: "#0A40B4",
+  stroke: "white",
+  "stroke-width": "0.3"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M50.5518 16.1609H57.8088",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M51.1543 21.9866H57.2055",
+  stroke: "black",
+  "stroke-width": "0.6",
+  "stroke-linecap": "round",
+  "stroke-dasharray": "1.2 1.2"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M48.3965 19.0737H59.9649",
+  stroke: "black",
+  "stroke-width": "0.6"
+}));
+const iconGrid12 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  width: "70",
+  height: "30",
+  viewBox: "0 0 70 30",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+  filter: "url(#filter0_d_269_80)"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "3.43945",
+  y: "2.71704",
+  width: "18.3799",
+  height: "23.5243",
+  rx: "3",
+  fill: "white"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "3.58945",
+  y: "2.86704",
+  width: "18.0799",
+  height: "23.2243",
+  rx: "2.85",
+  stroke: "#292929",
+  "stroke-width": "0.3"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+  cx: "12.6298",
+  cy: "10.5076",
+  r: "6.25964",
+  fill: "url(#paint0_linear_269_80)"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+  cx: "12.6288",
+  cy: "10.2624",
+  r: "5.61451",
+  fill: "url(#paint1_linear_269_80)",
+  stroke: "white",
+  "stroke-width": "0.8"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+  cx: "12.6297",
+  cy: "10.2227",
+  r: "4.11309",
+  fill: "#FF543E",
+  stroke: "white",
+  "stroke-width": "0.5"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "9.00098",
+  y1: "19.2602",
+  x2: "16.258",
+  y2: "19.2602",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "9.60371",
+  y1: "23.8185",
+  x2: "15.6549",
+  y2: "23.8185",
+  stroke: "black",
+  "stroke-width": "0.6",
+  "stroke-linecap": "round",
+  "stroke-dasharray": "1.2 1.2"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "6.8457",
+  y1: "21.4137",
+  x2: "18.4141",
+  y2: "21.4137",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+  filter: "url(#filter1_d_269_80)"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "25.6201",
+  y: "2.71704",
+  width: "18.3799",
+  height: "23.5243",
+  rx: "3",
+  fill: "white"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "25.7701",
+  y: "2.86704",
+  width: "18.0799",
+  height: "23.2243",
+  rx: "2.85",
+  stroke: "#292929",
+  "stroke-width": "0.3"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+  cx: "34.8104",
+  cy: "10.5076",
+  r: "6.25964",
+  fill: "url(#paint2_linear_269_80)"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+  cx: "34.8094",
+  cy: "10.2624",
+  r: "5.61451",
+  fill: "url(#paint3_linear_269_80)",
+  stroke: "white",
+  "stroke-width": "0.8"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+  cx: "34.8104",
+  cy: "10.2227",
+  r: "4.11309",
+  fill: "#0180C7",
+  stroke: "white",
+  "stroke-width": "0.5"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "31.1816",
+  y1: "19.2602",
+  x2: "38.4387",
+  y2: "19.2602",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "31.7844",
+  y1: "23.8185",
+  x2: "37.8355",
+  y2: "23.8185",
+  stroke: "black",
+  "stroke-width": "0.6",
+  "stroke-linecap": "round",
+  "stroke-dasharray": "1.2 1.2"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "29.0264",
+  y1: "21.4137",
+  x2: "40.5947",
+  y2: "21.4137",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+  filter: "url(#filter2_d_269_80)"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "47.8008",
+  y: "2.71704",
+  width: "18.3799",
+  height: "23.5243",
+  rx: "3",
+  fill: "white"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "47.9508",
+  y: "2.86704",
+  width: "18.0799",
+  height: "23.2243",
+  rx: "2.85",
+  stroke: "#292929",
+  "stroke-width": "0.3"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+  cx: "56.9911",
+  cy: "10.5076",
+  r: "6.25964",
+  fill: "url(#paint4_linear_269_80)"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+  cx: "56.9901",
+  cy: "10.2624",
+  r: "5.61451",
+  fill: "url(#paint5_linear_269_80)",
+  stroke: "white",
+  "stroke-width": "0.8"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+  cx: "56.991",
+  cy: "10.2227",
+  r: "4.11309",
+  fill: "#FFC107",
+  stroke: "white",
+  "stroke-width": "0.5"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "53.3623",
+  y1: "19.2602",
+  x2: "60.6193",
+  y2: "19.2602",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "53.965",
+  y1: "23.8185",
+  x2: "60.0162",
+  y2: "23.8185",
+  stroke: "black",
+  "stroke-width": "0.6",
+  "stroke-linecap": "round",
+  "stroke-dasharray": "1.2 1.2"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "51.207",
+  y1: "21.4137",
+  x2: "62.7754",
+  y2: "21.4137",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("defs", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("filter", {
+  id: "filter0_d_269_80",
+  x: "0.439453",
+  y: "0.217041",
+  width: "24.3799",
+  height: "29.5243",
+  filterUnits: "userSpaceOnUse",
+  "color-interpolation-filters": "sRGB"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feFlood", {
+  "flood-opacity": "0",
+  result: "BackgroundImageFix"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
+  in: "SourceAlpha",
+  type: "matrix",
+  values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0",
+  result: "hardAlpha"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feOffset", {
+  dy: "0.5"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feGaussianBlur", {
+  stdDeviation: "1.5"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feComposite", {
+  in2: "hardAlpha",
+  operator: "out"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
+  type: "matrix",
+  values: "0 0 0 0 0.410075 0 0 0 0 0.410075 0 0 0 0 0.410075 0 0 0 0.25 0"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
+  mode: "normal",
+  in2: "BackgroundImageFix",
+  result: "effect1_dropShadow_269_80"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
+  mode: "normal",
+  in: "SourceGraphic",
+  in2: "effect1_dropShadow_269_80",
+  result: "shape"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("filter", {
+  id: "filter1_d_269_80",
+  x: "22.6201",
+  y: "0.217041",
+  width: "24.3799",
+  height: "29.5243",
+  filterUnits: "userSpaceOnUse",
+  "color-interpolation-filters": "sRGB"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feFlood", {
+  "flood-opacity": "0",
+  result: "BackgroundImageFix"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
+  in: "SourceAlpha",
+  type: "matrix",
+  values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0",
+  result: "hardAlpha"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feOffset", {
+  dy: "0.5"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feGaussianBlur", {
+  stdDeviation: "1.5"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feComposite", {
+  in2: "hardAlpha",
+  operator: "out"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
+  type: "matrix",
+  values: "0 0 0 0 0.410075 0 0 0 0 0.410075 0 0 0 0 0.410075 0 0 0 0.25 0"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
+  mode: "normal",
+  in2: "BackgroundImageFix",
+  result: "effect1_dropShadow_269_80"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
+  mode: "normal",
+  in: "SourceGraphic",
+  in2: "effect1_dropShadow_269_80",
+  result: "shape"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("filter", {
+  id: "filter2_d_269_80",
+  x: "44.8008",
+  y: "0.217041",
+  width: "24.3799",
+  height: "29.5243",
+  filterUnits: "userSpaceOnUse",
+  "color-interpolation-filters": "sRGB"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feFlood", {
+  "flood-opacity": "0",
+  result: "BackgroundImageFix"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
+  in: "SourceAlpha",
+  type: "matrix",
+  values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0",
+  result: "hardAlpha"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feOffset", {
+  dy: "0.5"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feGaussianBlur", {
+  stdDeviation: "1.5"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feComposite", {
+  in2: "hardAlpha",
+  operator: "out"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
+  type: "matrix",
+  values: "0 0 0 0 0.410075 0 0 0 0 0.410075 0 0 0 0 0.410075 0 0 0 0.25 0"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
+  mode: "normal",
+  in2: "BackgroundImageFix",
+  result: "effect1_dropShadow_269_80"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
+  mode: "normal",
+  in: "SourceGraphic",
+  in2: "effect1_dropShadow_269_80",
+  result: "shape"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("linearGradient", {
+  id: "paint0_linear_269_80",
+  x1: "12.6298",
+  y1: "4.24792",
+  x2: "12.6298",
+  y2: "16.7672",
+  gradientUnits: "userSpaceOnUse"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
+  "stop-color": "white"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
+  offset: "1",
+  "stop-color": "#32549E"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("linearGradient", {
+  id: "paint1_linear_269_80",
+  x1: "12.6288",
+  y1: "4.24793",
+  x2: "12.6288",
+  y2: "16.277",
+  gradientUnits: "userSpaceOnUse"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
+  "stop-color": "#FBFBFB"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
+  offset: "1",
+  "stop-color": "#E9E9E9"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("linearGradient", {
+  id: "paint2_linear_269_80",
+  x1: "34.8104",
+  y1: "4.24792",
+  x2: "34.8104",
+  y2: "16.7672",
+  gradientUnits: "userSpaceOnUse"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
+  "stop-color": "white"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
+  offset: "1",
+  "stop-color": "#32549E"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("linearGradient", {
+  id: "paint3_linear_269_80",
+  x1: "34.8094",
+  y1: "4.24793",
+  x2: "34.8094",
+  y2: "16.277",
+  gradientUnits: "userSpaceOnUse"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
+  "stop-color": "#FBFBFB"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
+  offset: "1",
+  "stop-color": "#E9E9E9"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("linearGradient", {
+  id: "paint4_linear_269_80",
+  x1: "56.9911",
+  y1: "4.24792",
+  x2: "56.9911",
+  y2: "16.7672",
+  gradientUnits: "userSpaceOnUse"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
+  "stop-color": "white"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
+  offset: "1",
+  "stop-color": "#32549E"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("linearGradient", {
+  id: "paint5_linear_269_80",
+  x1: "56.9901",
+  y1: "4.24793",
+  x2: "56.9901",
+  y2: "16.277",
+  gradientUnits: "userSpaceOnUse"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
+  "stop-color": "#FBFBFB"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
+  offset: "1",
+  "stop-color": "#E9E9E9"
+}))));
 const styleIcon = {
   //Grid Icons
   grid1: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 1')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "64",
-    height: "24",
-    viewBox: "0 0 64 24",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "0.877344",
-    y: "0.55813",
-    width: "17.4194",
-    height: "10.1853",
-    fill: "#FFDD55",
-    stroke: "black",
-    "stroke-width": "0.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "0.777344",
-    y1: "14.1854",
-    x2: "18.3968",
-    y2: "14.1854",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "0.777344",
-    y1: "17.351",
-    x2: "16.6228",
-    y2: "17.351",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "0.777344",
-    y1: "20.5168",
-    x2: "14.5228",
-    y2: "20.5168",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "0.777344",
-    y1: "23.6824",
-    x2: "10.1598",
-    y2: "23.6824",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "46.0385",
-    y: "0.55813",
-    width: "17.4194",
-    height: "10.1853",
-    fill: "#90D758",
-    stroke: "black",
-    "stroke-width": "0.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "45.9385",
-    y1: "14.1854",
-    x2: "63.5579",
-    y2: "14.1854",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "45.9385",
-    y1: "17.351",
-    x2: "61.7839",
-    y2: "17.351",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "45.9385",
-    y1: "20.5168",
-    x2: "59.6839",
-    y2: "20.5168",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "45.9385",
-    y1: "23.6824",
-    x2: "55.3209",
-    y2: "23.6824",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "23.4594",
-    y: "0.55813",
-    width: "17.4194",
-    height: "10.1853",
-    fill: "#DC6FC6",
-    stroke: "black",
-    "stroke-width": "0.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "23.3594",
-    y1: "14.1854",
-    x2: "40.9788",
-    y2: "14.1854",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "23.3594",
-    y1: "17.351",
-    x2: "39.2048",
-    y2: "17.351",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "23.3594",
-    y1: "20.5168",
-    x2: "37.1048",
-    y2: "20.5168",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "23.3594",
-    y1: "23.6824",
-    x2: "32.7418",
-    y2: "23.6824",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ")),
+  }, iconGrid1),
   grid2: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 2')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "64",
-    height: "25",
-    viewBox: "0 0 64 25",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "3.77871",
-    y: "4.13784",
-    width: "12.6243",
-    height: "10.1853",
-    rx: "0.9",
-    fill: "#F47666",
-    stroke: "black",
-    "stroke-width": "0.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "0.927344",
-    y: "1.02219",
-    width: "18.1692",
-    height: "23.2243",
-    rx: "0.85",
-    stroke: "black",
-    "stroke-width": "0.3"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "3.67871",
-    y1: "17.7651",
-    x2: "16.503",
-    y2: "17.7651",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "3.67871",
-    y1: "20.9307",
-    x2: "15.2119",
-    y2: "20.9307",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "25.934",
-    y: "4.13784",
-    width: "12.6243",
-    height: "10.1853",
-    rx: "0.9",
-    fill: "#9EC015",
-    stroke: "black",
-    "stroke-width": "0.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "23.0836",
-    y: "1.02219",
-    width: "18.1692",
-    height: "23.2243",
-    rx: "0.85",
-    stroke: "black",
-    "stroke-width": "0.3"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "25.834",
-    y1: "17.7651",
-    x2: "38.6583",
-    y2: "17.7651",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "25.834",
-    y1: "20.9307",
-    x2: "37.3671",
-    y2: "20.9307",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "48.0902",
-    y: "4.13784",
-    width: "12.6243",
-    height: "10.1853",
-    rx: "0.9",
-    fill: "#63D1FF",
-    stroke: "black",
-    "stroke-width": "0.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "45.2389",
-    y: "1.02219",
-    width: "18.1692",
-    height: "23.2243",
-    rx: "0.85",
-    stroke: "black",
-    "stroke-width": "0.3"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "47.9902",
-    y1: "17.7651",
-    x2: "60.8146",
-    y2: "17.7651",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "47.9902",
-    y1: "20.9307",
-    x2: "59.5234",
-    y2: "20.9307",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ")),
+  }, iconGrid2),
   grid3: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 3')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "64",
-    height: "25",
-    viewBox: "0 0 64 25",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "3.77773",
-    y: "1.01992",
-    width: "12.6243",
-    height: "10.1853",
-    rx: "0.9",
-    fill: "#F16633",
-    stroke: "black",
-    "stroke-width": "0.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "3.67773",
-    y1: "14.6471",
-    x2: "16.5021",
-    y2: "14.6471",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "3.67773",
-    y1: "17.8128",
-    x2: "15.2109",
-    y2: "17.8128",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "3.67773",
-    y1: "21.1327",
-    x2: "11.7227",
-    y2: "21.1327",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "25.834",
-    y1: "21.1327",
-    x2: "33.8789",
-    y2: "21.1327",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "47.9902",
-    y1: "21.1327",
-    x2: "56.0352",
-    y2: "21.1327",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "25.934",
-    y: "1.01992",
-    width: "12.6243",
-    height: "10.1853",
-    rx: "0.9",
-    fill: "#5FEFCB",
-    stroke: "black",
-    "stroke-width": "0.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "25.834",
-    y1: "14.6471",
-    x2: "38.6583",
-    y2: "14.6471",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "25.834",
-    y1: "17.8128",
-    x2: "37.3671",
-    y2: "17.8128",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "48.0902",
-    y: "1.01992",
-    width: "12.6243",
-    height: "10.1853",
-    rx: "0.9",
-    fill: "#FFC107",
-    stroke: "black",
-    "stroke-width": "0.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "47.9902",
-    y1: "14.6471",
-    x2: "60.8146",
-    y2: "14.6471",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "47.9902",
-    y1: "17.8128",
-    x2: "59.5234",
-    y2: "17.8128",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M3.67773 8.20288H1.77734C1.22506 8.20288 0.777344 8.6506 0.777344 9.20288V23.3965C0.777344 23.9488 1.22506 24.3965 1.77734 24.3965H18.2466C18.7989 24.3965 19.2466 23.9488 19.2466 23.3965V9.20288C19.2466 8.6506 18.7989 8.20288 18.2466 8.20288H16.5021V8.50288H18.2466C18.6332 8.50288 18.9466 8.81628 18.9466 9.20288V23.3965C18.9466 23.7831 18.6332 24.0965 18.2466 24.0965H1.77734C1.39074 24.0965 1.07734 23.7831 1.07734 23.3965V9.20288C1.07734 8.81628 1.39074 8.50288 1.77734 8.50288H3.67773V8.20288Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M25.834 8.20288H23.9336C23.3813 8.20288 22.9336 8.6506 22.9336 9.20288V23.3965C22.9336 23.9488 23.3813 24.3965 23.9336 24.3965H40.4028C40.9551 24.3965 41.4028 23.9488 41.4028 23.3965V9.20288C41.4028 8.6506 40.9551 8.20288 40.4028 8.20288H38.6583V8.50288H40.4028C40.7894 8.50288 41.1028 8.81628 41.1028 9.20288V23.3965C41.1028 23.7831 40.7894 24.0965 40.4028 24.0965H23.9336C23.547 24.0965 23.2336 23.7831 23.2336 23.3965V9.20288C23.2336 8.81628 23.547 8.50288 23.9336 8.50288H25.834V8.20288Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M48.0684 8.20288H46.168C45.6157 8.20288 45.168 8.6506 45.168 9.20288V23.3965C45.168 23.9488 45.6157 24.3965 46.168 24.3965H62.6372C63.1895 24.3965 63.6372 23.9488 63.6372 23.3965V9.20288C63.6372 8.6506 63.1895 8.20288 62.6372 8.20288H60.8927V8.50288H62.6372C63.0238 8.50288 63.3372 8.81628 63.3372 9.20288V23.3965C63.3372 23.7831 63.0238 24.0965 62.6372 24.0965H46.168C45.7814 24.0965 45.468 23.7831 45.468 23.3965V9.20288C45.468 8.81628 45.7814 8.50288 46.168 8.50288H48.0684V8.20288Z",
-    fill: "black"
-  }), " ")),
+  }, iconGrid3),
   grid4: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 4')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "64",
-    height: "24",
-    viewBox: "0 0 64 24",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "0.877344",
-    y: "0.605859",
-    width: "12.6243",
-    height: "11.7302",
-    rx: "0.9",
-    fill: "#5CC1F9",
-    stroke: "black",
-    "stroke-width": "0.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "4.78711",
-    y1: "23.6824",
-    x2: "9.59364",
-    y2: "23.6824",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "2.28906",
-    y1: "19.8823",
-    x2: "12.0919",
-    y2: "19.8823",
-    stroke: "black",
-    "stroke-width": "1.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "3.16797",
-    y1: "16.7906",
-    x2: "11.2129",
-    y2: "16.7906",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "4.78711",
-    y1: "14.5657",
-    x2: "9.59375",
-    y2: "14.5657",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "17.5355",
-    y: "0.605859",
-    width: "12.6243",
-    height: "11.7302",
-    rx: "0.9",
-    fill: "#90D758",
-    stroke: "black",
-    "stroke-width": "0.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "21.4453",
-    y1: "23.6824",
-    x2: "26.2518",
-    y2: "23.6824",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "18.9473",
-    y1: "19.8823",
-    x2: "28.7501",
-    y2: "19.8823",
-    stroke: "black",
-    "stroke-width": "1.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "19.8262",
-    y1: "16.7906",
-    x2: "27.8711",
-    y2: "16.7906",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "21.4453",
-    y1: "14.5657",
-    x2: "26.252",
-    y2: "14.5657",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "34.1938",
-    y: "0.605859",
-    width: "12.6243",
-    height: "11.7302",
-    rx: "0.9",
-    fill: "#FD705E",
-    stroke: "black",
-    "stroke-width": "0.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "38.1035",
-    y1: "23.6824",
-    x2: "42.91",
-    y2: "23.6824",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "35.6055",
-    y1: "19.8823",
-    x2: "45.4083",
-    y2: "19.8823",
-    stroke: "black",
-    "stroke-width": "1.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "36.4844",
-    y1: "16.7906",
-    x2: "44.5293",
-    y2: "16.7906",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "38.1035",
-    y1: "14.5657",
-    x2: "42.9102",
-    y2: "14.5657",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "50.852",
-    y: "0.605859",
-    width: "12.6243",
-    height: "11.7302",
-    rx: "0.9",
-    fill: "#5DA9AE",
-    stroke: "black",
-    "stroke-width": "0.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "54.7617",
-    y1: "23.6824",
-    x2: "59.5683",
-    y2: "23.6824",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "52.2637",
-    y1: "19.8823",
-    x2: "62.0665",
-    y2: "19.8823",
-    stroke: "black",
-    "stroke-width": "1.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "53.1426",
-    y1: "16.7906",
-    x2: "61.1875",
-    y2: "16.7906",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "54.7617",
-    y1: "14.5657",
-    x2: "59.5684",
-    y2: "14.5657",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ")),
+  }, iconGrid4),
   grid5: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 5')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "64",
-    height: "24",
-    viewBox: "0 0 64 24",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M0.598633 0.995849C0.598633 0.443565 1.04635 -0.00415039 1.59863 -0.00415039H13.4042C13.9565 -0.00415039 14.4042 0.443565 14.4042 0.99585V22.4725C14.4042 23.0248 13.9565 23.4725 13.4042 23.4725H1.59863C1.04635 23.4725 0.598633 23.0248 0.598633 22.4725V0.995849Z",
-    fill: "#FAFAFA"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M13.4042 0.49585H1.59863C1.32249 0.49585 1.09863 0.719707 1.09863 0.995849V22.4725C1.09863 22.7487 1.32249 22.9725 1.59863 22.9725H13.4042C13.6804 22.9725 13.9042 22.7487 13.9042 22.4725V0.99585C13.9042 0.719708 13.6804 0.49585 13.4042 0.49585ZM1.59863 -0.00415039C1.04635 -0.00415039 0.598633 0.443565 0.598633 0.995849V22.4725C0.598633 23.0248 1.04635 23.4725 1.59863 23.4725H13.4042C13.9565 23.4725 14.4042 23.0248 14.4042 22.4725V0.99585C14.4042 0.443565 13.9565 -0.00415039 13.4042 -0.00415039H1.59863Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M10.165 21.8312H5.77518V21.2312H10.165V21.8312Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M12.447 19.1698H3.49414V17.9698H12.447V19.1698Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M10.1996 13.8466H5.73926V13.2466H10.1996V13.8466Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M10.9482 16.5082H4.9921V15.9082H10.9482V16.5082Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M14.0049 8.35162L0.993164 13.8776L0.996435 0.824844C0.996435 0.539159 1.27941 0.423653 1.4209 0.401611H13.585C13.8566 0.401611 13.9781 0.72789 14.0049 0.891029V8.35162Z",
-    fill: "#D4EAFD"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M1.41316 0.301611H13.585C13.7671 0.301611 13.8923 0.412654 13.9701 0.529843C14.0475 0.646444 14.0885 0.783095 14.1036 0.87483L14.1049 0.882876V8.4178L0.893126 14.0287L0.896435 0.824844C0.896435 0.824853 0.896435 0.824836 0.896435 0.824844C0.896443 0.643697 0.988017 0.516294 1.09503 0.434804C1.19934 0.355369 1.32198 0.315817 1.40551 0.302803L1.41316 0.301611ZM1.42913 0.501611C1.37114 0.511848 1.28582 0.540898 1.2162 0.593919C1.14635 0.64711 1.09643 0.72032 1.09643 0.824844L1.0932 13.7265L13.9049 8.28545V0.899535C13.8921 0.828223 13.8593 0.724684 13.8034 0.640443C13.7459 0.553707 13.6745 0.501611 13.585 0.501611H1.42913Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M16.9268 0.995849C16.9268 0.443565 17.3745 -0.00415039 17.9268 -0.00415039H29.7324C30.2847 -0.00415039 30.7324 0.443565 30.7324 0.99585V22.4725C30.7324 23.0248 30.2847 23.4725 29.7324 23.4725H17.9268C17.3745 23.4725 16.9268 23.0248 16.9268 22.4725V0.995849Z",
-    fill: "#FAFAFA"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M29.7324 0.49585H17.9268C17.6506 0.49585 17.4268 0.719707 17.4268 0.995849V22.4725C17.4268 22.7487 17.6506 22.9725 17.9268 22.9725H29.7324C30.0085 22.9725 30.2324 22.7487 30.2324 22.4725V0.99585C30.2324 0.719708 30.0085 0.49585 29.7324 0.49585ZM17.9268 -0.00415039C17.3745 -0.00415039 16.9268 0.443565 16.9268 0.995849V22.4725C16.9268 23.0248 17.3745 23.4725 17.9268 23.4725H29.7324C30.2847 23.4725 30.7324 23.0248 30.7324 22.4725V0.99585C30.7324 0.443565 30.2847 -0.00415039 29.7324 -0.00415039H17.9268Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M26.4931 21.8312H22.1033V21.2312H26.4931V21.8312Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M28.7751 19.1698H19.8223V17.9698H28.7751V19.1698Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M26.5277 13.8466H22.0674V13.2466H26.5277V13.8466Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M27.2763 16.5082H21.3202V15.9082H27.2763V16.5082Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M30.333 8.35162L17.3213 13.8776L17.3246 0.824844C17.3246 0.539159 17.6075 0.423653 17.749 0.401611H29.9131C30.1847 0.401611 30.3062 0.72789 30.333 0.891029V8.35162Z",
-    fill: "#EDC68C"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M17.7413 0.301611H29.9131C30.0952 0.301611 30.2204 0.412654 30.2982 0.529843C30.3756 0.646444 30.4166 0.783095 30.4317 0.87483L30.433 0.882876V8.4178L17.2213 14.0287L17.2246 0.824844C17.2246 0.824853 17.2246 0.824836 17.2246 0.824844C17.2246 0.643697 17.3161 0.516294 17.4232 0.434804C17.5275 0.355369 17.6501 0.315817 17.7336 0.302803L17.7413 0.301611ZM17.7573 0.501611C17.6993 0.511848 17.6139 0.540898 17.5443 0.593919C17.4745 0.64711 17.4246 0.72032 17.4246 0.824844L17.4213 13.7265L30.233 8.28545V0.899535C30.2202 0.828223 30.1875 0.724684 30.1316 0.640443C30.074 0.553707 30.0026 0.501611 29.9131 0.501611H17.7573Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M33.2549 0.995849C33.2549 0.443565 33.7026 -0.00415039 34.2549 -0.00415039H46.0605C46.6128 -0.00415039 47.0605 0.443565 47.0605 0.99585V22.4725C47.0605 23.0248 46.6128 23.4725 46.0605 23.4725H34.2549C33.7026 23.4725 33.2549 23.0248 33.2549 22.4725V0.995849Z",
-    fill: "#FAFAFA"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M46.0605 0.49585H34.2549C33.9787 0.49585 33.7549 0.719707 33.7549 0.995849V22.4725C33.7549 22.7487 33.9787 22.9725 34.2549 22.9725H46.0605C46.3366 22.9725 46.5605 22.7487 46.5605 22.4725V0.99585C46.5605 0.719708 46.3366 0.49585 46.0605 0.49585ZM34.2549 -0.00415039C33.7026 -0.00415039 33.2549 0.443565 33.2549 0.995849V22.4725C33.2549 23.0248 33.7026 23.4725 34.2549 23.4725H46.0605C46.6128 23.4725 47.0605 23.0248 47.0605 22.4725V0.99585C47.0605 0.443565 46.6128 -0.00415039 46.0605 -0.00415039H34.2549Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M42.8212 21.8312H38.4314V21.2312H42.8212V21.8312Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M45.1033 19.1698H36.1504V17.9698H45.1033V19.1698Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M42.8559 13.8466H38.3955V13.2466H42.8559V13.8466Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M43.6044 16.5082H37.6483V15.9082H43.6044V16.5082Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M46.6611 8.35162L33.6494 13.8776L33.6527 0.824844C33.6527 0.539159 33.9357 0.423653 34.0772 0.401611H46.2412C46.5129 0.401611 46.6344 0.72789 46.6611 0.891029V8.35162Z",
-    fill: "#BADBDF"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M34.0694 0.301611H46.2412C46.4234 0.301611 46.5485 0.412654 46.6263 0.529843C46.7037 0.646444 46.7448 0.783095 46.7598 0.87483L46.7611 0.882876V8.4178L33.5494 14.0287L33.5527 0.824844C33.5527 0.824853 33.5527 0.824836 33.5527 0.824844C33.5527 0.643697 33.6443 0.516294 33.7513 0.434804C33.8556 0.355369 33.9782 0.315817 34.0618 0.302803L34.0694 0.301611ZM34.0854 0.501611C34.0274 0.511848 33.9421 0.540898 33.8724 0.593919C33.8026 0.64711 33.7527 0.72032 33.7527 0.824844L33.7495 13.7265L46.5611 8.28545V0.899535C46.5484 0.828223 46.5156 0.724684 46.4597 0.640443C46.4021 0.553707 46.3307 0.501611 46.2412 0.501611H34.0854Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M49.583 0.995849C49.583 0.443565 50.0307 -0.00415039 50.583 -0.00415039H62.3886C62.9409 -0.00415039 63.3886 0.443565 63.3886 0.99585V22.4725C63.3886 23.0248 62.9409 23.4725 62.3886 23.4725H50.583C50.0307 23.4725 49.583 23.0248 49.583 22.4725V0.995849Z",
-    fill: "#FAFAFA"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M62.3886 0.49585H50.583C50.3069 0.49585 50.083 0.719707 50.083 0.995849V22.4725C50.083 22.7487 50.3069 22.9725 50.583 22.9725H62.3886C62.6648 22.9725 62.8886 22.7487 62.8886 22.4725V0.99585C62.8886 0.719708 62.6648 0.49585 62.3886 0.49585ZM50.583 -0.00415039C50.0307 -0.00415039 49.583 0.443565 49.583 0.995849V22.4725C49.583 23.0248 50.0307 23.4725 50.583 23.4725H62.3886C62.9409 23.4725 63.3886 23.0248 63.3886 22.4725V0.99585C63.3886 0.443565 62.9409 -0.00415039 62.3886 -0.00415039H50.583Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M59.1494 21.8312H54.7596V21.2312H59.1494V21.8312Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M61.4314 19.1698H52.4785V17.9698H61.4314V19.1698Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M59.184 13.8466H54.7236V13.2466H59.184V13.8466Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M59.9325 16.5082H53.9765V15.9082H59.9325V16.5082Z",
-    fill: "black"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M62.9893 8.35162L49.9775 13.8776L49.9808 0.824844C49.9808 0.539159 50.2638 0.423653 50.4053 0.401611H62.5693C62.841 0.401611 62.9625 0.72789 62.9893 0.891029V8.35162Z",
-    fill: "#B8ECDF"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M50.3975 0.301611H62.5693C62.7515 0.301611 62.8767 0.412654 62.9544 0.529843C63.0318 0.646444 63.0729 0.783095 63.0879 0.87483L63.0893 0.882876V8.4178L49.8775 14.0287L49.8808 0.824844C49.8808 0.824853 49.8808 0.824836 49.8808 0.824844C49.8808 0.643697 49.9724 0.516294 50.0794 0.434804C50.1837 0.355369 50.3064 0.315817 50.3899 0.302803L50.3975 0.301611ZM50.4135 0.501611C50.3555 0.511848 50.2702 0.540898 50.2006 0.593919C50.1307 0.64711 50.0808 0.72032 50.0808 0.824844L50.0776 13.7265L62.8893 8.28545V0.899535C62.8765 0.828223 62.8437 0.724684 62.7878 0.640443C62.7302 0.553707 62.6589 0.501611 62.5693 0.501611H50.4135Z",
-    fill: "black"
-  }), " "), " "),
+  }, " ", iconGrid5),
   grid6: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 6')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "64",
-    height: "24",
-    viewBox: "0 0 64 24",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "0.539453",
-    y: "0.385645",
-    width: "8.07844",
-    height: "8.07844",
-    rx: "4.03922",
-    fill: "#E9A847",
-    stroke: "black",
-    "stroke-width": "0.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "0.439453",
-    y1: "18.4",
-    x2: "10.2422",
-    y2: "18.4",
-    stroke: "black",
-    "stroke-width": "1.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "0.439453",
-    y1: "14.7",
-    x2: "8.48438",
-    y2: "14.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "0.439453",
-    y1: "11.7",
-    x2: "5.24609",
-    y2: "11.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "0.439453",
-    y: "22.1334",
-    width: "4.98926",
-    height: "1.62878",
-    rx: "0.814392",
-    fill: "#0085FF"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "18.2279",
-    y: "0.385645",
-    width: "8.07844",
-    height: "8.07844",
-    rx: "4.03922",
-    fill: "#90D758",
-    stroke: "black",
-    "stroke-width": "0.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "18.1279",
-    y1: "18.4",
-    x2: "27.9307",
-    y2: "18.4",
-    stroke: "black",
-    "stroke-width": "1.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "18.1279",
-    y1: "14.7",
-    x2: "26.1729",
-    y2: "14.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "18.1279",
-    y1: "11.7",
-    x2: "22.9346",
-    y2: "11.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "18.1279",
-    y: "22.1334",
-    width: "4.98926",
-    height: "1.62878",
-    rx: "0.814392",
-    fill: "#0085FF"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "35.9164",
-    y: "0.385645",
-    width: "8.07844",
-    height: "8.07844",
-    rx: "4.03922",
-    fill: "#FC6E7D",
-    stroke: "black",
-    "stroke-width": "0.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "35.8164",
-    y1: "18.4",
-    x2: "45.6192",
-    y2: "18.4",
-    stroke: "black",
-    "stroke-width": "1.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "35.8164",
-    y1: "14.7",
-    x2: "43.8613",
-    y2: "14.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "35.8164",
-    y1: "11.7",
-    x2: "40.623",
-    y2: "11.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "35.8164",
-    y: "22.1334",
-    width: "4.98926",
-    height: "1.62878",
-    rx: "0.814392",
-    fill: "#0085FF"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "53.6049",
-    y: "0.385645",
-    width: "8.07844",
-    height: "8.07844",
-    rx: "4.03922",
-    fill: "#58C0D7",
-    stroke: "black",
-    "stroke-width": "0.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "53.5049",
-    y1: "18.4",
-    x2: "63.3077",
-    y2: "18.4",
-    stroke: "black",
-    "stroke-width": "1.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "53.5049",
-    y1: "14.7",
-    x2: "61.5498",
-    y2: "14.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "53.5049",
-    y1: "11.7",
-    x2: "58.3115",
-    y2: "11.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "53.5049",
-    y: "22.1334",
-    width: "4.98926",
-    height: "1.62878",
-    rx: "0.814392",
-    fill: "#0085FF"
-  }), " ")),
+  }, iconGrid6),
   grid7: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 7')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "64",
-    height: "24",
-    viewBox: "0 0 64 24",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "0.689453",
-    y: "6.79395",
-    width: "17.21",
-    height: "16.6042",
-    stroke: "black",
-    "stroke-width": "0.5"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
-    cx: "9.29492",
-    cy: "5.6239",
-    r: "5.5",
-    fill: "#FFBB0E"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "5.66602",
-    y1: "13.586",
-    x2: "12.923",
-    y2: "13.586",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "6.26875",
-    y1: "21.586",
-    x2: "12.3199",
-    y2: "21.586",
-    stroke: "black",
-    "stroke-width": "0.6",
-    "stroke-linecap": "round",
-    "stroke-dasharray": "1.2 1.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "3.50977",
-    y1: "16.586",
-    x2: "15.0781",
-    y2: "16.586",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "4.09277",
-    y1: "18.586",
-    x2: "14.4964",
-    y2: "18.586",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "23.2168",
-    y: "6.79395",
-    width: "17.21",
-    height: "16.6042",
-    stroke: "black",
-    "stroke-width": "0.5"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
-    cx: "31.8223",
-    cy: "5.6239",
-    r: "5.5",
-    fill: "#EE1930"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "28.1934",
-    y1: "13.586",
-    x2: "35.4504",
-    y2: "13.586",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "28.7961",
-    y1: "21.586",
-    x2: "34.8473",
-    y2: "21.586",
-    stroke: "black",
-    "stroke-width": "0.6",
-    "stroke-linecap": "round",
-    "stroke-dasharray": "1.2 1.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "26.0371",
-    y1: "16.586",
-    x2: "37.6055",
-    y2: "16.586",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "26.6201",
-    y1: "18.586",
-    x2: "37.0238",
-    y2: "18.586",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "45.7441",
-    y: "6.79395",
-    width: "17.21",
-    height: "16.6042",
-    stroke: "black",
-    "stroke-width": "0.5"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
-    cx: "54.3496",
-    cy: "5.6239",
-    r: "5.5",
-    fill: "#4EA8FC"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "50.7207",
-    y1: "13.586",
-    x2: "57.9777",
-    y2: "13.586",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "51.3234",
-    y1: "21.586",
-    x2: "57.3746",
-    y2: "21.586",
-    stroke: "black",
-    "stroke-width": "0.6",
-    "stroke-linecap": "round",
-    "stroke-dasharray": "1.2 1.2"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "48.5645",
-    y1: "16.586",
-    x2: "60.1328",
-    y2: "16.586",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "49.1475",
-    y1: "18.586",
-    x2: "59.5511",
-    y2: "18.586",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), " ")),
+  }, iconGrid7),
   grid8: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 8')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "64",
-    height: "25",
-    viewBox: "0 0 64 25",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M15.6488 1.01709H3.26895C1.69493 1.01709 0.418945 2.29308 0.418945 3.86709V21.3914C0.418945 22.9654 1.69493 24.2414 3.26895 24.2414H15.6488C17.2229 24.2414 18.4988 22.9654 18.4988 21.3914V3.86709C18.4988 2.29308 17.2229 1.01709 15.6488 1.01709Z",
-    stroke: "#292929",
-    "stroke-width": "0.3"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M9.45898 13.3505C12.4426 13.3505 14.8613 10.9318 14.8613 7.94812C14.8613 4.96449 12.4426 2.54578 9.45898 2.54578C6.47535 2.54578 4.05664 4.96449 4.05664 7.94812C4.05664 10.9318 6.47535 13.3505 9.45898 13.3505Z",
-    fill: "white",
-    stroke: "#0180C7",
-    "stroke-width": "0.3"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M9.459 11.7489C11.5581 11.7489 13.2598 10.0473 13.2598 7.94813C13.2598 5.84901 11.5581 4.14734 9.459 4.14734C7.35988 4.14734 5.6582 5.84901 5.6582 7.94813C5.6582 10.0473 7.35988 11.7489 9.459 11.7489Z",
-    fill: "#5DDA4E"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M5.83008 16.1274H13.0871",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M6.43262 21.9531H12.4838",
-    stroke: "black",
-    "stroke-width": "0.6",
-    "stroke-linecap": "round",
-    "stroke-dasharray": "1.2 1.2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M3.6748 19.0403H15.2432",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M38.0092 1.01709H25.6293C24.0553 1.01709 22.7793 2.29308 22.7793 3.86709V21.3914C22.7793 22.9654 24.0553 24.2414 25.6293 24.2414H38.0092C39.5832 24.2414 40.8592 22.9654 40.8592 21.3914V3.86709C40.8592 2.29308 39.5832 1.01709 38.0092 1.01709Z",
-    stroke: "#292929",
-    "stroke-width": "0.3"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M31.8193 13.3505C34.803 13.3505 37.2217 10.9318 37.2217 7.94812C37.2217 4.96449 34.803 2.54578 31.8193 2.54578C28.8357 2.54578 26.417 4.96449 26.417 7.94812C26.417 10.9318 28.8357 13.3505 31.8193 13.3505Z",
-    fill: "white",
-    stroke: "#0180C7",
-    "stroke-width": "0.3"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M31.8184 11.7489C33.9175 11.7489 35.6192 10.0473 35.6192 7.94813C35.6192 5.84901 33.9175 4.14734 31.8184 4.14734C29.7193 4.14734 28.0176 5.84901 28.0176 7.94813C28.0176 10.0473 29.7193 11.7489 31.8184 11.7489Z",
-    fill: "#DC5948"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M28.1904 16.1274H35.4474",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M28.793 21.9531H34.8442",
-    stroke: "black",
-    "stroke-width": "0.6",
-    "stroke-linecap": "round",
-    "stroke-dasharray": "1.2 1.2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M26.0352 19.0403H37.6036",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M60.3705 1.01709H47.9906C46.4166 1.01709 45.1406 2.29308 45.1406 3.86709V21.3914C45.1406 22.9654 46.4166 24.2414 47.9906 24.2414H60.3705C61.9445 24.2414 63.2205 22.9654 63.2205 21.3914V3.86709C63.2205 2.29308 61.9445 1.01709 60.3705 1.01709Z",
-    stroke: "#292929",
-    "stroke-width": "0.3"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M54.1807 13.3505C57.1643 13.3505 59.583 10.9318 59.583 7.94812C59.583 4.96449 57.1643 2.54578 54.1807 2.54578C51.197 2.54578 48.7783 4.96449 48.7783 7.94812C48.7783 10.9318 51.197 13.3505 54.1807 13.3505Z",
-    fill: "white",
-    stroke: "#0180C7",
-    "stroke-width": "0.3"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M54.1797 11.7489C56.2788 11.7489 57.9805 10.0473 57.9805 7.94813C57.9805 5.84901 56.2788 4.14734 54.1797 4.14734C52.0806 4.14734 50.3789 5.84901 50.3789 7.94813C50.3789 10.0473 52.0806 11.7489 54.1797 11.7489Z",
-    fill: "#5C95C9"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M50.5518 16.1274H57.8088",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M51.1543 21.9531H57.2055",
-    stroke: "black",
-    "stroke-width": "0.6",
-    "stroke-linecap": "round",
-    "stroke-dasharray": "1.2 1.2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M48.3965 19.0403H59.9649",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }))),
+  }, iconGrid8),
   grid9: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 9')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "68",
-    height: "30",
-    viewBox: "0 0 68 30",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "2.68945",
-    y: "0.380981",
-    width: "17.9082",
-    height: "15.847",
-    rx: "1.25",
-    fill: "#FEDC55",
-    stroke: "#DEB100",
-    "stroke-width": "0.5"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
-    filter: "url(#filter0_d_0_1)"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "4.51562",
-    y: "13.0179",
-    width: "14.2561",
-    height: "10.6374",
-    rx: "0.7",
-    fill: "white"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "4.61563",
-    y: "13.1179",
-    width: "14.0561",
-    height: "10.4374",
-    rx: "0.6",
-    stroke: "#313131",
-    "stroke-width": "0.2"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "7.05176",
-    y1: "18.1823",
-    x2: "16.236",
-    y2: "18.1823",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "7.66016",
-    y1: "20.4341",
-    x2: "15.6272",
-    y2: "20.4341",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "8.9248",
-    y1: "15.9305",
-    x2: "14.363",
-    y2: "15.9305",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "24.876",
-    y: "0.380859",
-    width: "17.9082",
-    height: "15.847",
-    rx: "1.25",
-    fill: "#90D758",
-    stroke: "#4DAF00",
-    "stroke-width": "0.5"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
-    filter: "url(#filter1_d_0_1)"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "26.7021",
-    y: "13.0178",
-    width: "14.2561",
-    height: "10.6374",
-    rx: "0.7",
-    fill: "white"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "26.8021",
-    y: "13.1178",
-    width: "14.0561",
-    height: "10.4374",
-    rx: "0.6",
-    stroke: "#313131",
-    "stroke-width": "0.2"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "47.0625",
-    y: "0.380981",
-    width: "17.9082",
-    height: "15.847",
-    rx: "1.25",
-    fill: "#FD786F",
-    stroke: "#F44336",
-    "stroke-width": "0.5"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
-    filter: "url(#filter2_d_0_1)"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "48.8887",
-    y: "13.0179",
-    width: "14.2561",
-    height: "10.6374",
-    rx: "0.7",
-    fill: "white"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "48.9887",
-    y: "13.1179",
-    width: "14.0561",
-    height: "10.4374",
-    rx: "0.6",
-    stroke: "#313131",
-    "stroke-width": "0.2"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "29.2383",
-    y1: "18.4299",
-    x2: "38.4225",
-    y2: "18.4299",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "29.8467",
-    y1: "20.6817",
-    x2: "37.8137",
-    y2: "20.6817",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "31.1113",
-    y1: "16.178",
-    x2: "36.5495",
-    y2: "16.178",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "51.4248",
-    y1: "18.4299",
-    x2: "60.6091",
-    y2: "18.4299",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "52.0332",
-    y1: "20.6817",
-    x2: "60.0003",
-    y2: "20.6817",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "53.2979",
-    y1: "16.178",
-    x2: "58.736",
-    y2: "16.178",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("defs", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("filter", {
-    id: "filter0_d_0_1",
-    x: "0.515625",
-    y: "13.0179",
-    width: "22.2559",
-    height: "18.6373",
-    filterUnits: "userSpaceOnUse",
-    "color-interpolation-filters": "sRGB"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feFlood", {
-    "flood-opacity": "0",
-    result: "BackgroundImageFix"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
-    in: "SourceAlpha",
-    type: "matrix",
-    values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0",
-    result: "hardAlpha"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feOffset", {
-    dy: "4"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feGaussianBlur", {
-    stdDeviation: "2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feComposite", {
-    in2: "hardAlpha",
-    operator: "out"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
-    type: "matrix",
-    values: "0 0 0 0 0.804167 0 0 0 0 0.804167 0 0 0 0 0.804167 0 0 0 0.25 0"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
-    mode: "normal",
-    in2: "BackgroundImageFix",
-    result: "effect1_dropShadow_0_1"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
-    mode: "normal",
-    in: "SourceGraphic",
-    in2: "effect1_dropShadow_0_1",
-    result: "shape"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("filter", {
-    id: "filter1_d_0_1",
-    x: "22.7021",
-    y: "13.0178",
-    width: "22.2559",
-    height: "18.6373",
-    filterUnits: "userSpaceOnUse",
-    "color-interpolation-filters": "sRGB"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feFlood", {
-    "flood-opacity": "0",
-    result: "BackgroundImageFix"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
-    in: "SourceAlpha",
-    type: "matrix",
-    values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0",
-    result: "hardAlpha"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feOffset", {
-    dy: "4"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feGaussianBlur", {
-    stdDeviation: "2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feComposite", {
-    in2: "hardAlpha",
-    operator: "out"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
-    type: "matrix",
-    values: "0 0 0 0 0.804167 0 0 0 0 0.804167 0 0 0 0 0.804167 0 0 0 0.25 0"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
-    mode: "normal",
-    in2: "BackgroundImageFix",
-    result: "effect1_dropShadow_0_1"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
-    mode: "normal",
-    in: "SourceGraphic",
-    in2: "effect1_dropShadow_0_1",
-    result: "shape"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("filter", {
-    id: "filter2_d_0_1",
-    x: "44.8887",
-    y: "13.0179",
-    width: "22.2559",
-    height: "18.6373",
-    filterUnits: "userSpaceOnUse",
-    "color-interpolation-filters": "sRGB"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feFlood", {
-    "flood-opacity": "0",
-    result: "BackgroundImageFix"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
-    in: "SourceAlpha",
-    type: "matrix",
-    values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0",
-    result: "hardAlpha"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feOffset", {
-    dy: "4"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feGaussianBlur", {
-    stdDeviation: "2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feComposite", {
-    in2: "hardAlpha",
-    operator: "out"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
-    type: "matrix",
-    values: "0 0 0 0 0.804167 0 0 0 0 0.804167 0 0 0 0 0.804167 0 0 0 0.25 0"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
-    mode: "normal",
-    in2: "BackgroundImageFix",
-    result: "effect1_dropShadow_0_1"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
-    mode: "normal",
-    in: "SourceGraphic",
-    in2: "effect1_dropShadow_0_1",
-    result: "shape"
-  }))))),
+  }, iconGrid9),
   grid10: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 10')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "64",
-    height: "24",
-    viewBox: "0 0 64 24",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "0.671094",
-    y: "6.99141",
-    width: "11.818",
-    height: "16.4201",
-    fill: "#D8EFF3",
-    stroke: "black",
-    "stroke-width": "0.1"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M6.57841 1.46887L12.441 4.64944V11.0106L6.57841 14.1911L0.71582 11.0106V4.64944L6.57841 1.46887Z",
-    fill: "white"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M6.58107 -0.00585938L12.5401 3.22702V9.69277L6.58107 12.9256L0.62207 9.69277V3.22702L6.58107 -0.00585938Z",
-    fill: "#62B3EB"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M6.58107 0.335446L0.92207 3.40557V9.51422L6.58107 12.5843L12.2401 9.51422V3.40557L6.58107 0.335446ZM12.5401 3.22702L6.58107 -0.00585938L0.62207 3.22702V9.69277L6.58107 12.9256L12.5401 9.69277V3.22702Z",
-    fill: "black"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "4.87891",
-    y1: "21.9297",
-    x2: "8.28244",
-    y2: "21.9297",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "3.11035",
-    y1: "19.1661",
-    x2: "10.0518",
-    y2: "19.1661",
-    stroke: "black",
-    "stroke-width": "1.2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "4.87891",
-    y1: "16.5442",
-    x2: "8.28251",
-    y2: "16.5442",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "17.5734",
-    y: "6.99141",
-    width: "11.818",
-    height: "16.4201",
-    fill: "#EED4D4",
-    stroke: "black",
-    "stroke-width": "0.1"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M23.4808 1.46887L29.3433 4.64944V11.0106L23.4808 14.1911L17.6182 11.0106V4.64944L23.4808 1.46887Z",
-    fill: "white"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M23.4834 -0.00585938L29.4424 3.22702V9.69277L23.4834 12.9256L17.5244 9.69277V3.22702L23.4834 -0.00585938Z",
-    fill: "#F14731"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M23.4834 0.335446L17.8244 3.40557V9.51422L23.4834 12.5843L29.1424 9.51422V3.40557L23.4834 0.335446ZM29.4424 3.22702L23.4834 -0.00585938L17.5244 3.22702V9.69277L23.4834 12.9256L29.4424 9.69277V3.22702Z",
-    fill: "black"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "21.7812",
-    y1: "21.9297",
-    x2: "25.1848",
-    y2: "21.9297",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "20.0127",
-    y1: "19.1661",
-    x2: "26.9541",
-    y2: "19.1661",
-    stroke: "black",
-    "stroke-width": "1.2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "21.7812",
-    y1: "16.5442",
-    x2: "25.1849",
-    y2: "16.5442",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "34.4758",
-    y: "6.99141",
-    width: "11.818",
-    height: "16.4201",
-    fill: "#F2E6C1",
-    stroke: "black",
-    "stroke-width": "0.1"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M40.3831 1.46887L46.2457 4.64944V11.0106L40.3831 14.1911L34.5205 11.0106V4.64944L40.3831 1.46887Z",
-    fill: "white"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M40.3858 -0.00585938L46.3448 3.22702V9.69277L40.3858 12.9256L34.4268 9.69277V3.22702L40.3858 -0.00585938Z",
-    fill: "#F4B801"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M40.3858 0.335446L34.7268 3.40557V9.51422L40.3858 12.5843L46.0448 9.51422V3.40557L40.3858 0.335446ZM46.3448 3.22702L40.3858 -0.00585938L34.4268 3.22702V9.69277L40.3858 12.9256L46.3448 9.69277V3.22702Z",
-    fill: "black"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "38.6836",
-    y1: "21.9297",
-    x2: "42.0871",
-    y2: "21.9297",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "36.915",
-    y1: "19.1661",
-    x2: "43.8564",
-    y2: "19.1661",
-    stroke: "black",
-    "stroke-width": "1.2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "38.6836",
-    y1: "16.5442",
-    x2: "42.0872",
-    y2: "16.5442",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "51.3781",
-    y: "6.99141",
-    width: "11.818",
-    height: "16.4201",
-    fill: "#D6DFB3",
-    stroke: "black",
-    "stroke-width": "0.1"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M57.2854 1.46887L63.148 4.64944V11.0106L57.2854 14.1911L51.4229 11.0106V4.64944L57.2854 1.46887Z",
-    fill: "white"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M57.2881 -0.00585938L63.2471 3.22702V9.69277L57.2881 12.9256L51.3291 9.69277V3.22702L57.2881 -0.00585938Z",
-    fill: "#BCE617"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M57.2881 0.335446L51.6291 3.40557V9.51422L57.2881 12.5843L62.9471 9.51422V3.40557L57.2881 0.335446ZM63.2471 3.22702L57.2881 -0.00585938L51.3291 3.22702V9.69277L57.2881 12.9256L63.2471 9.69277V3.22702Z",
-    fill: "black"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "55.5859",
-    y1: "21.9297",
-    x2: "58.9895",
-    y2: "21.9297",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "53.8174",
-    y1: "19.1661",
-    x2: "60.7588",
-    y2: "19.1661",
-    stroke: "black",
-    "stroke-width": "1.2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "55.5859",
-    y1: "16.5442",
-    x2: "58.9895",
-    y2: "16.5442",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }))),
+  }, iconGrid10),
   grid11: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 11')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "64",
-    height: "24",
-    viewBox: "0 0 64 24",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M9.47911 13.7534C11.8283 13.7534 13.7326 11.849 13.7326 9.49986C13.7326 7.15071 11.8283 5.24634 9.47911 5.24634C7.12995 5.24634 5.22559 7.15071 5.22559 9.49986C5.22559 11.849 7.12995 13.7534 9.47911 13.7534Z",
-    fill: "#94D6FE"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M1.83945 0.237915C1.06625 0.237915 0.439453 0.864716 0.439453 1.63791V9.49988H18.5195V1.63792C18.5195 0.864716 17.8927 0.237915 17.1195 0.237915H1.83945Z",
-    fill: "#94D6FE"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "0.539453",
-    y: "0.337915",
-    width: "17.8801",
-    height: "23.3243",
-    rx: "1.3",
-    stroke: "black",
-    "stroke-width": "0.2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M9.47951 13.3007C11.5786 13.3007 13.2803 11.599 13.2803 9.49989C13.2803 7.40077 11.5786 5.6991 9.47951 5.6991C7.38038 5.6991 5.67871 7.40077 5.67871 9.49989C5.67871 11.599 7.38038 13.3007 9.47951 13.3007Z",
-    fill: "#71FF02",
-    stroke: "white",
-    "stroke-width": "0.3"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M5.85059 16.1609H13.1076",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M6.45312 21.9866H12.5043",
-    stroke: "black",
-    "stroke-width": "0.6",
-    "stroke-linecap": "round",
-    "stroke-dasharray": "1.2 1.2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M3.69531 19.0737H15.2637",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M31.8297 13.7534C34.1789 13.7534 36.0832 11.849 36.0832 9.49986C36.0832 7.15071 34.1789 5.24634 31.8297 5.24634C29.4805 5.24634 27.5762 7.15071 27.5762 9.49986C27.5762 11.849 29.4805 13.7534 31.8297 13.7534Z",
-    fill: "#94D6FE"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M24.19 0.237915C23.4168 0.237915 22.79 0.864716 22.79 1.63791V9.49988H40.8701V1.63792C40.8701 0.864716 40.2433 0.237915 39.4701 0.237915H24.19Z",
-    fill: "#94D6FE"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "22.89",
-    y: "0.337915",
-    width: "17.8801",
-    height: "23.3243",
-    rx: "1.3",
-    stroke: "black",
-    "stroke-width": "0.2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M31.8301 13.3007C33.9292 13.3007 35.6309 11.599 35.6309 9.49989C35.6309 7.40077 33.9292 5.6991 31.8301 5.6991C29.731 5.6991 28.0293 7.40077 28.0293 9.49989C28.0293 11.599 29.731 13.3007 31.8301 13.3007Z",
-    fill: "#FF0000",
-    stroke: "white",
-    "stroke-width": "0.3"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M28.2012 16.1609H35.4582",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M28.8037 21.9866H34.8549",
-    stroke: "black",
-    "stroke-width": "0.6",
-    "stroke-linecap": "round",
-    "stroke-dasharray": "1.2 1.2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M26.0459 19.0737H37.6143",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M54.1803 13.7534C56.5294 13.7534 58.4338 11.849 58.4338 9.49986C58.4338 7.15071 56.5294 5.24634 54.1803 5.24634C51.8311 5.24634 49.9268 7.15071 49.9268 9.49986C49.9268 11.849 51.8311 13.7534 54.1803 13.7534Z",
-    fill: "#94D6FE"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    d: "M46.5406 0.237915C45.7674 0.237915 45.1406 0.864716 45.1406 1.63791V9.49988H63.2207V1.63792C63.2207 0.864716 62.5939 0.237915 61.8207 0.237915H46.5406Z",
-    fill: "#94D6FE"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "45.2406",
-    y: "0.337915",
-    width: "17.8801",
-    height: "23.3243",
-    rx: "1.3",
-    stroke: "black",
-    "stroke-width": "0.2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M54.1807 13.3007C56.2798 13.3007 57.9815 11.599 57.9815 9.49989C57.9815 7.40077 56.2798 5.6991 54.1807 5.6991C52.0816 5.6991 50.3799 7.40077 50.3799 9.49989C50.3799 11.599 52.0816 13.3007 54.1807 13.3007Z",
-    fill: "#0A40B4",
-    stroke: "white",
-    "stroke-width": "0.3"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M50.5518 16.1609H57.8088",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M51.1543 21.9866H57.2055",
-    stroke: "black",
-    "stroke-width": "0.6",
-    "stroke-linecap": "round",
-    "stroke-dasharray": "1.2 1.2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M48.3965 19.0737H59.9649",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }))),
+  }, iconGrid11),
   grid12: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 12')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "70",
-    height: "30",
-    viewBox: "0 0 70 30",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
-    filter: "url(#filter0_d_269_80)"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "3.43945",
-    y: "2.71704",
-    width: "18.3799",
-    height: "23.5243",
-    rx: "3",
-    fill: "white"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "3.58945",
-    y: "2.86704",
-    width: "18.0799",
-    height: "23.2243",
-    rx: "2.85",
-    stroke: "#292929",
-    "stroke-width": "0.3"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
-    cx: "12.6298",
-    cy: "10.5076",
-    r: "6.25964",
-    fill: "url(#paint0_linear_269_80)"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
-    cx: "12.6288",
-    cy: "10.2624",
-    r: "5.61451",
-    fill: "url(#paint1_linear_269_80)",
-    stroke: "white",
-    "stroke-width": "0.8"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
-    cx: "12.6297",
-    cy: "10.2227",
-    r: "4.11309",
-    fill: "#FF543E",
-    stroke: "white",
-    "stroke-width": "0.5"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "9.00098",
-    y1: "19.2602",
-    x2: "16.258",
-    y2: "19.2602",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "9.60371",
-    y1: "23.8185",
-    x2: "15.6549",
-    y2: "23.8185",
-    stroke: "black",
-    "stroke-width": "0.6",
-    "stroke-linecap": "round",
-    "stroke-dasharray": "1.2 1.2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "6.8457",
-    y1: "21.4137",
-    x2: "18.4141",
-    y2: "21.4137",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
-    filter: "url(#filter1_d_269_80)"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "25.6201",
-    y: "2.71704",
-    width: "18.3799",
-    height: "23.5243",
-    rx: "3",
-    fill: "white"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "25.7701",
-    y: "2.86704",
-    width: "18.0799",
-    height: "23.2243",
-    rx: "2.85",
-    stroke: "#292929",
-    "stroke-width": "0.3"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
-    cx: "34.8104",
-    cy: "10.5076",
-    r: "6.25964",
-    fill: "url(#paint2_linear_269_80)"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
-    cx: "34.8094",
-    cy: "10.2624",
-    r: "5.61451",
-    fill: "url(#paint3_linear_269_80)",
-    stroke: "white",
-    "stroke-width": "0.8"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
-    cx: "34.8104",
-    cy: "10.2227",
-    r: "4.11309",
-    fill: "#0180C7",
-    stroke: "white",
-    "stroke-width": "0.5"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "31.1816",
-    y1: "19.2602",
-    x2: "38.4387",
-    y2: "19.2602",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "31.7844",
-    y1: "23.8185",
-    x2: "37.8355",
-    y2: "23.8185",
-    stroke: "black",
-    "stroke-width": "0.6",
-    "stroke-linecap": "round",
-    "stroke-dasharray": "1.2 1.2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "29.0264",
-    y1: "21.4137",
-    x2: "40.5947",
-    y2: "21.4137",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
-    filter: "url(#filter2_d_269_80)"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "47.8008",
-    y: "2.71704",
-    width: "18.3799",
-    height: "23.5243",
-    rx: "3",
-    fill: "white"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "47.9508",
-    y: "2.86704",
-    width: "18.0799",
-    height: "23.2243",
-    rx: "2.85",
-    stroke: "#292929",
-    "stroke-width": "0.3"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
-    cx: "56.9911",
-    cy: "10.5076",
-    r: "6.25964",
-    fill: "url(#paint4_linear_269_80)"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
-    cx: "56.9901",
-    cy: "10.2624",
-    r: "5.61451",
-    fill: "url(#paint5_linear_269_80)",
-    stroke: "white",
-    "stroke-width": "0.8"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
-    cx: "56.991",
-    cy: "10.2227",
-    r: "4.11309",
-    fill: "#FFC107",
-    stroke: "white",
-    "stroke-width": "0.5"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "53.3623",
-    y1: "19.2602",
-    x2: "60.6193",
-    y2: "19.2602",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "53.965",
-    y1: "23.8185",
-    x2: "60.0162",
-    y2: "23.8185",
-    stroke: "black",
-    "stroke-width": "0.6",
-    "stroke-linecap": "round",
-    "stroke-dasharray": "1.2 1.2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "51.207",
-    y1: "21.4137",
-    x2: "62.7754",
-    y2: "21.4137",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("defs", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("filter", {
-    id: "filter0_d_269_80",
-    x: "0.439453",
-    y: "0.217041",
-    width: "24.3799",
-    height: "29.5243",
-    filterUnits: "userSpaceOnUse",
-    "color-interpolation-filters": "sRGB"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feFlood", {
-    "flood-opacity": "0",
-    result: "BackgroundImageFix"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
-    in: "SourceAlpha",
-    type: "matrix",
-    values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0",
-    result: "hardAlpha"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feOffset", {
-    dy: "0.5"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feGaussianBlur", {
-    stdDeviation: "1.5"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feComposite", {
-    in2: "hardAlpha",
-    operator: "out"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
-    type: "matrix",
-    values: "0 0 0 0 0.410075 0 0 0 0 0.410075 0 0 0 0 0.410075 0 0 0 0.25 0"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
-    mode: "normal",
-    in2: "BackgroundImageFix",
-    result: "effect1_dropShadow_269_80"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
-    mode: "normal",
-    in: "SourceGraphic",
-    in2: "effect1_dropShadow_269_80",
-    result: "shape"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("filter", {
-    id: "filter1_d_269_80",
-    x: "22.6201",
-    y: "0.217041",
-    width: "24.3799",
-    height: "29.5243",
-    filterUnits: "userSpaceOnUse",
-    "color-interpolation-filters": "sRGB"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feFlood", {
-    "flood-opacity": "0",
-    result: "BackgroundImageFix"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
-    in: "SourceAlpha",
-    type: "matrix",
-    values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0",
-    result: "hardAlpha"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feOffset", {
-    dy: "0.5"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feGaussianBlur", {
-    stdDeviation: "1.5"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feComposite", {
-    in2: "hardAlpha",
-    operator: "out"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
-    type: "matrix",
-    values: "0 0 0 0 0.410075 0 0 0 0 0.410075 0 0 0 0 0.410075 0 0 0 0.25 0"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
-    mode: "normal",
-    in2: "BackgroundImageFix",
-    result: "effect1_dropShadow_269_80"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
-    mode: "normal",
-    in: "SourceGraphic",
-    in2: "effect1_dropShadow_269_80",
-    result: "shape"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("filter", {
-    id: "filter2_d_269_80",
-    x: "44.8008",
-    y: "0.217041",
-    width: "24.3799",
-    height: "29.5243",
-    filterUnits: "userSpaceOnUse",
-    "color-interpolation-filters": "sRGB"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feFlood", {
-    "flood-opacity": "0",
-    result: "BackgroundImageFix"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
-    in: "SourceAlpha",
-    type: "matrix",
-    values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0",
-    result: "hardAlpha"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feOffset", {
-    dy: "0.5"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feGaussianBlur", {
-    stdDeviation: "1.5"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feComposite", {
-    in2: "hardAlpha",
-    operator: "out"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feColorMatrix", {
-    type: "matrix",
-    values: "0 0 0 0 0.410075 0 0 0 0 0.410075 0 0 0 0 0.410075 0 0 0 0.25 0"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
-    mode: "normal",
-    in2: "BackgroundImageFix",
-    result: "effect1_dropShadow_269_80"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("feBlend", {
-    mode: "normal",
-    in: "SourceGraphic",
-    in2: "effect1_dropShadow_269_80",
-    result: "shape"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("linearGradient", {
-    id: "paint0_linear_269_80",
-    x1: "12.6298",
-    y1: "4.24792",
-    x2: "12.6298",
-    y2: "16.7672",
-    gradientUnits: "userSpaceOnUse"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
-    "stop-color": "white"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
-    offset: "1",
-    "stop-color": "#32549E"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("linearGradient", {
-    id: "paint1_linear_269_80",
-    x1: "12.6288",
-    y1: "4.24793",
-    x2: "12.6288",
-    y2: "16.277",
-    gradientUnits: "userSpaceOnUse"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
-    "stop-color": "#FBFBFB"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
-    offset: "1",
-    "stop-color": "#E9E9E9"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("linearGradient", {
-    id: "paint2_linear_269_80",
-    x1: "34.8104",
-    y1: "4.24792",
-    x2: "34.8104",
-    y2: "16.7672",
-    gradientUnits: "userSpaceOnUse"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
-    "stop-color": "white"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
-    offset: "1",
-    "stop-color": "#32549E"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("linearGradient", {
-    id: "paint3_linear_269_80",
-    x1: "34.8094",
-    y1: "4.24793",
-    x2: "34.8094",
-    y2: "16.277",
-    gradientUnits: "userSpaceOnUse"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
-    "stop-color": "#FBFBFB"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
-    offset: "1",
-    "stop-color": "#E9E9E9"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("linearGradient", {
-    id: "paint4_linear_269_80",
-    x1: "56.9911",
-    y1: "4.24792",
-    x2: "56.9911",
-    y2: "16.7672",
-    gradientUnits: "userSpaceOnUse"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
-    "stop-color": "white"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
-    offset: "1",
-    "stop-color": "#32549E"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("linearGradient", {
-    id: "paint5_linear_269_80",
-    x1: "56.9901",
-    y1: "4.24793",
-    x2: "56.9901",
-    y2: "16.277",
-    gradientUnits: "userSpaceOnUse"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
-    "stop-color": "#FBFBFB"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
-    offset: "1",
-    "stop-color": "#E9E9E9"
-  }))))),
+  }, iconGrid12),
+  grid13: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Grid 13')
+  }, iconGrid12),
+  grid14: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Grid 14')
+  }, iconGrid12),
+  grid15: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Grid 15')
+  }, iconGrid12),
+  //Slider Icons
+  slider1: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Slider 1')
+  }, iconGrid1, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "---"), " "),
+  slider2: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Slider 2')
+  }, iconGrid2, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "---"), " "),
+  slider3: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Slider 3')
+  }, iconGrid3, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "---"), " "),
+  slider4: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Slider 4')
+  }, iconGrid4, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "---"), " "),
+  slider5: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Slider 5')
+  }, " ", iconGrid5, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "---"), " "),
+  slider6: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Slider 6')
+  }, iconGrid6, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "---"), " "),
+  slider7: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Slider 7')
+  }, iconGrid7, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "---"), " "),
+  slider8: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Slider 8')
+  }, iconGrid8, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "---"), " "),
+  slider9: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Slider 9')
+  }, iconGrid9, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "---"), " "),
+  slider10: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Slider 10')
+  }, iconGrid10, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "---"), " "),
+  slider11: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Slider 11')
+  }, iconGrid11, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "---"), " "),
+  slider12: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Slider 12')
+  }, iconGrid12, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "---"), " "),
   //List Icons
   list1: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('List 1')
@@ -10275,227 +10807,6 @@ const styleIcon = {
   }))),
   list12: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('List 12')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "76",
-    height: "36",
-    viewBox: "0 0 76 36",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    width: "75.66",
-    height: "36",
-    fill: "white"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "6.53945",
-    y: "6.33792",
-    width: "62.5812",
-    height: "23.3243",
-    rx: "0.9",
-    fill: "#E6EEF3",
-    stroke: "#7CB0D0",
-    "stroke-width": "0.2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "31.5107",
-    y1: "15.7",
-    x2: "63.4629",
-    y2: "15.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "31.5107",
-    y1: "19.7",
-    x2: "52.4718",
-    y2: "19.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "31.5107",
-    y1: "11.7",
-    x2: "45.1796",
-    y2: "11.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "31.5107",
-    y1: "23.7",
-    x2: "55.1916",
-    y2: "23.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
-    cx: "18.5857",
-    cy: "18",
-    r: "8.50366",
-    fill: "#4EBFFF"
-  }))),
-  //Slider Icons
-  slider1: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
-    text: __('Slider 1')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "76",
-    height: "36",
-    viewBox: "0 0 76 36",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    width: "75.66",
-    height: "36",
-    fill: "white"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "6.53945",
-    y: "6.33792",
-    width: "62.5812",
-    height: "23.3243",
-    rx: "0.9",
-    fill: "#E6EEF3",
-    stroke: "#7CB0D0",
-    "stroke-width": "0.2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "31.5107",
-    y1: "15.7",
-    x2: "63.4629",
-    y2: "15.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "31.5107",
-    y1: "19.7",
-    x2: "52.4718",
-    y2: "19.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "31.5107",
-    y1: "11.7",
-    x2: "45.1796",
-    y2: "11.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "31.5107",
-    y1: "23.7",
-    x2: "55.1916",
-    y2: "23.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
-    cx: "18.5857",
-    cy: "18",
-    r: "8.50366",
-    fill: "#4EBFFF"
-  }))),
-  slider2: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
-    text: __('Slider 2')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "76",
-    height: "36",
-    viewBox: "0 0 76 36",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    width: "75.66",
-    height: "36",
-    fill: "white"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "6.53945",
-    y: "6.33792",
-    width: "62.5812",
-    height: "23.3243",
-    rx: "0.9",
-    fill: "#E6EEF3",
-    stroke: "#7CB0D0",
-    "stroke-width": "0.2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "31.5107",
-    y1: "15.7",
-    x2: "63.4629",
-    y2: "15.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "31.5107",
-    y1: "19.7",
-    x2: "52.4718",
-    y2: "19.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "31.5107",
-    y1: "11.7",
-    x2: "45.1796",
-    y2: "11.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "31.5107",
-    y1: "23.7",
-    x2: "55.1916",
-    y2: "23.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
-    cx: "18.5857",
-    cy: "18",
-    r: "8.50366",
-    fill: "#4EBFFF"
-  }))),
-  slider3: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
-    text: __('Slider 3')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "76",
-    height: "36",
-    viewBox: "0 0 76 36",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    width: "75.66",
-    height: "36",
-    fill: "white"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    x: "6.53945",
-    y: "6.33792",
-    width: "62.5812",
-    height: "23.3243",
-    rx: "0.9",
-    fill: "#E6EEF3",
-    stroke: "#7CB0D0",
-    "stroke-width": "0.2"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "31.5107",
-    y1: "15.7",
-    x2: "63.4629",
-    y2: "15.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "31.5107",
-    y1: "19.7",
-    x2: "52.4718",
-    y2: "19.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "31.5107",
-    y1: "11.7",
-    x2: "45.1796",
-    y2: "11.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
-    x1: "31.5107",
-    y1: "23.7",
-    x2: "55.1916",
-    y2: "23.7",
-    stroke: "black",
-    "stroke-width": "0.6"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
-    cx: "18.5857",
-    cy: "18",
-    r: "8.50366",
-    fill: "#4EBFFF"
-  }))),
-  slider4: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
-    text: __('Slider 4')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
     width: "76",
     height: "36",
@@ -11476,6 +11787,28 @@ const ParseCss = (setDatabase = true) => {
   }, 900);
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ParseCss);
+
+/***/ }),
+
+/***/ "./node_modules/cogo-toast/dist/index.es.js":
+/*!**************************************************!*\
+  !*** ./node_modules/cogo-toast/dist/index.es.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Toast: () => (/* binding */ Toast),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "react-dom");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+var __assign=function(){return(__assign=Object.assign||function(t){for(var n,e=1,o=arguments.length;e<o;e++)for(var i in n=arguments[e])Object.prototype.hasOwnProperty.call(n,i)&&(t[i]=n[i]);return t}).apply(this,arguments)};function __spreadArrays(){for(var t=0,n=0,e=arguments.length;n<e;n++)t+=arguments[n].length;var o=Array(t),i=0;for(n=0;n<e;n++)for(var a=arguments[n],r=0,c=a.length;r<c;r++,i++)o[i]=a[r];return o}var success=function(t){return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg",__assign({viewBox:"0 0 426.667 426.667",width:18,height:18},t),react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path",{d:"M213.333 0C95.518 0 0 95.514 0 213.333s95.518 213.333 213.333 213.333c117.828 0 213.333-95.514 213.333-213.333S331.157 0 213.333 0zm-39.134 322.918l-93.935-93.931 31.309-31.309 62.626 62.622 140.894-140.898 31.309 31.309-172.203 172.207z",fill:"#6ac259"}))},warn=function(t){return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg",__assign({viewBox:"0 0 310.285 310.285",width:18,height:18},t),react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path",{d:"M264.845 45.441C235.542 16.139 196.583 0 155.142 0 113.702 0 74.743 16.139 45.44 45.441 16.138 74.743 0 113.703 0 155.144c0 41.439 16.138 80.399 45.44 109.701 29.303 29.303 68.262 45.44 109.702 45.44s80.399-16.138 109.702-45.44c29.303-29.302 45.44-68.262 45.44-109.701.001-41.441-16.137-80.401-45.439-109.703zm-132.673 3.895a12.587 12.587 0 0 1 9.119-3.873h28.04c3.482 0 6.72 1.403 9.114 3.888 2.395 2.485 3.643 5.804 3.514 9.284l-4.634 104.895c-.263 7.102-6.26 12.933-13.368 12.933H146.33c-7.112 0-13.099-5.839-13.345-12.945L128.64 58.594c-.121-3.48 1.133-6.773 3.532-9.258zm23.306 219.444c-16.266 0-28.532-12.844-28.532-29.876 0-17.223 12.122-30.211 28.196-30.211 16.602 0 28.196 12.423 28.196 30.211.001 17.591-11.456 29.876-27.86 29.876z",fill:"#FFDA44"}))},loading=function(t){return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div",__assign({className:"ct-icon-loading"},t))},info=function(t){return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg",__assign({viewBox:"0 0 23.625 23.625",width:18,height:18},t),react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path",{d:"M11.812 0C5.289 0 0 5.289 0 11.812s5.289 11.813 11.812 11.813 11.813-5.29 11.813-11.813S18.335 0 11.812 0zm2.459 18.307c-.608.24-1.092.422-1.455.548a3.838 3.838 0 0 1-1.262.189c-.736 0-1.309-.18-1.717-.539s-.611-.814-.611-1.367c0-.215.015-.435.045-.659a8.23 8.23 0 0 1 .147-.759l.761-2.688c.067-.258.125-.503.171-.731.046-.23.068-.441.068-.633 0-.342-.071-.582-.212-.717-.143-.135-.412-.201-.813-.201-.196 0-.398.029-.605.09-.205.063-.383.12-.529.176l.201-.828c.498-.203.975-.377 1.43-.521a4.225 4.225 0 0 1 1.29-.218c.731 0 1.295.178 1.692.53.395.353.594.812.594 1.376 0 .117-.014.323-.041.617a4.129 4.129 0 0 1-.152.811l-.757 2.68a7.582 7.582 0 0 0-.167.736 3.892 3.892 0 0 0-.073.626c0 .356.079.599.239.728.158.129.435.194.827.194.185 0 .392-.033.626-.097.232-.064.4-.121.506-.17l-.203.827zm-.134-10.878a1.807 1.807 0 0 1-1.275.492c-.496 0-.924-.164-1.28-.492a1.57 1.57 0 0 1-.533-1.193c0-.465.18-.865.533-1.196a1.812 1.812 0 0 1 1.28-.497c.497 0 .923.165 1.275.497.353.331.53.731.53 1.196 0 .467-.177.865-.53 1.193z",fill:"#006DF0"}))},error=function(t){return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg",__assign({viewBox:"0 0 51.976 51.976",width:18,height:18},t),react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path",{d:"M44.373 7.603c-10.137-10.137-26.632-10.138-36.77 0-10.138 10.138-10.137 26.632 0 36.77s26.632 10.138 36.77 0c10.137-10.138 10.137-26.633 0-36.77zm-8.132 28.638a2 2 0 0 1-2.828 0l-7.425-7.425-7.778 7.778a2 2 0 1 1-2.828-2.828l7.778-7.778-7.425-7.425a2 2 0 1 1 2.828-2.828l7.425 7.425 7.071-7.071a2 2 0 1 1 2.828 2.828l-7.071 7.071 7.425 7.425a2 2 0 0 1 0 2.828z",fill:"#D80027"}))},Icons={success:success,warn:warn,loading:loading,info:info,error:error},colors={success:"#6EC05F",info:"#1271EC",warn:"#FED953",error:"#D60A2E",loading:"#0088ff"},Toast=function(t){var n,e,o,i,a="margin"+((t.position||"top-center").includes("bottom")?"Bottom":"Top"),r=["ct-toast",t.onClick?" ct-cursor-pointer":"","ct-toast-"+t.type].join(" "),c=((null===(e=t.bar)||void 0===e?void 0:e.size)||"3px")+" "+((null===(o=t.bar)||void 0===o?void 0:o.style)||"solid")+" "+((null===(i=t.bar)||void 0===i?void 0:i.color)||colors[t.type]),s=Icons[t.type],l=(0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(((n={opacity:0})[a]=-15,n)),d=l[0],u=l[1],f=__assign({paddingLeft:t.heading?25:void 0,minHeight:t.heading?50:void 0,borderLeft:c},d),p=function(){var n;u(((n={opacity:0})[a]="-15px",n)),setTimeout((function(){t.onHide(t.id,t.position)}),300)};(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)((function(){var n,e=setTimeout((function(){var t;u(((t={opacity:1})[a]="15px",t))}),50);return 0!==t.hideAfter&&(n=setTimeout((function(){p()}),1e3*t.hideAfter)),function(){clearTimeout(e),n&&clearTimeout(n)}}),[]),(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)((function(){t.show||p()}),[t.show]);var g={tabIndex:0,onClick:t.onClick,onKeyPress:function(n){13===n.keyCode&&t.onClick(n)}};return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div",__assign({className:r,role:t.role?t.role:"status",style:f},t.onClick?g:{}),t.renderIcon?t.renderIcon():react__WEBPACK_IMPORTED_MODULE_0___default().createElement(s,null),react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div",{className:t.heading?"ct-text-group-heading":"ct-text-group"},t.heading&&react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4",{className:"ct-heading"},t.heading),react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div",{className:"ct-text"},t.text)))};Toast.propTypes={type:prop_types__WEBPACK_IMPORTED_MODULE_2__.string.isRequired,text:(0,prop_types__WEBPACK_IMPORTED_MODULE_2__.oneOfType)([prop_types__WEBPACK_IMPORTED_MODULE_2__.string,prop_types__WEBPACK_IMPORTED_MODULE_2__.node]).isRequired,show:prop_types__WEBPACK_IMPORTED_MODULE_2__.bool,onHide:prop_types__WEBPACK_IMPORTED_MODULE_2__.func,id:(0,prop_types__WEBPACK_IMPORTED_MODULE_2__.oneOfType)([prop_types__WEBPACK_IMPORTED_MODULE_2__.string,prop_types__WEBPACK_IMPORTED_MODULE_2__.number]),hideAfter:prop_types__WEBPACK_IMPORTED_MODULE_2__.number,heading:prop_types__WEBPACK_IMPORTED_MODULE_2__.string,position:prop_types__WEBPACK_IMPORTED_MODULE_2__.string,renderIcon:prop_types__WEBPACK_IMPORTED_MODULE_2__.func,bar:(0,prop_types__WEBPACK_IMPORTED_MODULE_2__.shape)({}),onClick:prop_types__WEBPACK_IMPORTED_MODULE_2__.func,role:prop_types__WEBPACK_IMPORTED_MODULE_2__.string},Toast.defaultProps={id:void 0,show:!0,onHide:void 0,hideAfter:3,heading:void 0,position:"top-center",renderIcon:void 0,bar:{},onClick:void 0,role:"status"};var camelCase=function(t){return t.replace(/-([a-z])/g,(function(t){return t[1].toUpperCase()}))},defaultToasts={topLeft:[],topCenter:[],topRight:[],bottomLeft:[],bottomCenter:[],bottomRight:[]},ToastContainer=function(t){var n=t.toast,e=t.hiddenID,o=(0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(defaultToasts),i=o[0],a=o[1];(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)((function(){n&&a((function(t){var e,o=camelCase(n.position||"top-center");return __assign(__assign({},t),((e={})[o]=__spreadArrays(t[o],[n]),e))}))}),[n]);var r=function(t,n){a((function(e){var o,i=camelCase(n||"top-center");return __assign(__assign({},e),((o={})[i]=e[i].filter((function(n){return n.id!==t})),o))}))},c=["Left","Center","Right"];return react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment),null,["top","bottom"].map((function(t){return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div",{key:"row_"+t,className:"ct-row"},c.map((function(n){var o=""+t+n,a=["ct-group","bottom"===t?"ct-flex-bottom":""].join(" ");return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div",{key:o,className:a},i[o].map((function(t){return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Toast,__assign({key:o+"_"+t.id},t,{id:t.id,text:t.text,type:t.type,onClick:t.onClick,hideAfter:t.hideAfter,show:e!==t.id,onHide:r}))})))})))})))};function styleInject(t,n){void 0===n&&(n={});var e=n.insertAt;if(t&&"undefined"!=typeof document){var o=document.head||document.getElementsByTagName("head")[0],i=document.createElement("style");i.type="text/css","top"===e&&o.firstChild?o.insertBefore(i,o.firstChild):o.appendChild(i),i.styleSheet?i.styleSheet.cssText=t:i.appendChild(document.createTextNode(t))}}ToastContainer.propTypes={toast:(0,prop_types__WEBPACK_IMPORTED_MODULE_2__.shape)({}),hiddenID:prop_types__WEBPACK_IMPORTED_MODULE_2__.number},ToastContainer.defaultProps={toast:void 0,hiddenID:void 0};var css="#ct-container {\n\tposition: fixed;\n\twidth: 100%;\n\theight: 100vh;\n\ttop: 0px;\n\tleft: 0px;\n\tz-index: 2000;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: space-between;\n\tpointer-events: none;\n}\n\n.ct-row {\n\tdisplay: flex;\n\tjustify-content: space-between;\n}\n\n.ct-group {\n\tflex: 1;\n\tmargin: 10px 20px;\n\tdisplay: flex;\n\tflex-direction: column;\n\talign-items: center;\n}\n\n.ct-group:first-child {\n\talign-items: flex-start;\n}\n\n.ct-group:last-child {\n\talign-items: flex-end;\n}\n\n.ct-flex-bottom {\n\tjustify-content: flex-end;\n}\n\n.ct-toast {\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\tpadding: 12px 20px;\n\tbackground-color: #fff;\n\tbox-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n\tcolor: #000;\n\tborder-radius: 4px;\n\tmargin: 0px;\n\topacity: 1;\n\ttransition: 0.3s all ease-in-out;\n\tmin-height: 45px;\n\tpointer-events: all;\n}\n\n.ct-toast:focus {\n\toutline: none;\n}\n\n.ct-toast svg {\n\tmin-width: 18px;\n}\n\n.ct-cursor-pointer {\n\tcursor: pointer;\n}\n\n.ct-icon-loading {\n\tdisplay: inline-block;\n\twidth: 20px;\n\theight: 20px;\n}\n\n.ct-icon-loading:after {\n\tcontent: ' ';\n\tdisplay: block;\n\twidth: 14px;\n\theight: 14px;\n\tmargin: 1px;\n\tborder-radius: 50%;\n\tborder: 2px solid #0088ff;\n\tborder-color: #0088ff transparent #0088ff transparent;\n\tanimation: ct-icon-loading 1.2s linear infinite;\n}\n\n@keyframes ct-icon-loading {\n\t0% {\n\t\ttransform: rotate(0deg);\n\t}\n\t100% {\n\t\ttransform: rotate(360deg);\n\t}\n}\n\n.ct-text-group {\n\tmargin-left: 15px;\n}\n\n.ct-text-group-heading {\n\tmargin-left: 25px;\n}\n\n.ct-heading {\n\tfont-size: 18px;\n\tmargin: 0px;\n\tmargin-bottom: 5px;\n}\n\n.ct-text {\n\tfont-size: 14px;\n}\n\n@media (max-width: 768px) {\n\t.ct-row {\n\t\tjustify-content: flex-start;\n\t\tflex-direction: column;\n\t\tmargin: 7px 0px;\n\t}\n\n\t.ct-group {\n\t\tflex: none;\n\t\tmargin: 0px;\n\t}\n\n\t.ct-toast {\n\t\tmargin: 8px 15px;\n\t\twidth: initial;\n\t}\n}\n";styleInject(css);var ctToastCount=0,cogoToast=function(t,n){var e,o,i=document.getElementById((null===(e=n)||void 0===e?void 0:e.toastContainerID)||"ct-container");i||((i=document.createElement("div")).id="ct-container",document.body.appendChild(i)),ctToastCount+=1;var a=1e3*(void 0===(null===(o=n)||void 0===o?void 0:o.hideAfter)?3:n.hideAfter),r=__assign({id:ctToastCount,text:t},n);react_dom__WEBPACK_IMPORTED_MODULE_1___default().render(react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ToastContainer,{toast:r}),i);var c=new Promise((function(t){setTimeout((function(){t()}),a)}));return c.hide=function(){react_dom__WEBPACK_IMPORTED_MODULE_1___default().render(react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ToastContainer,{hiddenID:r.id}),i)},c};cogoToast.success=function(t,n){return cogoToast(t,__assign(__assign({},n),{type:"success"}))},cogoToast.warn=function(t,n){return cogoToast(t,__assign(__assign({},n),{type:"warn"}))},cogoToast.info=function(t,n){return cogoToast(t,__assign(__assign({},n),{type:"info"}))},cogoToast.error=function(t,n){return cogoToast(t,__assign(__assign({},n),{type:"error"}))},cogoToast.loading=function(t,n){return cogoToast(t,__assign(__assign({},n),{type:"loading"}))};/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (cogoToast);
 
 /***/ }),
 

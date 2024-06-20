@@ -4,6 +4,7 @@ namespace DOWP\UserGrid\Api;
 
 use DOWP\UserGrid\Helpers\Fns;
 use DOWP\UserGrid\Utils\RenderContent;
+use DOWP\UserGrid\Utils\RenderSlider;
 
 /**
  * GetUsersAPI class
@@ -62,7 +63,11 @@ class GetUsersAPI {
 		];
 
 		ob_start();
-		RenderContent::get_render_content( $data );
+		if ( 'slider' === $data['layout_style'] ) {
+			RenderSlider::get_render_content( $data );
+		} else {
+			RenderContent::get_render_content( $data );
+		}
 		$markup              = ob_get_clean();
 		$send_data['markup'] = $markup;
 

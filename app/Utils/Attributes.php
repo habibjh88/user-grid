@@ -39,6 +39,36 @@ class Attributes {
 		];
 	}
 
+	public static function slider() {
+		return [
+			'dots'              => [ 'type' => 'string', 'default' => 'show', ],
+			'arrow'             => [ 'type' => 'string', 'default' => 'show', ],
+			'fade'              => [ 'type' => 'string', 'default' => '', ],
+			'autoplay'          => [ 'type' => 'string', 'default' => 'show', ],
+			'adaptiveHeight'    => [ 'type' => 'string', 'default' => 'show', ],
+			'infinite'          => [ 'type' => 'string', 'default' => 'show', ],
+			'speed'             => [ 'type' => 'number', 'default' => 700, ],
+			'autoplaySpeed'     => [ 'type' => 'number', 'default' => 3000, ],
+			'arrow_color'       => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper.slider-style .slick-arrow::before {background-color: {{arrow_color}}; }', ], ], ],
+			'arrow_bg'          => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper.slider-style .slick-arrow {background-color: {{arrow_bg}}; }', ], ], ],
+			'arrow_color_hover' => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper.slider-style .slick-arrow:hover::before {background-color: {{arrow_color_hover}}; }', ], ], ],
+			'arrow_bg_hover'    => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper.slider-style .slick-arrow:hover {background-color: {{arrow_bg_hover}}; }', ], ], ],
+			'dots_color'        => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper.slider-style .slick-dots button {background-color: {{dots_color}}; }', ], ], ],
+			'dots_active_color' => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper.slider-style .slick-dots li.slick-active button {background-color: {{dots_active_color}}; }', ], ], ],
+			'dots_color_hover'  => [ 'type' => 'string', 'default' => '', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper.slider-style .slick-dots button:hover {background-color: {{dots_color_hover}}; }', ], ], ],
+			'dots_padding'      => [ 'type' => 'object', 'default' => [ 'lg' => [ 'isLinked' => true, 'unit' => 'px', 'value' => '', ], 'md' => [ 'isLinked' => true, 'unit' => 'px', 'value' => '', ], 'sm' => [ 'isLinked' => true, 'unit' => 'px', 'value' => '', ], ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper.slider-style .slick-dots {{dots_padding}}', ], ], ],
+			'dots_alignment'    => [ 'type' => 'string', 'default' => 'center', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper.slider-style .slick-dots {justify-content: {{dots_alignment}}; }', ], ], ],
+			'dots_position'     => [ 'type' => 'string', 'default' => '10', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper.slider-style .slick-dots {order: {{dots_position}}; }', ], ], ],
+			'dot_width'         => [ 'type' => 'string', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper.slider-style .slick-dots button {width: {{dot_width}}px; }', ], ], ],
+			'dot_height'        => [ 'type' => 'string', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper.slider-style .slick-dots button {height: {{dot_height}}px; }', ], ], ],
+			'dot_radius'        => [ 'type' => 'string', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper.slider-style .slick-dots button {border-radius: {{dot_radius}}px !important; }', ], ], ],
+			'slider_gap'        => [ 'type' => 'string', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper.slider-style .user-item-col {padding: 0 {{slider_gap}}px } {{UserGrid}} .dowp-users-block-wrapper.slider-style .dowp-row {margin: 0 -{{slider_gap}}px }', ], ], ],
+			'arrow_width'       => [ 'type' => 'string', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper.slider-style .slick-arrow {width: {{arrow_width}}px;height: {{arrow_width}}px; } {{UserGrid}} .dowp-users-block-wrapper.slider-style.has-arrow .dowp-row { padding: 0 calc({{arrow_width}}px + 20px) }', ], ], ],
+			'arrow_radius'      => [ 'type' => 'string', 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper.slider-style .slick-arrow {border-radius: {{arrow_radius}}px; }', ], ], ],
+		];
+	}
+
+
 	public static function visibility() {
 		return [
 			'avatar_visibility'      => [ 'type' => 'string', 'default' => 'show', ],
@@ -64,7 +94,7 @@ class Attributes {
 		return [
 			'image_overlay_bg'     => [ 'type' => 'object', 'default' => (object) [ 'openBGColor' => 0, 'type' => 'classic', 'classic' => (object) [ 'color' => '', 'img' => (object) [ 'imgURL' => '', 'imgID' => '', ], 'imgProperty' => (object) [ 'imgPosition' => (object) [ 'lg' => '' ], 'imgAttachment' => (object) [ 'lg' => '' ], 'imgRepeat' => (object) [ 'lg' => '' ], 'imgSize' => (object) [ 'lg' => '' ], ], ], 'gradient' => null, ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-avatar a.user-link:before', ], ], ],
 			'image_overlay_bg_h'   => [ 'type' => 'object', 'default' => (object) [ 'openBGColor' => 0, 'type' => 'classic', 'classic' => (object) [ 'color' => '', 'img' => (object) [ 'imgURL' => '', 'imgID' => '', ], 'imgProperty' => (object) [ 'imgPosition' => (object) [ 'lg' => '' ], 'imgAttachment' => (object) [ 'lg' => '' ], 'imgRepeat' => (object) [ 'lg' => '' ], 'imgSize' => (object) [ 'lg' => '' ], ], ], 'gradient' => null, ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-avatar:hover a.user-link:before', ], ], ],
-			'avatar_dimension'     => [ 'type' => 'number', 'default' => '360', ],
+			'avatar_dimension'     => [ 'type' => 'number', 'default' => 360, ],
 			'image_link'           => [ 'type' => 'string', 'default' => 'yes', ],
 			'default_image'        => [ 'type' => 'object', 'default' => [], ],
 			'avatar_width'         => [ 'type' => 'object', 'default' => (object) [ 'lg' => '', 'md' => '', 'sm' => '' ], 'style' => [ (object) [ 'selector' => '{{UserGrid}} .dowp-users-block-wrapper .user-avatar a.user-link {width: {{avatar_width}}; }', ], ], ],

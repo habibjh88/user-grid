@@ -1,8 +1,11 @@
+import SliderStyle from "./controller/SliderStyle";
+
 const {InspectorControls} = wp.blockEditor;
 import {TabPanel} from "@wordpress/components";
 import TabTitle from "../components/TabTitle";
 import {
     ContentQuery,
+    ContentSlider,
     ContentLayout,
     ContentSort,
     ContentGlobal,
@@ -28,6 +31,7 @@ function Inspector(props) {
     //All attribute
     const {
         hasPro,
+        layout_style,
         avatar_visibility,
         name_visibility,
         designation_visibility,
@@ -67,6 +71,7 @@ function Inspector(props) {
                                 <>
                                     <ContentLayout data={props}/>
                                     <ContentQuery data={props}/>
+                                    {layout_style === 'slider' && <ContentSlider data={props}/>}
                                     <ContentSort data={props}/>
                                     <ContentGlobal data={props}/>
                                 </>
@@ -85,6 +90,7 @@ function Inspector(props) {
                                     {bio_visibility && <BioSettings data={props}/>}
                                     {social_visibility && <SocialShareSettings data={props}/>}
                                     {button_visibility && <ReadArticleBtn data={props}/>}
+                                    {layout_style === 'slider' && <SliderStyle data={props}/>}
                                     {pagination_visibility && <Pagination data={props}/>}
                                     {(hr_1_visibility || hr_2_visibility) && <HrSetting data={props}/>}
                                     {post_visibility && <RecentPost data={props}/>}

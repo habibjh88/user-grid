@@ -69,6 +69,7 @@ class UserBlock extends BlockBase {
 			$initial,
 			Attributes::layout(),
 			Attributes::query(),
+			Attributes::slider(),
 			Attributes::visibility(),
 			Attributes::image(),
 			Attributes::user_name(),
@@ -95,7 +96,7 @@ class UserBlock extends BlockBase {
 	 */
 	public function render_block( $data ) {
 		ob_start();
-		if (strpos($data['layout'], 'slider') !== false) {
+		if ( 'slider' === $data['layout_style'] ) {
 			RenderSlider::get_render_content( $data );
 		} else {
 			RenderContent::get_render_content( $data );

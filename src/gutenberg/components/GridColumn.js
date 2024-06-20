@@ -6,7 +6,7 @@ import './scss/rangeDevice.scss'
 import { COL_OPTIONS, COL_OPTIONS_GRID } from "./Constants"
 
 function GridColumn( props ) {
-    const { label, value: data, onChange, className, changeQuery, colStyle = "" } = props;
+    const { label, value: data, onChange, className, changeQuery, colStyle = "", options } = props;
 
     const setSettings = ( device, val ) => {
         const newData = JSON.parse( JSON.stringify( data ) );
@@ -14,8 +14,6 @@ function GridColumn( props ) {
         onChange( newData );
         changeQuery();
     };
-
-    const GRID_CLOUMN = colStyle === 'grid' ? COL_OPTIONS_GRID : COL_OPTIONS;
 
     return (
         <div className={ `dowp-column-group components-base-control ${ className }` }>
@@ -30,7 +28,7 @@ function GridColumn( props ) {
                     label={ __( 'Desktop', 'user-grid' ) }
                     className="dowp-control-field"
                     value={ data.lg || '' }
-                    options={ GRID_CLOUMN }
+                    options={ options }
                     onChange={ ( val ) => {
                         setSettings( 'lg', val );
                     } }
@@ -40,7 +38,7 @@ function GridColumn( props ) {
                     label={ __( 'Tablet', 'user-grid' ) }
                     className="dowp-control-field"
                     value={ data.md || '' }
-                    options={ GRID_CLOUMN }
+                    options={ options }
                     onChange={ ( val ) => setSettings( "md", val ) }
                 />
 
@@ -48,7 +46,7 @@ function GridColumn( props ) {
                     label={ __( 'Mobile', 'user-grid' ) }
                     className="dowp-control-field"
                     value={ data.sm || '' }
-                    options={ GRID_CLOUMN }
+                    options={ options }
                     onChange={ ( val ) => setSettings( "sm", val ) }
                 />
             </div>
