@@ -3,14 +3,16 @@ import {
     __experimentalBorderControl as BorderControl, ToggleControl
 } from '@wordpress/components';
 import {UserGrid_COLOR_PALATE} from "../../components/Constants";
-import { Dimension, RangeDevice, Background, BoxShadow } from "../../components/Components";
+import {Dimension, RangeDevice, Background, BoxShadow} from "../../components/Components";
 import {__} from "@wordpress/i18n";
 
 function CardSettings(props) {
     const {attributes, setAttributes, changeQuery} = props.data;
     //All attribute
     const {
+        layout,
         card_gap,
+        card_min_height,
         card_padding,
         content_padding,
         card_bg,
@@ -23,7 +25,7 @@ function CardSettings(props) {
     return (
         <PanelBody title={__('Card Settings', 'user-grid')} initialOpen={false}>
 
-          <RangeDevice
+            <RangeDevice
                 label={__('Card Gap')}
                 responsive={true}
                 value={card_gap}
@@ -34,6 +36,18 @@ function CardSettings(props) {
                     setAttributes({card_gap: val})
                 }}
             />
+
+            {['grid13', 'grid14', 'grid15', 'slider13', 'slider14', 'slider15'].includes(layout) &&
+                <RangeDevice
+                    label={__('Card Min Height')}
+                    responsive={true}
+                    value={card_min_height}
+                    min={200}
+                    max={1024}
+                    step={10}
+                    onChange={(val) => setAttributes({card_min_height: val})}
+                />
+            }
 
             <Dimension
                 label={__("Card Padding", "user-grid")}

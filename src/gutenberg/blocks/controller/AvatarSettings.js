@@ -1,5 +1,6 @@
 import {__} from "@wordpress/i18n";
 import {NORMAL_HOVER, UserGrid_COLOR_PALATE} from "../../components/Constants";
+
 const {useState} = wp.element;
 import {
     PanelBody,
@@ -7,12 +8,14 @@ import {
     __experimentalBorderControl as BorderControl, Button
 } from "@wordpress/components";
 import {Dimension, RangeDevice, Media, Color, Background} from "../../components/Components";
+
 function AvatarSettings(props) {
     const {attributes, setAttributes, changeQuery} = props.data;
     const [styleTab, setStyleTab] = useState('normal');
 
     //All attribute
     const {
+        layout,
         avatar_dimension,
         avatar_width,
         default_image,
@@ -25,6 +28,7 @@ function AvatarSettings(props) {
         image_overlay_bg,
         image_overlay_bg_h,
     } = attributes;
+
 
     return (
         <PanelBody title={__('Image', 'user-grid')} initialOpen={false}>
@@ -59,27 +63,31 @@ function AvatarSettings(props) {
                 max={1000}
                 step={1}
             />
-            <small className="dowp-help">{__("Avatar Dimension works only for gravatar", "user-grid")}</small>
+            <small className="dowp-help">{__("Gravatar Size works only for gravatar photo", "user-grid")}</small>
 
-            <RangeDevice
-                label={__('Image Width')}
-                responsive={true}
-                value={avatar_width}
-                min={0}
-                max={500}
-                step={1}
-                onChange={(val) => setAttributes({avatar_width: val})}
-            />
+            {! ['grid13', 'grid14', 'grid15', 'slider13', 'slider14', 'slider15'].includes(layout) &&
+                <>
+                    <RangeDevice
+                        label={__('Image Width')}
+                        responsive={true}
+                        value={avatar_width}
+                        min={0}
+                        max={500}
+                        step={1}
+                        onChange={(val) => setAttributes({avatar_width: val})}
+                    />
 
-            <RangeDevice
-                label={__('Image Height')}
-                responsive={true}
-                value={avatar_height}
-                min={0}
-                max={500}
-                step={1}
-                onChange={(val) => setAttributes({avatar_height: val})}
-            />
+                    <RangeDevice
+                        label={__('Image Height')}
+                        responsive={true}
+                        value={avatar_height}
+                        min={0}
+                        max={500}
+                        step={1}
+                        onChange={(val) => setAttributes({avatar_height: val})}
+                    />
+                </>
+            }
 
             <RangeDevice
                 label={__('Image Y Position (Optional)')}

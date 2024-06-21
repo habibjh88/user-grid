@@ -2295,6 +2295,7 @@ function AvatarSettings(props) {
 
   //All attribute
   const {
+    layout,
     avatar_dimension,
     avatar_width,
     default_image,
@@ -2343,7 +2344,7 @@ function AvatarSettings(props) {
     step: 1
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("small", {
     className: "dowp-help"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Avatar Dimension works only for gravatar", "user-grid")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_4__.RangeDevice, {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Gravatar Size works only for gravatar photo", "user-grid")), !['grid13', 'grid14', 'grid15', 'slider13', 'slider14', 'slider15'].includes(layout) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_4__.RangeDevice, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Image Width'),
     responsive: true,
     value: avatar_width,
@@ -2363,7 +2364,7 @@ function AvatarSettings(props) {
     onChange: val => setAttributes({
       avatar_height: val
     })
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_4__.RangeDevice, {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_4__.RangeDevice, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Image Y Position (Optional)'),
     responsive: true,
     unit: "%",
@@ -2533,7 +2534,9 @@ function CardSettings(props) {
   } = props.data;
   //All attribute
   const {
+    layout,
     card_gap,
+    card_min_height,
     card_padding,
     content_padding,
     card_bg,
@@ -2557,6 +2560,16 @@ function CardSettings(props) {
         card_gap: val
       });
     }
+  }), ['grid13', 'grid14', 'grid15', 'slider13', 'slider14', 'slider15'].includes(layout) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.RangeDevice, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Card Min Height'),
+    responsive: true,
+    value: card_min_height,
+    min: 200,
+    max: 1024,
+    step: 10,
+    onChange: val => setAttributes({
+      card_min_height: val
+    })
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Components__WEBPACK_IMPORTED_MODULE_3__.Dimension, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Card Padding", "user-grid"),
     type: "padding",
@@ -10140,6 +10153,260 @@ const iconGrid12 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElem
   offset: "1",
   "stop-color": "#E9E9E9"
 }))));
+const iconGrid13 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  width: "76",
+  height: "36",
+  viewBox: "0 0 76 36",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  width: "75.66",
+  height: "36",
+  fill: "white"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "6.43945",
+  y: "6.23792",
+  width: "19.0783",
+  height: "23.5243",
+  fill: "#B3EDBC"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "9.15527",
+  y1: "25.428",
+  x2: "22.3809",
+  y2: "25.428",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "9.15527",
+  y1: "21.8978",
+  x2: "17.0391",
+  y2: "21.8978",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "28.291",
+  y: "6.23792",
+  width: "19.0783",
+  height: "23.5243",
+  fill: "#94D6FE"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "31.0068",
+  y1: "25.428",
+  x2: "44.2324",
+  y2: "25.428",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "31.0068",
+  y1: "21.8978",
+  x2: "38.8906",
+  y2: "21.8978",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "50.1426",
+  y: "6.23792",
+  width: "19.0783",
+  height: "23.5243",
+  fill: "#FFA79C"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "52.8584",
+  y1: "25.428",
+  x2: "66.084",
+  y2: "25.428",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "52.8584",
+  y1: "21.8978",
+  x2: "60.7422",
+  y2: "21.8978",
+  stroke: "black",
+  "stroke-width": "0.6"
+}));
+const iconGrid14 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  width: "76",
+  height: "36",
+  viewBox: "0 0 76 36",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  width: "75.66",
+  height: "36",
+  fill: "white"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "50.1426",
+  y: "6.23792",
+  width: "19.0783",
+  height: "23.5243",
+  fill: "#D6EC7E"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "28.291",
+  y: "6.23792",
+  width: "19.0783",
+  height: "23.5243",
+  fill: "#90D2B2"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "28.291",
+  y: "18.3287",
+  width: "19.0783",
+  height: "11.4335",
+  fill: "black",
+  "fill-opacity": "0.35"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "50.1426",
+  y: "18.3287",
+  width: "19.0783",
+  height: "11.4335",
+  fill: "black",
+  "fill-opacity": "0.35"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "6.43945",
+  y: "6.23792",
+  width: "19.0783",
+  height: "23.5243",
+  fill: "#DEB3ED"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "6.43945",
+  y: "18.3287",
+  width: "19.0783",
+  height: "11.4335",
+  fill: "#619168"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "9.15527",
+  y1: "25.428",
+  x2: "22.3809",
+  y2: "25.428",
+  stroke: "white",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "9.15527",
+  y1: "21.8978",
+  x2: "17.0391",
+  y2: "21.8978",
+  stroke: "white",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "31.0068",
+  y1: "25.428",
+  x2: "44.2324",
+  y2: "25.428",
+  stroke: "white",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "31.0068",
+  y1: "21.8978",
+  x2: "38.8906",
+  y2: "21.8978",
+  stroke: "white",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "52.8584",
+  y1: "25.428",
+  x2: "66.084",
+  y2: "25.428",
+  stroke: "white",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "52.8584",
+  y1: "21.8978",
+  x2: "60.7422",
+  y2: "21.8978",
+  stroke: "white",
+  "stroke-width": "0.6"
+}));
+const iconGrid15 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  width: "76",
+  height: "36",
+  viewBox: "0 0 76 36",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  width: "75.66",
+  height: "36",
+  fill: "white"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "6.43945",
+  y: "6.23792",
+  width: "19.0783",
+  height: "23.5243",
+  fill: "#B3EDBC"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "28.291",
+  y: "6.23792",
+  width: "19.0783",
+  height: "23.5243",
+  fill: "#94D6FE"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "50.1426",
+  y: "6.23792",
+  width: "19.0783",
+  height: "23.5243",
+  fill: "#FFA79C"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "9.36621",
+  y1: "17.8736",
+  x2: "22.5918",
+  y2: "17.8736",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "12.0371",
+  y1: "14.0669",
+  x2: "19.9209",
+  y2: "14.0669",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "12.0371",
+  y1: "21.3331",
+  x2: "19.9209",
+  y2: "21.3331",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "31.2178",
+  y1: "17.8736",
+  x2: "44.4434",
+  y2: "17.8736",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "33.8887",
+  y1: "14.0669",
+  x2: "41.7725",
+  y2: "14.0669",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "33.8887",
+  y1: "21.3331",
+  x2: "41.7725",
+  y2: "21.3331",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "53.0693",
+  y1: "17.8736",
+  x2: "66.2949",
+  y2: "17.8736",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "55.7402",
+  y1: "14.0669",
+  x2: "63.624",
+  y2: "14.0669",
+  stroke: "black",
+  "stroke-width": "0.6"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+  x1: "55.7402",
+  y1: "21.3331",
+  x2: "63.624",
+  y2: "21.3331",
+  stroke: "black",
+  "stroke-width": "0.6"
+}));
 const styleIcon = {
   //Grid Icons
   grid1: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
@@ -10180,13 +10447,13 @@ const styleIcon = {
   }, iconGrid12),
   grid13: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 13')
-  }, iconGrid12),
+  }, iconGrid13),
   grid14: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 14')
-  }, iconGrid12),
+  }, iconGrid14),
   grid15: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Grid 15')
-  }, iconGrid12),
+  }, iconGrid15),
   //Slider Icons
   slider1: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Slider 1')
@@ -10224,6 +10491,15 @@ const styleIcon = {
   slider12: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('Slider 12')
   }, iconGrid12, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "---"), " "),
+  slider13: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Grid 13')
+  }, iconGrid13, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "---"), " "),
+  slider14: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Grid 14')
+  }, iconGrid14, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "---"), " "),
+  slider15: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
+    text: __('Grid 15')
+  }, iconGrid15, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "---"), " "),
   //List Icons
   list1: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tooltip, {
     text: __('List 1')
