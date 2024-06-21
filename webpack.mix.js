@@ -78,7 +78,7 @@ if (process.env.npm_config_package) {
             'templates',
             'vendor',
             'index.html',
-            'README.txt',
+            'readme.txt',
             `${package_slug}.php`
         ];
         fsExtra.ensureDir(copyTo, function (err) {

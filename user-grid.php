@@ -1,13 +1,13 @@
 <?php
 /**
  * Plugin Name: User Grid
- * Plugin URI: http://devofwp.com/
+ * Plugin URI: https://habibportfolio.com/user-grid
  * Description: Fast & Easy way to display WordPress users in Gutenberg Editor
  * Author: DevOfWP
  * Version: 1.0.0
  * Text Domain: user-grid
  * Domain Path: /languages
- * Author URI: http://devofwp.com/
+ * Author URI: https://habibportfolio.com/
  *
  * @package USER_GRID
  */

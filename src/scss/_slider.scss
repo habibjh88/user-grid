@@ -13,8 +13,7 @@
         }
 
         .user-item-col {
-            padding-left: 15px;
-            padding-right: 15px;
+            padding: 10px 15px;
         }
 
         .draggable {
@@ -31,6 +30,9 @@
 
         &.height-equal .slick-slide {
             height: inherit !important;
+        }
+        &.has-dots .slick-arrow {
+            margin-top: -20px;
         }
 
         .slick-arrow {

@@ -132,12 +132,6 @@ class Fns {
 	}
 
 
-	public static function doing_it_wrong( $function, $message, $version ) {
-
-		$message .= ' Backtrace: ' . wp_debug_backtrace_summary();
-		_doing_it_wrong( $function, $message, $version );
-	}
-
 	/**
 	 * @param        $template_name
 	 * @param string $template_path
@@ -392,6 +386,7 @@ class Fns {
 		$inner_class[] = $data['pagination_style'];
 		$inner_class[] = $data['enable_order'] ? 'is-order' : 'no-order';
 		$inner_class[] = $data['arrow'] ? 'has-arrow' : '';
+		$inner_class[] = $data['dots'] ? 'has-dots' : '';
 		$inner_class[] = $multiple_bg ? 'has-multi-bg' : 'no-multi-bg';
 		$inner_class[] = self::layout_align( $data['grid_alignment'] );
 
@@ -721,6 +716,7 @@ class Fns {
 			</button>
 			<?php
 		} elseif ( ( 'ajax-pgn' === $data['pagination_type'] ) ) {
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo paginate_links(
 				[
 					'base'      => $data['pagination_url'] . '%_%',
@@ -739,6 +735,7 @@ class Fns {
 			} else {
 				$format = '?paged=%#%';
 			}
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo paginate_links(
 				[
 					'base'      => get_pagenum_link() . '%_%',

@@ -6,7 +6,6 @@
 
         _init: function () {
             UserGrid.slickSlider();
-            console.log('asdfasdfasdfasdf')
         },
 
         slickSlider: function () {
