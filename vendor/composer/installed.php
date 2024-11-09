@@ -1,6 +1,6 @@
 <?php return array(
     'root' => array(
-        'name' => 'devofwp/user-grid',
+        'name' => 'habibjh88/user-grid',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
         'reference' => 'bd405a5bae7953222817304fc2a9afdd398c584c',
@@ -10,7 +10,7 @@
         'dev' => true,
     ),
     'versions' => array(
-        'devofwp/user-grid' => array(
+        'habibjh88/user-grid' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'reference' => 'bd405a5bae7953222817304fc2a9afdd398c584c',

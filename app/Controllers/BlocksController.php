@@ -252,8 +252,8 @@ class BlocksController {
 				require_once ABSPATH . 'wp-admin/includes/file.php';
 			}
 
-			$post_id  = ! empty( $_POST['post_id'] ) ? sanitize_text_field( $_POST['post_id'] ) : '';
-			$blockCss = ! empty( $_POST['block_css'] ) ? sanitize_text_field( $_POST['block_css'] ) : '';
+			$post_id  = ! empty( $_POST['post_id'] ) ? sanitize_text_field( wp_unslash($_POST['post_id']) ) : '';
+			$blockCss = ! empty( $_POST['block_css'] ) ? sanitize_text_field( wp_unslash($_POST['block_css']) ) : '';
 
 			if ( $post_id == 'dowp-widget' && isset( $_POST['has_block'] ) ) {
 				update_option( $post_id, $blockCss );

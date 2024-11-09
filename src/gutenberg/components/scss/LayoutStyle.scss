@@ -49,5 +49,10 @@
 
 .dowp-has-no-pro .dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button.pro-layout {
     border-color: #912d2d !important;
-    background: #fbf0f0;
+    opacity: .5;
+    filter: grayscale(1);
+    &:hover {
+        opacity: .7;
+        filter: grayscale(0);
+    }
 }

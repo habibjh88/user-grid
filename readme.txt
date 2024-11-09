@@ -1,13 +1,12 @@
-=== User Grid – for Gutenberg editor ===
-Contributors: devofwp
+=== User Grid ===
+Contributors: habibjh88
 Donate link:
-Tags: user grid, user list, query builder, responsive design
+Tags: user grid, user list, query builder
 Requires at least: 5.9
-Tested up to: 6.2
+Tested up to: 6.6
 Stable tag: 1.0.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-
 
 User Grid is a powerful WordPress plugin to showcase users in stunning grids/lists with a robust query builder, customization, and responsive design.
 
@@ -46,8 +45,8 @@ User Grid is a powerful WordPress plugin to showcase users in stunning grids/lis
 = 👉 Using FTP: =
 
 1. Download `user-grid.zip`
-2. Extract the `ai-content-generate` directory to your computer
-3. Upload the `ai-content-generate` directory to the `/wp-content/plugins/` directory
+2. Extract the `user-grid` directory to your computer
+3. Upload the `user-grid` directory to the `/wp-content/plugins/` directory
 4. Activate the plugin in the Plugin dashboard
 
 
@@ -85,4 +84,4 @@ This plugin is licensed under the GPLv3. By using this plugin, you agree to the 
 
 == Additional Information ==
 
-For more information, support, or to report bugs, please visit [Your Website](https://devofwp.com). Please mail us at `devofwp@gmail.com`
+For more information, support, or to report bugs Please mail us at `habibjh88@gmail.com`

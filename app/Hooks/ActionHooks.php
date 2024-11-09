@@ -100,7 +100,7 @@ class ActionHooks {
 				<tr>
 					<th><label for="user_grid_job_role"><?php esc_html_e( 'Job Role', 'user-grid' ); ?></label></th>
 					<td><input type="text" name="user_grid_job_role" id="user_grid_job_role"
-							   placeholder="<?php esc_attr_e( 'Lead engineering teams at DevOfWP, Pitch, and Protocol Labs.', 'user-grid' ); ?>"
+							   placeholder="<?php esc_attr_e( 'Lead engineering teams at XYZ Co., Pitch, and Protocol Labs.', 'user-grid' ); ?>"
 							   value="<?php echo esc_attr( get_the_author_meta( 'user_grid_job_role', $user->ID ) ); ?>"
 							   style="width: 500px;max-width: 100%"
 							   class="regular-text"/><br/><span

@@ -1,5 +1,5 @@
 {
-    "name": "devofwp/user-grid",
+    "name": "habibjh88/user-grid",
     "autoload": {
         "psr-4": {
             "DOWP\\UserGrid\\": "app/"

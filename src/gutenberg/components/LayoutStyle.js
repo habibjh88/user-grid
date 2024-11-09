@@ -1,5 +1,6 @@
 import {LyaoutIcons} from "../utils/LyaoutIcons";
 import "./scss/LayoutStyle.scss";
+import cogoToast from "cogo-toast";
 const LayoutStyle = (props) => {
 
     const {value, responsive, onChange, label, attributes, options} = props;
@@ -27,8 +28,10 @@ const LayoutStyle = (props) => {
 
     const freeLayout = ['grid1', 'grid2', 'grid3', 'list1', 'list2', 'list3', 'slider1'];
 
+    const hasPro = dowpParams.hasPro ? 'has-pro' : 'need-pro';
+
     return (
-        <div className="dowp-control-field components-base-control dowp-cf-layout-style">
+        <div className={`dowp-control-field components-base-control dowp-cf-layout-style ${hasPro}`}>
 
             {(label || responsive) && (
                 <div className="dowp-cf-head">
@@ -46,7 +49,8 @@ const LayoutStyle = (props) => {
                                 key={index}
                                 onClick={() => {
                                     if(! dowpParams.hasPro && ! freeLayout.includes(data) ) {
-                                        alert('pro required');
+                                        // alert('pro required');
+                                        cogoToast.warn('Upgrade to Pro for unlock more layout..', {position: 'top-right'});
                                         return false;
                                     }
                                     setSettings(_filterValue() == data ? '' : data);

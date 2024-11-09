@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "keywords": [],
-  "author": "DevOfWP",
+  "author": "habibjh88",
   "license": "ISC",
   "scripts": {
     "dev": "npm run development",
