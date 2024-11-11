@@ -40,6 +40,7 @@ class BlocksController {
 			add_action( 'wp_enqueue_scripts', [ $this, 'add_block_css_file' ] );
 		} else {
 			add_action( 'wp_head', [ $this, 'add_block_inline_css' ], 100 );
+
 		}
 	}
 
@@ -186,11 +187,11 @@ class BlocksController {
 	 * @return void
 	 */
 	public function add_block_inline_css() {
-
 		$post_id = get_the_ID();
 		if ( $post_id ) {
 			$dowp_upload_dir = wp_upload_dir()['basedir'] . '/dowp/';
 			$css_dir_path    = $dowp_upload_dir . "dowp-block-$post_id.css";
+
 			if ( file_exists( $css_dir_path ) ) {
 				$blockCss = file_get_contents( $css_dir_path ); //phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 				echo '<style>' . sanitize_textarea_field( $blockCss ) . '</style>'; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -217,14 +218,14 @@ class BlocksController {
 			if ( isset( $content_post->post_content ) ) {
 				$content      = $content_post->post_content;
 				$parse_blocks = parse_blocks( $content );
-				$css_id       = $this->reference_id( $parse_blocks );
+				$css_id = $this->reference_id( $parse_blocks );
 				if ( is_array( $css_id ) ) {
 					if ( ! empty( $css_id ) ) {
 						$css_id = array_unique( $css_id );
 						foreach ( $css_id as $value ) {
 							$css_dir_path = $dowp_upload_dir . "dowp-block-$value.css";
 							if ( file_exists( $css_dir_path ) ) {
-								wp_enqueue_style( "dowp-block-{$value}", $dowp_upload_url . "dowp-block-{$value}.css", false, UserGrid_VERSION );
+								wp_enqueue_style( "dowp-block-{$value}", $dowp_upload_url . "dowp-block-{$value}.css", false, USER_GRID_VERSION );
 							}
 						}
 					}
@@ -252,8 +253,8 @@ class BlocksController {
 				require_once ABSPATH . 'wp-admin/includes/file.php';
 			}
 
-			$post_id  = ! empty( $_POST['post_id'] ) ? sanitize_text_field( wp_unslash($_POST['post_id']) ) : '';
-			$blockCss = ! empty( $_POST['block_css'] ) ? sanitize_text_field( wp_unslash($_POST['block_css']) ) : '';
+			$post_id  = ! empty( $_POST['post_id'] ) ? sanitize_text_field( wp_unslash( $_POST['post_id'] ) ) : '';
+			$blockCss = ! empty( $_POST['block_css'] ) ? sanitize_text_field( wp_unslash( $_POST['block_css'] ) ) : '';
 
 			if ( $post_id == 'dowp-widget' && isset( $_POST['has_block'] ) ) {
 				update_option( $post_id, $blockCss );
@@ -312,7 +313,7 @@ class BlocksController {
 						function ( $val ) {
 							$process = trim( str_replace( [ 'font-weight', ':', ';' ], '', $val ) );
 							if ( is_numeric( $process ) ) {
-								  return $process;
+								return $process;
 							}
 						},
 						$matche_weight[0]
