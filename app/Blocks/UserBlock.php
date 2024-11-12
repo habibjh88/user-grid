@@ -1,12 +1,12 @@
 <?php
 
-namespace DOWP\UserGrid\Blocks;
+namespace USGR\UserGrid\Blocks;
 
-use DOWP\UserGrid\Helpers\Fns;
-use DOWP\UserGrid\Abstract\BlockBase;
-use DOWP\UserGrid\Utils\Attributes;
-use DOWP\UserGrid\Utils\RenderContent;
-use DOWP\UserGrid\Utils\RenderSlider;
+use USGR\UserGrid\Helpers\Fns;
+use USGR\UserGrid\Abstract\BlockBase;
+use USGR\UserGrid\Utils\Attributes;
+use USGR\UserGrid\Utils\RenderContent;
+use USGR\UserGrid\Utils\RenderSlider;
 
 /**
  * UserBlock Class
@@ -22,7 +22,7 @@ class UserBlock extends BlockBase {
 	 */
 	public function __construct() {
 		add_action( 'init', [ $this, 'register_blocks' ] );
-		$this->block_type = 'dowp/user-grid';
+		$this->block_type = 'usgr/user-grid';
 	}
 
 	/**
@@ -56,7 +56,7 @@ class UserBlock extends BlockBase {
 
 			'hasPro'   => [
 				'type'    => 'string',
-				'default' => userGrid()->hasPro(),
+				'default' => usgrUG()->hasPro(),
 			],
 
 			'preview'  => [

@@ -7,7 +7,7 @@ import './scss/SelectObj1.scss'
 
 function SelectObj1(props) {
     const {label, value, onChange, responsive, name, options} = props;
-    const [device, setDevice] = useState(() => window.dowpDevice || 'lg');
+    const [device, setDevice] = useState(() => window.usgrDevice || 'lg');
     const defaultData = {
         [device]: ''
     };
@@ -25,9 +25,9 @@ function SelectObj1(props) {
 
 
     return (
-        <div className="dowp-control-field dowp-cf-bg-property">
-            <div className="dowp-cf-head">
-                <span className="dowp-label">{label}</span>
+        <div className="usgr-control-field usgr-cf-bg-property">
+            <div className="usgr-cf-head">
+                <span className="usgr-label">{label}</span>
                 {responsive && <Devices device={device} onChange={_device => {
                     setDevice(_device);
                     const newData = JSON.parse(JSON.stringify(value));
@@ -37,7 +37,7 @@ function SelectObj1(props) {
                     }
                 }}/>}
             </div>
-            <div className="dowp-cf-body">
+            <div className="usgr-cf-body">
                 <SelectControl
                     value={responsive ? value[name][device] : value[name]}
                     options={options}

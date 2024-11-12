@@ -41,11 +41,11 @@ export default function FieldVisibility(props) {
     return (
         <PanelBody title={__('Field Visibility', 'user-grid')} initialOpen={true}>
 
-            <h3 className={`dowp-controll-heading`}>{__("User Content Visibility", "user-grid")}</h3>
+            <h3 className={`usgr-controll-heading`}>{__("User Content Visibility", "user-grid")}</h3>
 
             <ToggleControl
                 label={__("Image", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={avatar_visibility}
                 onChange={(avatar_visibility) => {
                     setAttributes({avatar_visibility: avatar_visibility ? 'show' : ''});
@@ -55,7 +55,7 @@ export default function FieldVisibility(props) {
 
             <ToggleControl
                 label={__("Name", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={name_visibility}
                 onChange={(name_visibility) => {
                     setAttributes({name_visibility: name_visibility ? 'show' : ''});
@@ -65,7 +65,7 @@ export default function FieldVisibility(props) {
 
             <ToggleControl
                 label={__("Horizontal Line - 1", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={hr_1_visibility}
                 onChange={(hr_1_visibility) => {
                     setAttributes({hr_1_visibility: hr_1_visibility ? 'show' : ''});
@@ -76,7 +76,7 @@ export default function FieldVisibility(props) {
 
             <ToggleControl
                 label={__("Designation", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={designation_visibility}
                 onChange={(designation_visibility) => {
                     setAttributes({designation_visibility: designation_visibility ? 'show' : ''});
@@ -86,7 +86,7 @@ export default function FieldVisibility(props) {
 
             <ToggleControl
                 label={__("Job Role", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={job_role_visibility}
                 onChange={(job_role_visibility) => {
                     setAttributes({job_role_visibility: job_role_visibility ? 'show' : ''});
@@ -96,7 +96,7 @@ export default function FieldVisibility(props) {
 
             <ToggleControl
                 label={__("Email", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={email_visibility}
                 onChange={(email_visibility) => {
                     setAttributes({email_visibility: email_visibility ? 'show' : ''});
@@ -106,7 +106,7 @@ export default function FieldVisibility(props) {
 
             <ToggleControl
                 label={__("Phone", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={phone_visibility}
                 onChange={(phone_visibility) => {
                     setAttributes({phone_visibility: phone_visibility ? 'show' : ''});
@@ -116,7 +116,7 @@ export default function FieldVisibility(props) {
 
             <ToggleControl
                 label={__("Biography", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={bio_visibility}
                 onChange={(bio_visibility) => {
                     setAttributes({bio_visibility: bio_visibility ? 'show' : ''});
@@ -126,7 +126,7 @@ export default function FieldVisibility(props) {
 
             <ToggleControl
                 label={__("Social Icon", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={social_visibility}
                 onChange={(social_visibility) => {
                     setAttributes({social_visibility: social_visibility ? 'show' : ''});
@@ -136,7 +136,7 @@ export default function FieldVisibility(props) {
 
             <ToggleControl
                 label={__("Horizontal Line - 2", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={hr_2_visibility}
                 onChange={(hr_2_visibility) => {
                     setAttributes({hr_2_visibility: hr_2_visibility ? 'show' : ''});
@@ -146,7 +146,7 @@ export default function FieldVisibility(props) {
 
             <ToggleControl
                 label={__("Read Articles Button", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={button_visibility}
                 onChange={(button_visibility) => {
                     setAttributes({button_visibility: button_visibility ? 'show' : ''});
@@ -155,11 +155,11 @@ export default function FieldVisibility(props) {
                 }}
             />
             <hr/>
-            <h3 className={`dowp-controll-heading`}>{__("Others Visibility", "user-grid")}</h3>
+            <h3 className={`usgr-controll-heading`}>{__("Others Visibility", "user-grid")}</h3>
 
             <ToggleControl
                 label={__("Pagination", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={pagination_visibility}
                 onChange={(pagination_visibility) => {
                     setAttributes({pagination_visibility: pagination_visibility ? 'show' : ''});
@@ -169,7 +169,7 @@ export default function FieldVisibility(props) {
 
             <ToggleControl
                 label={__("Recent Post", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={post_visibility}
                 onChange={(post_visibility) => {
                     setAttributes({post_visibility: post_visibility ? 'show' : ''});

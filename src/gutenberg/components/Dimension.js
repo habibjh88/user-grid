@@ -8,7 +8,7 @@ import "./scss/dimension.scss";
 const Dimension = (props) => {
     const {responsive, onChange, className, units, value: data, type} = props;
 
-    const [device, setDevice] = useState(() => window.dowpDevice || 'lg');
+    const [device, setDevice] = useState(() => window.usgrDevice || 'lg');
     const defaultData = {isLinked: true, unit: 'px', value: ''};
     const currentData = responsive ? (data[device] ? data[device] : defaultData) : data || defaultData;
 
@@ -88,10 +88,10 @@ const Dimension = (props) => {
     }
 
     return (
-        <div className={`dowp-control-field components-base-control dowp-cf-dimension ${className}`}>
-            <div className={`dowp-cf-head`}>
+        <div className={`usgr-control-field components-base-control usgr-cf-dimension ${className}`}>
+            <div className={`usgr-cf-head`}>
                 <div className="rt-left-part">
-                    <div className="dowp-label">{props.label}</div>
+                    <div className="usgr-label">{props.label}</div>
                     {responsive && <Devices device={device} onChange={_device => {
                         setDevice(_device);
                         const newData = JSON.parse(JSON.stringify(data));
@@ -102,7 +102,7 @@ const Dimension = (props) => {
                     }}/>}
                 </div>
                 <div className="rt-right-part">
-                    <div className="dowp-units-choices">
+                    <div className="usgr-units-choices">
                         {(units && Array.isArray(units) ? units : ['px', 'em', '%']).map(_unit => (
                             <label
                                 className={(currentData?.unit === _unit || (!currentData?.unit && _unit === defaultData.unit)) ? 'active' : ''}
@@ -112,15 +112,15 @@ const Dimension = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="dowp-cf-body">
-                <div className="dowp-control-dimensions">
+            <div className="usgr-cf-body">
+                <div className="usgr-control-dimensions">
                     {dimensionTypes.map((_item, _i) => {
                         let isDisable = false;
                         if((allowDimension==='vertical' && ['left','right'].includes(_item)) || allowDimension==='horizontal' && ['top','bottom'].includes(_item)){
                             isDisable = true;
                         }
                         return (
-                            <div className="dowp-control-dimension">
+                            <div className="usgr-control-dimension">
                                 <input
                                     type="number"
                                     value={dimensionValues[_i]}
@@ -128,14 +128,14 @@ const Dimension = (props) => {
                                     onChange={(e) => onChangeDimension(_item, e.target.value)}
                                     disabled={isDisable}
                                 />
-                                <label className="dowp-control-dimension-label">{_item}</label>
+                                <label className="usgr-control-dimension-label">{_item}</label>
                             </div>
                         );
                     })}
 
-                    <div className='dowp-control-dimension linking'>
+                    <div className='usgr-control-dimension linking'>
                         <button
-                            className={`dowp-link-dimensions  ${currentData?.isLinked ? "admin-links linked" : "editor-unlink"}`}
+                            className={`usgr-link-dimensions  ${currentData?.isLinked ? "admin-links linked" : "editor-unlink"}`}
                             onClick={toggleIsLinked}
                         >
 							<span

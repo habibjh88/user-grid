@@ -14,15 +14,15 @@ function Gradient(props) {
 
     return (
 
-        <div className="dowp-control-field components-base-control dowp-cf-gradient-wrap">
+        <div className="usgr-control-field components-base-control usgr-cf-gradient-wrap">
 
             {label && (
-                <div className="dowp-cf-head">
-                    <span className="dowp-label">{label}</span>
+                <div className="usgr-cf-head">
+                    <span className="usgr-label">{label}</span>
                 </div>
             )}
 
-            <div className="dowp-cf-body">
+            <div className="usgr-cf-body">
                 <GradientPicker
                     label={'Gradient Color'}
                     value={value}

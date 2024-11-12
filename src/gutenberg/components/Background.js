@@ -34,18 +34,18 @@ function Background(props) {
     }
 
     return (
-        <div className="dowp-control-field dowp-cf-background-wrap">
+        <div className="usgr-control-field usgr-cf-background-wrap">
 
-            <div className='dowp-cf-body'>
-                <div className="dowp-cf-body-btn-wrap">
+            <div className='usgr-cf-body'>
+                <div className="usgr-cf-body-btn-wrap">
 
                     {label && (
-                        <div className="dowp-cf-head">
-                            <span className="dowp-label">{label}</span>
+                        <div className="usgr-cf-head">
+                            <span className="usgr-label">{label}</span>
                         </div>
                     )}
 
-                    <ButtonGroup className="dowp-btn-group">
+                    <ButtonGroup className="usgr-btn-group">
                         {BACKGROUND_TYPE.map((item) => (
 
                             <Tooltip text={item.label} position="top" delay={0}>
@@ -77,7 +77,7 @@ function Background(props) {
 
                 </div>
 
-                <div className="dowp-cf-body-content-wrap">
+                <div className="usgr-cf-body-content-wrap">
                     {value['type'] === "classic" && (
                         <BGImage
                             image={props?.image}
@@ -87,7 +87,7 @@ function Background(props) {
                     )}
 
                     {value['type'] === "gradient" && (
-                       <div className={`dowp-gradient-color-wrap`}>
+                       <div className={`usgr-gradient-color-wrap`}>
                            <Gradient
                                value={value['gradient']}
                                onChange={(val) => setSettings(val, 'gradient')}

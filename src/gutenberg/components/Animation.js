@@ -21,10 +21,10 @@ function Animation(props) {
 	return (
 		<>
 
-			<div className="dowp-control-field components-base-control">
+			<div className="usgr-control-field components-base-control">
 
 				{label && (
-					<span className="dowp-label">{label}</span>
+					<span className="usgr-label">{label}</span>
 				)}
 
 

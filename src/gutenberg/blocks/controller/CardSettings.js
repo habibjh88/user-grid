@@ -69,7 +69,7 @@ function CardSettings(props) {
 
             <Dimension
                 label={__("Card Radius", "user-grid")}
-                className={`dowp-dimension-wrap`}
+                className={`usgr-dimension-wrap`}
                 type="borderRadius" responsive
                 value={card_radius}
                 onChange={(value) => {
@@ -103,7 +103,7 @@ function CardSettings(props) {
 
             <ToggleControl
                 label={__("Lift Box on Hover", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={lift_box_hover}
                 onChange={(lift_box_hover) => {
                     setAttributes({lift_box_hover: lift_box_hover ? 'lift-on-hover' : ''});

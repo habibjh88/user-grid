@@ -1,7 +1,7 @@
-.dowp-components-popover,
-.dowp-panel-control-wrapper {
-	.dowp-control-field {
-		&.dowp-cf-bg-property {
+.usgr-components-popover,
+.usgr-panel-control-wrapper {
+	.usgr-control-field {
+		&.usgr-cf-bg-property {
 			display: flex;
 			justify-content: space-between;
 			margin-bottom: 0 !important;
@@ -14,7 +14,7 @@
 				height: 30px !important;
 			}
 
-			.dowp-cf-body {
+			.usgr-cf-body {
 				> * {
 					margin-bottom: 0 !important;
 				}

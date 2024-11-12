@@ -14,7 +14,7 @@ const innerBlocks = function (blocks) {
     blocks.map((row) => {
         const {attributes, name} = row;
         const [blockType, blockName] = name.split('/');
-        if (blockType === 'dowp' && attributes.uniqueId) {
+        if (blockType === 'usgr' && attributes.uniqueId) {
             __CSS += CssGenerator(attributes, blockName, attributes.uniqueId, true);
         }
         if (row.innerBlocks && row.innerBlocks.length > 0) {
@@ -24,16 +24,16 @@ const innerBlocks = function (blocks) {
     return __CSS;
 };
 
-const isRtdowpBlock = (blocks) => {
+const isRtusgrBlock = (blocks) => {
     let hasBlock = false;
     blocks.forEach(function (block) {
         const {name, innerBlocks = []} = block;
         const [blockType, blockName] = name.split('/');
-        if (blockType === 'dowp') {
+        if (blockType === 'usgr') {
             hasBlock = true;
         }
         if (!hasBlock && innerBlocks.length > 0) {
-            hasBlock = isRtdowpBlock(innerBlocks);
+            hasBlock = isRtusgrBlock(innerBlocks);
         }
     });
     return hasBlock;
@@ -48,8 +48,8 @@ const getData = pId => {
             type: "POST",
             data: {
                 postId: pId,
-                action: 'dowp_block_css_get_posts',
-                nonce: dowpParams.nonce,
+                action: 'usgr_block_css_get_posts',
+                nonce: usgrParams.nonce,
             }
         })
         .then(function (response) {
@@ -66,7 +66,7 @@ const getData = pId => {
                             data: {
                                 inner_css: innerBlock.css,
                                 post_id: wp.data.select('core/editor').getCurrentPostId(),
-                                action: 'dowp_block_css_appended'
+                                action: 'usgr_block_css_appended'
                             }
                         })
                         .done(function (res) {
@@ -94,7 +94,7 @@ const ParseCss = (setDatabase = true) => {
     window.bindCss = true;
     const all_blocks = select('core/block-editor').getBlocks();
     const {getCurrentPostId} = select('core/editor');
-    const hasRtdowpBlocks = isRtdowpBlock(all_blocks);
+    const hasRtusgrBlocks = isRtusgrBlock(all_blocks);
     const blockCss = innerBlocks(all_blocks, true);
 
     if (setDatabase) {
@@ -105,11 +105,11 @@ const ParseCss = (setDatabase = true) => {
                 dataType: "json",
                 type: "POST",
                 data: {
-                    nonce: dowpParams.nonce,
+                    nonce: usgrParams.nonce,
                     block_css: blockCss,
                     post_id: getCurrentPostId,
-                    has_block: hasRtdowpBlocks,
-                    action: 'dowp_block_css_save'
+                    has_block: hasRtusgrBlocks,
+                    action: 'usgr_block_css_save'
                 }
             });
     }

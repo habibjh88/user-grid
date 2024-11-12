@@ -20,7 +20,7 @@ function NameSettings(props) {
 
             <SelectControl
                 label={__('Name Tags', 'user-grid')}
-                className="dowp-control-field label-inline"
+                className="usgr-control-field label-inline"
                 options={HEADING}
                 value={name_tag}
                 onChange={(name_tag) => setAttributes({name_tag})}

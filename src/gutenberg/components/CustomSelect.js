@@ -4,19 +4,19 @@ const {BaseControl, SelectControl, Button} = wp.components;
 export default function CustomSelect(props) {
     const {label, value, onChange, options = []} = props;
 
-    const hasPro = dowpParams.hasPro;
+    const hasPro = usgrParams.hasPro;
     const setSettings = (event) => {
         onChange(event.target.value);
     }
 
     return (
 
-        <div className="dowp-control-field components-base-control dowp-select-wrap">
-            <div className="dowp-cf-head">
-                <span className="dowp-label">{label}</span>
+        <div className="usgr-control-field components-base-control usgr-select-wrap">
+            <div className="usgr-cf-head">
+                <span className="usgr-label">{label}</span>
             </div>
 
-            <div className="dowp-cf-body">
+            <div className="usgr-cf-body">
                 <select className="components-select" value={value}
                         onChange={(event) => setSettings(event)}>
                     {options.map((option) => (

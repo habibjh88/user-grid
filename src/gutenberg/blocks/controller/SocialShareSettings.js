@@ -17,7 +17,7 @@ function SocialShareSettings(props) {
 
         <SelectControl
             label={__("Icon Style", "user-grid")}
-            className="dowp-control-field label-inline dowp-expand"
+            className="usgr-control-field label-inline usgr-expand"
             value={social_style}
             options={SOCIAL_STYLE}
             onChange={(social_style) => {
@@ -28,7 +28,7 @@ function SocialShareSettings(props) {
 
         <SelectControl
             label={__("Icon Position", "user-grid")}
-            className={`dowp-control-field label-inline dowp-expand ${hasPro ? '' : 'pro-field'}`}
+            className={`usgr-control-field label-inline usgr-expand ${hasPro ? '' : 'pro-field'}`}
             value={social_position}
             options={SOCIAL_POSITION(hasPro)}
             onChange={(social_position) => {
@@ -39,7 +39,7 @@ function SocialShareSettings(props) {
 
         {social_position !== 'spos-d' && <SelectControl
             label={__("Icon Visibility", "user-grid")}
-            className={`dowp-control-field label-inline dowp-expand`}
+            className={`usgr-control-field label-inline usgr-expand`}
             value={social_show_on}
             options={[{value: '', label: __('Show on Hover', 'user-grid')}, {value: 'social-show-always', label: __('Always Show', 'user-grid')}, {value: 'social-show-always hide-share', label: __('Always Show except Share Icon', 'user-grid')},]}
             onChange={(social_show_on) => {
@@ -60,7 +60,7 @@ function SocialShareSettings(props) {
             placeholder={__("Eg. 10", "user-grid")}
             shiftStep={4}
             step="1"
-            className="dowp-control-field label-inline"
+            className="usgr-control-field label-inline"
         />
 
         <Dimension
@@ -72,7 +72,7 @@ function SocialShareSettings(props) {
             }}
         />
 
-        <div className="dowp-btn-hover-group">
+        <div className="usgr-btn-hover-group">
             {NORMAL_HOVER.map((item, key) => (<Button
                 key={key}
                 isPrimary={styleTab === item.value}

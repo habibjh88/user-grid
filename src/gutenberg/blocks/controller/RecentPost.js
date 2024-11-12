@@ -41,7 +41,7 @@ export default function RecentPost(props) {
 
             <SelectControl
                 label={__("Post Box Style", "user-grid")}
-                className="dowp-control-field label-inline dowp-expand"
+                className="usgr-control-field label-inline usgr-expand"
                 value={post_box_style}
                 options={POST_BOX_STYLE}
                 onChange={(post_box_style) => {
@@ -52,7 +52,7 @@ export default function RecentPost(props) {
 
             <SelectControl
                 label={__("Choose Post Type", "user-grid")}
-                className="dowp-control-field label-inline dowp-expand"
+                className="usgr-control-field label-inline usgr-expand"
                 value={post_type}
                 options={post_type_list}
                 onChange={(post_type) => {
@@ -74,14 +74,14 @@ export default function RecentPost(props) {
                 placeholder={__("Eg. 2", "user-grid")}
                 shiftStep={1}
                 step="1"
-                className="dowp-control-field label-inline"
+                className="usgr-control-field label-inline"
             />
 
             <hr/>
 
             <ToggleControl
                 label={__("Show Image?", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={show_post_img}
                 onChange={(show_post_img) => {
                     setAttributes({show_post_img: show_post_img ? 'show' : ''});
@@ -91,7 +91,7 @@ export default function RecentPost(props) {
 
             <ToggleControl
                 label={__("Show Category?", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={show_post_cat}
                 onChange={(show_post_cat) => {
                     setAttributes({show_post_cat: show_post_cat ? 'show' : ''});
@@ -101,7 +101,7 @@ export default function RecentPost(props) {
 
             <ToggleControl
                 label={__("Show Date?", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={show_post_date}
                 onChange={(show_post_date) => {
                     setAttributes({show_post_date: show_post_date ? 'show' : ''});
@@ -111,7 +111,7 @@ export default function RecentPost(props) {
 
             <ToggleControl
                 label={__("Show Border Bottom?", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={show_post_b_b}
                 onChange={(show_post_b_b) => {
                     setAttributes({show_post_b_b: show_post_b_b ? 'show' : ''});
@@ -119,7 +119,7 @@ export default function RecentPost(props) {
                 }}
             />
 
-            <h3 className={`dowp-controll-heading`}>{__("Image Settings", "user-grid")}</h3>
+            <h3 className={`usgr-controll-heading`}>{__("Image Settings", "user-grid")}</h3>
             <NumberControl
                 isShiftStepEnabled
                 label={__("Post Number", "user-grid")}
@@ -133,10 +133,10 @@ export default function RecentPost(props) {
                 placeholder={__("Eg. 40", "user-grid")}
                 shiftStep={1}
                 step="1"
-                className="dowp-control-field label-inline"
+                className="usgr-control-field label-inline"
             />
 
-            <h3 className={`dowp-controll-heading`}>{__("Main Title Settings", "user-grid")}</h3>
+            <h3 className={`usgr-controll-heading`}>{__("Main Title Settings", "user-grid")}</h3>
 
             <TextControl
                 autocomplete="off"
@@ -162,7 +162,7 @@ export default function RecentPost(props) {
                 onChange={(post_main_title_color) => setAttributes({post_main_title_color})}
             />
 
-            <h3 className={`dowp-controll-heading`}>{__("Post Title", "user-grid")}</h3>
+            <h3 className={`usgr-controll-heading`}>{__("Post Title", "user-grid")}</h3>
 
             <Typography
                 label={__('Title Typography')}
@@ -189,7 +189,7 @@ export default function RecentPost(props) {
                 }}
             />
 
-            <h3 className={`dowp-controll-heading`}>{__("Post Meta", "user-grid")}</h3>
+            <h3 className={`usgr-controll-heading`}>{__("Post Meta", "user-grid")}</h3>
 
             <Typography
                 label={__('Title Typography')}
@@ -208,7 +208,7 @@ export default function RecentPost(props) {
                 onChange={(post_meta_color_h) => setAttributes({post_meta_color_h})}
             />
 
-            <h3 className={`dowp-controll-heading`}>{__("Post Box", "user-grid")}</h3>
+            <h3 className={`usgr-controll-heading`}>{__("Post Box", "user-grid")}</h3>
 
             <Color
                 label={__('Box Background', 'user-grid')}

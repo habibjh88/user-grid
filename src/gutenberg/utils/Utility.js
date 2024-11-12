@@ -3,7 +3,7 @@
  *
  * @param grid_column
  * @param default_grid_columns
- * @returns {`dowp-col-md-4 dowp-col-sm-6 dowp-col-xs-${string|[]|boolean|*}`}
+ * @returns {`usgr-col-md-4 usgr-col-sm-6 usgr-col-xs-${string|[]|boolean|*}`}
  */
 export const dynamicCols = (grid_column, default_grid_columns = []) => {
     if (default_grid_columns.length < 1) {
@@ -17,7 +17,7 @@ export const dynamicCols = (grid_column, default_grid_columns = []) => {
     const grid_column_desktop = grid_column.lg > 0 ? grid_column.lg : default_grid_columns.lg;
     const grid_column_tab = grid_column.md > 0 ? grid_column.md : default_grid_columns.md;
     const grid_column_mobile = grid_column.sm > 0 ? grid_column.sm : default_grid_columns.sm;
-    return `dowp-col-md-${grid_column_desktop} dowp-col-sm-${grid_column_tab} dowp-col-xs-${grid_column_mobile}`;
+    return `usgr-col-md-${grid_column_desktop} usgr-col-sm-${grid_column_tab} usgr-col-xs-${grid_column_mobile}`;
 }
 
 /**
@@ -28,8 +28,8 @@ export const dynamicCols = (grid_column, default_grid_columns = []) => {
  */
 export const extendClass = layout => {
     let classes = '';
-    classes += layout === 'grid3' ? ' dowp-grid2' : '';
-    classes += layout === 'list3' ? ' dowp-list2' : '';
+    classes += layout === 'grid3' ? ' usgr-grid2' : '';
+    classes += layout === 'list3' ? ' usgr-list2' : '';
     return classes;
 }
 

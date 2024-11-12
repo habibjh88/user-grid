@@ -1,9 +1,9 @@
-.dowp-components-popover,
-.dowp-panel-control-wrapper {
-    .dowp-control-field {
-        &.dowp-cf-alignment-wrap {
-            .dowp-btn-group {
-                .dowp-button {
+.usgr-components-popover,
+.usgr-panel-control-wrapper {
+    .usgr-control-field {
+        &.usgr-cf-alignment-wrap {
+            .usgr-btn-group {
+                .usgr-button {
                     font-size: 14px;
                     background: #fff;
                     border: 1px solid #ced7db;
@@ -14,11 +14,11 @@
                     align-items: center;
                     margin-left: -1px;
                     cursor: pointer;
-                    transition: var(--dowp-transition);
+                    transition: var(--usgr-transition);
 
                     &:hover,
                     &.active {
-                        background: var(--dowp-primary);
+                        background: var(--usgr-primary);
                         color: #ffffff;
                     }
 

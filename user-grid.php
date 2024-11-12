@@ -9,7 +9,7 @@
  * Domain Path: /languages
  * Author URI: https://habibportfolio.com/
  * License: GPLv3
- * * License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *
  * @package USER_GRID
  */
@@ -27,6 +27,6 @@ define( 'USER_GRID_PLUGIN_SLUG', basename( dirname( __FILE__ ) ) );
 define( 'USER_GRID_PLUGIN_BASE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'USER_GRID_LANGUAGE_PATH', dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
-if ( ! class_exists( 'UserGrid' ) ) {
-	require_once 'app/UserGrid.php';
+if ( ! class_exists( 'usgr_UG' ) ) {
+	require_once 'app/usgr_UG.php';
 }

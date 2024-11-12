@@ -1,20 +1,20 @@
 :root {
-    --dowp-primary: #009FFF;
-    --dowp-primary-dark: #007FCB;
-    --dowp-border: #b7b7c3;
-    --dowp-title: #212121;
-    --dowp-body: #313234;
-    --dowp-border1: #DCDCDC;
-    --dowp-border2: #DDDDDD;
-    --dowp-border3: #ABABAB;
-    --dowp-transition: .4s;
+    --usgr-primary: #009FFF;
+    --usgr-primary-dark: #007FCB;
+    --usgr-border: #b7b7c3;
+    --usgr-title: #212121;
+    --usgr-body: #313234;
+    --usgr-border1: #DCDCDC;
+    --usgr-border2: #DDDDDD;
+    --usgr-border3: #ABABAB;
+    --usgr-transition: .4s;
     --card-bg: #FFFFFF;
-    --dowp-white: #FFFFFF;
+    --usgr-white: #FFFFFF;
 }
 
-$primary_color: var(--dowp-primary, #009FFF);
-$primary_dark: var(--dowp-primary-dark, #007FCB);
-$title_color: var(--dowp-title, #212121);
-$body_color: var(--dowp-body, #313234);
-$body_border: var(--dowp-border, #313234);
-$white_color: var(--dowp-white, #FFFFFF);
+$primary_color: var(--usgr-primary, #009FFF);
+$primary_dark: var(--usgr-primary-dark, #007FCB);
+$title_color: var(--usgr-title, #212121);
+$body_color: var(--usgr-body, #313234);
+$body_border: var(--usgr-border, #313234);
+$white_color: var(--usgr-white, #FFFFFF);

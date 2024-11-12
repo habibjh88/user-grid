@@ -19,7 +19,7 @@ export default function ContentSort(props) {
         <PanelBody title={__('Sort Content', 'user-grid')} initialOpen={false}>
             <ToggleControl
                 label={__("Enable Content Order", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={enable_order}
                 onChange={(enable_order) => {
                     setAttributes({enable_order: enable_order ? 'show' : ''});

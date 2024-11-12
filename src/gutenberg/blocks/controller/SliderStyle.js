@@ -43,10 +43,10 @@ export default function SliderStyle(props) {
                 placeholder={__("Eg. 15", "user-grid")}
                 shiftStep={5}
                 step="1"
-                className="dowp-control-field label-inline"
+                className="usgr-control-field label-inline"
             />
 
-            <h3 className={`dowp-controll-heading`}>{__("Arrow Style", "user-grid")}</h3>
+            <h3 className={`usgr-controll-heading`}>{__("Arrow Style", "user-grid")}</h3>
 
             <NumberControl
                 isShiftStepEnabled
@@ -60,7 +60,7 @@ export default function SliderStyle(props) {
                 placeholder={__("Eg. 10", "user-grid")}
                 shiftStep={5}
                 step="1"
-                className="dowp-control-field label-inline"
+                className="usgr-control-field label-inline"
             />
             <NumberControl
                 isShiftStepEnabled
@@ -74,10 +74,10 @@ export default function SliderStyle(props) {
                 placeholder={__("Eg. 10", "user-grid")}
                 shiftStep={5}
                 step="1"
-                className="dowp-control-field label-inline"
+                className="usgr-control-field label-inline"
             />
 
-            <div className="dowp-btn-hover-group">
+            <div className="usgr-btn-hover-group">
                 {NORMAL_HOVER.map((item, key) => (
                     <Button
                         key={key}
@@ -121,12 +121,12 @@ export default function SliderStyle(props) {
             }
 
 
-            <h3 className={`dowp-controll-heading`}>{__("Dot Style", "user-grid")}</h3>
+            <h3 className={`usgr-controll-heading`}>{__("Dot Style", "user-grid")}</h3>
 
 
             <SelectControl
                 label={__("Dots Alignment", "user-grid")}
-                className="dowp-control-field label-inline dowp-expand"
+                className="usgr-control-field label-inline usgr-expand"
                 value={dots_alignment}
                 options={ALIGNMENT}
                 onChange={(dots_alignment) => {
@@ -136,7 +136,7 @@ export default function SliderStyle(props) {
 
             <SelectControl
                 label={__("Dots Positioin", "user-grid")}
-                className="dowp-control-field label-inline dowp-expand"
+                className="usgr-control-field label-inline usgr-expand"
                 value={dots_position}
                 options={[
                     {value: '-1', label: __('Top', 'user-grid')},
@@ -159,7 +159,7 @@ export default function SliderStyle(props) {
                 placeholder={__("Eg. 10", "user-grid")}
                 shiftStep={5}
                 step="1"
-                className="dowp-control-field label-inline"
+                className="usgr-control-field label-inline"
             />
             <NumberControl
                 isShiftStepEnabled
@@ -173,7 +173,7 @@ export default function SliderStyle(props) {
                 placeholder={__("Eg. 10", "user-grid")}
                 shiftStep={5}
                 step="1"
-                className="dowp-control-field label-inline"
+                className="usgr-control-field label-inline"
             />
             <NumberControl
                 isShiftStepEnabled
@@ -187,7 +187,7 @@ export default function SliderStyle(props) {
                 placeholder={__("Eg. 10", "user-grid")}
                 shiftStep={5}
                 step="1"
-                className="dowp-control-field label-inline"
+                className="usgr-control-field label-inline"
             />
 
             <Dimension
@@ -199,7 +199,7 @@ export default function SliderStyle(props) {
                 }}
             />
 
-            <div className="dowp-btn-hover-group">
+            <div className="usgr-btn-hover-group">
                 {NORMAL_HOVER.map((item, key) => (
                     <Button
                         key={key}

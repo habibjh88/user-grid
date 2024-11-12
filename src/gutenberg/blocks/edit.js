@@ -108,7 +108,7 @@ const Edit = (props) => {
         setSignalController(controller);
         setUsers({})
         apiFetch({
-            path: '/dowp/v1/users',
+            path: '/usgr/v1/users',
             signal: controller?.signal,
             method: 'POST',
             data: {
@@ -187,7 +187,7 @@ const Edit = (props) => {
         setSignalController(controller);
         setUsers({})
         apiFetch({
-            path: '/dowp/v1/users-select',
+            path: '/usgr/v1/users-select',
             signal: controller?.signal,
             method: 'POST',
         }).then((data) => {

@@ -12,33 +12,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once USER_GRID_PLUGIN_BASE_DIR . 'vendor/autoload.php';
 
-use DOWP\UserGrid\Controllers\AjaxController;
-use DOWP\UserGrid\Controllers\BlocksController;
-use DOWP\UserGrid\Controllers\ScriptController;
-use DOWP\UserGrid\Hooks\ActionHooks;
-use DOWP\UserGrid\Hooks\FilterHooks;
-use DOWP\UserGrid\Helpers\Install;
-use DOWP\UserGrid\Api\RestApi;
+use USGR\UserGrid\Controllers\AjaxController;
+use USGR\UserGrid\Controllers\BlocksController;
+use USGR\UserGrid\Controllers\ScriptController;
+use USGR\UserGrid\Hooks\ActionHooks;
+use USGR\UserGrid\Hooks\FilterHooks;
+use USGR\UserGrid\Helpers\Install;
+use USGR\UserGrid\Api\RestApi;
 
-
-if ( ! class_exists( UserGrid::class ) ) {
+if ( ! class_exists( usgr_UG::class ) ) {
 	/**
 	 * Main initialization class.
 	 */
-	final class UserGrid {
-		/**
-		 * Post Type
-		 *
-		 * @var string
-		 */
-		public $post_type = 'dowp';
+	final class usgr_UG {
 
 		/**
 		 * Avatar meta key
 		 *
 		 * @var string
 		 */
-		public $avatar_meta_key = 'user_grid_attachment_id';
+		public $avatar_meta_key = 'usgr_attachment_id';
 
 		/**
 		 * Options
@@ -46,9 +39,9 @@ if ( ! class_exists( UserGrid::class ) ) {
 		 * @var array
 		 */
 		public $options = [
-			'settings'          => 'dowp_settings',
+			'settings'          => 'usgr_settings',
 			'version'           => USER_GRID_VERSION,
-			'installed_version' => 'user_grid_version',
+			'installed_version' => 'usgr_version',
 			'slug'              => USER_GRID_PLUGIN_SLUG,
 		];
 
@@ -114,7 +107,7 @@ if ( ! class_exists( UserGrid::class ) ) {
 		 * @return void
 		 */
 		public function init_hooks() {
-			do_action( 'dowp_before_init', $this );
+			do_action( 'usgr_before_init', $this );
 
 			$this->load_language();
 		}
@@ -125,7 +118,7 @@ if ( ! class_exists( UserGrid::class ) ) {
 		 * @return void
 		 */
 		public function load_language() {
-			do_action( 'dowp_set_local', null );
+			do_action( 'usgr_set_local', null );
 			$locale = determine_locale();
 			$locale = apply_filters( 'plugin_locale', $locale, 'user-grid' );
 			unload_textdomain( 'user-grid' );
@@ -139,7 +132,7 @@ if ( ! class_exists( UserGrid::class ) ) {
 		 * @return void
 		 */
 		public function on_plugins_loaded() {
-			do_action( 'dowp_ug_loaded', $this );
+			do_action( 'usgr_ug_loaded', $this );
 		}
 
 		/**
@@ -158,7 +151,7 @@ if ( ! class_exists( UserGrid::class ) ) {
 		 * @return string
 		 */
 		public static function nonceText() {
-			return 'dowp_nonce_secret';
+			return 'usgr_nonce_secret';
 		}
 
 		/**
@@ -167,7 +160,7 @@ if ( ! class_exists( UserGrid::class ) ) {
 		 * @return string
 		 */
 		public static function nonceId() {
-			return 'dowp_nonce';
+			return 'usgr_nonce';
 		}
 
 		/**
@@ -190,13 +183,13 @@ if ( ! class_exists( UserGrid::class ) ) {
 		 *
 		 * @return string
 		 */
-		public function dowp_can_be_rtl( $file, $checkPro = '' ) {
+		public function usgr_can_be_rtl( $file, $checkPro = '' ) {
 
 			if ( is_rtl() ) {
 				$file .= '.rtl';
 			}
 
-			if ( $checkPro && userGrid()->hasPro() ) {
+			if ( $checkPro && usgrUG()->hasPro() ) {
 				return trailingslashit( USER_GRID_PRO_PLUGIN_URL . '/assets/' ) . $file . '.css';
 			}
 
@@ -209,7 +202,7 @@ if ( ! class_exists( UserGrid::class ) ) {
 		 * @return string
 		 */
 		public function get_template_path() {
-			return apply_filters( 'dowp_template_path', 'user-grid/' );
+			return apply_filters( 'usgr_template_path', 'user-grid/' );
 		}
 
 		/**
@@ -218,22 +211,22 @@ if ( ! class_exists( UserGrid::class ) ) {
 		 * @return boolean
 		 */
 		public function hasPro() {
-			return class_exists( 'UserGridPro' );
+			return class_exists( 'usgr_UG_Pro' );
 		}
 	}
 
 
-	if ( ! function_exists( 'userGrid' ) ) {
+	if ( ! function_exists( 'usgrUG' ) ) {
 		/**
 		 * Function for external use.
 		 *
-		 * @return UserGrid
+		 * @return usgr_UG
 		 */
-		function userGrid() {
-			return UserGrid::getInstance();
+		function usgrUG() {
+			return usgr_UG::getInstance();
 		}
 
 		// Init app.
-		userGrid();
+		usgrUG();
 	}
 }

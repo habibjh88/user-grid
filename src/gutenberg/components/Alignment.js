@@ -8,7 +8,7 @@ const Alignment = (props) => {
 
     const {value, responsive, onChange, label, content, options, direction} = props;
 
-    const [device, setDevice] = useState(() => window.dowpDevice || 'lg');
+    const [device, setDevice] = useState(() => window.usgrDevice || 'lg');
 
     const _filterValue = () => {
         return value ? (responsive ? (value[device]) : value) : '';
@@ -28,12 +28,12 @@ const Alignment = (props) => {
     const defaultData = options && Array.isArray(options) ? options : ['left', 'center', 'right', 'justify'];
 
     return (
-        <div className="dowp-control-field components-base-control dowp-cf-alignment-wrap">
+        <div className="usgr-control-field components-base-control usgr-cf-alignment-wrap">
 
             {(label || responsive) && (
-                <div className="dowp-cf-head">
+                <div className="usgr-cf-head">
                     {label && (
-                        <span className="dowp-label">{label}</span>
+                        <span className="usgr-label">{label}</span>
                     )}
                     {responsive &&
                         <Devices
@@ -51,12 +51,12 @@ const Alignment = (props) => {
                 </div>
             )}
 
-            <div className="dowp-cf-body dowp-btn-group">
+            <div className="usgr-cf-body usgr-btn-group">
 
                 {defaultData.map((data, index) => {
                     if (content) {
                         return (
-                            <button className={(_filterValue() == data.value ? 'active' : '') + ' dowp-button'}
+                            <button className={(_filterValue() == data.value ? 'active' : '') + ' usgr-button'}
                                     key={index}
                                     onClick={() => setSettings(_filterValue() == data.value ? '' : data.value)}>
                                 <Tooltip
@@ -66,7 +66,7 @@ const Alignment = (props) => {
 
                     } else {
                         return (
-                            <button className={(_filterValue() == data ? 'active' : '') + ' dowp-button'}
+                            <button className={(_filterValue() == data ? 'active' : '') + ' usgr-button'}
                                     key={index}
                                     onClick={() => {
                                         let finalData = _filterValue() == data ? null : data;

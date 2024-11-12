@@ -1,10 +1,10 @@
 <?php
 
-namespace DOWP\UserGrid\Api;
+namespace USGR\UserGrid\Api;
 
-use DOWP\UserGrid\Helpers\Fns;
-use DOWP\UserGrid\Utils\RenderContent;
-use DOWP\UserGrid\Utils\RenderSlider;
+use USGR\UserGrid\Helpers\Fns;
+use USGR\UserGrid\Utils\RenderContent;
+use USGR\UserGrid\Utils\RenderSlider;
 
 /**
  * GetUsersAPI class
@@ -24,7 +24,7 @@ class GetUsersAPI {
 	 */
 	public function register_post_route() {
 		register_rest_route(
-			'dowp/v1',
+			'usgr/v1',
 			'users',
 			[
 				'methods'             => 'POST',
@@ -36,7 +36,7 @@ class GetUsersAPI {
 		);
 
 		register_rest_route(
-			'dowp/v1',
+			'usgr/v1',
 			'users-select',
 			[
 				'methods'             => 'POST',

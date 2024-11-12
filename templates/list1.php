@@ -28,7 +28,7 @@
  */
 
 
-use DOWP\UserGrid\Helpers\TemplateFns;
+use USGR\UserGrid\Helpers\TemplateFns;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

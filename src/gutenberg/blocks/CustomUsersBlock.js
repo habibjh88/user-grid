@@ -19,15 +19,15 @@ function CustomUsersBlock({props, userData}) {
     }, []);
 
     let wrapper_classes = image_link ? '' : ' no-image-link';
-    wrapper_classes += `dowp-block-${uniqueId}`;
+    wrapper_classes += `usgr-block-${uniqueId}`;
 
     return (
         userData.markup ?
-            <div className={`dowp-block-usergrid ${wrapper_classes}`}>
-                <div className="dowp-editor-markup" dangerouslySetInnerHTML={{__html:userData.markup}}></div>
+            <div className={`usgr-block-usergrid ${wrapper_classes}`}>
+                <div className="usgr-editor-markup" dangerouslySetInnerHTML={{__html:userData.markup}}></div>
             </div>
             :
-            <div className="dowp-usergrid-is-loading">
+            <div className="usgr-usergrid-is-loading">
                 {userData.message ? <div className={`not-found-wrap`}>{userData.message}</div> : <Spinner/>}
             </div>
 

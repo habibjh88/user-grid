@@ -10,9 +10,9 @@
         },
 
         slickSlider: function () {
-            $('.dowp-carousel').css({'opacity': 1, 'transition':'0.4s'})
+            $('.usgr-carousel').css({'opacity': 1, 'transition':'0.4s'})
             if (typeof $.fn.slick == 'function') {
-                $('.dowp-carousel').slick()
+                $('.usgr-carousel').slick()
             }
         },
 

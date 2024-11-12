@@ -25,7 +25,7 @@ export default function ReadArticleBtn(props) {
 
             <SelectControl
                 label={__("Button Style", "user-grid")}
-                className="dowp-control-field label-inline dowp-expand"
+                className="usgr-control-field label-inline usgr-expand"
                 value={button_style}
                 options={BUTTON_STYLE}
                 onChange={(button_style) => {
@@ -55,7 +55,7 @@ export default function ReadArticleBtn(props) {
                 }}
             />
 
-            <div className="dowp-btn-hover-group">
+            <div className="usgr-btn-hover-group">
                 {NORMAL_HOVER.map((item, key) => (
                     <Button
                         key={key}

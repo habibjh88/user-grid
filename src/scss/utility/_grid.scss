@@ -9,9 +9,9 @@
     padding-left: 15px;
 }
 
-.dowp-container,
-.dowp-container-fluid, .dowp-container-lg,
-.dowp-container-md, .dowp-container-sm, .dowp-container-xl {
+.usgr-container,
+.usgr-container-fluid, .usgr-container-lg,
+.usgr-container-md, .usgr-container-sm, .usgr-container-xl {
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
@@ -25,29 +25,29 @@
 }
 
 @media (min-width: 576px) {
-    .dowp-container, .dowp-container-sm {
+    .usgr-container, .usgr-container-sm {
         max-width: 540px
     }
 }
 
 @media (min-width: 768px) {
-    .dowp-container, .dowp-container-md, .dowp-container-sm {
+    .usgr-container, .usgr-container-md, .usgr-container-sm {
         max-width: 720px
     }
 }
 
 @media (min-width: 992px) {
-    .dowp-container, .dowp-container-lg, .dowp-container-md, .dowp-container-sm {
+    .usgr-container, .usgr-container-lg, .usgr-container-md, .usgr-container-sm {
         max-width: 960px
     }
 }
 
 @media (min-width: 1200px) {
-    .dowp-container, .dowp-container-lg, .dowp-container-md, .dowp-container-sm, .dowp-container-xl {
+    .usgr-container, .usgr-container-lg, .usgr-container-md, .usgr-container-sm, .usgr-container-xl {
         max-width: 1140px
     }
 }
-.dowp-row {
+.usgr-row {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
@@ -66,25 +66,25 @@
     padding-left: 0
 }
 
-[class*="dowp-col-"] {
+[class*="usgr-col-"] {
     @extend %column-default;
 }
 
 @for $i from 1 through 12 {
-    .dowp-col-xs-#{$i} {
+    .usgr-col-xs-#{$i} {
         flex: 0 0 calc($i * 100% / 12);
         max-width: calc($i * 100% / 12);
     }
 }
 
 @media only screen and (min-width: 768px) {
-    .dowp-col-sm-24 {
+    .usgr-col-sm-24 {
         flex: 0 0 20%;
         max-width: 20%;
     }
 
     @for $i from 1 through 12 {
-        .dowp-col-sm-#{$i} {
+        .usgr-col-sm-#{$i} {
             flex: 0 0 calc($i * 100% / 12);
             max-width: calc($i * 100% / 12);
         }
@@ -92,13 +92,13 @@
 }
 
 @media only screen and (min-width: 992px) {
-    .dowp-col-md-24 {
+    .usgr-col-md-24 {
         flex: 0 0 20%;
         max-width: 20%;
     }
 
     @for $i from 1 through 12 {
-        .dowp-col-md-#{$i} {
+        .usgr-col-md-#{$i} {
             flex: 0 0 calc($i * 100% / 12);
             max-width: calc($i * 100% / 12);
         }
@@ -106,20 +106,20 @@
 }
 
 @media only screen and (min-width: 1200px) {
-    .dowp-col-lg-24 {
+    .usgr-col-lg-24 {
         flex: 0 0 20%;
         max-width: 20%;
     }
 
     @for $i from 1 through 12 {
-        .dowp-col-lg-#{$i} {
+        .usgr-col-lg-#{$i} {
             flex: 0 0 calc($i * 100% / 12);
             max-width: calc($i * 100% / 12);
         }
     }
 }
 
-.dowp-col {
+.usgr-col {
     -ms-flex-preferred-size: 0;
     flex-basis: 0;
     -ms-flex-positive: 1;
@@ -127,43 +127,43 @@
     max-width: 100%
 }
 
-.dowp-row-cols-1 > * {
+.usgr-row-cols-1 > * {
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
     max-width: 100%
 }
 
-.dowp-row-cols-2 > * {
+.usgr-row-cols-2 > * {
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
     max-width: 50%
 }
 
-.dowp-row-cols-3 > * {
+.usgr-row-cols-3 > * {
     -ms-flex: 0 0 33.333333%;
     flex: 0 0 33.333333%;
     max-width: 33.333333%
 }
 
-.dowp-row-cols-4 > * {
+.usgr-row-cols-4 > * {
     -ms-flex: 0 0 25%;
     flex: 0 0 25%;
     max-width: 25%
 }
 
-.dowp-row-cols-5 > * {
+.usgr-row-cols-5 > * {
     -ms-flex: 0 0 20%;
     flex: 0 0 20%;
     max-width: 20%
 }
 
-.dowp-row-cols-6 > * {
+.usgr-row-cols-6 > * {
     -ms-flex: 0 0 16.666667%;
     flex: 0 0 16.666667%;
     max-width: 16.666667%
 }
 
-.dowp-col-auto {
+.usgr-col-auto {
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
     width: auto;

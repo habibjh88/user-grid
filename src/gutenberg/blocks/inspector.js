@@ -49,22 +49,22 @@ function Inspector(props) {
 
     return (
         <InspectorControls key="controls">
-            <div className="dowp-panel-control-wrapper">
-                <TabPanel className="dowp-tab-panel" activeClass="active-tab" tabs={[
+            <div className="usgr-panel-control-wrapper">
+                <TabPanel className="usgr-tab-panel" activeClass="active-tab" tabs={[
                     {
                         name: "content",
                         title: <TabTitle title={`Content`} icon={`dashicons-edit`}/>,
-                        className: "dowp-tab-btn content",
+                        className: "usgr-tab-btn content",
                     },
                     {
                         name: "styles",
                         title: <TabTitle title={`Settings / Styles`} icon={`dashicons-admin-generic`}/>,
-                        className: "dowp-tab-btn settings",
+                        className: "usgr-tab-btn settings",
                     }
                 ]}
                 >
                     {(tab) => (
-                        <div className="dowp-tab-content">
+                        <div className="usgr-tab-content">
 
                             {/* Content Tab*/}
                             {tab.name === "content" && (

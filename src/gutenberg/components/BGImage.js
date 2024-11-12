@@ -18,7 +18,7 @@ import {
 
 function BGImage(props) {
 
-    const [device, setDevice] = useState(() => window.dowpDevice || 'md');
+    const [device, setDevice] = useState(() => window.usgrDevice || 'md');
     const {label, value, image, onChange} = props;
     const responsive = true;
     const resAttr = ['imgPosition', 'imgAttachment', 'imgRepeat', 'imgSize'];
@@ -78,13 +78,13 @@ function BGImage(props) {
     const imgIDVal = value['img'] !== undefined ? value['img']['imgID'] : '';
 
     return (
-        <div className="dowp-control-field components-base-control dowp-cf-bg-img-wrap">
+        <div className="usgr-control-field components-base-control usgr-cf-bg-img-wrap">
 
             {label && (
-                <span className="dowp-label">{label}</span>
+                <span className="usgr-label">{label}</span>
             )}
 
-            <div className="dowp-bg-img">
+            <div className="usgr-bg-img">
                 <Color
                     label={__('Classic Color')}
                     color={value['color'] || ''}
@@ -108,7 +108,7 @@ function BGImage(props) {
                                 {
                                     if (!imgURLVal) {
                                         return (
-                                            <div onClick={open} className={"dowp-placeholder-image"}>
+                                            <div onClick={open} className={"usgr-placeholder-image"}>
                                                 <div className="dashicon dashicons dashicons-insert"/>
                                                 <div>{__('Insert')}</div>
                                             </div>

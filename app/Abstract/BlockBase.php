@@ -1,8 +1,8 @@
 <?php
 
-namespace DOWP\UserGrid\Abstract;
+namespace USGR\UserGrid\Abstract;
 
-use DOWP\UserGrid\Helpers\Fns;
+use USGR\UserGrid\Helpers\Fns;
 
 abstract class BlockBase {
 

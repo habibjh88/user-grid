@@ -5,9 +5,9 @@
  * @package USER_GRID
  */
 
-namespace DOWP\UserGrid\Controllers;
+namespace USGR\UserGrid\Controllers;
 
-use DOWP\UserGrid\Helpers\Fns;
+use USGR\UserGrid\Helpers\Fns;
 
 // Do not allow directly accessing this file.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -22,8 +22,8 @@ class AjaxController {
 	 * Class constructor
 	 */
 	public function __construct() {
-		add_action( 'wp_ajax_dowp_user_biography', [ __CLASS__, 'dowp_user_biography' ] );
-		add_action( 'wp_ajax_noprev_dowp_user_biography', [ __CLASS__, 'dowp_user_biography' ] );
+		add_action( 'wp_ajax_usgr_user_biography', [ __CLASS__, 'usgr_user_biography' ] );
+		add_action( 'wp_ajax_noprev_usgr_user_biography', [ __CLASS__, 'usgr_user_biography' ] );
 	}
 
 	/**
@@ -31,7 +31,7 @@ class AjaxController {
 	 *
 	 * @return void
 	 */
-	public static function dowp_user_biography() {
+	public static function usgr_user_biography() {
 		//phpcs:disable WordPress.Security.NonceVerification.Recommended
 		if ( Fns::verifyNonce() ) {
 			$user_info = ! empty( $_REQUEST['user_id'] ) ? get_user_by( 'id', sanitize_text_field( wp_unslash( $_REQUEST['user_id'] ) ) ) : '';

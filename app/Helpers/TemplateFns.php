@@ -5,10 +5,10 @@
  * @package USER_GRID
  */
 
-namespace DOWP\UserGrid\Helpers;
+namespace USGR\UserGrid\Helpers;
 
 // Do not allow directly accessing this file.
-use DOWP\UserGrid\Utils\SvgIcons;
+use USGR\UserGrid\Utils\SvgIcons;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'This script cannot be accessed directly.' );
@@ -32,8 +32,8 @@ class TemplateFns {
 			return;
 		}
 		echo '<div class="user-avatar">';
-		if ( 'spos-d' !== $args['social_position'] && $args['social_visibility'] && userGrid()->hasPro() ) {
-			echo "<div class='dowp-user-social-icons thumbnail-social " . esc_attr( $args['social_position'] ) . "'>";
+		if ( 'spos-d' !== $args['social_position'] && $args['social_visibility'] && usgrUG()->hasPro() ) {
+			echo "<div class='usgr-user-social-icons thumbnail-social " . esc_attr( $args['social_position'] ) . "'>";
 			Fns::get_user_social_icon( $user_id, $args['email_visibility'], $args['phone_visibility'], $args['share_icon'] );
 			echo '</div>';
 		}
@@ -155,7 +155,7 @@ class TemplateFns {
 	public static function social_info( $user_id, $args ) {
 		if ( $args['social_visibility'] && 'spos-d' === $args['social_position'] ) :
 			?>
-			<div class="dowp-user-social-icons <?php echo esc_attr( $args['social_order'] ); ?>">
+			<div class="usgr-user-social-icons <?php echo esc_attr( $args['social_order'] ); ?>">
 				<?php Fns::get_user_social_icon( $user_id, $args['email_visibility'], $args['phone_visibility'] ); ?>
 			</div>
 			<?php
@@ -226,12 +226,12 @@ class TemplateFns {
 			return;
 		}
 
-		$post_args = array(
+		$post_args = [
 			'post_type'      => $args['post_type'] ?? 'post',
 			'posts_per_page' => $args['post_number'] ?? 3,
 			'post_status'    => 'publish',
 			'author'         => $user_id,
-		);
+		];
 		$postslist = get_posts( $post_args );
 		?>
 
@@ -261,11 +261,11 @@ class TemplateFns {
 							<ul class="post-meta">
 
 								<?php if ( $args['show_post_cat'] && 'post' == $args['post_type'] ) : ?>
-								<li><?php echo get_the_category_list( ',', '', $post ); ?></li> <?php //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<li><?php Fns::print_html_all( get_the_category_list( ',', '', $post ) ); ?></li> <?php //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 								<?php endif; ?>
 
 								<?php if ( $args['show_post_date'] ) : ?>
-								<li><?php echo get_the_date( null, $post ); ?></li>
+								<li><?php Fns::print_html_all( get_the_date( null, $post ) ); ?></li>
 								<?php endif; ?>
 
 							</ul>
@@ -299,6 +299,6 @@ class TemplateFns {
 		$grid_column_tab     = ( isset( $grid_column['md'] ) && 0 != $grid_column['md'] ) ? $grid_column['md'] : $default_grid_columns['md'];
 		$grid_column_mobile  = ( isset( $grid_column['sm'] ) && 0 != $grid_column['sm'] ) ? $grid_column['sm'] : $default_grid_columns['sm'];
 
-		return "dowp-col-md-{$grid_column_desktop} dowp-col-sm-{$grid_column_tab} dowp-col-xs-{$grid_column_mobile}";
+		return "usgr-col-md-{$grid_column_desktop} usgr-col-sm-{$grid_column_tab} usgr-col-xs-{$grid_column_mobile}";
 	}
 }

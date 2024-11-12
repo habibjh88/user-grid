@@ -5,10 +5,10 @@
  * @package USER_GRID
  */
 
-namespace DOWP\UserGrid\Utils;
+namespace USGR\UserGrid\Utils;
 
 // Do not allow directly accessing this file.
-use DOWP\UserGrid\Helpers\Fns;
+use USGR\UserGrid\Helpers\Fns;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'This script cannot be accessed directly.' );
@@ -24,7 +24,7 @@ class RenderContent {
 		$post_query_args = Fns::user_query_args( $data );
 		$user_query      = new \WP_User_Query( $post_query_args );
 		$uniqueId        = $data['uniqueId'] ?? null;
-		$wrapper_class   = 'dowp-block-usergrid dowp-block-' . $uniqueId;
+		$wrapper_class   = 'usgr-block-usergrid usgr-block-' . $uniqueId;
 		$wrapper_class  .= 'yes' == $data['image_link'] ? '' : ' no-image-link';
 
 		// Multiple Background.
@@ -37,12 +37,12 @@ class RenderContent {
 		?>
 
 		<div class="<?php echo esc_attr( $wrapper_class ); ?>">
-			<div class="dowp-users-block-wrapper clearfix <?php echo esc_attr( $inner_class ); ?>"
+			<div class="usgr-users-block-wrapper clearfix <?php echo esc_attr( $inner_class ); ?>"
 				 data-layout-args='<?php echo esc_attr( htmlspecialchars( wp_json_encode( $layout_data ), true ) ); ?>'
 				 data-post-args='<?php echo esc_attr( htmlspecialchars( wp_json_encode( $post_query_args ), true ) ); ?>'
 			>
 				<?php if ( ! empty( $user_query->results ) ) { ?>
-					<div class="dowp-row">
+					<div class="usgr-row">
 						<?php
 						$count_bg = 0;
 						foreach ( $user_query->results as $user ) {

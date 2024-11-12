@@ -1,11 +1,11 @@
-.dowp-components-popover,
-.dowp-panel-control-wrapper {
-	.dowp-control-field {
-		&.dowp-cf-gradient-color {
+.usgr-components-popover,
+.usgr-panel-control-wrapper {
+	.usgr-control-field {
+		&.usgr-cf-gradient-color {
 			row-gap: 0;
 		}
 
-		&.dowp-cf-gradient-wrap {
+		&.usgr-cf-gradient-wrap {
 			--row-gap: 12px;
 
 			.components-circular-option-picker {
@@ -62,20 +62,20 @@
 					margin-top: 6px;
 
 					.components-button {
-						font-size: var(--dowp-admin-text-xs, 12px);
+						font-size: var(--usgr-admin-text-xs, 12px);
 						padding: 5px 10px;
 						display: inline-flex;
 						align-items: center;
 						justify-content: center;
 						border: none;
 						box-shadow: none;
-						color: var(--dowp-black, #000);
+						color: var(--usgr-black, #000);
 						background-color: #e0e0e0;
 
 						&:hover {
-							color: var(--dowp-white, #fff);
+							color: var(--usgr-white, #fff);
 							background-color: var(
-											--dowp-primary,
+											--usgr-primary,
 											#009FFF
 							);
 						}
@@ -149,13 +149,13 @@
 
 				.components-angle-picker-control {
 					&__angle-circle {
-						border: 1px solid var(--dowp-border);
+						border: 1px solid var(--usgr-border);
 					}
 
 					&__angle-circle-indicator {
-						background: var(--dowp-primary, #009FFF);
+						background: var(--usgr-primary, #009FFF);
 						border-radius: 50%;
-						border-color: var(--dowp-primary, #009FFF);
+						border-color: var(--usgr-primary, #009FFF);
 					}
 				}
 
@@ -174,11 +174,11 @@
 
 							.components-input-control__container {
 								height: 34px !important;
-								border: 1px solid var(--dowp-border);
+								border: 1px solid var(--usgr-border);
 
 								.components-truncate {
 									color: var(
-													--dowp-primary,
+													--usgr-primary,
 													#009FFF
 									) !important;
 								}
@@ -197,7 +197,7 @@
 									outline: 0;
 									box-shadow: none;
 									border-color: var(
-													--dowp-primary, #009FFF
+													--usgr-primary, #009FFF
 									);
 								}
 							}

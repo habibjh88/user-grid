@@ -16,17 +16,17 @@ function GridColumn( props ) {
     };
 
     return (
-        <div className={ `dowp-column-group components-base-control ${ className }` }>
+        <div className={ `usgr-column-group components-base-control ${ className }` }>
             { label && (
-                <div className="dowp-cf-head">
-                    <span className="dowp-label">{ label }</span>
+                <div className="usgr-cf-head">
+                    <span className="usgr-label">{ label }</span>
                 </div>
             ) }
 
-            <div className="dowp-column-group-inner">
+            <div className="usgr-column-group-inner">
                 <SelectControl
                     label={ __( 'Desktop', 'user-grid' ) }
-                    className="dowp-control-field"
+                    className="usgr-control-field"
                     value={ data.lg || '' }
                     options={ options }
                     onChange={ ( val ) => {
@@ -36,7 +36,7 @@ function GridColumn( props ) {
 
                 <SelectControl
                     label={ __( 'Tablet', 'user-grid' ) }
-                    className="dowp-control-field"
+                    className="usgr-control-field"
                     value={ data.md || '' }
                     options={ options }
                     onChange={ ( val ) => setSettings( "md", val ) }
@@ -44,7 +44,7 @@ function GridColumn( props ) {
 
                 <SelectControl
                     label={ __( 'Mobile', 'user-grid' ) }
-                    className="dowp-control-field"
+                    className="usgr-control-field"
                     value={ data.sm || '' }
                     options={ options }
                     onChange={ ( val ) => setSettings( "sm", val ) }

@@ -5,10 +5,10 @@
  * @package USER_GRID
  */
 
-namespace DOWP\UserGrid\Controllers;
+namespace USGR\UserGrid\Controllers;
 
 // Do not allow directly accessing this file.
-use DOWP\UserGrid\Helpers\Fns;
+use USGR\UserGrid\Helpers\Fns;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'This script cannot be accessed directly.' );
@@ -62,15 +62,15 @@ class ScriptController {
 		$styles  = [];
 
 		$scripts[] = [
-			'handle' => 'dowp-script',
-			'src'    => userGrid()->get_assets_uri( 'js/scripts.js' ),
+			'handle' => 'usgr-script',
+			'src'    => usgrUG()->get_assets_uri( 'js/scripts.js' ),
 			'deps'   => [ 'jquery' ],
 			'footer' => true,
 		];
 
 		// Plugin specific css.
 
-		$styles['dowp-block'] = userGrid()->dowp_can_be_rtl( 'css/style', true );
+		$styles['usgr-block'] = usgrUG()->usgr_can_be_rtl( 'css/style', true );
 
 		foreach ( $scripts as $script ) {
 			wp_register_script( $script['handle'], $script['src'], $script['deps'], $script['version'] ?? $this->version, $script['footer'] );
@@ -88,17 +88,17 @@ class ScriptController {
 	 */
 	public function enqueue() {
 		wp_enqueue_script( 'jquery' );
-		wp_enqueue_style( 'dowp-block' );
+		wp_enqueue_style( 'usgr-block' );
 		wp_enqueue_style( 'dashicons' );
-		wp_enqueue_script( 'dowp-script' );
+		wp_enqueue_script( 'usgr-script' );
 
-		$nonce = wp_create_nonce( userGrid()->nonceText() );
+		$nonce = wp_create_nonce( usgrUG()->nonceText() );
 
 		wp_localize_script(
-			'dowp-script',
-			'dowpParams',
+			'usgr-script',
+			'usgrParams',
 			[
-				'nonceID' => esc_attr( userGrid()->nonceId() ),
+				'nonceID' => esc_attr( usgrUG()->nonceId() ),
 				'nonce'   => esc_attr( $nonce ),
 				'ajaxurl' => Fns::ajax_url(),
 			]
@@ -132,13 +132,13 @@ class ScriptController {
 		wp_enqueue_media();
 
 		// JavaScript for wp-admin
-		wp_enqueue_script( 'user-grid-avatar', userGrid()->get_assets_uri( 'js/user-avatar.js' ), [ 'jquery' ], USER_GRID_VERSION, true );
+		wp_enqueue_script( 'user-grid-avatar', usgrUG()->get_assets_uri( 'js/user-avatar.js' ), [ 'jquery' ], USER_GRID_VERSION, true );
 
 		// Get default avatar URL by user_email
 		$l10n = [
 			'default_avatar_src'    => self::get_default_avatar_url( $current_user->user_email, $this->avatar_size ),
 			'default_avatar_srcset' => self::get_default_avatar_url( $current_user->user_email, ( $this->avatar_size * 2 ) ) . ' 2x',
-			'input_name'            => userGrid()->avatar_meta_key,
+			'input_name'            => usgrUG()->avatar_meta_key,
 		];
 		wp_localize_script( 'user-grid-avatar', 'userGrid', $l10n );
 	}

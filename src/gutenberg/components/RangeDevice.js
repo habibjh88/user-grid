@@ -10,7 +10,7 @@ import './scss/rangeDevice.scss'
 function RangeDevice(props) {
 
     const {label, value: data, onChange, responsive, min, max, units, step, defultValue = {}} = props;
-    const [device, setDevice] = useState(() => window.dowpDevice || 'lg');
+    const [device, setDevice] = useState(() => window.usgrDevice || 'lg');
     const [unit, setUnit] = useState('px');
     const dataAttributes = {min, max, step};
     const dftData = defultValue;
@@ -34,12 +34,12 @@ function RangeDevice(props) {
     };
 
     return (
-        <div className="dowp-control-field components-base-control dowp-cf-range-wrap">
+        <div className="usgr-control-field components-base-control usgr-cf-range-wrap">
 
-            <div className="dowp-cf-head">
+            <div className="usgr-cf-head">
                 <div className="rt-left-part">
                     {label && (
-                        <span className="dowp-label">{label}</span>
+                        <span className="usgr-label">{label}</span>
                     )}
                     {responsive && <Devices device={device} onChange={_device => {
                         setDevice(_device);
@@ -57,7 +57,7 @@ function RangeDevice(props) {
 
                 {units && (
                     <div className="rt-right-part">
-                        <div className="dowp-units-choices">
+                        <div className="usgr-units-choices">
                             {(units && Array.isArray(units) ? units : ['px', 'em', '%']).map(_unit => (
                                 <label
                                     className={(data?.unit === _unit || (!data?.unit && _unit === unit)) ? 'active' : ''}
@@ -71,9 +71,9 @@ function RangeDevice(props) {
 
             </div>
 
-            <div className="dowp-cf-body">
+            <div className="usgr-cf-body">
                 <RangeControl
-                    className="dowp-control-field"
+                    className="usgr-control-field"
                     value={data[device]}
                     onChange={(val) => {
                         setSettings(val)

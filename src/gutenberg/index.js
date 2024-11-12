@@ -4,12 +4,12 @@ const {render} = wp.element;
 import ParseCss from "./utils/css/ParseCss";
 import {updateCategory} from '@wordpress/blocks';
 
-window.dowpDevice = 'lg';
+window.usgrDevice = 'lg';
 
 //Impost post grid block
 import "./blocks";
 
-const allCustomBlocks = ['dowp/user-grid'];
+const allCustomBlocks = ['usgr/user-grid'];
 // Save Style CSS within Database/File
 window.bindCss = false;
 wp.data.subscribe(() => {
@@ -35,17 +35,17 @@ wp.data.subscribe(() => {
 
 
 //UPDATE BLOCK CATEGORY ICON
-updateCategory("dowp", {
+updateCategory("usgr", {
     icon: (
         <img
-            src={dowpParams.plugin_url + "/assets/images/block-cat.svg"}
+            src={usgrParams.plugin_url + "/assets/images/block-cat.svg"}
             alt={__("User Grid")}
         />
     ),
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    jQuery('body').on('click', '.dowp-users-block-wrapper a', function (e){
+    jQuery('body').on('click', '.usgr-users-block-wrapper a', function (e){
        e.preventDefault();
     })
 });

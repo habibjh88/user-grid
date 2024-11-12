@@ -1,9 +1,9 @@
-.dowp-panel-control-wrapper .dowp-cf-layout-style {
-    .dowp-btn-group {
+.usgr-panel-control-wrapper .usgr-cf-layout-style {
+    .usgr-btn-group {
         gap: 5px;
     }
 
-    .dowp-button {
+    .usgr-button {
         flex: 0 0 31.8%;
         cursor: pointer;
         transition: 0.4s;
@@ -42,12 +42,12 @@
 
         &:hover,
         &.active {
-            border-color: var(--dowp-primary) !important;
+            border-color: var(--usgr-primary) !important;
         }
     }
 }
 
-.dowp-has-no-pro .dowp-panel-control-wrapper .dowp-cf-layout-style .dowp-button.pro-layout {
+.usgr-has-no-pro .usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-button.pro-layout {
     border-color: #912d2d !important;
     opacity: .5;
     filter: grayscale(1);

@@ -20,7 +20,7 @@ export default function HrSetting(props) {
     return (
         <PanelBody title={__('Horizontal Line', 'user-grid')} initialOpen={false}>
 
-            <h3 className={`dowp-controll-heading`}>{__("Horizontal 1")}</h3>
+            <h3 className={`usgr-controll-heading`}>{__("Horizontal 1")}</h3>
 
             <Dimension
                 label={__("Spacing", "user-grid")}
@@ -68,7 +68,7 @@ export default function HrSetting(props) {
                 onChange={(val) => setAttributes({hr1_radius: val})}
             />
 
-            <h3 className={`dowp-controll-heading`}>{__("Horizontal 2")}</h3>
+            <h3 className={`usgr-controll-heading`}>{__("Horizontal 2")}</h3>
 
             <Dimension
                 label={__("Spacing", "user-grid")}

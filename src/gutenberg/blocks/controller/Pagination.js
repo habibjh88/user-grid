@@ -28,7 +28,7 @@ export default function Pagination(props) {
         <PanelBody title={__('Pagination', 'user-grid')} initialOpen={false}>
             <CustomSelect
                 label={__("Type", "user-grid")}
-                className="dowp-control-field label-inline dowp-expand"
+                className="usgr-control-field label-inline usgr-expand"
                 value={pagination_type}
                 options={PAGINATION_TYPE}
                 onChange={val => {
@@ -74,7 +74,7 @@ export default function Pagination(props) {
             }
             <SelectControl
                 label={__("Pagination Style", "user-grid")}
-                className="dowp-control-field label-inline dowp-expand"
+                className="usgr-control-field label-inline usgr-expand"
                 value={pagination_style}
                 options={PAGINATION_STYLE}
                 onChange={(pagination_style) => {
@@ -83,7 +83,7 @@ export default function Pagination(props) {
                 }}
             />
 
-            <h3 className={`dowp-controll-heading`}>{__("Style")}</h3>
+            <h3 className={`usgr-controll-heading`}>{__("Style")}</h3>
 
             <Alignment
                 label={__("Alignment", "user-grid")}
@@ -123,7 +123,7 @@ export default function Pagination(props) {
                 placeholder={__("Eg. 10", "user-grid")}
                 shiftStep={10}
                 step="1"
-                className="dowp-control-field label-inline"
+                className="usgr-control-field label-inline"
             />
 
             <Color

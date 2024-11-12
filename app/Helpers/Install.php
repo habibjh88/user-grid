@@ -5,7 +5,7 @@
  * @package USER_GRID
  */
 
-namespace DOWP\UserGrid\Helpers;
+namespace USGR\UserGrid\Helpers;
 
 // Do not allow directly accessing this file.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -23,10 +23,10 @@ class Install {
 	 * @return void
 	 */
 	public static function activate() {
-		if ( ! get_option( 'dowp_ug_time' ) ) {
-			update_option( 'dowp_ug_time', time() );
+		if ( ! get_option( 'usgr_ug_time' ) ) {
+			update_option( 'usgr_ug_time', time() );
 		}
-		update_option( 'dowp_ug_version', USER_GRID_VERSION );
+		update_option( 'usgr_ug_version', USER_GRID_VERSION );
 	}
 
 	/**

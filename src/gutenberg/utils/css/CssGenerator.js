@@ -24,7 +24,7 @@ const isEmpty = obj => (typeof obj === 'undefined' ? 'undefined' : _typeof(obj))
 
 // {{UserGrid}} Replace
 const replaceWarp = (selector, ID) => {
-    selector = selector.replace(new RegExp('{{UserGrid}}', "g"), '.dowp-block-usergrid.dowp-block-' + ID);
+    selector = selector.replace(new RegExp('{{UserGrid}}', "g"), '.usgr-block-usergrid.usgr-block-' + ID);
     selector = selector.replace(new RegExp('{{UserGrid_ID}}', "g"), 'block-' + ID);
     return selector;
 }
@@ -174,7 +174,7 @@ export const CssGenerator = (settings, blockName, blockID, isInline) => {
         notResponsiveCss = [];
 
     Object.keys(settings).forEach(function (key) {
-        const attributes = typeof blockName === 'string' ? wp.blocks.getBlockType('dowp/' + blockName)?.attributes : blockName;
+        const attributes = typeof blockName === 'string' ? wp.blocks.getBlockType('usgr/' + blockName)?.attributes : blockName;
         if (attributes && attributes[key] && attributes[key].hasOwnProperty('style')) {
 
             attributes[key].style.forEach((selectData, indexStyle) => {
@@ -329,7 +329,7 @@ export const CssGenerator = (settings, blockName, blockID, isInline) => {
 // const setStyle = function setStyle(styleCss, blockID) {
 // 	const styleSelector = window.document;
 
-// 	const cssId = 'dowp-block-css-' + blockID;
+// 	const cssId = 'usgr-block-css-' + blockID;
 // 	if (styleSelector.getElementById(cssId) === null) {
 // 		const cssInline = document.createElement('style');
 // 		cssInline.id = cssId;
@@ -342,7 +342,7 @@ export const CssGenerator = (settings, blockName, blockID, isInline) => {
 
 const setStyle = function setStyle(styleCss, blockID) {
 
-    const cssId = 'dowp-block-css-' + blockID;
+    const cssId = 'usgr-block-css-' + blockID;
     const iFrame = document.querySelector('iframe[name=editor-canvas]');
 
     if (iFrame) {
@@ -360,12 +360,12 @@ const setStyle = function setStyle(styleCss, blockID) {
                         doc.getElementById(cssId).innerHTML = styleCss;
                     }
 
-                    if (doc.getElementById('dowp-frontend-css') === null) {
+                    if (doc.getElementById('usgr-frontend-css') === null) {
                         const link = doc.createElement('link');
                         link.rel = 'stylesheet';
                         link.type = 'text/css';
-                        link.href = dowpParams.plugin_url + '/assets/css/dowp-block.min.css';
-                        link.setAttribute('id', 'dowp-frontend-css');
+                        link.href = usgrParams.plugin_url + '/assets/css/usgr-block.min.css';
+                        link.setAttribute('id', 'usgr-frontend-css');
                         iframeHead.appendChild(link);
                     }
 

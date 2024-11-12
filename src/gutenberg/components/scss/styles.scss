@@ -1,10 +1,10 @@
-.dowp-components-popover,
-.dowp-panel-control-wrapper {
-	.dowp-control-field {
-		&.dowp-cf-styles-wrap {
+.usgr-components-popover,
+.usgr-panel-control-wrapper {
+	.usgr-control-field {
+		&.usgr-cf-styles-wrap {
 			margin-bottom: 16px !important;
 
-			.dowp-style-list {
+			.usgr-style-list {
 				--row-gap: 10px;
 				--column-gap: 6px;
 				display: grid;
@@ -28,7 +28,7 @@
 						text-transform: uppercase;
 						color: #fff;
 					}
-					.dowp-layout {
+					.usgr-layout {
 						position: relative;
 						border: none;
 						&:after {
@@ -55,10 +55,10 @@
 					overflow: hidden;
 
 
-					.dowp-layout {
+					.usgr-layout {
 						display: block;
-						border: 2px solid var(--dowp-border);
-						transition: var(--dowp-transition);
+						border: 2px solid var(--usgr-border);
+						transition: var(--usgr-transition);
 						overflow: hidden;
 						height: 62px;
 						border-radius: 0;
@@ -72,43 +72,43 @@
 						}
 					}
 
-					.dowp-style-icon,
-					.dowp-style-svg,
-					.dowp-label {
+					.usgr-style-icon,
+					.usgr-style-svg,
+					.usgr-label {
 						display: block;
 					}
 
-					.dowp-label {
+					.usgr-label {
 						font-size: 11px !important;
 						line-height: 1.3;
-						transition: var(--dowp-transition);
+						transition: var(--usgr-transition);
 					}
 
 					&:hover,
-					&.dowp-active {
+					&.usgr-active {
 
-						.dowp-layout {
-							border-color: var(--dowp-primary, #009FFF);
+						.usgr-layout {
+							border-color: var(--usgr-primary, #009FFF);
 							img {
 								filter: grayscale(0)
 							}
 						}
 
-						.dowp-label {
-							color: var(--dowp-primary, #009FFF) !important;
+						.usgr-label {
+							color: var(--usgr-primary, #009FFF) !important;
 						}
 					}
 				}
 
-				&.dowp-style-columns-2 {
+				&.usgr-style-columns-2 {
 					grid-template-columns: repeat(2, 1fr);
 				}
 
-				&.dowp-style-columns-3 {
+				&.usgr-style-columns-3 {
 					grid-template-columns: repeat(3, 1fr);
 				}
 
-				&.dowp-style-columns-4 {
+				&.usgr-style-columns-4 {
 					grid-template-columns: repeat(4, 1fr);
 				}
 			}

@@ -39,14 +39,14 @@ class Media extends Component {
         if (['wbm', 'jpg', 'jpeg', 'gif', 'png', 'svg'].indexOf(url.split('.').pop().toLowerCase()) != -1) {
             return url;
         } else {
-            return dowpParams.plugin_url + 'assets/images/dowp-placeholder.png';
+            return usgrParams.plugin_url + 'assets/images/usgr-placeholder.png';
         }
     }
 
     render() {
         const {type, multiple, value, panel, video} = this.props;
         return (
-            <div className='dowp-media'>
+            <div className='usgr-media'>
                 {this.props.label &&
                     <label>{this.props.label}</label>
                 }
@@ -56,20 +56,20 @@ class Media extends Component {
                     multiple={multiple || false}
                     value={value}
                     render={({open}) => (
-                        <div className="dowp-single-img">
+                        <div className="usgr-single-img">
                             <div>
                                 {multiple ?
                                     <div>
                                         {(value.length > 0) &&
                                             value.map((v, index) => {
                                                 return (
-                                                    <span className="dowp-media-image-parent">
+                                                    <span className="usgr-media-image-parent">
 														<img src={this.isUrl(v.url)} alt={__('image')}/>
                                                         {panel &&
                                                             <div
-                                                                className="dowp-media-actions dowp-field-button-list">
+                                                                className="usgr-media-actions usgr-field-button-list">
                                                                 <Tooltip text={__('Edit')}>
-                                                                    <button className="dowp-button"
+                                                                    <button className="usgr-button"
                                                                             aria-label={__('Edit')} onClick={open}
                                                                             role="button">
                                                                         <span aria-label={__('Edit')}
@@ -77,7 +77,7 @@ class Media extends Component {
                                                                     </button>
                                                                 </Tooltip>
                                                                 <Tooltip text={__('Remove')}>
-                                                                    <button className="dowp-button"
+                                                                    <button className="usgr-button"
                                                                             aria-label={__('Remove')}
                                                                             onClick={() => this.removeImage(index)}
                                                                             role="button">
@@ -91,14 +91,14 @@ class Media extends Component {
                                                 )
                                             })
                                         }
-                                        <div onClick={open} className={"dowp-placeholder-image"}>
+                                        <div onClick={open} className={"usgr-placeholder-image"}>
                                             <div className="dashicon dashicons dashicons-insert"/>
                                             <div>{__('Insert')}</div>
                                         </div>
                                     </div>
                                     :
                                     ((value && value.url) ?
-                                            <span className="dowp-media-image-parent">
+                                            <span className="usgr-media-image-parent">
 											{
                                                 video ?
                                                     <video controls autoPlay loop src={value.url}/>
@@ -107,16 +107,16 @@ class Media extends Component {
                                             }
 
                                                 {panel &&
-                                                    <div className="dowp-media-actions dowp-field-button-list">
+                                                    <div className="usgr-media-actions usgr-field-button-list">
                                                         <Tooltip text={__('Edit')}>
-                                                            <button className="dowp-button" aria-label={__('Edit')}
+                                                            <button className="usgr-button" aria-label={__('Edit')}
                                                                     onClick={open} role="button">
                                                                 <span aria-label={__('Edit')}
                                                                       className="dashicons dashicons-edit-large"/>
                                                             </button>
                                                         </Tooltip>
                                                         <Tooltip text={__('Remove')}>
-                                                            <button className="dowp-button"
+                                                            <button className="usgr-button"
                                                                     aria-label={__('Remove')}
                                                                     onClick={() => this.removeImage(value.id)}
                                                                     role="button">
@@ -128,7 +128,7 @@ class Media extends Component {
                                                 }
 										</span>
                                             :
-                                            <div onClick={open} className={"dowp-placeholder-image"}>
+                                            <div onClick={open} className={"usgr-placeholder-image"}>
                                                 <div className="dashicon dashicons dashicons-insert"/>
                                                 <div>{__('Insert')}</div>
                                             </div>

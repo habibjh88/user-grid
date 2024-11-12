@@ -28,27 +28,27 @@ const LayoutStyle = (props) => {
 
     const freeLayout = ['grid1', 'grid2', 'grid3', 'list1', 'list2', 'list3', 'slider1'];
 
-    const hasPro = dowpParams.hasPro ? 'has-pro' : 'need-pro';
+    const hasPro = usgrParams.hasPro ? 'has-pro' : 'need-pro';
 
     return (
-        <div className={`dowp-control-field components-base-control dowp-cf-layout-style ${hasPro}`}>
+        <div className={`usgr-control-field components-base-control usgr-cf-layout-style ${hasPro}`}>
 
             {(label || responsive) && (
-                <div className="dowp-cf-head">
+                <div className="usgr-cf-head">
                     {label && (
-                        <span className="dowp-label">{label}</span>
+                        <span className="usgr-label">{label}</span>
                     )}
                 </div>
             )}
 
-            <div className="dowp-cf-body dowp-btn-group">
+            <div className="usgr-cf-body usgr-btn-group">
 
                 {defaultData.map((data, index) => {
                     return (
-                        <button className={(_filterValue() == data ? 'active' : '') + ' dowp-button ' + ( freeLayout.includes(data) ? '' : 'pro-layout')}
+                        <button className={(_filterValue() == data ? 'active' : '') + ' usgr-button ' + ( freeLayout.includes(data) ? '' : 'pro-layout')}
                                 key={index}
                                 onClick={() => {
-                                    if(! dowpParams.hasPro && ! freeLayout.includes(data) ) {
+                                    if(! usgrParams.hasPro && ! freeLayout.includes(data) ) {
                                         // alert('pro required');
                                         cogoToast.warn('Upgrade to Pro for unlock more layout..', {position: 'top-right'});
                                         return false;

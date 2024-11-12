@@ -1,6 +1,6 @@
 <?php
 
-namespace DOWP\UserGrid\Api;
+namespace USGR\UserGrid\Api;
 
 /**
  * RestApi Class

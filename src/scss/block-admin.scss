@@ -1,7 +1,7 @@
 @import "utility/variables";
 @import "dragable";
 
-.dowp-sidebar {
+.usgr-sidebar {
     .components-panel {
         .block-editor-block-card {
             background: #e1e7eb;
@@ -15,7 +15,7 @@
     }
 }
 
-.components-panel__body .dowp-btn-hover-group {
+.components-panel__body .usgr-btn-hover-group {
     display: flex;
     margin-top: 5px;
     margin-bottom: 15px;
@@ -51,9 +51,9 @@
     }
 }
 
-.dowp-panel-control-wrapper {
+.usgr-panel-control-wrapper {
     background: #fff;
-    .dowp-control-section {
+    .usgr-control-section {
         padding: 0 16px 15px;
         border-radius: 0;
         border-bottom: 10px solid #e1e7eb;
@@ -61,21 +61,21 @@
         margin-left: -17px;
         margin-right: -17px;
     }
-    .disable-shorting .dowp-sortable-field {
+    .disable-shorting .usgr-sortable-field {
         opacity: .5;
         * {
             pointer-events: none;
         }
     }
 
-    .dowp-controll-heading {
+    .usgr-controll-heading {
         font-size: 12px;
         font-weight: bold;
-        border-bottom: 1px solid var(--dowp-border2);
+        border-bottom: 1px solid var(--usgr-border2);
         padding-bottom: 5px;
     }
 
-    .dowp-gradient-color-wrap {
+    .usgr-gradient-color-wrap {
         margin-top: 10px;
         position: relative;
 
@@ -84,7 +84,7 @@
             border-radius: 30px !important;
             overflow: hidden;
         }
-        .dowp-undo-btn {
+        .usgr-undo-btn {
             position: absolute;
             top: 5px;
             right: -5px;
@@ -127,7 +127,7 @@
         .components-input-control__container {
             height: 34px;
             overflow: hidden;
-            border: 1px solid var(--dowp-border2);
+            border: 1px solid var(--usgr-border2);
             > * {
                 height: 34px !important;
                 border: none !important;
@@ -136,8 +136,8 @@
                 }
             }
             .components-input-control__input {
-                border-left: 1px solid var(--dowp-border2) !important;
-                border-right: 1px solid var(--dowp-border2) !important;
+                border-left: 1px solid var(--usgr-border2) !important;
+                border-right: 1px solid var(--usgr-border2) !important;
                 padding: 0 3px;
                 min-width: 28px !important;
                 text-align: center;
@@ -146,7 +146,7 @@
         }
     }
 
-    .dowp-undo-btn:focus {
+    .usgr-undo-btn:focus {
         outline: none !important;
         box-shadow: none !important;
     }
@@ -160,7 +160,7 @@
             gap: 0;
         }
 
-        &.should-single-line .dowp-sortable-react-select div[class*="-ValueContainer"] > div {
+        &.should-single-line .usgr-sortable-react-select div[class*="-ValueContainer"] > div {
             &:not(:last-child) {
                 flex: 0 0 100%;
                 cursor: move;
@@ -178,7 +178,7 @@
             }
         }
 
-        .dowp-sortable-react-select {
+        .usgr-sortable-react-select {
             div[class*="-ValueContainer"] {
                 > div {
                     margin: 2px !important;
@@ -187,19 +187,19 @@
         }
     }
 
-    .dowp-help {
+    .usgr-help {
         display: block;
         margin-top: -10px;
         margin-bottom: 15px;
         color: rgb(117, 117, 117);
     }
 
-    .dowp-control-heading {
+    .usgr-control-heading {
         font-size: 14px;
         font-weight: 600;
-        color: var(--dowp-primary-dark);
+        color: var(--usgr-primary-dark);
         margin-bottom: 15px;
-        border-bottom: 1px solid var(--dowp-primary);
+        border-bottom: 1px solid var(--usgr-primary);
         padding-bottom: 10px;
     }
 
@@ -208,14 +208,14 @@
         font-size: 13px !important;
         font-weight: 400 !important;
         display: inline-block !important;
-        color: var(--dowp-body) !important;
+        color: var(--usgr-body) !important;
         text-transform: inherit !important;
         line-height: 1.4 !important;
         padding: 0;
         margin-bottom: 7px !important;
     }
 
-    .dowp-btn-group {
+    .usgr-btn-group {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
@@ -261,19 +261,19 @@
             }
 
             &:hover {
-                color: var(--dowp-primary)
+                color: var(--usgr-primary)
             }
 
             &:hover svg path {
-                fill: var(--dowp-primary)
+                fill: var(--usgr-primary)
             }
         }
 
         button.active-tab {
-            color: var(--dowp-primary);
+            color: var(--usgr-primary);
 
             svg path {
-                fill: var(--dowp-primary)
+                fill: var(--usgr-primary)
             }
         }
     }
@@ -282,18 +282,18 @@
         border-bottom: 1px solid #ced7db;
     }
 
-    .dowp-cf-layout-style .dowp-cf-head,
-    .dowp-column-group .dowp-cf-head {
+    .usgr-cf-layout-style .usgr-cf-head,
+    .usgr-column-group .usgr-cf-head {
         margin-bottom: 5px;
         display: block;
     }
 
-    .dowp-column-group .dowp-column-group-inner .components-select-control__input {
+    .usgr-column-group .usgr-column-group-inner .components-select-control__input {
         padding: 0 18px 0 6px !important;
         font-size: 13px !important;
     }
 
-    .dowp-column-group .dowp-column-group-inner {
+    .usgr-column-group .usgr-column-group-inner {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 10px;
@@ -301,7 +301,7 @@
         justify-content: center;
     }
 
-    .dowp-column-group .dowp-column-group-inner .dowp-control-field {
+    .usgr-column-group .usgr-column-group-inner .usgr-control-field {
         align-items: flex-start;
         flex-direction: column-reverse;
         margin: 0;
@@ -311,12 +311,12 @@
         }
     }
 
-    .dowp-column-group .dowp-column-group-inner .dowp-control-field > div {
+    .usgr-column-group .usgr-column-group-inner .usgr-control-field > div {
         line-height: 1;
         margin-bottom: 5px;
     }
 
-    .dowp-column-group .dowp-column-group-inner .dowp-control-field .components-input-control__label {
+    .usgr-column-group .usgr-column-group-inner .usgr-control-field .components-input-control__label {
         padding-bottom: 0 !important;
         color: #979797;
         font-weight: 600;
@@ -348,7 +348,7 @@
         &:focus {
             box-shadow: none !important;
             outline: none !important;
-            border-color: var(--dowp-primary) !important;
+            border-color: var(--usgr-primary) !important;
         }
     }
 
@@ -359,13 +359,13 @@
         opacity: 0;
     }
 
-    .dowp-repeater {
+    .usgr-repeater {
         input,
         input:focus {
             border: none !important;
         }
     }
-    .dowp-control-field.dowp-select-wrap {
+    .usgr-control-field.usgr-select-wrap {
         select {
             font-size: 13px;
             padding: 2px 26px 3px 9px;
@@ -377,25 +377,25 @@
         }
     }
     /*Alignment Button Style*/
-    .dowp-control-field.dowp-select-wrap,
-    .dowp-control-field.dowp-cf-alignment-wrap {
+    .usgr-control-field.usgr-select-wrap,
+    .usgr-control-field.usgr-cf-alignment-wrap {
         display: flex;
         justify-content: space-between;
         align-items: center;
 
-        .dowp-cf-head {
+        .usgr-cf-head {
             display: flex;
         }
     }
 
-    .dowp-control-field.dowp-cf-alignment-wrap .dowp-btn-group .dowp-button {
+    .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button {
         padding: 3px 10px;
     }
 
     //Alignment button end
 
-    .dowp-control-field.label-inline .components-base-control__field,
-    .dowp-control-field.label-inline {
+    .usgr-control-field.label-inline .components-base-control__field,
+    .usgr-control-field.label-inline {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -404,32 +404,32 @@
         height: auto;
     }
 
-    .dowp-control-field.label-inline.has-help {
+    .usgr-control-field.label-inline.has-help {
         display: block;
     }
 
-    .dowp-control-field.label-inline label {
+    .usgr-control-field.label-inline label {
         padding: 0 !important;
         line-height: 1.4;
     }
 
-    .dowp-control-field.label-inline .components-text-control__input,
-    .dowp-control-field.label-inline .components-input-control__container {
+    .usgr-control-field.label-inline .components-text-control__input,
+    .usgr-control-field.label-inline .components-input-control__container {
         max-width: 120px;
         margin-left: 10px;
     }
 
-    .dowp-control-field.label-inline.dowp-expand .components-text-control__input,
-    .dowp-control-field.label-inline.dowp-expand .components-input-control__container {
+    .usgr-control-field.label-inline.usgr-expand .components-text-control__input,
+    .usgr-control-field.label-inline.usgr-expand .components-input-control__container {
         max-width: 120px;
         margin-left: 10px;
     }
 
-    .dowp-control-field.label-inline.dowp-expand label {
+    .usgr-control-field.label-inline.usgr-expand label {
         margin-bottom: 0 !important;
     }
 
-    .dowp-control-field.label-inline .components-base-control__field > div {
+    .usgr-control-field.label-inline .components-base-control__field > div {
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -437,9 +437,9 @@
         align-items: center;
     }
 
-    /*dowp-toggle-control-field*/
-    .dowp-toggle-control-field .components-base-control__field .components-flex,
-    .dowp-toggle-control-field .components-base-control__field {
+    /*usgr-toggle-control-field*/
+    .usgr-toggle-control-field .components-base-control__field .components-flex,
+    .usgr-toggle-control-field .components-base-control__field {
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
@@ -447,12 +447,12 @@
         align-items: center;
     }
 
-    .dowp-toggle-control-field.dowp-padding-left .components-toggle-control__label {
+    .usgr-toggle-control-field.usgr-padding-left .components-toggle-control__label {
         position: relative;
         padding-left: 10px;
     }
 
-    .dowp-toggle-control-field.dowp-padding-left .components-toggle-control__label::before {
+    .usgr-toggle-control-field.usgr-padding-left .components-toggle-control__label::before {
         content: "— ";
     }
 
@@ -468,11 +468,11 @@
     }
 
     .components-form-toggle .components-form-toggle__input:focus + .components-form-toggle__track {
-        box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px var(--dowp-primary)
+        box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px var(--usgr-primary)
     }
 
     .components-form-toggle.is-checked .components-form-toggle__track {
-        background-color: var(--dowp-primary);
+        background-color: var(--usgr-primary);
         border: 9px solid transparent;
     }
 
@@ -481,7 +481,7 @@
     }
 
 
-    .dowp-control-field.pro-field {
+    .usgr-control-field.pro-field {
         position: relative;
         &:before {
             content: "Pro";
@@ -499,16 +499,16 @@
             top: 0;
         }
     }
-    .components-base-control .dowp-units-choices,
-    .dowp-control-field .dowp-units-choices {
+    .components-base-control .usgr-units-choices,
+    .usgr-control-field .usgr-units-choices {
         display: flex;
         gap: 5px;
         justify-content: flex-end;
     }
 
 
-    .components-base-control .dowp-units-choices label,
-    .dowp-control-field .dowp-units-choices label {
+    .components-base-control .usgr-units-choices label,
+    .usgr-control-field .usgr-units-choices label {
         cursor: pointer;
         padding: 0;
         text-transform: uppercase;
@@ -517,75 +517,75 @@
     }
 
 
-    .components-base-control .dowp-units-choices label:hover,
-    .components-base-control .dowp-units-choices label.active,
-    .dowp-control-field .dowp-units-choices label:hover,
-    .dowp-control-field .dowp-units-choices label.active {
-        color: var(--dowp-admin-color-primary, #0066ff);
+    .components-base-control .usgr-units-choices label:hover,
+    .components-base-control .usgr-units-choices label.active,
+    .usgr-control-field .usgr-units-choices label:hover,
+    .usgr-control-field .usgr-units-choices label.active {
+        color: var(--usgr-admin-color-primary, #0066ff);
     }
 
-    .dowp-dimension-wrap .dowp-cf-head {
+    .usgr-dimension-wrap .usgr-cf-head {
         display: flex;
         justify-content: space-between;
     }
 
-    .dowp-cf-body-btn-wrap {
+    .usgr-cf-body-btn-wrap {
         display: flex;
         align-items: center;
         gap: 6px;
     }
 
-    .dowp-cf-body-btn-wrap .dowp-btn-group {
+    .usgr-cf-body-btn-wrap .usgr-btn-group {
         flex-grow: 1;
         max-width: 60px;
         margin-left: auto;
     }
 
-    .dowp-cf-body-btn-wrap .components-button {
+    .usgr-cf-body-btn-wrap .components-button {
         padding: 0;
         height: 27px;
         width: 30px;
     }
 
-    .dowp-cf-body-btn-wrap .components-button .classic-btn,
-    .dowp-cf-body-btn-wrap .components-button .gradient-btn {
+    .usgr-cf-body-btn-wrap .components-button .classic-btn,
+    .usgr-cf-body-btn-wrap .components-button .gradient-btn {
         display: flex;
         justify-content: center;
     }
 
-    .dowp-cf-background-wrap .dowp-bg-img {
+    .usgr-cf-background-wrap .usgr-bg-img {
         margin-top: 8px;
     }
 
-    .dowp-cf-body-btn-wrap .dowp-undo-btn {
+    .usgr-cf-body-btn-wrap .usgr-undo-btn {
         padding: 0;
         background-color: transparent;
     }
 
-    .dowp-cf-body-btn-wrap .dowp-undo-btn:hover {
+    .usgr-cf-body-btn-wrap .usgr-undo-btn:hover {
         background-color: transparent;
     }
 
-    .dowp-cf-body-btn-wrap .dowp-undo-btn:focus,
-    .dowp-cf-body-btn-wrap .dowp-undo-btn:hover,
-    .dowp-panel-control-wrapper .dowp-cf-body-btn-wrap .dowp-undo-btn:active {
+    .usgr-cf-body-btn-wrap .usgr-undo-btn:focus,
+    .usgr-cf-body-btn-wrap .usgr-undo-btn:hover,
+    .usgr-panel-control-wrapper .usgr-cf-body-btn-wrap .usgr-undo-btn:active {
         outline: 0;
         box-shadow: none;
     }
 }
 
-//End .dowp-panel-control-wrapper
+//End .usgr-panel-control-wrapper
 
 
-.dowp-tab-panel {
+.usgr-tab-panel {
 
-    .dowp-tab-btn {
+    .usgr-tab-btn {
         position: relative;
         z-index: 1;
     }
 
 
-    .dowp-tab-btn {
+    .usgr-tab-btn {
         i {
             font-size: 19px;
         }
@@ -606,7 +606,7 @@
             border-width: 0 0 1px 1px;
         }
 
-        .dowp-tab-button {
+        .usgr-tab-button {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -616,22 +616,22 @@
     }
 }
 
-.dowp-tab-panel .components-panel__body-toggle.components-button {
+.usgr-tab-panel .components-panel__body-toggle.components-button {
     font-size: 13px;
     font-weight: 500;
     padding: 13px 48px 14px 16px;
 }
 
-.dowp-tab-panel .is-opended .components-panel__body-toggle.components-button,
-.dowp-tab-panel .components-panel__body-toggle.components-button:hover {
+.usgr-tab-panel .is-opended .components-panel__body-toggle.components-button,
+.usgr-tab-panel .components-panel__body-toggle.components-button:hover {
     color: #000;
 }
 
-.dowp-tab-panel .components-panel__body.is-opened .components-panel__body-title .components-button {
-    color: var(--dowp-admin-color-primary, #06f);
+.usgr-tab-panel .components-panel__body.is-opened .components-panel__body-title .components-button {
+    color: var(--usgr-admin-color-primary, #06f);
 }
 
-.dowp-tab-panel .components-panel__body {
+.usgr-tab-panel .components-panel__body {
     border-width: 5px 5px 0 5px;
     border-style: solid;
     border-color: #e0e0e0;
@@ -640,19 +640,19 @@
     }
 }
 
-.dowp-tab-panel .is-opened .components-panel__body-toggle.components-button {
-    border-bottom: 1px solid var(--dowp-border2);
+.usgr-tab-panel .is-opened .components-panel__body-toggle.components-button {
+    border-bottom: 1px solid var(--usgr-border2);
 }
 
-.dowp-tab-panel .components-panel__body > .components-panel__body-title:hover {
+.usgr-tab-panel .components-panel__body > .components-panel__body-title:hover {
     background: #FFFFFF;
 }
 
-.dowp-tab-panel .components-panel__body.is-opened > .components-panel__body-title {
+.usgr-tab-panel .components-panel__body.is-opened > .components-panel__body-title {
     margin: -16px -16px 15px;
 }
 
-.dowp-tab-panel .components-panel__body-toggle.components-button:focus {
+.usgr-tab-panel .components-panel__body-toggle.components-button:focus {
     box-shadow: none;
 }
 
@@ -660,20 +660,20 @@
 
 //Pro check
 
-.dowp-panel-control-wrapper .dowp-is-pro {
+.usgr-panel-control-wrapper .usgr-is-pro {
     position: relative;
     cursor: not-allowed;
 }
 
-.dowp-panel-control-wrapper .dowp-is-pro *:not(.dowp-alert-message) {
+.usgr-panel-control-wrapper .usgr-is-pro *:not(.usgr-alert-message) {
     pointer-events: none;
 }
 
-.dowp-panel-control-wrapper .dowp-arert-wrapper {
+.usgr-panel-control-wrapper .usgr-arert-wrapper {
     position: relative;
 }
 
-.dowp-panel-control-wrapper .dowp-alert-message {
+.usgr-panel-control-wrapper .usgr-alert-message {
     position: absolute;
     top: 0;
     left: 0;
@@ -685,17 +685,17 @@
     cursor: not-allowed;
 }
 
-.dowp-panel-control-wrapper .dowp-is-pro label {
+.usgr-panel-control-wrapper .usgr-is-pro label {
     position: relative;
     overflow: unset !important;
 }
 
-.dowp-panel-control-wrapper .dowp-is-pro.dowp-dimension-wrap .dowp-label {
+.usgr-panel-control-wrapper .usgr-is-pro.usgr-dimension-wrap .usgr-label {
     position: relative;
 }
 
-.dowp-panel-control-wrapper .dowp-is-pro.dowp-dimension-wrap .dowp-label::after,
-.dowp-panel-control-wrapper .dowp-is-pro label::after {
+.usgr-panel-control-wrapper .usgr-is-pro.usgr-dimension-wrap .usgr-label::after,
+.usgr-panel-control-wrapper .usgr-is-pro label::after {
     content: "Pro";
     border: 1px solid #e71313;
     color: #fff;
@@ -713,21 +713,21 @@
     top: 2.5px;
 }
 
-.dowp-panel-control-wrapper .dowp-is-pro.dowp-dimension-wrap label::after {
+.usgr-panel-control-wrapper .usgr-is-pro.usgr-dimension-wrap label::after {
     content: none;
 }
 
-.dowp-panel-control-wrapper .dowp-is-pro.dowp-dimension-wrap .dowp-device-switchers {
+.usgr-panel-control-wrapper .usgr-is-pro.usgr-dimension-wrap .usgr-device-switchers {
     display: none;
 }
 
-.dowp-panel-control-wrapper .dowp-is-pro .components-form-toggle .components-form-toggle__track,
-.dowp-panel-control-wrapper .dowp-is-pro input[type=text],
-.dowp-panel-control-wrapper .dowp-is-pro input[type=number] {
+.usgr-panel-control-wrapper .usgr-is-pro .components-form-toggle .components-form-toggle__track,
+.usgr-panel-control-wrapper .usgr-is-pro input[type=text],
+.usgr-panel-control-wrapper .usgr-is-pro input[type=number] {
     background: #e1e1e1;
 }
 
-.dowp-panel-control-wrapper .dowp-is-pro .components-form-toggle .components-form-toggle__thumb {
+.usgr-panel-control-wrapper .usgr-is-pro .components-form-toggle .components-form-toggle__thumb {
     background-color: #818181;
     border: #818181;
 }

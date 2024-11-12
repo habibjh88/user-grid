@@ -2,17 +2,17 @@
 
     'use strict';
 
-    var dowpAttachmentId = 'input[name="' + userGrid.input_name + '"]';
-    var dowpAttachmentAvatar = '.user-grid-attachment-avatar';
-    var dowpAttachmentDesc = '#user-grid-attachment-description';
-    var dowpButtonAdd = '#gt-avatar-add';
-    var dowpButtonRemove = '#gt-avatar-remove';
+    var usgrAttachmentId = 'input[name="' + userGrid.input_name + '"]';
+    var usgrAttachmentAvatar = '.user-grid-attachment-avatar';
+    var usgrAttachmentDesc = '#user-grid-attachment-description';
+    var usgrButtonAdd = '#gt-avatar-add';
+    var usgrButtonRemove = '#gt-avatar-remove';
 
-    var userAttachmentId = $(dowpAttachmentId);
+    var userAttachmentId = $(usgrAttachmentId);
     var userAttachmentAvatar = $('.user-grid-attachment-avatar img');
-    var userAttachmentDesc = $(dowpAttachmentDesc);
-    var userButtonAdd = $(dowpButtonAdd);
-    var userButtonRemove = $(dowpButtonRemove);
+    var userAttachmentDesc = $(usgrAttachmentDesc);
+    var userButtonAdd = $(usgrButtonAdd);
+    var userButtonRemove = $(usgrButtonRemove);
     var WPMediaSizes = ['full', 'large', 'medium', 'thumbnail'];
 
     var defaultSrc = userGrid.default_avatar_src;
@@ -34,7 +34,7 @@
 
 
     $(document).ready(function ($) {
-        $(document).on('click', dowpButtonAdd, function () {
+        $(document).on('click', usgrButtonAdd, function () {
                 var frame = wp.media({
                     title: 'Select or Upload Media',
                     button: {
@@ -52,12 +52,12 @@
 
                 frame.open();
             })
-            .on('click', dowpButtonRemove, function () {
+            .on('click', usgrButtonRemove, function () {
                 var defaultAvatar = $(this).closest('.action-button').find('.input_default_avatar').val();
                 updateAttachment(defaultAvatar, defaultSrcSet);
             })
-            .on('click', dowpAttachmentAvatar, function () {
-                $(dowpButtonAdd).trigger('click');
+            .on('click', usgrAttachmentAvatar, function () {
+                $(usgrButtonAdd).trigger('click');
             });
     });
 

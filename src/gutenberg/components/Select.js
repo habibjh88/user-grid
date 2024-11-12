@@ -5,7 +5,7 @@ const {BaseControl, SelectControl, Button} = wp.components;
 
 function Select(props) {
     const {label, value, onChange, responsive, options = []} = props;
-    const [device, setDevice] = useState(() => window.dowpDevice || 'lg');
+    const [device, setDevice] = useState(() => window.usgrDevice || 'lg');
 
     const defaultData = '';
 
@@ -17,9 +17,9 @@ function Select(props) {
 
     return (
 
-        <div className="dowp-control-field components-base-control">
-            <div className="dowp-cf-head">
-                <span className="dowp-label">{label}</span>
+        <div className="usgr-control-field components-base-control">
+            <div className="usgr-cf-head">
+                <span className="usgr-label">{label}</span>
                 {responsive && <Devices device={device} onChange={_device => {
                     setDevice(_device);
                     const newData = JSON.parse(JSON.stringify(value));
@@ -30,7 +30,7 @@ function Select(props) {
                 }}/>}
             </div>
 
-            <div className="dowp-cf-body">
+            <div className="usgr-cf-body">
                 <SelectControl
                     value={value[device]}
                     options={options}

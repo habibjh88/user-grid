@@ -35,7 +35,7 @@ function AvatarSettings(props) {
 
             <ToggleControl
                 label={__("Enable Image Link", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={image_link}
                 onChange={(image_link) => setAttributes({image_link: image_link ? 'yes' : ''})}
             />
@@ -63,7 +63,7 @@ function AvatarSettings(props) {
                 max={1000}
                 step={1}
             />
-            <small className="dowp-help">{__("Gravatar Size works only for gravatar photo", "user-grid")}</small>
+            <small className="usgr-help">{__("Gravatar Size works only for gravatar photo", "user-grid")}</small>
 
             {! ['grid13', 'grid14', 'grid15', 'slider13', 'slider14', 'slider15'].includes(layout) &&
                 <>
@@ -102,7 +102,7 @@ function AvatarSettings(props) {
 
             <Dimension
                 label={__("Avatar Border Radius", "user-grid")}
-                className={`dowp-dimension-wrap`}
+                className={`usgr-dimension-wrap`}
                 type="borderRadius" responsive
                 value={avatar_border_radius}
                 onChange={(value) => {
@@ -112,7 +112,7 @@ function AvatarSettings(props) {
 
             <Dimension
                 label={__("Image Margin", "user-grid")}
-                className={`dowp-dimension-wrap`}
+                className={`usgr-dimension-wrap`}
                 type="margin" responsive
                 value={avatar_margin}
                 onChange={(value) => {
@@ -131,7 +131,7 @@ function AvatarSettings(props) {
                 withSlider
             />
 
-            <div className="dowp-btn-hover-group">
+            <div className="usgr-btn-hover-group">
                 {NORMAL_HOVER.map((item, key) => (<Button
                     key={key}
                     isPrimary={styleTab === item.value}

@@ -16,16 +16,16 @@ function Typography(props) {
     };
 
     return (
-        <div className="dowp-control-field components-base-control dowp-cf-typography-wrap">
+        <div className="usgr-control-field components-base-control usgr-cf-typography-wrap">
 
             {label && (
-                <span className="dowp-label">{label}</span>
+                <span className="usgr-label">{label}</span>
             )}
 
-            <div className="dowp-typography">
+            <div className="usgr-typography">
                 <Dropdown
-                    className="dowp-typography-dropdown-icon"
-                    contentClassName="dowp-components-popover dowp-cp-typography-content"
+                    className="usgr-typography-dropdown-icon"
+                    contentClassName="usgr-components-popover usgr-cp-typography-content"
                     position="bottom right"
                     renderToggle={({isOpen, onToggle}) => (
                         <Button
@@ -41,7 +41,7 @@ function Typography(props) {
 
                     renderContent={() => (
 
-                        <div className="dowp-typography-content">
+                        <div className="usgr-typography-content">
                             <RangeDevice
                                 label={__('Font Size')}
                                 responsive={true}

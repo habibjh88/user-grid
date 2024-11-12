@@ -1,9 +1,9 @@
 <?php
 
-namespace DOWP\UserGrid\Controllers;
+namespace USGR\UserGrid\Controllers;
 
-use DOWP\UserGrid\Blocks\UserBlock;
-use DOWP\UserGrid\Helpers\Fns;
+use USGR\UserGrid\Blocks\UserBlock;
+use USGR\UserGrid\Helpers\Fns;
 
 class BlocksController {
 
@@ -21,27 +21,21 @@ class BlocksController {
 		add_action( 'enqueue_block_editor_assets', [ $this, 'editor_assets' ] );
 
 		// All css/js file load in back-end and front-end
-		add_action( 'wp_enqueue_scripts', [ $this, 'dowp_block_enqueue' ] );
-		add_action( 'enqueue_block_editor_assets', [ $this, 'dowp_block_enqueue' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'usgr_block_enqueue' ] );
+		add_action( 'enqueue_block_editor_assets', [ $this, 'usgr_block_enqueue' ] );
 
 		if ( version_compare( get_bloginfo( 'version' ), '5.8', '>=' ) ) {
-			add_filter( 'block_categories_all', [ $this, 'dowp_block_categories' ], 1, 2 );
+			add_filter( 'block_categories_all', [ $this, 'usgr_block_categories' ], 1, 2 );
 		} else {
-			add_filter( 'block_categories', [ $this, 'dowp_block_categories' ], 1, 2 );
+			add_filter( 'block_categories', [ $this, 'usgr_block_categories' ], 1, 2 );
 		}
 
-		add_action( 'wp_ajax_dowp_block_css_save', [ $this, 'save_block_css' ] );
-		add_action( 'wp_ajax_dowp_block_css_get_posts', [ $this, 'get_posts_call' ] );
-		add_action( 'wp_ajax_dowp_block_css_appended', [ $this, 'appended' ] );
+		add_action( 'wp_ajax_usgr_block_css_save', [ $this, 'save_block_css' ] );
+		add_action( 'wp_ajax_usgr_block_css_get_posts', [ $this, 'get_posts_call' ] );
+		add_action( 'wp_ajax_usgr_block_css_appended', [ $this, 'appended' ] );
 
-		// Decide how css file will be loaded. default filesystem eg: filesystem or at header
-		$option_data = get_option( 'dowp_options' );
-		if ( isset( $option_data['css_save_as'] ) && 'filesystem' === $option_data['css_save_as'] ) {
-			add_action( 'wp_enqueue_scripts', [ $this, 'add_block_css_file' ] );
-		} else {
-			add_action( 'wp_head', [ $this, 'add_block_inline_css' ], 100 );
-
-		}
+		// Enqueue block front-end css.
+		add_action( 'wp_enqueue_scripts', [ $this, 'add_block_css_file' ] );
 	}
 
 
@@ -53,11 +47,11 @@ class BlocksController {
 	 *
 	 * @return array|\string[][]|\void[][]
 	 */
-	public function dowp_block_categories( $categories, $post ) {
+	public function usgr_block_categories( $categories, $post ) {
 		return array_merge(
 			[
 				[
-					'slug'  => 'dowp',
+					'slug'  => 'usgr',
 					'title' => __( 'RGB Code', 'user-grid' ),
 				],
 			],
@@ -74,31 +68,31 @@ class BlocksController {
 	public function add_block_css_file() {
 
 		$post_id         = get_the_ID();
-		$dowp_upload_dir = wp_upload_dir()['basedir'] . '/dowp/';
-		$dowp_upload_url = wp_upload_dir()['baseurl'] . '/dowp/';
+		$usgr_upload_dir = wp_upload_dir()['basedir'] . '/usgr/';
+		$usgr_upload_url = wp_upload_dir()['baseurl'] . '/usgr/';
 		// phpcs:ignore
 		if ( isset( $_GET['preview'] ) && ! empty( $_GET['preview'] ) ) {
-			$css_path = $dowp_upload_dir . 'dowp-block-preview.css';
+			$css_path = $usgr_upload_dir . 'usgr-block-preview.css';
 
 			if ( file_exists( $css_path ) ) {
 				if ( ! $this->is_editor_screen() ) {
-					wp_enqueue_style( 'dowp-block-post-preview', $dowp_upload_url . 'dowp-block-preview.css', false, $this->version );
+					wp_enqueue_style( 'usgr-block-post-preview', $usgr_upload_url . 'usgr-block-preview.css', false, $this->version );
 				}
 			}
 		} elseif ( $post_id ) {
-			$css_dir_path = $dowp_upload_dir . "dowp-block-$post_id.css";
-			$css_dir_url  = $dowp_upload_dir . "dowp-block-$post_id.css";
+			$css_dir_path = $usgr_upload_dir . "usgr-block-$post_id.css";
+			$css_dir_url  = $usgr_upload_dir . "usgr-block-$post_id.css";
 
 			if ( file_exists( $css_dir_path ) ) {
 				if ( ! $this->is_editor_screen() ) {
-					wp_enqueue_style( "dowp-block-post-{$post_id}", $css_dir_url, false, $this->version );
+					wp_enqueue_style( "usgr-block-post-{$post_id}", $css_dir_url, false, $this->version );
 				}
 				$this->add_reusable_css();
 			} else {
 				// phpcs:ignore
-				wp_register_style( 'dowp-post-data', false );
-				wp_enqueue_style( 'dowp-post-data' );
-				wp_add_inline_style( 'dowp-post-data', get_post_meta( get_the_ID(), '_dowp_block_css', true ) );
+				wp_register_style( 'usgr-post-data', false );
+				wp_enqueue_style( 'usgr-post-data' );
+				wp_add_inline_style( 'usgr-post-data', get_post_meta( get_the_ID(), '_usgr_block_css', true ) );
 			}
 		}
 	}
@@ -108,13 +102,13 @@ class BlocksController {
 	 *
 	 * @return void
 	 */
-	public function dowp_block_enqueue() {
+	public function usgr_block_enqueue() {
 		if ( ! is_admin() ) {
 			return;
 		}
 
-		wp_enqueue_style( 'dowp-block' );
-		wp_enqueue_script( 'dowp-script' );
+		wp_enqueue_style( 'usgr-block' );
+		wp_enqueue_script( 'usgr-script' );
 	}
 
 
@@ -140,13 +134,13 @@ class BlocksController {
 	public function editor_assets() {
 
 		// Block editor css.
-		wp_enqueue_style( 'dowp-block-admin', userGrid()->dowp_can_be_rtl( 'css/block-admin' ), '', $this->version );
+		wp_enqueue_style( 'usgr-block-admin', usgrUG()->usgr_can_be_rtl( 'css/block-admin' ), '', $this->version );
 
 		// Main compile css and js file.
-		wp_enqueue_style( 'dowp-blocks-css', userGrid()->get_assets_uri( 'blocks/main.css' ), '', $this->version );
+		wp_enqueue_style( 'usgr-blocks-css', usgrUG()->get_assets_uri( 'blocks/main.css' ), '', $this->version );
 		wp_enqueue_script(
-			'dowp-blocks-js',
-			userGrid()->get_assets_uri( 'blocks/main.js' ),
+			'usgr-blocks-js',
+			usgrUG()->get_assets_uri( 'blocks/main.js' ),
 			[
 				'wp-block-editor',
 				'wp-blocks',
@@ -166,43 +160,19 @@ class BlocksController {
 		}
 
 		wp_localize_script(
-			'dowp-blocks-js',
-			'dowpParams',
+			'usgr-blocks-js',
+			'usgrParams',
 			[
 				'editor_type' => $editor_type,
-				'nonce'       => wp_create_nonce( 'dowp_nonce' ),
+				'nonce'       => wp_create_nonce( 'usgr_nonce' ),
 				'ajaxurl'     => Fns::ajax_url(),
 				'site_url'    => site_url(),
 				'admin_url'   => admin_url(),
 				'plugin_url'  => USER_GRID_PLUGIN_URL,
-				'hasPro'      => userGrid()->hasPro(),
+				'hasPro'      => usgrUG()->hasPro(),
 			]
 		);
 	}
-
-
-	/**
-	 * Add inLine css for page or post
-	 *
-	 * @return void
-	 */
-	public function add_block_inline_css() {
-		$post_id = get_the_ID();
-		if ( $post_id ) {
-			$dowp_upload_dir = wp_upload_dir()['basedir'] . '/dowp/';
-			$css_dir_path    = $dowp_upload_dir . "dowp-block-$post_id.css";
-
-			if ( file_exists( $css_dir_path ) ) {
-				$blockCss = file_get_contents( $css_dir_path ); //phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-				echo '<style>' . sanitize_textarea_field( $blockCss ) . '</style>'; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			} elseif ( $metaCss = get_post_meta( $post_id, '_dowp_block_css', true ) ) {
-				echo '<style>' . sanitize_textarea_field( $metaCss ) . '</style>';  //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			}
-		}
-
-		$this->add_reusable_css();
-	}
-
 
 	/**
 	 * Add reusable css
@@ -211,8 +181,8 @@ class BlocksController {
 	 */
 	public function add_reusable_css() {
 		$post_id         = get_the_ID();
-		$dowp_upload_dir = wp_upload_dir()['basedir'] . '/dowp/';
-		$dowp_upload_url = wp_upload_dir()['baseurl'] . '/dowp/';
+		$usgr_upload_dir = wp_upload_dir()['basedir'] . '/usgr/';
+		$usgr_upload_url = wp_upload_dir()['baseurl'] . '/usgr/';
 		if ( $post_id ) {
 			$content_post = get_post( $post_id );
 			if ( isset( $content_post->post_content ) ) {
@@ -223,9 +193,9 @@ class BlocksController {
 					if ( ! empty( $css_id ) ) {
 						$css_id = array_unique( $css_id );
 						foreach ( $css_id as $value ) {
-							$css_dir_path = $dowp_upload_dir . "dowp-block-$value.css";
+							$css_dir_path = $usgr_upload_dir . "usgr-block-$value.css";
 							if ( file_exists( $css_dir_path ) ) {
-								wp_enqueue_style( "dowp-block-{$value}", $dowp_upload_url . "dowp-block-{$value}.css", false, USER_GRID_VERSION );
+								wp_enqueue_style( "usgr-block-{$value}", $usgr_upload_url . "usgr-block-{$value}.css", false, USER_GRID_VERSION );
 							}
 						}
 					}
@@ -246,7 +216,7 @@ class BlocksController {
 				throw new Exception( __( 'User permission error', 'user-grid' ) );
 			}
 
-			check_ajax_referer( 'dowp_nonce', 'nonce' );
+			check_ajax_referer( 'usgr_nonce', 'nonce' );
 
 			global $wp_filesystem;
 			if ( ! $wp_filesystem ) {
@@ -256,18 +226,18 @@ class BlocksController {
 			$post_id  = ! empty( $_POST['post_id'] ) ? sanitize_text_field( wp_unslash( $_POST['post_id'] ) ) : '';
 			$blockCss = ! empty( $_POST['block_css'] ) ? sanitize_text_field( wp_unslash( $_POST['block_css'] ) ) : '';
 
-			if ( $post_id == 'dowp-widget' && isset( $_POST['has_block'] ) ) {
+			if ( $post_id == 'usgr-widget' && isset( $_POST['has_block'] ) ) {
 				update_option( $post_id, $blockCss );
 				wp_send_json_success( [ 'message' => __( 'Widget CSS Saved', 'user-grid' ) ] );
 			}
 
-			$filename       = "dowp-block-css-{$post_id}.css";
+			$filename       = "usgr-block-css-{$post_id}.css";
 			$upload_dir_url = wp_upload_dir();
-			$dir            = trailingslashit( $upload_dir_url['basedir'] ) . 'dowp/';
+			$dir            = trailingslashit( $upload_dir_url['basedir'] ) . 'usgr/';
 
 			if ( ! empty( $_POST['has_block'] ) ) {
 
-				update_post_meta( $post_id, '_dowp_block_active', 1 );
+				update_post_meta( $post_id, '_usgr_block_active', 1 );
 				$block_css = $this->set_top_css( $blockCss );
 
 				WP_Filesystem( false, $upload_dir_url['basedir'], true );
@@ -278,14 +248,14 @@ class BlocksController {
 				if ( ! $wp_filesystem->put_contents( $dir . $filename, $block_css ) ) {
 					wp_send_json_error( [ 'message' => __( 'CSS can not be saved due to permission!!!', 'user-grid' ) ] );
 				}
-				update_post_meta( $post_id, '_dowp_block_css', $block_css );
+				update_post_meta( $post_id, '_usgr_block_css', $block_css );
 				wp_send_json_success( [ 'message' => __( 'Css file has been updated', 'user-grid' ) ] );
 			} else {
-				delete_post_meta( $post_id, '_dowp_block_active' );
+				delete_post_meta( $post_id, '_usgr_block_active' );
 				if ( file_exists( $dir . $filename ) ) {
 					wp_delete_file( $dir . $filename );
 				}
-				delete_post_meta( $post_id, '_dowp_block_css' );
+				delete_post_meta( $post_id, '_usgr_block_css' );
 				wp_send_json_success( [ 'message' => __( 'Data Delete Done', 'user-grid' ) ] );
 			}
 		} catch ( Exception $e ) {
@@ -336,12 +306,12 @@ class BlocksController {
 	 * @return void
 	 */
 	public function get_posts_call() {
-		check_ajax_referer( 'dowp_nonce', 'nonce' );
+		check_ajax_referer( 'usgr_nonce', 'nonce' );
 		$post_id = isset( $_POST['postId'] ) ? absint( $_POST['postId'] ) : '';
 		if ( $post_id ) {
 			wp_send_json_success( get_post( $post_id )->post_content );
 		} else {
-			wp_send_json_error( new WP_Error( 'dowp_block_data_not_found', __( 'Data not found!!', 'user-grid' ) ) );
+			wp_send_json_error( new WP_Error( 'usgr_block_data_not_found', __( 'Data not found!!', 'user-grid' ) ) );
 		}
 	}
 
@@ -354,7 +324,7 @@ class BlocksController {
 	 */
 	public function appended( $server ) {
 		if ( ! current_user_can( 'edit_posts' ) ) {
-			wp_send_json_success( new WP_Error( 'dowp_block_user_permission', __( 'User permission error', 'user-grid' ) ) );
+			wp_send_json_success( new WP_Error( 'usgr_block_user_permission', __( 'User permission error', 'user-grid' ) ) );
 		}
 		global $wp_filesystem;
 		if ( ! $wp_filesystem ) {
@@ -366,8 +336,8 @@ class BlocksController {
 
 		if ( $post_id ) {
 			$upload_dir_url = wp_upload_dir();
-			$filename       = "dowp-block-css-$post_id.css";
-			$dir            = trailingslashit( $upload_dir_url['basedir'] ) . 'dowp/';
+			$filename       = "usgr-block-css-$post_id.css";
+			$dir            = trailingslashit( $upload_dir_url['basedir'] ) . 'usgr/';
 			WP_Filesystem( false, $upload_dir_url['basedir'], true );
 			if ( ! $wp_filesystem->is_dir( $dir ) ) {
 				$wp_filesystem->mkdir( $dir );

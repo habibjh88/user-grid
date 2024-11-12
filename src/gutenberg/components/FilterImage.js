@@ -30,7 +30,7 @@ function FilterImage(props) {
         <>
 
             {opacity && (
-                <div className="dowp-opacity-field">
+                <div className="usgr-opacity-field">
                     <Range
                         label={__("Opacity", "user-grid")}
                         reset={true}
@@ -43,14 +43,14 @@ function FilterImage(props) {
                 </div>
             )}
 
-            <div className="dowp-control-field dowp-cf-filter-image-wrap">
+            <div className="usgr-control-field usgr-cf-filter-image-wrap">
                 {label && (
-                    <span className="dowp-label">{label}</span>
+                    <span className="usgr-label">{label}</span>
                 )}
-                <div className="dowp-filter-image-wrap">
+                <div className="usgr-filter-image-wrap">
                     <Dropdown
-                        className="dowp-filter-image-dropdown-icon"
-                        contentClassName="dowp-components-popover dowp-cp-filter-image"
+                        className="usgr-filter-image-dropdown-icon"
+                        contentClassName="usgr-components-popover usgr-cp-filter-image"
                         position="bottom right"
                         renderToggle={({isOpen, onToggle}) => (
                             <Button
@@ -61,7 +61,7 @@ function FilterImage(props) {
                             ></Button>
                         )}
                         renderContent={() => (
-                            <div className="dowp-filter-image-content">
+                            <div className="usgr-filter-image-content">
                                 <Range
                                     label={__("Blur")}
                                     reset={true}
@@ -110,7 +110,7 @@ function FilterImage(props) {
             </div>
 
             {transition && (
-                <div className="dowp-transition-field">
+                <div className="usgr-transition-field">
                     <Range
                         label={__("Transition Duration")}
                         reset={true}

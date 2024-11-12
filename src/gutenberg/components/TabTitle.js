@@ -10,7 +10,7 @@ const TabTitle = ({title, icon}) => {
 
     }
     return (
-        <div className={`dowp-tab-button`}>
+        <div className={`usgr-tab-button`}>
             {iconEl}
             <span>{title}</span>
         </div>

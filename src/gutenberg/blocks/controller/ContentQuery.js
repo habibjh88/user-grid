@@ -37,12 +37,12 @@ export default function ContentQuery(props) {
                 placeholder={__("Eg. 10", "user-grid")}
                 shiftStep={10}
                 step="1"
-                className="dowp-control-field label-inline"
+                className="usgr-control-field label-inline"
             />
             <small
-                className="dowp-help">{__("The number of users to show. Enter -1 to show all found posts.", "user-grid")}</small>
+                className="usgr-help">{__("The number of users to show. Enter -1 to show all found posts.", "user-grid")}</small>
 
-            <div className="components-base-control dowp-repeater">
+            <div className="components-base-control usgr-repeater">
                 <label
                     className="components-base-control__label components-input-control__label"
                     htmlFor="react-select-2-input">
@@ -65,7 +65,7 @@ export default function ContentQuery(props) {
 
             </div>
 
-            <div className="components-base-control dowp-repeater">
+            <div className="components-base-control usgr-repeater">
                 <label
                     className="components-base-control__label components-input-control__label"
                     htmlFor="react-select-2-input">
@@ -102,7 +102,7 @@ export default function ContentQuery(props) {
             {!users_lists.length &&
                 <SelectControl
                     label={__("Order By", "user-grid")}
-                    className="dowp-control-field label-inline dowp-expand"
+                    className="usgr-control-field label-inline usgr-expand"
                     value={orderby}
                     options={USER_ORDER_BY}
                     onChange={(orderby) => {
@@ -114,7 +114,7 @@ export default function ContentQuery(props) {
 
             <SelectControl
                 label={__("Sort Order", "user-grid")}
-                className="dowp-control-field label-inline dowp-expand"
+                className="usgr-control-field label-inline usgr-expand"
                 value={order}
                 options={POST_SORT_ORDER}
                 onChange={(order) => {

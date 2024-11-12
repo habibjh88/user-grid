@@ -5,7 +5,7 @@
  * @package USER_GRID
  */
 
-namespace DOWP\UserGrid\Hooks;
+namespace USGR\UserGrid\Hooks;
 
 // Do not allow directly accessing this file.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -26,7 +26,7 @@ class FilterHooks {
 	public static function init() {
 		add_filter( 'body_class', [ __CLASS__, 'body_classes' ] );
 		add_filter( 'admin_body_class', [ __CLASS__, 'admin_body_class' ] );
-		add_filter( 'wp_kses_allowed_html', [ __CLASS__, 'dowp_custom_wpkses_post_tags' ], 10, 2 );
+		add_filter( 'wp_kses_allowed_html', [ __CLASS__, 'usgr_custom_wpkses_post_tags' ], 10, 2 );
 		add_filter( 'wp_calculate_image_srcset', [ __CLASS__, 'calculate_image_srcset' ] );
 		add_filter( 'get_avatar', [ __CLASS__, 'get_avatar_filter' ], 5, 5 );
 		add_filter( 'get_avatar_data', [ __CLASS__, 'get_avater_data_filter' ], 5, 2 );
@@ -41,9 +41,9 @@ class FilterHooks {
 	 * @return mixed
 	 */
 	public static function body_classes( $classes ) {
-		$classes[] = 'dowp';
-		$classes[] = 'dowp-' . USER_GRID_VERSION;
-		$classes[] = 'dowp-body-wrap';
+		$classes[] = 'usgr';
+		$classes[] = 'usgr-' . USER_GRID_VERSION;
+		$classes[] = 'usgr-body-wrap';
 
 		return $classes;
 	}
@@ -59,8 +59,8 @@ class FilterHooks {
 		global $pagenow;
 
 		if ( 'post.php' === $pagenow && isset( $_GET['post'] ) ) { //phpcs:ignore WordPress.Security.NonceVerification.Recommended
-			$classes .= ' dowp-body-wrap';
-			$classes .= userGrid()->hasPro() ? ' dowp-has-pro' : ' dowp-has-no-pro';
+			$classes .= ' usgr-body-wrap';
+			$classes .= usgrUG()->hasPro() ? ' usgr-has-pro' : ' usgr-has-no-pro';
 		}
 
 		return $classes;
@@ -72,7 +72,7 @@ class FilterHooks {
 	 *
 	 * @return mixed
 	 */
-	public static function dowp_custom_wpkses_post_tags( $tags, $context ) {
+	public static function usgr_custom_wpkses_post_tags( $tags, $context ) {
 
 		if ( 'post' === $context ) {
 			$tags['iframe'] = [
@@ -140,7 +140,7 @@ class FilterHooks {
 	 */
 	public static function get_avatar_filter( $avatar, $id_or_email, $size, $default, $alt ) {
 
-		return apply_filters( 'basic_user_avatar', $avatar, $id_or_email );
+		return apply_filters( 'usgr_avatar', $avatar, $id_or_email );
 
 		// Get user ID, if is numeric
 		if ( is_numeric( $id_or_email ) ) {
@@ -182,7 +182,7 @@ class FilterHooks {
 		}
 
 		// Get attachment ID from user meta
-		$attachment_id = get_user_meta( $user_id, userGrid()->avatar_meta_key, true );
+		$attachment_id = get_user_meta( $user_id, usgrUG()->avatar_meta_key, true );
 		if ( empty( $attachment_id ) || ! is_numeric( $attachment_id ) ) {
 			return $avatar;
 		}
@@ -234,13 +234,13 @@ class FilterHooks {
 		}
 
 		// Get the user's local avatar from usermeta.
-		$avatar_id_local = get_user_meta( $user_id, userGrid()->avatar_meta_key, true );
+		$avatar_id_local = get_user_meta( $user_id, usgrUG()->avatar_meta_key, true );
 		$_avatars_image  = wp_get_attachment_image_src( $avatar_id_local, 'full' );
 		if ( ! empty( $_avatars_image[0] ) ) {
 			$return_args['url']          = $_avatars_image[0];
 			$return_args['found_avatar'] = true;
 		}
 
-		return apply_filters( 'basic_user_avatar_data', $return_args );
+		return apply_filters( 'usgr_avatar_data', $return_args );
 	}
 }

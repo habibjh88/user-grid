@@ -17,11 +17,11 @@ function Sortable(props) {
     }
 
     return (
-        <div className="components-base-control dowp-sortable-field">
-            <div className="dowp-cf-head components-base-control__label">
-                <span className="dowp-label">{label}</span>
+        <div className="components-base-control usgr-sortable-field">
+            <div className="usgr-cf-head components-base-control__label">
+                <span className="usgr-label">{label}</span>
             </div>
-            <div className="dowp-cf-body">
+            <div className="usgr-cf-body">
                 <DragSortableList items={list} onSort={onSort} dropBackTransitionDuration={0.1} type="vertical"/>
             </div>
         </div>

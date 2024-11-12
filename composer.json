@@ -2,7 +2,7 @@
     "name": "habibjh88/user-grid",
     "autoload": {
         "psr-4": {
-            "DOWP\\UserGrid\\": "app/"
+            "USGR\\UserGrid\\": "app/"
         }
     },
     "authors": [

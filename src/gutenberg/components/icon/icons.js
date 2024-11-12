@@ -1,6 +1,6 @@
 const {__} = wp.i18n;
 const icons = {};
-const img_path = dowpParams.plugin_url + '/assets/images';
+const img_path = usgrParams.plugin_url + '/assets/images';
 
 icons.usergrid_logo = `${img_path}/user-grid-logo.svg`;
 

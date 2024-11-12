@@ -24,7 +24,7 @@ export default function ContentSlider(props) {
 
             <ToggleControl
                 label={__("Dots", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={dots}
                 onChange={(dots) => {
                     setAttributes({dots: dots ? 'show' : ''});
@@ -34,7 +34,7 @@ export default function ContentSlider(props) {
 
             <ToggleControl
                 label={__("Arrow", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={arrow}
                 onChange={(arrow) => {
                     setAttributes({arrow: arrow ? 'show' : ''});
@@ -44,7 +44,7 @@ export default function ContentSlider(props) {
 
             <ToggleControl
                 label={__("Fade", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={fade}
                 onChange={(fade) => {
                     setAttributes({fade: fade ? 'show' : ''});
@@ -54,7 +54,7 @@ export default function ContentSlider(props) {
 
             <ToggleControl
                 label={__("Autoplay", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={autoplay}
                 onChange={(autoplay) => {
                     setAttributes({autoplay: autoplay ? 'show' : ''});
@@ -64,7 +64,7 @@ export default function ContentSlider(props) {
 
             <ToggleControl
                 label={__("Adaptive Height", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={adaptiveHeight}
                 onChange={(adaptiveHeight) => {
                     setAttributes({adaptiveHeight: adaptiveHeight ? 'show' : ''});
@@ -74,7 +74,7 @@ export default function ContentSlider(props) {
 
             <ToggleControl
                 label={__("Infinite", "user-grid")}
-                className="dowp-toggle-control-field"
+                className="usgr-toggle-control-field"
                 checked={infinite}
                 onChange={(infinite) => {
                     setAttributes({infinite: infinite ? 'show' : ''});
@@ -95,7 +95,7 @@ export default function ContentSlider(props) {
                 placeholder={__("Eg. 700", "user-grid")}
                 shiftStep={400}
                 step="100"
-                className="dowp-control-field label-inline"
+                className="usgr-control-field label-inline"
             />
 
             <NumberControl
@@ -111,7 +111,7 @@ export default function ContentSlider(props) {
                 placeholder={__("Eg. 30000", "user-grid")}
                 shiftStep={500}
                 step="100"
-                className="dowp-control-field label-inline"
+                className="usgr-control-field label-inline"
             />
 
         </PanelBody>

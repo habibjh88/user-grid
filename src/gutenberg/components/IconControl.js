@@ -7,7 +7,7 @@ import Devices from "./Devices";
 const IconControl = (props) => {
 
 	const { value, responsive, onChange, label, content, options } = props;
-	const [device, setDevice] = useState(() => window.dowpDevice || 'lg');
+	const [device, setDevice] = useState(() => window.usgrDevice || 'lg');
 	const _filterValue = () => {
 		return value ? (responsive ? (value[device]) : value) : '';
 	}
@@ -25,12 +25,12 @@ const IconControl = (props) => {
 
 	if (defaultData.length !== 0) {
 		return (
-			<div className="dowp-control-field components-base-control dowp-cf-alignment-wrap">
+			<div className="usgr-control-field components-base-control usgr-cf-alignment-wrap">
 
 				{(label || responsive) && (
-					<div className="dowp-cf-head">
+					<div className="usgr-cf-head">
 						{label && (
-							<span className="dowp-label">{label}</span>
+							<span className="usgr-label">{label}</span>
 						)}
 						{responsive && <Devices device={device} onChange={_device => {
 							setDevice(_device);
@@ -45,11 +45,11 @@ const IconControl = (props) => {
 					</div>
 				)}
 
-				<div className="dowp-cf-body dowp-btn-group">
+				<div className="usgr-cf-body usgr-btn-group">
 					{defaultData.map((data, index) => {
 						return (
-							<button className={(_filterValue() == data.value ? 'active' : '') + ' dowp-button'} key={index} onClick={() => setSettings(_filterValue() == data.value ? '' : data.value)}>
-								<Tooltip text={__(data.label, 'user-grid')}><span className="dowp-align-icons">{__(data.icon, 'user-grid')}</span></Tooltip>
+							<button className={(_filterValue() == data.value ? 'active' : '') + ' usgr-button'} key={index} onClick={() => setSettings(_filterValue() == data.value ? '' : data.value)}>
+								<Tooltip text={__(data.label, 'user-grid')}><span className="usgr-align-icons">{__(data.icon, 'user-grid')}</span></Tooltip>
 							</button>
 						)
 					})}

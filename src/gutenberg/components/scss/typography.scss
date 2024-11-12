@@ -1,7 +1,7 @@
-.dowp-components-popover,
-.dowp-panel-control-wrapper {
-	.dowp-control-field {
-		&.dowp-cf-typography-wrap {
+.usgr-components-popover,
+.usgr-panel-control-wrapper {
+	.usgr-control-field {
+		&.usgr-cf-typography-wrap {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
@@ -37,7 +37,7 @@
 		}
 	}
 
-	.dowp-typography-content {
+	.usgr-typography-content {
 		min-width: 230px;
 		padding: 5px 6px;
 	}

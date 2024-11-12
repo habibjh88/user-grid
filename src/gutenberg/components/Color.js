@@ -19,18 +19,18 @@ function Color({label, color, onChange}) {
     };
 
     return (
-        <div className="dowp-control-field components-base-control dowp-cf-color-wrap">
+        <div className="usgr-control-field components-base-control usgr-cf-color-wrap">
 
             {label && (
-                <span className="dowp-label">{label}</span>
+                <span className="usgr-label">{label}</span>
             )}
 
-            <div className="dowp-color">
+            <div className="usgr-color">
                 <Dropdown
-                    contentClassName="dowp-components-popover dowp-cp-color-content"
+                    contentClassName="usgr-components-popover usgr-cp-color-content"
                     renderToggle={({isOpen, onToggle}) => (
                         <Tooltip text={color || "default"}>
-                            <div className="dowp-color-ball">
+                            <div className="usgr-color-ball">
                                 <div
                                     style={{
                                         height: 25,

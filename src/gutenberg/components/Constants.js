@@ -2,10 +2,10 @@ import icons from "./icon/icons";
 
 const {__} = wp.i18n;
 
-const img_path = dowpParams.plugin_url + '/assets/images';
+const img_path = usgrParams.plugin_url + '/assets/images';
 export const USER_PREVIEW = <img src={`${img_path}/preview/user-preview.png`} alt={__('User Preview')}/>;
 
-export const DOWP_IS_PRO = dowpParams.hasPro ? 'dowp-has-pro' : 'dowp-is-pro';
+export const USGR_IS_PRO = usgrParams.hasPro ? 'usgr-has-pro' : 'usgr-is-pro';
 export const NORMAL_HOVER = [
     {label: "Normal", value: "normal"},
     {label: "Hover", value: "hover"}

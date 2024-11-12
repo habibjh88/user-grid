@@ -1,11 +1,11 @@
-.dowp-components-popover,
-.dowp-panel-control-wrapper {
-	.dowp-control-dimensions {
+.usgr-components-popover,
+.usgr-panel-control-wrapper {
+	.usgr-control-dimensions {
 		overflow: hidden;
 		display: flex;
-		.dowp-control-dimension {
+		.usgr-control-dimension {
 			&:first-child input {
-				border-left: 1px solid var(--dowp-border);
+				border-left: 1px solid var(--usgr-border);
 				border-radius: 3px 0 0 3px;
 			}
 
@@ -17,7 +17,7 @@
 				text-align: center;
 				width: 100%;
 				height: 27px;
-				border-color: var(--dowp-border);
+				border-color: var(--usgr-border);
 
 				&:active,
 				&:focus,
@@ -27,13 +27,13 @@
 				}
 			}
 
-			.dowp-link-dimensions {
+			.usgr-link-dimensions {
 				width: 40px;
 				height: 30px;
 				cursor: pointer;
 				font-size: 15px;
 				border-radius: 0 3px 3px 0;
-				border: 1px solid var(--dowp-border);
+				border: 1px solid var(--usgr-border);
 				display: inline-flex;
 				align-items: center;
 				justify-content: center;
@@ -60,7 +60,7 @@
 			}
 		}
 
-		.dowp-control-dimension-label {
+		.usgr-control-dimension-label {
 			display: block;
 			text-align: center;
 			font-size: 9px;

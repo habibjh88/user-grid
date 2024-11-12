@@ -5,15 +5,15 @@
  * @package USER_GRID
  */
 
-namespace DOWP\UserGrid\Hooks;
+namespace USGR\UserGrid\Hooks;
 
 // Do not allow directly accessing this file.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'This script cannot be accessed directly.' );
 }
 
-use DOWP\UserGrid\Controllers\ScriptController;
-use DOWP\UserGrid\Helpers\Fns;
+use USGR\UserGrid\Controllers\ScriptController;
+use USGR\UserGrid\Helpers\Fns;
 
 //phpcs:disable WordPress.Security.NonceVerification.Missing
 
@@ -44,7 +44,7 @@ class ActionHooks {
 	 * @return void
 	 */
 	public static function add_user_social_profile( $user ) {
-		$attachment_id = get_user_meta( $user->ID, userGrid()->avatar_meta_key, true );
+		$attachment_id = get_user_meta( $user->ID, usgrUG()->avatar_meta_key, true );
 		$social_list   = Fns::social_list();
 		?>
 		<br>
@@ -82,36 +82,36 @@ class ActionHooks {
 							</p>
 						<?php endif; ?>
 
-						<input type="hidden" name="<?php echo esc_attr( userGrid()->avatar_meta_key ); ?>" value="<?php echo esc_attr( $attachment_id ); ?>"/>
+						<input type="hidden" name="<?php echo esc_attr( usgrUG()->avatar_meta_key ); ?>" value="<?php echo esc_attr( $attachment_id ); ?>"/>
 
 					</td>
 				</tr>
 
 				<tr>
-					<th><label for="user_grid_designation"><?php esc_html_e( 'Designation', 'user-grid' ); ?></label></th>
-					<td><input type="text" name="user_grid_designation" id="user_grid_designation"
+					<th><label for="usgr_designation"><?php esc_html_e( 'Designation', 'user-grid' ); ?></label></th>
+					<td><input type="text" name="usgr_designation" id="usgr_designation"
 							   placeholder="<?php esc_attr_e( 'Founder & CEO', 'user-grid' ); ?>"
-							   value="<?php echo esc_attr( get_the_author_meta( 'user_grid_designation', $user->ID ) ); ?>"
+							   value="<?php echo esc_attr( get_the_author_meta( 'usgr_designation', $user->ID ) ); ?>"
 							   class="regular-text"/><br/><span
 							class="description"><?php esc_html_e( 'Please enter your Designation', 'user-grid' ); ?></span>
 					</td>
 				</tr>
 
 				<tr>
-					<th><label for="user_grid_job_role"><?php esc_html_e( 'Job Role', 'user-grid' ); ?></label></th>
-					<td><input type="text" name="user_grid_job_role" id="user_grid_job_role"
+					<th><label for="usgr_job_role"><?php esc_html_e( 'Job Role', 'user-grid' ); ?></label></th>
+					<td><input type="text" name="usgr_job_role" id="usgr_job_role"
 							   placeholder="<?php esc_attr_e( 'Lead engineering teams at XYZ Co., Pitch, and Protocol Labs.', 'user-grid' ); ?>"
-							   value="<?php echo esc_attr( get_the_author_meta( 'user_grid_job_role', $user->ID ) ); ?>"
+							   value="<?php echo esc_attr( get_the_author_meta( 'usgr_job_role', $user->ID ) ); ?>"
 							   style="width: 500px;max-width: 100%"
 							   class="regular-text"/><br/><span
 							class="description"><?php esc_html_e( 'Please enter your Job Role', 'user-grid' ); ?></span>
 					</td>
 				</tr>
 				<tr>
-					<th><label for="user_grid_custom_url"><?php esc_html_e( 'Custom Author URL', 'user-grid' ); ?></label></th>
-					<td><input type="text" name="user_grid_custom_url" id="user_grid_custom_url"
+					<th><label for="usgr_custom_url"><?php esc_html_e( 'Custom Author URL', 'user-grid' ); ?></label></th>
+					<td><input type="text" name="usgr_custom_url" id="usgr_custom_url"
 							   placeholder="<?php esc_attr_e( 'Enter custom url for the user', 'user-grid' ); ?>"
-							   value="<?php echo esc_attr( get_the_author_meta( 'user_grid_custom_url', $user->ID ) ); ?>"
+							   value="<?php echo esc_attr( get_the_author_meta( 'usgr_custom_url', $user->ID ) ); ?>"
 							   style="width: 500px;max-width: 100%"
 							   class="regular-text"/><br/><span
 							class="description"><?php esc_html_e( 'Enter custom url instead of the author post url. Avoid this field if you would not like to redirect the user to a different page.`', 'user-grid' ); ?></span>
@@ -125,7 +125,7 @@ class ActionHooks {
 				<!-- User Social Info-->
 				<?php
 				foreach ( $social_list as $s_id => $s_title ) {
-					$input_id  = 'user_grid_' . $s_id;
+					$input_id  = 'usgr_' . $s_id;
 					$input_val = get_the_author_meta( $input_id, $user->ID );
 					?>
 					<tr>
@@ -154,7 +154,7 @@ class ActionHooks {
 			}
 		</style>
 		<?php
-		wp_nonce_field( userGrid()->nonceText(), userGrid()->nonceId() );
+		wp_nonce_field( usgrUG()->nonceText(), usgrUG()->nonceId() );
 	}
 
 	/**
@@ -175,7 +175,7 @@ class ActionHooks {
 		}
 
 		foreach ( $social_list as $s_id => $s_title ) {
-			$input_id = 'user_grid_' . $s_id;
+			$input_id = 'usgr_' . $s_id;
 
 			if ( isset( $_POST[ $input_id ] ) ) {
 				update_user_meta( $user_id, $input_id, sanitize_text_field( wp_unslash( $_POST[ $input_id ] ) ) );
@@ -183,17 +183,17 @@ class ActionHooks {
 		}
 
 		// Validate POST data and, if is ok, add it.
-		if ( ! empty( $_POST[ userGrid()->avatar_meta_key ] ) ) {
-			update_user_meta( $user_id, userGrid()->avatar_meta_key, (int) $_POST[ userGrid()->avatar_meta_key ] );
+		if ( ! empty( $_POST[ usgrUG()->avatar_meta_key ] ) ) {
+			update_user_meta( $user_id, usgrUG()->avatar_meta_key, (int) $_POST[ usgrUG()->avatar_meta_key ] );
 		}
-		if ( isset( $_POST['user_grid_job_role'] ) ) {
-			update_user_meta( $user_id, 'user_grid_job_role', sanitize_text_field( wp_unslash( $_POST['user_grid_job_role'] ) ) );
+		if ( isset( $_POST['usgr_job_role'] ) ) {
+			update_user_meta( $user_id, 'usgr_job_role', sanitize_text_field( wp_unslash( $_POST['usgr_job_role'] ) ) );
 		}
-		if ( isset( $_POST['user_grid_designation'] ) ) {
-			update_user_meta( $user_id, 'user_grid_designation', sanitize_text_field( wp_unslash( $_POST['user_grid_designation'] ) ) );
+		if ( isset( $_POST['usgr_designation'] ) ) {
+			update_user_meta( $user_id, 'usgr_designation', sanitize_text_field( wp_unslash( $_POST['usgr_designation'] ) ) );
 		}
-		if ( isset( $_POST['user_grid_custom_url'] ) ) {
-			update_user_meta( $user_id, 'user_grid_custom_url', sanitize_text_field( wp_unslash( $_POST['user_grid_custom_url'] ) ) );
+		if ( isset( $_POST['usgr_custom_url'] ) ) {
+			update_user_meta( $user_id, 'usgr_custom_url', sanitize_text_field( wp_unslash( $_POST['usgr_custom_url'] ) ) );
 		}
 	}
 }

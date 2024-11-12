@@ -1,17 +1,17 @@
-.dowp-components-popover,
-.dowp-panel-control-wrapper {
-    .dowp-control-field {
-        .dowp-cf-head .rt-left-part {
+.usgr-components-popover,
+.usgr-panel-control-wrapper {
+    .usgr-control-field {
+        .usgr-cf-head .rt-left-part {
             display: flex;
             align-items: center;
         }
 
-        .dowp-cf-head .dowp-label {
+        .usgr-cf-head .usgr-label {
             margin-bottom: 2px;
             margin-right: 4px;
         }
 
-        &.dowp-cf-range-wrap {
+        &.usgr-cf-range-wrap {
             row-gap: 5px;
 
             .components-input-control__input {
@@ -19,12 +19,12 @@
                 min-width: 70px;
             }
 
-            .dowp-cf-head {
+            .usgr-cf-head {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
             }
-            .dowp-units-choices  {
+            .usgr-units-choices  {
                 display: flex;
                 gap: 5px;
                 justify-content: flex-end;
@@ -35,7 +35,7 @@
                     font-size: 10px;
                     font-weight: 500;
                     &.active {
-                        color: var(--dowp-primary, #009FFF);
+                        color: var(--usgr-primary, #009FFF);
                     }
                 }
             }
@@ -43,32 +43,32 @@
             // components-range-control
             .components-range-control {
                 &__wrapper {
-                    color: var(--dowp-primary, #009FFF);
+                    color: var(--usgr-primary, #009FFF);
                     min-height: 25px;
                     height: 25px;
                     flex: 1 1 90% !important;
 
                     .acf-bf-cf-b-afb-199wkr {
-                        background-color: var(--dowp-primary, #009FFF);
+                        background-color: var(--usgr-primary, #009FFF);
                     }
                 }
             }
 
-            .dowp-cf-body {
+            .usgr-cf-body {
                 display: flex;
                 align-items: center;
                 gap: 8px;
 
                 .components-base-control,
                 .components-base-control__field,
-                .dowp-control-field {
+                .usgr-control-field {
                     flex-grow: 1;
                     margin-bottom: 0;
                 }
 
-                .dowp-undo-btn {
+                .usgr-undo-btn {
                     font-size: 16px;
-                    color: var(--dowp-secondary, #555);
+                    color: var(--usgr-secondary, #555);
                     background-color: transparent;
 
                     span {
