@@ -1,5 +1,5 @@
 {
-    "name": "habibjh88/user-grid",
+    "name": "devofwp/user-grid",
     "autoload": {
         "psr-4": {
             "USGR\\UserGrid\\": "app/"
@@ -7,8 +7,8 @@
     },
     "authors": [
         {
-            "name": "habib",
-            "email": "habibjh.me@gmail.com"
+            "name": "devofwp",
+            "email": "devofwp@gmail.com"
         }
     ],
     "require": {

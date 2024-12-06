@@ -76,13 +76,9 @@ if (process.env.npm_config_package) {
             'assets',
             'languages',
             'templates',
-            'src',
             'vendor',
             'index.php',
             'readme.txt',
-            'composer.json',
-            'package.json',
-            'webpack.mix.js',
             `${package_slug}.php`
         ];
         fsExtra.ensureDir(copyTo, function (err) {

@@ -1,7 +1,7 @@
 # User Grid
 
 
-**Contributors:** [habib](https://github.com/habibjh88)  
+**Contributors:** [devofwp](https://github.com/devofwp)  
 **Requires at least:** 5.9  
 **Tested up to:** 6.2
 **Stable tag:** 1.0.0

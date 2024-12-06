@@ -2,7 +2,7 @@
 /**
  * User Grid layout 1
  *
- * @author  habibjh88
+ * @author  devofwp
  * @since   1.0
  * @version 1.0
  *

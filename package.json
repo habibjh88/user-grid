@@ -1,13 +1,13 @@
 {
   "name": "user-grid",
   "version": "1.0.0",
-  "description": "=== User Grid ===",
+  "description": "=== User Grid - Show WP Users in a Grid ===",
   "main": "index.js",
   "directories": {
     "lib": "lib"
   },
   "keywords": [],
-  "author": "habibjh88",
+  "author": "devofwp",
   "license": "ISC",
   "scripts": {
     "dev": "npm run development",

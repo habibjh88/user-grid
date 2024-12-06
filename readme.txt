@@ -1,10 +1,10 @@
 === User Grid ===
-Contributors: habibjh88
+Contributors: devofwp, habibjh
 Donate link:
 Tags: user grid, user list, query builder
 Requires at least: 5.9
 Tested up to: 6.6
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -64,15 +64,27 @@ Yes, users can update their Gravatar image directly from their profile page usin
 
 Yes, all layouts and components are designed to be responsive and look great on all devices.
 
+== Screenshots ==
+
+01. Grid Layout 01
+02. Grid Layout 02
+03. Grid Layout 03
+04. List Layout 01
+05. List Layout 03
+06. Slider Layout 01
+
 == Changelog ==
 
-= 1.0 =
+= 1.0.1 =
+* Updated: Plugin name updated
+* Updated: Readme file updated
+* Remove: Unused code removed
+
+= 1.0.0 =
 * Initial release with 3 grid layouts, 3 list layouts, query builder, responsive design, Gravatar update, social info integration, and more.
 
 == Upgrade Notice ==
 
-= 1.0 =
-Initial release.
 
 == Arbitrary section ==
 
@@ -84,4 +96,4 @@ This plugin is licensed under the GPLv3. By using this plugin, you agree to the 
 
 == Additional Information ==
 
-For more information, support, or to report bugs Please mail us at `habibjh88@gmail.com`
+For more information, support, or to report bugs Please mail us at `devofwp@gmail.com`

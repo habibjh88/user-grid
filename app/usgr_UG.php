@@ -197,15 +197,6 @@ if ( ! class_exists( usgr_UG::class ) ) {
 		}
 
 		/**
-		 * Get the template path.
-		 *
-		 * @return string
-		 */
-		public function get_template_path() {
-			return apply_filters( 'usgr_template_path', 'user-grid/' );
-		}
-
-		/**
 		 * Check Pro Plugin
 		 *
 		 * @return boolean

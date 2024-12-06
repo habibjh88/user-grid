@@ -3,9 +3,9 @@ import {__} from "@wordpress/i18n";
 import Edit from "./edit";
 
 registerBlockType("usgr/user-grid", {
-    title: __("Custom Users Block", "user-grid"),
+    title: __("User Grid", "user-grid"),
     category: "usgr",
-    description: "Custom Users Block",
+    description: "Display WordPress Users anywhere",
     icon: <img src={usgrParams.plugin_url + "/assets/images/icon.svg"} alt={__("Custom Users Block")} />,
     example: {
         attributes: {
@@ -16,7 +16,7 @@ registerBlockType("usgr/user-grid", {
         align: ['center', 'wide', 'full']
     },
     keywords: [
-        __("Custom Users Block"),
+        __("Users Grid"),
         __("user-grid"),
         __("users"),
     ],
