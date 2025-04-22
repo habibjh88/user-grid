@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name: User Grid - Show WP Users in a Grid
+ * Plugin Name: User Grid – Display WordPress Users in a Beautiful Grid Layout
  * Plugin URI: https://github.com/devofwp/user-grid
  * Description: Fast & Easy way to display WordPress users in a page
  * Author: devofwp
- * Version: 1.0.1
+ * Version: 1.0.2
  * Text Domain: user-grid
  * Domain Path: /languages
  * Author URI: https://devofwp.com/
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'This script cannot be accessed directly.' );
 }
 
-define( 'USER_GRID_VERSION', '1.0.1' );
+define( 'USER_GRID_VERSION', '1.0.2' );
 define( 'USER_GRID_PLUGIN_FILE', __FILE__ );
 define( 'USER_GRID_PLUGIN_ACTIVE_FILE_NAME', plugin_basename( __FILE__ ) );
 define( 'USER_GRID_PLUGIN_URL', plugins_url( '', __FILE__ ) );

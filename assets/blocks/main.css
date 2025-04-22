@@ -1,14 +1,860 @@
-.usgr-components-popover .usgr-device-switcher,.usgr-panel-control-wrapper .usgr-device-switcher{align-items:center;color:#a4afb7;cursor:pointer;display:flex;font-size:11px;height:0;justify-content:center;opacity:0;position:relative;transform:scale(0);transition:.15s;z-index:2}.usgr-components-popover .usgr-device-switcher i,.usgr-panel-control-wrapper .usgr-device-switcher i{font-size:inherit}.usgr-components-popover .usgr-device-switcher.active,.usgr-panel-control-wrapper .usgr-device-switcher.active{font-size:14px;height:24px;margin-top:-2px;opacity:1;transform:scale(1)}.usgr-components-popover .usgr-device-switchers,.usgr-panel-control-wrapper .usgr-device-switchers{height:24px;position:relative;width:26px}.usgr-components-popover .usgr-device-switchers-wrap,.usgr-panel-control-wrapper .usgr-device-switchers-wrap{color:#e0e1e3;position:absolute;top:1px;width:100%;z-index:44}.usgr-components-popover .usgr-device-switchers-open .usgr-device-switchers-wrap,.usgr-panel-control-wrapper .usgr-device-switchers-open .usgr-device-switchers-wrap{background:#fff;border-radius:2px;box-shadow:0 0 20px 0 rgba(0,0,0,.25)}.usgr-components-popover .usgr-device-switchers-open.active-md .usgr-device-switchers-wrap,.usgr-components-popover .usgr-device-switchers-open.active-sm .usgr-device-switchers-wrap,.usgr-components-popover .usgr-device-switchers-open.active-xs .usgr-device-switchers-wrap,.usgr-panel-control-wrapper .usgr-device-switchers-open.active-md .usgr-device-switchers-wrap,.usgr-panel-control-wrapper .usgr-device-switchers-open.active-sm .usgr-device-switchers-wrap,.usgr-panel-control-wrapper .usgr-device-switchers-open.active-xs .usgr-device-switchers-wrap{top:0}.usgr-components-popover .usgr-device-switchers-open .usgr-device-switcher,.usgr-panel-control-wrapper .usgr-device-switchers-open .usgr-device-switcher{font-size:14px;height:24px;opacity:1;transform:scale(1)}.usgr-device-switchers-open .usgr-device-switcher.active{color:var(--usgr-primary,#009fff)}
-.usgr-components-popover .usgr-control-dimensions,.usgr-panel-control-wrapper .usgr-control-dimensions{display:flex;overflow:hidden}.usgr-components-popover .usgr-control-dimensions .usgr-control-dimension:first-child input,.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension:first-child input{border-left:1px solid var(--usgr-border);border-radius:3px 0 0 3px}.usgr-components-popover .usgr-control-dimensions .usgr-control-dimension input,.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension input{border-left:none;border-color:var(--usgr-border);border-radius:0;display:block;height:27px;padding:4px 0;text-align:center;width:100%}.usgr-components-popover .usgr-control-dimensions .usgr-control-dimension input:active,.usgr-components-popover .usgr-control-dimensions .usgr-control-dimension input:focus,.usgr-components-popover .usgr-control-dimensions .usgr-control-dimension input:hover,.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension input:active,.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension input:focus,.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension input:hover{box-shadow:none;outline:0}.usgr-components-popover .usgr-control-dimensions .usgr-control-dimension .usgr-link-dimensions,.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension .usgr-link-dimensions{align-items:center;border:1px solid var(--usgr-border);border-radius:0 3px 3px 0;cursor:pointer;display:inline-flex;font-size:15px;height:30px;justify-content:center;width:40px}.usgr-components-popover .usgr-control-dimensions .usgr-control-dimension .usgr-link-dimensions.linked,.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension .usgr-link-dimensions.linked{background-color:#e2e6e9;border-color:#d0d4d7}.usgr-components-popover .usgr-control-dimensions .usgr-control-dimension .usgr-link-dimensions .rt-dm-link-icon,.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension .usgr-link-dimensions .rt-dm-link-icon{align-items:center;display:inline-flex;font-size:15px;height:auto;line-height:1;width:auto}.usgr-components-popover .usgr-control-dimensions .usgr-control-dimension .usgr-link-dimensions:focus,.usgr-components-popover .usgr-control-dimensions .usgr-control-dimension .usgr-link-dimensions:focus-visible,.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension .usgr-link-dimensions:focus,.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension .usgr-link-dimensions:focus-visible{box-shadow:none;outline:0}.usgr-components-popover .usgr-control-dimensions .usgr-control-dimension-label,.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension-label{display:block;font-size:9px;padding-top:5px;text-align:center;text-transform:uppercase}
-.usgr-components-popover .usgr-control-field .usgr-cf-head .rt-left-part,.usgr-panel-control-wrapper .usgr-control-field .usgr-cf-head .rt-left-part{align-items:center;display:flex}.usgr-components-popover .usgr-control-field .usgr-cf-head .usgr-label,.usgr-panel-control-wrapper .usgr-control-field .usgr-cf-head .usgr-label{margin-bottom:2px;margin-right:4px}.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap{row-gap:5px}.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .components-input-control__input,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .components-input-control__input{height:30px!important;min-width:70px}.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-cf-head,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-cf-head{display:flex;flex-direction:row;justify-content:space-between}.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-units-choices,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-units-choices{display:flex;gap:5px;justify-content:flex-end}.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-units-choices label,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-units-choices label{cursor:pointer;font-size:10px;font-weight:500;padding:0;text-transform:uppercase}.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-units-choices label.active,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-units-choices label.active{color:var(--usgr-primary,#009fff)}.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .components-range-control__wrapper,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .components-range-control__wrapper{color:var(--usgr-primary,#009fff);flex:1 1 90%!important;height:25px;min-height:25px}.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .components-range-control__wrapper .acf-bf-cf-b-afb-199wkr,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .components-range-control__wrapper .acf-bf-cf-b-afb-199wkr{background-color:var(--usgr-primary,#009fff)}.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body{align-items:center;display:flex;gap:8px}.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .components-base-control,.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .components-base-control__field,.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .usgr-control-field,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .components-base-control,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .components-base-control__field,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .usgr-control-field{flex-grow:1;margin-bottom:0}.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .usgr-undo-btn,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .usgr-undo-btn{background-color:transparent;color:var(--usgr-secondary,#555);font-size:16px}.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .usgr-undo-btn span,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .usgr-undo-btn span{font-size:inherit;line-height:1.5}.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .usgr-undo-btn:focus,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .usgr-undo-btn:focus{box-shadow:none;outline:0}
-.usgr-media{margin-bottom:15px}.usgr-media label{display:block;font-weight:500;margin-bottom:10px}.usgr-media .usgr-single-img .usgr-media-image-parent{display:inline-block;height:120px;overflow:hidden;position:relative;width:100%}.usgr-media .usgr-single-img .usgr-media-image-parent img{height:100%;margin:0;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center;width:100%}.usgr-media .usgr-placeholder-image{background-color:#d5dadf;background-position:50%;background-repeat:no-repeat;background-size:cover;border:1px dashed #a7a7a7;border-radius:0;cursor:pointer;height:120px;padding:20px 20px 25px;position:relative;text-align:center;transition:.4s}.usgr-media .usgr-placeholder-image:hover{background-color:#bfc3c7;border-color:#838383}.usgr-media .usgr-placeholder-image .dashicons{font-size:20px;height:20px;margin-bottom:15px;padding-top:25px}.usgr-media .usgr-media-image-parent .usgr-media-actions{margin-top:0!important;position:absolute;right:10px!important;top:10px!important}.usgr-media .usgr-media-image-parent .usgr-media-actions button{background-color:hsla(0,0%,100%,.9);border:1px solid;border-radius:3px;color:#575c60;cursor:pointer;font-size:10px;height:22px;line-height:1.6;margin-left:5px;min-height:22px;padding:0 0 2px;position:static;right:10px;text-align:center;top:10px;transition:.4s;width:22px;z-index:9}.usgr-media .usgr-media-image-parent .usgr-media-actions button span{font-size:13px;height:auto;width:auto}.usgr-media .usgr-media-image-parent .usgr-media-actions button:hover{box-shadow:0 0 5px 0 #000!important;color:#373c41!important}
-.usgr-components-popover .usgr-control-field.usgr-cf-color-wrap,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-color-wrap{align-items:center;display:flex;gap:15px;justify-content:space-between}.usgr-components-popover .usgr-control-field.usgr-cf-color-wrap .usgr-color,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-color-wrap .usgr-color{align-items:center;display:flex;flex-direction:row-reverse;gap:6px}.usgr-components-popover .usgr-control-field.usgr-cf-color-wrap .usgr-color .usgr-undo-btn,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-color-wrap .usgr-color .usgr-undo-btn{padding:0}.usgr-components-popover .usgr-control-field.usgr-cf-color-wrap .usgr-color .dashicon,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-color-wrap .usgr-color .dashicon{line-height:22px}.usgr-components-popover .usgr-control-field.usgr-cf-color-wrap .usgr-color-ball,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-color-wrap .usgr-color-ball{background-image:linear-gradient(45deg,#e9e9e9 25%,transparent 0),linear-gradient(-45deg,#e9e9e9 25%,transparent 0),linear-gradient(45deg,transparent 75%,#e9e9e9 0),linear-gradient(-45deg,transparent 75%,#e9e9e9 0);background-position:0 0,0 5px,5px -5px,-5px 0;background-size:10px 10px;border-radius:0;overflow:hidden}.usgr-components-popover .usgr-control-field.usgr-cf-color-wrap .usgr-color-ball div,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-color-wrap .usgr-color-ball div{cursor:pointer}
-.usgr-components-popover .usgr-control-field.usgr-cf-typography-wrap,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-typography-wrap{align-items:center;display:flex;justify-content:space-between}.usgr-components-popover .usgr-control-field.usgr-cf-typography-wrap .components-button,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-typography-wrap .components-button{align-items:center;background:transparent;border:1px solid #d5dadf;border-radius:3px;color:#1e1e1e;display:inline-flex;font-size:12px;height:28px!important;justify-content:center;padding:0;width:28px!important}.usgr-components-popover .usgr-control-field.usgr-cf-typography-wrap .components-button>span,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-typography-wrap .components-button>span{font-size:19px;height:22px;line-height:1;transition:unset}.usgr-components-popover .usgr-control-field.usgr-cf-typography-wrap .components-button svg,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-typography-wrap .components-button svg{width:15px}.usgr-components-popover .usgr-control-field.usgr-cf-typography-wrap .components-button:hover,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-typography-wrap .components-button:hover{background-color:#d3e1e9}.usgr-components-popover .usgr-typography-content,.usgr-panel-control-wrapper .usgr-typography-content{min-width:230px;padding:5px 6px}
-.usgr-components-popover .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button{align-items:center;background:#fff;border:1px solid #ced7db;cursor:pointer;display:inline-flex;font-size:14px;height:30px;justify-content:center;line-height:30px;margin-left:-1px;transition:var(--usgr-transition)}.usgr-components-popover .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button.active,.usgr-components-popover .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button:hover,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button.active,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button:hover{background:var(--usgr-primary);color:#fff}.usgr-components-popover .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button:first-child,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button:first-child{border-radius:4px 0 0 4px}.usgr-components-popover .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button:last-child,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button:last-child{border-radius:0 4px 4px 0}.usgr-components-popover .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button svg:focus,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button svg:focus{outline:none}.usgr-components-popover .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button i,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button i{transition:none}
-.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap{margin-bottom:16px!important}.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list{--row-gap:10px;--column-gap:6px;-moz-column-gap:var(--column-gap);column-gap:var(--column-gap);display:grid;row-gap:var(--row-gap)}.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list .is-pro,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list .is-pro{position:relative}.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list .is-pro .pro-lable,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list .is-pro .pro-lable{background:red;color:#fff;display:inline-block;font-size:10px;font-weight:600;line-height:1;padding:2px 4px 3px;position:absolute;right:0;text-transform:uppercase;top:0;z-index:99}.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list .is-pro .usgr-layout,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list .is-pro .usgr-layout{border:none;position:relative}.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list .is-pro .usgr-layout:after,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list .is-pro .usgr-layout:after{background:rgba(0,0,0,.25);bottom:0;content:"";left:0;position:absolute;right:0;top:0;z-index:1}.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div{--row-gap:6px;--column-gap:6px;-moz-column-gap:var(--column-gap);column-gap:var(--column-gap);cursor:pointer;display:grid;overflow:hidden;row-gap:var(--row-gap);text-align:center}.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div .usgr-layout,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div .usgr-layout{background-color:#fff;border:2px solid var(--usgr-border);border-radius:0;display:block;height:62px;overflow:hidden;transition:var(--usgr-transition)}.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div .usgr-layout img,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div .usgr-layout img{display:block;filter:grayscale(1);transition:.4s;width:100%}.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div .usgr-label,.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div .usgr-style-icon,.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div .usgr-style-svg,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div .usgr-label,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div .usgr-style-icon,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div .usgr-style-svg{display:block}.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div .usgr-label,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div .usgr-label{font-size:11px!important;line-height:1.3;transition:var(--usgr-transition)}.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div.usgr-active .usgr-layout,.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div:hover .usgr-layout,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div.usgr-active .usgr-layout,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div:hover .usgr-layout{border-color:var(--usgr-primary,#009fff)}.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div.usgr-active .usgr-layout img,.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div:hover .usgr-layout img,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div.usgr-active .usgr-layout img,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div:hover .usgr-layout img{filter:grayscale(0)}.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div.usgr-active .usgr-label,.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div:hover .usgr-label,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div.usgr-active .usgr-label,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list>div:hover .usgr-label{color:var(--usgr-primary,#009fff)!important}.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list.usgr-style-columns-2,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list.usgr-style-columns-2{grid-template-columns:repeat(2,1fr)}.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list.usgr-style-columns-3,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list.usgr-style-columns-3{grid-template-columns:repeat(3,1fr)}.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list.usgr-style-columns-4,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list.usgr-style-columns-4{grid-template-columns:repeat(4,1fr)}
-.usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-btn-group{gap:5px}.usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-button{align-items:center;border-width:1.5px!important;cursor:pointer;display:flex;flex:0 0 31.8%;height:38px;justify-content:center;position:relative;transition:.4s}.usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-button span{font-weight:700;letter-spacing:1.5px;position:absolute;top:15px;z-index:99}.usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-button>div{align-items:center;display:flex;justify-content:center}.usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-button svg{max-width:100%}.usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-button svg:focus{outline:none}.usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-button.active{background:#eef7fd!important}.usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-button.active,.usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-button:hover{border-color:var(--usgr-primary)!important}.usgr-has-no-pro .usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-button.pro-layout{border-color:#912d2d!important;filter:grayscale(1);opacity:.5}.usgr-has-no-pro .usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-button.pro-layout:hover{filter:grayscale(0);opacity:.7}
-.usgr-components-popover .usgr-control-field.usgr-cf-gradient-color,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-color{row-gap:0}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap{--row-gap:12px}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__swatches,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__swatches{gap:8px}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option-wrapper,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option-wrapper{height:22px;width:22px}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option-wrapper:hover,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option-wrapper:hover{transform:scale(1)}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option-wrapper:before,.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option-wrapper>svg,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option-wrapper:before,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option-wrapper>svg{display:none}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option{padding:5px;position:relative}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option:after,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option:after{display:none}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option.is-pressed,.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option:hover,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option.is-pressed,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option:hover{box-shadow:none!important}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option.is-pressed:before,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option.is-pressed:before{background:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 448 512%27 width=%271em%27 height=%271em%27 fill=%27%23fff%27%3E%3Cpath d=%27M438.6 105.4c12.5 12.5 12.5 32.7 0 45.2l-256 256c-12.5 12.5-32.7 12.5-45.2 0L9.372 278.6c-12.496-12.5-12.496-32.7 0-45.2 12.498-12.5 32.758-12.5 45.258 0L159.1 338.7l234.3-233.3c12.5-12.52 32.7-12.52 45.2 0z%27/%3E%3C/svg%3E")!important;content:"";height:16px;left:50%;pointer-events:none;position:absolute;top:50%;transform:translate(-50%,-50%);width:16px}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper{margin-top:6px}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button{align-items:center;background-color:#e0e0e0;border:none;box-shadow:none;color:var(--usgr-black,#000);display:inline-flex;font-size:var(--usgr-admin-text-xs,12px);justify-content:center;padding:5px 10px}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:hover,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:hover{background-color:var(--usgr-primary,#009fff);color:var(--usgr-white,#fff)}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:focus,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:focus{box-shadow:none;outline:0}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker>div:nth-of-type(2)>div:nth-of-type(2)>div,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker>div:nth-of-type(2)>div:nth-of-type(2)>div{position:relative!important;top:6.5px!important}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__gradient-bar,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__gradient-bar{border-radius:4px;height:36px}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__markers-container,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__markers-container{height:100%}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__control-point-button,.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__insert-point,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__control-point-button,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__insert-point{background:transparent;border:2.5px solid #fff;border-radius:50%;box-shadow:none;color:#fff;top:50%;transform:translateY(-50%)}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:focus,.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover,.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__insert-point:focus,.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:focus,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__insert-point:focus,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover{box-shadow:none;outline:0}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover,.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover{background:transparent}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__insert-point,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__insert-point{top:11px}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__input,.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-select-control__input,.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-textarea-control__input,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__input,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-select-control__input,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-textarea-control__input{height:34px!important;min-height:34px!important}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__backdrop,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__backdrop{display:none!important}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle{border:1px solid var(--usgr-border)}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle-indicator,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle-indicator{background:var(--usgr-primary,#009fff);border-color:var(--usgr-primary,#009fff);border-radius:50%}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line{margin-bottom:6px}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-input-control__label,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-input-control__label{margin-bottom:0!important;padding-bottom:8px!important;text-transform:capitalize}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type{align-self:baseline}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container{border:1px solid var(--usgr-border);height:34px!important}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-truncate,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-truncate{color:var(--usgr-primary,#009fff)!important}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-input-control__input,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-input-control__input{border:none!important;height:31.5px!important;min-height:31.5px!important;padding:3px 0 3px 6px!important}.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container:focus,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container:focus{border-color:var(--usgr-primary,#009fff);box-shadow:none;outline:0}
-.usgr-components-popover .usgr-control-field.usgr-cf-bg-property,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-bg-property{display:flex;justify-content:space-between;margin-bottom:0!important}.usgr-components-popover .usgr-control-field.usgr-cf-bg-property select,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-bg-property select{height:30px!important;min-height:30px!important;padding-bottom:3px;padding-top:3px;width:130px}.usgr-components-popover .usgr-control-field.usgr-cf-bg-property .usgr-cf-body>*,.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-bg-property .usgr-cf-body>*{margin-bottom:0!important}
-.usgr-components-popover .usgr-bg-img .components-base-control__field,.usgr-panel-control-wrapper .usgr-bg-img .components-base-control__field{display:grid;gap:6px}.usgr-components-popover .usgr-bg-img .components-base-control .usgr-image-avatar,.usgr-components-popover .usgr-bg-img .components-base-control .usgr-img-remove-btn,.usgr-panel-control-wrapper .usgr-bg-img .components-base-control .usgr-image-avatar,.usgr-panel-control-wrapper .usgr-bg-img .components-base-control .usgr-img-remove-btn{margin-bottom:0}.usgr-components-popover .usgr-bg-img .components-base-control .usgr-image-avatar .open-image-button,.usgr-components-popover .usgr-bg-img .components-base-control .usgr-img-remove-btn .open-image-button,.usgr-panel-control-wrapper .usgr-bg-img .components-base-control .usgr-image-avatar .open-image-button,.usgr-panel-control-wrapper .usgr-bg-img .components-base-control .usgr-img-remove-btn .open-image-button{background:transparent;border:none;bottom:0;cursor:pointer;height:100%;left:0;position:absolute;right:0;top:0;width:100%}
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/devices.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
+.usgr-components-popover .usgr-device-switcher,
+.usgr-panel-control-wrapper .usgr-device-switcher {
+  color: #a4afb7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  height: 0;
+  transform: scale(0);
+  opacity: 0;
+  transition: 0.15s;
+  font-size: 11px;
+}
+.usgr-components-popover .usgr-device-switcher i,
+.usgr-panel-control-wrapper .usgr-device-switcher i {
+  font-size: inherit;
+}
+.usgr-components-popover .usgr-device-switcher.active,
+.usgr-panel-control-wrapper .usgr-device-switcher.active {
+  height: 24px;
+  transform: scale(1);
+  opacity: 1;
+  font-size: 14px;
+  margin-top: -2px;
+}
+.usgr-components-popover .usgr-device-switchers,
+.usgr-panel-control-wrapper .usgr-device-switchers {
+  position: relative;
+  width: 26px;
+  height: 24px;
+}
+.usgr-components-popover .usgr-device-switchers-wrap,
+.usgr-panel-control-wrapper .usgr-device-switchers-wrap {
+  position: absolute;
+  width: 100%;
+  top: 1px;
+  color: #e0e1e3;
+  z-index: 44;
+}
+.usgr-components-popover .usgr-device-switchers-open .usgr-device-switchers-wrap,
+.usgr-panel-control-wrapper .usgr-device-switchers-open .usgr-device-switchers-wrap {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+  background: #ffffff;
+  border-radius: 2px;
+}
+.usgr-components-popover .usgr-device-switchers-open.active-md .usgr-device-switchers-wrap,
+.usgr-panel-control-wrapper .usgr-device-switchers-open.active-md .usgr-device-switchers-wrap {
+  top: 0;
+}
+.usgr-components-popover .usgr-device-switchers-open.active-sm .usgr-device-switchers-wrap,
+.usgr-panel-control-wrapper .usgr-device-switchers-open.active-sm .usgr-device-switchers-wrap {
+  top: 0;
+}
+.usgr-components-popover .usgr-device-switchers-open.active-xs .usgr-device-switchers-wrap,
+.usgr-panel-control-wrapper .usgr-device-switchers-open.active-xs .usgr-device-switchers-wrap {
+  top: 0;
+}
+.usgr-components-popover .usgr-device-switchers-open .usgr-device-switcher,
+.usgr-panel-control-wrapper .usgr-device-switchers-open .usgr-device-switcher {
+  height: 24px;
+  transform: scale(1);
+  opacity: 1;
+  font-size: 14px;
+}
 
-.usgr-components-popover .usgr-boxshadow-content,.usgr-panel-control-wrapper .usgr-boxshadow-content{min-width:220px}
+.usgr-device-switchers-open .usgr-device-switcher.active {
+  color: var(--usgr-primary, #009FFF);
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/dimension.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+.usgr-components-popover .usgr-control-dimensions,
+.usgr-panel-control-wrapper .usgr-control-dimensions {
+  overflow: hidden;
+  display: flex;
+}
+.usgr-components-popover .usgr-control-dimensions .usgr-control-dimension:first-child input,
+.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension:first-child input {
+  border-left: 1px solid var(--usgr-border);
+  border-radius: 3px 0 0 3px;
+}
+.usgr-components-popover .usgr-control-dimensions .usgr-control-dimension input,
+.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension input {
+  border-left: none;
+  border-radius: 0;
+  padding: 4px 0;
+  display: block;
+  text-align: center;
+  width: 100%;
+  height: 27px;
+  border-color: var(--usgr-border);
+}
+.usgr-components-popover .usgr-control-dimensions .usgr-control-dimension input:active, .usgr-components-popover .usgr-control-dimensions .usgr-control-dimension input:focus, .usgr-components-popover .usgr-control-dimensions .usgr-control-dimension input:hover,
+.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension input:active,
+.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension input:focus,
+.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension input:hover {
+  box-shadow: none;
+  outline: 0;
+}
+.usgr-components-popover .usgr-control-dimensions .usgr-control-dimension .usgr-link-dimensions,
+.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension .usgr-link-dimensions {
+  width: 40px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 0 3px 3px 0;
+  border: 1px solid var(--usgr-border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.usgr-components-popover .usgr-control-dimensions .usgr-control-dimension .usgr-link-dimensions.linked,
+.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension .usgr-link-dimensions.linked {
+  background-color: #e2e6e9;
+  border-color: #d0d4d7;
+}
+.usgr-components-popover .usgr-control-dimensions .usgr-control-dimension .usgr-link-dimensions .rt-dm-link-icon,
+.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension .usgr-link-dimensions .rt-dm-link-icon {
+  font-size: 15px;
+  width: auto;
+  height: auto;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+.usgr-components-popover .usgr-control-dimensions .usgr-control-dimension .usgr-link-dimensions:focus, .usgr-components-popover .usgr-control-dimensions .usgr-control-dimension .usgr-link-dimensions:focus-visible,
+.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension .usgr-link-dimensions:focus,
+.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension .usgr-link-dimensions:focus-visible {
+  outline: 0;
+  box-shadow: none;
+}
+.usgr-components-popover .usgr-control-dimensions .usgr-control-dimension-label,
+.usgr-panel-control-wrapper .usgr-control-dimensions .usgr-control-dimension-label {
+  display: block;
+  text-align: center;
+  font-size: 9px;
+  text-transform: uppercase;
+  padding-top: 5px;
+}
+/*!***********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/rangeDevice.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************/
+.usgr-components-popover .usgr-control-field .usgr-cf-head .rt-left-part,
+.usgr-panel-control-wrapper .usgr-control-field .usgr-cf-head .rt-left-part {
+  display: flex;
+  align-items: center;
+}
+.usgr-components-popover .usgr-control-field .usgr-cf-head .usgr-label,
+.usgr-panel-control-wrapper .usgr-control-field .usgr-cf-head .usgr-label {
+  margin-bottom: 2px;
+  margin-right: 4px;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap {
+  row-gap: 5px;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .components-input-control__input,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .components-input-control__input {
+  height: 30px !important;
+  min-width: 70px;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-cf-head,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-cf-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-units-choices,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-units-choices {
+  display: flex;
+  gap: 5px;
+  justify-content: flex-end;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-units-choices label,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-units-choices label {
+  cursor: pointer;
+  padding: 0;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 500;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-units-choices label.active,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-units-choices label.active {
+  color: var(--usgr-primary, #009FFF);
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .components-range-control__wrapper,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .components-range-control__wrapper {
+  color: var(--usgr-primary, #009FFF);
+  min-height: 25px;
+  height: 25px;
+  flex: 1 1 90% !important;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .components-range-control__wrapper .acf-bf-cf-b-afb-199wkr,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .components-range-control__wrapper .acf-bf-cf-b-afb-199wkr {
+  background-color: var(--usgr-primary, #009FFF);
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .components-base-control,
+.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .components-base-control__field,
+.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .usgr-control-field,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .components-base-control,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .components-base-control__field,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .usgr-control-field {
+  flex-grow: 1;
+  margin-bottom: 0;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .usgr-undo-btn,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .usgr-undo-btn {
+  font-size: 16px;
+  color: var(--usgr-secondary, #555);
+  background-color: transparent;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .usgr-undo-btn span,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .usgr-undo-btn span {
+  font-size: inherit;
+  line-height: 1.5;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .usgr-undo-btn:focus,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-range-wrap .usgr-cf-body .usgr-undo-btn:focus {
+  outline: 0;
+  box-shadow: none;
+}
+/*!*****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/media.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************/
+.usgr-media {
+  margin-bottom: 15px;
+}
+.usgr-media label {
+  margin-bottom: 10px;
+  display: block;
+  font-weight: 500;
+}
+.usgr-media .usgr-single-img .usgr-media-image-parent {
+  position: relative;
+  display: inline-block;
+  height: 120px;
+  width: 100%;
+  overflow: hidden;
+}
+.usgr-media .usgr-single-img .usgr-media-image-parent img {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.usgr-media .usgr-placeholder-image {
+  position: relative;
+  border: 1px dashed #a7a7a7;
+  padding: 20px 20px 25px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0;
+  background-color: #d5dadf;
+  transition: 0.4s;
+  height: 120px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.usgr-media .usgr-placeholder-image:hover {
+  background-color: #bfc3c7;
+  border-color: #838383;
+}
+.usgr-media .usgr-placeholder-image .dashicons {
+  height: 20px;
+  padding-top: 25px;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+.usgr-media .usgr-media-image-parent .usgr-media-actions {
+  position: absolute;
+  top: 10px !important;
+  right: 10px !important;
+  margin-top: 0 !important;
+}
+.usgr-media .usgr-media-image-parent .usgr-media-actions button {
+  position: static;
+  text-align: center;
+  padding: 0 0 2px 0;
+  margin-left: 5px;
+  top: 10px;
+  right: 10px;
+  width: 22px;
+  height: 22px;
+  min-height: 22px;
+  font-size: 10px;
+  color: #575c60;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 3px;
+  line-height: 1.6;
+  border: 1px solid;
+  cursor: pointer;
+  z-index: 9;
+  transition: 0.4s;
+}
+.usgr-media .usgr-media-image-parent .usgr-media-actions button span {
+  font-size: 13px;
+  width: auto;
+  height: auto;
+}
+.usgr-media .usgr-media-image-parent .usgr-media-actions button:hover {
+  color: #373c41 !important;
+  box-shadow: 0 0 5px 0 #000 !important;
+}
+/*!*****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/color.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************/
+.usgr-components-popover .usgr-control-field.usgr-cf-color-wrap,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-color-wrap {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: space-between;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-color-wrap .usgr-color,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-color-wrap .usgr-color {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-direction: row-reverse;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-color-wrap .usgr-color .usgr-undo-btn,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-color-wrap .usgr-color .usgr-undo-btn {
+  padding: 0;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-color-wrap .usgr-color .dashicon,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-color-wrap .usgr-color .dashicon {
+  line-height: 22px;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-color-wrap .usgr-color-ball,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-color-wrap .usgr-color-ball {
+  background-image: linear-gradient(45deg, #e9e9e9 25%, transparent 0), linear-gradient(-45deg, #e9e9e9 25%, transparent 0), linear-gradient(45deg, transparent 75%, #e9e9e9 0), linear-gradient(-45deg, transparent 75%, #e9e9e9 0);
+  background-position: 0 0, 0 5px, 5px -5px, -5px 0;
+  background-size: 10px 10px;
+  border-radius: 0;
+  overflow: hidden;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-color-wrap .usgr-color-ball div,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-color-wrap .usgr-color-ball div {
+  cursor: pointer;
+}
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/typography.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+.usgr-components-popover .usgr-control-field.usgr-cf-typography-wrap,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-typography-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-typography-wrap .components-button,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-typography-wrap .components-button {
+  font-size: 12px;
+  height: 28px !important;
+  width: 28px !important;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d5dadf;
+  background: transparent;
+  border-radius: 3px;
+  color: #1e1e1e;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-typography-wrap .components-button > span,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-typography-wrap .components-button > span {
+  transition: unset;
+  line-height: 1;
+  height: 22px;
+  font-size: 19px;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-typography-wrap .components-button svg,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-typography-wrap .components-button svg {
+  width: 15px;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-typography-wrap .components-button:hover,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-typography-wrap .components-button:hover {
+  background-color: #d3e1e9;
+}
+.usgr-components-popover .usgr-typography-content,
+.usgr-panel-control-wrapper .usgr-typography-content {
+  min-width: 230px;
+  padding: 5px 6px;
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/alignment.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+.usgr-components-popover .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button {
+  font-size: 14px;
+  background: #fff;
+  border: 1px solid #ced7db;
+  height: 30px;
+  line-height: 30px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -1px;
+  cursor: pointer;
+  transition: var(--usgr-transition);
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button:hover, .usgr-components-popover .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button.active,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button:hover,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button.active {
+  background: var(--usgr-primary);
+  color: #ffffff;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button:first-child,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button:first-child {
+  border-radius: 4px 0 0 4px;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button:last-child,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button:last-child {
+  border-radius: 0 4px 4px 0;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button svg:focus,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button svg:focus {
+  outline: none;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button i,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-alignment-wrap .usgr-btn-group .usgr-button i {
+  transition: none;
+}
+/*!******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/styles.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************/
+.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap {
+  margin-bottom: 16px !important;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list {
+  --row-gap: 10px;
+  --column-gap: 6px;
+  display: grid;
+  row-gap: var(--row-gap);
+  -moz-column-gap: var(--column-gap);
+       column-gap: var(--column-gap);
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list .is-pro,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list .is-pro {
+  position: relative;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list .is-pro .pro-lable,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list .is-pro .pro-lable {
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 1;
+  background: red;
+  display: inline-block;
+  z-index: 99;
+  padding: 2px 4px 3px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list .is-pro .usgr-layout,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list .is-pro .usgr-layout {
+  position: relative;
+  border: none;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list .is-pro .usgr-layout:after,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list .is-pro .usgr-layout:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div {
+  --row-gap: 6px;
+  --column-gap: 6px;
+  display: grid;
+  row-gap: var(--row-gap);
+  -moz-column-gap: var(--column-gap);
+       column-gap: var(--column-gap);
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div .usgr-layout,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div .usgr-layout {
+  display: block;
+  border: 2px solid var(--usgr-border);
+  transition: var(--usgr-transition);
+  overflow: hidden;
+  height: 62px;
+  border-radius: 0;
+  background-color: #fff;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div .usgr-layout img,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div .usgr-layout img {
+  display: block;
+  width: 100%;
+  transition: 0.4s;
+  filter: grayscale(1);
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div .usgr-style-icon,
+.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div .usgr-style-svg,
+.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div .usgr-label,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div .usgr-style-icon,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div .usgr-style-svg,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div .usgr-label {
+  display: block;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div .usgr-label,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div .usgr-label {
+  font-size: 11px !important;
+  line-height: 1.3;
+  transition: var(--usgr-transition);
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div:hover .usgr-layout, .usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div.usgr-active .usgr-layout,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div:hover .usgr-layout,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div.usgr-active .usgr-layout {
+  border-color: var(--usgr-primary, #009FFF);
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div:hover .usgr-layout img, .usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div.usgr-active .usgr-layout img,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div:hover .usgr-layout img,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div.usgr-active .usgr-layout img {
+  filter: grayscale(0);
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div:hover .usgr-label, .usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div.usgr-active .usgr-label,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div:hover .usgr-label,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list > div.usgr-active .usgr-label {
+  color: var(--usgr-primary, #009FFF) !important;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list.usgr-style-columns-2,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list.usgr-style-columns-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list.usgr-style-columns-3,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list.usgr-style-columns-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list.usgr-style-columns-4,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-styles-wrap .usgr-style-list.usgr-style-columns-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+/*!***********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/LayoutStyle.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************/
+.usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-btn-group {
+  gap: 5px;
+}
+.usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-button {
+  flex: 0 0 31.8%;
+  cursor: pointer;
+  transition: 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 38px;
+  position: relative;
+  border-width: 1.5px !important;
+}
+.usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-button span {
+  position: absolute;
+  top: 15px;
+  z-index: 99;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+.usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-button > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-button svg {
+  max-width: 100%;
+}
+.usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-button svg:focus {
+  outline: none;
+}
+.usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-button.active {
+  background: #eef7fd !important;
+}
+.usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-button:hover, .usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-button.active {
+  border-color: var(--usgr-primary) !important;
+}
+
+.usgr-has-no-pro .usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-button.pro-layout {
+  border-color: #912d2d !important;
+  opacity: 0.5;
+  filter: grayscale(1);
+}
+.usgr-has-no-pro .usgr-panel-control-wrapper .usgr-cf-layout-style .usgr-button.pro-layout:hover {
+  opacity: 0.7;
+  filter: grayscale(0);
+}
+/*!********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/gradient.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************/
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-color,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-color {
+  row-gap: 0;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap {
+  --row-gap: 12px;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__swatches,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__swatches {
+  gap: 8px;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option-wrapper,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option-wrapper {
+  height: 22px;
+  width: 22px;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option-wrapper:hover,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option-wrapper:hover {
+  transform: scale(1);
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option-wrapper::before,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option-wrapper::before {
+  display: none;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option-wrapper > svg,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option-wrapper > svg {
+  display: none;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option {
+  position: relative;
+  padding: 5px;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option::after,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option::after {
+  display: none;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option.is-pressed, .usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option:hover,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option.is-pressed,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option:hover {
+  box-shadow: none !important;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option.is-pressed::before,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__option.is-pressed::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background: url("data:image/svg+xml,%0A%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 448 512%27 width=%271em%27 height=%271em%27 fill=%27%23ffffff%27 %3E%3Cpath d=%27M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z%27/%3E%3C/svg%3E") !important;
+  pointer-events: none;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper {
+  margin-top: 6px;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button {
+  font-size: var(--usgr-admin-text-xs, 12px);
+  padding: 5px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: none;
+  color: var(--usgr-black, #000);
+  background-color: #e0e0e0;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:hover,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:hover {
+  color: var(--usgr-white, #fff);
+  background-color: var(--usgr-primary, #009FFF);
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:focus,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-circular-option-picker__custom-clear-wrapper .components-button:focus {
+  outline: 0;
+  box-shadow: none;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker > div:nth-of-type(2) > div:nth-of-type(2) > div,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker > div:nth-of-type(2) > div:nth-of-type(2) > div {
+  position: relative !important;
+  top: 6.5px !important;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__gradient-bar,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__gradient-bar {
+  height: 36px;
+  border-radius: 4px;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__markers-container,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__markers-container {
+  height: 100%;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__insert-point, .usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__control-point-button,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__insert-point,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__control-point-button {
+  color: #fff;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  top: 50%;
+  background: transparent;
+  border: 2.5px solid #ffffff;
+  box-shadow: none;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover, .usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__insert-point:focus, .usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover, .usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:focus,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__insert-point:focus,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:focus {
+  box-shadow: none;
+  outline: 0;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover, .usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__insert-point:hover,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__control-point-button:hover {
+  background: transparent;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__insert-point,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__insert-point {
+  top: 11px;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-select-control__input,
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-textarea-control__input,
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__input,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-select-control__input,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-textarea-control__input,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__input {
+  height: 34px !important;
+  min-height: 34px !important;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__backdrop,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-input-control__backdrop {
+  display: none !important;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle {
+  border: 1px solid var(--usgr-border);
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle-indicator,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker .components-angle-picker-control__angle-circle-indicator {
+  background: var(--usgr-primary, #009FFF);
+  border-radius: 50%;
+  border-color: var(--usgr-primary, #009FFF);
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line {
+  margin-bottom: 6px;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-input-control__label,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-input-control__label {
+  text-transform: capitalize;
+  padding-bottom: 8px !important;
+  margin-bottom: 0 !important;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type {
+  align-self: baseline;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container {
+  height: 34px !important;
+  border: 1px solid var(--usgr-border);
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-truncate,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-truncate {
+  color: var(--usgr-primary, #009FFF) !important;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-input-control__input,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container .components-input-control__input {
+  border: none !important;
+  height: 31.5px !important;
+  min-height: 31.5px !important;
+  padding-right: 0 !important;
+  padding-left: 6px !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container:focus,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-gradient-wrap .components-custom-gradient-picker__ui-line .components-flex-item:last-of-type .components-input-control__container:focus {
+  outline: 0;
+  box-shadow: none;
+  border-color: var(--usgr-primary, #009FFF);
+}
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/SelectObj1.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+.usgr-components-popover .usgr-control-field.usgr-cf-bg-property,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-bg-property {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0 !important;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-bg-property select,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-bg-property select {
+  width: 130px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  min-height: 30px !important;
+  height: 30px !important;
+}
+.usgr-components-popover .usgr-control-field.usgr-cf-bg-property .usgr-cf-body > *,
+.usgr-panel-control-wrapper .usgr-control-field.usgr-cf-bg-property .usgr-cf-body > * {
+  margin-bottom: 0 !important;
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/bgImage.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
+.usgr-components-popover .usgr-bg-img .components-base-control__field,
+.usgr-panel-control-wrapper .usgr-bg-img .components-base-control__field {
+  display: grid;
+  gap: 6px;
+}
+.usgr-components-popover .usgr-bg-img .components-base-control .usgr-img-remove-btn,
+.usgr-components-popover .usgr-bg-img .components-base-control .usgr-image-avatar,
+.usgr-panel-control-wrapper .usgr-bg-img .components-base-control .usgr-img-remove-btn,
+.usgr-panel-control-wrapper .usgr-bg-img .components-base-control .usgr-image-avatar {
+  margin-bottom: 0;
+}
+.usgr-components-popover .usgr-bg-img .components-base-control .usgr-img-remove-btn .open-image-button,
+.usgr-components-popover .usgr-bg-img .components-base-control .usgr-image-avatar .open-image-button,
+.usgr-panel-control-wrapper .usgr-bg-img .components-base-control .usgr-img-remove-btn .open-image-button,
+.usgr-panel-control-wrapper .usgr-bg-img .components-base-control .usgr-image-avatar .open-image-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/background.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/gutenberg/components/scss/boxshadow.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+.usgr-components-popover .usgr-boxshadow-content,
+.usgr-panel-control-wrapper .usgr-boxshadow-content {
+  min-width: 220px;
+}
+
+/*# sourceMappingURL=main.css.map*/

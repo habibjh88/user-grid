@@ -18,6 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Script Controller class.
  */
 class ScriptController {
+
 	/**
 	 * Version
 	 *
@@ -41,14 +42,12 @@ class ScriptController {
 	public function __construct() {
 		global $pagenow;
 		$this->version = defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : USER_GRID_VERSION;
-		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue' ] );
 		if ( in_array( $pagenow, $this->notices_enabled_pages ) ) {
-
-			// Admin scripts
+			// Admin scripts.
 			add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scripts' ] );
-
 		}
 		add_action( 'init', [ $this, 'init' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue' ] );
 	}
 
 	/**
@@ -106,7 +105,6 @@ class ScriptController {
 	}
 
 	public static function get_default_avatar_url( $user_email = '', $size = 96 ) {
-
 		// Check the email provided
 		if ( empty( $user_email ) || ! filter_var( $user_email, FILTER_VALIDATE_EMAIL ) ) {
 			return null;
@@ -142,4 +140,5 @@ class ScriptController {
 		];
 		wp_localize_script( 'user-grid-avatar', 'userGrid', $l10n );
 	}
+
 }

@@ -1,10 +1,10 @@
-=== User Grid ===
+=== User Grid – Display WordPress Users in a Beautiful Grid Layout ===
 Contributors: devofwp, habibjh
 Donate link:
 Tags: user grid, user list, query builder
 Requires at least: 5.9
-Tested up to: 6.6
-Stable tag: 1.0.1
+Tested up to: 6.8
+Stable tag: 1.0.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -75,6 +75,10 @@ Yes, all layouts and components are designed to be responsive and look great on 
 
 == Changelog ==
 
+= 1.0.2 =
+* Updated: WordPress update compatibility
+* Updated: readme file modify
+
 = 1.0.1 =
 * Updated: Plugin name updated
 * Updated: Readme file updated
@@ -84,7 +88,6 @@ Yes, all layouts and components are designed to be responsive and look great on 
 * Initial release with 3 grid layouts, 3 list layouts, query builder, responsive design, Gravatar update, social info integration, and more.
 
 == Upgrade Notice ==
-
 
 == Arbitrary section ==
 
