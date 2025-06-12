@@ -15,6 +15,7 @@ require_once USER_GRID_PLUGIN_BASE_DIR . 'vendor/autoload.php';
 use USGR\UserGrid\Controllers\AjaxController;
 use USGR\UserGrid\Controllers\BlocksController;
 use USGR\UserGrid\Controllers\ScriptController;
+use USGR\UserGrid\Controllers\ShortcodeController;
 use USGR\UserGrid\Hooks\ActionHooks;
 use USGR\UserGrid\Hooks\FilterHooks;
 use USGR\UserGrid\Helpers\Install;
@@ -80,11 +81,13 @@ if ( ! class_exists( usgr_UG::class ) ) {
 			new AjaxController();
 			new ScriptController();
 			new BlocksController();
+			new ShortcodeController();
 
 			// Filter hooks init.
 			FilterHooks::init();
 			ActionHooks::init();
 
+			// Load hooks.
 			$this->load_hooks();
 		}
 
