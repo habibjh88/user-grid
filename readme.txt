@@ -1,14 +1,14 @@
 === User Grid – Display WordPress Users in a Beautiful Grid Layout ===
 Contributors: devofwp, habibjh
 Donate link:
-Tags: user grid, user directory, user list, user meta, user profile, shortcode, gutenberg block, team members, staff list
+Tags: user grid, user list, user image, team, staff
 Requires at least: 5.9
 Tested up to: 6.8
 Stable tag: 1.0.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Display your WordPress users in beautiful grid and list layouts using Gutenberg blocks or shortcodes. Includes a powerful query builder, custom user meta fields, and full layout customization.
+Display WordPress users in grid, list, or slider layouts using Gutenberg blocks or shortcodes. Includes query builder and custom user fields.
 
 == Description ==
 
