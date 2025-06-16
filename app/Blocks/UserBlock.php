@@ -2,8 +2,7 @@
 
 namespace USGR\UserGrid\Blocks;
 
-use USGR\UserGrid\Helpers\Fns;
-use USGR\UserGrid\Abstract\BlockBase;
+use USGR\UserGrid\Abstracts\BlockBase;
 use USGR\UserGrid\Utils\Attributes;
 use USGR\UserGrid\Utils\RenderContent;
 use USGR\UserGrid\Utils\RenderSlider;

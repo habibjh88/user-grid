@@ -4,7 +4,7 @@ Donate link:
 Tags: user grid, user list, user image, team, staff
 Requires at least: 5.9
 Tested up to: 6.8
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -150,6 +150,9 @@ Yes, all layouts and components are designed to be responsive and look great on 
 06. Slider Layout 01
 
 == Changelog ==
+
+= 1.0.4 =
+* Fixed: syntax error, unexpected 'Abstract'
 
 = 1.0.3 =
 * Added: Shortcode builder for the "User Grid" feature.

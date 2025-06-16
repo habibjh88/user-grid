@@ -1,6 +1,6 @@
 <?php
 
-namespace USGR\UserGrid\Abstract;
+namespace USGR\UserGrid\Abstracts;
 
 use USGR\UserGrid\Helpers\Fns;
 
