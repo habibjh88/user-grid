@@ -151,8 +151,10 @@ Yes, all layouts and components are designed to be responsive and look great on 
 
 == Changelog ==
 
-= 1.0.4 =
-* Fixed: syntax error, unexpected 'Abstract'
+= 1.0.4 (16 Jun, 2025) =
+* Fixed: A syntax error caused by unexpected ‘Abstract’ keyword.
+* Added: Compatibility support for LearnPress courses.
+* Enhanced: User archive pages with options to customize displayed post types.
 
 = 1.0.3 =
 * Added: Shortcode builder for the "User Grid" feature.

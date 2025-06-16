@@ -207,7 +207,7 @@ class TemplateFns {
 		}
         $post_type = $args['post_type'] ?? 'post';
         $author_url = get_author_posts_url( $user_id );
-        $link = add_query_arg( 'post_type', $post_type, $author_url );
+        $link = ( $post_type !== 'post' ) ? add_query_arg( 'post_type', $post_type, $author_url ) : $author_url;
 		?>
 		<div class="read-articles-btn <?php echo esc_attr( $args['button_order'] ); ?>">
 			<a class="read-btn <?php echo esc_attr( $args['button_style'] ); ?>"

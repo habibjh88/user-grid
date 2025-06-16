@@ -590,18 +590,6 @@ class Fns {
         <a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
 			<?php echo get_avatar( $user_id, $avatar_size ); ?>
         </a>
-
-
-        <!-- $user_id = 15;
-		 $post_type = 'lp_course'; // Could be dynamic from block settings
-
-		 $author_url = get_author_posts_url( $user_id );
-		 $link = add_query_arg( 'post_type', $post_type, $author_url );
-
-		 echo '<a class="read-btn" href="' . esc_url( $link ) . '">View ' . esc_html( $post_type ) . 's</a>';
-		 -->
-
-
 		<?php
 	}
 
