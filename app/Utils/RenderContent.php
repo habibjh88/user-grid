@@ -34,7 +34,7 @@ class RenderContent {
 
 		$layout_data = Fns::get_post_args( $data );
 		$inner_class = Fns::inner_class( $data );
-		?>
+        ?>
 
 		<div class="<?php echo esc_attr( $wrapper_class ); ?>">
 			<div class="usgr-users-block-wrapper clearfix <?php echo esc_attr( $inner_class ); ?>"

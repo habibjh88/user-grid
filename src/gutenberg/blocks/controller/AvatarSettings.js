@@ -5,8 +5,8 @@ const {useState} = wp.element;
 import {
     PanelBody,
     ToggleControl,
-    __experimentalBorderControl as BorderControl, Button
-} from "@wordpress/components";
+    __experimentalBorderControl as BorderControl, Button, __experimentalNumberControl as NumberControl,
+} from '@wordpress/components'
 import {Dimension, RangeDevice, Media, Color, Background} from "../../components/Components";
 
 function AvatarSettings(props) {
@@ -52,42 +52,43 @@ function AvatarSettings(props) {
                 }}
             />
 
-            <RangeDevice
-                label={__("Gravatar Size")}
-                value={avatar_dimension}
-                onChange={(val) => {
-                    setAttributes({avatar_dimension: val})
-                    changeQuery()
-                }}
+            <NumberControl
+                isShiftStepEnabled
+                label={__("Gravatar Size", "user-grid")}
                 min={50}
                 max={1000}
-                step={1}
+                value={avatar_dimension}
+                onChange={(avatar_dimension) => {
+                    setAttributes({avatar_dimension})
+                    changeQuery()
+                }}
+                placeholder={__("Eg. 30000", "user-grid")}
+                shiftStep={50}
+                step="1"
+                className="usgr-control-field label-inline"
             />
-            <small className="usgr-help">{__("Gravatar Size works only for gravatar photo", "user-grid")}</small>
 
-            {! ['grid13', 'grid14', 'grid15', 'slider13', 'slider14', 'slider15'].includes(layout) &&
-                <>
-                    <RangeDevice
-                        label={__('Image Width')}
-                        responsive={true}
-                        value={avatar_width}
-                        min={0}
-                        max={500}
-                        step={1}
-                        onChange={(val) => setAttributes({avatar_width: val})}
-                    />
+            <small className="usgr-help">{__("The size parameter only applies to avatars from Gravatar.com; custom avatars may ignore it.", "user-grid")}</small>
 
-                    <RangeDevice
-                        label={__('Image Height')}
-                        responsive={true}
-                        value={avatar_height}
-                        min={0}
-                        max={500}
-                        step={1}
-                        onChange={(val) => setAttributes({avatar_height: val})}
-                    />
-                </>
-            }
+            <RangeDevice
+                label={__('Custom Width')}
+                responsive={true}
+                value={avatar_width}
+                min={0}
+                max={500}
+                step={1}
+                onChange={(val) => setAttributes({avatar_width: val})}
+            />
+
+            <RangeDevice
+                label={__('Custom Height')}
+                responsive={true}
+                value={avatar_height}
+                min={0}
+                max={500}
+                step={1}
+                onChange={(val) => setAttributes({avatar_height: val})}
+            />
 
             <RangeDevice
                 label={__('Image Y Position (Optional)')}

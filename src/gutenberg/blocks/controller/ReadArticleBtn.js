@@ -11,6 +11,8 @@ export default function ReadArticleBtn(props) {
     const {
         button_style,
         button_text,
+        post_type_list,
+        active_post_type,
         read_btn_spacing,
         read_btn_color,
         read_btn_bg,
@@ -30,6 +32,17 @@ export default function ReadArticleBtn(props) {
                 options={BUTTON_STYLE}
                 onChange={(button_style) => {
                     setAttributes({button_style})
+                    changeQuery()
+                }}
+            />
+
+            <SelectControl
+                label={__("Choose Post Type", "user-grid")}
+                className="usgr-control-field label-inline usgr-expand"
+                value={active_post_type}
+                options={post_type_list}
+                onChange={(post_type) => {
+                    setAttributes({post_type})
                     changeQuery()
                 }}
             />

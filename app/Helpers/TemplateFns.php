@@ -205,10 +205,13 @@ class TemplateFns {
 		if ( ! $args['button_visibility'] || ! $args['button_text'] ) {
 			return;
 		}
+        $post_type = $args['post_type'] ?? 'post';
+        $author_url = get_author_posts_url( $user_id );
+        $link = add_query_arg( 'post_type', $post_type, $author_url );
 		?>
 		<div class="read-articles-btn <?php echo esc_attr( $args['button_order'] ); ?>">
 			<a class="read-btn <?php echo esc_attr( $args['button_style'] ); ?>"
-			   href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
+			   href="<?php echo esc_url( $link ); ?>">
 				<?php echo esc_html( $args['button_text'] ); ?>
 			</a>
 		</div>

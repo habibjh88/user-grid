@@ -34,6 +34,19 @@ class ActionHooks {
 		add_action( 'edit_user_profile', [ __CLASS__, 'add_user_social_profile' ], 10 );
 		add_action( 'personal_options_update', [ __CLASS__, 'update_profile_fields' ], 10 );
 		add_action( 'edit_user_profile_update', [ __CLASS__, 'update_profile_fields' ], 10 );
+
+
+		add_action( 'pre_get_posts', [__CLASS__, 'modify_author_archive'] );
+	}
+
+	public static function modify_author_archive( $query ) {
+		if ( is_author() && $query->is_main_query() && !is_admin() ) {
+			$selected_post_type = get_query_var( 'post_type' );
+
+			if ( $selected_post_type ) {
+				$query->set( 'post_type', $selected_post_type );
+			}
+		}
 	}
 
 	/**

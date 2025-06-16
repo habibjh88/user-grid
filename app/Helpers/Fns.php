@@ -102,7 +102,6 @@ class Fns {
 		}
 	}
 
-
 	/**
 	 * Prints HTMl.
 	 *
@@ -128,11 +127,10 @@ class Fns {
 		return admin_url( 'admin-ajax.php', 'relative' );
 	}
 
-
 	/**
 	 * @param        $template_name
-	 * @param string        $template_path
-	 * @param string        $default_path
+	 * @param string $template_path
+	 * @param string $default_path
 	 *
 	 * @return mixed|void
 	 */
@@ -162,12 +160,11 @@ class Fns {
 	 * Template Content
 	 *
 	 * @param string $template_name Template name.
-	 * @param array  $args Arguments. (default: array).
+	 * @param array $args Arguments. (default: array).
 	 * @param string $template_path Template path. (default: '').
 	 * @param string $default_path Default path. (default: '').
 	 */
 	public static function get_template( $template_name, $args = null, $template_path = '', $default_path = '' ) {
-
 		if ( ! empty( $args ) && is_array( $args ) ) {
 			extract( $args );
 		}
@@ -213,7 +210,6 @@ class Fns {
 	 * @return false|string
 	 */
 	public static function get_user_social_icon( $user_id, $email_visibility, $phone_visibility, $share_icon = false ) {
-
 		$social_list = self::social_list();
 		$user_info   = get_user_by( 'id', $user_id );
 		$email       = $user_info->user_email;
@@ -224,56 +220,56 @@ class Fns {
 
 		?>
 
-		<ul class="usgr-social-list">
+        <ul class="usgr-social-list">
 			<?php if ( $share_icon ) { ?>
-			<li>
-				<a href="#" class="share-icon"><?php SvgIcons::get_svg( 'share' ); ?></a>
-				<ul>
+            <li>
+                <a href="#" class="share-icon"><?php SvgIcons::get_svg( 'share' ); ?></a>
+                <ul>
 					<?php
-			}
+					}
 
-			foreach ( $social_list as $icon => $label ) {
-				$meta_key   = "usgr_{$icon}";
-				$meta_value = get_user_meta( $user_id, $meta_key, true );
+					foreach ( $social_list as $icon => $label ) {
+						$meta_key   = "usgr_{$icon}";
+						$meta_value = get_user_meta( $user_id, $meta_key, true );
 
-				if ( $meta_value ) {
-					?>
-							<li>
-								<a class="<?php echo esc_attr( $icon ); ?>"
-								   href="<?php echo esc_url( $meta_value ); ?>">
-							<?php SvgIcons::get_svg( $icon ); ?>
-								</a>
-							</li>
+						if ( $meta_value ) {
+							?>
+                            <li>
+                                <a class="<?php echo esc_attr( $icon ); ?>"
+                                   href="<?php echo esc_url( $meta_value ); ?>">
+									<?php SvgIcons::get_svg( $icon ); ?>
+                                </a>
+                            </li>
 							<?php
-				}
-			}
+						}
+					}
 
-			if ( $email_visibility !== 'show' ) {
-				?>
-						<li>
-							<a class="pinterest"
-							   href="mailto:<?php echo esc_attr( $email ); ?>"><?php SvgIcons::get_svg( 'email' ); ?></a>
-						</li>
+					if ( $email_visibility !== 'show' ) {
+						?>
+                        <li>
+                            <a class="pinterest"
+                               href="mailto:<?php echo esc_attr( $email ); ?>"><?php SvgIcons::get_svg( 'email' ); ?></a>
+                        </li>
 						<?php
-			}
-			if ( $phone_visibility !== 'show' ) {
-				$phone = get_user_meta( $user_id, 'usgr_phone', true );
-				?>
-						<li>
-							<a class="phone"
-							   href="call:<?php echo esc_attr( $phone ); ?>"><?php SvgIcons::get_svg( 'phone' ); ?></a>
-						</li>
+					}
+					if ( $phone_visibility !== 'show' ) {
+						$phone = get_user_meta( $user_id, 'usgr_phone', true );
+						?>
+                        <li>
+                            <a class="phone"
+                               href="call:<?php echo esc_attr( $phone ); ?>"><?php SvgIcons::get_svg( 'phone' ); ?></a>
+                        </li>
 						<?php
-			}
-			if ( $share_icon ) {
-				?>
-				</ul>
-			</li>
-				<?php
-			}
-			?>
+					}
+					if ( $share_icon ) {
+					?>
+                </ul>
+            </li>
+		<?php
+		}
+		?>
 
-		</ul>
+        </ul>
 
 		<?php
 	}
@@ -395,7 +391,6 @@ class Fns {
 		return preg_replace( '/\s+/', ' ', trim( implode( ' ', $inner_class ) ) );
 	}
 
-
 	/**
 	 * Order Class
 	 *
@@ -405,7 +400,6 @@ class Fns {
 	 * @return string|null
 	 */
 	public static function content_order( $item, $data ) {
-
 		if ( 'show' !== $data['enable_order'] ) {
 			return '';
 		}
@@ -484,6 +478,7 @@ class Fns {
 			'user_limit'       => $data['user_limit'] ?? 6,
 			'button_args'      => [
 				'button_visibility' => $data['button_visibility'],
+				'post_type'         => $data['post_type'],
 				'button_text'       => $data['button_text'],
 				'button_style'      => $data['button_style'],
 				'button_order'      => self::content_order( 'button', $data ),
@@ -590,15 +585,23 @@ class Fns {
 	 * @return void
 	 */
 	public static function layout_image( $user_id, $avatar_dimension = '', $default_size = 300, $alt_txt = '' ) {
-		$avatar_size      = [ 'size' => $avatar_dimension ?? $default_size ];
-		$avater_image_url = get_avatar_url( $user_id, $avatar_size );
+		$avatar_size = intval( $avatar_dimension ?? $default_size );
 		?>
-		<a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
-			<img width="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-				 height="<?php echo esc_attr( $avatar_size['size'] ); ?>px"
-				 src="<?php echo esc_url( $avater_image_url ); ?>"
-				 alt="<?php echo esc_html( $alt_txt ); ?>"/>
-		</a>
+        <a class="user-link" href="<?php echo esc_url( get_author_posts_url( $user_id ) ); ?>">
+			<?php echo get_avatar( $user_id, $avatar_size ); ?>
+        </a>
+
+
+        <!-- $user_id = 15;
+		 $post_type = 'lp_course'; // Could be dynamic from block settings
+
+		 $author_url = get_author_posts_url( $user_id );
+		 $link = add_query_arg( 'post_type', $post_type, $author_url );
+
+		 echo '<a class="read-btn" href="' . esc_url( $link ) . '">View ' . esc_html( $post_type ) . 's</a>';
+		 -->
+
+
 		<?php
 	}
 
@@ -623,8 +626,8 @@ class Fns {
 			'offset' => $offset,
 		];
 
-		if ( ! empty( $data['users_role'] ) ) {
-			$args['role__in'] = wp_list_pluck( esc_html( $data['users_role'] ), 'value' );
+		if ( ! empty( $data['users_role'] ) && is_array( $data['users_role'] ) ) {
+			$args['role__in'] = wp_list_pluck( $data['users_role'], 'value' );
 		}
 
 		if ( ! empty( $data['orderby'] ) ) {
@@ -703,14 +706,14 @@ class Fns {
 		echo "<div class='usgr-pagination " . esc_attr( $data['pagination_type'] ) . "'>";
 		if ( 'load-more-pgn' === $data['pagination_type'] ) {
 			?>
-			<button
-					class="user-loadmore-btn usgrLoadMore"
-					data-perPage="<?php echo esc_attr( $user_limit ); ?>"
-					data-totalUsers="<?php echo esc_attr( $total_user ); ?>"
-					data-totalPage="<?php echo esc_attr( $total_pages ); ?>"
-					data-paged="<?php echo esc_attr( $paged ); ?>"
-			><?php echo esc_html( $data['load_more_label'] ); ?>
-			</button>
+            <button
+                class="user-loadmore-btn usgrLoadMore"
+                data-perPage="<?php echo esc_attr( $user_limit ); ?>"
+                data-totalUsers="<?php echo esc_attr( $total_user ); ?>"
+                data-totalPage="<?php echo esc_attr( $total_pages ); ?>"
+                data-paged="<?php echo esc_attr( $paged ); ?>"
+            ><?php echo esc_html( $data['load_more_label'] ); ?>
+            </button>
 			<?php
 		} elseif ( ( 'ajax-pgn' === $data['pagination_type'] ) ) {
 			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -792,4 +795,5 @@ class Fns {
 			echo '</a>';
 		}
 	}
+
 }
