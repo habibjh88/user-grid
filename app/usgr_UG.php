@@ -32,7 +32,7 @@ if ( ! class_exists( usgr_UG::class ) ) {
 		 *
 		 * @var string
 		 */
-		public $avatar_meta_key = 'usgr_attachment_id';
+		public $avatar_meta_key = '';
 
 		/**
 		 * Options
@@ -111,7 +111,7 @@ if ( ! class_exists( usgr_UG::class ) ) {
 		 */
 		public function init_hooks() {
 			do_action( 'usgr_before_init', $this );
-
+			$this->avatar_meta_key = apply_filters( 'usgr_attachment_id_filter', 'usgr_attachment_id' );
 			$this->load_language();
 		}
 

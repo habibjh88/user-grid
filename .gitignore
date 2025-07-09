@@ -79,6 +79,7 @@ package-lock.json
 mix-manifest.json
 composer.lock
 yarn.lock
+bun.lockb
 _ext_dev
 dist
 user-grid

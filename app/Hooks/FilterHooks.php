@@ -30,6 +30,7 @@ class FilterHooks {
 		add_filter( 'wp_calculate_image_srcset', [ __CLASS__, 'calculate_image_srcset' ] );
 		add_filter( 'get_avatar', [ __CLASS__, 'get_avatar_filter' ], 5, 5 );
 		add_filter( 'get_avatar_data', [ __CLASS__, 'get_avater_data_filter' ], 5, 2 );
+		add_filter( 'usgr_attachment_id_filter', [ __CLASS__, 'usgr_attachment_id_filter' ] );
 	}
 
 
@@ -242,5 +243,21 @@ class FilterHooks {
 		}
 
 		return apply_filters( 'usgr_avatar_data', $return_args );
+	}
+
+	/**
+	 * Classified Listing Compatibility
+	 *
+	 * @param $key
+	 *
+	 * @return mixed|string
+	 */
+	public static function usgr_attachment_id_filter( $key ) {
+
+		if ( defined( 'RTCL_VERSION' ) ) {
+			return '_rtcl_pp_id';
+		}
+
+		return $key;
 	}
 }
